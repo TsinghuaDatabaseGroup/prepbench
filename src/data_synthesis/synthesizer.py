@@ -13,7 +13,6 @@ from data_synthesis import config as ds_config
 
 PROMPT_DIR = Path(__file__).parent / "prompt"
 PROMPT_REWRITER_FULL_PATH = PROMPT_DIR / "rewriter.yaml"
-# PROMPT_REWRITER_FULL_PATH = PROMPT_DIR / "rewriter_woflow.yaml"
 PROMPT_AMBIGUITY_PATH = PROMPT_DIR / "amb_kb.yaml"
 
 
@@ -161,38 +160,6 @@ class Synthesizer:
             parsed["reason"] = ""
         return parsed
 
-
-    def generate_ambiguities(self, query: str, code: str, query_full: str, flow: str) -> Dict[str, Any]:
-        system_prompt = self.prompts_ambiguity["system_prompt"]
-        user_template = self.prompts_ambiguity["user_prompt"]
-
-        user_prompt = Template(user_template).safe_substitute(query=query, code=code, query_full=query_full, flow=flow)
-
-        response = self._call_llm(
-            self.client_amb,
-            system_prompt,
-            user_prompt,
-            temperature=self.amb_cfg["temperature"],
-            max_tokens=self.amb_cfg["max_tokens"],
-            timeout=self.amb_cfg["timeout"],
-        )
-
-        try:
-            parsed = json.loads(response)
-        except Exception as e:
-            raise ValueError(
-                "LLM response is not valid JSON (expected pure JSON, no code blocks or extra comments).",
-                response,
-            ) from e
-
-        if not isinstance(parsed, dict):
-            raise ValueError(
-                "LLM response must be a JSON object, not an array or other type.",
-                response,
-            )
-
-        return parsed
-
     def generate_ambiguities_raw(self, query: str, code: str, query_full: str, flow: str) -> str:
         """Generate ambiguity base as raw text (no JSON parsing)."""
         system_prompt = self.prompts_ambiguity["system_prompt"]
@@ -206,7 +173,3 @@ class Synthesizer:
             max_tokens=self.amb_cfg["max_tokens"],
             timeout=self.amb_cfg["timeout"],
         )
-
-
-def create_synthesizer(**kwargs) -> Synthesizer:
-    return Synthesizer(**kwargs)

@@ -111,7 +111,7 @@ def _check_entry_uncommon_chars(entry: dict[str, Any], idx: int) -> list[str]:
     return issues
 
 
-def _check_json_readability(path: Path, text: str, has_ambiguities: bool) -> list[str]:
+def _check_json_readability(text: str, has_ambiguities: bool) -> list[str]:
     issues: list[str] = []
     lines = text.splitlines()
     line_count = len(lines)
@@ -250,7 +250,7 @@ def validate_case(
 
     if check_readability:
         has_ambiguities = len(ambiguities) > 0
-        issues.extend(_check_json_readability(amb_path, text, has_ambiguities))
+        issues.extend(_check_json_readability(text, has_ambiguities))
 
     nodes, nodes_err = _load_flow_nodes(case_dir / "flow.json")
     if nodes_err:
