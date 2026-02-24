@@ -81,6 +81,12 @@ For most users, PrepBench should be used as an **E2E benchmark/evaluator**.
 PYTHONPATH=src python -m evaluate.batch --results-root @output/<model_info>/prepagent --candidate-kind auto
 ```
 
+Optional (interactive disambiguation metric):
+
+```bash
+PYTHONPATH=src python -m evaluate.disamb --results-root @output/<model_info>/prepagent
+```
+
 4) Read results:
 
 ```bash
@@ -160,8 +166,8 @@ Typical structure:
 
 Flow mode and user simulator alignment require benchmark reference solutions:
 - Path: `src/simulator/assets/solutions/case_XXX.py`
-- Not bundled publicly to reduce data leakage risk
-- Request access: `j1n9zhe@gmail.com`
+- Included in this repository snapshot
+- Benchmark-internal asset: do not use as method input in BYOA evaluation
 
 ## Troubleshooting
 
@@ -170,12 +176,14 @@ Flow mode and user simulator alignment require benchmark reference solutions:
 - `run_mode is empty`:
   - Pass `--run_mode` explicitly or set `experiment.run_mode` in `config/experiment.yaml`.
 - `Reference solution not found` (usually in `flow` mode):
-  - Prepare `src/simulator/assets/solutions/case_XXX.py` first. For access, contact `j1n9zhe@gmail.com`.
+  - Ensure `src/simulator/assets/solutions/case_XXX.py` exists for the target case.
 - `No candidate directory with CSV outputs found` during batch evaluation:
   - The run did not produce result CSV files under `solution/cand` or `solution/flow_cand` for that case.
 - Many `NOT_FOUND` rows in `evaluation_summary.csv`:
   - `evaluate.batch` always iterates all GT cases; if you only run a subset, missing cases are expected.
   - For single-case debugging, filter one row (example): `rg '^case_001,' @output/<model_info>/<run_mode>/evaluation_summary.csv`
+- Need disambiguation F1 (paper metric):
+  - Run `PYTHONPATH=src python -m evaluate.disamb --results-root @output/<model_info>/<run_mode>`
 
 ## Contributing and Citation
 

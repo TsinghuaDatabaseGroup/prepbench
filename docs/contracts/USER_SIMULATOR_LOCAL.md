@@ -49,7 +49,8 @@ Answer item fields:
 - `source`
 - `answer`
 - `ref`
-- `canonical_value`
+- `canonical_value`: normalized slot identifier for a `hit` answer (defaults to `ref` when omitted).  
+  For non-`hit` answers this should be treated as nullable and ignored.
 - `details`
 
 ## Classification Enum

@@ -11,6 +11,6 @@ This package contains benchmark-provided simulator components. It is not part of
 
 ## Notes
 
-- Public repository keeps `assets/solutions/` as a placeholder only.
-- Reference `case_XXX.py` files are distributed on request due to data leakage concerns.
-- Contact: `j1n9zhe@gmail.com`.
+- `assets/solutions/` is a benchmark-internal runtime asset directory.
+- Files under `assets/solutions/case_XXX.py` are used by simulator alignment and flow translation.
+- These files must not be used as method inputs for BYOA evaluation.

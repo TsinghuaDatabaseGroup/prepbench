@@ -95,7 +95,7 @@ def load_internal_case_view(
     Internal assets:
       - query_full.md
       - amb_kb.json
-      - reference solution text (simulator/assets/solutions/case_xxx.py)
+      - reference solution text (src/simulator/assets/solutions/case_xxx.py)
     """
 
     public = load_public_case_view(case_dir)
@@ -107,7 +107,7 @@ def load_internal_case_view(
     reference_solution_text = read_reference_solution_text(public.case_dir)
     if require_reference_solution and not reference_solution_text.strip():
         raise FileNotFoundError(
-            f"Reference solution is required: simulator/assets/solutions/{public.case_id}.py"
+            f"Reference solution is required: src/simulator/assets/solutions/{public.case_id}.py"
         )
 
     return InternalCaseView(

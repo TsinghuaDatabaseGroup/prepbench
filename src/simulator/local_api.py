@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from uuid import uuid4
 
-from core.case_assets import repo_root
 from core.case_views import InternalCaseView, load_internal_case_view
 from simulator.user_simulator import UserSimulator
 
@@ -44,7 +43,11 @@ class LocalUserSimulatorAPI:
         max_questions_per_ask: int = 10,
     ) -> None:
         self.user_simulator = UserSimulator(model_name=model_name)
-        self.data_root = Path(data_root).resolve() if data_root else (repo_root() / "data").resolve()
+        if data_root is not None:
+            self.data_root = Path(data_root).resolve()
+        else:
+            # Local simulator defaults to repository-level public cases under `data/`.
+            self.data_root = (Path(__file__).resolve().parents[2] / "data").resolve()
         self.max_rounds = int(max_rounds)
         self.max_questions = int(max_questions)
         self.max_questions_per_ask = int(max_questions_per_ask)

@@ -124,3 +124,28 @@ CSV columns:
 - `gt_dir`
 - `error_type`
 - `error_message`
+
+## Disambiguation CLI
+
+Computes disambiguation precision/recall/F1 from clarify artifacts (`clarify/summary.json`)
+against ambiguity slots from `data/case_xxx/amb_kb.json`.
+
+Scoring note:
+- Aggregate precision uses `unique_hit_slots / questions_used`.
+- Per-type question counts are based on hit answers with resolvable slot ids.
+
+```bash
+python -m evaluate.disamb --results-root @output/<model>/<run_mode>
+```
+
+Optional:
+
+```bash
+python -m evaluate.disamb --results-root @output/<model>/<run_mode> --data-root /path/to/data
+```
+
+Generated files:
+- `<results_root>/disamb_summary.csv` (per-case metrics and status)
+- `<results_root>/disamb_by_type.csv` (per ambiguity type metrics)
+- `<results_root>/disamb_metrics.json` (aggregate metrics)
+- `<results_root>/disamb_f1.txt` (single scalar F1)

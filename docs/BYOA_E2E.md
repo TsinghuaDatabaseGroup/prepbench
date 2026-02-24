@@ -55,6 +55,7 @@ Only these public inputs are required by participants:
 - `data/case_xxx/inputs/*.csv`
 
 `query_full.md`, `amb_kb.json`, GT files, and reference solutions are benchmark-internal assets.
+They may exist in the repository for runtime/evaluation, but they are not allowed as method inputs.
 
 ## 2) Local User Simulator Interface
 
@@ -71,6 +72,11 @@ resp = api.ask(
     round=1,
 )
 ```
+
+Notes:
+- `start_session(...)` requires internal reference solution for the case.
+- Reference solutions are loaded from `src/simulator/assets/solutions/case_XXX.py`.
+- In this repository snapshot they are already included.
 
 Response fields include:
 - `round`: current round index (required for debugging/audit).
@@ -140,6 +146,23 @@ Scoring fields:
 - `execution`: `success` | `fail`
 - `evaluation`: `correct` | `false`
 
+Ground truth source:
+- `evaluate.batch` automatically loads GT from `src/evaluate/gt/case_XXX`.
+
 Important:
 - `evaluate.batch` always iterates all GT cases.
 - If your framework only generated a subset of cases, the missing cases will be marked `NOT_FOUND`.
+
+Track mapping for `acc.txt`:
+- `--candidate-kind code` -> code-track accuracy
+- `--candidate-kind flow` -> flow-track accuracy
+- `--candidate-kind auto` -> flow first, fallback to code
+
+If your framework includes interactive disambiguation, compute disambiguation precision/recall/F1 with:
+
+```bash
+PYTHONPATH=src python -m evaluate.disamb --results-root @output/my_framework/e2e
+```
+
+Metric note:
+- Aggregate precision uses `unique_hit_slots / questions_used`.
