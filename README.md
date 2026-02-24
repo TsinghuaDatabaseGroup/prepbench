@@ -88,6 +88,9 @@ PYTHONPATH=src python -m evaluate.batch --results-root @output/<model_info>/prep
 @output/<model_info>/prepagent/acc.txt
 ```
 
+`<model_info>` is derived from the last segment of `--model` and sanitized for paths.
+Example: `openai/gpt-5.2` -> `gpt-5.2`.
+
 What third-party frameworks need to produce:
 - code track: `case_xxx/solution/cand/*.csv`
 - flow track: `case_xxx/solution/flow_cand/*.csv`
@@ -140,6 +143,8 @@ Results are written under:
 @output/<model_info>/<run_mode>/<case_name>/
 ```
 
+`<model_info>` is derived from the last segment of model name (`openai/gpt-5.2` -> `gpt-5.2`).
+
 Typical structure:
 
 ```text
@@ -154,7 +159,7 @@ Typical structure:
 ### Reference Solutions for Flow/User Simulator
 
 Flow mode and user simulator alignment require benchmark reference solutions:
-- Path: `simulator/assets/solutions/case_XXX.py`
+- Path: `src/simulator/assets/solutions/case_XXX.py`
 - Not bundled publicly to reduce data leakage risk
 - Request access: `j1n9zhe@gmail.com`
 
@@ -165,9 +170,12 @@ Flow mode and user simulator alignment require benchmark reference solutions:
 - `run_mode is empty`:
   - Pass `--run_mode` explicitly or set `experiment.run_mode` in `config/experiment.yaml`.
 - `Reference solution not found` (usually in `flow` mode):
-  - Prepare `simulator/assets/solutions/case_XXX.py` first. For access, contact `j1n9zhe@gmail.com`.
+  - Prepare `src/simulator/assets/solutions/case_XXX.py` first. For access, contact `j1n9zhe@gmail.com`.
 - `No candidate directory with CSV outputs found` during batch evaluation:
   - The run did not produce result CSV files under `solution/cand` or `solution/flow_cand` for that case.
+- Many `NOT_FOUND` rows in `evaluation_summary.csv`:
+  - `evaluate.batch` always iterates all GT cases; if you only run a subset, missing cases are expected.
+  - For single-case debugging, filter one row (example): `rg '^case_001,' @output/<model_info>/<run_mode>/evaluation_summary.csv`
 
 ## Contributing and Citation
 

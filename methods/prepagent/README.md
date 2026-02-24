@@ -31,6 +31,9 @@ Outputs follow the standard evaluation layout under `@output/<model_info>/prepag
 - `cand/*.csv` (code track)
 - `flow_cand/*.csv` (flow track)
 
+`<model_info>` is derived from the last segment of model name and sanitized for paths.
+Example: `openai/gpt-5.2` -> `gpt-5.2`.
+
 ## Evaluate
 
 ```bash
@@ -40,4 +43,4 @@ PYTHONPATH=src python -m evaluate.batch --results-root @output/<model_info>/prep
 ## Notes
 
 - This reference implementation reuses core executors/parsers, but uses its own prompt assets under `methods/prepagent/prompts`.
-- User simulator and flow mode require reference solutions in `simulator/assets/solutions/case_xxx.py`.
+- User simulator and flow mode require reference solutions in `src/simulator/assets/solutions/case_xxx.py`.

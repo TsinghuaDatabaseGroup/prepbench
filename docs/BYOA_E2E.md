@@ -34,6 +34,9 @@ PrepBench provides a reference `PrepAgent` pipeline for E2E:
 PrepAgent writes to an isolated root:
 - `@output/<model_info>/prepagent/case_xxx/solution/...`
 
+`<model_info>` is derived from the last segment of model name and sanitized for paths.
+Example: `openai/gpt-5.2` -> `gpt-5.2`.
+
 And can be evaluated with:
 
 ```bash
@@ -91,11 +94,11 @@ Detailed local contract:
 ## 3) Flow Contract (Machine-Readable)
 
 For flow-track systems, validate generated `flow.json` against:
-- `py2flow/flow.schema.json`
+- `src/py2flow/flow.schema.json`
 
 Runtime validation and execution are still authoritative in:
-- `py2flow/ir.py`
-- `py2flow/executor.py`
+- `src/py2flow/ir.py`
+- `src/py2flow/executor.py`
 
 ## 4) Submission Layout
 
@@ -136,3 +139,7 @@ Generated files:
 Scoring fields:
 - `execution`: `success` | `fail`
 - `evaluation`: `correct` | `false`
+
+Important:
+- `evaluate.batch` always iterates all GT cases.
+- If your framework only generated a subset of cases, the missing cases will be marked `NOT_FOUND`.

@@ -29,7 +29,7 @@ Shortcut scripts:
 - `interact`: raw query + clarify + profile + code
 - `disamb_only`: disambiguated/full query + code (no profile)
 - `e2e`: interact pipeline + code-to-flow
-- `flow`: flow-only execution (requires `simulator/assets/solutions/case_XXX.py`)
+- `flow`: flow-only execution (requires `src/simulator/assets/solutions/case_XXX.py`)
 
 ## Common Selectors
 
@@ -57,10 +57,18 @@ Use config defaults (omit `--run_mode` and `--model`):
 python run.py --case 52
 ```
 
+## Output Root Naming
+
+`<model_info>` in output paths is derived from the last segment of model name and sanitized for filesystem usage.
+
+Example:
+- model: `openai/gpt-5.2`
+- output root prefix: `@output/gpt-5.2/`
+
 ## Notes
 
 - `e2e` can run directly and reuses compatible interact artifacts when available.
-- Flow mode and user simulator alignment require `simulator/assets/solutions/case_XXX.py`.
+- Flow mode and user simulator alignment require `src/simulator/assets/solutions/case_XXX.py`.
 - Reference solutions are distributed on request due to leakage risk:
   - Contact: `j1n9zhe@gmail.com`
 
@@ -75,3 +83,7 @@ PYTHONPATH=src python -m evaluate.batch --results-root @output/<model_info>/<run
 Generated:
 - `@output/<model_info>/<run_mode>/evaluation_summary.csv`
 - `@output/<model_info>/<run_mode>/acc.txt`
+
+Important:
+- `evaluate.batch` always evaluates against all GT cases.
+- If you only ran a subset of cases, the rest will be marked `NOT_FOUND` in `evaluation_summary.csv`.
