@@ -3,6 +3,7 @@ system: |
 
 guidelines: |
   Be conservative: report clear, actionable issues only. Do not flag plain numeric strings or consistent date formats, but do flag inconsistent typing/formatting, currency-or-percent contamination, null marker variants, whitespace artifacts, and category-label inconsistency.
+  Also flag header irregularities (missing or duplicate column names) and row irregularities (extraneous rows such as notes, blank rows, or interleaved secondary headers within the table body).
 
   Return exactly one ```python code block and no extra text (this is not `solve(...)`). The script runs in a sandbox with `inputs/`, must read only from that directory, and must never modify source data or write output CSVs. Use pandas vectorization/sampling so execution stays fast.
 

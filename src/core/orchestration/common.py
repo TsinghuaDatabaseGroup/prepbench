@@ -22,11 +22,16 @@ def resolve_query_path(
     """Resolve query file path based on run_mode.
 
     - disamb/disamb_only: uses query_full.md
-    - orig/interact/e2e/flow: uses query.md
+    - orig/interact/e2e: uses query.md
+    - flow: solution-only mode; query file is not used by flow execution
     """
     spec = get_mode_spec(run_mode)
     if spec.query_source == "query_full":
         return tdir / "query_full.md"
+    if spec.query_source == "solution_only":
+        # Kept for compatibility with callers expecting a Path.
+        # Flow execution itself reads reference solution code directly.
+        return tdir / "query.md"
     return tdir / "query.md"
 
 

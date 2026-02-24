@@ -49,6 +49,8 @@ You MUST treat these as the only sub-questions to answer, in this exact order, w
 ### Ambiguity Library
 Each ambiguity entry has:
 - `id`, `kind`, `node_id`, `op`, `ref`, and exactly one of `source_text` or `intent`.
+- `source_text`: ambiguous trigger phrase from the original request.
+- `intent`: clarified interpretation aligned with the disambiguated request when source text is omitted.
 - `ref` is a minimal code snippet from solution.py used only as evidence; do NOT quote it.
 - When you answer from the library, cite the ambiguity `id` in your response `ref`.
 ```json

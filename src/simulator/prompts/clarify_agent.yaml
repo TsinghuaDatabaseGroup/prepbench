@@ -66,10 +66,15 @@ guidelines: |
   ## Ambiguity Library Structure (amb_kb_json)
   Each entry in the library has these fields:
   - `id`: Unique identifier (e.g., "1_O1_rounding_sequence")
-  - `kind`: One of D1/D2/C1/C2/O1/O2/O3 ambiguity types
+  - `kind`: One of the benchmark taxonomy labels
+    (`Single-table reference`, `Multi-table alignment`, `Group-level concept`,
+    `Row-level concept`, `Operation incomplete`, `Operation inconsistent`,
+    `Operation boundary`)
   - `node_id`, `op`: The responsible pipeline node and operation type
   - `ref`: A minimal code snippet from solution.py (evidence only, DO NOT quote in answers)
-  - Either `source_text` (verbatim from query) OR `intent` (if query omits the point)
+  - Either `source_text` (verbatim ambiguous phrase from the original request)
+    OR `intent` (the corresponding clarified interpretation from disamb request
+    when the original request does not explicitly state it)
   
   IMPORTANT: The `ref` field in amb_kb is a CODE SNIPPET. When you answer from the library,
   your output `ref` should be the AMBIGUITY ID (e.g., "1_O1_rounding_sequence"), NOT code.

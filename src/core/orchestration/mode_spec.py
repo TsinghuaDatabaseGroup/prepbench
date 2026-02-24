@@ -53,7 +53,8 @@ _CANONICAL_MODE_SPECS: Dict[str, ModeSpec] = {
     ),
     "flow": ModeSpec(
         name="flow",
-        query_source="query",
+        # Mode 3 (code-to-workflow) translates reference solution code directly.
+        query_source="solution_only",
         allow_profile=False,
         allow_clarify=False,
         allow_flow=True,
