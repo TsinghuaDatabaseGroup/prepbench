@@ -25,9 +25,9 @@ jobs:
       - name: Compile key entrypoints
         run: |
           python -m py_compile run.py
-          python -m py_compile examples/prep_agent/run_prepagent.py
-          python -m py_compile core/orchestrator.py
-          python -m py_compile core/orchestration/code_phase.py
+          python -m py_compile methods/prepagent/run_prepagent.py
+          python -m py_compile src/core/orchestrator.py
+          python -m py_compile src/core/orchestration/code_phase.py
 
       - name: PrepAgent list smoke test
         run: |
@@ -35,4 +35,4 @@ jobs:
 
       - name: Evaluator CLI smoke test
         run: |
-          python -m evaluate.batch --help
+          PYTHONPATH=src python -m evaluate.batch --help

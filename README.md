@@ -8,7 +8,7 @@ This repository contains the benchmark dataset and experimental runner for the p
 1) Clone and enter the repo:
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/zzzbitz/prepbench.git
 cd prepbench
 ```
 
@@ -78,14 +78,14 @@ For most users, PrepBench should be used as an **E2E benchmark/evaluator**.
 3) Evaluate outputs:
 
 ```bash
-PYTHONPATH=src python -m evaluate.batch --results-root @output/<model_info>/e2e --candidate-kind auto
+PYTHONPATH=src python -m evaluate.batch --results-root @output/<model_info>/prepagent --candidate-kind auto
 ```
 
 4) Read results:
 
 ```bash
-@output/<model_info>/e2e/evaluation_summary.csv
-@output/<model_info>/e2e/acc.txt
+@output/<model_info>/prepagent/evaluation_summary.csv
+@output/<model_info>/prepagent/acc.txt
 ```
 
 What third-party frameworks need to produce:

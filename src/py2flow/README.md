@@ -68,10 +68,14 @@ execute_flow_dict(flow, base_path="/data", keep="outputs")
 
 ## CLI (path-based)
 
-CLI loads `flow.json` under `--data-path` and resolves all file paths relative to it.
+CLI takes explicit `flow.json` and input directory paths.
+Input node paths are resolved from `--input-root`.
+Other relative paths (for example output files) are resolved relative to `flow.json` directory.
 
 ```bash
-python -m py2flow.exec_flow --data-path /path/to/case_dir
+python -m py2flow.exec_flow \
+  --flow-path /path/to/case_dir/flow.json \
+  --input-root /path/to/case_dir/inputs
 ```
 
 ## Errors

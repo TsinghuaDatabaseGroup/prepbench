@@ -1,11 +1,9 @@
 # Contributing
 
-Thanks for contributing to PrepBench.
-
-## Development Setup
+## Setup
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/zzzbitz/prepbench.git
 cd prepbench
 pip install -r requirements.txt
 cp .env.example .env
@@ -13,27 +11,16 @@ cp .env.example .env
 
 ## Scope
 
-- BYOA benchmark path (primary): `docs/BYOA_E2E.md`
-- Paper reproduction path (secondary): `docs/REPRO.md`
-
-Please keep these two tracks clearly separated in docs and code changes.
+- BYOA benchmark path: `docs/BYOA_E2E.md`
+- Paper reproduction path: `docs/REPRO.md`
 
 ## Pull Request Checklist
 
-Before opening a PR, verify:
-
 ```bash
-python -m py_compile run.py examples/prep_agent/run_prepagent.py
+python -m py_compile run.py methods/prepagent/run_prepagent.py src/core/orchestrator.py src/core/orchestration/code_phase.py
 ./scripts/run_prepagent.sh --list 1
-python -m evaluate.batch --help
+PYTHONPATH=src python -m evaluate.batch --help
 ```
-
-## Coding and Documentation Rules
-
-- Use English in code, comments, and markdown files.
-- Prefer small, reviewable changes.
-- Do not commit secrets or `.env`.
-- Keep behavior changes explicit in PR descriptions.
 
 ## Reporting Issues
 

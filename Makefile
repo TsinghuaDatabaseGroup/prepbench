@@ -6,7 +6,7 @@ install:
 	$(PYTHON) -m pip install -r requirements.txt
 
 lint:
-	$(PYTHON) -m compileall agents core config evaluate llm_connect run.py
+	$(PYTHON) -m compileall src run.py methods/prepagent/run_prepagent.py
 
 # Usage: make run CASE=1 RUN_MODE=orig MODEL=openai/gpt-5.2
 run:
