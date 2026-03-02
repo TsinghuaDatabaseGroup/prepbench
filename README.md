@@ -64,6 +64,52 @@ cp .env.example .env
 OPENROUTER_API_KEY=your-key
 ```
 
+## Reference Solutions Access (Private)
+
+`flow`, `interact`, and `e2e` modes require benchmark-private reference solutions.
+These files are **not** included in the public repository.
+
+Request access by email:
+- Contact: `j1n9zhe@gmail.com`
+- Suggested subject: `PrepBench Reference Solutions Request`
+
+Suggested email body:
+
+```text
+Hi PrepBench team,
+
+I would like to request access to the private PrepBench reference solutions.
+
+Name:
+Affiliation:
+GitHub profile:
+Intended usage (research/reproduction):
+
+I understand these files are benchmark-internal assets and will not be used as
+public method inputs in BYOA evaluation.
+```
+
+After approval, you will receive a solutions directory, typically like:
+
+```text
+<solutions_root>/
+  case001/solution.py
+  case002/solution.py
+  ...
+```
+
+Set:
+
+```bash
+export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/<solutions_root>
+```
+
+Supported reference-solution layouts include:
+- `case001/solution.py`
+- `case_001/solution.py`
+- `case001.py`
+- `case_001.py`
+
 ## Quick Start for Evaluating Your Agent (Primary Path)
 
 For most users, PrepBench should be used as an **E2E benchmark/evaluator**.
@@ -165,8 +211,8 @@ Typical structure:
 ### Reference Solutions for Flow/User Simulator
 
 Flow mode and user simulator alignment require benchmark reference solutions:
-- Path: `src/simulator/assets/solutions/case_XXX.py`
-- Included in this repository snapshot
+- They are distributed privately on request (see "Reference Solutions Access (Private)").
+- Configure `PREPBENCH_SOLUTIONS_ROOT` to the unpacked solutions directory.
 - Benchmark-internal asset: do not use as method input in BYOA evaluation
 
 ## Troubleshooting
@@ -176,7 +222,8 @@ Flow mode and user simulator alignment require benchmark reference solutions:
 - `run_mode is empty`:
   - Pass `--run_mode` explicitly or set `experiment.run_mode` in `config/experiment.yaml`.
 - `Reference solution not found` (usually in `flow` mode):
-  - Ensure `src/simulator/assets/solutions/case_XXX.py` exists for the target case.
+  - Ensure `PREPBENCH_SOLUTIONS_ROOT` points to the private solutions directory.
+  - Ensure the target case exists (for example `case001/solution.py`).
 - `No candidate directory with CSV outputs found` during batch evaluation:
   - The run did not produce result CSV files under `solution/cand` or `solution/flow_cand` for that case.
 - Many `NOT_FOUND` rows in `evaluation_summary.csv`:

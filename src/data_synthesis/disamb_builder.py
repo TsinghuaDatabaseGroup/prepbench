@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 from agents.code_agent import CodeAgent
+from core.case_assets import require_reference_solution_path
 
 from .json_valid import validate_case
 from .pipeline_common import (
@@ -51,7 +52,8 @@ class DisambBuilder:
         return self.repo_paths.output_root / "disamb_build" / self.model_dir / case_name
 
     def _reference_solution_path(self, case_name: str) -> Path:
-        return self.repo_paths.solutions_root / f"{case_name}.py"
+        case_dir = self.repo_paths.data_root / case_name
+        return require_reference_solution_path(case_dir, root=self.repo_paths.solutions_root)
 
     def _resolve_flow_text(self, case_dir: Path, case_name: str) -> str:
         candidates = [
@@ -215,7 +217,10 @@ class DisambBuilder:
 
         query_path = case_dir / "query.md"
         input_dir = case_dir / "inputs"
-        ref_solution_path = self._reference_solution_path(case_name)
+        try:
+            ref_solution_path = self._reference_solution_path(case_name)
+        except FileNotFoundError as exc:
+            return {"case": case_name, "passed": False, "reason": f"missing_query_inputs_or_solution: {exc}"}
         if not query_path.exists() or not input_dir.is_dir() or not ref_solution_path.exists():
             return {"case": case_name, "passed": False, "reason": "missing_query_inputs_or_solution"}
 

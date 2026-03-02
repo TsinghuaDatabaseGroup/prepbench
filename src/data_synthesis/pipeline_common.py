@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, Optional
 
+from core.case_assets import solution_assets_root
 from core.data_head import DataHead
 from core.executor import CodeExecutor
 from core.utils.code import extract_single_solution_from_raw
@@ -26,7 +27,7 @@ def build_repo_paths() -> RepoPaths:
         repo_root=repo_root,
         data_root=repo_root / "data",
         gt_root=repo_root / "src" / "evaluate" / "gt",
-        solutions_root=repo_root / "src" / "simulator" / "assets" / "solutions",
+        solutions_root=solution_assets_root(),
         output_root=repo_root / "src" / "data_synthesis" / "output",
     )
 

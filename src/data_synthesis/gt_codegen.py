@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 from agents.code_agent import CodeAgent
+from core.case_assets import preferred_reference_solution_write_path
 
 from .pipeline_common import (
     RepoPaths,
@@ -41,7 +42,7 @@ class GTCodeBuilder:
         return self.repo_paths.output_root / "gt_codegen" / self.model_dir / case_name
 
     def _publish_solution(self, case_name: str, solve_code: str) -> None:
-        target = self.repo_paths.solutions_root / f"{case_name}.py"
+        target = preferred_reference_solution_write_path(case_name, root=self.repo_paths.solutions_root)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(solve_code.rstrip() + "\n", encoding="utf-8")
 

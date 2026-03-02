@@ -7,10 +7,11 @@ This package contains benchmark-provided simulator components. It is not part of
 - `user_simulator.py`: user simulator implementation.
 - `local_api.py`: local session-based interface (`LocalUserSimulatorAPI`) for BYOA integration.
 - `prompts/`: simulator prompt configs and templates.
-- `assets/solutions/`: reference solutions for each case (`case_XXX.py`).
+- `assets/solutions/`: optional local mount point for private reference solutions.
 
 ## Notes
 
-- `assets/solutions/` is a benchmark-internal runtime asset directory.
-- Files under `assets/solutions/case_XXX.py` are used by simulator alignment and flow translation.
+- Reference solutions are benchmark-internal runtime assets distributed privately.
+- Set `PREPBENCH_SOLUTIONS_ROOT` to the unpacked private solutions directory.
+- Recommended layout is `case001/solution.py` (legacy forms such as `case_001.py` are also supported).
 - These files must not be used as method inputs for BYOA evaluation.

@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 from agents.flow_agent import FlowAgent
+from core.case_assets import require_reference_solution_path
 from py2flow.errors import FlowExecutionError, FlowValidationError
 from py2flow.executor import DAGExecutor, DebugConfig
 from py2flow.flow_constraints import validate_script_constraints
@@ -41,7 +42,8 @@ class WorkflowBuilder:
         return self.repo_paths.output_root / "workflow" / self.model_dir / case_name
 
     def _solution_path(self, case_name: str) -> Path:
-        return self.repo_paths.solutions_root / f"{case_name}.py"
+        case_dir = self.repo_paths.data_root / case_name
+        return require_reference_solution_path(case_dir, root=self.repo_paths.solutions_root)
 
     def _execute_flow_once(
         self,
@@ -158,9 +160,10 @@ class WorkflowBuilder:
         if not case_dir.is_dir():
             return {"case": case_name, "passed": False, "reason": "case_not_found"}
 
-        solution_path = self._solution_path(case_name)
-        if not solution_path.exists():
-            return {"case": case_name, "passed": False, "reason": "solution_not_found"}
+        try:
+            solution_path = self._solution_path(case_name)
+        except FileNotFoundError as exc:
+            return {"case": case_name, "passed": False, "reason": f"solution_not_found: {exc}"}
 
         output_root = self._case_output_root(case_name)
         if output_root.exists() and self.options.force:

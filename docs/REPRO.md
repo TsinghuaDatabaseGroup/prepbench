@@ -7,8 +7,10 @@ If you are evaluating your own framework, use `docs/BYOA_E2E.md` instead.
 
 - Install and configure environment as in `README.md`.
 - `flow`, `interact`, and `e2e` use benchmark reference solutions at:
-  - `src/simulator/assets/solutions/case_XXX.py`
-- In this repository snapshot, reference solutions are already included.
+  - private solutions directory (recommended layout: `case001/solution.py`)
+- Reference solutions are **not** included in the public repository.
+- Request access via `j1n9zhe@gmail.com` (see `README.md` for a suggested email format).
+- Set `PREPBENCH_SOLUTIONS_ROOT` to the unpacked solutions directory.
 - They are benchmark-internal assets for runtime/evaluation alignment, not public inputs for method design.
 
 ## Entry Point
@@ -37,7 +39,7 @@ Shortcut scripts:
 - `interact`: raw query + clarify + profile + code
 - `disamb_only`: disambiguated/full query + code (no profile)
 - `e2e`: interact pipeline + code-to-flow
-- `flow`: flow-only execution (translates `src/simulator/assets/solutions/case_XXX.py`)
+- `flow`: flow-only execution (translates private benchmark reference solutions)
 
 ## Common Selectors
 
@@ -76,7 +78,7 @@ Example:
 ## Notes
 
 - `e2e` can run directly and reuses compatible interact artifacts when available.
-- `flow` / `interact` / `e2e` depend on benchmark reference solutions under `src/simulator/assets/solutions/`.
+- `flow` / `interact` / `e2e` depend on private benchmark reference solutions (via `PREPBENCH_SOLUTIONS_ROOT`).
 
 ## Evaluate Reproduction Runs
 

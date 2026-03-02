@@ -6,6 +6,11 @@ Implementation:
 - `simulator/local_api.py`
 - `simulator.LocalUserSimulatorAPI`
 
+Reference-solution dependency:
+- `start_session(...)` requires benchmark-private reference solutions.
+- Set `PREPBENCH_SOLUTIONS_ROOT` to your private solutions directory.
+- Recommended layout: `case001/solution.py` (legacy `case_001.py` style is also accepted).
+
 ## API
 
 ### `start_session(case_id: str, run_id: str) -> dict`

@@ -75,8 +75,10 @@ resp = api.ask(
 
 Notes:
 - `start_session(...)` requires internal reference solution for the case.
-- Reference solutions are loaded from `src/simulator/assets/solutions/case_XXX.py`.
-- In this repository snapshot they are already included.
+- Reference solutions are private benchmark assets and are **not** included in this public repository.
+- Request access via `j1n9zhe@gmail.com` (see `README.md` for a suggested email format).
+- Set `PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/<solutions_root>` after you receive them.
+- Recommended layout: `case001/solution.py` (legacy forms are also supported).
 
 Response fields include:
 - `round`: current round index (required for debugging/audit).
@@ -105,6 +107,10 @@ For flow-track systems, validate generated `flow.json` against:
 Runtime validation and execution are still authoritative in:
 - `src/py2flow/ir.py`
 - `src/py2flow/executor.py`
+
+Operator semantics prompt used by the reference translator:
+- `src/agents/prompts/flow_agent.yaml`
+- This prompt describes operator constraints and repair policy used by the benchmark reference flow generation.
 
 ## 4) Submission Layout
 
