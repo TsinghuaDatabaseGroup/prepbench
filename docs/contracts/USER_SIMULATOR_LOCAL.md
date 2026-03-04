@@ -14,6 +14,18 @@ Reference-solution dependency:
 
 ## API
 
+### `LocalUserSimulatorAPI(...)`
+
+Constructor options:
+- `question_ratio` (default `2.5`):
+  - case budget formula: `max_questions = ceil(question_ratio * ambiguity_count)`
+- `max_questions_cap` (default `25`):
+  - cap is applied after ratio, but effective cap is at least `ambiguity_count`
+- `max_questions` (default `None`):
+  - optional explicit override for fixed budget
+- `max_rounds` (default `3`)
+- `max_questions_per_ask` (default `10`)
+
 ### `start_session(case_id: str, run_id: str) -> dict`
 
 Input:
@@ -27,6 +39,9 @@ Output:
 - `max_rounds`
 - `max_questions`
 - `max_questions_per_ask`
+- `ambiguity_count`
+- `question_ratio`
+- `max_questions_cap`
 
 ### `ask(session_id: str, questions: list[str], round: int) -> dict`
 
@@ -48,6 +63,7 @@ Output:
 Behavior notes:
 - If the session is already done, `ask(...)` returns `done=true` with empty `answers` (no exception).
 - If `round` does not match the expected next round, `ask(...)` raises a `ValueError`.
+- If `questions` exceeds `max_questions_per_ask` or remaining budget, it is truncated in order.
 
 Answer item fields:
 - `sub_question`
@@ -68,3 +84,23 @@ Strict enum (no `unknown`):
 - `refuse_too_broad`
 - `refuse_illegal`
 - `refuse_irrelevant`
+
+## Question Contract
+
+Ask only business-rule clarifications that can change implementation behavior.
+
+Typical allowed topics:
+- aggregation method and grouping granularity
+- join key choice / join policy
+- missing-value handling
+- tie-breaking / dedup policy
+- boundary semantics (inclusive/exclusive)
+
+Disallowed topics:
+- requests to inspect/enumerate raw dataset contents
+- requests for code, output examples, or full hidden spec
+- broad multi-topic questions bundled into one sub-question
+
+Formatting guidance:
+- `ask(...)` accepts `questions: list[str]`; each item should be one atomic question.
+- Keep question order stable within one call; answers are returned in the same order.

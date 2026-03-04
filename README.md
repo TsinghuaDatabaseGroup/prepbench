@@ -66,7 +66,7 @@ OPENROUTER_API_KEY=your-key
 
 ## Reference Solutions Access (Private)
 
-`flow`, `interact`, and `e2e` modes require benchmark-private reference solutions.
+Benchmark-internal `run.py` modes (`flow`, `interact`, `e2e`) and the local user simulator require benchmark-private reference solutions.
 These files are **not** included in the public repository.
 The public repository intentionally does not ship a reference-solutions folder.
 
@@ -92,7 +92,7 @@ export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/<solutions_root>
 
 This solutions directory is required for:
 - interactive disambiguation via local user simulator
-- `interact` / `flow` / `e2e` benchmark runs
+- benchmark-internal `interact` / `flow` / `e2e` runs
 
 Supported reference-solution layouts include:
 - `case001/solution.py`
@@ -100,24 +100,65 @@ Supported reference-solution layouts include:
 - `case001.py`
 - `case_001.py`
 
-## Quick Start for Evaluating Your Agent (Primary Path)
+## Quick Start for Evaluating Your Own Agent (Primary Path)
 
-For most users, PrepBench should be used as an **E2E benchmark/evaluator**.
+For most users, PrepBench is an **evaluator** for their own framework (BYOA).
+You do **not** need to run `PrepAgent` to evaluate your system.
+
+What PrepBench provides:
+- Public per-case inputs:
+  - `data/case_xxx/query.md`
+  - `data/case_xxx/inputs/*.csv`
+- Evaluation tools:
+  - `evaluate.batch` (code/flow output correctness)
+  - `evaluate.disamb` (interactive disambiguation metrics, if available)
+
+What your framework needs to produce:
+- code track: `@output/<your_framework>/e2e/case_xxx/solution/cand/*.csv`
+- flow track: `@output/<your_framework>/e2e/case_xxx/solution/flow_cand/*.csv`
+
+Evaluate your outputs:
+
+```bash
+PYTHONPATH=src python -m evaluate.batch --results-root @output/<your_framework>/e2e --candidate-kind auto
+```
+
+Optional (only if your run includes clarify artifacts like `clarify/summary.json`):
+
+```bash
+PYTHONPATH=src python -m evaluate.disamb --results-root @output/<your_framework>/e2e
+```
+
+Read results:
+
+```bash
+@output/<your_framework>/e2e/evaluation_summary.csv
+@output/<your_framework>/e2e/acc.txt
+```
+
+Integration contract and architecture:
+- `docs/BYOA_E2E.md`
+- `docs/ARCHITECTURE.md`
+- `docs/contracts/USER_SIMULATOR_LOCAL.md` (clarify interaction format, budget, and allowed/disallowed question scope)
+
+## Quick Start for PrepAgent Reference Pipeline (Secondary Path)
+
+Use this path only if you want to run the benchmark's reference implementation.
 
 1) Set API key in `.env`.
-2) Run the reference `PrepAgent` on one case:
+2) Run PrepAgent on one case:
 
 ```bash
 ./scripts/run_prepagent.sh --case 1 --model openai/gpt-5.2
 ```
 
-3) Evaluate outputs:
+3) Evaluate PrepAgent outputs:
 
 ```bash
 PYTHONPATH=src python -m evaluate.batch --results-root @output/<model_info>/prepagent --candidate-kind auto
 ```
 
-Optional (interactive disambiguation metric):
+Optional disambiguation metric:
 
 ```bash
 PYTHONPATH=src python -m evaluate.disamb --results-root @output/<model_info>/prepagent
@@ -133,25 +174,13 @@ PYTHONPATH=src python -m evaluate.disamb --results-root @output/<model_info>/pre
 `<model_info>` is derived from the last segment of `--model` and sanitized for paths.
 Example: `openai/gpt-5.2` -> `gpt-5.2`.
 
-What third-party frameworks need to produce:
-- code track: `case_xxx/solution/cand/*.csv`
-- flow track: `case_xxx/solution/flow_cand/*.csv`
-
-Public per-case inputs:
-- `data/case_xxx/query.md`
-- `data/case_xxx/inputs/*.csv`
-
-Integration contract:
-- `docs/BYOA_E2E.md`
-- `docs/ARCHITECTURE.md`
+PrepAgent output root is isolated from benchmark run modes:
+- `@output/<model_info>/prepagent/case_xxx/solution/...`
 
 Reference implementation:
 - `methods/prepagent/run_prepagent.py`
 - `methods/prepagent/README.md`
 - `methods/prepagent/prompts/`
-
-PrepAgent output root is isolated from benchmark run modes:
-- `@output/<model_info>/prepagent/case_xxx/solution/...`
 
 ## Reproduce Paper Experiments (Secondary Path)
 

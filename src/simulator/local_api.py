@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 from uuid import uuid4
@@ -39,7 +40,9 @@ class LocalUserSimulatorAPI:
         model_name: Optional[str] = None,
         data_root: Optional[str | Path] = None,
         max_rounds: int = 3,
-        max_questions: int = 25,
+        question_ratio: float = 2.5,
+        max_questions_cap: Optional[int] = 25,
+        max_questions: Optional[int] = None,
         max_questions_per_ask: int = 10,
     ) -> None:
         self.user_simulator = UserSimulator(model_name=model_name)
@@ -49,8 +52,18 @@ class LocalUserSimulatorAPI:
             # Local simulator defaults to repository-level public cases under `data/`.
             self.data_root = (Path(__file__).resolve().parents[2] / "data").resolve()
         self.max_rounds = int(max_rounds)
-        self.max_questions = int(max_questions)
+        if question_ratio <= 0:
+            raise ValueError(f"question_ratio must be positive, got {question_ratio}")
+        self.question_ratio = float(question_ratio)
+        if max_questions_cap is not None and int(max_questions_cap) <= 0:
+            raise ValueError(f"max_questions_cap must be positive, got {max_questions_cap}")
+        self.max_questions_cap = int(max_questions_cap) if max_questions_cap is not None else None
+        self.max_questions_override = int(max_questions) if max_questions is not None else None
+        if self.max_questions_override is not None and self.max_questions_override <= 0:
+            raise ValueError(f"max_questions must be positive, got {max_questions}")
         self.max_questions_per_ask = int(max_questions_per_ask)
+        if self.max_questions_per_ask <= 0:
+            raise ValueError(f"max_questions_per_ask must be positive, got {max_questions_per_ask}")
         self._sessions: Dict[str, _SessionState] = {}
 
     def _resolve_case_dir(self, case_id: str) -> Path:
@@ -61,9 +74,24 @@ class LocalUserSimulatorAPI:
             raise FileNotFoundError(f"Case directory not found: {case_dir}")
         return case_dir
 
+    def _compute_max_questions(self, amb_kb_json: Dict[str, Any]) -> tuple[int, int]:
+        ambiguities = amb_kb_json.get("ambiguities")
+        amb_count = len(ambiguities) if isinstance(ambiguities, list) else 0
+
+        if self.max_questions_override is not None:
+            return self.max_questions_override, amb_count
+
+        max_questions = max(1, math.ceil(self.question_ratio * amb_count))
+        if self.max_questions_cap is not None:
+            # Cap is raised to ambiguity count so full coverage remains possible.
+            effective_cap = max(self.max_questions_cap, amb_count)
+            max_questions = min(max_questions, effective_cap)
+        return max_questions, amb_count
+
     def start_session(self, *, case_id: str, run_id: str) -> Dict[str, Any]:
         case_dir = self._resolve_case_dir(case_id)
         case_view = load_internal_case_view(case_dir, require_reference_solution=True)
+        max_questions, ambiguity_count = self._compute_max_questions(case_view.amb_kb_json)
         session_id = f"sess_{uuid4().hex[:16]}"
         state = _SessionState(
             session_id=session_id,
@@ -71,7 +99,7 @@ class LocalUserSimulatorAPI:
             case_id=case_id,
             case_view=case_view,
             max_rounds=self.max_rounds,
-            max_questions=self.max_questions,
+            max_questions=max_questions,
             max_questions_per_ask=self.max_questions_per_ask,
         )
         self._sessions[session_id] = state
@@ -82,6 +110,9 @@ class LocalUserSimulatorAPI:
             "max_rounds": state.max_rounds,
             "max_questions": state.max_questions,
             "max_questions_per_ask": state.max_questions_per_ask,
+            "ambiguity_count": ambiguity_count,
+            "question_ratio": self.question_ratio,
+            "max_questions_cap": self.max_questions_cap,
         }
 
     @staticmethod

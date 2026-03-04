@@ -7,6 +7,14 @@ A framework can submit either:
 - **code track** outputs (`solution/cand/*.csv`), or
 - **flow track** outputs (`solution/flow_cand/*.csv`).
 
+You do **not** need to run `PrepAgent` to evaluate your own framework.
+`PrepAgent` is only a benchmark-provided reference implementation.
+
+Contract summary:
+- Benchmark provides: `query.md` + `inputs/*.csv` per case.
+- Framework produces: `case_xxx/solution/cand/*.csv` or `case_xxx/solution/flow_cand/*.csv`.
+- Evaluator returns: `evaluation_summary.csv` and `acc.txt` under your results root.
+
 ## Minimal 3-Step Checklist
 
 1) Read public inputs only:
@@ -22,6 +30,27 @@ A framework can submit either:
 ```bash
 PYTHONPATH=src python -m evaluate.batch --results-root @output/<your_framework>/e2e --candidate-kind auto
 ```
+
+## Recommended BYOA Runtime Chain (query + inputs -> code outputs)
+
+PrepBench does not require your internal architecture, but this chain is recommended:
+
+1) Read public inputs:
+- `query.md`
+- `inputs/*.csv`
+
+2) Optional profiling stage (recommended, not required):
+- Inspect input tables for parse-sensitive patterns (date formats, null markers, join key type mismatches, etc.).
+- Use profiling signals only to improve robustness; do not hard-code dataset-specific values.
+
+3) Clarify stage (via local user simulator):
+- Ask targeted requirement questions that change implementation behavior.
+- Keep each sub-question focused on one decision.
+- Respect question budget and per-round limits returned by the simulator.
+
+4) Code stage:
+- Generate and execute your own transformation logic.
+- Write final CSV outputs under `solution/cand/` (or `solution/flow_cand/` for flow systems).
 
 ## Reference Implementation
 
@@ -64,7 +93,12 @@ Use `simulator.LocalUserSimulatorAPI` (not HTTP).
 ```python
 from simulator import LocalUserSimulatorAPI
 
-api = LocalUserSimulatorAPI()
+api = LocalUserSimulatorAPI(
+    question_ratio=2.5,      # default: max_questions = ceil(2.5 * ambiguity_count)
+    max_questions_cap=25,    # default cap; budget is still >= ambiguity_count
+    max_rounds=3,
+    max_questions_per_ask=10,
+)
 session = api.start_session(case_id="case_001", run_id="run_001")
 resp = api.ask(
     session_id=session["session_id"],
@@ -80,6 +114,33 @@ Notes:
 - Request access via `j1n9zhe@gmail.com` with subject `PrepBench Reference Solutions Request`.
 - Put the received folder at your local target path, then set `PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/<solutions_root>`.
 - Recommended layout from the distributed package: `case001/solution.py` (legacy forms are also supported).
+- `start_session(...)` returns the resolved budget (`max_questions`, `max_questions_per_ask`) for that case.
+- You may override ratio-based budgeting with an explicit fixed `max_questions` when needed.
+
+Question design contract (for user simulator interaction):
+- Allowed focus:
+  - business-rule decisions that affect implementation (aggregation policy, tie-breaking, missing-value handling, boundary semantics, join alignment)
+- Not allowed:
+  - requests to enumerate or browse dataset content
+  - requests for code/output examples/full hidden specification
+  - broad multi-topic requests in one sub-question
+- Ask format:
+  - `api.ask(..., questions=[...], round=k)` where `questions` is `list[str]`
+  - each list item should be one atomic decision question
+  - keep ask order stable; the simulator answers in the same order
+
+Suggested prompt snippet for your clarify module:
+
+```text
+You are in requirement-clarification mode.
+- Output either:
+  - DONE
+  - ASK with one or more atomic sub-questions
+- Only ask questions that can change implementation behavior.
+- One sub-question = one decision.
+- Do not ask for code, output examples, or dataset enumeration.
+- Prefer concise, rule-oriented wording.
+```
 
 Response fields include:
 - `round`: current round index (required for debugging/audit).
@@ -135,7 +196,7 @@ Rules:
 - CSV file names should match expected names (for example `output_01.csv`).
 - A single run root should contain one primary track (code or flow).
 
-## 5) Evaluation
+## 5) Evaluation (Code/Flow Correctness)
 
 Run local batch evaluation:
 
@@ -165,7 +226,7 @@ Track mapping for `acc.txt`:
 - `--candidate-kind flow` -> flow-track accuracy
 - `--candidate-kind auto` -> flow first, fallback to code
 
-If your framework includes interactive disambiguation, compute disambiguation precision/recall/F1 with:
+If your framework also records clarify artifacts and you want disambiguation metrics, run:
 
 ```bash
 PYTHONPATH=src python -m evaluate.disamb --results-root @output/my_framework/e2e
