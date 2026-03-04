@@ -77,7 +77,7 @@ Notes:
 - `start_session(...)` requires internal reference solution for the case.
 - Reference solutions are private benchmark assets and are **not** included in this public repository.
 - The public repository intentionally does not ship a reference-solutions folder.
-- Request access via `j1n9zhe@gmail.com` (see `README.md` for a suggested email format).
+- Request access via `j1n9zhe@gmail.com` with subject `PrepBench Reference Solutions Request`.
 - Put the received folder at your local target path, then set `PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/<solutions_root>`.
 - Recommended layout from the distributed package: `case001/solution.py` (legacy forms are also supported).
 

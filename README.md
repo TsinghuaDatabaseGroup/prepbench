@@ -72,23 +72,7 @@ The public repository intentionally does not ship a reference-solutions folder.
 
 Request access by email:
 - Contact: `j1n9zhe@gmail.com`
-- Suggested subject: `PrepBench Reference Solutions Request`
-
-Suggested email body:
-
-```text
-Hi PrepBench team,
-
-I would like to request access to the private PrepBench reference solutions.
-
-Name:
-Affiliation:
-GitHub profile:
-Intended usage (research/reproduction):
-
-I understand these files are benchmark-internal assets and will not be used as
-public method inputs in BYOA evaluation.
-```
+- Required subject: `PrepBench Reference Solutions Request`
 
 After approval, you will receive a solutions directory, typically like:
 
