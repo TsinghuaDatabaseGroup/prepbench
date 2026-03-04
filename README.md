@@ -144,6 +144,8 @@ Integration contract and architecture:
 ## Quick Start for PrepAgent Reference Pipeline (Secondary Path)
 
 Use this path only if you want to run the benchmark's reference implementation.
+Its main purpose is to show a practical BYOA chain:
+read inputs -> optional profile (recommended) -> user simulator clarify -> generate/execute code -> output CSV.
 
 1) Set API key in `.env`.
 2) Run PrepAgent on one case:

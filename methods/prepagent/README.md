@@ -1,6 +1,9 @@
 # PrepAgent Reference (E2E)
 
 This is a reference implementation for participants who want to build and evaluate their own agent framework on PrepBench.
+Primary goal: provide a runnable reference of the end-to-end BYOA logic
+(`read inputs -> optional profile recommendation -> clarify via user simulator -> generate/execute code -> output CSV`).
+Your own framework is not required to copy this exact structure.
 
 Pipeline order is fixed and self-contained in this folder:
 1. profile

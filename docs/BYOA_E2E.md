@@ -34,6 +34,7 @@ PYTHONPATH=src python -m evaluate.batch --results-root @output/<your_framework>/
 ## Recommended BYOA Runtime Chain (query + inputs -> code outputs)
 
 PrepBench does not require your internal architecture, but this chain is recommended:
+`PrepAgent` is provided mainly as a concrete reference for this chain.
 
 1) Read public inputs:
 - `query.md`
