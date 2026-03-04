@@ -9,6 +9,7 @@ If you are evaluating your own framework, use `docs/BYOA_E2E.md` instead.
 - `flow`, `interact`, and `e2e` use benchmark reference solutions at:
   - private solutions directory (recommended layout: `case001/solution.py`)
 - Reference solutions are **not** included in the public repository.
+- The public repository intentionally does not ship a reference-solutions folder.
 - Request access via `j1n9zhe@gmail.com` (see `README.md` for a suggested email format).
 - Set `PREPBENCH_SOLUTIONS_ROOT` to the unpacked solutions directory.
 - They are benchmark-internal assets for runtime/evaluation alignment, not public inputs for method design.

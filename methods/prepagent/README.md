@@ -44,4 +44,5 @@ PYTHONPATH=src python -m evaluate.batch --results-root @output/<model_info>/prep
 
 - This reference implementation reuses core executors/parsers, but uses its own prompt assets under `methods/prepagent/prompts`.
 - User simulator and flow mode require private benchmark reference solutions.
+- The public repository intentionally does not ship a reference-solutions folder.
 - Configure `PREPBENCH_SOLUTIONS_ROOT` to your private solutions directory.

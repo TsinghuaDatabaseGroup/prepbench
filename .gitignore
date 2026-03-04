@@ -67,7 +67,5 @@ src/draw/draw/
 
 # Benchmark reference solutions (gtcode) are kept local only.
 data/case_*/solution.py
-simulator/assets/solutions/*
-!simulator/assets/solutions/.gitkeep
-src/simulator/assets/solutions/*
-!src/simulator/assets/solutions/.gitkeep
+simulator/assets/solutions/
+src/simulator/assets/solutions/

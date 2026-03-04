@@ -12,6 +12,7 @@ This package contains benchmark-provided simulator components. It is not part of
 ## Notes
 
 - Reference solutions are benchmark-internal runtime assets distributed privately.
+- The public repository intentionally does not ship a reference-solutions folder.
 - Set `PREPBENCH_SOLUTIONS_ROOT` to the unpacked private solutions directory.
 - Recommended layout is `case001/solution.py` (legacy forms such as `case_001.py` are also supported).
 - These files must not be used as method inputs for BYOA evaluation.

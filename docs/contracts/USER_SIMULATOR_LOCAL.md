@@ -8,6 +8,7 @@ Implementation:
 
 Reference-solution dependency:
 - `start_session(...)` requires benchmark-private reference solutions.
+- The public repository intentionally does not ship a reference-solutions folder.
 - Set `PREPBENCH_SOLUTIONS_ROOT` to your private solutions directory.
 - Recommended layout: `case001/solution.py` (legacy `case_001.py` style is also accepted).
 

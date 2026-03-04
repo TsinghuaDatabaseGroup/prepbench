@@ -68,6 +68,7 @@ OPENROUTER_API_KEY=your-key
 
 `flow`, `interact`, and `e2e` modes require benchmark-private reference solutions.
 These files are **not** included in the public repository.
+The public repository intentionally does not ship a reference-solutions folder.
 
 Request access by email:
 - Contact: `j1n9zhe@gmail.com`
@@ -98,11 +99,16 @@ After approval, you will receive a solutions directory, typically like:
   ...
 ```
 
-Set:
+Place this folder at your preferred local path (example: `<repo>/private/prepbench_solutions`),
+then set:
 
 ```bash
 export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/<solutions_root>
 ```
+
+This solutions directory is required for:
+- interactive disambiguation via local user simulator
+- `interact` / `flow` / `e2e` benchmark runs
 
 Supported reference-solution layouts include:
 - `case001/solution.py`
