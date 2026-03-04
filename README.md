@@ -113,9 +113,25 @@ What PrepBench provides:
   - `evaluate.batch` (code/flow output correctness)
   - `evaluate.disamb` (interactive disambiguation metrics, if available)
 
+Private reference solutions are needed only when your framework uses local user-simulator clarify.
+If you only run code/flow generation and batch evaluation, private solutions are not required.
+
 What your framework needs to produce:
 - code track: `@output/<your_framework>/e2e/case_xxx/solution/cand/*.csv`
 - flow track: `@output/<your_framework>/e2e/case_xxx/solution/flow_cand/*.csv`
+
+Single-case smoke test (recommended for first integration):
+1) Run your framework on one case (for example `case_001`) and write CSV outputs under:
+   - `@output/<your_framework>/e2e/case_001/solution/cand/`
+   - or `@output/<your_framework>/e2e/case_001/solution/flow_cand/`
+2) If your framework uses local clarify, configure private solutions first:
+   - `export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/<solutions_root>`
+3) Run batch evaluator and inspect only the case you just ran:
+   - `PYTHONPATH=src python -m evaluate.batch --results-root @output/<your_framework>/e2e --candidate-kind auto`
+   - `rg '^case_001,' @output/<your_framework>/e2e/evaluation_summary.csv`
+4) Optional disambiguation metrics (only when clarify artifacts exist):
+   - `PYTHONPATH=src python -m evaluate.disamb --results-root @output/<your_framework>/e2e`
+   - `rg '^case_001,' @output/<your_framework>/e2e/disamb_summary.csv`
 
 Evaluate your outputs:
 
@@ -134,6 +150,12 @@ Read results:
 ```bash
 @output/<your_framework>/e2e/evaluation_summary.csv
 @output/<your_framework>/e2e/acc.txt
+```
+
+Single-case quick check (recommended during integration):
+
+```bash
+rg '^case_001,' @output/<your_framework>/e2e/evaluation_summary.csv
 ```
 
 Integration contract and architecture:

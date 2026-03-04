@@ -31,6 +31,38 @@ Contract summary:
 PYTHONPATH=src python -m evaluate.batch --results-root @output/<your_framework>/e2e --candidate-kind auto
 ```
 
+## First Passing Run (Single Case, Recommended)
+
+Use this as a strict smoke test before scaling to many cases.
+
+1) Pick one case (for example `case_001`) and read:
+- `data/case_001/query.md`
+- `data/case_001/inputs/*.csv`
+
+2) Run your framework and write outputs to exactly one track:
+- code track: `@output/<your_framework>/e2e/case_001/solution/cand/*.csv`
+- or flow track: `@output/<your_framework>/e2e/case_001/solution/flow_cand/*.csv`
+
+3) If your run includes local clarify (`LocalUserSimulatorAPI`), set private solutions first:
+
+```bash
+export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/<solutions_root>
+```
+
+4) Evaluate:
+
+```bash
+PYTHONPATH=src python -m evaluate.batch --results-root @output/<your_framework>/e2e --candidate-kind auto
+rg '^case_001,' @output/<your_framework>/e2e/evaluation_summary.csv
+```
+
+5) Optional clarify metric (only when clarify artifacts exist):
+
+```bash
+PYTHONPATH=src python -m evaluate.disamb --results-root @output/<your_framework>/e2e
+rg '^case_001,' @output/<your_framework>/e2e/disamb_summary.csv
+```
+
 ## Recommended BYOA Runtime Chain (query + inputs -> code outputs)
 
 PrepBench does not require your internal architecture, but this chain is recommended:

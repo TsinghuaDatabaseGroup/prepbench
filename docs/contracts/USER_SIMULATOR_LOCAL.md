@@ -26,6 +26,11 @@ Constructor options:
 - `max_rounds` (default `3`)
 - `max_questions_per_ask` (default `10`)
 
+Budget examples (default ratio/cap):
+- if `ambiguity_count=4`: ratio budget = `ceil(2.5*4)=10`, cap=25 -> final `max_questions=10`
+- if `ambiguity_count=20`: ratio budget = `50`, cap=25 -> final `max_questions=25`
+- if `ambiguity_count=30`: ratio budget = `75`, cap=25 but effective cap is at least ambiguity count -> final `max_questions=30`
+
 ### `start_session(case_id: str, run_id: str) -> dict`
 
 Input:
