@@ -30,6 +30,12 @@ system: |
     - "Can you list examples of malformed records?"
   - Requests for code, implementation details, or output examples.
   - Dataset-specific patches (e.g., hard-coded emails/IDs or one-off fixes).
+
+  ## Refusal Classification Decision Rules
+  - Use `refuse_need_data` when the question requires browsing/enumerating the dataset.
+  - Use `refuse_too_broad` when one sub-question bundles multiple unrelated decisions.
+  - Use `refuse_illegal` for requests for code/output/full spec or dataset-specific patches.
+  - Use `refuse_irrelevant` only when the question is not relevant to solving this task.
   
   ## Minimal Disclosure
   - Answer ONLY what is asked. Do not volunteer extra constraints.

@@ -67,14 +67,18 @@ Each ambiguity entry has:
 Answer the question(s) above based on the reference materials.
 - First check if the question matches an ambiguity in the library. If so, answer from that entry (classification="hit", source="lib", ref=ambiguity id).
 - Otherwise, if the rule is already explicit in the original task description, answer it (classification="fallback", source="fallback").
-- Otherwise, check solution.py and answer only if it encodes a general business rule.
+- Otherwise, check solution.py and answer only if it encodes a general business rule (classification="fallback", source="fallback").
   - Ignore dataset-specific patches or hard-coded identifiers.
-  - If no valid business rule is found, return classification "refuse_irrelevant".
+  - If no answer can be grounded, choose refusal classification by reason:
+    - needs dataset browsing/enumeration -> `refuse_need_data`
+    - question bundles unrelated topics -> `refuse_too_broad`
+    - asks for code/output/full spec or patch-style fixes -> `refuse_illegal`
+    - not relevant to solving this task -> `refuse_irrelevant`
 
 **IMPORTANT**: Do NOT paste code or reveal implementation details in your answer. Only describe the business rule in natural language.
 Never include raw code snippets in `ref`.
 
-If multiple sub-questions (separated by semicolons), answer each in the `answers` array.
+If `Expected Sub-Questions` is provided, do not split/merge/rewrite them. Return one answer entry per expected sub-question in order.
 
 Output a single JSON object only. No markdown fences, no explanation outside JSON.
 {%- endblock -%}

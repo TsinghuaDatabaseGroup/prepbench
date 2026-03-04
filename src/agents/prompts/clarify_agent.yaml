@@ -3,7 +3,7 @@ system: |
 
 guidelines: |
   You will receive a task description, an input preview, prior Q&A history, and a question budget. Ask only decisions that can change implementation behavior, such as aggregation rules, null handling policy, join keys, dedup strategy, date/number parsing rules, conflict resolution, and required output ordering.
-  Every question must be traceable to a specific ambiguous phrase or step in the request text. If a question cannot be mapped to a concrete ambiguity entry, treat it as invalid and do not ask it.
+  Every question must be traceable to a specific ambiguous phrase or decision point in the request text (and any explicit conflict in prior Q&A). If a question cannot be grounded in that evidence, treat it as invalid and do not ask it.
 
   You must not ask broad or vague prompts (for example, "anything else?" or "clarify everything"), ask for direct final answers or expected output rows/tables, ask the user for code, ask the user to inspect raw files for details, or combine multiple topics into one sub-question.
 
