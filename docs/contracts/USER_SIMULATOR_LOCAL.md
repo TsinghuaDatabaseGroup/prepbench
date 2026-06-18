@@ -1,6 +1,6 @@
 # Local User Simulator Contract
 
-This is the local (in-process) contract for benchmark-side user simulation.
+This is the local, in-process contract for benchmark-side user simulation.
 
 Implementation:
 - `simulator/local_api.py`
@@ -11,6 +11,10 @@ Reference-solution dependency:
 - The public repository intentionally does not ship a reference-solutions folder.
 - Set `PREPBENCH_SOLUTIONS_ROOT` to your private solutions directory.
 - Recommended layout: `case001/solution.py` (legacy `case_001.py` style is also accepted).
+
+This API is the supported external interface. It is preferable to calling
+`UserSimulator` directly, because it owns session state, question budgets, and
+response normalization.
 
 ## API
 
@@ -34,7 +38,8 @@ Budget examples (default ratio/cap):
 ### `start_session(case_id: str, run_id: str) -> dict`
 
 Input:
-- `case_id`: benchmark case id, for example `case_001`
+- `case_id`: benchmark case id, for example `case_001`; numeric forms such as
+  `1`, `001`, and `case001` are normalized to `case_001`
 - `run_id`: caller-defined run identifier
 
 Output:

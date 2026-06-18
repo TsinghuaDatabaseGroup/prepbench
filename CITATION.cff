@@ -3,6 +3,13 @@ title: "PrepBench: How Far Are We from Natural-Language-Driven Data Preparation?
 message: "If you use PrepBench in your research, please cite this repository and the associated paper."
 type: software
 authors:
-  - name: "PrepBench Team"
+  - family-names: "Xu"
+    given-names: "Jingzhe"
+  - family-names: "Wang"
+    given-names: "Rui"
+  - family-names: "Wang"
+    given-names: "Jiannan"
+  - family-names: "Li"
+    given-names: "Guoliang"
 repository-code: "https://github.com/zzzbitz/prepbench"
 license: "MIT"

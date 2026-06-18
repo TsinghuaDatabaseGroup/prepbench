@@ -22,16 +22,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Compile key entrypoints
+      - name: Compile public packages and example
         run: |
-          python -m py_compile run.py
-          python -m py_compile methods/prepagent/run_prepagent.py
-          python -m py_compile src/core/orchestrator.py
-          python -m py_compile src/core/orchestration/code_phase.py
+          python -m compileall -q src/evaluate src/simulator/*.py examples scripts/validate_dataset.py
 
-      - name: PrepAgent list smoke test
+      - name: Dataset layout check
         run: |
-          ./scripts/run_prepagent.sh --list 1
+          python scripts/validate_dataset.py
 
       - name: Evaluator CLI smoke test
         run: |

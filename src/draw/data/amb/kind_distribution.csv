@@ -1,8 +1,0 @@
-kind,count,percentage
-Row-level concept,554,24.0%
-Operation boundary,497,21.6%
-Operation incomplete,496,21.5%
-Group-level concept,246,10.7%
-Single-table reference,197,8.6%
-Multi-table alignment,190,8.2%
-Operation inconsistent,124,5.4%

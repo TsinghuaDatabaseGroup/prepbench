@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 from pathlib import Path
-from typing import Optional, Literal
+from typing import Optional
 
 from evaluate.core import evaluate
 
@@ -27,32 +27,15 @@ def _discover_case_dirs(results_root: Path) -> list[Path]:
     return nested
 
 
-CandidateKind = Literal["auto", "code", "flow"]
-
-
-def _pick_candidate_dir(case_dir: Path, candidate_kind: CandidateKind) -> tuple[str, Optional[Path]]:
+def _pick_candidate_dir(case_dir: Path) -> tuple[str, Optional[Path]]:
     solution_dir = case_dir / "solution"
-    flow_cand = solution_dir / "flow_cand"
     cand = solution_dir / "cand"
-
-    if candidate_kind == "flow":
-        if flow_cand.is_dir() and any(flow_cand.glob("*.csv")):
-            return "flow_cand", flow_cand
-        return "none", None
-
-    if candidate_kind == "code":
-        if cand.is_dir() and any(cand.glob("*.csv")):
-            return "cand", cand
-        return "none", None
-
-    if flow_cand.is_dir() and any(flow_cand.glob("*.csv")):
-        return "flow_cand", flow_cand
     if cand.is_dir() and any(cand.glob("*.csv")):
         return "cand", cand
     return "none", None
 
 
-def run_batch(results_root: Path, *, candidate_kind: CandidateKind = "auto") -> Path:
+def run_batch(results_root: Path) -> Path:
     repo_root = _resolve_repo_root()
     gt_root = repo_root / "evaluate" / "gt"
     if not gt_root.is_dir():
@@ -80,7 +63,7 @@ def run_batch(results_root: Path, *, candidate_kind: CandidateKind = "auto") -> 
         cand_kind = "none"
         cand_dir: Optional[Path] = None
         if case_dir is not None:
-            cand_kind, cand_dir = _pick_candidate_dir(case_dir, candidate_kind)
+            cand_kind, cand_dir = _pick_candidate_dir(case_dir)
 
         row = {
             "case_name": case_name,
@@ -100,12 +83,7 @@ def run_batch(results_root: Path, *, candidate_kind: CandidateKind = "auto") -> 
 
         if cand_dir is None:
             row["error_type"] = "NOT_FOUND"
-            expected_hint = {
-                "flow": "expected solution/flow_cand",
-                "code": "expected solution/cand",
-                "auto": "checked flow_cand then cand",
-            }[candidate_kind]
-            row["error_message"] = f"No candidate CSV outputs found under {case_dir / 'solution'} ({expected_hint})."
+            row["error_message"] = f"No candidate CSV outputs found under {case_dir / 'solution' / 'cand'}."
             rows.append(row)
             continue
 
@@ -138,7 +116,7 @@ def run_batch(results_root: Path, *, candidate_kind: CandidateKind = "auto") -> 
     acc_txt.write_text(f"{accuracy:.6f}\n", encoding="utf-8")
     print(
         f"[evaluate.batch] total={total} success={success_count} correct={correct_count} "
-        f"accuracy={accuracy:.6f} candidate_kind={candidate_kind} output={output_csv} acc={acc_txt}"
+        f"accuracy={accuracy:.6f} candidate_dir=cand output={output_csv} acc={acc_txt}"
     )
     return output_csv
 
@@ -151,13 +129,7 @@ def main() -> None:
         "--results-root",
         required=True,
         type=str,
-        help="Path like @output/<model>/<run_mode>, containing case_* directories.",
-    )
-    parser.add_argument(
-        "--candidate-kind",
-        default="auto",
-        choices=["auto", "code", "flow"],
-        help="Which candidate directory to evaluate: auto (flow_cand first), code (cand), or flow (flow_cand).",
+        help="Path like @output/<method>/<track>, containing case_* directories.",
     )
     args = parser.parse_args()
 
@@ -165,7 +137,7 @@ def main() -> None:
     if not results_root.is_dir():
         raise FileNotFoundError(f"results_root is not a directory: {results_root}")
 
-    run_batch(results_root, candidate_kind=args.candidate_kind)
+    run_batch(results_root)
 
 
 if __name__ == "__main__":

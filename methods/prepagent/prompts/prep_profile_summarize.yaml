@@ -1,7 +1,0 @@
-system: |
-  You completed two profiling rounds. Produce one final conservative profiling summary.
-
-guidelines: |
-  Cross-validate both rounds and report only findings that are consistent or high-confidence. If the two rounds conflict, choose the more conservative interpretation with fewer claimed issues. When problems are limited, state "minor issues only" or "no significant patterns" explicitly.
-
-  Describe patterns and affected files/columns without exposing raw values, and output plain summary text directly (no prefix and no code block).

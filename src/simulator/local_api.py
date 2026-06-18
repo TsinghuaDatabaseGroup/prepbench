@@ -3,11 +3,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 import math
 from pathlib import Path
+import re
 from typing import Any, Dict, List, Optional
 from uuid import uuid4
 
-from core.case_views import InternalCaseView, load_internal_case_view
 from simulator.user_simulator import UserSimulator
+from simulator.case_views import InternalCaseView, load_internal_case_view
 
 
 @dataclass
@@ -26,7 +27,7 @@ class _SessionState:
 
 class LocalUserSimulatorAPI:
     """
-    Local (non-network) user simulator interface for BYOA integration.
+    Local (non-network) user simulator interface for external-agent integration.
 
     This API hides benchmark-private assets (query_full/amb_kb/reference solution)
     behind a simple session-based interface:
@@ -66,10 +67,21 @@ class LocalUserSimulatorAPI:
             raise ValueError(f"max_questions_per_ask must be positive, got {max_questions_per_ask}")
         self._sessions: Dict[str, _SessionState] = {}
 
-    def _resolve_case_dir(self, case_id: str) -> Path:
-        if not isinstance(case_id, str) or not case_id.strip():
+    @staticmethod
+    def normalize_case_id(case_id: str) -> str:
+        raw = str(case_id or "").strip().lower()
+        if not raw:
             raise ValueError("case_id must be a non-empty string")
-        case_dir = (self.data_root / case_id).resolve()
+        match = re.fullmatch(r"case[_-]?(\d+)", raw)
+        if match:
+            return f"case_{int(match.group(1)):03d}"
+        if raw.isdigit():
+            return f"case_{int(raw):03d}"
+        return raw
+
+    def _resolve_case_dir(self, case_id: str) -> Path:
+        normalized_case_id = self.normalize_case_id(case_id)
+        case_dir = (self.data_root / normalized_case_id).resolve()
         if not case_dir.is_dir():
             raise FileNotFoundError(f"Case directory not found: {case_dir}")
         return case_dir
@@ -90,13 +102,14 @@ class LocalUserSimulatorAPI:
 
     def start_session(self, *, case_id: str, run_id: str) -> Dict[str, Any]:
         case_dir = self._resolve_case_dir(case_id)
+        normalized_case_id = case_dir.name
         case_view = load_internal_case_view(case_dir, require_reference_solution=True)
         max_questions, ambiguity_count = self._compute_max_questions(case_view.amb_kb_json)
         session_id = f"sess_{uuid4().hex[:16]}"
         state = _SessionState(
             session_id=session_id,
             run_id=run_id,
-            case_id=case_id,
+            case_id=normalized_case_id,
             case_view=case_view,
             max_rounds=self.max_rounds,
             max_questions=max_questions,
@@ -105,7 +118,7 @@ class LocalUserSimulatorAPI:
         self._sessions[session_id] = state
         return {
             "session_id": session_id,
-            "case_id": case_id,
+            "case_id": state.case_id,
             "run_id": run_id,
             "max_rounds": state.max_rounds,
             "max_questions": state.max_questions,

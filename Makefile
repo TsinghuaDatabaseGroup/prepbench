@@ -1,16 +1,17 @@
 PYTHON ?= python
 
-.PHONY: install lint run clean-outputs
+.PHONY: install check validate clean-outputs
 
 install:
 	$(PYTHON) -m pip install -r requirements.txt
 
-lint:
-	$(PYTHON) -m compileall src run.py methods/prepagent/run_prepagent.py
+check:
+	$(PYTHON) -m compileall -q src/evaluate src/simulator/*.py examples scripts/validate_dataset.py
+	$(PYTHON) scripts/validate_dataset.py
+	PYTHONPATH=src $(PYTHON) -m evaluate.batch --help >/dev/null
 
-# Usage: make run CASE=1 RUN_MODE=orig MODEL=openai/gpt-5.2
-run:
-	$(PYTHON) run.py --case $(CASE) $(if $(MODE),--mode $(MODE),) $(if $(MODEL),--model $(MODEL),) $(if $(RUN_MODE),--run_mode $(RUN_MODE),)
+validate:
+	$(PYTHON) scripts/validate_dataset.py
 
 clean-outputs:
-	rm -rf @output data_synthesis/output
+	rm -rf @output

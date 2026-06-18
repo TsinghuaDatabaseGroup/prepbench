@@ -4,19 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "prepbench"
-version = "0.0.0"
-description = "Ambiguity analysis and auto-ETL experiment runner"
+version = "0.1.0"
+description = "Benchmark dataset, evaluator, and user simulator for natural-language-driven data preparation"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
   "Jinja2>=3.1",
-  "numpy>=1.25",
-  "outlines>=0.0.0",
   "pandas>=2.1",
-  "pydantic>=2.0",
   "PyYAML>=6.0",
   "requests>=2.31",
-  "tqdm>=4.67.2",
 ]
 
 [project.optional-dependencies]
@@ -24,22 +20,13 @@ dev = []
 
 [tool.setuptools]
 packages = [
-  "agents",
-  "core",
-  "core.orchestration",
-  "core.schemas",
-  "core.utils",
-  "data_synthesis",
-  "draw",
   "evaluate",
   "evaluate.matchers",
-  "llm_connect",
-  "py2flow",
-  "py2flow.operators",
   "simulator",
-  "config",
 ]
 
 [tool.setuptools.package-dir]
 "" = "src"
-config = "config"
+
+[tool.setuptools.package-data]
+simulator = ["prompts/*.yaml", "prompts/templates/*.jinja2"]

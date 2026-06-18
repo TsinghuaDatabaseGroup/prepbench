@@ -5,20 +5,23 @@
 ```bash
 git clone https://github.com/zzzbitz/prepbench.git
 cd prepbench
-pip install -r requirements.txt
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 cp .env.example .env
 ```
 
 ## Scope
 
-- BYOA benchmark path: `docs/BYOA_E2E.md`
-- Paper reproduction path: `docs/REPRO.md`
+- Dataset layout: `docs/DATASET.md`
+- User simulator contract: `docs/USER_SIMULATOR.md`
+- Evaluation: `docs/EVALUATION.md`
 
 ## Pull Request Checklist
 
 ```bash
-python -m py_compile run.py methods/prepagent/run_prepagent.py src/core/orchestrator.py src/core/orchestration/code_phase.py
-./scripts/run_prepagent.sh --list 1
+python -m compileall src/evaluate src/simulator examples scripts/validate_dataset.py
+python scripts/validate_dataset.py
 PYTHONPATH=src python -m evaluate.batch --help
 ```
 
