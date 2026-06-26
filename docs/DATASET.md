@@ -1,7 +1,8 @@
 # Dataset
 
 PrepBench contains 306 data-preparation cases. Each case pairs public task inputs
-with benchmark-side assets used for evaluation and user simulation.
+with benchmark-side assets used for evaluation and user simulation. The current
+public release is `v0.1.0`.
 
 ## Public Case Inputs
 

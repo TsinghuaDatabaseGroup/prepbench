@@ -11,10 +11,11 @@ src/simulator/user_simulator.py
 ```
 
 The simulator uses an OpenAI-compatible chat-completions endpoint. Configure it
-with environment variables or a local `.env` file:
+with environment variables or a local `.env` file. Replace the model value with
+an OpenAI-compatible model available from your provider:
 
 ```bash
-PREPBENCH_SIMULATOR_MODEL=openai/gpt-5.2
+PREPBENCH_SIMULATOR_MODEL=your-model-name
 OPENROUTER_API_KEY=your_openrouter_api_key
 # Optional:
 # PREPBENCH_SIMULATOR_BASE_URL=https://openrouter.ai/api/v1

@@ -1,19 +1,57 @@
-# PrepBench
+<p align="center">
+  <img src="docs/assets/prepbench_logo.png" alt="PrepBench logo" width="120">
+</p>
 
-**PrepBench: How Far Are We from Natural-Language-Driven Data Preparation?**
+<h1 align="center">PrepBench</h1>
 
-[Dataset](docs/DATASET.md) |
-[Evaluation](docs/EVALUATION.md) |
-[User Simulator](docs/USER_SIMULATOR.md) |
-[Simulator Contract](docs/contracts/USER_SIMULATOR_LOCAL.md) |
-[Citation](CITATION.cff)
+<p align="center">
+  <strong>How far are we from natural-language-driven data preparation?</strong>
+</p>
 
-PrepBench is a benchmark for evaluating natural-language-driven table preparation.
-Given a task instruction and raw CSV inputs, an agent must produce prepared output
-tables. For tasks with ambiguous requirements, PrepBench also provides a local user
-simulator API for clarification-style interaction.
+<p align="center">
+  <a href="https://arxiv.org/abs/2605.08687"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2605.08687-b31b1b.svg"></a>
+  <a href="https://github.com/TsinghuaDatabaseGroup/prepbench/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/TsinghuaDatabaseGroup/prepbench/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="Python 3.9+" src="https://img.shields.io/badge/python-3.9%2B-blue.svg">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-green.svg"></a>
+</p>
 
-![PrepBench overview](docs/assets/prepbench_overview.png)
+<p align="center">
+  <a href="https://arxiv.org/abs/2605.08687">Paper</a> |
+  <a href="docs/DATASET.md">Dataset</a> |
+  <a href="docs/EVALUATION.md">Evaluation</a> |
+  <a href="docs/USER_SIMULATOR.md">User Simulator</a> |
+  <a href="docs/RESULTS.md">Results</a> |
+  <a href="CITATION.cff">Citation</a>
+</p>
+
+PrepBench is a benchmark for evaluating agents that prepare raw tables from
+natural-language instructions. Each case gives an agent a task instruction and
+one or more CSV inputs; the agent must produce prepared output tables that pass
+executable table-level evaluation.
+
+PrepBench focuses on three public evaluation tracks: solving from the original
+request, solving with clarification through a local user simulator, and solving
+from the clarified request.
+
+## At a Glance
+
+| Item | Value |
+| --- | --- |
+| Release version | v0.1.0 |
+| Cases | 306 |
+| Input tables | 829 |
+| Public tracks | `interactive`, `direct`, `oracle` |
+| Primary input | `query.md` + `inputs/*.csv` |
+| Candidate output | `solution/cand/output_*.csv` |
+| Ground truth | `src/evaluate/gt/case_xxx/` |
+| Optional interaction | `simulator.LocalUserSimulatorAPI` |
+
+## Leaderboard
+
+Coming soon. The public evaluator is ready for reproducible submissions; report
+the track, method name, number of evaluated cases, table accuracy from
+`acc.txt`, and disambiguation metrics when the `interactive` track uses
+clarification.
 
 ## Task Formulation
 
@@ -28,32 +66,7 @@ The evaluator compares candidate outputs with per-case ground truth tables.
 Interactive agents may ask clarification questions through the local user
 simulator before producing outputs.
 
-## At a Glance
-
-| Item | Value |
-| --- | --- |
-| Dataset version | v0.1.0 |
-| Tasks | 306 |
-| Input tables | 829 |
-| Primary input | `query.md` + `inputs/*.csv` |
-| Candidate output | `solution/cand/*.csv` |
-| Ground truth | `src/evaluate/gt/case_xxx/` |
-| Optional interaction | `simulator.LocalUserSimulatorAPI` |
-
-## Repository Layout
-
-```text
-data/                         # public benchmark cases
-src/evaluate/                  # output-table evaluator
-src/evaluate/gt/               # ground-truth outputs and comparison configs
-src/simulator/                 # local user simulator API
-docs/                          # dataset, evaluation, and simulator docs
-examples/                      # small integration examples
-scripts/validate_dataset.py    # local integrity check
-```
-
-The public repository intentionally excludes internal data-construction scripts,
-plotting scripts, paper experiment runners, and private reference solutions.
+![PrepBench overview](docs/assets/prepbench_overview.png)
 
 ## Evaluation Tracks
 
@@ -76,7 +89,7 @@ All tracks use the same candidate-output contract:
 ```bash
 git clone https://github.com/TsinghuaDatabaseGroup/prepbench.git
 cd prepbench
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
@@ -102,7 +115,7 @@ Asset visibility:
 | `inputs/*.csv` | Yes | Raw input tables |
 | `query_full.md` | Only in `oracle` track | Clarified task instruction |
 | `amb_kb.json` | No | Simulator and disambiguation metadata |
-| `src/evaluate/gt/case_xxx/` | No | Ground-truth outputs and comparison config |
+| `src/evaluate/gt/` | No | Ground-truth outputs and comparison config |
 | private reference solutions | No | Simulator-side evidence only |
 
 Validate the local dataset:
@@ -117,7 +130,7 @@ Expected summary:
 cases=306 input_tables=829 gt_cases=306 errors=0
 ```
 
-More details: `docs/DATASET.md`.
+More details: [docs/DATASET.md](docs/DATASET.md).
 
 ## Evaluate an Agent
 
@@ -144,14 +157,15 @@ The evaluator writes:
 @output/my_agent/interactive/acc.txt
 ```
 
-More details: `docs/EVALUATION.md`.
+More details: [docs/EVALUATION.md](docs/EVALUATION.md).
 
 ## Use the Local User Simulator
 
-Set simulator credentials in `.env` or the process environment:
+Set simulator credentials in `.env` or the process environment. Replace the
+model value with an OpenAI-compatible model available from your provider:
 
 ```bash
-PREPBENCH_SIMULATOR_MODEL=openai/gpt-5.2
+PREPBENCH_SIMULATOR_MODEL=your-model-name
 OPENROUTER_API_KEY=your_openrouter_api_key
 ```
 
@@ -176,14 +190,22 @@ response = api.ask(
 print(response["answers"])
 ```
 
-More details: `docs/USER_SIMULATOR.md` and
-`docs/contracts/USER_SIMULATOR_LOCAL.md`.
+More details: [docs/USER_SIMULATOR.md](docs/USER_SIMULATOR.md) and
+[docs/contracts/USER_SIMULATOR_LOCAL.md](docs/contracts/USER_SIMULATOR_LOCAL.md).
+
+## Results
+
+Paper result figures and benchmark analysis are collected in
+[docs/RESULTS.md](docs/RESULTS.md). The public repository exposes the
+table-output evaluator and disambiguation metrics for the tracks above; workflow
+translation results are documented as paper analysis unless a corresponding
+public evaluator is released.
 
 ## Reporting Results
 
-Report the track, model or agent name, table accuracy from `acc.txt`, and whether
-disambiguation metrics were used. If only a subset of cases was run, report the
-case range explicitly.
+Report the track, model or agent name, table accuracy from `acc.txt`, and
+whether disambiguation metrics were used. If only a subset of cases was run,
+report the case range explicitly.
 
 ## Minimal Example
 
@@ -199,13 +221,13 @@ table preparation under clarified instructions.
 **Why is my case marked `NOT_FOUND`?** The evaluator expects candidate CSVs under
 `case_xxx/solution/cand/`.
 
-**Why does the simulator fail before answering?** Set a simulator API key and make
-sure `PREPBENCH_SOLUTIONS_ROOT` points to private reference solutions.
+**Why does the simulator fail before answering?** Set a simulator API key and
+make sure `PREPBENCH_SOLUTIONS_ROOT` points to private reference solutions.
 
 ## Private Assets
 
-Reference solutions are used only by benchmark-side simulation. They are not part
-of the public repository and are ignored by Git.
+Reference solutions are used only by benchmark-side simulation. They are not
+part of the public repository and are ignored by Git.
 
 Supported local layouts:
 
@@ -225,4 +247,4 @@ src/simulator/assets/solutions/
 ## Citation
 
 If you use PrepBench in research, cite the paper and this repository. Citation
-metadata is available in `CITATION.cff`.
+metadata is available in [CITATION.cff](CITATION.cff).
