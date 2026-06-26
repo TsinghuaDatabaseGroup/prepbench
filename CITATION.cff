@@ -11,5 +11,5 @@ authors:
     given-names: "Jiannan"
   - family-names: "Li"
     given-names: "Guoliang"
-repository-code: "https://github.com/zzzbitz/prepbench"
+repository-code: "https://github.com/TsinghuaDatabaseGroup/prepbench"
 license: "MIT"

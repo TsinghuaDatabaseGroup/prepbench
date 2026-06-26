@@ -74,7 +74,7 @@ All tracks use the same candidate-output contract:
 ## Install
 
 ```bash
-git clone https://github.com/zzzbitz/prepbench.git
+git clone https://github.com/TsinghuaDatabaseGroup/prepbench.git
 cd prepbench
 python -m venv .venv
 source .venv/bin/activate
