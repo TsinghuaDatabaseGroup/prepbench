@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Initials", "Engagement Order"],
+      "columns": {
+        "Calendar Days": "number",
+        "Initials": "text_exact",
+        "Engagement Order": "number",
+        "Grade Name": "text_norm",
+        "Day Rate": "number",
+        "Overall Rank": "number",
+        "Grade Rank": "number"
+      }
+    }
+  }
+}
+
+

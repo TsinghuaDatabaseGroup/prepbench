@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Branch", "Clean Measure names", "Recorded Year"],
+      "columns": {
+        "Branch": "text_exact",
+        "Clean Measure names": "text_exact",
+        "Recorded Year": "number",
+        "True Value": "number"
+      }
+    }
+  }
+}

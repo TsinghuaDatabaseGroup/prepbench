@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_missing_invalid",
+      "kind": "Operation incomplete",
+      "node_id": "expand_weeks",
+      "op": "script",
+      "intent": "Exclude manager records from weekly expansion when start date, end date, or salary is missing/invalid.",
+      "ref": "if pd.isna(start) or pd.isna(end) or pd.isna(salary): continue"
+    },
+    {
+      "id": "2_O1_weekly_date_generation_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "expand_weeks",
+      "op": "script",
+      "source_text": "For each manager, create a row for every week they receive their salary",
+      "ref": "week_dates = pd.date_range(start=aligned_start, end=aligned_end, freq=\"7D\")"
+    },
+    {
+      "id": "3_O2_drop_if_end_before_start",
+      "kind": "Operation incomplete",
+      "node_id": "filter_valid",
+      "op": "filter",
+      "intent": "Exclude records from weekly expansion if the aligned end date is earlier than the aligned start date.",
+      "ref": "if aligned_end < aligned_start: continue"
+    },
+    {
+      "id": "4_O2_inner_join_year_overlap",
+      "kind": "Operation incomplete",
+      "node_id": "join_annual",
+      "op": "join",
+      "intent": "When combining annual manager-salary totals with annual expenses, keep only years present in both datasets.",
+      "ref": "annual = annual_salary.merge(expenses, on=\"Year\", how=\"inner\")"
+    },
+    {
+      "id": "5_O1_round_annual_before_percent",
+      "kind": "Operation boundary",
+      "node_id": "proj_annual_round",
+      "op": "project",
+      "source_text": "Workout how much SuperBytes spends on Manager Salaries each year",
+      "ref": "annual_salary[\"Weekly Salary\"] = annual_salary[\"Weekly Salary\"].round(2)\nannual[\"% Spent on Manager Salaries\"] = (annual[\"Weekly Salary\"] / annual[\"Expenses\"] * 100).round(1)"
+    },
+    {
+      "id": "6_O1_week_anchor_sunday",
+      "kind": "Operation boundary",
+      "node_id": "proj_mgr_parse",
+      "op": "project",
+      "source_text": "For each manager, create a row for every week they receive their salary",
+      "ref": "def _align_start(date_value): days_until_sunday = (6 - date_value.weekday()) % 7\ndef _align_end(date_value): days_since_sunday = (date_value.weekday() - 6) % 7"
+    }
+  ]
+}

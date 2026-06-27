@@ -1,0 +1,20 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Transaction Date",
+                "Bank",
+                "Value",
+                "Bank Rank per Month"
+            ],
+            "columns": {
+                "Transaction Date": "text_exact",
+                "Bank": "text_exact",
+                "Value": "number",
+                "Bank Rank per Month": "number",
+                "Avg Transaction Value per Rank": "number",
+                "Avg Rank per Bank": "number"
+            }
+        }
+    }
+}

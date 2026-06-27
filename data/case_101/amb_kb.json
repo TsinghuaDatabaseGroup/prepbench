@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_avg_bike_value_field_and_agg",
+      "kind": "Group-level concept",
+      "node_id": "agg1",
+      "op": "aggregate",
+      "source_text": "Aggregate Value per Bike, Order Value and Quantity by Brand and Bike Type",
+      "ref": "        'Value per Bike': 'mean'"
+    },
+    {
+      "id": "2_C2_avg_days_to_ship_agg",
+      "kind": "Group-level concept",
+      "node_id": "agg2",
+      "op": "aggregate",
+      "source_text": "Aggregate Order Value, Quantity and Days to Ship by Brand and Store to form:",
+      "ref": "        'Days to Ship': 'mean'"
+    },
+    {
+      "id": "3_C1_brand_extraction_rule",
+      "kind": "Row-level concept",
+      "node_id": "prep",
+      "op": "project",
+      "source_text": "Clean up the Model field to leave only the letters to represent the Brand",
+      "ref": "df['Brand'] = df['Model'].str.extract(r'([A-Z]+)')"
+    },
+    {
+      "id": "4_C2_days_to_ship_definition",
+      "kind": "Row-level concept",
+      "node_id": "prep",
+      "op": "project",
+      "source_text": "Calculate Days to ship by measuring the difference between when an order was placed and when it was shipped",
+      "ref": "df['Days to Ship'] = (df['Shipping Date'] - df['Order Date']).dt.days"
+    },
+    {
+      "id": "5_O2_date_parse_format",
+      "kind": "Operation incomplete",
+      "node_id": "prep",
+      "op": "project",
+      "intent": "Parse Order Date and Shipping Date using dd/mm/YYYY format.",
+      "ref": "df['Order Date'] = pd.to_datetime(df['Order Date'], format='%d/%m/%Y')"
+    }
+  ]
+}

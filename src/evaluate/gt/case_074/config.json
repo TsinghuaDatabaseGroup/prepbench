@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Start Date",
+        "End Date",
+        "Games",
+        "Host",
+        "Nations",
+        "Sports",
+        "Events"
+      ],
+      "columns": {
+        "Start Date": "date",
+        "End Date": "date",
+        "Games": "text_exact",
+        "Host": "text_exact",
+        "Nations": "number",
+        "Sports": "number",
+        "Events": "number"
+      }
+    }
+  }
+}
+

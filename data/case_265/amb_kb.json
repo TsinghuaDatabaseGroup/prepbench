@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_closed_days_by_missing_dates",
+      "kind": "Operation incomplete",
+      "node_id": "complete_calendar",
+      "op": "project",
+      "source_text": "Create additional rows of data for the days the store was closed",
+      "ref": "Add rows for dates missing from transaction range"
+    },
+    {
+      "id": "2_D2_loyalty_join_key",
+      "kind": "Multi-table alignment",
+      "node_id": "join_loyalty",
+      "op": "join",
+      "source_text": "Join the Loyalty Table",
+      "ref": "Join on Loyalty_ID"
+    },
+    {
+      "id": "3_O2_loyalty_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_loyalty",
+      "op": "join",
+      "source_text": "Join the Loyalty Table",
+      "ref": "how='left'"
+    },
+    {
+      "id": "4_D2_product_join_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_txn_prod",
+      "op": "join",
+      "source_text": "Join the Product Table",
+      "ref": "Join on Product_Type + Product_Scent + Product_Size"
+    },
+    {
+      "id": "5_O2_product_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_txn_prod",
+      "op": "join",
+      "source_text": "Join the Product Table",
+      "ref": "how='left'"
+    },
+    {
+      "id": "6_C2_loyalty_discount_decimal_rate",
+      "kind": "Row-level concept",
+      "node_id": "loy_prep",
+      "op": "project",
+      "source_text": "Update the Loyalty_Discount to be a numeric field",
+      "ref": "Divide by 100 to get decimal rate"
+    },
+    {
+      "id": "7_O2_loyalty_tier_other_to_null",
+      "kind": "Row-level concept",
+      "node_id": "loy_prep",
+      "op": "project",
+      "source_text": "Group together the Loyalty_Tiers into Gold, Silver and Bronze",
+      "ref": "df.loc[df['Loyalty_Tier'] == 'Other', 'Loyalty_Tier'] = None"
+    },
+    {
+      "id": "8_C2_sales_after_discount_formula",
+      "kind": "Row-level concept",
+      "node_id": "quantity_and_sales",
+      "op": "project",
+      "source_text": "Create a Sales_After_Discount field to apply the Loyalty_Discount",
+      "ref": "Sales_After_Discount = Sales_Before * (1 - Loyalty_Discount)"
+    },
+    {
+      "id": "9_C2_profit_formula",
+      "kind": "Row-level concept",
+      "node_id": "quantity_and_sales",
+      "op": "project",
+      "source_text": "Calculate the Profit, defined as:",
+      "ref": "Profit = Sales_After - Unit_Cost * Quantity"
+    },
+    {
+      "id": "10_O1_quantity_floor",
+      "kind": "Operation boundary",
+      "node_id": "quantity_and_sales",
+      "op": "project",
+      "source_text": "Calculate the Quantity of each transaction",
+      "ref": "Quantity = floor(Sales_Before / Selling_Price)"
+    },
+    {
+      "id": "11_O2_quantity_null_if_price_missing_or_zero",
+      "kind": "Operation incomplete",
+      "node_id": "quantity_and_sales",
+      "op": "project",
+      "intent": "If Selling_Price is missing or zero, Quantity = null.",
+      "ref": "if price <= 0: return None"
+    },
+    {
+      "id": "12_O2_cash_or_card_invalid_null",
+      "kind": "Operation incomplete",
+      "node_id": "txn_clean",
+      "op": "project",
+      "intent": "If Cash_or_Card is not 1/2 (or their string forms), map it to null.",
+      "ref": "cash_map = {1: \"Card\", 2: \"Cash\", \"1\": \"Card\", \"2\": \"Cash\"}\ntransactions[\"Cash_or_Card\"] = transactions[\"Cash_or_Card\"].map(cash_map)"
+    },
+    {
+      "id": "13_D2_split_product_id_on_dash",
+      "kind": "Single-table reference",
+      "node_id": "txn_split",
+      "op": "project",
+      "source_text": "You'll need to prepare the join clause fields first",
+      "ref": "Split on '-'"
+    }
+  ]
+}

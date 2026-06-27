@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_pct_uses_true_hours_ratio",
+      "kind": "Group-level concept",
+      "node_id": "compute_pct_and_round",
+      "op": "project",
+      "source_text": "Understand the '% of downtime' per system in hours",
+      "ref": "df_all[\"_hours_true\"] / df_all[\"_total_true\"]"
+    },
+    {
+      "id": "2_C2_auto_parse_to_datetime",
+      "kind": "Row-level concept",
+      "node_id": "in_auto",
+      "op": "input",
+      "intent": "Parse automatic log Start Date / Time and End Date / Time into datetime values.",
+      "ref": "df_auto[\"Start Date / Time\"] = pd.to_datetime(df_auto[\"Start Date / Time\"])"
+    },
+    {
+      "id": "3_D2_overlap_strict_interval_intersection",
+      "kind": "Multi-table alignment",
+      "node_id": "overlap_filter",
+      "op": "filter",
+      "source_text": "Duplicates are determined by a system being down at the same time",
+      "ref": "overlap_check[\"_is_overlap\"] = (\n        (overlap_check[\"auto_start\"] < overlap_check[\"End Date / Time\"])\n        & (overlap_check[\"auto_end\"] > overlap_check[\"Start Date / Time\"])\n    ).fillna(False)"
+    },
+    {
+      "id": "4_C1_error_source_value_automatic",
+      "kind": "Row-level concept",
+      "node_id": "proj_auto",
+      "op": "project",
+      "intent": "Set Error Source for automatic log rows to the specific label used in output.",
+      "ref": "df_auto[\"Error Source\"] = \"Automatic Error log\""
+    },
+    {
+      "id": "5_C2_manual_datetime_concat_with_space",
+      "kind": "Row-level concept",
+      "node_id": "proj_manual",
+      "op": "project",
+      "source_text": "Make the manual date and time a date / time field",
+      "ref": "df_manual[\"Start Date / Time\"] = pd.to_datetime(\n        df_manual[\"Start Date\"].astype(\n            str) + \" \" + df_manual[\"Start Time\"].astype(str)\n    )"
+    },
+    {
+      "id": "6_C1_error_source_value_manual",
+      "kind": "Row-level concept",
+      "node_id": "proj_manual",
+      "op": "project",
+      "intent": "Set Error Source for manual log rows to the specific label used in output.",
+      "ref": "df_manual[\"Error Source\"] = \"Manual capture error list\""
+    },
+    {
+      "id": "7_C2_total_downtime_sum_rounded_event_hours",
+      "kind": "Group-level concept",
+      "node_id": "totals_by_sys",
+      "op": "aggregate",
+      "source_text": "Understand the '% of downtime' per system in hours",
+      "ref": "total_per_sys_display = df_all.groupby(\n        \"System\")[\"Downtime in Hours\"].sum().round(1)"
+    }
+  ]
+}

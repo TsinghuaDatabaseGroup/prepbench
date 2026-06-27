@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_num_patients_distinct",
+      "kind": "Group-level concept",
+      "node_id": "agg_output1",
+      "op": "aggregate",
+      "source_text": "Number of Patients",
+      "ref": "        'Number of Patients': ('Patient Name', 'nunique')"
+    },
+    {
+      "id": "2_C2_days_count_definition",
+      "kind": "Group-level concept",
+      "node_id": "agg_output2",
+      "op": "aggregate",
+      "intent": "Compute Days as the count of daily rows per patient for Output 2 averaging.",
+      "ref": "        'Days': ('Date in Hospital', 'count')"
+    },
+    {
+      "id": "3_D2_apply_schedule_to_all_patients",
+      "kind": "Multi-table alignment",
+      "node_id": "join_checkups",
+      "op": "join",
+      "source_text": "Add Frequency of Check-Ups data",
+      "ref": "    df_checkups = df_all[['Patient Name', 'Leave Date']].assign(key=1).merge(\n        df_checkup_schedule.assign(key=1), on='key'\n    ).drop('key', axis=1)"
+    },
+    {
+      "id": "4_O1_checkin_calendar_month_offset",
+      "kind": "Operation boundary",
+      "node_id": "proj_checkin_date_compute",
+      "op": "project",
+      "source_text": "using Frequency from the **date the patient leaves hospital**",
+      "ref": "        lambda r: r['Leave Date'] + pd.DateOffset(months=int(r['Months After Leaving'])), axis=1"
+    },
+    {
+      "id": "5_C1_checkup_cost_tiers_by_dayindex",
+      "kind": "Row-level concept",
+      "node_id": "proj_cost_checkups_compute",
+      "op": "project",
+      "source_text": "Check-up day one is £100 no matter length of previous stay",
+      "ref": "    return pd.cut(day_index, bins=[0, 3, 7, float('inf')], labels=[100, 80, 75]).astype(int)"
+    },
+    {
+      "id": "6_C1_initial_cost_tiers_by_dayindex",
+      "kind": "Row-level concept",
+      "node_id": "proj_cost_initial",
+      "op": "project",
+      "source_text": "The same cost model is used but each check-up is classed as an individual visit.",
+      "ref": "    return pd.cut(day_index, bins=[0, 3, 7, float('inf')], labels=[100, 80, 75]).astype(int)"
+    },
+    {
+      "id": "7_O2_parse_new_first_visit_dmy",
+      "kind": "Operation boundary",
+      "node_id": "proj_new",
+      "op": "project",
+      "intent": "Parse new patients' First Visit dates using day/month/year format.",
+      "ref": "    df_new_patients['First Visit'] = pd.to_datetime(\n        df_new_patients['First Visit'], format='%d/%m/%Y')"
+    },
+    {
+      "id": "8_D1_rename_old_name_column",
+      "kind": "Single-table reference",
+      "node_id": "proj_old",
+      "op": "project",
+      "source_text": "and we seem to have a different column name too... the joy of manual data capture.",
+      "ref": "    df_old_patients = df_old_patients.rename(columns={'Name': 'Patient Name'})"
+    },
+    {
+      "id": "9_O2_parse_old_first_visit_ymd",
+      "kind": "Operation boundary",
+      "node_id": "proj_old",
+      "op": "project",
+      "intent": "Parse old patients' First Visit dates using year-month-day format.",
+      "ref": "    df_old_patients['First Visit'] = pd.to_datetime(\n        df_old_patients['First Visit'], format='%Y-%m-%d')"
+    },
+    {
+      "id": "10_C2_output1_avg_formula",
+      "kind": "Group-level concept",
+      "node_id": "proj_output1_compute",
+      "op": "project",
+      "source_text": "Avg Cost per Day",
+      "ref": "    g['Avg Cost per Day'] = g['Total Cost per Day'] / g['Number of Patients']"
+    },
+    {
+      "id": "11_O1_leave_date_inclusive_last_day",
+      "kind": "Operation boundary",
+      "node_id": "proj_with_leave",
+      "op": "project",
+      "source_text": "date the patient leaves hospital",
+      "ref": "    df_all['Leave Date'] = df_all['First Visit'] + \\\n        pd.to_timedelta(df_all['Length of Stay'] - 1, unit='d')"
+    }
+  ]
+}

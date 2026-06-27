@@ -1,0 +1,24 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Property Number",
+                "Town",
+                "Postal Code",
+                "Country",
+                "Customer",
+                "Product",
+                "Sales"
+            ],
+            "columns": {
+                "Property Number": "number",
+                "Town": "text_exact",
+                "Postal Code": "text_exact",
+                "Country": "text_exact",
+                "Customer": "text_exact",
+                "Product": "text_exact",
+                "Sales": "number"
+            }
+        }
+    }
+}

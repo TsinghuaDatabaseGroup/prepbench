@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Cake Needed On Date"],
+      "columns": {
+        "Cake Needed On Date": "date",
+        "Cake Weekday": "text_exact",
+        "Count of Cakes": "number"
+      }
+    }
+  }
+}
+
+

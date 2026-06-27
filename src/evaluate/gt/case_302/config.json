@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Customer ID"],
+      "columns": {
+        "Customer ID": "number",
+        "First Name": "text_exact",
+        "Last Name": "text_exact",
+        "Phone Number": "text_exact",
+        "Address": "text_exact"
+      }
+    }
+  }
+}
+

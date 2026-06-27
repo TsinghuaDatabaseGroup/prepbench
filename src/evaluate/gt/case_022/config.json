@@ -1,0 +1,12 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Date", "Sales", "Moving Avg Sales"],
+      "columns": {
+        "Date": "date",
+        "Sales": "number",
+        "Moving Avg Sales": "number"
+      }
+    }
+  }
+}

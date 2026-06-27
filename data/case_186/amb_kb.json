@@ -1,0 +1,100 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_speed_default_30",
+      "kind": "Group-level concept",
+      "node_id": "agg_year",
+      "op": "aggregate",
+      "source_text": "Create a parameter to let the user select any speed as the average riding speed (KPH)",
+      "ref": "    speed_kph = 30\n        total_distance = (total_mins / 60.0) * speed_kph"
+    },
+    {
+      "id": "2_C2_avg_cpm_per_ride",
+      "kind": "Group-level concept",
+      "node_id": "agg_year",
+      "op": "aggregate",
+      "source_text": "Avg. Calories per Minute",
+      "ref": "        year_data[\"Calories per Minute\"] = year_data[\"Calories\"] / year_data[\"Minutes\"]\n        avg_calories_per_minute = year_data[\"Calories per Minute\"].mean()"
+    },
+    {
+      "id": "3_O1_exclude_nonpositive_minutes",
+      "kind": "Operation boundary",
+      "node_id": "filter_years",
+      "op": "filter",
+      "intent": "Whether to exclude rides with non-positive minutes from all calculations.",
+      "ref": "year_data = year_data[year_data[\"Minutes\"] > 0]"
+    },
+    {
+      "id": "4_O2_restrict_years_2021_2022",
+      "kind": "Operation boundary",
+      "node_id": "filter_years",
+      "op": "filter",
+      "intent": "Whether to restrict calculations to only rides from years 2021 and 2022.",
+      "ref": "df = df[df[\"Year\"].isin([2021, 2022])].copy()"
+    },
+    {
+      "id": "5_O1_round_1dp_strip_zeros",
+      "kind": "Operation boundary",
+      "node_id": "fmt_year_stats",
+      "op": "project",
+      "intent": "How to round and display non-total numeric measures (precision and trailing-zero handling).",
+      "ref": "formatted = f\"{rounded:.{decimals}f}\"\n        formatted = formatted.rstrip(\"0\").rstrip(\".\")\n            \"Total Distance\": format_decimal(total_distance, 1),"
+    },
+    {
+      "id": "6_O1_totals_as_integers",
+      "kind": "Operation boundary",
+      "node_id": "fmt_year_stats",
+      "op": "project",
+      "intent": "Whether to format Total Mins and Total Rides as whole numbers (no decimals).",
+      "ref": "\"Total Mins\": str(int(total_mins)),\n            \"Total Rides\": str(total_rides),"
+    },
+    {
+      "id": "7_O3_cpm_best_by_max_avg",
+      "kind": "Group-level concept",
+      "node_id": "pick_cpm_best",
+      "op": "dedup",
+      "source_text": "Calories per Minute per Coach",
+      "ref": "coach_cpm = (\n            year_data.groupby(\"Coach\")[\"Calories per Minute\"].mean().sort_values(ascending=False)\n        )\n        max_cpm_value = coach_cpm.iloc[0]"
+    },
+    {
+      "id": "8_O3_cpm_tie_break_alpha",
+      "kind": "Operation boundary",
+      "node_id": "pick_cpm_best",
+      "op": "dedup",
+      "source_text": "Calories per Minute per Coach",
+      "ref": "max_cpm_coaches = coach_cpm[coach_cpm == max_cpm_value].sort_index()\n        max_coach_cpm = max_cpm_coaches.index[0]"
+    },
+    {
+      "id": "9_O3_mins_best_by_max_sum",
+      "kind": "Group-level concept",
+      "node_id": "pick_mins_best",
+      "op": "dedup",
+      "source_text": "Total Minutes per Coach",
+      "ref": "mins_per_coach = (\n            year_data.groupby(\"Coach\")[\"Minutes\"].sum().sort_values(ascending=False)\n        )\n        max_mins_value = mins_per_coach.iloc[0]"
+    },
+    {
+      "id": "10_O3_mins_tie_break_alpha",
+      "kind": "Operation boundary",
+      "node_id": "pick_mins_best",
+      "op": "dedup",
+      "source_text": "Total Minutes per Coach",
+      "ref": "max_coaches = mins_per_coach[mins_per_coach == max_mins_value].sort_index()\n        max_coach_mins = max_coaches.index[0]"
+    },
+    {
+      "id": "11_O2_blank_when_missing_year",
+      "kind": "Operation incomplete",
+      "node_id": "pivot_out",
+      "op": "pivot",
+      "intent": "What to output for a (measure, year) cell when that year has no data available.",
+      "ref": "\"2022\": results_dict.get(2022, {}).get(measure, \"\"),\n            \"2021\": results_dict.get(2021, {}).get(measure, \"\"),"
+    },
+    {
+      "id": "12_O2_split_meta_delimiter",
+      "kind": "Single-table reference",
+      "node_id": "prepare",
+      "op": "project",
+      "source_text": "Split the unnamed column into Coach Calories Music Type",
+      "ref": "split_cols = df[last_col].str.split(\" - \", n=2, expand=True)"
+    }
+  ]
+}

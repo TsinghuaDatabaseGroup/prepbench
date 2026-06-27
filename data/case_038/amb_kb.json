@@ -1,0 +1,20 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_deterministic_visit_order",
+      "kind": "Row-level concept",
+      "node_id": "n3_sort",
+      "op": "sort",
+      "source_text": "Create a field that gives a patient’s visit number (i.e. how many times they have visited the clinic) for each visit.",
+      "ref": "df_sorted = df_sorted.sort_values([\"PatientID\", \"_visit_dt\", \"VisitID\"], ascending=[True, True, True])"
+    },
+    {
+      "id": "2_C1_new_patient_flag_labels",
+      "kind": "Row-level concept",
+      "node_id": "n7_format",
+      "op": "project",
+      "source_text": "Write a calculation that flags when a particular visit is a patient’s first visit.",
+      "ref": "df_out[\"New Patient Flag\"] = np.where(\n        df_out[\"Patient visit number\"] == 1, \"New patient\", \"Returning patient\"\n    )"
+    }
+  ]
+}

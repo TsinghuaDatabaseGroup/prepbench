@@ -1,0 +1,36 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Opponent (clean)",
+        "HI ASSISTS - Player",
+        "HI ASSISTS - Value",
+        "HI REBOUNDS - Player",
+        "HI REBOUNDS - Value",
+        "HI POINTS - Player",
+        "HI POINTS - Value",
+        "Win or Loss",
+        "Home or Away",
+        "True Date",
+        "OPPONENT",
+        "RESULT",
+        "W-L"
+      ],
+      "columns": {
+        "Opponent (clean)": "text_exact",
+        "HI ASSISTS - Player": "text_exact",
+        "HI ASSISTS - Value": "number",
+        "HI REBOUNDS - Player": "text_exact",
+        "HI REBOUNDS - Value": "number",
+        "HI POINTS - Player": "text_exact",
+        "HI POINTS - Value": "number",
+        "Win or Loss": "text_exact",
+        "Home or Away": "text_exact",
+        "True Date": "date",
+        "OPPONENT": "text_exact",
+        "RESULT": "text_exact",
+        "W-L": "text_exact"
+      }
+    }
+  }
+}

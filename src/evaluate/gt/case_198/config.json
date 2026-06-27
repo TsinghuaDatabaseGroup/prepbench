@@ -1,0 +1,28 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Prime Ministers",
+        "Start Date PM",
+        "End Date PM",
+        "Chelsea Managers",
+        "Matches",
+        "Matches Won",
+        "Matches Drawn",
+        "Matches Lost",
+        "Win %"
+      ],
+      "columns": {
+        "Prime Ministers": "text_exact",
+        "Start Date PM": "date",
+        "End Date PM": "date",
+        "Chelsea Managers": "number",
+        "Matches": "number",
+        "Matches Won": "number",
+        "Matches Drawn": "number",
+        "Matches Lost": "number",
+        "Win %": "number"
+      }
+    }
+  }
+}

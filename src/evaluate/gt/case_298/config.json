@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Product ID"],
+      "columns": {
+        "Category": "text_norm",
+        "Product": "text_exact",
+        "Product ID": "text_exact",
+        "Price": "number",
+        "Sales": "number",
+        "% of Total": "number"
+      }
+    }
+  }
+}
+

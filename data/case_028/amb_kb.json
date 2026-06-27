@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_indicator_columns",
+      "kind": "Single-table reference",
+      "node_id": "project_labels",
+      "op": "project",
+      "source_text": "Create single fields for Interaction, Manager Proximity, and Task Engagement",
+      "ref": "interaction_cols = [\"Manager\", \"Coworker\", \"Customer\", \"No One\"]; proximity_cols = [\"Next to (<2m)\", \"Close to (<5m)\", \"Further(>5m)\"]; task_cols = [\"On Task\", \"Off Task\"]"
+    },
+    {
+      "id": "2_O2_interaction_none_default_blank",
+      "kind": "Operation incomplete",
+      "node_id": "project_labels",
+      "op": "project",
+      "source_text": "Create a single field for who they interacted with.",
+      "ref": "df[\"Interaction\"] = pick_label(interaction_cols, \"\")"
+    },
+    {
+      "id": "3_O2_manager_proximity_none_default_na",
+      "kind": "Operation incomplete",
+      "node_id": "project_labels",
+      "op": "project",
+      "source_text": "Create a single field for the manager's proximity.",
+      "ref": "df[\"Manager Proximity\"] = pick_label(proximity_cols, \"NA\")"
+    },
+    {
+      "id": "4_O2_task_engagement_none_default_blank",
+      "kind": "Operation incomplete",
+      "node_id": "project_labels",
+      "op": "project",
+      "source_text": "Create a single field for whether they were on task or not.",
+      "ref": "df[\"Task Engagement\"] = pick_label(task_cols, \"\")"
+    },
+    {
+      "id": "5_O2_observation_fields_coerce_int",
+      "kind": "Operation boundary",
+      "node_id": "project_labels",
+      "op": "project",
+      "intent": "Coerce non-numeric values when converting observation fields to integers.",
+      "ref": "pd.to_numeric(out[\"Observation Length (mins)\"], errors=\"coerce\").astype(int)"
+    },
+    {
+      "id": "6_O1_base_date_for_timestamps",
+      "kind": "Operation boundary",
+      "node_id": "project_time",
+      "op": "project",
+      "source_text": "Calculate the actual start time.",
+      "ref": "base_date = pd.Timestamp(\"2019-08-16\")"
+    },
+    {
+      "id": "7_O1_base_time_from_first_interval",
+      "kind": "Operation boundary",
+      "node_id": "project_time",
+      "op": "project",
+      "source_text": "Calculate the actual start time.",
+      "ref": "base_time = pd.to_timedelta(out.groupby(\"Employee\")[\"Observation Start Time\"].transform(\"first\"))"
+    },
+    {
+      "id": "8_O1_offset_cumsum_of_prior_lengths",
+      "kind": "Row-level concept",
+      "node_id": "project_time",
+      "op": "project",
+      "source_text": "Calculate the actual start time.",
+      "ref": "offsets = out.groupby(\"Employee\")[\"Observation Length (mins)\"].shift(fill_value=0).groupby(out[\"Employee\"]).cumsum()"
+    },
+    {
+      "id": "9_O2_first_row_as_header",
+      "kind": "Operation boundary",
+      "node_id": "script_header",
+      "op": "script",
+      "intent": "Treat the first row as the header source and remove it from records.",
+      "ref": "header = df.iloc[0]; df = df.iloc[1:]"
+    },
+    {
+      "id": "10_O1_interval_sequence_order",
+      "kind": "Operation boundary",
+      "node_id": "sort_for_time",
+      "op": "sort",
+      "source_text": "Calculate the actual start time.",
+      "ref": "out.sort_values([\"Employee\", \"Observation Interval\"])"
+    }
+  ]
+}

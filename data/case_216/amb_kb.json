@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_rolling_window_fixed_3",
+      "kind": "Group-level concept",
+      "node_id": "rolling_avg",
+      "op": "project",
+      "source_text": "I've set a default of 3 trades in my moving average/",
+      "ref": ".rolling(window=3, min_periods=1)"
+    },
+    {
+      "id": "2_O2_rolling_avg_min_periods_growing_window",
+      "kind": "Operation incomplete",
+      "node_id": "rolling_avg",
+      "op": "project",
+      "intent": "For early trades in a sector with fewer than 3 trades so far, compute the mean over available trades (min periods = 1).",
+      "ref": ".rolling(window=3, min_periods=1)"
+    },
+    {
+      "id": "3_O1_sort_id_ascending_within_file",
+      "kind": "Operation boundary",
+      "node_id": "sort_for_order",
+      "op": "sort",
+      "source_text": "from the File Name and ID as the order of each trade within each monthly file",
+      "ref": "df = df.sort_values([\"__month\", \"id\"], kind=\"mergesort\").copy()"
+    },
+    {
+      "id": "4_O1_sort_month_from_filename_numeric_part",
+      "kind": "Row-level concept",
+      "node_id": "sort_for_order",
+      "op": "sort",
+      "source_text": "from the File Name and ID as the order of each trade within each monthly file",
+      "ref": "m = re.search(r\"input_(\\d+)\\.csv$\", f.name)\nmonth_no = int(m.group(1)) if m else 0"
+    },
+    {
+      "id": "5_O1_keep_most_recent_100_trades_by_trade_order",
+      "kind": "Operation boundary",
+      "node_id": "tail_100",
+      "op": "filter",
+      "source_text": "Filter the data for the last 100 trades for each Sector",
+      "ref": "g = g.sort_values(\"Trade Order\", kind=\"mergesort\")\nif len(g) > 100:\n    g = g.iloc[-100:].copy()"
+    },
+    {
+      "id": "6_D1_union_all_input_monthly_files",
+      "kind": "Single-table reference",
+      "node_id": "u_all",
+      "op": "union",
+      "intent": "Read and append (union) all monthly trade files matching input_*.csv into one dataset.",
+      "ref": "files = sorted(inputs_dir.glob(\"input_*.csv\"), key=lambda p: p.name)"
+    },
+    {
+      "id": "7_O2_drop_sectors_with_fewer_than_100_trades",
+      "kind": "Operation incomplete",
+      "node_id": "valid_sector",
+      "op": "filter",
+      "intent": "Only include sectors that have at least 100 total trades (exclude sectors with fewer than 100).",
+      "ref": "counts = df_keep.groupby(\"Sector\", dropna=False).size()\nvalid_labels = [label for label in counts.index if pd.notna(\n    label) and counts[label] >= 100]"
+    },
+    {
+      "id": "8_C2_trade_order_as_1_based_running_count_per_sector_after_global_sort",
+      "kind": "Group-level concept",
+      "node_id": "with_trade_order",
+      "op": "project",
+      "source_text": "Create a Trade Order field showing the order each trade has happened in for each Sector",
+      "ref": "df[\"Trade Order\"] = df.groupby(\"Sector\", dropna=False).cumcount() + 1"
+    }
+  ]
+}

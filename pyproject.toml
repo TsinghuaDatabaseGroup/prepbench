@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prepbench"
+version = "0.1.0"
+description = "Benchmark dataset, evaluator, and user simulator for natural-language-driven data preparation"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "Jinja2>=3.1",
+  "pandas>=2.1",
+  "PyYAML>=6.0",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[tool.setuptools]
+packages = [
+  "evaluate",
+  "evaluate.matchers",
+  "simulator",
+]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.package-data]
+simulator = ["prompts/*.yaml", "prompts/templates/*.jinja2"]

@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_category_dedup",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_name_category",
+      "op": "dedup",
+      "intent": "If a weapon Name appears with multiple Category values, keep a single consistent Category per Name (e.g., first encountered).",
+      "ref": "df[[\"Name\", \"Category\"]].drop_duplicates()"
+    },
+    {
+      "id": "2_O3_keep_ties_rank1",
+      "kind": "Operation boundary",
+      "node_id": "filter_pick_best",
+      "op": "filter",
+      "source_text": "Filter for the number 1 rank and output the data",
+      "ref": "merged[\"Rank\"] = merged.groupby(\"Total Required Level\")[\"Total Attack Damage\"].rank(\n        method=\"dense\", ascending=False\n    )\n\n    result = merged[merged[\"Rank\"] == 1].copy()"
+    },
+    {
+      "id": "3_O2_join_inner_only",
+      "kind": "Operation incomplete",
+      "node_id": "join_damage_level",
+      "op": "join",
+      "source_text": "Find the total “Attack Damage” and total “Required Level” for all weapons and join the datasets together.",
+      "ref": "merged = total_damage.merge(total_level, on=\"Name\", how=\"inner\")"
+    },
+    {
+      "id": "4_O2_damage_parse_non_numeric_as_zero",
+      "kind": "Operation incomplete",
+      "node_id": "project_damage_parse",
+      "op": "project",
+      "intent": "When splitting damage cells, treat missing parts or non-numeric parts as 0 (in addition to '-' meaning 0).",
+      "ref": "def split_damage(value):\n        if pd.isna(value) or value == \"-\":\n            return 0, 0\n        parts = str(value).strip().split()\n        if len(parts) == 2:\n            attack = 0 if parts[0] == \"-\" else int(parts[0])\n            resistance = 0 if parts[1] == \"-\" else int(parts[1])\n            return attack, resistance\n        elif len(parts) == 1:\n            if parts[0] == \"-\":\n                return 0, 0\n            else:\n                \n                return int(parts[0]), 0\n        return 0, 0"
+    },
+    {
+      "id": "5_O2_level_parse_non_numeric_as_zero",
+      "kind": "Operation incomplete",
+      "node_id": "project_level_parse",
+      "op": "project",
+      "intent": "When splitting level-requirement cells, treat missing or non-numeric required-level parts as 0 (in addition to '-' meaning 0).",
+      "ref": "def split_level(value):\n        if pd.isna(value) or value == \"-\":\n            return 0, 0\n        parts = str(value).strip().split()\n        if len(parts) == 2:\n            level = 0 if parts[0] == \"-\" else int(parts[0])\n            scaling = 0 if parts[1] == \"-\" else (0 if parts[1] == \"-\" else 1)\n            return level, scaling\n        elif len(parts) == 1:\n            if parts[0] == \"-\":\n                return 0, 0\n            else:\n                try:\n                    return int(parts[0]), 0\n                except:\n                    return 0, 0\n        return 0, 0"
+    }
+  ]
+}

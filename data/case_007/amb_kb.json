@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_alloc_agg_grain",
+      "kind": "Group-level concept",
+      "node_id": "alloc_agg",
+      "op": "aggregate",
+      "source_text": "Figure out how much weight and volume has been allocated for each departure in the Allocation Details table.",
+      "ref": "agg = df_alloc.groupby([\"Ship ID\", \"Departure Date\"])[[\"Weight Allocated\", \"Volume Allocated\"]].sum()"
+    },
+    {
+      "id": "2_D1_parse_ship_id_from_departure_id",
+      "kind": "Row-level concept",
+      "node_id": "alloc_parse",
+      "op": "project",
+      "intent": "Derive Ship ID from the Departure ID by taking the portion before the date segment.",
+      "ref": "df_alloc[\"Ship ID\"] = dep_id.str[:-11]"
+    },
+    {
+      "id": "3_O2_normalize_departure_date",
+      "kind": "Row-level concept",
+      "node_id": "alloc_parse",
+      "op": "project",
+      "intent": "Convert Departure Date parsed from Departure ID into an ISO-style text key for matching.",
+      "ref": "date_part = dep_id.str[-10:]"
+    },
+    {
+      "id": "4_D2_join_on_ship_id_departure_date",
+      "kind": "Multi-table alignment",
+      "node_id": "join_dep",
+      "op": "join",
+      "intent": "Join allocation totals onto departures using (Ship ID, Departure Date) as the join key.",
+      "ref": "on=[\"Ship ID\", \"Departure Date\"]"
+    },
+    {
+      "id": "5_O2_left_join_keep_all_departures",
+      "kind": "Operation incomplete",
+      "node_id": "join_dep",
+      "op": "join",
+      "intent": "Keep all Departure Details rows even when there are no matching allocations (left join).",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "6_O2_fill_missing_allocations_zero",
+      "kind": "Operation incomplete",
+      "node_id": "post_compute",
+      "op": "project",
+      "intent": "For departures with no matching allocations, set allocated values to 0.",
+      "ref": "fillna(0).astype(int)"
+    },
+    {
+      "id": "7_O1_exceeded_flag_strictly_greater",
+      "kind": "Operation boundary",
+      "node_id": "post_compute",
+      "op": "project",
+      "source_text": "Find a way to flag departures on the Departure Details table which have had too much cargo weight or volume allocated.",
+      "ref": "df[\"Max Weight Exceeded?\"] = df[\"Weight Allocated\"] > df[\"Max Weight\"]"
+    }
+  ]
+}

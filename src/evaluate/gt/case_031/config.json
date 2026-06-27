@@ -1,0 +1,56 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Avg Time to Send",
+                "Customer"
+            ],
+            "columns": {
+                "Avg Time to Send": "number",
+                "Customer": "text_exact"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Time to Review from Sending Order",
+                "Customer"
+            ],
+            "columns": {
+                "Time to Review from Sending Order": "number",
+                "Customer": "text_exact"
+            }
+        },
+        "output_03.csv": {
+            "key": [
+                "City",
+                "Order not sent",
+                "Purchased",
+                "Sent",
+                "Order",
+                "Customer"
+            ],
+            "columns": {
+                "City": "text_exact",
+                "Order not sent": "text_exact",
+                "Purchased": "date",
+                "Sent": "date",
+                "Order": "number",
+                "Customer": "text_exact"
+            }
+        },
+        "output_04.csv": {
+            "key": [
+                "City",
+                "% Orders meeting 3 Day KPI",
+                "Time to Send KPI",
+                "Orders per City"
+            ],
+            "columns": {
+                "City": "text_exact",
+                "% Orders meeting 3 Day KPI": "number",
+                "Time to Send KPI": "number",
+                "Orders per City": "number"
+            }
+        }
+    }
+}

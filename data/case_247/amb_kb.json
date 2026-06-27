@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_term_bounds_min_max",
+      "kind": "Row-level concept",
+      "node_id": "days_expand",
+      "op": "script",
+      "source_text": "fill in all the missing dates between the First Day of Term and Last Day of Term.",
+      "ref": "start_date = events[\"Date\"].min()\nend_date = events[\"Date\"].max()"
+    },
+    {
+      "id": "2_O1_date_range_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "days_expand",
+      "op": "script",
+      "source_text": "fill in all the missing dates between the First Day of Term and Last Day of Term.",
+      "ref": "all_days = pd.DataFrame({\"Date\": pd.date_range(start=start_date, end=end_date, freq=\"D\")})"
+    },
+    {
+      "id": "3_O2_date_parse_day_first",
+      "kind": "Single-table reference",
+      "node_id": "events_fix_date",
+      "op": "project",
+      "intent": "Parse the events Date field using day-first interpretation.",
+      "ref": "events[\"Date\"] = pd.to_datetime(events[\"Date\"], dayfirst=True, infer_datetime_format=True)"
+    },
+    {
+      "id": "4_D2_join_clubs_on_day_of_week",
+      "kind": "Multi-table alignment",
+      "node_id": "join_clubs",
+      "op": "join",
+      "source_text": "Input the After School Club data set and combine the data sets to show which club is on which day",
+      "ref": "all_days = all_days.merge(clubs, on=\"Day of Week\", how=\"left\")"
+    },
+    {
+      "id": "5_O2_join_clubs_left_keep_all_weekdays",
+      "kind": "Row-level concept",
+      "node_id": "join_clubs",
+      "op": "join",
+      "intent": "When no club matches a weekday, keep the weekday row (left join).",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "7_O2_join_events_left_keep_all_weekdays",
+      "kind": "Row-level concept",
+      "node_id": "join_events",
+      "op": "join",
+      "intent": "When no event exists for a date, keep the date row (left join).",
+      "ref": "how=\"left\""
+    }
+  ]
+}

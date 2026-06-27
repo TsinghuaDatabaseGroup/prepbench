@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Email Address"
+      ],
+      "columns": {
+        "City": "text_norm",
+        "Store": "text_norm",
+        "Rank": "number",
+        "Email Address": "text_norm",
+        "First Name": "text_norm",
+        "Last Name": "text_norm",
+        "Loyalty Points": "number",
+        "Date": "date",
+        "Postcode": "text_norm",
+        "address": "text_norm"
+      }
+    }
+  }
+}
+

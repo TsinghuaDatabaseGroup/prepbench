@@ -1,0 +1,264 @@
+Sales Date,Product,Price,Quantity Sold
+2020-01-20,Egg-citing Citrus Soap,1.5,20
+2020-01-20,Eggcellent Citrus Splash Soap,1.25,16
+2020-01-20,Hot Cross Bun & Honey Almond Soap,2.0,21
+2020-01-20,Spring Meadow Goat Milk Soap,3.75,28
+2020-01-21,Chocolate Bunny Exfoliating Scrub,10.0,16
+2020-01-21,Eggcellent Citrus Splash Soap,1.25,6
+2020-01-21,Hot Cross Bun & Honey Almond Soap,2.0,8
+2020-01-21,Spring Meadow Goat Milk Soap,3.75,5
+2020-01-21,Springtime Blossom Handmade Soap,3.0,10
+2020-01-22,Chocolate Bunny Exfoliating Scrub,10.0,23
+2020-01-22,Hot Cross Bun & Honey Almond Soap,2.0,8
+2020-01-22,Spring Meadow Goat Milk Soap,3.75,13
+2020-01-23,Chocolate Bunny Exfoliating Scrub,10.0,16
+2020-01-23,Egg-citing Citrus Soap,1.5,35
+2020-01-23,Eggcellent Citrus Splash Soap,1.25,15
+2020-01-23,Spring Meadow Goat Milk Soap,3.75,33
+2020-01-23,Springtime Blossom Handmade Soap,3.0,24
+2020-01-24,Egg-citing Citrus Soap,1.5,27
+2020-01-24,Eggcellent Citrus Splash Soap,1.25,37
+2020-01-24,Spring Meadow Goat Milk Soap,3.75,38
+2020-01-24,Springtime Blossom Handmade Soap,3.0,22
+2020-01-25,Egg-citing Citrus Soap,1.5,11
+2020-01-25,Eggcellent Citrus Splash Soap,1.25,33
+2020-01-25,Hot Cross Bun & Honey Almond Soap,2.0,11
+2020-01-25,Springtime Blossom Handmade Soap,3.0,28
+2020-01-26,Chocolate Bunny Exfoliating Scrub,10.0,33
+2020-01-26,Egg-citing Citrus Soap,1.5,28
+2020-01-26,Hot Cross Bun & Honey Almond Soap,2.0,36
+2020-01-26,Spring Meadow Goat Milk Soap,3.75,32
+2020-01-26,Springtime Blossom Handmade Soap,3.0,18
+2020-01-27,Chocolate Bunny Exfoliating Scrub,10.0,32
+2020-01-27,Egg-citing Citrus Soap,1.5,11
+2020-01-27,Eggcellent Citrus Splash Soap,1.25,20
+2020-01-27,Hot Cross Bun & Honey Almond Soap,2.0,36
+2020-01-28,Hot Cross Bun & Honey Almond Soap,2.0,20
+2020-01-28,Spring Meadow Goat Milk Soap,3.75,9
+2020-01-28,Springtime Blossom Handmade Soap,3.0,16
+2020-01-29,Chocolate Bunny Exfoliating Scrub,10.0,33
+2020-01-29,Spring Meadow Goat Milk Soap,3.75,12
+2020-01-29,Springtime Blossom Handmade Soap,3.0,30
+2020-01-30,Chocolate Bunny Exfoliating Scrub,10.0,5
+2020-01-30,Egg-citing Citrus Soap,1.5,7
+2020-01-30,Eggcellent Citrus Splash Soap,1.25,30
+2020-01-30,Spring Meadow Goat Milk Soap,3.75,11
+2020-01-30,Springtime Blossom Handmade Soap,3.0,26
+2020-01-31,Eggcellent Citrus Splash Soap,1.25,9
+2020-01-31,Springtime Blossom Handmade Soap,3.0,7
+2020-02-01,Egg-citing Citrus Soap,1.5,14
+2020-02-01,Eggcellent Citrus Splash Soap,1.25,21
+2020-02-01,Spring Meadow Goat Milk Soap,3.75,6
+2020-02-03,Egg-citing Citrus Soap,1.5,3
+2020-02-03,Eggcellent Citrus Splash Soap,1.25,9
+2020-02-03,Spring Meadow Goat Milk Soap,3.75,37
+2020-02-04,Eggcellent Citrus Splash Soap,1.25,38
+2020-02-04,Spring Meadow Goat Milk Soap,3.75,15
+2020-02-05,Chocolate Bunny Exfoliating Scrub,10.0,23
+2020-02-06,Spring Meadow Goat Milk Soap,3.75,34
+2020-02-07,Chocolate Bunny Exfoliating Scrub,10.0,17
+2020-02-08,Egg-citing Citrus Soap,1.5,20
+2020-02-09,Chocolate Bunny Exfoliating Scrub,10.0,36
+2020-02-09,Egg-citing Citrus Soap,1.5,12
+2020-02-09,Spring Meadow Goat Milk Soap,3.75,21
+2020-02-10,Chocolate Bunny Exfoliating Scrub,10.0,10
+2020-02-10,Egg-citing Citrus Soap,1.5,30
+2020-02-11,Chocolate Bunny Exfoliating Scrub,10.0,3
+2020-02-12,Egg-citing Citrus Soap,1.5,32
+2020-02-12,Spring Meadow Goat Milk Soap,3.75,34
+2020-02-13,Chocolate Bunny Exfoliating Scrub,10.0,5
+2020-02-13,Egg-citing Citrus Soap,1.5,18
+2020-02-13,Spring Meadow Goat Milk Soap,3.75,20
+2020-02-14,Chocolate Bunny Exfoliating Scrub,10.0,16
+2020-02-15,Spring Meadow Goat Milk Soap,3.75,3
+2020-02-16,Chocolate Bunny Exfoliating Scrub,10.0,21
+2020-02-16,Spring Meadow Goat Milk Soap,3.75,33
+2020-02-18,Chocolate Bunny Exfoliating Scrub,10.0,22
+2020-02-19,Spring Meadow Goat Milk Soap,3.75,27
+2020-02-20,Chocolate Bunny Exfoliating Scrub,10.0,8
+2020-02-21,Chocolate Bunny Exfoliating Scrub,10.0,6
+2020-02-21,Spring Meadow Goat Milk Soap,3.75,13
+2020-02-22,Spring Meadow Goat Milk Soap,3.75,33
+2020-02-24,Chocolate Bunny Exfoliating Scrub,10.0,3
+2020-02-24,Spring Meadow Goat Milk Soap,3.75,31
+2020-02-26,Chocolate Bunny Exfoliating Scrub,10.0,32
+2020-02-26,Spring Meadow Goat Milk Soap,3.75,33
+2020-02-27,Chocolate Bunny Exfoliating Scrub,10.0,10
+2020-02-27,Spring Meadow Goat Milk Soap,3.75,28
+2020-02-28,Chocolate Bunny Exfoliating Scrub,10.0,9
+2020-02-28,Spring Meadow Goat Milk Soap,3.75,35
+2020-02-29,Chocolate Bunny Exfoliating Scrub,10.0,18
+2020-03-01,Spring Meadow Goat Milk Soap,3.75,18
+2020-03-03,Chocolate Bunny Exfoliating Scrub,10.0,10
+2020-03-03,Spring Meadow Goat Milk Soap,3.75,27
+2020-03-04,Chocolate Bunny Exfoliating Scrub,10.0,26
+2020-03-04,Spring Meadow Goat Milk Soap,3.75,27
+2020-03-06,Chocolate Bunny Exfoliating Scrub,10.0,4
+2020-03-06,Spring Meadow Goat Milk Soap,3.75,16
+2020-03-07,Chocolate Bunny Exfoliating Scrub,10.0,7
+2020-03-10,Chocolate Bunny Exfoliating Scrub,10.0,14
+2020-03-10,Spring Meadow Goat Milk Soap,3.75,35
+2020-03-11,Chocolate Bunny Exfoliating Scrub,10.0,13
+2020-03-11,Spring Meadow Goat Milk Soap,3.75,29
+2020-03-12,Chocolate Bunny Exfoliating Scrub,10.0,9
+2020-03-12,Spring Meadow Goat Milk Soap,3.75,34
+2020-03-13,Chocolate Bunny Exfoliating Scrub,10.0,24
+2020-03-13,Spring Meadow Goat Milk Soap,3.75,29
+2020-03-14,Spring Meadow Goat Milk Soap,3.75,15
+2020-03-17,Chocolate Bunny Exfoliating Scrub,10.0,29
+2020-03-17,Spring Meadow Goat Milk Soap,3.75,27
+2020-03-18,Chocolate Bunny Exfoliating Scrub,10.0,13
+2020-03-18,Spring Meadow Goat Milk Soap,3.75,15
+2020-03-19,Chocolate Bunny Exfoliating Scrub,10.0,22
+2020-03-20,Chocolate Bunny Exfoliating Scrub,10.0,37
+2020-03-20,Spring Meadow Goat Milk Soap,3.75,19
+2020-03-22,Chocolate Bunny Exfoliating Scrub,10.0,37
+2020-03-22,Spring Meadow Goat Milk Soap,3.75,10
+2020-03-23,Spring Meadow Goat Milk Soap,3.75,32
+2020-03-24,Chocolate Bunny Exfoliating Scrub,10.0,9
+2020-03-24,Spring Meadow Goat Milk Soap,3.75,13
+2020-03-25,Chocolate Bunny Exfoliating Scrub,10.0,17
+2020-03-26,Chocolate Bunny Exfoliating Scrub,10.0,31
+2020-03-26,Spring Meadow Goat Milk Soap,3.75,34
+2020-03-27,Chocolate Bunny Exfoliating Scrub,10.0,29
+2020-03-28,Spring Meadow Goat Milk Soap,3.75,33
+2020-03-30,Spring Meadow Goat Milk Soap,3.75,7
+2020-04-01,Spring Meadow Goat Milk Soap,3.75,4
+2020-02-02,Chocolate Bunny Exfoliating Scrub,10.0,28
+2020-02-02,Egg-citing Citrus Soap,1.5,18
+2020-02-02,Eggcellent Citrus Splash Soap,1.25,35
+2020-02-02,Hot Cross Bun & Honey Almond Soap,2.0,14
+2020-02-02,Spring Meadow Goat Milk Soap,3.75,3
+2020-02-02,Springtime Blossom Handmade Soap,3.0,31
+2020-02-17,Chocolate Bunny Exfoliating Scrub,10.0,24
+2020-02-17,Egg-citing Citrus Soap,1.5,5
+2020-02-17,Eggcellent Citrus Splash Soap,1.25,14
+2020-02-17,Hot Cross Bun & Honey Almond Soap,2.0,10
+2020-02-17,Spring Meadow Goat Milk Soap,3.75,32
+2020-02-17,Springtime Blossom Handmade Soap,3.0,32
+2020-02-23,Chocolate Bunny Exfoliating Scrub,10.0,24
+2020-02-23,Egg-citing Citrus Soap,1.5,9
+2020-02-23,Eggcellent Citrus Splash Soap,1.25,18
+2020-02-23,Hot Cross Bun & Honey Almond Soap,2.0,37
+2020-02-23,Spring Meadow Goat Milk Soap,3.75,19
+2020-02-23,Springtime Blossom Handmade Soap,3.0,30
+2020-02-25,Chocolate Bunny Exfoliating Scrub,10.0,30
+2020-02-25,Egg-citing Citrus Soap,1.5,38
+2020-02-25,Eggcellent Citrus Splash Soap,1.25,36
+2020-02-25,Hot Cross Bun & Honey Almond Soap,2.0,37
+2020-02-25,Spring Meadow Goat Milk Soap,3.75,21
+2020-02-25,Springtime Blossom Handmade Soap,3.0,12
+2020-03-02,Chocolate Bunny Exfoliating Scrub,10.0,19
+2020-03-02,Egg-citing Citrus Soap,1.5,15
+2020-03-02,Eggcellent Citrus Splash Soap,1.25,32
+2020-03-02,Hot Cross Bun & Honey Almond Soap,2.0,24
+2020-03-02,Spring Meadow Goat Milk Soap,3.75,18
+2020-03-02,Springtime Blossom Handmade Soap,3.0,29
+2020-03-05,Chocolate Bunny Exfoliating Scrub,10.0,31
+2020-03-05,Egg-citing Citrus Soap,1.5,6
+2020-03-05,Eggcellent Citrus Splash Soap,1.25,35
+2020-03-05,Hot Cross Bun & Honey Almond Soap,2.0,37
+2020-03-05,Spring Meadow Goat Milk Soap,3.75,6
+2020-03-05,Springtime Blossom Handmade Soap,3.0,38
+2020-03-08,Chocolate Bunny Exfoliating Scrub,10.0,14
+2020-03-08,Egg-citing Citrus Soap,1.5,20
+2020-03-08,Eggcellent Citrus Splash Soap,1.25,23
+2020-03-08,Hot Cross Bun & Honey Almond Soap,2.0,26
+2020-03-08,Spring Meadow Goat Milk Soap,3.75,3
+2020-03-08,Springtime Blossom Handmade Soap,3.0,30
+2020-03-09,Chocolate Bunny Exfoliating Scrub,10.0,29
+2020-03-09,Egg-citing Citrus Soap,1.5,3
+2020-03-09,Eggcellent Citrus Splash Soap,1.25,27
+2020-03-09,Hot Cross Bun & Honey Almond Soap,2.0,25
+2020-03-09,Spring Meadow Goat Milk Soap,3.75,30
+2020-03-09,Springtime Blossom Handmade Soap,3.0,15
+2020-03-15,Chocolate Bunny Exfoliating Scrub,10.0,16
+2020-03-15,Egg-citing Citrus Soap,1.5,29
+2020-03-15,Eggcellent Citrus Splash Soap,1.25,33
+2020-03-15,Hot Cross Bun & Honey Almond Soap,2.0,6
+2020-03-15,Spring Meadow Goat Milk Soap,3.75,32
+2020-03-15,Springtime Blossom Handmade Soap,3.0,38
+2020-03-16,Chocolate Bunny Exfoliating Scrub,10.0,25
+2020-03-16,Egg-citing Citrus Soap,1.5,15
+2020-03-16,Eggcellent Citrus Splash Soap,1.25,4
+2020-03-16,Hot Cross Bun & Honey Almond Soap,2.0,37
+2020-03-16,Spring Meadow Goat Milk Soap,3.75,3
+2020-03-16,Springtime Blossom Handmade Soap,3.0,6
+2020-03-21,Chocolate Bunny Exfoliating Scrub,10.0,27
+2020-03-21,Egg-citing Citrus Soap,1.5,23
+2020-03-21,Eggcellent Citrus Splash Soap,1.25,8
+2020-03-21,Hot Cross Bun & Honey Almond Soap,2.0,15
+2020-03-21,Spring Meadow Goat Milk Soap,3.75,27
+2020-03-21,Springtime Blossom Handmade Soap,3.0,17
+2020-03-29,Chocolate Bunny Exfoliating Scrub,10.0,24
+2020-03-29,Egg-citing Citrus Soap,1.5,5
+2020-03-29,Eggcellent Citrus Splash Soap,1.25,29
+2020-03-29,Hot Cross Bun & Honey Almond Soap,2.0,32
+2020-03-29,Spring Meadow Goat Milk Soap,3.75,10
+2020-03-29,Springtime Blossom Handmade Soap,3.0,20
+2020-03-31,Chocolate Bunny Exfoliating Scrub,10.0,22
+2020-03-31,Egg-citing Citrus Soap,1.5,11
+2020-03-31,Eggcellent Citrus Splash Soap,1.25,36
+2020-03-31,Hot Cross Bun & Honey Almond Soap,2.0,14
+2020-03-31,Spring Meadow Goat Milk Soap,3.75,25
+2020-03-31,Springtime Blossom Handmade Soap,3.0,4
+2020-04-02,Chocolate Bunny Exfoliating Scrub,10.0,37
+2020-04-02,Egg-citing Citrus Soap,1.5,8
+2020-04-02,Eggcellent Citrus Splash Soap,1.25,32
+2020-04-02,Hot Cross Bun & Honey Almond Soap,2.0,38
+2020-04-02,Spring Meadow Goat Milk Soap,3.75,18
+2020-04-02,Springtime Blossom Handmade Soap,3.0,10
+2020-04-03,Chocolate Bunny Exfoliating Scrub,10.0,19
+2020-04-03,Egg-citing Citrus Soap,1.5,18
+2020-04-03,Eggcellent Citrus Splash Soap,1.25,6
+2020-04-03,Hot Cross Bun & Honey Almond Soap,2.0,24
+2020-04-03,Spring Meadow Goat Milk Soap,3.75,30
+2020-04-03,Springtime Blossom Handmade Soap,3.0,15
+2020-04-04,Chocolate Bunny Exfoliating Scrub,10.0,27
+2020-04-04,Egg-citing Citrus Soap,1.5,27
+2020-04-04,Eggcellent Citrus Splash Soap,1.25,5
+2020-04-04,Hot Cross Bun & Honey Almond Soap,2.0,9
+2020-04-04,Spring Meadow Goat Milk Soap,3.75,13
+2020-04-04,Springtime Blossom Handmade Soap,3.0,15
+2020-04-05,Chocolate Bunny Exfoliating Scrub,10.0,23
+2020-04-05,Egg-citing Citrus Soap,1.5,9
+2020-04-05,Eggcellent Citrus Splash Soap,1.25,15
+2020-04-05,Hot Cross Bun & Honey Almond Soap,2.0,7
+2020-04-05,Spring Meadow Goat Milk Soap,3.75,23
+2020-04-05,Springtime Blossom Handmade Soap,3.0,35
+2020-04-06,Chocolate Bunny Exfoliating Scrub,10.0,5
+2020-04-06,Egg-citing Citrus Soap,1.5,11
+2020-04-06,Eggcellent Citrus Splash Soap,1.25,6
+2020-04-06,Hot Cross Bun & Honey Almond Soap,2.0,21
+2020-04-06,Spring Meadow Goat Milk Soap,3.75,22
+2020-04-06,Springtime Blossom Handmade Soap,3.0,28
+2020-04-07,Chocolate Bunny Exfoliating Scrub,10.0,17
+2020-04-07,Egg-citing Citrus Soap,1.5,5
+2020-04-07,Eggcellent Citrus Splash Soap,1.25,8
+2020-04-07,Hot Cross Bun & Honey Almond Soap,2.0,26
+2020-04-07,Spring Meadow Goat Milk Soap,3.75,15
+2020-04-07,Springtime Blossom Handmade Soap,3.0,23
+2020-04-08,Chocolate Bunny Exfoliating Scrub,10.0,7
+2020-04-08,Egg-citing Citrus Soap,1.5,11
+2020-04-08,Eggcellent Citrus Splash Soap,1.25,19
+2020-04-08,Hot Cross Bun & Honey Almond Soap,2.0,16
+2020-04-08,Spring Meadow Goat Milk Soap,3.75,36
+2020-04-08,Springtime Blossom Handmade Soap,3.0,16
+2020-04-09,Chocolate Bunny Exfoliating Scrub,10.0,31
+2020-04-09,Egg-citing Citrus Soap,1.5,13
+2020-04-09,Eggcellent Citrus Splash Soap,1.25,20
+2020-04-09,Hot Cross Bun & Honey Almond Soap,2.0,16
+2020-04-09,Spring Meadow Goat Milk Soap,3.75,30
+2020-04-09,Springtime Blossom Handmade Soap,3.0,24
+2020-04-10,Chocolate Bunny Exfoliating Scrub,10.0,10
+2020-04-10,Egg-citing Citrus Soap,1.5,17
+2020-04-10,Eggcellent Citrus Splash Soap,1.25,14
+2020-04-10,Hot Cross Bun & Honey Almond Soap,2.0,29
+2020-04-10,Spring Meadow Goat Milk Soap,3.75,29
+2020-04-10,Springtime Blossom Handmade Soap,3.0,16
+2020-04-11,Chocolate Bunny Exfoliating Scrub,10.0,18
+2020-04-11,Egg-citing Citrus Soap,1.5,34
+2020-04-11,Eggcellent Citrus Splash Soap,1.25,38
+2020-04-11,Hot Cross Bun & Honey Almond Soap,2.0,19
+2020-04-11,Spring Meadow Goat Milk Soap,3.75,26
+2020-04-11,Springtime Blossom Handmade Soap,3.0,11

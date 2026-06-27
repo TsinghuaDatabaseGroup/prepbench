@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Matchday", "Team"],
+      "columns": {
+        "Matchday": "number",
+        "Team": "text_norm",
+        "Goals For (RT)": "number",
+        "Goals Against (RT)": "number",
+        "Goal Difference (RT)": "number",
+        "Points (RT)": "number",
+        "Position": "number"
+      }
+    }
+  }
+}
+
+

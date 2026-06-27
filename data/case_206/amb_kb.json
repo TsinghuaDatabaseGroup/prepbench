@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "j",
+      "op": "join",
+      "source_text": "Join the two datasets together\n  - You may need more than one join clause!",
+      "ref": "df_result = pd.merge(\n        df_trans_summary,\n        df_targets_pivoted,\n        on=[\"Online or In-Person\", \"Quarter\"],\n        how=\"inner\"\n    )"
+    },
+    {
+      "id": "2_O2_join_unmatched_policy",
+      "kind": "Operation incomplete",
+      "node_id": "j",
+      "op": "join",
+      "intent": "When joining actuals to targets, drop quarter/channel combinations that appear in only one dataset (inner join).",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "3_C2_variance_subtraction_direction",
+      "kind": "Row-level concept",
+      "node_id": "p_final1",
+      "op": "project",
+      "source_text": "Calculate the Variance to Target for each row",
+      "ref": "df_result[\"Variance to Target\"] = df_result[\"Value\"] - df_result[\"Quarterly Targets\"]"
+    },
+    {
+      "id": "4_D1_targets_quarter_columns_to_pivot",
+      "kind": "Single-table reference",
+      "node_id": "pv_long",
+      "op": "pivot",
+      "source_text": "Pivot the quarterly targets so we have a row for each Type of Transaction and each Quarter",
+      "ref": "df_targets_pivoted = df_targets.melt(\n        id_vars=[\"Online or In-Person\"],\n        value_vars=[\"Q1\", \"Q2\", \"Q3\", \"Q4\"],\n        var_name=\"Quarter_str\",\n        value_name=\"Quarterly Targets\"\n    )"
+    },
+    {
+      "id": "new_1_final_sort_channel_quarter",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final rows by Online or In-Person descending, then Quarter ascending.",
+      "ref": "df_result = df_result.sort_values([\"Online or In-Person\", \"Quarter\"], ascending=[False, True])"
+    }
+  ]
+}

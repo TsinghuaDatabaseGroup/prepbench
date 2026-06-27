@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_sales_per_person_formula",
+      "kind": "Row-level concept",
+      "node_id": "final_compute",
+      "op": "project",
+      "source_text": "Multiply the Sales Person percentage contribution against their Store's total sales for the year",
+      "ref": "result['Sales per Person'] = (result['Percent of Store Sales'] / 100) * result['Store Total Sales']"
+    },
+    {
+      "id": "2_D1_sale_value_is_store_total",
+      "kind": "Single-table reference",
+      "node_id": "final_compute",
+      "op": "project",
+      "source_text": "6 fields: Sales per Person, Region, Store Name, Sales Person, Percent of Store Sales, Sale Value",
+      "ref": "result['Sale Value'] = result['Store Total Sales']"
+    },
+    {
+      "id": "3_D2_join_store_totals_on_store_name",
+      "kind": "Multi-table alignment",
+      "node_id": "joined_result",
+      "op": "join",
+      "source_text": "Combine this data with the rest of the prepared data",
+      "ref": "result = sales_people.merge(store_totals, on='Store Name', how='left')"
+    },
+    {
+      "id": "4_D2_join_store_lookup_left_on_storeid",
+      "kind": "Multi-table alignment",
+      "node_id": "people_with_store",
+      "op": "join",
+      "source_text": "Input the 'Store Lookup' file to provide the name of the Stores instead of the ID number",
+      "ref": "sales_people = sales_people.merge(store_lookup, on='StoreID', how='left')"
+    },
+    {
+      "id": "5_O3_keep_region_from_store_lookup",
+      "kind": "Operation inconsistent",
+      "node_id": "people_with_store",
+      "op": "join",
+      "source_text": "Remove any duplicate fields you have in the data set so far",
+      "ref": "sales_people = sales_people.drop(columns=['Region_x'])\nsales_people.rename(columns={'Region_y': 'Region'}, inplace=True)"
+    },
+    {
+      "id": "6_C2_store_total_sales_sum",
+      "kind": "Group-level concept",
+      "node_id": "store_totals",
+      "op": "aggregate",
+      "source_text": "Use Week 27 Input file to create Sales Values for each Store",
+      "ref": "store_totals = week27_sales.groupby('Store Name')['Sale Value'].sum().reset_index()"
+    },
+    {
+      "id": "7_D1_union_align_by_column_names",
+      "kind": "Multi-table alignment",
+      "node_id": "union_people",
+      "op": "union",
+      "source_text": "Combine these files Bonus challenge for experienced Preppers - take the Region Name from the File Name.",
+      "ref": "sales_people = pd.concat([east_sales_people, west_sales_people], ignore_index=True)"
+    },
+    {
+      "id": "8_O3_union_keep_all_rows",
+      "kind": "Row-level concept",
+      "node_id": "union_people",
+      "op": "union",
+      "source_text": "Combine these files Bonus challenge for experienced Preppers - take the Region Name from the File Name.",
+      "ref": "sales_people = pd.concat([east_sales_people, west_sales_people], ignore_index=True)"
+    }
+  ]
+}

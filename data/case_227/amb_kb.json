@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_unknown_grade_score_zero",
+      "kind": "Operation incomplete",
+      "node_id": "add_score",
+      "op": "project",
+      "intent": "If a grade is not one of A–F, assign a subject score of 0.",
+      "ref": "combined[\"Grade Score Single\"] = combined[\"Grade\"].map(lambda x: letter_score.get(str(x).strip().upper(), 0))"
+    },
+    {
+      "id": "2_C1_region_constant_mapping",
+      "kind": "Row-level concept",
+      "node_id": "region_clean",
+      "op": "project",
+      "intent": "Set each table's Region field to its literal value (EAST or WEST).",
+      "ref": "df_east[\"Region\"] = \"EAST\"\ndf_west[\"Region\"] = \"WEST\""
+    },
+    {
+      "id": "3_D2_school_join_key",
+      "kind": "Multi-table alignment",
+      "node_id": "join_school",
+      "op": "join",
+      "source_text": "Input the School Lookup table and combine it with the current student table",
+      "ref": "out = pivot.merge(df_lookup, on=\"Student ID\", how=\"left\")"
+    },
+    {
+      "id": "4_O2_school_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_school",
+      "op": "join",
+      "source_text": "Input the School Lookup table and combine it with the current student table",
+      "ref": "out = pivot.merge(df_lookup, on=\"Student ID\", how=\"left\")"
+    },
+    {
+      "id": "5_C2_student_unique_key_for_reshape",
+      "kind": "Single-table reference",
+      "node_id": "pivot_grades",
+      "op": "pivot",
+      "source_text": "each student is represented by only ONE row with 3 individual columns",
+      "ref": "index=[\"Student ID\", \"Full Name\", \"Date of Birth\", \"Region\"]"
+    },
+    {
+      "id": "6_O3_duplicate_subject_grade_first",
+      "kind": "Operation inconsistent",
+      "node_id": "pivot_grades",
+      "op": "pivot",
+      "intent": "When more than one grade exists for the same student and subject, keep the first available record.",
+      "ref": "aggfunc=\"first\""
+    }
+  ]
+}

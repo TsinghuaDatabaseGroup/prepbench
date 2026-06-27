@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Total Monthly Salary", "Month", "Current Employees", "Avg Salary per Current Employee"],
+      "columns": {
+        "Total Monthly Salary": "number",
+        "Month": "date",
+        "Current Employees": "number",
+        "Avg Salary per Current Employee": "number"
+      }
+    }
+  }
+}
+

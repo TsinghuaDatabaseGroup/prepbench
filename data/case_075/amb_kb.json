@@ -1,0 +1,148 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_exclude_missing_am_from_client_counts",
+      "kind": "Group-level concept",
+      "node_id": "agg_am_count",
+      "op": "aggregate",
+      "intent": "Exclude missing Account Manager values when computing each Account Manager’s client count.",
+      "ref": "am_client_count = df_merged.groupby('Account Manager').size().to_dict()"
+    },
+    {
+      "id": "2_O2_left_join_keep_unmatched_attendees",
+      "kind": "Operation incomplete",
+      "node_id": "join_att_am",
+      "op": "join",
+      "source_text": "Join the AM & Attendee tables together.",
+      "ref": "df_merged = df_attendees.merge(\n        df_am,\n        left_on='Company_Extracted',\n        right_on='Company_Lower',\n        how='left'\n    )"
+    },
+    {
+      "id": "3_C1_refund_type_gain_loss_signs",
+      "kind": "Row-level concept",
+      "node_id": "proj_add_order_gainloss",
+      "op": "project",
+      "source_text": "Calculate how much money we will receive/lose from each country & local currency",
+      "ref": "if refund_type == 'Full Refund':\n            return -ticket_price\n        elif refund_type == 'Credit Note':\n            return ticket_price\n        elif refund_type == 'No Refund':\n            return ticket_price"
+    },
+    {
+      "id": "4_C2_order_rank_account_managers_by_client_count",
+      "kind": "Group-level concept",
+      "node_id": "proj_add_order_gainloss",
+      "op": "project",
+      "source_text": "output_01.csv\n  - 10 fields:\n    - Order\n    - Ticket Price Local",
+      "ref": "sorted_ams = sorted(unique_ams, key=lambda x: am_client_count.get(x, 0), reverse=True)\nfor idx, am in enumerate(sorted_ams, 1):\n        am_order_map[am] = idx\n\ndf_merged['Order'] = df_merged['Account Manager'].map(am_order_map)"
+    },
+    {
+      "id": "5_O2_order_missing_when_no_account_manager",
+      "kind": "Operation incomplete",
+      "node_id": "proj_add_order_gainloss",
+      "op": "project",
+      "intent": "Set Order to missing for attendees with no Account Manager.",
+      "ref": "unique_ams = df_merged['Account Manager'].dropna().unique()\n\ndf_merged['Order'] = df_merged['Account Manager'].map(am_order_map)"
+    },
+    {
+      "id": "6_O2_refund_type_other_or_missing_zero",
+      "kind": "Operation incomplete",
+      "node_id": "proj_add_order_gainloss",
+      "op": "project",
+      "intent": "Treat any other or missing Refund Type as zero Money Gain/Loss.",
+      "ref": "else:\n            return 0"
+    },
+    {
+      "id": "7_D2_lowercase_am_company_for_matching",
+      "kind": "Single-table reference",
+      "node_id": "proj_am_lower",
+      "op": "project",
+      "source_text": "Join the AM & Attendee tables together.",
+      "ref": "df_am['Company_Lower'] = df_am['Company List'].str.lower()"
+    },
+    {
+      "id": "8_D2_email_company_take_before_first_dot",
+      "kind": "Single-table reference",
+      "node_id": "proj_attendees_company",
+      "op": "project",
+      "source_text": "Extract the company email from the email. For this task we will assume that it is the word straight after the @ symbol.",
+      "ref": "company = domain.split('.')[0] if '.' in domain else domain"
+    },
+    {
+      "id": "9_D2_email_company_lowercased_for_matching",
+      "kind": "Single-table reference",
+      "node_id": "proj_attendees_company",
+      "op": "project",
+      "source_text": "Extract the company email from the email. For this task we will assume that it is the word straight after the @ symbol.",
+      "ref": "return company.lower() if company else None"
+    },
+    {
+      "id": "10_C1_country_to_currency_fixed_mapping",
+      "kind": "Row-level concept",
+      "node_id": "proj_company_currency",
+      "op": "project",
+      "source_text": "Each refund will be refunded in the currency of their selected country.",
+      "ref": "country_to_currency = {\n        'United States': 'USD',\n        'France': 'EUR',\n        'Germany': 'EUR',\n        'Italy': 'EUR',\n        'Spain': 'EUR',\n        'Canada': 'CAD',\n        'Mexico': 'MXN',\n        'United Kingdom': 'GBP'\n    }"
+    },
+    {
+      "id": "11_D1_company_name_taken_from_am_original_casing",
+      "kind": "Single-table reference",
+      "node_id": "proj_company_currency",
+      "op": "project",
+      "source_text": "Make sure you retain the case from the company field in the Account Manager table.",
+      "ref": "df_merged['Company Name'] = df_merged['Company List']"
+    },
+    {
+      "id": "12_C2_gbp_ticket_price_fixed_at_100",
+      "kind": "Row-level concept",
+      "node_id": "proj_price",
+      "op": "project",
+      "source_text": "Calculate the ticket price in the local currency",
+      "ref": "if currency == 'GBP':\n            return base_price_gbp"
+    },
+    {
+      "id": "13_C2_exchange_rate_applied_as_multiplier",
+      "kind": "Row-level concept",
+      "node_id": "proj_price",
+      "op": "project",
+      "source_text": "Calculate the ticket price in the local currency",
+      "ref": "        return int(base_price_gbp * rate)"
+    },
+    {
+      "id": "14_O1_ticket_price_integer_truncation",
+      "kind": "Operation boundary",
+      "node_id": "proj_price",
+      "op": "project",
+      "source_text": "Calculate the ticket price in the local currency",
+      "ref": "return int(base_price_gbp * rate)"
+    },
+    {
+      "id": "15_O2_missing_exchange_rate_defaults_to_1",
+      "kind": "Operation incomplete",
+      "node_id": "proj_price",
+      "op": "project",
+      "source_text": "Calculate the ticket price in the local currency",
+      "ref": "rate = rates_dict.get(currency, 1)"
+    },
+    {
+      "id": "16_D2_rates_currency_code_before_dash",
+      "kind": "Single-table reference",
+      "node_id": "proj_rates_code",
+      "op": "project",
+      "source_text": "Calculate the ticket price in the local currency",
+      "ref": "df_rates['Currency_Code'] = df_rates['Currency'].str.split('-').str[0]"
+    },
+    {
+      "id": "17_O1_sort_by_client_count_then_manager_name",
+      "kind": "Row-level concept",
+      "node_id": "sort_main",
+      "op": "sort",
+      "source_text": "the AM with the most clients is first (the order of clients doesn't matter)",
+      "ref": "df_merged = df_merged.sort_values(\n        ['AM_Client_Count', 'Account Manager'],\n        ascending=[False, True]\n    )"
+    },
+    {
+      "id": "18_O1_sort_aggregated_gain_loss_output",
+      "kind": "Row-level concept",
+      "node_id": "sort_o2",
+      "op": "sort",
+      "intent": "Sort aggregated output by Money Gain/Loss descending, then Currency ascending, then Country ascending.",
+      "ref": "output_02 = output_02.sort_values(['Money Gain/Loss', 'Currency', 'Country'], ascending=[False, True, True])"
+    }
+  ]
+}

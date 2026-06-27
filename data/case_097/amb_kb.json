@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_on_home_city_away_city",
+      "kind": "Multi-table alignment",
+      "node_id": "attach_travel",
+      "op": "join",
+      "source_text": "Apply the travel time between each city",
+      "ref": "pairs = pairs.merge(travel_lookup, on=[\"Home City\", \"Away City\"], how=\"left\")"
+    },
+    {
+      "id": "2_C2_away_games_by_conference",
+      "kind": "Row-level concept",
+      "node_id": "compute_games_and_contrib",
+      "op": "project",
+      "source_text": "Own Conference - 1.5 games at home and 1.5 games away",
+      "ref": "same_conference = pairs[\"Home Conference\"] == pairs[\"Away Conference\"]\npairs[\"Away Games\"] = same_conference.map(lambda same: 1.5 if same else 1.0)"
+    },
+    {
+      "id": "3_C2_travel_contribution_mins_times_games",
+      "kind": "Row-level concept",
+      "node_id": "compute_games_and_contrib",
+      "op": "project",
+      "source_text": "Aggregate all travel time per team",
+      "ref": "pairs[\"Travel Contribution\"] = pairs[\"Travel Mins\"] * pairs[\"Away Games\"]"
+    },
+    {
+      "id": "4_O2_unmatched_travel_default_zero",
+      "kind": "Operation incomplete",
+      "node_id": "fill_missing_travel",
+      "op": "project",
+      "intent": "If a matchup has no matching travel-time entry, set its Travel Mins to 0.",
+      "ref": "pairs[\"Travel Mins\"] = pairs[\"Travel Mins\"].fillna(0.0)"
+    },
+    {
+      "id": "5_O1_generate_all_ordered_matchups",
+      "kind": "Row-level concept",
+      "node_id": "pairs_cross_join",
+      "op": "join",
+      "source_text": "Determine how many games each team will play against each other",
+      "ref": "teams.assign(_key=1)\n        .merge(away_teams.assign(_key=1), on=\"_key\", how=\"outer\")"
+    },
+    {
+      "id": "6_O1_exclude_self_matchups",
+      "kind": "Operation incomplete",
+      "node_id": "pairs_exclude_self",
+      "op": "filter",
+      "source_text": "Determine how many games each team will play against each other",
+      "ref": "pairs = pairs[pairs[\"Home Team\"] != pairs[\"Away Team\"]]"
+    },
+    {
+      "id": "7_D1_derive_city_from_team_name_drop_last_word",
+      "kind": "Single-table reference",
+      "node_id": "teams_as_home",
+      "op": "project",
+      "intent": "Derive each team's city name from the team name by removing its final word.",
+      "ref": "def _derive_city_from_team(team_name: str) -> str:\n    parts = team_name.strip().split()\n    if len(parts) <= 1:\n        return parts[0]\n    return \" \".join(parts[:-1])\n\nteams[\"Home City\"] = teams[\"Home Team\"].apply(_derive_city_from_team)"
+    },
+    {
+      "id": "8_C2_parse_duration_h_m_to_minutes",
+      "kind": "Row-level concept",
+      "node_id": "travel_compute_minutes",
+      "op": "project",
+      "source_text": "Calculate the travel time in minutes",
+      "ref": "hour_match = re.search(r'(\\d+)\\s*h', text)\nminute_match = re.search(r'(\\d+)\\s*m', text)\n\nreturn float(hours * 60 + minutes)"
+    },
+    {
+      "id": "9_O2_missing_or_blank_duration_zero",
+      "kind": "Operation incomplete",
+      "node_id": "travel_compute_minutes",
+      "op": "project",
+      "intent": "If no duration is provided (missing/blank), treat travel time as 0 minutes.",
+      "ref": "if pd.isna(value):\n        return 0.0\ntext = str(value).strip()\nif not text:\n        return 0.0"
+    },
+    {
+      "id": "10_D1_reshape_travel_matrix_to_long_from_first_col_headers",
+      "kind": "Single-table reference",
+      "node_id": "travel_longer",
+      "op": "pivot",
+      "source_text": "Make the matrix more useable!",
+      "ref": "first_col = travel_raw.columns[0]\ntravel_raw = travel_raw.rename(columns={first_col: \"From\"})\n\ntravel_long = (\n        travel_raw.melt(id_vars=\"From\", var_name=\"To\", value_name=\"duration\")"
+    }
+  ]
+}

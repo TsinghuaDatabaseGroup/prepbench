@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Sport", "Team"],
+      "columns": {
+        "Sport": "text_exact",
+        "Cross Sport Rank": "number",
+        "Team": "text_exact",
+        "z-score": "number",
+        "Ranking Field": "number",
+        "Sport Specific Percentile Rank": "number"
+      }
+    },
+    "output_02.csv": {
+      "ignore_order": true,
+      "key": ["Sport"],
+      "columns": {
+        "Sport": "text_exact",
+        "Avg Cross Sport Rank": "number"
+      }
+    }
+  }
+}
+

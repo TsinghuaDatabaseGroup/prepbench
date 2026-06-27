@@ -1,0 +1,32 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "New Trolley Inventory?",
+                "Variance Rank by Destination",
+                "Variance",
+                "Avg Price per Product",
+                "Date",
+                "Product",
+                "first_name",
+                "last_name",
+                "email",
+                "Price",
+                "Destination"
+            ],
+            "columns": {
+                "New Trolley Inventory?": "boolean",
+                "Variance Rank by Destination": "number",
+                "Variance": "number",
+                "Avg Price per Product": "number",
+                "Date": "date",
+                "Product": "text_exact",
+                "first_name": "text_exact",
+                "last_name": "text_exact",
+                "email": "text_exact",
+                "Price": "number",
+                "Destination": "text_exact"
+            }
+        }
+    }
+}

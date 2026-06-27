@@ -1,0 +1,46 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "id",
+        "Agent Name",
+        "Leader 1",
+        "Leader Name",
+        "Month Start Date",
+        "Location",
+        "Calls Answered",
+        "Calls Not Answered",
+        "Not Answered Rate",
+        "Met Not Answered Rate",
+        "Not Answered Percent < 5",
+        "Calls Offered",
+        "Total Duration",
+        "Agent Avg Duration",
+        "Transfers",
+        "Sentiment",
+        "Sentiment Score >= 0",
+        "Met Sentiment Goal"
+      ],
+      "columns": {
+        "id": "number",
+        "Agent Name": "text_exact",
+        "Leader 1": "number",
+        "Leader Name": "text_exact",
+        "Month Start Date": "text_exact",
+        "Location": "text_exact",
+        "Calls Answered": "number",
+        "Calls Not Answered": "number",
+        "Not Answered Rate": "number",
+        "Met Not Answered Rate": "text_exact",
+        "Not Answered Percent < 5": "number",
+        "Calls Offered": "number",
+        "Total Duration": "number",
+        "Agent Avg Duration": "number",
+        "Transfers": "number",
+        "Sentiment": "number",
+        "Sentiment Score >= 0": "number",
+        "Met Sentiment Goal": "text_exact"
+      }
+    }
+  }
+}

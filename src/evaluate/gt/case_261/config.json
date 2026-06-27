@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["StaffID"],
+      "columns": {
+        "StaffID": "number",
+        "Salary": "number",
+        "Max Tax Rate": "text_exact",
+        "Total Tax Paid": "number",
+        "20% rate tax paid": "number",
+        "40% rate paid": "number",
+        "45% rate tax paid": "number"
+      }
+    }
+  }
+}

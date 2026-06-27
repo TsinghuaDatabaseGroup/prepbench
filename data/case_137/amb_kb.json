@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_number_in_series_delimiter",
+      "kind": "Operation incomplete",
+      "node_id": "films_proj",
+      "op": "project",
+      "source_text": "Split out the Number in Series field into Film Order and Total Films in Series",
+      "ref": "order_split = df_films[\"Number in Series\"].str.split(\"/\", expand=True)"
+    },
+    {
+      "id": "2_O1_number_in_series_cast_to_int",
+      "kind": "Operation incomplete",
+      "node_id": "films_proj",
+      "op": "project",
+      "source_text": "Split out the Number in Series field into Film Order and Total Films in Series",
+      "ref": "df_films[\"Film Order\"] = order_split[0].astype(int)\ndf_films[\"Total Films in Series\"] = order_split[1].astype(int)"
+    },
+    {
+      "id": "3_O3_select_three_films_priority_order",
+      "kind": "Operation inconsistent",
+      "node_id": "pick_top3",
+      "op": "sort",
+      "intent": "Select up to three films per trilogy by prioritizing title matches, then Film Order, then Title.",
+      "ref": "group_full = group_full.sort_values(\n                [\"__matched\", \"Film Order\", \"Title\"], ascending=[False, True, True])\n            if best_rows.shape[0] >= 3:\n                selected = best_rows.sort_values(\n                    [\"Film Order\", \"Title\"]).head(3).copy()\n            else:\n                selected = group_full.head(3).copy()"
+    },
+    {
+      "id": "4_D2_title_based_match_case_insensitive",
+      "kind": "Multi-table alignment",
+      "node_id": "project_match",
+      "op": "project",
+      "intent": "Determine whether a film belongs to a trilogy via case-insensitive substring/regex matching of the film Title against a trilogy pattern.",
+      "ref": "mask = mask | sub[\"Title\"].str.contains(\n                    pat, case=False, regex=True, na=False)"
+    },
+    {
+      "id": "5_O1_trilogy_average_rounding_1dp",
+      "kind": "Operation boundary",
+      "node_id": "round_avg",
+      "op": "project",
+      "source_text": "Work out the average rating for each trilogy",
+      "ref": "tri_avg = round(sub[\"Rating\"].mean(), 1)"
+    },
+    {
+      "id": "6_O3_best_group_tie_break_first",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_best_group",
+      "op": "sort",
+      "intent": "When multiple Trilogy Grouping values tie on the highest match count, select the first encountered grouping.",
+      "ref": "best_hits = -1\nfor gid, sub in df_films.groupby(\"Trilogy Grouping\"):\n            hits = mask.sum()\n            if hits > best_hits:\n                best_hits = hits\n                best_gid = gid"
+    },
+    {
+      "id": "7_O1_remove_trailing_trilogy_word",
+      "kind": "Row-level concept",
+      "node_id": "trilogies_proj",
+      "op": "project",
+      "source_text": "Remove the word trilogy from the Trilogy field",
+      "ref": "df_trilogies[\"Trilogy_clean\"] = (\n        df_trilogies[\"Trilogy\"].str.replace(\n            r\"\\s*trilogy$\", \"\", regex=True).str.strip()\n    )"
+    }
+  ]
+}

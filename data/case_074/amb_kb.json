@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_start_month_from_end_when_missing",
+      "kind": "Operation incomplete",
+      "node_id": "n_compute_start_month",
+      "op": "project",
+      "intent": "When the date range start part has no month, use the month from the end part.",
+      "ref": "    else:\n        start_day = int(start_part)\n        start_month_name = end_part.split()[-1]"
+    },
+    {
+      "id": "2_O2_drop_rows_if_start_or_end_date_missing",
+      "kind": "Operation incomplete",
+      "node_id": "n_filter_dates",
+      "op": "filter",
+      "source_text": "Remove the null dates",
+      "ref": "    df = df[df['Start Date'].notna() & df['End Date'].notna()].copy()"
+    },
+    {
+      "id": "3_O2_cast_counts_to_integers",
+      "kind": "Operation incomplete",
+      "node_id": "n_project",
+      "op": "project",
+      "intent": "Cast Nations, Sports, and Events to integers in the output.",
+      "ref": "    result['Nations'] = result['Nations'].astype(float).astype(int)\n    result['Sports'] = result['Sports'].astype(float).astype(int)\n    result['Events'] = result['Events'].astype(float).astype(int)"
+    },
+    {
+      "id": "4_C1_roman_numerals_use_standard_subtractive_rules",
+      "kind": "Row-level concept",
+      "node_id": "n_year",
+      "op": "script",
+      "source_text": "Convert the Roman numerals to numerical values",
+      "ref": "    for char in reversed(roman):\n        value = roman_dict.get(char, 0)\n        if value < prev_value:\n            result -= value\n        else:\n            result += value\n        prev_value = value"
+    },
+    {
+      "id": "5_C2_year_from_game_number_base_1896_every_4_years",
+      "kind": "Row-level concept",
+      "node_id": "n_year",
+      "op": "script",
+      "source_text": "Determine the Year of the Olympics",
+      "ref": "    df['Year'] = 1896 + (df['Game_Number'] - 1) * 4"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Supplier", "Product", "Scent", "Surplus Product"],
+      "columns": {
+        "Supplier": "text_exact",
+        "Product": "text_exact",
+        "Scent": "text_exact",
+        "Surplus Product": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Store", "Product", "Scent", "Supplier", "Date Required"],
+      "columns": {
+        "Store": "text_exact",
+        "Product": "text_exact",
+        "Scent": "text_exact",
+        "Supplier": "text_exact",
+        "Quantity Requested": "number",
+        "Date Required": "text_date:%d/%m/%Y",
+        "Stock Ready?": "boolean",
+        "Date Fulfilled": "text_date:%d/%m/%Y",
+        "Days Request Delayed": "number"
+      }
+    }
+  }
+}

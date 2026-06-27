@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_sum_ignores_missing_order_total",
+      "kind": "Operation incomplete",      
+      "node_id": "agg_email",
+      "op": "aggregate",
+      "intent": "When summing Order Total per Email, ignore missing (non-numeric) values rather than failing or treating them as zeros.",
+      "ref": "agg = sales.groupby(\"Email\", as_index=False)[\"Order Total\"].sum()"
+    },
+    {
+      "id": "2_O1_last_6_months_inclusive_window",
+      "kind": "Operation boundary",
+      "node_id": "f_date_range",
+      "op": "filter",
+      "source_text": "calculate \"last 6 months\" from 24/05/2019, not today's date.",
+      "ref": "end_date = pd.Timestamp(2019, 5, 24)\n    start_date = pd.Timestamp(2018, 11, 24)\n    sales = sales[(sales[\"Order Date\"] >= start_date) &\n                  (sales[\"Order Date\"] <= end_date)].copy()"
+    },
+    {
+      "id": "3_O2_exclude_unparseable_order_dates",
+      "kind": "Operation incomplete",
+      "node_id": "f_date_range",
+      "op": "filter",
+      "intent": "Exclude rows whose Order Date is invalid/unparseable from the last-6-months filtered set.",
+      "ref": "sales[\"Order Date\"] = pd.to_datetime(\n        sales[\"Order Date\"], format=\"%d-%b-%Y\", errors=\"coerce\")\n    sales = sales[(sales[\"Order Date\"] >= start_date) &\n                  (sales[\"Order Date\"] <= end_date)].copy()"
+    },
+    {
+      "id": "4_O1_top_8pct_cutoff_floor",
+      "kind": "Operation boundary",
+      "node_id": "f_top8pct",
+      "op": "filter",
+      "source_text": "Find a way to filter these down to customers in the top 8%.",
+      "ref": "top_n = max(1, math.floor(total_customers * 0.08)\n                ) if total_customers > 0 else 0"
+    },
+    {
+      "id": "5_O2_top_8pct_minimum_one_customer",
+      "kind": "Operation incomplete",
+      "node_id": "f_top8pct",
+      "op": "filter",
+      "source_text": "Find a way to filter these down to customers in the top 8%.",
+      "ref": "top_n = max(1, math.floor(total_customers * 0.08)\n                ) if total_customers > 0 else 0"
+    },
+    {
+      "id": "6_O3_top_8pct_include_ties_at_boundary",
+      "kind": "Operation boundary",
+      "node_id": "f_top8pct",
+      "op": "filter",
+      "source_text": "Find a way to filter these down to customers in the top 8%.",
+      "ref": "top = agg[agg[\"Last 6 Months Rank\"] <=\n              top_n].copy() if top_n > 0 else agg.copy()"
+    },
+    {
+      "id": "7_O1_rank_uses_unrounded_totals",
+      "kind": "Row-level concept",
+      "node_id": "proj_add_rank",
+      "op": "project",
+      "source_text": "Find a way to rank the customers by total sales across orders placed within the last 6 months.",
+      "ref": "agg[\"Last 6 Months Rank\"] = agg[\"Order Total\"].rank(\n        method=\"min\", ascending=False).astype(int)\n    out[\"Order Total\"] = out[\"Order Total\"].round(1)"
+    },
+    {
+      "id": "8_O3_competition_rank_tie_policy",
+      "kind": "Operation boundary",
+      "node_id": "proj_add_rank",
+      "op": "project",
+      "source_text": "Find a way to rank the customers by total sales across orders placed within the last 6 months.",
+      "ref": "agg[\"Last 6 Months Rank\"] = agg[\"Order Total\"].rank(\n        method=\"min\", ascending=False).astype(int)"
+    },
+    {
+      "id": "9_O2_order_date_parse_format",
+      "kind": "Row-level concept",
+      "node_id": "proj_clean",
+      "op": "project",
+      "intent": "Parse Order Date using the dd-Mon-YYYY format rather than inferring formats.",
+      "ref": "sales[\"Order Date\"] = pd.to_datetime(\n        sales[\"Order Date\"], format=\"%d-%b-%Y\", errors=\"coerce\")"
+    },
+    {
+      "id": "10_O2_order_total_non_numeric_as_missing",
+      "kind": "Operation incomplete",
+      "node_id": "proj_clean",
+      "op": "project",
+      "intent": "Treat non-numeric Order Total values as missing (not errors) when converting to numeric.",
+      "ref": "sales[\"Order Total\"] = pd.to_numeric(sales[\"Order Total\"], errors=\"coerce\")"
+    },
+    {
+      "id": "11_O1_round_order_total_to_1_decimal",
+      "kind": "Operation boundary",
+      "node_id": "proj_round",
+      "op": "project",
+      "intent": "Round Order Total to 1 decimal place for the final output display.",
+      "ref": "out[\"Order Total\"] = out[\"Order Total\"].round(1)"
+    }
+  ]
+}

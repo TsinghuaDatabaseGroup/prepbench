@@ -1,0 +1,12 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Class", "Seat", "Row"],
+      "columns": {
+        "Class": "text_exact",
+        "Seat": "text_exact",
+        "Row": "number"
+      }
+    }
+  }
+}

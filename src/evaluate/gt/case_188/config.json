@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Name",
+        "Category",
+        "Required Level",
+        "Attack Damage"
+      ],
+      "columns": {
+        "Name": "text_exact",
+        "Category": "text_exact",
+        "Required Level": "number",
+        "Attack Damage": "number"
+      }
+    }
+  }
+}

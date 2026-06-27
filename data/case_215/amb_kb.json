@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_roi_month_conflict_resolution",
+      "kind": "Operation inconsistent",
+      "node_id": "agg_roi",
+      "op": "aggregate",
+      "intent": "When multiple ROI Reporting Month values map to the same aligned Reporting Date, choose which one to keep (e.g., first).",
+      "ref": "    roi_agg = roi_renamed.groupby(\"Reporting Date\", as_index=False).agg({\n        \"ROI New Customers\": \"sum\",\n        \"ROI Reporting Month\": \"first\"\n    })"
+    },
+    {
+      "id": "2_O2_drop_specific_reporting_dates",
+      "kind": "Operation incomplete",
+      "node_id": "filter_drop_two",
+      "op": "filter",
+      "intent": "Exclude specific Reporting Date values (2023-12-29 and 2023-12-30) from the combined output.",
+      "ref": "result = result[~result[\"Reporting Date\"].isin([pd.Timestamp(\"2023-12-29\"), pd.Timestamp(\"2023-12-30\")])].copy()"
+    },
+    {
+      "id": "3_D1_january_2024_filter_field",
+      "kind": "Single-table reference",
+      "node_id": "filter_rm",
+      "op": "filter",
+      "source_text": "Filter out January 2024 dates",
+      "ref": "uk_agg = uk_agg[uk_agg[\"Reporting Month\"] != \"January-2024\"].copy()"
+    },
+    {
+      "id": "4_D2_combine_uk_roi_join_key",
+      "kind": "Multi-table alignment",
+      "node_id": "join_uk_roi",
+      "op": "join",
+      "source_text": "Combine with UK data",
+      "ref": "result = roi_agg.merge(\n        uk_agg,\n        on=\"Reporting Date\",\n        how=\"right\"\n    )"
+    },
+    {
+      "id": "5_O2_combine_uk_roi_join_coverage",
+      "kind": "Operation incomplete",
+      "node_id": "join_uk_roi",
+      "op": "join",
+      "source_text": "Combine with UK data",
+      "ref": "result = roi_agg.merge(\n        uk_agg,\n        on=\"Reporting Date\",\n        how=\"right\"\n    )"
+    },
+    {
+      "id": "6_C1_misalignment_flag_rule",
+      "kind": "Row-level concept",
+      "node_id": "proj_flag",
+      "op": "project",
+      "source_text": "Create a flag to find which dates have differing reporting months",
+      "ref": "def get_misalignment_flag(row):\n        if pd.isna(row[\"ROI Reporting Month\"]) or str(row[\"ROI Reporting Month\"]) == \"nan\":\n            return \"X\"\n        uk_month_prefix = str(row[\"Reporting Month\"])[:3] if pd.notna(row[\"Reporting Month\"]) else \"\"\n        roi_month_prefix = str(row[\"ROI Reporting Month\"])[:3] if pd.notna(row[\"ROI Reporting Month\"]) else \"\"\n        if uk_month_prefix != roi_month_prefix:\n            return \"X\"\n        return \"\""
+    },
+    {
+      "id": "7_O1_next_reporting_day_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "proj_uk3",
+      "op": "project",
+      "source_text": "For non-reporting days, assign the customers to the next reporting day",
+      "ref": "def find_next_reporting_date(date):\n        next_dates = reporting_dates[reporting_dates >= date]\n        if len(next_dates) > 0:\n            return next_dates.iloc[0]\n        return date"
+    },
+    {
+      "id": "new_1_final_sort_reporting_date",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final rows by Reporting Date ascending before formatting output.",
+      "ref": "result[\"Reporting Date_temp\"] = result[\"Reporting Date\"]\nresult = result.sort_values(\"Reporting Date_temp\")"
+    }
+  ]
+}

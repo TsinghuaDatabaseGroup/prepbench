@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Transaction ID", "Account To", "Transaction Date", "Value", "Name", "Date of Birth", "Contact Number", "First Line of Address", "Account Number", "Account Type", "Balance Date", "Balance"],
+      "columns": {
+        "Transaction ID": "text_exact",
+        "Account To": "text_exact",
+        "Transaction Date": "date",
+        "Value": "number",
+        "Name": "text_exact",
+        "Date of Birth": "date",
+        "Contact Number": "text_exact",
+        "First Line of Address": "text_exact",
+        "Account Number": "text_exact",
+        "Account Type": "text_exact",
+        "Balance Date": "date",
+        "Balance": "number"
+      }
+    }
+  }
+}
+

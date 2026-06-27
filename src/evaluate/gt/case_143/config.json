@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Turbo Trainer", "Outdoors", "Date", "Activities per day"],
+      "columns": {
+        "Turbo Trainer": "number",
+        "Outdoors": "number",
+        "Date": "date",
+        "Activities per day": "number"
+      }
+    }
+  }
+}

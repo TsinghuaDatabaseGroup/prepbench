@@ -1,0 +1,29 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Country",
+                "Rank Population Density 2021"
+            ],
+            "columns": {
+                "Country": "text_exact",
+                "Population Density 2021": "number",
+                "Rank Population Density 2021": "number"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Country",
+                "Population Density 2000",
+                "Rank % Change"
+            ],
+            "columns": {
+                "Country": "text_exact",
+                "Population Density 2000": "number",
+                "Population Density 2021": "number",
+                "% Change in Population Density": "number",
+                "Rank % Change": "number"
+            }
+        }
+    }
+}

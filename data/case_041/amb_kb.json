@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_ambiguous_order_definition",
+      "kind": "Single-table reference",
+      "node_id": "ambig_filter",
+      "op": "filter",
+      "intent": "Define an 'ambiguous order' as an Order Number associated with more than one distinct Customer ID.",
+      "ref": "ambiguous_orders = (\n        orders.groupby(\"Order Number\")[\"Customer ID\"].nunique()\n    )\n    ambiguous_orders = set(ambiguous_orders[ambiguous_orders > 1].index)"
+    },
+    {
+      "id": "2_C2_complaint_rate_formula",
+      "kind": "Group-level concept",
+      "node_id": "batch_rates_proj",
+      "op": "project",
+      "intent": "Compute batch complaint_rate as complaint_qty / sold_qty (using batch-level counts of matched complaint lines and sold order lines).",
+      "ref": "batch_stats[\"complaint_rate\"] = 0.0\n    mask = batch_stats[\"sold_qty\"] > 0\n    batch_stats.loc[mask, \"complaint_rate\"] = (\n        batch_stats.loc[mask, \"complaint_qty\"] /\n        batch_stats.loc[mask, \"sold_qty\"]\n    )"
+    },
+    {
+      "id": "3_O2_complaint_rate_zero_sold_default",
+      "kind": "Operation incomplete",
+      "node_id": "batch_rates_proj",
+      "op": "project",
+      "intent": "When sold_qty is 0 for a batch, set complaint_rate to 0 (instead of error/NA).",
+      "ref": "batch_stats[\"complaint_rate\"] = 0.0\n    mask = batch_stats[\"sold_qty\"] > 0"
+    },
+    {
+      "id": "4_O2_parse_failure_policy",
+      "kind": "Operation incomplete",
+      "node_id": "complaints_parse",
+      "op": "script",
+      "intent": "Fail the process if any complaint cannot be parsed to identify Order Number, Customer ID, or Item Number.",
+      "ref": "    parsed = [_parse_complaint(text) for text in df[\"Complaint\"]]"
+    },
+    {
+      "id": "5_O3_duplicate_complaint_dedup_grain",
+      "kind": "Operation inconsistent",
+      "node_id": "complaints_parse",
+      "op": "script",
+      "intent": "If there are multiple complaint records for the same order/item combination, keep only one at the grain (Order Number, Item Number).",
+      "ref": "    out = out.drop_duplicates(\n        subset=[\"Order Number\", \"Item Number\"]).reset_index(drop=True)"
+    },
+    {
+      "id": "6_D2_join_keys_orders_complaints",
+      "kind": "Multi-table alignment",
+      "node_id": "comp_orders_join",
+      "op": "join",
+      "intent": "Match parsed complaints to order lines using an exact join on Order Number + Customer ID + Item Number.",
+      "ref": "    complaint_details = complaints.merge(\n        orders,\n        on=[\"Order Number\", \"Customer ID\", \"Item Number\"],\n        how=\"left\",\n        suffixes=(\"\", \"_order\"),\n    )"
+    },
+    {
+      "id": "7_O2_join_unmatched_complaints_retained",
+      "kind": "Operation incomplete",
+      "node_id": "comp_orders_join",
+      "op": "join",
+      "intent": "Use a left join from complaints to orders, then fail if any parsed complaint has no matched order batch.",
+      "ref": "    complaint_details = complaints.merge(\n        orders,\n        on=[\"Order Number\", \"Customer ID\", \"Item Number\"],\n        how=\"left\",\n        suffixes=(\"\", \"_order\"),\n    )\n    if complaint_details[\"Batch Number\"].isna().any():\n        raise ValueError(...)"
+    },
+    {
+      "id": "8_O3_ambiguous_order_overrides_recall_for_refunds",
+      "kind": "Operation inconsistent",
+      "node_id": "refund_rows_filter",
+      "op": "filter",
+      "intent": "When a complaint line is in a recalled batch but comes from an ambiguous order, treat it as Refund Items Only (include in refund sum).",
+      "ref": "    refund_rows = complaint_with_flags[\n        (~complaint_with_flags[\"recall\"]\n         ) | complaint_with_flags[\"is_ambiguous\"]\n    ]"
+    },
+    {
+      "id": "9_C1_stock_adjust_for_ambiguous_recall_complaints",
+      "kind": "Row-level concept",
+      "node_id": "stock_adjust_proj",
+      "op": "project",
+      "intent": "Adjust (Product, Scent) Stock Remaining by subtracting the count of complaint lines that are both ambiguous-order and recalled-batch, without letting stock go below 0.",
+      "ref": "    ambiguous_recall = complaint_with_flags[\n        complaint_with_flags[\"is_ambiguous\"] & complaint_with_flags[\"recall\"]\n    ]\n    ...stock_remaining[\"stock_remaining\"] = (\n        stock_remaining[\"stock_remaining\"] -\n        stock_remaining[\"ambiguous_count\"]\n    ).clip(lower=0)"
+    }
+  ]
+}

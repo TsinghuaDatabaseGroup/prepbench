@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Device"
+      ],
+      "columns": {
+        "Device": "text_exact",
+        "Count": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Rank",
+        "Show"
+      ],
+      "columns": {
+        "Rank": "number",
+        "Show": "text_exact",
+        "Rating": "number"
+      }
+    }
+  }
+}
+

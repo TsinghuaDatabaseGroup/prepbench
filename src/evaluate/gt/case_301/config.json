@@ -1,0 +1,34 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Attraction", "Year"],
+      "columns": {
+        "Attraction Rank": "number",
+        "Attraction": "text_exact",
+        "5 Year Avg Footfall": "number",
+        "Year": "number",
+        "Attraction Footfall": "number"
+      }
+    },
+    "output_02.csv": {
+      "ignore_order": true,
+      "key": ["Attraction Name"],
+      "columns": {
+        "Attraction Name": "text_exact",
+        "Attraction Latitude": "number",
+        "Attraction Longitude": "number"
+      }
+    },
+    "output_03.csv": {
+      "ignore_order": true,
+      "key": ["Station"],
+      "columns": {
+        "Station": "text_exact",
+        "Station Longitude": "number",
+        "Station Latitude": "number"
+      }
+    }
+  }
+}
+

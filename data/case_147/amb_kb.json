@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_measure_suffix_strip_space",
+      "kind": "Operation boundary",
+      "node_id": "n_enrich",
+      "op": "project",
+      "source_text": "Remove the suffix of the measure (i.e. the (k) or (m)",
+      "ref": "final_df['Clean Measure names'] = final_df['Measure'].str.replace(r' \\(m\\)| \\(k\\)', '', regex=True)"
+    },
+    {
+      "id": "2_C2_true_value_multiplier_km",
+      "kind": "Row-level concept",
+      "node_id": "n_enrich",
+      "op": "project",
+      "source_text": "Create a True Value (i.e. the correct number of zeros for the measure)",
+      "ref": "def extract_multiplier(measure):\n        if '(m)' in measure:\n            return 1_000_000\n        if '(k)' in measure:\n            return 1_000\n        return 1\n\n    final_df['Multiplier'] = final_df['Measure'].apply(extract_multiplier)\n    final_df['True Value'] = final_df['Value'] * final_df['Multiplier']"
+    },
+    {
+      "id": "3_O1_true_value_round_to_int",
+      "kind": "Operation boundary",
+      "node_id": "n_finalize",
+      "op": "project",
+      "intent": "Whether True Value should be rounded to a whole number and stored as an integer.",
+      "ref": "output_df['True Value'] = output_df['True Value'].round(0).astype(int)"
+    },
+    {
+      "id": "4_O2_split_blocks_on_fully_blank_rows",
+      "kind": "Operation boundary",
+      "node_id": "n_parse",
+      "op": "script",
+      "source_text": "Extract each data table within the Excel workbook",
+      "ref": "split_indices = df[df.isnull().all(axis=1)].index.tolist()\n    split_indices = [-1] + split_indices + [len(df)]"
+    },
+    {
+      "id": "5_D1_branch_name_cell_location",
+      "kind": "Single-table reference",
+      "node_id": "n_parse",
+      "op": "script",
+      "source_text": "Extract the branch name from the table structure",
+      "ref": "branch_name = branch_block.iloc[0, 1]"
+    },
+    {
+      "id": "6_O2_year_headers_non_null_only",
+      "kind": "Operation boundary",
+      "node_id": "n_parse",
+      "op": "script",
+      "intent": "Whether year columns should be identified using only non-null header cells in the block header row.",
+      "ref": "header = [str(h).replace('Year ', '').strip() for h in header_cells if pd.notna(h)]"
+    },
+    {
+      "id": "7_O1_year_prefix_removal_rule",
+      "kind": "Operation boundary",
+      "node_id": "n_parse",
+      "op": "script",
+      "source_text": "Remove the word 'Year' from the year values",
+      "ref": "header = [str(h).replace('Year ', '').strip() for h in header_cells if pd.notna(h)]"
+    },
+    {
+      "id": "8_D1_measure_column_as_identifier",
+      "kind": "Single-table reference",
+      "node_id": "n_parse",
+      "op": "script",
+      "source_text": "Create a row per measure and year",
+      "ref": "data = branch_block.iloc[1:, 1:2+len(header)]\n        data.columns = ['Measure'] + header"
+    }
+  ]
+}

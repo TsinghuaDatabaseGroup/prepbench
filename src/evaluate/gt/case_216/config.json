@@ -1,0 +1,17 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Previous Trades",
+                "Trade Order",
+                "Sector"
+            ],
+            "columns": {
+                "Previous Trades": "number",
+                "Trade Order": "number",
+                "Sector": "text_exact",
+                "Rolling Avg. Purchase Price": "number"
+            }
+        }
+    }
+}

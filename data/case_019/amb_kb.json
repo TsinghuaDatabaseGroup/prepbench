@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_completion_count_basis",
+      "kind": "Group-level concept",
+      "node_id": "aggregate_team",
+      "op": "aggregate",
+      "source_text": "Have seven or more riders complete the tour",
+      "ref": "grp = df.groupby(\"Team\", as_index=False).agg(\n        avg_gap_min=(\"gap_minutes\", \"mean\"),\n        riders=(\"Rider\", \"count\"),\n    )"
+    },
+    {
+      "id": "2_O1_floor_team_average_minutes",
+      "kind": "Operation boundary",
+      "node_id": "project_finalize",
+      "op": "project",
+      "intent": "Convert the team average gap in minutes to an integer by flooring (rounding down).",
+      "ref": "grp[\"Team Avg Gap in Mins\"] = np.floor(grp[\"avg_gap_min\"]).astype(int)"
+    },
+    {
+      "id": "3_O2_gap_dash_as_zero",
+      "kind": "Row-level concept",
+      "node_id": "project_parse_gap",
+      "op": "project",
+      "intent": "Treat a gap value of '-' as a zero time gap (the leader).",
+      "ref": "is_dash = df[\"Gap\"] == \"-\"\ndf[\"gap_minutes\"] = np.where(\n        is_dash,\n        0.0,"
+    },
+    {
+      "id": "4_O2_gap_string_parse_format",
+      "kind": "Row-level concept",
+      "node_id": "project_parse_gap",
+      "op": "project",
+      "intent": "Parse non-'-' gap strings using a '+ HHh MM' SS''' pattern and convert to total seconds then minutes.",
+      "ref": "time_parts = df[\"Gap\"].str.extract(\n        r\"^\\+\\s*(\\d{2})h\\s*(\\d{2})'\\s*(\\d{2})''$\").fillna(0).astype(int)"
+    },
+    {
+      "id": "5_O1_select_top_2_teams",
+      "kind": "Row-level concept",
+      "node_id": "sort_limit",
+      "op": "sort",
+      "intent": "After ranking teams by average gap, keep only the top 2 teams.",
+      "ref": "out = grp.sort_values([\"Team Avg Gap in Mins\", \"Team\"]).head(2)["
+    },
+    {
+      "id": "6_O3_tie_break_by_team_name",
+      "kind": "Operation boundary",
+      "node_id": "sort_limit",
+      "op": "sort",
+      "intent": "Break ties in team average gap by sorting ascending on Team name.",
+      "ref": "out = grp.sort_values([\"Team Avg Gap in Mins\", \"Team\"]).head(2)["
+    }
+  ]
+}

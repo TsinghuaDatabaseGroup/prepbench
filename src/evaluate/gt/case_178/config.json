@@ -1,0 +1,37 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Quantity",
+        "Store Name",
+        "Region",
+        "Sale Value",
+        "Present in N orders"
+      ],
+      "columns": {
+        "Quantity": "number",
+        "Store Name": "text_exact",
+        "Region": "text_exact",
+        "Sale Value": "number",
+        "Present in N orders": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Quantity",
+        "Store Name",
+        "Region",
+        "Sale Value",
+        "Present in N orders"
+      ],
+      "columns": {
+        "Quantity": "number",
+        "Store Name": "text_exact",
+        "Region": "text_exact",
+        "Sale Value": "number",
+        "Present in N orders": "number"
+      }
+    }
+  }
+}
+

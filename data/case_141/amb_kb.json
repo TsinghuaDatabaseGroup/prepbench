@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_output_date_is_weekday_name",
+      "kind": "Single-table reference",
+      "node_id": "n11_project_set_date",
+      "op": "project",
+      "intent": "Set the output 'Date' field to the weekday name (not the actual calendar date).",
+      "ref": "sub_out = sub[[\n    \"Avg raised per weekday\",\n    \"Value raised per day\",\n    \"Days into fund raising\",\n    \"Date_name\",\n    \"Total Raised to date\",\n]].rename(columns={\"Date_name\": \"Date\"})"
+    },
+    {
+      "id": "2_O1_complete_missing_dates_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "n4_project_complete_calendar",
+      "op": "project",
+      "source_text": "Create new rows for any date missing between the first and last date",
+      "ref": "all_dates = pd.DataFrame(\n        {\"Date\": pd.date_range(start_date, end_date, freq=\"D\")})"
+    },
+    {
+      "id": "3_C2_value_raised_per_day_is_cumulative_divided_by_days_into",
+      "kind": "Group-level concept",
+      "node_id": "n6_project_fill_and_compute",
+      "op": "project",
+      "source_text": "Calculate the amount raised per day of fundraising for each row",
+      "ref": "all_dates[\"Value raised per day\"] = all_dates.apply(\n            lambda r: (r[\"Total Raised to date\"] / r[\"Days into fund raising\"]\n                       ) if r[\"Days into fund raising\"] != 0 else float(\"nan\"),\n            axis=1\n        )"
+    },
+    {
+      "id": "4_O1_value_raised_day0_is_null",
+      "kind": "Operation incomplete",
+      "node_id": "n6_project_fill_and_compute",
+      "op": "project",
+      "intent": "When Days into fund raising = 0, set Value raised per day to blank/null (not zero).",
+      "ref": ") if r[\"Days into fund raising\"] != 0 else float(\"nan\"),"
+    },
+    {
+      "id": "5_O1_days_into_is_whole_days_since_earliest_date",
+      "kind": "Row-level concept",
+      "node_id": "n6_project_fill_and_compute",
+      "op": "project",
+      "source_text": "Calculate how many days of fundraising there has been by the date",
+      "ref": "all_dates[\"Days into fund raising\"] = (\n        all_dates[\"Date\"] - start_date).dt.days"
+    },
+    {
+      "id": "6_O2_fill_missing_totals_by_carrying_forward_latest_prior",
+      "kind": "Operation incomplete",
+      "node_id": "n6_project_fill_and_compute",
+      "op": "project",
+      "intent": "For dates with no recorded total, fill Total Raised to date using the latest prior known cumulative total (carry forward).",
+      "ref": "totals_full = totals.reindex(all_dates[\"Date\"]).ffill().fillna(0)"
+    },
+    {
+      "id": "7_O2_missing_total_with_no_prior_defaults_to_zero",
+      "kind": "Operation incomplete",
+      "node_id": "n6_project_fill_and_compute",
+      "op": "project",
+      "intent": "If there is no prior known Total Raised to date when filling missing values, default it to 0.",
+      "ref": "totals_full = totals.reindex(all_dates[\"Date\"]).ffill().fillna(0)"
+    },
+    {
+      "id": "8_O2_avg_per_weekday_excludes_null_value_per_day",
+      "kind": "Operation incomplete",
+      "node_id": "n7_agg_avg_by_weekday",
+      "op": "aggregate",
+      "source_text": "Average the amount raised per day of fundraising for each weekday",
+      "ref": "avg_per_weekday = (\n        all_dates.groupby(\"Date_name\")[\"Value raised per day\"].mean().to_dict()\n    )"
+    }
+  ]
+}

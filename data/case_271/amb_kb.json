@@ -1,0 +1,20 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_actual_spending_source_column",
+      "kind": "Single-table reference",
+      "node_id": "act_clean",
+      "op": "project",
+      "source_text": "Rename the fields to",
+      "ref": "df_act_raw[\"Actual Spending\"] = df_act_raw[\"Actual\"].map(_parse_number)"
+    },
+    {
+      "id": "2_D1_forecasted_spending_source_column",
+      "kind": "Single-table reference",
+      "node_id": "bud_parse",
+      "op": "project",
+      "source_text": "Rename the fields to",
+      "ref": "df_bud_raw[\"Forecasted Spending\"] = df_bud_raw[\"Budget\"].map(_parse_number)"
+    }
+  ]
+}

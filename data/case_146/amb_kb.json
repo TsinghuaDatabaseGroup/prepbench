@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_career_length_divisor",
+      "kind": "Group-level concept",
+      "node_id": "agg_enrich",
+      "op": "project",
+      "source_text": "calculate the length of poker career in years (with decimals)",
+      "ref": "delta_days / 365.25"
+    },
+    {
+      "id": "2_O2_career_length_missing_dates",
+      "kind": "Operation incomplete",
+      "node_id": "agg_enrich",
+      "op": "project",
+      "source_text": "Find the dates of the players first and last events",
+      "ref": "if pd.isna(dmin) or pd.isna(dmax): return 0.0"
+    },
+    {
+      "id": "3_C2_countries_distinct",
+      "kind": "Group-level concept",
+      "node_id": "agg_player",
+      "op": "aggregate",
+      "source_text": "The distinct count of the country played in",
+      "ref": "g[\"event_country\"].nunique(dropna=True)"
+    },
+    {
+      "id": "4_O2_prize_usd_non_numeric",
+      "kind": "Operation incomplete",
+      "node_id": "events_clean1",
+      "op": "project",
+      "source_text": "Replace any nulls in prize_usd with zero",
+      "ref": "pd.to_numeric(df_events[\"prize_usd\"], errors=\"coerce\").fillna(0.0)"
+    },
+    {
+      "id": "5_D2_join_on_player_id",
+      "kind": "Multi-table alignment",
+      "node_id": "join_players",
+      "op": "join",
+      "source_text": "Add the player names to their poker events",
+      "ref": "agg.merge(df_players, on=\"player_id\", how=\"right\")"
+    },
+    {
+      "id": "6_O2_keep_all_players",
+      "kind": "Operation incomplete",
+      "node_id": "join_players",
+      "op": "join",
+      "intent": "Retain all players from the players table even when they have no matching events.",
+      "ref": "how=\"right\""
+    },
+    {
+      "id": "7_C2_total_prize_from_players",
+      "kind": "Single-table reference",
+      "node_id": "metrics_fill",
+      "op": "project",
+      "source_text": "Total prize money",
+      "ref": "agg.rename(columns={\"all_time_money_usd\": \"total_prize_money\"})"
+    },
+    {
+      "id": "8_O2_fill_metrics_zero",
+      "kind": "Operation incomplete",
+      "node_id": "metrics_fill",
+      "op": "project",
+      "intent": "For players with no events, fill event-derived metrics with zeros.",
+      "ref": "agg[col] = agg[col].fillna(default)"
+    },
+    {
+      "id": "9_O2_rank_na_handling",
+      "kind": "Operation incomplete",
+      "node_id": "rank_script",
+      "op": "script",
+      "intent": "When percent_won is missing, assign it the maximum rank.",
+      "ref": "ranks[s.isna()] = len(s)"
+    }
+  ]
+}

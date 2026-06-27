@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_dedup_keywords_per_department",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_kw",
+      "op": "dedup",
+      "source_text": "Create a comma-separated field for all the keywords found in the complaint for each department",
+      "ref": "                if kw not in dept_to_kws[dept]:\n                    dept_to_kws[dept].append(kw)"
+    },
+    {
+      "id": "2_O3_multi_department_rows",
+      "kind": "Operation inconsistent",
+      "node_id": "script_group",
+      "op": "script",
+      "source_text": "Join the 'Department Responsible' data set to allocate the complaints to the correct department",
+      "ref": "for dept, kws in dept_to_kws.items():\n    out_rows.append({\n        \"Complaint\": comp_lc,\n        \"Complaints per Person\": int(counts.get(name, 0)),\n        \"Complaint causes\": \", \".join(kws),\n        \"Department\": dept if dept else \"Unknown\",\n        \"Name\": name,\n    })"
+    },
+    {
+      "id": "3_D2_substring_keyword_matching",
+      "kind": "Multi-table alignment",
+      "node_id": "script_match",
+      "op": "script",
+      "source_text": "Join the 'Department Responsible' data set to allocate the complaints to the correct department",
+      "ref": "            pos = comp_lc.find(item[\"kw\"]) if item[\"kw\"] else -1\n            if pos >= 0:\n                matches.append((pos, item[\"kw\"], item[\"dept\"]))"
+    },
+    {
+      "id": "4_O1_keyword_order_by_first_occurrence",
+      "kind": "Row-level concept",
+      "node_id": "sort_for_group",
+      "op": "sort",
+      "source_text": "Create a comma-separated field for all the keywords found in the complaint for each department",
+      "ref": "matches.sort(key=lambda x: x[0])"
+    }
+  ]
+}

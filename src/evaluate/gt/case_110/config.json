@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Margin", "Cost", "Cocktail", "Price"],
+      "columns": {
+        "Margin": "number",
+        "Cost": "number",
+        "Cocktail": "text_exact",
+        "Price": "number"
+      }
+    }
+  }
+}

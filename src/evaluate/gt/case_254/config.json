@@ -1,0 +1,49 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "List",
+        "Number of Children",
+        "Toy",
+        "Production Manager",
+        "Quota",
+        "Week",
+        "Toys Produced",
+        "Running Sum of Toys Produced",
+        "Over or Under Quota?"
+      ],
+      "columns": {
+        "List": "text_exact",
+        "Number of Children": "number",
+        "Toy": "text_exact",
+        "Production Manager": "text_exact",
+        "Quota": "number",
+        "Week": "date",
+        "Toys Produced": "number",
+        "Running Sum of Toys Produced": "number",
+        "Over or Under Quota?": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "List",
+        "Toy",
+        "Quota",
+        "Toys Produced",
+        "Toys Ready to be Gifts",
+        "Spare Toys",
+        "Toys Over/Under Quota"
+      ],
+      "columns": {
+        "List": "text_exact",
+        "Toy": "text_exact",
+        "Quota": "number",
+        "Toys Produced": "number",
+        "Toys Ready to be Gifts": "number",
+        "Spare Toys": "number",
+        "Toys Over/Under Quota": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,34 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "List",
+        "Name",
+        "Item",
+        "Family Role",
+        "Elves Build Time (min)",
+        "Address-1",
+        "Reason"
+      ],
+      "columns": {
+        "List": "text_exact",
+        "Name": "text_exact",
+        "Item": "text_exact",
+        "Family Role": "text_exact",
+        "Elves Build Time (min)": "number",
+        "Address-1": "text_exact",
+        "Reason": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Total Hours Build Time",
+        "List"
+      ],
+      "columns": {
+        "Total Hours Build Time": "number",
+        "List": "text_exact"
+      }
+    }
+  }
+}

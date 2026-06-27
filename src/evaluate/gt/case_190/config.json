@@ -1,0 +1,20 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Record ID",
+        "Employee",
+        "Work Level",
+        "Stage",
+        "Date"
+      ],
+      "columns": {
+        "Record ID": "number",
+        "Employee": "text_exact",
+        "Work Level": "number",
+        "Stage": "text_exact",
+        "Date": "date"
+      }
+    }
+  }
+}

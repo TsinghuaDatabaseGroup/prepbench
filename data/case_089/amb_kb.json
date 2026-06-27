@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_gender_values",
+      "kind": "Row-level concept",
+      "node_id": "add_gender",
+      "op": "project",
+      "source_text": "Output the top 10 baby names for boys and girls in 2019",
+      "ref": "stacked[\"Gender\"] = gender (\"Boys\" or \"Girls\")"
+    },
+    {
+      "id": "2_C2_annual_rank_numbering",
+      "kind": "Group-level concept",
+      "node_id": "add_rank",
+      "op": "project",
+      "source_text": "Aggregate to a year level and calculate new rankings",
+      "ref": "top10[\"2019 Rank\"] = range(1, len(top10) + 1)"
+    },
+    {
+      "id": "3_C2_yearly_count_aggregation",
+      "kind": "Group-level concept",
+      "node_id": "aggregate_yearly",
+      "op": "aggregate",
+      "source_text": "Aggregate to a year level",
+      "ref": "df_yearly = df_monthly.groupby([\"Name\", \"Gender\"])[\"Count\"].sum()"
+    },
+    {
+      "id": "4_D1_input_schema",
+      "kind": "Single-table reference",
+      "node_id": "input",
+      "op": "input",
+      "intent": "Use input_01.csv for boys and input_02.csv for girls, both as raw positional tables with no header.",
+      "ref": "pd.read_csv(inputs_dir / \"input_01.csv\", header=None)"
+    },
+    {
+      "id": "5_D1_parse_column_group_order",
+      "kind": "Single-table reference",
+      "node_id": "parse",
+      "op": "pivot",
+      "source_text": "Restructure the data so it has the headings: Rank, Name, Count",
+      "ref": "col_fields = np.tile(np.array([\"Rank\", \"Name\", \"Count\"]), len(month_positions))"
+    },
+    {
+      "id": "6_O1_parse_data_starts_after_two_rows",
+      "kind": "Operation boundary",
+      "node_id": "parse",
+      "op": "pivot",
+      "intent": "Within each month section, start data after two rows.",
+      "ref": "data = table.iloc[start + 2: end]"
+    },
+    {
+      "id": "7_O2_parse_drop_totals",
+      "kind": "Operation incomplete",
+      "node_id": "parse",
+      "op": "pivot",
+      "source_text": "Remove totals",
+      "ref": "data = data[~data.apply(lambda r: \"Total\" in \" \".join(r), axis=1)]"
+    },
+    {
+      "id": "8_O2_parse_filter_non_numeric",
+      "kind": "Operation incomplete",
+      "node_id": "parse",
+      "op": "pivot",
+      "intent": "Exclude rows without valid numeric Rank and Count.",
+      "ref": "df_long = df_long[df_long[\"Rank\"].str.isdigit() & df_long[\"Count\"].str.isdigit()]"
+    },
+    {
+      "id": "9_O2_parse_month_row_starts_section",
+      "kind": "Single-table reference",
+      "node_id": "parse",
+      "op": "pivot",
+      "source_text": "Pivot to create a month field",
+      "ref": "month_rows = table.index[table.apply(lambda r: r.isin(months).any(), axis=1)]"
+    },
+    {
+      "id": "10_O2_parse_rank_count_as_integers",
+      "kind": "Operation boundary",
+      "node_id": "parse",
+      "op": "pivot",
+      "intent": "Convert Rank and Count to integers.",
+      "ref": "df_long[\"Rank\"] = df_long[\"Rank\"].astype(int)"
+    },
+    {
+      "id": "11_C2_top10_by_gender_on_annual_count",
+      "kind": "Group-level concept",
+      "node_id": "sort_yearly",
+      "op": "sort",
+      "source_text": "Output the top 10 baby names for boys and girls",
+      "ref": "top10_boys = df_yearly[df_yearly[\"Gender\"] == \"Boys\"].head(10)"
+    }
+  ]
+}

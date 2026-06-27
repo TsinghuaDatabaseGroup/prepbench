@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Order Status",
+        "Orders",
+        "Sale Date",
+        "Reporting Date"
+      ],
+      "columns": {
+        "Order Status": "text_exact",
+        "Orders": "text_exact",
+        "Sale Date": "date",
+        "Reporting Date": "date"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_cast_customer_id_non_numeric_to_null",
+      "kind": "Operation boundary",
+      "node_id": "cast_id",
+      "op": "project",
+      "intent": "Convert Customer ID to numeric, coercing non-numeric to null.",
+      "ref": "pd.to_numeric(df[\"Customer ID\"], errors=\"coerce\")"
+    },
+    {
+      "id": "2_C1_duplicates_defined_by_customer_id",
+      "kind": "Row-level concept",
+      "node_id": "dedup",
+      "op": "dedup",
+      "source_text": "Step 3: Identify Duplicates",
+      "ref": "subset=[\"Customer ID\"]"
+    },
+    {
+      "id": "3_O3_dedup_tiebreak_keep_first",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup",
+      "op": "dedup",
+      "source_text": "Step 4: Remove Duplicates",
+      "ref": "keep=\"first\""
+    }
+  ]
+}

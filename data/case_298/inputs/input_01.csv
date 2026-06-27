@@ -1,0 +1,26 @@
+Category,Product,Price,Quantity,Product ID
+Clothes,White top,3.99,2,CL1828
+Clothes,Black top,4.99,5,CL5675
+Clothes,Red skirt,3.99,20,CL1864
+Clothes,Grey trousers,9,5,CL9489
+Clothes,Black shoes,15,12,CL4454
+Home,Strawberry candle,5,3,HO2617
+Home,Striped tea towels,3.99,2,HO1212
+Home,Wine glass,5.99,10,HO8575
+Home,Yellow mug,3,3,HO7446
+Home,Vase,8,4,HO4293
+Electronics,iPhone charger,10,12,EL9846
+Electronics,Batteries,5,4,EL5291
+Electronics,SIM card,3,4,EL4339
+Electronics,Andriod charger,8,2,EL2859
+Electronics,TV,300,1,EL3785
+Beauty,Mascara,12,6,BE9159
+Beauty,Foundation,10,9,BE9568
+Beauty,Moisturiser,3,2,BE4227
+Beauty,Shower gel,3,8,BE5626
+Beauty ,Hairbrush,7,2,BE5681
+Groceries,Eggs,2.5,11,GR4215
+Groceries,Milk,0.8,5,GR2429
+Groceries,Bagels,1.2,6,GR8357
+Groceries,Blueberries,2.8,15,GR3688
+Groceries,Apples,1.50,20,GR1571

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Session #", "Customer ID", "Song Order", "Date", "Artist", "Song"],
+      "columns": {
+        "Session #": "number",
+        "Customer ID": "text_exact",
+        "Song Order": "number",
+        "Date": "datetime",
+        "Artist": "text_exact",
+        "Song": "text_exact"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Misalignment Flag", "Reporting Month", "Reporting Day", "Reporting Date", "New Customers", "ROI New Customers", "ROI Reporting Month"],
+      "columns": {
+        "Misalignment Flag": "text_exact",
+        "Reporting Month": "text_exact",
+        "Reporting Day": "number",
+        "Reporting Date": "date",
+        "New Customers": "number",
+        "ROI New Customers": "number",
+        "ROI Reporting Month": "text_exact"
+      }
+    }
+  }
+}
+

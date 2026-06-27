@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_header_row_offset",
+      "kind": "Single-table reference",
+      "node_id": "cast_Bath",
+      "op": "project",
+      "source_text": "Input the data",
+      "ref": "df = pd.read_csv(path, header=3)"
+    },
+    {
+      "id": "2_C1_keep_only_specific_measures",
+      "kind": "Row-level concept",
+      "node_id": "measure_map_Bath",
+      "op": "project",
+      "source_text": "For Orders and Returns, we are only interested in reporting % values",
+      "ref": "MEASURE_SPECS: Dict[tuple[str, str], dict[str, object]] = {...}"
+    },
+    {
+      "id": "3_D1_monthly_columns_are_date_parsable",
+      "kind": "Single-table reference",
+      "node_id": "melt_Bath",
+      "op": "pivot",
+      "source_text": "We only wish to keep the monthly values",
+      "ref": "date_columns: List[str] = []\n    for column in df.columns:\n        parsed = pd.to_datetime(column, errors=\"coerce\")\n        if pd.notna(parsed):\n            date_columns.append(column)"
+    },
+    {
+      "id": "4_O3_duplicate_measure_conflict_take_first",
+      "kind": "Operation inconsistent",
+      "node_id": "pivot_wide",
+      "op": "pivot",
+      "intent": "If multiple values exist for the same (Shop, Date, Measure), take the first.",
+      "ref": "pivot = long_df.pivot_table(...aggfunc=\"first\",...).reset_index()"
+    },
+    {
+      "id": "5_O2_exclude_additonal_metrics_section",
+      "kind": "Operation incomplete",
+      "node_id": "prep_Bath",
+      "op": "project",
+      "intent": "Exclude all rows from the 'Additonal Metrics' section onward.",
+      "ref": "add_mask = df[\"Department\"].astype(str).str.contains(\n        \"Additonal Metrics\", case=False, na=False)"
+    },
+    {
+      "id": "6_C2_percent_target_scale_over_one_divide_by_100",
+      "kind": "Row-level concept",
+      "node_id": "target_prep_Bath",
+      "op": "project",
+      "intent": "For percent measures only, if the numeric target is greater than 1, divide by 100 so targets are stored on a 0–1 scale.",
+      "ref": "if is_percent and value > 1:\n        value /= 100"
+    },
+    {
+      "id": "7_O2_target_parse_fail_skip_record",
+      "kind": "Operation incomplete",
+      "node_id": "tgt_keep_Bath",
+      "op": "filter",
+      "intent": "If Target is blank/missing or cannot be converted to a number, do not create a target record.",
+      "ref": "if pd.isna(raw_value):\n        return None\n    ..."
+    },
+    {
+      "id": "8_O2_drop_missing_date_or_value_rows",
+      "kind": "Operation incomplete",
+      "node_id": "valid_Bath",
+      "op": "filter",
+      "intent": "Keep only melted rows where both Date and Value are present.",
+      "ref": "melted = melted.dropna(subset=[\"Date\", \"Value\"])"
+    }
+  ]
+}

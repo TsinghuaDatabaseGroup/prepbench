@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Days Between Full Moon & Easter Sunday", "Number of Occurrences", "Most Interesting event", "Min Year", "Max Year"],
+      "columns": {
+        "Days Between Full Moon & Easter Sunday": "number",
+        "Number of Occurrences": "number",
+        "Most Interesting event": "text_exact",
+        "Min Year": "number",
+        "Max Year": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_c2_pct_scaled_100",
+      "kind": "Group-level concept",
+      "node_id": "compute_pct",
+      "op": "project",
+      "source_text": "- Calculate the percent of total sales each customer represents",
+      "ref": "customer_sales['% of Total'] = (customer_sales['Sales'] / total_sales) * 100"
+    },
+    {
+      "id": "2_c2_running_cumsum_on_pct",
+      "kind": "Group-level concept",
+      "node_id": "compute_running_round",
+      "op": "project",
+      "source_text": "- Calculate the running total of sales across customers",
+      "ref": "customer_sales['Running % of Total Sales'] = customer_sales['% of Total'].cumsum()"
+    },
+    {
+      "id": "5_o1_round_running_before_filter",
+      "kind": "Operation boundary",
+      "node_id": "compute_running_round",
+      "op": "project",
+      "intent": "Apply the running-total filter using the rounded (2-decimal) running percentage values.",
+      "ref": "customer_sales['Running % of Total Sales'] = customer_sales['Running % of Total Sales'].round(2)\nmask = customer_sales['Running % of Total Sales'] <= target_percentage"
+    },
+    {
+      "id": "6_o3_name_conflict_first_observed",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_first_name",
+      "op": "dedup",
+      "intent": "When multiple rows exist per Customer ID, take the first observed First Name and Surname.",
+      "ref": "customer_sales = df.groupby('Customer ID').agg({\n        'First Name': 'first',\n        'Surname': 'first',\n        'Sales': 'sum'\n    }).reset_index()"
+    },
+    {
+      "id": "7_o1_target_percentage_80",
+      "kind": "Operation boundary",
+      "node_id": "filter_top80",
+      "op": "filter",
+      "intent": "Set the target cumulative percentage parameter value to 80.0.",
+      "ref": "target_percentage = 80.0"
+    },
+    {
+      "id": "8_o1_filter_inclusive_le",
+      "kind": "Operation boundary",
+      "node_id": "filter_top80",
+      "op": "filter",
+      "source_text": "- Create a parameter that will allow the user to decide the percentage of sales they wish to filter to",
+      "ref": "mask = customer_sales['Running % of Total Sales'] <= target_percentage"
+    },
+    {
+      "id": "9_d1_surname_maps_to_last_name",
+      "kind": "Single-table reference",
+      "node_id": "project_names",
+      "op": "project",
+      "source_text": "output_01.csv\n  - 6 fields:\n    - Customer ID\n    - First Name\n    - Last Name",
+      "ref": "customer_sales = customer_sales.rename(columns={'Surname': 'Last Name'})"
+    },
+    {
+      "id": "10_c2_total_customers_pre_filter",
+      "kind": "Group-level concept",
+      "node_id": "project_result_text",
+      "op": "project",
+      "intent": "Define TotalCustomers as the number of customers before applying the running-total filter.",
+      "ref": "total_customers = len(customer_sales)"
+    },
+    {
+      "id": "11_o1_round_pct_customers_to_int",
+      "kind": "Operation boundary",
+      "node_id": "project_result_text",
+      "op": "project",
+      "intent": "Compute percent of customers and round to the nearest integer percent for the summary text.",
+      "ref": "filtered_customer_percentage = int(round((filtered_customer_count / total_customers) * 100, 0))"
+    }
+  ]
+}

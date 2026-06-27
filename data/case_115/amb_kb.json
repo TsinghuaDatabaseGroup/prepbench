@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_big6_exact_names",
+      "kind": "Single-table reference",
+      "node_id": "filter_no_big6",
+      "op": "filter",
+      "source_text": "The 'big 6' English teams to propose the Super League were Arsenal, Chelsea, Liverpool, Manchester United",
+      "ref": "BIG6 = {\"Arsenal\", \"Chelsea\", \"Liverpool\", \"Man Utd\", \"Man City\", \"Spurs\"}"
+    },
+    {
+      "id": "2_C1_exclude_big6_fixtures",
+      "kind": "Row-level concept",
+      "node_id": "filter_no_big6",
+      "op": "filter",
+      "source_text": "Assuming that the 'Big 6' didn't play any games this season, recalculate the league table.",
+      "ref": "mask_non_big6 = (~df_fixt[\"Home Team\"].isin(BIG6)) & (~df_fixt[\"Away Team\"].isin(BIG6))"
+    },
+    {
+      "id": "3_O2_skip_unplayed_matches",
+      "kind": "Operation incomplete",
+      "node_id": "filter_valid_result",
+      "op": "filter",
+      "intent": "How to handle fixtures with missing/empty Result (unplayed matches) when computing both league tables.",
+      "ref": "df = df[df[\"Result\"].astype(str).str.contains(r\"\\d+\\s*-\\s*\\d+\", na=False)]"
+    },
+    {
+      "id": "4_C2_position_change_sign",
+      "kind": "Row-level concept",
+      "node_id": "project_out2_compute",
+      "op": "project",
+      "source_text": "After removing the 6 clubs, how has the position changed for the remaining clubs?",
+      "ref": "out2_ranked[\"Position Change\"] = orig_pos - out2_ranked[\"Position\"]"
+    },
+    {
+      "id": "5_O3_ranking_tiebreak",
+      "kind": "Operation boundary",
+      "node_id": "sort_rank",
+      "op": "sort",
+      "source_text": "This is based on Total Points (high to low) and in a case of a tie then Goal Difference (high to low).",
+      "ref": "ordered = tbl.sort_values([\"Total Points\", \"Goal Difference\", \"Team\"], ascending=[False, False, True])"
+    }
+  ]
+}

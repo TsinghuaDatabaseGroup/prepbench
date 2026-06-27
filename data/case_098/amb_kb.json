@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_decade_round_minmax",
+      "kind": "Group-level concept",
+      "node_id": "agg_summary",
+      "op": "aggregate",
+      "source_text": "For each Decade, find the highest and lowest total score and round score.",
+      "ref": "summary.agg({\"Round Score\": [\"min\", \"max\"], \"Total\": [\"min\", \"max\"]})"
+    },
+    {
+      "id": "2_D2_join_year_left_from_scoring",
+      "kind": "Multi-table alignment",
+      "node_id": "join_combined",
+      "op": "join",
+      "source_text": "Join both data tables.",
+      "ref": "rounds.merge(winners, on=\"Year\", how=\"left\", validate=\"one_to_one\")"
+    },
+    {
+      "id": "3_O3_join_year_duplicate_handling",
+      "kind": "Operation inconsistent",
+      "node_id": "join_combined",
+      "op": "join",
+      "intent": "Enforce a one-to-one join by Year.",
+      "ref": "validate=\"one_to_one\""
+    },
+    {
+      "id": "4_C2_decade_floor_year",
+      "kind": "Row-level concept",
+      "node_id": "proj_add_decade",
+      "op": "project",
+      "source_text": "Create a field to determine the decade of each year.",
+      "ref": "combined[\"Year\"] // 10) * 10"
+    },
+    {
+      "id": "5_C2_row_index_from_min_decade",
+      "kind": "Row-level concept",
+      "node_id": "proj_enrich_long",
+      "op": "project",
+      "intent": "Compute Row as a decade index starting at 1.",
+      "ref": "((long_df[\"Decade\"] - min_decade) // 10) + 1"
+    },
+    {
+      "id": "6_C2_column_year_within_decade",
+      "kind": "Row-level concept",
+      "node_id": "proj_enrich_long",
+      "op": "project",
+      "intent": "Compute Column as the year position within a decade from 1 to 10.",
+      "ref": "long_df[\"Year\"] - long_df[\"Decade\"] + 1"
+    },
+    {
+      "id": "7_C2_round_number_extract",
+      "kind": "Row-level concept",
+      "node_id": "proj_enrich_long",
+      "op": "project",
+      "intent": "Extract Round Number as integer 1-4.",
+      "ref": "long_df[\"Round Num\"].str.extract(r\"(\\d+)\").astype(int)"
+    },
+    {
+      "id": "8_C2_round_colors_map",
+      "kind": "Row-level concept",
+      "node_id": "proj_enrich_long",
+      "op": "project",
+      "intent": "Map Round Number to Colors as 1→A, 2→B, 3→C, 4→D.",
+      "ref": "round_color_map = {1: \"A\", 2: \"B\", 3: \"C\", 4: \"D\"}"
+    },
+    {
+      "id": "9_C2_round_to_par_diff",
+      "kind": "Row-level concept",
+      "node_id": "proj_enrich_long",
+      "op": "project",
+      "intent": "Compute Round to Par as Round Score minus Round Par.",
+      "ref": "long_df[\"Round Score\"] - long_df[\"Round Par\"]"
+    },
+    {
+      "id": "10_C2_polygon_coords_formula",
+      "kind": "Row-level concept",
+      "node_id": "proj_point",
+      "op": "project",
+      "source_text": "Create a square for each round for each year",
+      "ref": "sqrt_scores = np.sqrt(long_df[\"Round Score\"]); Y = sqrt_scores * y_mult; X = sqrt_scores * x_mult"
+    },
+    {
+      "id": "11_C2_round_par_from_total_to_par",
+      "kind": "Row-level concept",
+      "node_id": "proj_rounds_to_par",
+      "op": "project",
+      "source_text": "Calculate the total par score and round par score for each year.",
+      "ref": "rounds[\"Round Par\"] = (rounds[\"Total\"] - rounds[\"to_par_num\"]) / 4"
+    }
+  ]
+}

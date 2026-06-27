@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_academic_year_bounds",
+      "kind": "Group-level concept",
+      "node_id": "include_bounds",
+      "op": "aggregate",
+      "intent": "Define academic-year bounds as min start and max end across included teaching-term intervals.",
+      "ref": "min_day = min(s for s, _ in include_intervals)\nmax_day = max(e for _, e in include_intervals)"
+    },
+    {
+      "id": "2_O1_calendar_bounds_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "include_days_expanded",
+      "op": "project",
+      "intent": "Interpret calendar Starts/Ends as inclusive interval bounds.",
+      "ref": "if s <= d <= e:"
+    },
+    {
+      "id": "3_C1_weekday_only_school_days",
+      "kind": "Row-level concept",
+      "node_id": "school_days",
+      "op": "filter",
+      "intent": "Treat only Monday–Friday as valid school days (exclude weekends).",
+      "ref": "if d.weekday() >= 5: return False"
+    },
+    {
+      "id": "4_C1_exclusions_override_inclusions",
+      "kind": "Row-level concept",
+      "node_id": "school_days_raw",
+      "op": "join",
+      "intent": "Define a school day as within at least one included (teaching) interval and not within any excluded interval.",
+      "ref": "if not within_any(d, include_intervals): return False\nif within_any(d, exclude_intervals): return False"
+    },
+    {
+      "id": "5_C1_academic_year_birthday_year",
+      "kind": "Row-level concept",
+      "node_id": "students_mapped_birthday",
+      "op": "project",
+      "intent": "Assign celebration year as min_day.year for Sep–Dec birthdays, otherwise max_day.year for Jan–Aug.",
+      "ref": "year = min_day.year if md[0] >= 9 else max_day.year"
+    },
+    {
+      "id": "6_C1_teaching_term_name_pattern",
+      "kind": "Row-level concept",
+      "node_id": "terms_with_ord",
+      "op": "project",
+      "intent": "Treat only calendar rows whose Term matches 'Autumn/Spring/Summer, Term N' as included teaching terms.",
+      "ref": "if re.search(r\"(autumn|spring|summer), term\", name_l): include_intervals.append((start, end))"
+    },
+    {
+      "id": "7_C1_roll_back_to_previous_school_day",
+      "kind": "Operation boundary",
+      "node_id": "valid_pairs",
+      "op": "filter",
+      "intent": "When a mapped birthday is not a school day, roll it back day-by-day to the most recent prior school day.",
+      "ref": "while not is_school_day(cur): cur = cur - timedelta(days=1)"
+    }
+  ]
+}

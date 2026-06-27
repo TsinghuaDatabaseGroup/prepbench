@@ -1,0 +1,14 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Words",
+                "Tweet"
+            ],
+            "columns": {
+                "Words": "text_exact",
+                "Tweet": "text_exact"
+            }
+        }
+    }
+}

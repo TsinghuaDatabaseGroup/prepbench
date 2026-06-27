@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Monthly Payment Date",
+        "Store",
+        "Capital Outstanding Total",
+        "Remaining Capital to Repay"
+      ],
+      "columns": {
+        "Monthly Payment Date": "date",
+        "Store": "text_exact",
+        "Capital Outstanding Total": "number",
+        "Remaining Capital to Repay": "number"
+      }
+    }
+  }
+}

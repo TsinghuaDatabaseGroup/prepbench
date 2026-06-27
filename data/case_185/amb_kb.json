@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_rank_sequential_after_sort",
+      "kind": "Row-level concept",
+      "node_id": "compute_rank",
+      "op": "project",
+      "intent": "Define Rank as sequential 1..N in the sorted (calories-desc) output order.",
+      "ref": "filtered[\"Rank\"] = range(1, len(filtered) + 1)"
+    },
+    {
+      "id": "2_C1_filter_coach_value",
+      "kind": "Single-table reference",
+      "node_id": "filter_pick",
+      "op": "filter",
+      "intent": "Filter to the run's selected Coach value of Kym.",
+      "ref": "param_coach = \"Kym\""
+    },
+    {
+      "id": "3_C1_filter_music_type_value",
+      "kind": "Single-table reference",
+      "node_id": "filter_pick",
+      "op": "filter",
+      "intent": "Filter to the run's selected Music Type value of Everything Rock.",
+      "ref": "param_music_type = \"Everything Rock\""
+    },
+    {
+      "id": "4_D1_split_meta_delimiter",
+      "kind": "Single-table reference",
+      "node_id": "parse_project",
+      "op": "project",
+      "source_text": "Split up the unnamed column into: Coach, Calories, Music Type",
+      "ref": "split_parts = df[unnamed_col].str.split(\" - \", n=2, expand=True)"
+    },
+    {
+      "id": "5_O1_titlecase_before_filter",
+      "kind": "Row-level concept",
+      "node_id": "parse_project",
+      "op": "project",
+      "intent": "Complete Music Type Title Case conversion before applying any filtering that uses Music Type.",
+      "ref": "df[\"Music Type\"] = df[\"Music Type\"].str.title()"
+    },
+    {
+      "id": "6_C2_mins_equals_value",
+      "kind": "Row-level concept",
+      "node_id": "parse_project",
+      "op": "project",
+      "source_text": "Merge Km's and min's as Minutes",
+      "ref": "df[\"Mins\"] = df[\"Value\"]"
+    },
+    {
+      "id": "7_O1_top_n_equals_5",
+      "kind": "Operation boundary",
+      "node_id": "sort_top",
+      "op": "sort",
+      "intent": "Use Top N value of 5 (keep first 5 rows after sorting by Calories descending).",
+      "ref": "param_top_n = 5; filtered = filtered.head(param_top_n)"
+    }
+  ]
+}

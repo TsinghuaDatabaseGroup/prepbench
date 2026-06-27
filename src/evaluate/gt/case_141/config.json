@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Avg raised per weekday", "Value raised per day", "Days into fund raising", "Date", "Total Raised to date"],
+      "columns": {
+        "Avg raised per weekday": "number",
+        "Value raised per day": "number",
+        "Days into fund raising": "number",
+        "Date": "text_exact",
+        "Total Raised to date": "number"
+      }
+    }
+  }
+}

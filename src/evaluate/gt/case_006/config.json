@@ -1,0 +1,18 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Country",
+                "Month",
+                "Product",
+                "Profit"
+            ],
+            "columns": {
+                "Country": "text_exact",
+                "Month": "date",
+                "Product": "text_exact",
+                "Profit": "number"
+            }
+        }
+    }
+}

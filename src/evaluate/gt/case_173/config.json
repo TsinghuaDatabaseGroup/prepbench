@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "name",
+        "youtube_timestamp",
+        "dialogue"
+      ],
+      "columns": {
+        "Episode": "text_exact",
+        "name": "text_exact",
+        "start_time": "number",
+        "Duration": "number",
+        "youtube_timestamp": "text_exact",
+        "dialogue": "text_exact",
+        "section": "text_exact"
+      }
+    }
+  }
+}
+

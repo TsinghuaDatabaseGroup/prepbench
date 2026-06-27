@@ -1,0 +1,33 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Party",
+        "Adults in Party",
+        "Children in Party",
+        "Double/Twin",
+        "Requires Accessible Room?",
+        "Additional Requests",
+        "Request Satisfaction %",
+        "Room",
+        "Adults",
+        "Children",
+        "Features"
+      ],
+      "columns": {
+        "Party": "text_exact",
+        "Adults in Party": "number",
+        "Children in Party": "number",
+        "Double/Twin": "text_exact",
+        "Requires Accessible Room?": "boolean",
+        "Additional Requests": "text_exact",
+        "Request Satisfaction %": "number",
+        "Room": "number",
+        "Adults": "number",
+        "Children": "number",
+        "Features": "text_exact"
+      }
+    }
+  }
+}
+

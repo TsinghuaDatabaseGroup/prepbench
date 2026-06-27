@@ -1,0 +1,20 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_input_type_coercion",
+      "kind": "Row-level concept",
+      "node_id": "inp",
+      "op": "input",
+      "intent": "Whether to treat all columns as text when reading the input data.",
+      "ref": "df = pd.read_csv(input_path, dtype=str)"
+    },
+    {
+      "id": "new_1_timely_response_boolean_mapping",
+      "kind": "Row-level concept",
+      "node_id": "parse_bool",
+      "op": "project",
+      "source_text": "Standardise the Timely Response field so it can be output consistently",
+      "ref": "def parse_bool(val: object) -> bool:\n        s = str(val).strip().lower()\n        if s in {\"true\", \"1\", \"yes\"}:\n            return True\n        if s in {\"false\", \"0\", \"no\"}:\n            return False\n        return False"
+    }
+  ]
+}

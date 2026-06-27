@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_total_respondents_row_count",
+      "kind": "Group-level concept",
+      "node_id": "agg_nps",
+      "op": "aggregate",
+      "intent": "Define Total Respondents as the total number of rows (treat each row as one respondent).",
+      "ref": "total_respondents = len(df)"
+    },
+    {
+      "id": "2_O3_detailed_output_full_row_dedup_keep_first",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_out02",
+      "op": "dedup",
+      "intent": "Remove fully duplicate detailed output rows, keeping the first occurrence.",
+      "ref": "df_output_02 = df_output_02.drop_duplicates(keep='first')"
+    },
+    {
+      "id": "3_C2_food_rating_text_to_1_5_mapping",
+      "kind": "Row-level concept",
+      "node_id": "prep_compute",
+      "op": "project",
+      "source_text": "Change food rating fields to 1-5 score (bad to good) and average the value.",
+      "ref": "food_rating_map = {\n        \"Horrendous\": 1,\n        \"Just about edible but I was hungry\": 2,\n        \"Some good, some not so good\": 3,\n        \"Yum!\": 4,\n        \"Give the team a Michelin star!!\": 5\n    }"
+    },
+    {
+      "id": "4_C2_keynote_rating_mean_of_opening_and_closing",
+      "kind": "Group-level concept",
+      "node_id": "prep_compute",
+      "op": "project",
+      "source_text": "Form an average score for the keynotes. Rename this to 'Keynote Rating Score'",
+      "ref": "    df[\"Keynote Rating Score\"] = df[[opening_keynote_col, closing_keynote_col]].mean(axis=1)"
+    },
+    {
+      "id": "5_O2_food_rating_unmapped_or_missing_as_null",
+      "kind": "Operation incomplete",
+      "node_id": "prep_compute",
+      "op": "project",
+      "intent": "If a meal rating is missing or not in the mapping, treat it as null for scoring and average only available scores.",
+      "ref": "def map_food_rating(val):\n        if pd.isna(val) or val == \"\":\n            return None\n        return food_rating_map.get(val, None)"
+    },
+    {
+      "id": "new_1_three_words_standardization_mapping",
+      "kind": "Row-level concept",
+      "node_id": "prep_words",
+      "op": "project",
+      "source_text": "Split the 'What three words...' field in to individual words and use a grouping technique to clean these words",
+      "ref": "word_form_map = {...}\nword_normalized = word_form_map.get(word_clean.lower(), word_clean)"
+    },
+    {
+      "id": "new_2_three_words_unique_per_respondent",
+      "kind": "Operation inconsistent",
+      "node_id": "prep_words",
+      "op": "dedup",
+      "source_text": "The technique used may change row count - try to get close",
+      "ref": "seen_words = set()\n...\nif word_lower in seen_words:\n    continue\nseen_words.add(word_lower)"
+    },
+    {
+      "id": "new_3_nps_score_round_1dp",
+      "kind": "Operation boundary",
+      "node_id": "agg_nps",
+      "op": "project",
+      "source_text": "The calculation is: (Promoters - Detractors) / Number of respondents \u00d7 100",
+      "ref": "\"NPS Score\": [round(nps_score, 1)]"
+    },
+    {
+      "id": "new_4_use_input02_as_primary_survey",
+      "kind": "Single-table reference",
+      "node_id": "input_survey",
+      "op": "input",
+      "intent": "Use input_02.csv as the primary survey table for both outputs.",
+      "ref": "df_input_02 = pd.read_csv(inputs_dir / \"input_02.csv\")\n...\ndf = df_input_02.copy()"
+    }
+  ]
+}

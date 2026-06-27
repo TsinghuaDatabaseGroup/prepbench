@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Poem", "Line #", "Line", "Word #", "Word", "Score", "Highest Scoring Word?"],
+      "columns": {
+        "Poem": "text_exact",
+        "Line #": "number",
+        "Line": "text_exact",
+        "Word #": "number",
+        "Word": "text_exact",
+        "Score": "number",
+        "Highest Scoring Word?": "boolean"
+      }
+    }
+  }
+}
+

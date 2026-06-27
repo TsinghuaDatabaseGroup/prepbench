@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_first_term_start_boundary",
+      "kind": "Operation boundary",
+      "node_id": "cake_payload",
+      "op": "script",
+      "intent": "Define the cake-eligible period start date as the earliest teaching term start from the calendar.",
+      "ref": "teaching_terms_sorted = sorted(teaching_terms, key=lambda x: x[1])\nfirst_term_start = teaching_terms_sorted[0][1]"
+    },
+    {
+      "id": "2_C1_teaching_term_classification",
+      "kind": "Row-level concept",
+      "node_id": "classify_terms",
+      "op": "project",
+      "intent": "Classify calendar ranges as teaching terms vs holidays/non-teaching based on the Term text rules.",
+      "ref": "def is_teaching_term(name: str) -> bool:\n    if \"half term\" in nl or \"holiday\" in nl:\n        return False\n    return \", term\" in nl"
+    },
+    {
+      "id": "3_O1_school_year_birthday_year",
+      "kind": "Operation boundary",
+      "node_id": "compute_birthday",
+      "op": "project",
+      "intent": "Assign the school-year birthday year as 2024 for Sep–Dec and 2025 for Jan–Aug.",
+      "ref": "year = 2024 if m >= 9 else 2025"
+    },
+    {
+      "id": "4_C1_school_day_definition",
+      "kind": "Row-level concept",
+      "node_id": "compute_cake_days",
+      "op": "script",
+      "source_text": "If your birthday falls on a school day, you will receive cake on that day",
+      "ref": "def is_school_day(d: date) -> bool:\n    if d.weekday() >= 5: return False\n    if not inside_teaching_term: return False\n    if in_holiday: return False\n    return True"
+    },
+    {
+      "id": "5_O1_previous_term_boundary",
+      "kind": "Operation boundary",
+      "node_id": "compute_cake_days",
+      "op": "script",
+      "source_text": "you will receive your cake on the last Friday in the previous school term",
+      "ref": "if e < before_date: prev = item"
+    },
+    {
+      "id": "6_O1_last_friday_must_be_school_day",
+      "kind": "Operation boundary",
+      "node_id": "compute_cake_days",
+      "op": "script",
+      "source_text": "you will receive your cake on the last Friday in the previous school term",
+      "ref": "def last_friday_in_term(term_tuple):\n    while d >= s:\n        if d.weekday() == 4 and is_school_day(d): return d"
+    },
+    {
+      "id": "7_O1_montue_term_end_override",
+      "kind": "Operation boundary",
+      "node_id": "compute_cake_days",
+      "op": "script",
+      "source_text": "you will receive your cake on the last Friday in the previous school term",
+      "ref": "if e.weekday() in (0, 1) and (e - lf).days <= 4: return e"
+    },
+    {
+      "id": "8_O2_exclude_birthdays_before_term",
+      "kind": "Operation incomplete",
+      "node_id": "compute_cake_days",
+      "op": "script",
+      "source_text": "the 1st Sept is a weekend day so those kids will have received their birthday cake in the previous school year",
+      "ref": "if bd < first_term_start: return None"
+    },
+    {
+      "id": "9_O2_weekend_friday_fallback",
+      "kind": "Operation boundary",
+      "node_id": "compute_cake_days",
+      "op": "script",
+      "source_text": "If your birthday falls on a Saturday or Sunday, you will receive a cake on the Friday before that weekend",
+      "ref": "if bd.weekday() >= 5:\n    fri = bd - timedelta(days=(bd.weekday() - 4))\n    return fri if is_school_day(fri) else last_friday_of_previous_term(bd)"
+    }
+  ]
+}

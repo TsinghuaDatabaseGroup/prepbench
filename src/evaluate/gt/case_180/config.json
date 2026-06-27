@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Beats Target?",
+        "Target",
+        "Store Name",
+        "Region",
+        "Sale Value",
+        "PRODUCT"
+      ],
+      "columns": {
+        "Beats Target?": "boolean",
+        "Target": "number",
+        "Store Name": "text_exact",
+        "Region": "text_exact",
+        "Sale Value": "number",
+        "PRODUCT": "text_exact"
+      }
+    }
+  }
+}
+

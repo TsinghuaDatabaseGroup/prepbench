@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_likelihood_rank_desc",
+      "kind": "Group-level concept",
+      "node_id": "add_ranks",
+      "op": "script",
+      "source_text": "Rank the words by their % chance (dense rank)",
+      "ref": "result_df[\"Likelihood Rank\"] = result_df[\"% Chance\"].rank(\n        method=\"dense\", ascending=False).astype(int)"
+    },
+    {
+      "id": "2_O1_points_rank_desc",
+      "kind": "Group-level concept",
+      "node_id": "add_ranks",
+      "op": "script",
+      "source_text": "Rank the words by their total points (dense rank)",
+      "ref": "result_df[\"Points Rank\"] = result_df[\"Total Points\"].rank(\n        method=\"dense\", ascending=False).astype(int)"
+    },
+    {
+      "id": "3_O1_output_sort_order",
+      "kind": "Row-level concept",
+      "node_id": "final_sort",
+      "op": "sort",
+      "intent": "Sort final output by Points Rank, then Likelihood Rank, then 7 letter word (all ascending).",
+      "ref": "output_df = output_df.sort_values(\n        [\"Points Rank\", \"Likelihood Rank\", \"7 letter word\"]).reset_index(drop=True)"
+    },
+    {
+      "id": "4_O2_inner_join_drop_unmatched_letters",
+      "kind": "Operation incomplete",
+      "node_id": "join_letters_tiles",
+      "op": "join",
+      "source_text": "Join each letter to its scrabble tile",
+      "ref": "merged_df = letter_count_df.merge(\n        tiles_df, left_on=\"Letter\", right_on=\"Tile\", how=\"inner\")"
+    },
+    {
+      "id": "5_O1_use_rounded_tile_chance_in_calcs",
+      "kind": "Operation boundary",
+      "node_id": "tiles_with_chance",
+      "op": "script",
+      "source_text": "Calculate the % Chance of drawing a particular tile and round to2 decimal places",
+      "ref": "tiles_df[\"% Chance\"] = (tiles_df[\"Frequency\"] / total_tiles).round(2)\nbase_chance = row[\"% Chance\"]\nreturn base_chance ** row[\"Number of Occurrences\"]"
+    },
+    {
+      "id": "6_O2_skip_positions_beyond_word_length",
+      "kind": "Operation incomplete",
+      "node_id": "word_letters",
+      "op": "project",
+      "source_text": "Split each of the7 letter words into individual letters",
+      "ref": "if scaffold <= len(word):"
+    }
+  ]
+}

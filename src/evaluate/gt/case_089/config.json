@@ -1,0 +1,35 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "2019 Rank",
+        "Count",
+        "Name",
+        "Gender"
+      ],
+      "columns": {
+        "2019 Rank": "number",
+        "Count": "number",
+        "Name": "text_exact",
+        "Gender": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Rank",
+        "Count",
+        "Name",
+        "Month",
+        "Gender"
+      ],
+      "columns": {
+        "Rank": "number",
+        "Count": "number",
+        "Name": "text_exact",
+        "Month": "text_exact",
+        "Gender": "text_exact"
+      }
+    }
+  }
+}
+

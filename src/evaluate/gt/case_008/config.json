@@ -1,0 +1,28 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Branch Name",
+                "Crime Ref Number",
+                "Days to complete adjustment",
+                "Number of Records",
+                "Stock Adjusted",
+                "Stock Variance",
+                "Stolen volume",
+                "Theft",
+                "Type"
+            ],
+            "columns": {
+                "Branch Name": "text_exact",
+                "Crime Ref Number": "text_exact",
+                "Days to complete adjustment": "number",
+                "Number of Records": "number",
+                "Stock Adjusted": "date",
+                "Stock Variance": "number",
+                "Stolen volume": "number",
+                "Theft": "date",
+                "Type": "text_exact"
+            }
+        }
+    }
+}

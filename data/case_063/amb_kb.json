@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_rank_descending",
+      "kind": "Operation boundary",
+      "node_id": "compute_rank",
+      "op": "project",
+      "source_text": "Create a dense rank so we know what order we should watch these shows in.",
+      "ref": "avg[\"Rank\"] = avg[\"Rating\"].rank(method=\"dense\", ascending=False).astype(int)"
+    },
+    {
+      "id": "2_D1_dedup_ignore_timestamp",
+      "kind": "Single-table reference",
+      "node_id": "dedup_survey",
+      "op": "dedup",
+      "source_text": "filter out these duplicates",
+      "ref": "cols_for_dedup = [c for c in survey.columns if c != \"Timestamp\"]\nsurvey_deduped = survey.drop_duplicates(subset=cols_for_dedup)"
+    },
+    {
+      "id": "3_O3_dedup_devices_per_respondent",
+      "kind": "Operation boundary",
+      "node_id": "devices_dedup_per_row",
+      "op": "dedup",
+      "intent": "When a respondent lists the same device multiple times, count that device only once for that respondent.",
+      "ref": "seen = set()\nunique = []\nfor d in found:\n    if d not in seen:\n        seen.add(d)\n        unique.append(d)"
+    },
+    {
+      "id": "4_O1_device_split_delimiters",
+      "kind": "Operation boundary",
+      "node_id": "devices_tokenize",
+      "op": "project",
+      "source_text": "Many responses have multiple values.",
+      "ref": "s_norm = s.replace(\"&\", \",\").replace(\"/\", \",\")\nparts = [p.strip() for p in re.split(r\"[,\\n]\", s_norm) if p.strip()]"
+    },
+    {
+      "id": "5_O2_other_rating_single_show_only",
+      "kind": "Operation boundary",
+      "node_id": "filter_tokens_non_predef",
+      "op": "filter",
+      "source_text": "Only accept \"other\" responses that have one show in the free text answer",
+      "ref": "candidates = [s for s in shows if s not in predef_show_names and s in valid_set]\nreturn candidates[0] if len(candidates) == 1 else None"
+    },
+    {
+      "id": "6_O2_drop_unverified_watched_shows",
+      "kind": "Operation boundary",
+      "node_id": "join_tokens_valid",
+      "op": "join",
+      "source_text": "Join the list of UK Netflix content to the survey responses",
+      "ref": "watched = watched.merge(valid_shows, on=\"Show\", how=\"inner\")"
+    },
+    {
+      "id": "7_D1_exclude_other_from_predef_ratings",
+      "kind": "Single-table reference",
+      "node_id": "pivot_ratings_predef",
+      "op": "pivot",
+      "intent": "When reshaping predefined rating questions, exclude the 'Other' rating column from the pivoted set.",
+      "ref": "rating_cols = [c for c in survey.columns if c.startswith(\"How would you rate \") and 'Other' not in c]"
+    },
+    {
+      "id": "8_C2_show_name_normalization",
+      "kind": "Row-level concept",
+      "node_id": "script_content_clean",
+      "op": "script",
+      "source_text": "Remove the years in the brackets at the end of each film/show",
+      "ref": "def _clean_show_name(s: str) -> str:\n    return re.sub(r\"\\s*\\(.*\\)$\", \"\", str(s)).strip().upper()"
+    },
+    {
+      "id": "9_O1_watched_split_delimiters",
+      "kind": "Operation boundary",
+      "node_id": "watched_split",
+      "op": "project",
+      "source_text": "Separate out the shows that respondents have been watching.",
+      "ref": "tokens = [t.strip() for t in re.split(r\",|;\", str(text)) if t.strip()]"
+    }
+  ]
+}

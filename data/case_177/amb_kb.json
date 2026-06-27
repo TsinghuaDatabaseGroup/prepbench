@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_top_100_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "filter_top",
+      "op": "filter",
+      "source_text": "Filter to the overall top 100 artists",
+      "ref": "output.loc[output[\"Overall Rank\"] <= 100]"
+    },
+    {
+      "id": "2_D2_overall_to_yearly_left_join",
+      "kind": "Multi-table alignment",
+      "node_id": "join_totals",
+      "op": "join",
+      "intent": "Combine overall ranks with yearly-wide ranks via a left join on Artist Name.",
+      "ref": "output = totals.merge(pivot, on=\"Artist Name\", how=\"left\")"
+    },
+    {
+      "id": "3_C2_yearly_rank_ties",
+      "kind": "Group-level concept",
+      "node_id": "project_add_ranks",
+      "op": "project",
+      "source_text": "For each year, find the ranking of the artists",
+      "ref": "year_group[\"Ranking\"] = year_group.groupby(\"Year\")[\"Yearly Mins\"].rank(method=\"min\", ascending=False).astype(int)"
+    },
+    {
+      "id": "4_D1_year_from_ts_field",
+      "kind": "Single-table reference",
+      "node_id": "project_enrich",
+      "op": "project",
+      "source_text": "Extract the year from the timestamp field",
+      "ref": "df[\"Year\"] = pd.to_datetime(df[\"ts\"]).dt.year"
+    },
+    {
+      "id": "6_O2_missing_year_columns_null",
+      "kind": "Operation incomplete",
+      "node_id": "project_pivot_post",
+      "op": "project",
+      "intent": "Ensure all year columns 2015–2022 exist and are NULL when an artist has no ranking.",
+      "ref": "pivot.reindex(columns=year_columns)"
+    },
+    {
+      "id": "7_C2_overall_rank_ties",
+      "kind": "Group-level concept",
+      "node_id": "project_rank",
+      "op": "project",
+      "source_text": "Rank the artists by total minutes played overall",
+      "ref": "totals[\"Total Mins\"].rank(method=\"min\", ascending=False)"
+    }
+  ]
+}

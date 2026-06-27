@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_lower_quartile_label",
+      "kind": "Row-level concept",
+      "node_id": "compute_flag",
+      "op": "project",
+      "source_text": "in the lower quartile for 2 or more subjects",
+      "ref": "lower_quart_count = (merged[subjects] == \"25th percentile\").sum(axis=1)"
+    },
+    {
+      "id": "2_C2_flag_subject_set",
+      "kind": "Single-table reference",
+      "node_id": "compute_flag",
+      "op": "project",
+      "source_text": "in the lower quartile for 2 or more subjects",
+      "ref": "subjects = [\"English\", \"Economics\", \"Psychology\"]"
+    },
+    {
+      "id": "3_C2_quartile_threshold_rules",
+      "kind": "Group-level concept",
+      "node_id": "compute_tiles",
+      "op": "project",
+      "source_text": "For each subject, split the grades into 4 groups",
+      "ref": "n_low = n // 4\nif n_low == 0:\n    bottom_threshold = float(\"-inf\")\n    top_threshold = float(\"inf\")\nelse:\n    bottom_threshold = vals_sorted[n_low - 1]\n    top_threshold = vals_sorted[-n_low]\nmedian = vals_sorted[n // 2] if n % 2 == 1 else (vals_sorted[n // 2 - 1] + vals_sorted[n // 2]) / 2.0"
+    },
+    {
+      "id": "4_O2_no_grades_default_iqr",
+      "kind": "Operation incomplete",
+      "node_id": "compute_tiles",
+      "op": "project",
+      "intent": "If a subject has no grades at all, assign every student the label \"Interquartile range\" for that subject.",
+      "ref": "if n == 0:\n                # No data; assign interquartile as default\n                scores_df[subj] = \"Interquartile range\"\n                continue"
+    },
+    {
+      "id": "5_D1_tiles_number_to_range",
+      "kind": "Multi-table alignment",
+      "node_id": "join_labels",
+      "op": "join",
+      "source_text": "Replace the tile number with the relevant value from the Tiles input",
+      "ref": "number_to_label = dict(zip(tiles_df[\"Number\"], tiles_df[\"Range\"]))"
+    },
+    {
+      "id": "6_O2_student_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_students",
+      "op": "join",
+      "source_text": "Join the data with the Student Information",
+      "ref": "merged = students_df.merge(labeled_scores_df, on=\"Student ID\", how=\"left\")"
+    },
+    {
+      "id": "7_D1_subject_columns_from_scores",
+      "kind": "Single-table reference",
+      "node_id": "scores_long",
+      "op": "pivot",
+      "intent": "Select the subject columns to process as all columns in input_02.csv except \"Student ID\".",
+      "ref": "subjects = [c for c in scores_df.columns if c != \"Student ID\"]"
+    }
+  ]
+}

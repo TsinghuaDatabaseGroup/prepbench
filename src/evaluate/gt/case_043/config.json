@@ -1,0 +1,28 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Variance to Target",
+                "Variance to Target %",
+                "Target Value",
+                "Sales",
+                "Store",
+                "Quarter",
+                "Region",
+                "Target",
+                "Actions"
+            ],
+            "columns": {
+                "Variance to Target": "number",
+                "Variance to Target %": "number",
+                "Target Value": "number",
+                "Sales": "number",
+                "Store": "text_exact",
+                "Quarter": "number",
+                "Region": "text_exact",
+                "Target": "text_exact",
+                "Actions": "text_exact"
+            }
+        }
+    }
+}

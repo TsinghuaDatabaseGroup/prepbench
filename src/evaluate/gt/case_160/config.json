@@ -1,0 +1,62 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Customer Classification",
+                "YoY Difference",
+                "Order?",
+                "Year",
+                "First Purchase",
+                "Row ID",
+                "Order ID",
+                "Order Date",
+                "Ship Date",
+                "Ship Mode",
+                "Customer Name",
+                "Segment",
+                "Country/Region",
+                "City",
+                "State",
+                "Postal Code",
+                "Region",
+                "Product ID",
+                "Category",
+                "Sub-Category",
+                "Product Name",
+                "Sales",
+                "Quantity",
+                "Discount",
+                "Profit",
+                "Customer ID"
+            ],
+            "columns": {
+                "Customer Classification": "text_exact",
+                "YoY Difference": "number",
+                "Order?": "text_exact",
+                "Year": "number",
+                "First Purchase": "number",
+                "Row ID": "number",
+                "Order ID": "text_exact",
+                "Order Date": "text_exact",
+                "Ship Date": "text_exact",
+                "Ship Mode": "text_exact",
+                "Customer Name": "text_exact",
+                "Segment": "text_exact",
+                "Country/Region": "text_exact",
+                "City": "text_exact",
+                "State": "text_exact",
+                "Postal Code": "text_exact",
+                "Region": "text_exact",
+                "Product ID": "text_exact",
+                "Category": "text_exact",
+                "Sub-Category": "text_exact",
+                "Product Name": "text_exact",
+                "Sales": "number",
+                "Quantity": "number",
+                "Discount": "number",
+                "Profit": "number",
+                "Customer ID": "text_exact"
+            }
+        }
+    }
+}

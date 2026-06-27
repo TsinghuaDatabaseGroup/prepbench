@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_output_01_sum_products_sold",
+      "kind": "Group-level concept",
+      "node_id": "agg_output_01",
+      "op": "aggregate",
+      "source_text": "Aggregate to form two separate outputs of the number of products sold by:",
+      "ref": "    output_01 = melted_df.groupby(['Product', 'Quarter'], as_index=False)['Products Sold'].sum()"
+    },
+    {
+      "id": "2_C2_output_02_sum_products_sold",
+      "kind": "Group-level concept",
+      "node_id": "agg_output_02",
+      "op": "aggregate",
+      "source_text": "Aggregate to form two separate outputs of the number of products sold by:",
+      "ref": "    output_02 = melted_df.groupby(['Store', 'Customer Types', 'Product'], as_index=False)['Products Sold'].sum()"
+    },
+    {
+      "id": "3_D1_pivot_id_cols_and_value_vars",
+      "kind": "Single-table reference",
+      "node_id": "melt",
+      "op": "pivot",
+      "source_text": "Pivot 'New' columns and 'Existing' columns",
+      "ref": "    id_vars = ['Date', 'Store', 'Quarter']\n    value_vars = [col for col in combined_df.columns if col not in id_vars]\n    \n    melted_df = pd.melt(\n        combined_df,\n        id_vars=id_vars,\n        value_vars=value_vars,\n        var_name='Customer_Product',\n        value_name='Products Sold'\n    )"
+    },
+    {
+      "id": "4_C1_split_customer_product_delimiter",
+      "kind": "Row-level concept",
+      "node_id": "split_cols",
+      "op": "project",
+      "source_text": "Split the former column headers to form: Customer Type Product",
+      "ref": "    split_cols = melted_df['Customer_Product'].str.split(' - ', n=1, expand=True)\n    melted_df['Customer Types'] = split_cols[0]\n    melted_df['Product'] = split_cols[1]"
+    },
+    {
+      "id": "5_D1_union_inputs_by_stacking_rows",
+      "kind": "Multi-table alignment",
+      "node_id": "union_all",
+      "op": "union",
+      "intent": "Combine the five inputs by stacking rows (union all) into one dataset.",
+      "ref": "    combined_df = pd.concat(all_dfs, ignore_index=True)"
+    },
+    {
+      "id": "new_1_input_file_to_store_mapping",
+      "kind": "Multi-table alignment",
+      "node_id": "add_store",
+      "op": "project",
+      "source_text": "Create a Store column from the data",
+      "ref": "store_names = {\n    \"input_01.csv\": \"Manchester\",\n    \"input_02.csv\": \"London\",\n    \"input_03.csv\": \"Leeds\",\n    \"input_04.csv\": \"York\",\n    \"input_05.csv\": \"Birmingham\"\n}"
+    }
+  ]
+}

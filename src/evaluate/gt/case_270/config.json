@@ -1,0 +1,24 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Rank"],
+      "columns": {
+        "Rank": "number",
+        "Store": "text_exact",
+        "Days to Removal": "number",
+        "Hours to Removal": "number"
+      }
+    },
+    "output_02.csv": {
+      "ignore_order": true,
+      "key": ["Store"],
+      "columns": {
+        "Store": "text_exact",
+        "Avg Days Overdue": "number",
+        "Quantity": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,1306 @@
+{
+  "id": "case_099_flow",
+  "name": "Case 099 Star Sign Changes",
+  "version": 2,
+  "nodes": {
+    "dates_in": {
+      "kind": "input",
+      "params": {
+        "path": "inputs/input_03.csv",
+        "header": 0,
+        "encoding": "utf-8"
+      }
+    },
+    "dates_parse": {
+      "kind": "project",
+      "inputs": {
+        "in": "dates_in"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "Date",
+            "expr": "pd.to_datetime(Date, format='%d/%m/%Y', errors='coerce')"
+          },
+          {
+            "as": "Year",
+            "expr": "Date.dt.year"
+          },
+          {
+            "as": "Month",
+            "expr": "Date.dt.month"
+          },
+          {
+            "as": "Day",
+            "expr": "Date.dt.day"
+          },
+          {
+            "as": "Doy",
+            "expr": "Date.dt.dayofyear"
+          },
+          {
+            "as": "Birthday",
+            "expr": "Date.dt.strftime('%b') + ' ' + Day.astype(int).astype(str)"
+          }
+        ]
+      }
+    },
+    "dates_filter": {
+      "kind": "filter",
+      "inputs": {
+        "in": "dates_parse"
+      },
+      "params": {
+        "predicate": "Date.notna() & (Year == 2020) & ~((Month == 6) & (Day == 21))"
+      }
+    },
+    "new_in": {
+      "kind": "input",
+      "params": {
+        "path": "inputs/input_01.csv",
+        "header": null,
+        "encoding": "utf-8"
+      }
+    },
+    "new_parse": {
+      "kind": "project",
+      "inputs": {
+        "in": "new_in"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "text",
+            "expr": "df.iloc[:, 0].astype('string')"
+          },
+          {
+            "as": "name",
+            "expr": "text.str.extract(r'^([^:]+):', expand=False).str.strip()"
+          },
+          {
+            "as": "_sm_abbr",
+            "expr": "text.str.extract(r':\\s*([A-Za-z]+)', expand=False).str[:3]"
+          },
+          {
+            "as": "_sd",
+            "expr": "pd.to_numeric(text.str.extract(r':\\s*[A-Za-z]+\\s+(\\d+)', expand=False), errors='coerce').astype('Int64')"
+          },
+          {
+            "as": "_em_abbr",
+            "expr": "text.str.extract(r'[\u2013-]\\s*([A-Za-z]+)', expand=False).str[:3]"
+          },
+          {
+            "as": "_ed",
+            "expr": "pd.to_numeric(text.str.extract(r'[\u2013-]\\s*[A-Za-z]+\\s+(\\d+)\\s*$', expand=False), errors='coerce').astype('Int64')"
+          },
+          {
+            "as": "start_month",
+            "expr": "pd.to_datetime(_sm_abbr, format='%b', errors='coerce').dt.month"
+          },
+          {
+            "as": "end_month",
+            "expr": "pd.to_datetime(_em_abbr, format='%b', errors='coerce').dt.month"
+          },
+          {
+            "as": "start_day",
+            "expr": "_sd.astype(int)"
+          },
+          {
+            "as": "end_day",
+            "expr": "_ed.astype(int)"
+          },
+          {
+            "as": "start_doy",
+            "expr": "pd.to_datetime('2020-' + start_month.astype(int).astype(str).str.zfill(2) + '-' + start_day.astype(int).astype(str).str.zfill(2), errors='coerce').dt.dayofyear"
+          },
+          {
+            "as": "end_doy",
+            "expr": "pd.to_datetime('2020-' + end_month.astype(int).astype(str).str.zfill(2) + '-' + end_day.astype(int).astype(str).str.zfill(2), errors='coerce').dt.dayofyear"
+          },
+          {
+            "as": "_sm_out",
+            "expr": "pd.to_datetime('2020-' + start_month.astype(int).astype(str).str.zfill(2) + '-01').dt.strftime('%b')"
+          },
+          {
+            "as": "_em_out",
+            "expr": "pd.to_datetime('2020-' + end_month.astype(int).astype(str).str.zfill(2) + '-01').dt.strftime('%b')"
+          },
+          {
+            "as": "range_str",
+            "expr": "start_day.astype(int).astype(str) + ' ' + _sm_out + ' - ' + end_day.astype(int).astype(str) + ' ' + _em_out"
+          },
+          {
+            "as": "order",
+            "expr": "df.reset_index().index.astype(int)"
+          }
+        ]
+      }
+    },
+    "old_in": {
+      "kind": "input",
+      "params": {
+        "path": "inputs/input_02.csv",
+        "header": null,
+        "encoding": "utf-8"
+      }
+    },
+    "old_add_id": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_in"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "rid",
+            "expr": "df.reset_index().index.astype(int)"
+          },
+          {
+            "as": "0",
+            "expr": "df.iloc[:, 0]"
+          },
+          {
+            "as": "1",
+            "expr": "df.iloc[:, 1]"
+          },
+          {
+            "as": "2",
+            "expr": "df.iloc[:, 2]"
+          },
+          {
+            "as": "3",
+            "expr": "df.iloc[:, 3]"
+          },
+          {
+            "as": "4",
+            "expr": "df.iloc[:, 4]"
+          },
+          {
+            "as": "5",
+            "expr": "df.iloc[:, 5]"
+          }
+        ]
+      }
+    },
+    "old_long": {
+      "kind": "pivot",
+      "inputs": {
+        "in": "old_add_id"
+      },
+      "params": {
+        "mode": "pivot_longer",
+        "id_cols": [
+          "rid"
+        ],
+        "value_vars": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "names_to": "col",
+        "values_to": "val"
+      }
+    },
+    "old_long_clean": {
+      "kind": "filter",
+      "inputs": {
+        "in": "old_long"
+      },
+      "params": {
+        "predicate": "val.notna() & (val.astype(str).str.strip() != '')"
+      }
+    },
+    "old_tag_pairs": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_long_clean"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "row_id",
+            "expr": "df.index.astype(int)"
+          },
+          {
+            "as": "_colnum",
+            "expr": "pd.to_numeric(col, errors='coerce').astype(int)"
+          },
+          {
+            "as": "pair_id",
+            "expr": "(_colnum // 2).astype(int)"
+          },
+          {
+            "as": "is_sign",
+            "expr": "(_colnum % 2 == 0)"
+          }
+        ]
+      }
+    },
+    "old_sign_rows": {
+      "kind": "filter",
+      "inputs": {
+        "in": "old_tag_pairs"
+      },
+      "params": {
+        "predicate": "is_sign"
+      }
+    },
+    "old_sign_keep": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_sign_rows"
+      },
+      "params": {
+        "select": [
+          "rid",
+          "pair_id",
+          "val"
+        ],
+        "rename": {
+          "val": "name"
+        }
+      }
+    },
+    "old_range_rows": {
+      "kind": "filter",
+      "inputs": {
+        "in": "old_tag_pairs"
+      },
+      "params": {
+        "predicate": "~is_sign"
+      }
+    },
+    "old_range_keep": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_range_rows"
+      },
+      "params": {
+        "select": [
+          "rid",
+          "pair_id",
+          "val"
+        ],
+        "rename": {
+          "val": "range_txt"
+        }
+      }
+    },
+    "old_pairs": {
+      "kind": "join",
+      "inputs": {
+        "left": "old_sign_keep",
+        "right": "old_range_keep"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "rid",
+          "pair_id"
+        ],
+        "null_equal": false,
+        "select_left": [
+          "rid",
+          "pair_id",
+          "name"
+        ],
+        "select_right": [
+          "range_txt"
+        ]
+      }
+    },
+    "old_parse": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_pairs"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "_clean",
+            "expr": "range_txt.astype(str).str.replace('-', '\u2013', regex=False)"
+          },
+          {
+            "as": "_m0",
+            "expr": "pd.to_numeric(_clean.str.extract(r'(\\d{1,2})/(\\d{1,2})[\u2013](\\d{1,2})/(\\d{1,2})', expand=True)[0], errors='coerce').astype('Int64')"
+          },
+          {
+            "as": "_d0",
+            "expr": "pd.to_numeric(_clean.str.extract(r'(\\d{1,2})/(\\d{1,2})[\u2013](\\d{1,2})/(\\d{1,2})', expand=True)[1], errors='coerce').astype('Int64')"
+          },
+          {
+            "as": "_m1",
+            "expr": "pd.to_numeric(_clean.str.extract(r'(\\d{1,2})/(\\d{1,2})[\u2013](\\d{1,2})/(\\d{1,2})', expand=True)[2], errors='coerce').astype('Int64')"
+          },
+          {
+            "as": "_d1",
+            "expr": "pd.to_numeric(_clean.str.extract(r'(\\d{1,2})/(\\d{1,2})[\u2013](\\d{1,2})/(\\d{1,2})', expand=True)[3], errors='coerce').astype('Int64')"
+          },
+          {
+            "as": "start_month",
+            "expr": "_m0.astype(int)"
+          },
+          {
+            "as": "start_day",
+            "expr": "_d0.astype(int)"
+          },
+          {
+            "as": "end_month",
+            "expr": "_m1.astype(int)"
+          },
+          {
+            "as": "end_day",
+            "expr": "_d1.astype(int)"
+          },
+          {
+            "as": "start_doy",
+            "expr": "pd.to_datetime('2020-' + start_month.astype(int).astype(str).str.zfill(2) + '-' + start_day.astype(int).astype(str).str.zfill(2), errors='coerce').dt.dayofyear"
+          },
+          {
+            "as": "end_doy",
+            "expr": "pd.to_datetime('2020-' + end_month.astype(int).astype(str).str.zfill(2) + '-' + end_day.astype(int).astype(str).str.zfill(2), errors='coerce').dt.dayofyear"
+          },
+          {
+            "as": "order",
+            "expr": "(rid.astype(int) * 10 + pair_id.astype(int)).astype(int)"
+          }
+        ]
+      }
+    },
+    "dates_key": {
+      "kind": "project",
+      "inputs": {
+        "in": "dates_filter"
+      },
+      "params": {
+        "select": [
+          "Date",
+          "Birthday",
+          "Doy",
+          "Month",
+          "Day"
+        ],
+        "compute": [
+          {
+            "as": "k",
+            "expr": "1"
+          }
+        ]
+      }
+    },
+    "new_key": {
+      "kind": "project",
+      "inputs": {
+        "in": "new_parse"
+      },
+      "params": {
+        "select": [
+          "name",
+          "start_doy",
+          "end_doy",
+          "order",
+          "range_str"
+        ],
+        "compute": [
+          {
+            "as": "k",
+            "expr": "1"
+          }
+        ]
+      }
+    },
+    "old_key": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_parse"
+      },
+      "params": {
+        "select": [
+          "name",
+          "start_doy",
+          "end_doy",
+          "order"
+        ],
+        "compute": [
+          {
+            "as": "k",
+            "expr": "1"
+          }
+        ]
+      }
+    },
+    "new_match_all": {
+      "kind": "join",
+      "inputs": {
+        "left": "dates_key",
+        "right": "new_key"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "k"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "Doy",
+          "Month",
+          "Day"
+        ],
+        "select_right": [
+          "name",
+          "start_doy",
+          "end_doy",
+          "order",
+          "range_str"
+        ]
+      }
+    },
+    "new_match_filter": {
+      "kind": "filter",
+      "inputs": {
+        "in": "new_match_all"
+      },
+      "params": {
+        "predicate": "((start_doy <= end_doy) & (Doy >= start_doy) & (Doy <= end_doy)) | ((start_doy > end_doy) & ((Doy >= start_doy) | (Doy <= end_doy)))"
+      }
+    },
+    "new_match_rank": {
+      "kind": "project",
+      "inputs": {
+        "in": "new_match_filter"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "distance",
+            "expr": "(Doy - start_doy) % 366"
+          }
+        ]
+      }
+    },
+    "new_match_sort": {
+      "kind": "sort",
+      "inputs": {
+        "in": "new_match_rank"
+      },
+      "params": {
+        "order_by": [
+          {
+            "expr": "Date",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "distance",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "order",
+            "asc": true,
+            "nulls": "last"
+          }
+        ],
+        "stable": true
+      }
+    },
+    "new_match_addrank": {
+      "kind": "project",
+      "inputs": {
+        "in": "new_match_sort"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "rank",
+            "expr": "df.groupby('Date').cumcount()"
+          }
+        ],
+        "rename": {
+          "name": "New_Star",
+          "range_str": "Date_Range"
+        }
+      }
+    },
+    "new_match_keepcols": {
+      "kind": "project",
+      "inputs": {
+        "in": "new_match_addrank"
+      },
+      "params": {
+        "select": [
+          "Date",
+          "Birthday",
+          "Doy",
+          "New_Star",
+          "Date_Range",
+          "rank"
+        ]
+      }
+    },
+    "old_match_all": {
+      "kind": "join",
+      "inputs": {
+        "left": "dates_key",
+        "right": "old_key"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "k"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "Doy",
+          "Month",
+          "Day"
+        ],
+        "select_right": [
+          "name",
+          "start_doy",
+          "end_doy",
+          "order"
+        ]
+      }
+    },
+    "old_match_filter": {
+      "kind": "filter",
+      "inputs": {
+        "in": "old_match_all"
+      },
+      "params": {
+        "predicate": "((start_doy <= end_doy) & (Doy >= start_doy) & (Doy <= end_doy)) | ((start_doy > end_doy) & ((Doy >= start_doy) | (Doy <= end_doy)))"
+      }
+    },
+    "old_match_rank": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_match_filter"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "distance",
+            "expr": "(Doy - start_doy) % 366"
+          }
+        ]
+      }
+    },
+    "old_match_sort": {
+      "kind": "sort",
+      "inputs": {
+        "in": "old_match_rank"
+      },
+      "params": {
+        "order_by": [
+          {
+            "expr": "Date",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "distance",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "order",
+            "asc": true,
+            "nulls": "last"
+          }
+        ],
+        "stable": true
+      }
+    },
+    "old_match_addrank": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_match_sort"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "rank",
+            "expr": "df.groupby('Date').cumcount()"
+          }
+        ],
+        "rename": {
+          "name": "Old_Star"
+        }
+      }
+    },
+    "old_match_keepcols": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_match_addrank"
+      },
+      "params": {
+        "select": [
+          "Date",
+          "Birthday",
+          "Doy",
+          "Old_Star",
+          "rank"
+        ]
+      }
+    },
+    "old_counts": {
+      "kind": "aggregate",
+      "inputs": {
+        "in": "old_match_keepcols"
+      },
+      "params": {
+        "group_keys": [
+          "Date"
+        ],
+        "aggs": [
+          {
+            "as": "old_count",
+            "func": "count"
+          }
+        ]
+      }
+    },
+    "new_counts": {
+      "kind": "aggregate",
+      "inputs": {
+        "in": "new_match_keepcols"
+      },
+      "params": {
+        "group_keys": [
+          "Date"
+        ],
+        "aggs": [
+          {
+            "as": "new_count",
+            "func": "count"
+          }
+        ]
+      }
+    },
+    "counts_join": {
+      "kind": "join",
+      "inputs": {
+        "left": "old_counts",
+        "right": "new_counts"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "old_count"
+        ],
+        "select_right": [
+          "new_count"
+        ]
+      }
+    },
+    "old_one": {
+      "kind": "filter",
+      "inputs": {
+        "in": "old_match_keepcols"
+      },
+      "params": {
+        "predicate": "rank == 0"
+      }
+    },
+    "old_one_sign": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_one"
+      },
+      "params": {
+        "rename": {
+          "Old_Star": "Sign"
+        },
+        "select": [
+          "Date",
+          "Old_Star"
+        ]
+      }
+    },
+    "new_all_signs": {
+      "kind": "project",
+      "inputs": {
+        "in": "new_match_keepcols"
+      },
+      "params": {
+        "rename": {
+          "New_Star": "Sign"
+        },
+        "select": [
+          "Date",
+          "New_Star"
+        ]
+      }
+    },
+    "subset_A": {
+      "kind": "join",
+      "inputs": {
+        "left": "old_one_sign",
+        "right": "new_all_signs"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date",
+          "Sign"
+        ],
+        "select_left": [
+          "Date"
+        ],
+        "select_right": []
+      }
+    },
+    "new_one": {
+      "kind": "filter",
+      "inputs": {
+        "in": "new_match_keepcols"
+      },
+      "params": {
+        "predicate": "rank == 0"
+      }
+    },
+    "new_one_sign": {
+      "kind": "project",
+      "inputs": {
+        "in": "new_one"
+      },
+      "params": {
+        "rename": {
+          "New_Star": "Sign"
+        },
+        "select": [
+          "Date",
+          "New_Star"
+        ]
+      }
+    },
+    "old_all_signs": {
+      "kind": "project",
+      "inputs": {
+        "in": "old_match_keepcols"
+      },
+      "params": {
+        "rename": {
+          "Old_Star": "Sign"
+        },
+        "select": [
+          "Date",
+          "Old_Star"
+        ]
+      }
+    },
+    "subset_B": {
+      "kind": "join",
+      "inputs": {
+        "left": "new_one_sign",
+        "right": "old_all_signs"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date",
+          "Sign"
+        ],
+        "select_left": [
+          "Date"
+        ],
+        "select_right": []
+      }
+    },
+    "subset_A_cnt": {
+      "kind": "join",
+      "inputs": {
+        "left": "subset_A",
+        "right": "counts_join"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date"
+        ],
+        "select_right": [
+          "old_count",
+          "new_count"
+        ]
+      }
+    },
+    "subset_A_limited": {
+      "kind": "filter",
+      "inputs": {
+        "in": "subset_A_cnt"
+      },
+      "params": {
+        "predicate": "old_count == 1"
+      }
+    },
+    "subset_B_cnt": {
+      "kind": "join",
+      "inputs": {
+        "left": "subset_B",
+        "right": "counts_join"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date"
+        ],
+        "select_right": [
+          "old_count",
+          "new_count"
+        ]
+      }
+    },
+    "subset_B_limited": {
+      "kind": "filter",
+      "inputs": {
+        "in": "subset_B_cnt"
+      },
+      "params": {
+        "predicate": "new_count == 1"
+      }
+    },
+    "subset_dates_limited": {
+      "kind": "union",
+      "inputs": {
+        "items": [
+          "subset_A_limited",
+          "subset_B_limited"
+        ]
+      },
+      "params": {
+        "distinct": true,
+        "align": "by_name",
+        "fill_missing": "null",
+        "type_coerce": "error"
+      }
+    },
+    "old_clean": {
+      "kind": "join",
+      "inputs": {
+        "left": "old_match_keepcols",
+        "right": "subset_dates_limited"
+      },
+      "params": {
+        "how": "anti",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "Doy",
+          "Old_Star",
+          "rank"
+        ],
+        "select_right": []
+      }
+    },
+    "new_clean": {
+      "kind": "join",
+      "inputs": {
+        "left": "new_match_keepcols",
+        "right": "subset_dates_limited"
+      },
+      "params": {
+        "how": "anti",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "Doy",
+          "New_Star",
+          "Date_Range",
+          "rank"
+        ],
+        "select_right": []
+      }
+    },
+    "counts_nosub": {
+      "kind": "join",
+      "inputs": {
+        "left": "counts_join",
+        "right": "subset_dates_limited"
+      },
+      "params": {
+        "how": "anti",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "old_count",
+          "new_count"
+        ],
+        "select_right": []
+      }
+    },
+    "counts_flag": {
+      "kind": "project",
+      "inputs": {
+        "in": "counts_nosub"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "min_count",
+            "expr": "df[['old_count','new_count']].min(axis=1)"
+          }
+        ]
+      }
+    },
+    "cartesian_dates": {
+      "kind": "filter",
+      "inputs": {
+        "in": "counts_flag"
+      },
+      "params": {
+        "predicate": "min_count == 1"
+      }
+    },
+    "rank_dates": {
+      "kind": "join",
+      "inputs": {
+        "left": "counts_flag",
+        "right": "cartesian_dates"
+      },
+      "params": {
+        "how": "anti",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date"
+        ],
+        "select_right": []
+      }
+    },
+    "old_cartesian": {
+      "kind": "join",
+      "inputs": {
+        "left": "old_clean",
+        "right": "cartesian_dates"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "Old_Star"
+        ],
+        "select_right": []
+      }
+    },
+    "new_cartesian": {
+      "kind": "join",
+      "inputs": {
+        "left": "new_clean",
+        "right": "cartesian_dates"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "New_Star",
+          "Date_Range"
+        ],
+        "select_right": []
+      }
+    },
+    "pairs_cartesian": {
+      "kind": "join",
+      "inputs": {
+        "left": "old_cartesian",
+        "right": "new_cartesian"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "Old_Star"
+        ],
+        "select_right": [
+          "New_Star",
+          "Date_Range"
+        ]
+      }
+    },
+    "pairs_cartesian_fix": {
+      "kind": "project",
+      "inputs": {
+        "in": "pairs_cartesian"
+      },
+      "params": {
+        "rename": {
+          "Birthday_x": "Birthday"
+        },
+        "select": [
+          "Date",
+          "Birthday_x",
+          "Old_Star",
+          "New_Star",
+          "Date_Range"
+        ]
+      }
+    },
+    "pairs_cartesian_ne": {
+      "kind": "filter",
+      "inputs": {
+        "in": "pairs_cartesian_fix"
+      },
+      "params": {
+        "predicate": "Old_Star != New_Star"
+      }
+    },
+    "old_rank_only": {
+      "kind": "join",
+      "inputs": {
+        "left": "old_clean",
+        "right": "rank_dates"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "Old_Star",
+          "rank"
+        ],
+        "select_right": []
+      }
+    },
+    "new_rank_only": {
+      "kind": "join",
+      "inputs": {
+        "left": "new_clean",
+        "right": "rank_dates"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "New_Star",
+          "Date_Range",
+          "rank"
+        ],
+        "select_right": []
+      }
+    },
+    "pairs_rank_join": {
+      "kind": "join",
+      "inputs": {
+        "left": "old_rank_only",
+        "right": "new_rank_only"
+      },
+      "params": {
+        "how": "inner",
+        "on": [
+          "Date",
+          "rank"
+        ],
+        "select_left": [
+          "Date",
+          "Birthday",
+          "Old_Star"
+        ],
+        "select_right": [
+          "New_Star",
+          "Date_Range"
+        ]
+      }
+    },
+    "pairs_rank_fix": {
+      "kind": "project",
+      "inputs": {
+        "in": "pairs_rank_join"
+      },
+      "params": {
+        "rename": {
+          "Birthday_x": "Birthday"
+        },
+        "select": [
+          "Date",
+          "Birthday_x",
+          "Old_Star",
+          "New_Star",
+          "Date_Range"
+        ]
+      }
+    },
+    "pairs_rank_ne": {
+      "kind": "filter",
+      "inputs": {
+        "in": "pairs_rank_fix"
+      },
+      "params": {
+        "predicate": "Old_Star != New_Star"
+      }
+    },
+    "pairs_all": {
+      "kind": "union",
+      "inputs": {
+        "items": [
+          "pairs_cartesian_ne",
+          "pairs_rank_ne"
+        ]
+      },
+      "params": {
+        "distinct": true,
+        "align": "by_name",
+        "fill_missing": "null",
+        "type_coerce": "error"
+      }
+    },
+    "pairs_sort": {
+      "kind": "project",
+      "inputs": {
+        "in": "pairs_all"
+      },
+      "params": {
+        "compute": [
+          {
+            "as": "__month",
+            "expr": "Date.dt.month"
+          },
+          {
+            "as": "__day",
+            "expr": "Date.dt.day"
+          }
+        ]
+      }
+    },
+    "pairs_sorted": {
+      "kind": "sort",
+      "inputs": {
+        "in": "pairs_sort"
+      },
+      "params": {
+        "order_by": [
+          {
+            "expr": "__month",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "__day",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "Old_Star",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "New_Star",
+            "asc": true,
+            "nulls": "last"
+          }
+        ],
+        "stable": true
+      }
+    },
+    "pairs_dedup": {
+      "kind": "dedup",
+      "inputs": {
+        "in": "pairs_sorted"
+      },
+      "params": {
+        "keys": [
+          "Birthday",
+          "Old_Star",
+          "New_Star",
+          "Date_Range"
+        ],
+        "output": "all_cols",
+        "keep": "first",
+        "order_by": [
+          {
+            "expr": "__month",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "__day",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "Old_Star",
+            "asc": true,
+            "nulls": "last"
+          },
+          {
+            "expr": "New_Star",
+            "asc": true,
+            "nulls": "last"
+          }
+        ]
+      }
+    },
+    "final_cols": {
+      "kind": "project",
+      "inputs": {
+        "in": "pairs_dedup"
+      },
+      "params": {
+        "rename": {
+          "Old_Star": "Old Star Sign",
+          "New_Star": "New Star Sign",
+          "Date_Range": "Date Range"
+        },
+        "select": [
+          "Birthday",
+          "Old_Star",
+          "New_Star",
+          "Date_Range"
+        ]
+      }
+    },
+    "out_01": {
+      "kind": "output",
+      "inputs": {
+        "in": "final_cols"
+      },
+      "params": {
+        "path": "flow_cand/output_01.csv",
+        "schema_enforce": false
+      }
+    }
+  }
+}

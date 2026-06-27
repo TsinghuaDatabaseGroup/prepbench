@@ -1,0 +1,37 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Wildlife",
+        "Name"
+      ],
+      "columns": {
+        "Wildlife": "text_exact",
+        "Name": "text_exact",
+        "Class": "text_exact",
+        "Region": "text_exact",
+        "Habitat": "text_exact",
+        "Status": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "ignore_order": true,
+      "key": [
+        "Wildlife",
+        "Name"
+      ],
+      "columns": {
+        "Wildlife": "text_exact",
+        "Name": "text_exact",
+        "Priority Order": "number",
+        "Habitat Notes": "text_exact",
+        "Degrees outside Ideal": "number",
+        "Status": "text_exact",
+        "Class": "text_exact",
+        "Region": "text_exact",
+        "Habitat": "text_exact"
+      }
+    }
+  }
+}

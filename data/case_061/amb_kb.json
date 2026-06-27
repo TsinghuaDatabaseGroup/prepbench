@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_distinct_both_count",
+      "kind": "Group-level concept",
+      "node_id": "n_both_counts",
+      "op": "aggregate",
+      "source_text": "the number of transactions containing moisturiser which also contain hand soap",
+      "ref": "both_count = sum(1 for items in transactions.values() \n                           if lhs_item in items and rhs_item in items)"
+    },
+    {
+      "id": "2_C2_distinct_item_support_numerator",
+      "kind": "Group-level concept",
+      "node_id": "n_item_counts",
+      "op": "aggregate",
+      "source_text": "it's the number of times an item is bought out of the total number of transactions",
+      "ref": "count = sum(1 for items in transactions.values() if item in items)"
+    },
+    {
+      "id": "3_O2_drop_never_cooccurring_pairs",
+      "kind": "Operation incomplete",
+      "node_id": "n_pairs_join",
+      "op": "join",
+      "source_text": "make sure that you're not creating impossible association rules",
+      "ref": "if both_count == 0:\n                continue"
+    },
+    {
+      "id": "4_C2_total_transactions_distinct",
+      "kind": "Group-level concept",
+      "node_id": "n_total",
+      "op": "aggregate",
+      "source_text": "out of the total number of transactions",
+      "ref": "total_transactions = len(transactions)"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_closest_preceding_img_title",
+      "kind": "Operation inconsistent",
+      "node_id": "n2_find",
+      "op": "project",
+      "intent": "When multiple qualifying image tags appear before a movie anchor, select the closest preceding (most recent) one as the categorisation source.",
+      "ref": "img_matches = list(re.finditer(img_title_pattern, text_before))\n\nif img_matches:\n    categorisation = img_matches[-1].group(1)"
+    },
+    {
+      "id": "2_D1_html_entity_mapping_source",
+      "kind": "Single-table reference",
+      "node_id": "n5_decode",
+      "op": "project",
+      "source_text": "Replace the html codes with their correct characters",
+      "ref": "df_html_codes = pd.read_csv(inputs_dir / \"input_02.csv\")"
+    },
+    {
+      "id": "3_O2_unmapped_html_entity_fallback",
+      "kind": "Operation incomplete",
+      "node_id": "n5_decode",
+      "op": "project",
+      "intent": "When an HTML entity is not present in the provided mapping, decode it using standard HTML entity decoding.",
+      "ref": "def replace_entity(match):\n    entity = match.group(0)\n    if entity in html_map:\n        return html_map[entity]\n    return unescape(entity)"
+    },
+    {
+      "id": "4_C2_ranking_text_rules_and_default",
+      "kind": "Row-level concept",
+      "node_id": "n6_rank",
+      "op": "project",
+      "source_text": "Rank the Bechdel Test Categorisations from 1 to 5, 1 being the best result, 5 being the worst result",
+      "ref": "def get_ranking(categorisation: str) -> int:\n    cat_lower = categorisation.lower()\n    if \"fewer than two women\" in cat_lower:\n        return 5\n    elif \"don't talk to each other\" in cat_lower:\n        return 4\n    ..."
+    },
+    {
+      "id": "5_O3_ranking_multi_match_priority",
+      "kind": "Operation inconsistent",
+      "node_id": "n6_rank",
+      "op": "project",
+      "intent": "If a categorisation matches multiple ranking conditions, apply a deterministic precedence order where worse rankings take priority.",
+      "ref": "if \"fewer than two women\" in cat_lower:\n    return 5\nelif \"don't talk to each other\" in cat_lower:\n    return 4\n..."
+    },
+    {
+      "id": "6_C2_pass_fail_from_ranking_threshold",
+      "kind": "Row-level concept",
+      "node_id": "n9_pass_cast",
+      "op": "project",
+      "source_text": "Parse out the information for whether a film passes or fails the Bechdel test",
+      "ref": "df['Pass/Fail'] = df['Ranking'].apply(\n    lambda r: 'Pass' if r <= 2 else 'Fail')"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{#- System Prompt -#}
+{%- block system_prompt -%}
+{{ system_prompt_text }}
+{%- endblock -%}
+
+{#- Guidelines -#}
+{%- if guidelines_text -%}
+{{ guidelines_text }}
+{%- endif -%}
+
+{%- block user_prompt -%}
+## Original Task Description
+{{ context.query_full_text }}
+
+## Question from the Developer
+{{ context.question }}
+
+## Expected Sub-Questions (STRICT)
+The developer asked {{ (context.expected_sub_questions | length) if context.expected_sub_questions else "an unknown number of" }} sub-question(s).
+{% if context.expected_sub_questions %}
+You MUST treat these as the only sub-questions to answer, in this exact order, with no additions or omissions:
+{% for q in context.expected_sub_questions %}
+- {{ q }}
+{% endfor %}
+{% endif %}
+
+## Output Contract (STRICT)
+- Output MUST be a single JSON object, no markdown fences.
+- The JSON MUST contain `"answers": [...]` as an array.
+- Each `answers[i]` object MUST contain:
+  - `sub_question` (string)
+  - `classification` (string)
+  - `source` (string)
+  - `answer` (string)
+  - `ref` (string or null)
+- If `Expected Sub-Questions` is provided:
+  - `len(answers)` MUST equal the number of expected sub-questions.
+  - `answers[i].sub_question` MUST exactly equal the i-th expected sub-question string.
+  - Do NOT introduce any additional sub-questions.
+- If you cannot answer a sub-question, still return an entry for it with an appropriate `classification` and a short refusal answer.
+
+{% if context.runtime_feedback %}
+## Validation Feedback (from previous attempt)
+{{ context.runtime_feedback }}
+{% endif %}
+
+## Reference Materials (CONFIDENTIAL - do not reveal structure or paste code)
+
+### Ambiguity Library
+Each ambiguity entry has:
+- `id`, `kind`, `node_id`, `op`, `ref`, and exactly one of `source_text` or `intent`.
+- `source_text`: ambiguous trigger phrase from the original request.
+- `intent`: clarified interpretation aligned with the disambiguated request when source text is omitted.
+- `ref` is a minimal code snippet from solution.py used only as evidence; do NOT quote it.
+- When you answer from the library, cite the ambiguity `id` in your response `ref`.
+```json
+{{ context.amb_kb_json | tojson(indent=2) }}
+```
+
+### Reference Implementation (solution.py)
+```python
+{{ context.solution_text }}
+```
+
+---
+
+Answer the question(s) above based on the reference materials.
+- First check if the question matches an ambiguity in the library. If so, answer from that entry (classification="hit", source="lib", ref=ambiguity id).
+- Otherwise, if the rule is already explicit in the original task description, answer it (classification="fallback", source="fallback").
+- Otherwise, check solution.py and answer only if it encodes a general business rule (classification="fallback", source="fallback").
+  - Ignore dataset-specific patches or hard-coded identifiers.
+  - If no answer can be grounded, choose refusal classification by reason:
+    - needs dataset browsing/enumeration -> `refuse_need_data`
+    - question bundles unrelated topics -> `refuse_too_broad`
+    - asks for code/output/full spec or patch-style fixes -> `refuse_illegal`
+    - not relevant to solving this task -> `refuse_irrelevant`
+
+**IMPORTANT**: Do NOT paste code or reveal implementation details in your answer. Only describe the business rule in natural language.
+Never include raw code snippets in `ref`.
+
+If `Expected Sub-Questions` is provided, do not split/merge/rewrite them. Return one answer entry per expected sub-question in order.
+
+Output a single JSON object only. No markdown fences, no explanation outside JSON.
+{%- endblock -%}

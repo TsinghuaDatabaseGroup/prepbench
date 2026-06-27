@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_exclude_null_session_detail",
+      "kind": "Operation incomplete",
+      "node_id": "f3_floor2",
+      "op": "filter",
+      "source_text": "Pivot the data so the Room and Floor number are on the same row - Filter out any unnecessary rows",
+      "ref": "long_df = long_df[(long_df[\"Floor\"] == \"Floor 2\") & (long_df[\"Session Detail\"].notna())].copy()"
+    },
+    {
+      "id": "2_O2_use_reverse_distance_if_missing",
+      "kind": "Operation incomplete",
+      "node_id": "f3_pick_edge",
+      "op": "filter",
+      "source_text": "You're currently in Room 302, how long will it take you to reach them?",
+      "ref": "row = edges[(edges[\"RoomA\"] == 302) & (edges[\"RoomB\"] == target_room)]\nif row.empty:\n\t\t# try swapped direction\n\t\trow = edges[(edges[\"RoomA\"] == target_room) & (edges[\"RoomB\"] == 302)]"
+    },
+    {
+      "id": "3_D2_join_on_speaker_and_subject",
+      "kind": "Multi-table alignment",
+      "node_id": "j2_out2",
+      "op": "join",
+      "source_text": "Join with Output 1",
+      "ref": "joined = pd.merge(tmp, cand, on=[\"SpeakerInit\", \"Subject\"], how=\"inner\")"
+    },
+    {
+      "id": "4_O2_inner_join_drop_unmatched",
+      "kind": "Operation incomplete",
+      "node_id": "j2_out2",
+      "op": "join",
+      "source_text": "Join with Output 1",
+      "ref": "joined = pd.merge(tmp, cand, on=[\"SpeakerInit\", \"Subject\"], how=\"inner\")"
+    },
+    {
+      "id": "5_O1_split_description_on_first_colon",
+      "kind": "Operation boundary",
+      "node_id": "p1_parse",
+      "op": "project",
+      "source_text": "Split out the Description field into Speaker Name and Presentation Description",
+      "ref": "parts = text.split(\":\", 1)"
+    },
+    {
+      "id": "6_O1_initials_from_all_parts_hyphens_split",
+      "kind": "Operation boundary",
+      "node_id": "p1_parse",
+      "op": "project",
+      "source_text": "Create the initials for each speaker",
+      "ref": "tokens = [t for t in name.replace(\"-\", \" \").split() if t]\nreturn \"\".join(t[0].upper() for t in tokens if t[0].isalpha())"
+    },
+    {
+      "id": "7_O1_subject_match_case_insensitive",
+      "kind": "Operation boundary",
+      "node_id": "p1_parse",
+      "op": "project",
+      "source_text": "Categorize the Presentations into the following Subject areas: - Prep - Server - Community - Desktop",
+      "ref": "if c.lower() in text.lower():"
+    },
+    {
+      "id": "8_O3_subject_priority_first_match_wins",
+      "kind": "Operation inconsistent",
+      "node_id": "p1_parse",
+      "op": "project",
+      "source_text": "Categorize the Presentations into the following Subject areas: - Prep - Server - Community - Desktop",
+      "ref": "candidates = [\"Prep\", \"Server\", \"Community\", \"Desktop\"]\nfor c in candidates:\n\t\tif c.lower() in text.lower():\n\t\t\tsubject = c\n\t\t\tbreak"
+    },
+    {
+      "id": "9_O1_dedup_match_case_insensitive",
+      "kind": "Operation boundary",
+      "node_id": "p1_parse",
+      "op": "project",
+      "source_text": "Create a Boolean (True/False) field for identifying talks that mention deduplication",
+      "ref": "t = text.lower()\nreturn any(k in t for k in keywords)"
+    },
+    {
+      "id": "10_C1_dedup_keywords_set",
+      "kind": "Row-level concept",
+      "node_id": "p1_parse",
+      "op": "project",
+      "source_text": "Create a Boolean (True/False) field for identifying talks that mention deduplication",
+      "ref": "keywords = [\"dedup\", \"de-dup\", \"de dup\"]  # dedup/deduplication variants only"
+    },
+    {
+      "id": "11_O1_room_a_room_b_orientation",
+      "kind": "Operation incomplete",
+      "node_id": "p3_final",
+      "op": "project",
+      "source_text": "You're currently in Room 302, how long will it take you to reach them?",
+      "ref": "out = pd.DataFrame(\n\t\t{\n\t\t\t\"Room A\": [302],\n\t\t\t\"Room B\": [target_room],"
+    },
+    {
+      "id": "12_O1_parse_session_detail_delimiters",
+      "kind": "Operation boundary",
+      "node_id": "p3_parse",
+      "op": "project",
+      "source_text": "Split out the Session Detail field into Session Name, Speaker and Subject",
+      "ref": "after_dash = s.split(\"-\", 1)[1].strip()\n# e.g., \"TP on Prep\"\nparts = after_dash.split(\" on \")\nspk_init = parts[0].strip() if parts else \"\"\nsubj = parts[1].strip() if len(parts) > 1 else \"\""
+    },
+    {
+      "id": "13_C2_roomcode_for_floor2_is_200_plus_room",
+      "kind": "Row-level concept",
+      "node_id": "p3_parse",
+      "op": "project",
+      "source_text": "Create a room number that also gives detail of the floor number",
+      "ref": "long_df[\"RoomCode\"] = 200 + long_df[\"Room\"]  # since only Floor 2 rows kept"
+    }
+  ]
+}

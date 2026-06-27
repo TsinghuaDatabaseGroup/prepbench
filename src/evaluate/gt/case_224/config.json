@@ -1,0 +1,27 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Attendance Flag",
+        "First Name",
+        "Surname",
+        "Attendance_Percentage",
+        "Student_ID",
+        "Subject",
+        "Test_score",
+        "TestScoreInteger"
+      ],
+      "columns": {
+        "Attendance Flag": "text_exact",
+        "First Name": "text_exact",
+        "Surname": "text_exact",
+        "Attendance_Percentage": "number",
+        "Student_ID": "number",
+        "Subject": "text_exact",
+        "Test_score": "number",
+        "TestScoreInteger": "number"
+      }
+    }
+  }
+}
+

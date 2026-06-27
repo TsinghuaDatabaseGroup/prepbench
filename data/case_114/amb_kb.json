@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_d2_join_on_id",
+      "kind": "Multi-table alignment",
+      "node_id": "fact_join",
+      "op": "join",
+      "source_text": "Join both tables",
+      "ref": "fact = orders_exp.merge(menu_long[[\"ID\", \"Price\"]], on=\"ID\", how=\"left\")"
+    },
+    {
+      "id": "2_o2_left_join_keep_unmatched_orders",
+      "kind": "Operation incomplete",
+      "node_id": "fact_join",
+      "op": "join",
+      "source_text": "Join both tables",
+      "ref": "fact = orders_exp.merge(menu_long[[\"ID\", \"Price\"]], on=\"ID\", how=\"left\")"
+    },
+    {
+      "id": "3_o2_drop_menu_rows_missing_name_id_price",
+      "kind": "Operation incomplete",
+      "node_id": "m_filter_valid",
+      "op": "filter",
+      "source_text": "Modify the structure of the Menu table so we can have one column for the Type (pizza, pasta, house plate), the name of the plate, ID, and Price",
+      "ref": "menu_long = menu_long.dropna(subset=[\"ID\", \"Price\", \"Name\"]).copy()"
+    },
+    {
+      "id": "4_o2_split_order_field_on_hyphen",
+      "kind": "Row-level concept",
+      "node_id": "o_explode",
+      "op": "script",
+      "source_text": "Modify the structure of the Orders table to have each item ID in a different row",
+      "ref": "orders_exp[\"ID\"] = orders_exp[\"Order\"].astype(str).str.split(\"-\")"
+    },
+    {
+      "id": "5_d1_weekday_derived_from_order_date_day_name",
+      "kind": "Row-level concept",
+      "node_id": "o_weekday",
+      "op": "project",
+      "source_text": "For Output 1, we want to calculate the total money for each day of the week",
+      "ref": "orders_exp[\"Weekday\"] = orders_exp[\"Order Date\"].dt.day_name()"
+    },
+    {
+      "id": "6_o1_round_weekday_revenue_to_0_decimals_int",
+      "kind": "Operation boundary",
+      "node_id": "out1_round_ord",
+      "op": "project",
+      "intent": "Round weekday revenue (Price) to 0 decimal places and output as an integer.",
+      "ref": "out1[\"Price\"] = out1[\"Price\"].round(0).astype(int)"
+    },
+    {
+      "id": "7_o3_tie_break_top_customer_alpha_first",
+      "kind": "Operation boundary",
+      "node_id": "out2_sort",
+      "op": "sort",
+      "intent": "If multiple customers tie for maximum item count, select the alphabetically first Customer Name (ascending).",
+      "ref": "max_count = out2[\"Count Items\"].max()\nout2 = out2[out2[\"Count Items\"] == max_count].sort_values(\n        [\"Customer Name\"]).head(1).reset_index(drop=True)"
+    }
+  ]
+}

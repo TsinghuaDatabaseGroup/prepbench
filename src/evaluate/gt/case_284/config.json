@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Position"
+      ],
+      "columns": {
+        "Position": "number",
+        "driver_number": "number",
+        "driver_code": "text_exact",
+        "driver_name": "text_exact",
+        "constructor_sponsor_name": "text_norm",
+        "lap_duration": "number"
+      }
+    }
+  }
+}
+

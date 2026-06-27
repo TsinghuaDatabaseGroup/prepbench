@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Picture",
+        "Frame",
+        "Max Side",
+        "Min Side"
+      ],
+      "columns": {
+        "Picture": "text_exact",
+        "Frame": "text_exact",
+        "Max Side": "number",
+        "Min Side": "number"
+      }
+    }
+  }
+}

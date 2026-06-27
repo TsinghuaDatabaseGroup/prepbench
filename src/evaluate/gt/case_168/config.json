@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "userID",
+        "timestamp",
+        "location",
+        "content_type",
+        "duration",
+        "Avg_Price"
+      ],
+      "columns": {
+        "userID": "number",
+        "timestamp": "datetime",
+        "location": "text_exact",
+        "content_type": "text_exact",
+        "duration": "number",
+        "Avg_Price": "number"
+      }
+    }
+  }
+}
+

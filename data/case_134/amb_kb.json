@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_excess_area_difference",
+      "kind": "Row-level concept",
+      "node_id": "compute_excess",
+      "op": "project",
+      "source_text": "Work out the area of the frame vs the area of the picture and choose the frame with the smallest excess",
+      "ref": "candidates[\"Excess\"] = candidates[\"F_Area\"] - P_Area"
+    },
+    {
+      "id": "2_O1_round_picture_sides_to_int",
+      "kind": "Operation boundary",
+      "node_id": "final_project",
+      "op": "project",
+      "intent": "Round the picture's normalized Max/Min sides to the nearest integer for output.",
+      "ref": "\"Max Side\": int(round(P_Max)),\n\"Min Side\": int(round(P_Min))"
+    },
+    {
+      "id": "3_D2_fit_predicate_inclusive_sides",
+      "kind": "Operation boundary",
+      "node_id": "fit_filter",
+      "op": "filter",
+      "source_text": "See which pictures fit into which frames",
+      "ref": "candidates = frames_norm[(frames_norm[\"F_Max\"] >= P_Max) & (frames_norm[\"F_Min\"] >= P_Min)]"
+    },
+    {
+      "id": "4_O2_size_format_parsing",
+      "kind": "Row-level concept",
+      "node_id": "size_parse",
+      "op": "project",
+      "intent": "Parse size labels: N\" x M\" as inches (convert to cm), Ncm2 as square (Ncm x Ncm).",
+      "ref": "m = re.fullmatch(r\"\\s*(\\d+(?:\\.\\d+)?)\\s*cm\\s*2\\s*\", s, flags=re.IGNORECASE)\nm = re.fullmatch(r\"\\s*(\\d+(?:\\.\\d+)?)\\s*cm\\s*x\\s*(\\d+(?:\\.\\d+)?)\\s*cm\\s*\", s, flags=re.IGNORECASE)\nm = re.fullmatch(r\"\\s*(\\d+(?:\\.\\d+)?)\\s*\\\"\\s*x\\s*(\\d+(?:\\.\\d+)?)\\s*\\\"\\s*\", s)\nm = re.fullmatch(r\"\\s*(\\d+(?:\\.\\d+)?)\\s*\\\"\\s*2\\s*\", s)"
+    },
+    {
+      "id": "5_O3_tiebreak_by_frames_row_order",
+      "kind": "Operation inconsistent",
+      "node_id": "pick_frame",
+      "op": "dedup",
+      "intent": "If multiple frames have the same smallest excess, choose the frame that appears first in input_01.csv.",
+      "ref": "candidates = candidates.sort_values([\"Excess\", \"Order\"], ascending=[True, True])\nchosen_label = candidates.iloc[0][\"FrameLabel\"]"
+    },
+    {
+      "id": "6_O1_preserve_picture_input_order",
+      "kind": "Operation incomplete",
+      "node_id": "sort_by_pic",
+      "op": "sort",
+      "intent": "Preserve the original picture order from input_02.csv in the output.",
+      "ref": "for _, pic in pics_norm.sort_values(\"PicOrder\").iterrows():"
+    }
+  ]
+}

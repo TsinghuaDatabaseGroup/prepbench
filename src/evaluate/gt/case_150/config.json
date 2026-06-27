@@ -1,0 +1,57 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "CustomerID"
+            ],
+            "columns": {
+                "CustomerID": "text_exact",
+                "Customer": "text_exact",
+                "Return %": "number",
+                "Number of Orders": "number",
+                "First Order": "text_exact"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "StoreID",
+                "CustomerID",
+                "OrderID",
+                "ProductID"
+            ],
+            "columns": {
+                "StoreID": "text_exact",
+                "CustomerID": "text_exact",
+                "OrderID": "text_exact",
+                "Order Date": "text_exact",
+                "ProductID": "text_exact",
+                "Returned": "boolean",
+                "Quantity": "number",
+                "Sales": "number"
+            }
+        },
+        "output_03.csv": {
+            "key": [
+                "ProductID"
+            ],
+            "columns": {
+                "ProductID": "text_exact",
+                "Category": "text_exact",
+                "Sub-Category": "text_exact",
+                "Product Name": "text_exact",
+                "Unit Price": "number",
+                "First Sold": "text_exact"
+            }
+        },
+        "output_04.csv": {
+            "key": [
+                "StoreID"
+            ],
+            "columns": {
+                "StoreID": "text_exact",
+                "Store": "text_exact",
+                "First Order": "text_exact"
+            }
+        }
+    }
+}

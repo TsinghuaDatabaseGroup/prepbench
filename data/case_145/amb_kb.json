@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_awards_count_per_title",
+      "kind": "Group-level concept",
+      "node_id": "awards_agg",
+      "op": "aggregate",
+      "source_text": "You may need to disregard incomplete records or summarise useful data into a metric",
+      "ref": "awards_agg = awards.groupby('Title').agg(**{'Number of Awards Won (avg only)': ('Award Name', 'count')})"
+    },
+    {
+      "id": "2_C2_checkouts_total_and_months",
+      "kind": "Group-level concept",
+      "node_id": "checkouts_agg",
+      "op": "aggregate",
+      "source_text": "You may need to disregard incomplete records or summarise useful data into a metric",
+      "ref": "checkouts_agg = checkouts.groupby('Book ID').agg(**{'Total Checkouts': ('Number of Checkouts', 'sum'), 'Number of Months Checked Out': ('CheckoutMonth', 'nunique')})"
+    },
+    {
+      "id": "3_O1_round_average_rating_9dp",
+      "kind": "Operation boundary",
+      "node_id": "final_project",
+      "op": "project",
+      "intent": "Round Average Rating to 9 decimal places.",
+      "ref": "avg = pd.to_numeric(df['Average Rating'], errors='coerce').round(9)\ndf['Average Rating'] = avg.map(lambda x: f\"{x:.9f}\" if pd.notna(x) else \"\")"
+    },
+    {
+      "id": "4_O2_missing_aggregates_not_zero",
+      "kind": "Operation incomplete",
+      "node_id": "final_project",
+      "op": "project",
+      "intent": "Do not replace missing aggregate numeric values with 0 in the output.",
+      "ref": "nums = pd.to_numeric(df[col], errors='coerce').round(0)\ndf[col] = nums.astype('Int64').astype('string').fillna('')\navg = pd.to_numeric(df['Average Rating'], errors='coerce').round(9)\ndf['Average Rating'] = avg.map(lambda x: f\"{x:.9f}\" if pd.notna(x) else \"\")"
+    },
+    {
+      "id": "5_O2_missing_text_as_empty_string",
+      "kind": "Operation incomplete",
+      "node_id": "final_project",
+      "op": "project",
+      "intent": "Represent missing text fields as empty strings in the final output.",
+      "ref": "df[col] = df[col].replace({'nan': ''})"
+    },
+    {
+      "id": "6_D1_genre_series_book_id",
+      "kind": "Single-table reference",
+      "node_id": "genre_series_proj1",
+      "op": "project",
+      "intent": "Create Book ID for joining from genre/series data by concatenating BookID1 + BookID2, otherwise use BookID.",
+      "ref": "genre_series['Book ID'] = genre_series['BookID1'].astype(str) + genre_series['BookID2'].astype(str)"
+    },
+    {
+      "id": "7_D2_join_all_on_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "Join all other data sets in the workbook on to this data",
+      "ref": "df = df.merge(book_meta, on='ISBN', how='left')\ndf = df.merge(books[['Book ID', 'Title', 'AuthID']], on='Book ID', how='left')\ndf = df.merge(authors, on='AuthID', how='left')\ndf = df.merge(awards_agg, on='Title', how='left')\ndf = df.merge(publishers, on='PubID', how='left')\ndf = df.merge(checkouts_agg, on='Book ID', how='left')\ndf = df.merge(ratings_agg, on='Book ID', how='left')\ndf = df.merge(genre_series[['Book ID', 'Genre', 'SeriesID', 'Volume Number', 'Staff Comment']], on='Book ID', how='left')\ndf = df.merge(series_dim, on='SeriesID', how='left')"
+    },
+    {
+      "id": "8_O2_join_left_keep_sales",
+      "kind": "Operation incomplete",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "Never let the number of rows change",
+      "ref": "how='left'"
+    },
+    {
+      "id": "9_C2_ratings_aggregates",
+      "kind": "Group-level concept",
+      "node_id": "ratings_agg",
+      "op": "aggregate",
+      "source_text": "You may need to disregard incomplete records or summarise useful data into a metric",
+      "ref": "ratings_agg = ratings.groupby('Book ID').agg(**{'Average Rating': ('Rating', 'mean'), 'Number of Reviewers': ('ReviewerID', 'nunique'), 'Number of Reviews': ('ReviewID', 'count')})"
+    }
+  ]
+}

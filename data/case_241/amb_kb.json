@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_missing_country",
+      "kind": "Operation incomplete",
+      "node_id": "filter_country",
+      "op": "filter",
+      "intent": "Whether to exclude rows where Country is missing.",
+      "ref": "df = df[df[\"Country\"].notna()].copy()"
+    },
+    {
+      "id": "3_O2_rank_parse_fail_to_null",
+      "kind": "Operation incomplete",
+      "node_id": "format_numbers",
+      "op": "project",
+      "intent": "How to handle missing/unparseable 2023 SDG Index Rank during integer conversion.",
+      "ref": "rank_series = pd.to_numeric(result[\"2023 SDG Index Rank\"], errors=\"coerce\").astype(\"Int64\")\nresult[\"2023 SDG Index Rank\"] = rank_series"
+    },
+    {
+      "id": "4_D2_pair_value_trend_by_adjacent_columns",
+      "kind": "Single-table reference",
+      "node_id": "join_merge",
+      "op": "join",
+      "source_text": "the SDG headings are merged across 2 columns, the colour indicator and the arrow.",
+      "ref": "extra_columns = [col for col in df.columns if col not in base_columns + [\"_row_order\"]]\nfor idx in range(0, len(extra_columns), 2):\n        value_col = extra_columns[idx]\n        trend_col = extra_columns[idx + 1]"
+    },
+    {
+      "id": "5_O2_value_map_else_keep",
+      "kind": "Operation incomplete",
+      "node_id": "map_labels",
+      "op": "project",
+      "source_text": "Update the SDG Values field:\n  - Green - Goal Achieved",
+      "ref": "value_map = {\n        \"green\": \"Goal Achieved\",\n        \"yellow\": \"Challenges Remaining\",\n        \"orange\": \"Significant Challenges\",\n        \"red\": \"Major Challenges\",\n        \"grey\": \"Insufficient\",\n        \"Goal Achieved\": \"Goal Achieved\",\n        \"Challenges Remaining\": \"Challenges Remaining\",\n        \"Significant Challenges\": \"Significant Challenges\",\n        \"Major Challenges\": \"Major Challenges\",\n        \"Insufficient\": \"Insufficient\",\n    }\nresult[\"SDG Value\"] = result[\"SDG Value\"].map(value_map).fillna(result[\"SDG Value\"])"
+    },
+    {
+      "id": "6_O2_trend_map_else_keep",
+      "kind": "Operation incomplete",
+      "node_id": "map_labels",
+      "op": "project",
+      "source_text": "Update the SDG Trend field:\n  - ↑ - On Track",
+      "ref": "result[\"SDG Trend\"] = result[\"SDG Trend\"].map(trend_map).fillna(result[\"SDG Trend\"])"
+    },
+    {
+      "id": "7_D1_sdg_name_from_value_header_full_text",
+      "kind": "Row-level concept",
+      "node_id": "melt_values",
+      "op": "pivot",
+      "intent": "How to derive SDG Name from the wide SDG column headers.",
+      "ref": "goal_name = value_col.strip()\nsubset[\"SDG Name\"] = goal_name"
+    }
+  ]
+}

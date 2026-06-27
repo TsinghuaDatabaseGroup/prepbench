@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_annual_salary_from_month_cols",
+      "kind": "Row-level concept",
+      "node_id": "compute_all",
+      "op": "project",
+      "source_text": "Find each team member's annual salary",
+      "ref": "month_cols = [str(i) for i in range(1, 13)]; df[\"Salary\"] = df[month_cols].sum(axis=1)"
+    },
+    {
+      "id": "2_O1_max_tax_rate_threshold",
+      "kind": "Operation boundary",
+      "node_id": "compute_all",
+      "op": "project",
+      "source_text": "Find each team member's maximum tax band based on their annual salary",
+      "ref": "if row_salary > higher_upper: return \"45% rate\""
+    },
+    {
+      "id": "3_C2_tax_band_formulas",
+      "kind": "Row-level concept",
+      "node_id": "compute_all",
+      "op": "project",
+      "source_text": "Work out how much tax an individual paid for each of the % bands.",
+      "ref": "taxable_20 = (df[\"Salary\"] - allowance).clip(lower=0).clip(upper=(basic_upper - allowance)) * 0.20"
+    },
+    {
+      "id": "4_O2_tax_band_null_handling",
+      "kind": "Operation incomplete",
+      "node_id": "compute_all",
+      "op": "project",
+      "intent": "Whether 40%/45% rate tax paid outputs should be blank when not applicable.",
+      "ref": "tax40_out = tax40.where(max_rate_flags.isin([\"40\", \"45\"]), np.nan)"
+    },
+    {
+      "id": "5_O2_total_tax_null_treatment",
+      "kind": "Operation incomplete",
+      "node_id": "compute_all",
+      "op": "project",
+      "intent": "Whether Total Tax Paid should treat blank band taxes as 0 when summing.",
+      "ref": "total_tax = (tax20_out.fillna(0) + tax40_out.fillna(0) + tax45_out.fillna(0))"
+    },
+    {
+      "id": "6_O1_row_number_dedup",
+      "kind": "Group-level concept",
+      "node_id": "dedup_latest",
+      "op": "dedup",
+      "source_text": "Find the latest row (largest row number) to capture the individuals correct salary information",
+      "ref": "df.sort_values(\"__row_number__\").drop_duplicates(subset=[\"StaffID\"], keep=\"last\")"
+    }
+  ]
+}

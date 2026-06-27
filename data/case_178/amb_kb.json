@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_distinct_order_count",
+      "kind": "Group-level concept",
+      "node_id": "agg",
+      "op": "aggregate",
+      "source_text": "count the number of orders that has the combination of Store, Region and Quantity",
+      "ref": "'Present in N orders': ('Order ID', 'nunique')"
+    },
+    {
+      "id": "2_C1_product_type_filter_rule",
+      "kind": "Row-level concept",
+      "node_id": "filter",
+      "op": "filter",
+      "source_text": "One to deal with Bar Soap sales, one for Liquid Soap sales",
+      "ref": "df[df['Product Type'] == 'Bar']; df[df['Product Type'] == 'Liquid']"
+    },
+    {
+      "id": "4_O2_bar_quantity_integer_extraction",
+      "kind": "Operation incomplete",
+      "node_id": "project_bar_prepare",
+      "op": "project",
+      "source_text": "Clean the Quantity field to just leave values",
+      "ref": "df_proc['Quantity'].str.extract('(\\d+)').astype(int)"
+    },
+    {
+      "id": "5_O2_liquid_quantity_decimal_extraction",
+      "kind": "Operation incomplete",
+      "node_id": "project_liquid_prepare",
+      "op": "project",
+      "source_text": "For Liquid, ensure every value is in millilitres",
+      "ref": "df_proc['Quantity'].str.extract('(\\d+\\.?\\d*)').astype(float)"
+    },
+    {
+      "id": "6_C2_liquid_litres_to_ml",
+      "kind": "Row-level concept",
+      "node_id": "project_liquid_prepare",
+      "op": "project",
+      "source_text": "For Liquid, ensure every value is in millilitres",
+      "ref": "row['Value'] * 1000 if row['Unit'].lower() == 'l'"
+    },
+    {
+      "id": "7_O2_cast_sale_value_numeric",
+      "kind": "Operation incomplete",
+      "node_id": "project_split",
+      "op": "project",
+      "source_text": "Sum up the sales for each combination",
+      "ref": "pd.to_numeric(df['Sale Value'])"
+    },
+    {
+      "id": "8_O2_split_product_name_on_delimiter",
+      "kind": "Row-level concept",
+      "node_id": "project_split",
+      "op": "project",
+      "source_text": "Separate out the Product Name field to form Product Type and Quantity",
+      "ref": "df['Product Name'].str.split(' - ', expand=True)"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Date", "Event", "Day of Week", "After School Club"],
+      "columns": {
+        "Date": "date",
+        "Event": "text_exact",
+        "Day of Week": "text_exact",
+        "After School Club": "text_exact"
+      }
+    }
+  }
+}
+

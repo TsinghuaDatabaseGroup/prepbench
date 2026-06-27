@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Quarter", "Rank", "Store", "Products Sold", "Target", "Variance to Target"],
+      "columns": {
+        "Quarter": "number",
+        "Rank": "number",
+        "Store": "text_exact",
+        "Products Sold": "number",
+        "Target": "number",
+        "Variance to Target": "number"
+      }
+    }
+  }
+}

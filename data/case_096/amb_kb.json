@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_subject_constant_text",
+      "kind": "Row-level concept",
+      "node_id": "n_build_email",
+      "op": "project",
+      "source_text": "Create a field for the Email Subject and a field for the Email Body",
+      "ref": "email_subject = \"Secret Santa\""
+    },
+    {
+      "id": "2_body_exact_template_text",
+      "kind": "Row-level concept",
+      "node_id": "n_build_email",
+      "op": "project",
+      "source_text": "e.g. Tom, the results are in, your secret santee is: Ellie. Good luck finding a great gift!",
+      "ref": "email_body = f\"{santa_name} the results are in your secret santee is: {santee_name}. Good luck finding a great gift!\""
+    },
+    {
+      "id": "new_1_output_reverse_alphabetical_order",
+      "kind": "Operation boundary",
+      "node_id": "n_output_order",
+      "op": "sort",
+      "source_text": "Assign Secret Santas to Secret Santees that follow them in the alphabet",
+      "ref": "df_sorted = df.sort_values('Secret Santa').reset_index(drop=True)\n...\nresult = result.iloc[::-1].reset_index(drop=True)"
+    }
+  ]
+}

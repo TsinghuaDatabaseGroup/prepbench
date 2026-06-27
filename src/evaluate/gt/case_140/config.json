@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Season", "Outcome", "Special Circumstances", "League", "P", "W", "D", "L", "F", "A", "Pts", "POS"],
+      "columns": {
+        "Season": "text_exact",
+        "Outcome": "text_exact",
+        "Special Circumstances": "text_exact",
+        "League": "text_exact",
+        "P": "number",
+        "W": "number",
+        "D": "number",
+        "L": "number",
+        "F": "number",
+        "A": "number",
+        "Pts": "number",
+        "POS": "text_exact"
+      }
+    }
+  }
+}

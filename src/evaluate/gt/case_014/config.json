@@ -1,0 +1,17 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "TicketID"
+            ],
+            "columns": {
+                "Total Ticket Price": "number",
+                "Ticket Price Variance to Meal Deal Earnings": "number",
+                "Total Meal Deal Earnings": "number",
+                "Total Excess": "number",
+                "TicketID": "text_exact",
+                "MemberID": "number"
+            }
+        }
+    }
+}

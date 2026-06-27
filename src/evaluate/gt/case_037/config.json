@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Returned Orders",
+        "Total Orders",
+        "% Returned",
+        "Type"
+      ],
+      "columns": {
+        "Returned Orders": "number",
+        "Total Orders": "number",
+        "% Returned": "number",
+        "Type": "text_exact"
+      }
+    }
+  }
+}

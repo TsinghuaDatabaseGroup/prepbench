@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_greedy_full_box_allocation",
+      "kind": "Row-level concept",
+      "node_id": "orders_calc",
+      "op": "project",
+      "source_text": "For each order, figure out how many boxes of each size will be required.",
+      "ref": "box_sizes = sorted(box_sizes_df['Box Size'].tolist(), reverse=True); num_boxes = remaining // box_size"
+    },
+    {
+      "id": "2_O2_remainder_add_smallest_partial",
+      "kind": "Operation incomplete",
+      "node_id": "orders_calc",
+      "op": "project",
+      "source_text": "we also want to try and minimise unused space in boxes.",
+      "ref": "if remaining > 0: smallest_box = min(box_sizes); boxes.append((smallest_box, remaining))"
+    },
+    {
+      "id": "3_C2_last_box_per_size",
+      "kind": "Group-level concept",
+      "node_id": "prep",
+      "op": "project",
+      "source_text": "Soaps in Box - Last Box Per Box Size",
+      "ref": "size_counts[box_size] = size_counts.get(box_size, 0) + 1; last_box_per_size = size_counts[box_size]"
+    },
+    {
+      "id": "4_O3_tie_break_equal_soaps",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_boxes",
+      "op": "sort",
+      "source_text": "The box ID should be ascending from the box with the most soap to the box with the least.",
+      "ref": "boxes_sorted = sorted(boxes, key=lambda x: x[1], reverse=True)"
+    }
+  ]
+}

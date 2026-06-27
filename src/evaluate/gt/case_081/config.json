@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Store", "Month", "Sales", "Target", "Difference"],
+      "columns": {
+        "Store": "text_exact",
+        "Month": "date",
+        "Sales": "number",
+        "Target": "number",
+        "Difference": "number"
+      }
+    }
+  }
+}
+

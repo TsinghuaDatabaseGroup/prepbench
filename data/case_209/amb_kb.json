@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_percent_denominator_total_customers",
+      "kind": "Group-level concept",
+      "node_id": "pct",
+      "op": "project",
+      "source_text": "Calculate the Percent of Total customers in each category, rounded to 1 decimal place",
+      "ref": "total = len(df)\npercent = (counts / total * 100).round(1).rename(\"% of Total\")"
+    },
+    {
+      "id": "2_D1_columns_included_in_platform_averages",
+      "kind": "Row-level concept",
+      "node_id": "proj_scores1",
+      "op": "project",
+      "source_text": "Calculate the Average Ratings for each platform for each customer",
+      "ref": "mobile_cols = [\n\t\t\"Mobile App - Ease of Use\",\n\t\t\"Mobile App - Ease of Access\",\n\t\t\"Mobile App - Navigation\",\n\t\t\"Mobile App - Likelihood to Recommend\",\n\t]\nonline_cols = [\n\t\t\"Online Interface - Ease of Use\",\n\t\t\"Online Interface - Ease of Access\",\n\t\t\"Online Interface - Navigation\",\n\t\t\"Online Interface - Likelihood to Recommend\",\n\t]\n\ndf[\"avg_mobile\"] = df[mobile_cols].mean(axis=1)\ndf[\"avg_online\"] = df[online_cols].mean(axis=1)"
+    },
+    {
+      "id": "3_C2_difference_direction_mobile_minus_online",
+      "kind": "Row-level concept",
+      "node_id": "proj_scores1",
+      "op": "project",
+      "source_text": "Calculate the difference in Average Rating between Mobile App and Online Interface",
+      "ref": "df[\"diff\"] = df[\"avg_mobile\"] - df[\"avg_online\"]"
+    },
+    {
+      "id": "4_O1_preference_category_threshold_bands",
+      "kind": "Operation boundary",
+      "node_id": "proj_scores1",
+      "op": "project",
+      "source_text": "Catergorise customers as being: Mobile App Fans if difference >= 1",
+      "ref": "def categorize(delta: float) -> str:\n\t\tif delta >= 2:\n\t\t\treturn \"Mobile App Superfan\"\n\t\tif delta >= 1:\n\t\t\treturn \"Mobile App Fan\"\n\t\tif delta <= -2:\n\t\t\treturn \"Online Interface Superfan\"\n\t\tif delta <= -1:\n\t\t\treturn \"Online Interface Fan\"\n\t\treturn \"Neutral\""
+    },
+    {
+      "id": "new_1_preference_output_order",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_preference",
+      "op": "sort",
+      "intent": "Order output rows as Mobile App Fan, Neutral, Mobile App Superfan, Online Interface Fan, Online Interface Superfan.",
+      "ref": "order = [\n\t\t\"Mobile App Fan\",\n\t\t\"Neutral\",\n\t\t\"Mobile App Superfan\",\n\t\t\"Online Interface Fan\",\n\t\t\"Online Interface Superfan\",\n\t]\nout = out.set_index(\"Preference\").reindex(order).reset_index()"
+    }
+  ]
+}

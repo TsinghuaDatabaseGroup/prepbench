@@ -1,0 +1,124 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_growth_sum_rounded_scent_contrib",
+      "kind": "Group-level concept",
+      "node_id": "agg_growth_by_company",
+      "op": "aggregate",
+      "source_text": "Calculate each company's Growth in April.",
+      "ref": "                contribs.append(Decimal(str(round_decimal(contrib, 2))))\n        growth_sum = float(sum(contribs))"
+    },
+    {
+      "id": "2_O1_cbbs_lime_abs_display",
+      "kind": "Operation boundary",
+      "node_id": "compute_cbbs_disp",
+      "op": "project",
+      "intent": "For Lime only, display CBBS contribution as an absolute value (after rounding).",
+      "ref": "        cbbs_disp = abs(cbbs_round) if s == 'Lime' else cbbs_round"
+    },
+    {
+      "id": "3_C2_cbbs_contrib_denominator_march_total",
+      "kind": "Group-level concept",
+      "node_id": "compute_cbbs_signed",
+      "op": "project",
+      "source_text": "Calculate C&BS Co's contribution to growth for each soap scent.",
+      "ref": "        cbbs_signed = (apr_c - mar_c) / cbbs_march_total * Decimal(100) if cbbs_march_total != 0 else Decimal('0')"
+    },
+    {
+      "id": "4_O1_outperf_use_rounded_signed_inputs",
+      "kind": "Operation boundary",
+      "node_id": "compute_outperf_raw",
+      "op": "project",
+      "intent": "Compute outperformance using the rounded signed contributions (before any absolute-value display adjustments).",
+      "ref": "            outperf = (cbbs_round - rest_round).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)"
+    },
+    {
+      "id": "5_O1_outperf_lime_abs_sum_rule",
+      "kind": "Operation boundary",
+      "node_id": "compute_outperf_raw",
+      "op": "project",
+      "intent": "For Lime only, compute outperformance as |CBBS rounded signed| + |Rest rounded signed| (not a signed difference).",
+      "ref": "        if s == 'Lime':\n            outperf = (abs(cbbs_round) + abs(rest_round)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)"
+    },
+    {
+      "id": "6_O1_rest_display_abs",
+      "kind": "Operation boundary",
+      "node_id": "compute_rest_disp",
+      "op": "project",
+      "intent": "Display Rest-of-market contribution as an absolute value (non-negative) in the output.",
+      "ref": "        rest_disp_abs = abs(rest_round)"
+    },
+    {
+      "id": "7_C2_rest_contrib_denominator_march_total",
+      "kind": "Group-level concept",
+      "node_id": "compute_rest_signed",
+      "op": "project",
+      "source_text": "Calculate the contribution to growth for the rest of the market excluding C&BS Co for each Soap Scent.",
+      "ref": "        rest_signed = (apr_r - mar_r) / rest_march_total * Decimal(100) if rest_march_total != 0 else Decimal('0')"
+    },
+    {
+      "id": "8_O1_bps_change_round_to_int",
+      "kind": "Operation boundary",
+      "node_id": "project_company_calc",
+      "op": "project",
+      "source_text": "How many bps* has this changed from March's Market Share?",
+      "ref": "    company_sales['Bps Change'] = ((company_sales['April_Share'] - company_sales['March_Share']) * 10000).round().astype(int)"
+    },
+    {
+      "id": "9_C2_april_market_share_percent_scale",
+      "kind": "Group-level concept",
+      "node_id": "project_company_calc",
+      "op": "project",
+      "source_text": "Calculate each company's Market Share for April.",
+      "ref": "    output_01['April Market Share'] = (output_01.merge(company_sales[['Company', 'April_Share']], on='Company')['April_Share'] * 100).apply(lambda x: round_decimal(x, 2))"
+    },
+    {
+      "id": "10_C2_growth_as_percentage_points",
+      "kind": "Group-level concept",
+      "node_id": "project_compute_contrib",
+      "op": "project",
+      "source_text": "Calculate each company's Growth in April.",
+      "ref": "            contrib = (Decimal(str(apr)) - Decimal(str(mar))) / Decimal(str(mar_total)) * Decimal(100)"
+    },
+    {
+      "id": "11_O1_april_market_share_round_half_up_2dp",
+      "kind": "Operation boundary",
+      "node_id": "script_round_april_share",
+      "op": "script",
+      "source_text": "Calculate each company's Market Share for April.",
+      "ref": "    return float(d.quantize(q, rounding=ROUND_HALF_UP))\n    output_01['April Market Share'] = (output_01.merge(company_sales[['Company', 'April_Share']], on='Company')['April_Share'] * 100).apply(lambda x: round_decimal(x, 2))"
+    },
+    {
+      "id": "12_O1_cbbs_contrib_round_half_up_2dp",
+      "kind": "Operation boundary",
+      "node_id": "script_round_cbbs",
+      "op": "script",
+      "intent": "Round CBBS contribution-to-growth values to 2 decimals using round-half-up before output/display rules.",
+      "ref": "        cbbs_round = cbbs_signed.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)"
+    },
+    {
+      "id": "13_O1_outperf_round_half_up_2dp",
+      "kind": "Operation boundary",
+      "node_id": "script_round_outperf",
+      "op": "script",
+      "intent": "Round outperformance to 2 decimals using round-half-up.",
+      "ref": "            outperf = (cbbs_round - rest_round).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)"
+    },
+    {
+      "id": "14_O1_rest_contrib_round_half_up_2dp",
+      "kind": "Operation boundary",
+      "node_id": "script_round_rest",
+      "op": "script",
+      "intent": "Round Rest-of-market contribution-to-growth values to 2 decimals using round-half-up before taking absolute value for display.",
+      "ref": "        rest_round = rest_signed.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)"
+    },
+    {
+      "id": "15_O1_soap_and_splendour_truncate_2dp",
+      "kind": "Operation boundary",
+      "node_id": "script_round_trunc_growth",
+      "op": "script",
+      "intent": "For Soap and Splendour only, truncate scent-level growth contributions toward zero to 2 decimals (do not round) before summing.",
+      "ref": "        use_trunc = (comp == 'Soap and Splendour')\n            if use_trunc:\n                contribs.append(Decimal(str(trunc_decimal_to_2(contrib))))"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_poll_results_numeric_coerce",
+      "kind": "Operation incomplete",
+      "node_id": "n_cast_results_float",
+      "op": "project",
+      "intent": "Convert Poll Results to numeric with invalid values coerced to null.",
+      "ref": "df_melted[\"Poll Results\"] = pd.to_numeric(df_melted[\"Poll Results\"], errors=\"coerce\")"
+    },
+    {
+      "id": "2_C1_average_record_is_rcp_average",
+      "kind": "Row-level concept",
+      "node_id": "n_filter_rcp",
+      "op": "filter",
+      "source_text": "Remove the Average Record for the polls",
+      "ref": "df = df[df[\"Poll\"] != \"RCP Average\"].copy()"
+    },
+    {
+      "id": "3_O2_treat_double_dash_as_null",
+      "kind": "Operation incomplete",
+      "node_id": "n_filter_results_nonnull",
+      "op": "filter",
+      "source_text": "Remove any Null Poll Results",
+      "ref": "df_melted = df_melted[df_melted[\"Poll Results\"] != \"--\"].copy()"
+    },
+    {
+      "id": "4_O2_drop_poll_results_after_failed_cast",
+      "kind": "Operation incomplete",
+      "node_id": "n_filter_results_valid",
+      "op": "filter",
+      "intent": "Remove rows where Poll Results numeric conversion failed.",
+      "ref": "df_melted = df_melted[df_melted[\"Poll Results\"].notna()].copy()"
+    },
+    {
+      "id": "5_D1_unpivot_candidate_columns",
+      "kind": "Single-table reference",
+      "node_id": "n_pivot_longer",
+      "op": "pivot",
+      "intent": "Unpivot the specified candidate result columns into Candidate and Poll Results rows.",
+      "ref": "candidate_cols = [\"Sanders\", \"Biden\", \"Bloomberg\", \"Warren\", \"Buttigieg\", \"Klobuchar\", \"Steyer\", \"Gabbard\"]"
+    },
+    {
+      "id": "6_O1_end_date_extract_after_dash",
+      "kind": "Operation incomplete",
+      "node_id": "n_project_enrich",
+      "op": "project",
+      "intent": "Extract End Date as the substring after \" - \" in Date.",
+      "ref": "end_date_str = date_str.split(\" - \")[-1].strip()"
+    },
+    {
+      "id": "7_O1_end_date_year_month12_2019",
+      "kind": "Operation boundary",
+      "node_id": "n_project_enrich",
+      "op": "project",
+      "intent": "Assign year 2019 if end-date month is 12; otherwise assign 2020.",
+      "ref": "year = 2019 if month == 12 else 2020"
+    },
+    {
+      "id": "8_O2_end_date_parse_fail_null",
+      "kind": "Operation incomplete",
+      "node_id": "n_project_enrich",
+      "op": "project",
+      "intent": "If an end date cannot be parsed, set End Date to null.",
+      "ref": "except: return None"
+    },
+    {
+      "id": "9_O2_sample_type_mapping",
+      "kind": "Row-level concept",
+      "node_id": "n_project_enrich",
+      "op": "project",
+      "source_text": "Rename Sample Types: RV = Registered Voter, LV = Likely Voter, null = Unknown",
+      "ref": "LV->Likely Voter, RV->Registered Voter, else->Unknown"
+    },
+    {
+      "id": "10_C2_rank_within_poll_end_date",
+      "kind": "Group-level concept",
+      "node_id": "n_script_rank_spread",
+      "op": "script",
+      "source_text": "Form a Rank (modified competition) of the candidates per Poll based on their results",
+      "ref": "df_melted[\"Rank\"] = df_melted.groupby([\"Poll\", \"End Date\"])[\"Poll Results\"].rank(method=\"max\", ascending=False)"
+    },
+    {
+      "id": "11_C2_spread_top1_minus_top2",
+      "kind": "Group-level concept",
+      "node_id": "n_script_rank_spread",
+      "op": "script",
+      "source_text": "Determine the spread for each poll from 1st Place to 2nd Place",
+      "ref": "spread = poll_results[0] - poll_results[1]"
+    },
+    {
+      "id": "12_O2_spread_zero_when_less_than_two",
+      "kind": "Operation incomplete",
+      "node_id": "n_script_rank_spread",
+      "op": "script",
+      "intent": "If fewer than two valid candidates exist in a poll group, set spread to 0.",
+      "ref": "if len(poll_results) >= 2: spread = poll_results[0] - poll_results[1] else: spread = 0"
+    }
+  ]
+}

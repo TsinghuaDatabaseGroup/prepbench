@@ -1,0 +1,26 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Region",
+                "First Name",
+                "Last Name",
+                "Order Date",
+                "Stock"
+            ],
+            "columns": {
+                "% of Regional Sales": "number",
+                "% of Total Sales": "number",
+                "Region": "text_exact",
+                "Customer ID": "number",
+                "First Name": "text_exact",
+                "Last Name": "text_exact",
+                "Sales": "number",
+                "Order Date": "date",
+                "Stock": "text_exact",
+                "Total Regional Sales": "number",
+                "Total Sales": "number"
+            }
+        }
+    }
+}

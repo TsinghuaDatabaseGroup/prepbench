@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_on_store_date",
+      "kind": "Multi-table alignment",
+      "node_id": "join_final",
+      "op": "join",
+      "source_text": "- Add on the number of days worked by staff in each store",
+      "ref": "        on=['Store', 'Date'],"
+    },
+    {
+      "id": "2_O2_keep_all_sales_rows_left_join",
+      "kind": "Operation boundary",
+      "node_id": "join_final",
+      "op": "join",
+      "source_text": "Only add staff numbers where store sales and profits exist",
+      "ref": "        how='left'\n    )"
+    },
+    {
+      "id": "3_D1_staff_unpivot_store_columns",
+      "kind": "Single-table reference",
+      "node_id": "pivot_staff_long",
+      "op": "pivot",
+      "intent": "When reshaping staff data from wide to long, unpivot the Lewisham, Camden, and Dulwich store columns.",
+      "ref": "        for store in ['Lewisham', 'Camden', 'Dulwich']:"
+    },
+    {
+      "id": "4_O2_sales_date_from_header_suffix",
+      "kind": "Operation boundary",
+      "node_id": "proj_extract_metric_date",
+      "op": "project",
+      "source_text": "- Create a date field",
+      "ref": "        return col_name.split(' ', 1)[1]\n            date_str = extract_date(sales_col)"
+    },
+    {
+      "id": "5_D1_input_01_store_constant_lewisham",
+      "kind": "Single-table reference",
+      "node_id": "proj_sales_1",
+      "op": "project",
+      "intent": "Assign Store = \"Lewisham\" for all rows read from input_01.csv.",
+      "ref": "df1['Store'] = 'Lewisham'"
+    },
+    {
+      "id": "6_D1_input_02_store_constant_camden",
+      "kind": "Single-table reference",
+      "node_id": "proj_sales_2",
+      "op": "project",
+      "intent": "Assign Store = \"Camden\" for all rows read from input_02.csv.",
+      "ref": "df2['Store'] = 'Camden'"
+    }
+  ]
+}

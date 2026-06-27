@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_home_away_goals_mapping",
+      "kind": "Single-table reference",
+      "node_id": "side",
+      "op": "project",
+      "intent": "Map Goals For/Against to Home/Away Score for each team's row.",
+      "ref": "home[\"Goals For\"] = home[\"home_score\"]; away[\"Goals For\"] = away[\"away_score\"]"
+    },
+    {
+      "id": "2_D1_expand_fixture_to_two_rows",
+      "kind": "Row-level concept",
+      "node_id": "long_union",
+      "op": "union",
+      "intent": "Expand each fixture into two rows (one for home team and one for away team).",
+      "ref": "pd.concat([home, away], ignore_index=True)"
+    },
+    {
+      "id": "3_C2_points_scoring_rule",
+      "kind": "Row-level concept",
+      "node_id": "with_metrics",
+      "op": "project",
+      "intent": "Compute Points as 3 for win, 1 for draw, 0 for loss.",
+      "ref": "if gf > ga: return 3"
+    },
+    {
+      "id": "4_C2_result_char_encoding",
+      "kind": "Row-level concept",
+      "node_id": "with_metrics",
+      "op": "project",
+      "source_text": "Create calculations to capture the last 5 games results",
+      "ref": "if gf > ga: return \"W\""
+    },
+    {
+      "id": "5_C2_position_rank_within_matchday",
+      "kind": "Group-level concept",
+      "node_id": "with_position",
+      "op": "project",
+      "source_text": "Determine Position based on",
+      "ref": "ranked.sort_values([\"Points (RT)\", \"Goal Difference (RT)\", \"Team\"], ascending=[False, False, False])"
+    }
+  ]
+}

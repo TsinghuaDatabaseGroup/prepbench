@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_single_best_site_per_person",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_top_per_name",
+      "op": "dedup",
+      "source_text": "Rank the top sites in terms of rating for each person.",
+      "ref": "top_sites = result_df.groupby(\"Name\").first().reset_index()"
+    },
+    {
+      "id": "2_C1_all_requirements_must_match",
+      "kind": "Row-level concept",
+      "node_id": "filter_matches",
+      "op": "filter",
+      "source_text": "Identify which locations would be suitable for each person",
+      "ref": "if skill_match and season_match and board_match:"
+    },
+    {
+      "id": "3_D2_pair_each_person_with_every_site",
+      "kind": "Multi-table alignment",
+      "node_id": "join_cross",
+      "op": "join",
+      "source_text": "Find a way to join all three tables together",
+      "ref": "for _, person in preppers.iterrows():\n        for _, site in info_location.iterrows():"
+    },
+    {
+      "id": "4_O2_keep_sites_without_season_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_info_location",
+      "op": "join",
+      "source_text": "Find a way to join all three tables together",
+      "ref": "info_location = info.merge(\n        location[[\"Surf Site\", \"Surf Season\"]],\n        on=\"Surf Site\",\n        how=\"left\"\n    )"
+    },
+    {
+      "id": "5_D2_derive_surf_site_key_by_suffix_removal",
+      "kind": "Single-table reference",
+      "node_id": "project_location_site",
+      "op": "project",
+      "source_text": "Find a way to join all three tables together",
+      "ref": "location[\"Surf Site\"] = location[\"Site\"].str.replace(\" - South Devon\", \"\", regex=False)"
+    },
+    {
+      "id": "6_C1_skill_match_split_on_comma_space",
+      "kind": "Row-level concept",
+      "node_id": "script_compute_matches",
+      "op": "script",
+      "source_text": "Identify which locations would be suitable for each person",
+      "ref": "skill_levels = str(site[\"Skill Level\"]).split(\", \")\n            skill_match = person_skill in skill_levels"
+    },
+    {
+      "id": "7_C1_season_match_overlap_after_split_and_trim",
+      "kind": "Row-level concept",
+      "node_id": "script_compute_matches",
+      "op": "script",
+      "source_text": "Identify which locations would be suitable for each person",
+      "ref": "person_seasons = set(s.strip() for s in str(person_season).split(\",\"))\n            surf_seasons = set(s.strip() for s in str(site[\"Surf Season\"]).split(\",\"))\n            season_match = len(person_seasons & surf_seasons) > 0"
+    },
+    {
+      "id": "8_C1_board_match_overlap_after_split_and_trim",
+      "kind": "Row-level concept",
+      "node_id": "script_compute_matches",
+      "op": "script",
+      "source_text": "Identify which locations would be suitable for each person",
+      "ref": "person_boards = set(s.strip() for s in str(person_board).split(\",\"))\n            site_boards = set(s.strip() for s in str(site[\"Boards\"]).split(\",\"))\n            board_match = len(person_boards & site_boards) > 0"
+    },
+    {
+      "id": "new_1_dedup_person_site_keep_first",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_person_site",
+      "op": "dedup",
+      "source_text": "Watch out for any duplicated person & site combinations",
+      "ref": "result_df = result_df.drop_duplicates(subset=[\"Name\", \"Surf Site\"])"
+    }
+  ]
+}

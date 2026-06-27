@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Matchday", "Home Team", "Away Team"],
+      "columns": {
+        "Away Score": "number",
+        "Away Team": "text_norm",
+        "Home Score": "number",
+        "Home Team": "text_norm",
+        "Matchday": "number",
+        "Source Row Number": "number",
+        "Date": "date"
+      }
+    }
+  }
+}
+
+

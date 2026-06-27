@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_avg_rounding_precision",
+      "kind": "Operation boundary",
+      "node_id": "n11_avg",
+      "op": "project",
+      "intent": "Round the per-person average hours per day to 9 decimal places.",
+      "ref": "out[\"Avg Number of Hours worked per day\"] = pd.to_numeric(\n        out[\"Avg Number of Hours worked per day\"]).round(9)"
+    },
+    {
+      "id": "2_O1_chats_case_insensitive_trim",
+      "kind": "Operation boundary",
+      "node_id": "n12_non_chats",
+      "op": "filter",
+      "source_text": "Remove the 'Chats' rows from the Area field",
+      "ref": "no_chats = long_df[long_df[\"Area of Work\"].str.strip().str.lower()\n                       != \"chats\"]"
+    },
+    {
+      "id": "3_O1_percent_format_integer_with_symbol",
+      "kind": "Operation boundary",
+      "node_id": "n16_pct",
+      "op": "project",
+      "source_text": "Calculate the % of total hours for each area: ROUND((Hours/Total Hours)*100)",
+      "ref": "area_with_tot[\"% of Total\"] = area_with_tot[\"% of Total\"].round(\n        0).astype(int).astype(str) + \"%\""
+    },
+    {
+      "id": "4_O1_client_case_insensitive_trim",
+      "kind": "Operation boundary",
+      "node_id": "n17_client_only",
+      "op": "filter",
+      "source_text": "Keep Only the 'Client' rows from the Area field",
+      "ref": "client_only = area_with_tot[area_with_tot[\"Area of Work\"].str.strip(\n    ).str.lower() == \"client\"].copy()"
+    },
+    {
+      "id": "5_O1_project_total_row_definition",
+      "kind": "Row-level concept",
+      "node_id": "n2_drop_totals",
+      "op": "filter",
+      "source_text": "Remove any rows that contained a total in the Project field",
+      "ref": "df = df[df[project_col].fillna(\"\").str.startswith(\n        \"Overall Total for \") == False]"
+    },
+    {
+      "id": "6_O2_pivot_only_valid_date_headers",
+      "kind": "Single-table reference",
+      "node_id": "n3_melt",
+      "op": "pivot",
+      "source_text": "move all of the dates into a single column by using a Columns to Rows pivot (use the 'Wildcard Pivot' on a '/' to automatically bring in all of the date fields)",
+      "ref": "date_cols = [c for c in df.columns if re.fullmatch(\n        r\"\\d{4}/\\d{1,2}/\\d{1,2}\", str(c))]\nlong_df = df.melt(id_vars=[first_col, project_col],\n                      value_vars=date_cols, var_name=\"Date\", value_name=\"Hours\")"
+    },
+    {
+      "id": "7_C1_split_name_area_format_rule",
+      "kind": "Row-level concept",
+      "node_id": "n4_clean_compute",
+      "op": "project",
+      "source_text": "Split the Name, Age, Area of Work field into separate columns",
+      "ref": "m = re.match(r\"^(.*?),\\s*\\d+:\\s*(.*)$\", s)"
+    },
+    {
+      "id": "8_O1_annual_leave_match_case_policy",
+      "kind": "Operation boundary",
+      "node_id": "n5_filter_hours_text",
+      "op": "filter",
+      "source_text": "exclude 'Annual Leave' from the Hours field",
+      "ref": "long_df = long_df[long_df[\"Hours\"].str.lower() != \"annual leave\".lower()]"
+    },
+    {
+      "id": "9_O2_drop_unparseable_hours",
+      "kind": "Operation incomplete",
+      "node_id": "n6_cast_hours",
+      "op": "project",
+      "source_text": "change the data type to a decimal number",
+      "ref": "long_df[\"Hours\"] = pd.to_numeric(long_df[\"Hours\"], errors=\"coerce\")\nlong_df = long_df[long_df[\"Hours\"].notna()]"
+    },
+    {
+      "id": "10_O1_days_worked_positive_hours_only",
+      "kind": "Row-level concept",
+      "node_id": "n9_nd_positive",
+      "op": "filter",
+      "source_text": "Calculate the number of days and hours each person has worked using an aggregation tool; calculate the avg hours each person worked per day: Hours/Date",
+      "ref": "nd_positive = nd[nd[\"Hours\"] > 0]"
+    }
+  ]
+}

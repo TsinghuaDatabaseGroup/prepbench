@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_drop_out_rate_rounding_9dp",
+      "kind": "Operation boundary",
+      "node_id": "n11_compute_totals",
+      "op": "project",
+      "source_text": "then create a rate for each subject showing the % of total enrollments that dropped out.",
+      "ref": "pivot[\"Drop Out Rate\"] = (\n        pivot[\"Drop Outs\"] / pivot[\"Total Enrolled\"]\n    ).round(9)"
+    },
+    {
+      "id": "2_D1_pivot_longer_id_col_name",
+      "kind": "Single-table reference",
+      "node_id": "n2_pivot_longer",
+      "op": "pivot",
+      "intent": "Use Name as the student identifier column when pivoting longer.",
+      "ref": "melted = df.melt(\n        id_vars=[\"Name\"],"
+    },
+    {
+      "id": "3_D1_pivot_longer_value_vars_class_contains",
+      "kind": "Single-table reference",
+      "node_id": "n2_pivot_longer",
+      "op": "pivot",
+      "source_text": "Pivot the data so that we have a row for each class choice.",
+      "ref": "class_columns = [col for col in df.columns if \"Class\" in col]\n        value_vars=class_columns,"
+    },
+    {
+      "id": "4_C1_subject_standardize_closest_canonical_set",
+      "kind": "Single-table reference",
+      "node_id": "n4_normalize_subject",
+      "op": "script",
+      "source_text": "Group the Subject Names on Spelling to standardise the subject names",
+      "ref": "SUBJECTS = [\n    \"French\",\n    \"English\",\n    \"Science\",\n    \"History\",\n    \"Math\",\n    \"Physical Education\",\n    \"Geography\",\n]\n\n    # Fallback to closest canonical subject using sequence similarity\n    best_match = subject\n    best_ratio = -1.0\n    for candidate in SUBJECTS:\n        ratio = SequenceMatcher(None, subject.lower(),\n                                candidate.lower()).ratio()\n        if ratio > best_ratio:\n            best_ratio = ratio\n            best_match = candidate\n    return best_match"
+    },
+    {
+      "id": "5_O2_subject_null_detection_blank_or_null_string",
+      "kind": "Operation incomplete",
+      "node_id": "n4_normalize_subject",
+      "op": "script",
+      "source_text": "standardise the subject names and exclude nulls.",
+      "ref": "def _normalize_subject(value: object) -> object:\n    if pd.isna(value):\n        return pd.NA\n    subject = str(value).strip()\n    if not subject or subject.lower() == \"null\":\n        return pd.NA"
+    },
+    {
+      "id": "6_C1_active_flag_from_class_flag_remove_digits_map",
+      "kind": "Row-level concept",
+      "node_id": "n6_active_flag",
+      "op": "project",
+      "source_text": "Create a flag to mark the groups that are dropped or active.",
+      "ref": "    status_map = {\n        \"Class\": \"Active\",\n        \"Dropped Class\": \"Drop Outs\",\n    }\n\n    melted[\"Active Flag\"] = (\n        melted[\"class_flag\"].str.replace(r\"\\d\", \"\", regex=True).str.strip()\n    )\n    melted[\"Active Flag\"] = melted[\"Active Flag\"].map(status_map)"
+    },
+    {
+      "id": "7_O2_drop_rows_unmapped_active_flag",
+      "kind": "Operation incomplete",
+      "node_id": "n7_filter_activeflag_notna",
+      "op": "filter",
+      "intent": "Drop rows where Active Flag cannot be determined from class_flag.",
+      "ref": "    melted = melted.dropna(subset=[\"Active Flag\"])"
+    },
+    {
+      "id": "8_O2_fill_missing_status_counts_with_zero",
+      "kind": "Operation incomplete",
+      "node_id": "n9_pivot",
+      "op": "pivot",
+      "source_text": "Pivot the data so that we have a column for a count of students actively enrolled in a subject and for those who have dropped out of a subject.",
+      "ref": "    pivot = (\n        summary.pivot(index=\"Subject\", columns=\"Active Flag\", values=\"Count\")\n        .fillna(0)\n        .astype(int)\n        .rename_axis(None, axis=1)\n    )\n\n    for col in [\"Active\", \"Drop Outs\"]:\n        if col not in pivot:\n            pivot[col] = 0"
+    }
+  ]
+}

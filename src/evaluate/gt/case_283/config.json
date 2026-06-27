@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Champion"
+      ],
+      "columns": {
+        "Rank": "number",
+        "Champion": "text_exact",
+        "Gender": "text_norm",
+        "Total Championships": "number",
+        "Women's Singles": "number",
+        "Men's Singles": "number",
+        "Women's Doubles": "number",
+        "Mixed Doubles": "number",
+        "Men's Doubles": "number",
+        "Most Recent Win": "number"
+      }
+    }
+  }
+}
+

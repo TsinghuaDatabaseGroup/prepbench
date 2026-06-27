@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_output_column_type_schema",
+      "kind": "Operation incomplete",
+      "node_id": "n_cast",
+      "op": "project",
+      "intent": "Set the output column types to Store Manager=text, Store=text, Sales Target=integer.",
+      "ref": "output_df['Store Manager'] = output_df['Store Manager'].astype(str)\noutput_df['Store'] = output_df['Store'].astype(str)\noutput_df['Sales Target'] = output_df['Sales Target'].astype(int)"
+    },
+    {
+      "id": "2_drop_rows_still_missing_required_fields",
+      "kind": "Operation incomplete",
+      "node_id": "n_dropna",
+      "op": "filter",
+      "source_text": "Leave no nulls in the table",
+      "ref": "df = df.dropna()"
+    },
+    {
+      "id": "3_remove_optional_row_id_column",
+      "kind": "Operation incomplete",
+      "node_id": "n_select",
+      "op": "project",
+      "intent": "If a Row ID column exists, remove it before producing the output.",
+      "ref": "if 'Row ID' in df.columns:\n        df = df.drop(columns=['Row ID'])"
+    }
+  ]
+}

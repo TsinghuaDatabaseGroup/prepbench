@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_matchday_scan_both_cols",
+      "kind": "Operation incomplete",
+      "node_id": "extract",
+      "op": "project",
+      "source_text": "Create a column to show which Matchday (ie which game in the 38 game season) each game occurred in",
+      "ref": "for col in [\"col_a\", \"col_b\"]: if val.startswith(\"Matchday\"):"
+    },
+    {
+      "id": "2_O3_first_date_token",
+      "kind": "Operation boundary",
+      "node_id": "extract",
+      "op": "project",
+      "source_text": "Form separate columns for",
+      "ref": "for j, token in enumerate(lines): try: cand = pd.to_datetime(token); break"
+    },
+    {
+      "id": "3_O2_emit_only_complete_matchday",
+      "kind": "Operation incomplete",
+      "node_id": "filter",
+      "op": "filter",
+      "source_text": "Remove any rows of the data set that don't contain game information",
+      "ref": "if rec is not None and rec.get(\"Matchday\") is not None: records.append(rec)"
+    },
+    {
+      "id": "5_O1_source_row_skip_first_nonmatch",
+      "kind": "Operation boundary",
+      "node_id": "post_compute",
+      "op": "project",
+      "source_text": "Add in a row number as at source (this will help for next week's challenge)",
+      "ref": "if first_row and not has_any_ft: pass else: source_counter += 1"
+    },
+    {
+      "id": "6_O2_matchday_carry_forward",
+      "kind": "Operation incomplete",
+      "node_id": "post_compute",
+      "op": "project",
+      "source_text": "Create a column to show which Matchday (ie which game in the 38 game season) each game occurred in",
+      "ref": "current_matchday: int | None = None"
+    },
+    {
+      "id": "7_O2_source_row_shared_per_physical_row",
+      "kind": "Operation incomplete",
+      "node_id": "post_compute",
+      "op": "project",
+      "source_text": "Add in a row number as at source",
+      "ref": "for col in [\"col_a\", \"col_b\"]: rec = parse_cell(row[col], current_matchday, source_counter)"
+    }
+  ]
+}

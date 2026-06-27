@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_include_missing_song_group",
+      "kind": "Operation incomplete",
+      "node_id": "agg_songs",
+      "op": "aggregate",
+      "intent": "Include students with no song choice in a 'Missing' group when counting votes.",
+      "ref": "fillna('Missing')"
+    },
+    {
+      "id": "2_D2_join_key_full_name_y5",
+      "kind": "Multi-table alignment",
+      "node_id": "join_y5",
+      "op": "join",
+      "source_text": "join Year 5 Contact Details to Year 5 Song Choices",
+      "ref": "Join on Full Name"
+    },
+    {
+      "id": "3_O2_left_join_keep_all_students_y5",
+      "kind": "Row-level concept",
+      "node_id": "join_y5",
+      "op": "join",
+      "source_text": "join Year 5 Contact Details to Year 5 Song Choices",
+      "ref": "how='left'"
+    },
+    {
+      "id": "4_D2_join_key_full_name_y6",
+      "kind": "Multi-table alignment",
+      "node_id": "join_y6",
+      "op": "join",
+      "source_text": "The organiser would like to join the student details to the students' song choices – join Year 5 Contact Details to Year 5 Song Choices, and the same for the Year 6 datasets.",
+      "ref": "Join on Full Name"
+    },
+    {
+      "id": "5_O2_left_join_keep_all_students_y6",
+      "kind": "Row-level concept",
+      "node_id": "join_y6",
+      "op": "join",
+      "source_text": "The organiser would like to join the student details to the students' song choices – join Year 5 Contact Details to Year 5 Song Choices, and the same for the Year 6 datasets.",
+      "ref": "how='left'"
+    },
+    {
+      "id": "6_O3_prefer_song_recommendation_over_choice",
+      "kind": "Row-level concept",
+      "node_id": "project_song",
+      "op": "project",
+      "source_text": "There are now two columns that describe which song each pupil has voted for",
+      "ref": "Prefer Song Recommendation; fallback to Song Choice if null"
+    }
+  ]
+}

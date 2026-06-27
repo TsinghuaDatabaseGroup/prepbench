@@ -1,0 +1,34 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        " Formation",
+        "Oppo Form."
+      ],
+      "columns": {
+        " Formation": "text_exact",
+        "Oppo Form.": "text_exact",
+        "Games Played": "number",
+        "Liverpool Goals": "number",
+        "Avg Goals Scored": "number",
+        "Opposition Goals": "number",
+        "Avg Goals Conceded": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Player Name",
+        "Position Type",
+        "Position Name"
+      ],
+      "columns": {
+        "Player Name": "text_exact",
+        "Position Type": "text_exact",
+        "Position Name": "text_exact",
+        "No Times Played": "number",
+        "Mins Played": "number",
+        "Games OoP": "number"
+      }
+    }
+  }
+}

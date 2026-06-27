@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Name", "Text", "Number of Words", "Avg Words/Sentence", "Text while at work", "% sent from work"],
+      "columns": {
+        "Name": "text_exact",
+        "Text": "number",
+        "Number of Words": "number",
+        "Avg Words/Sentence": "number",
+        "Text while at work": "number",
+        "% sent from work": "number"
+      }
+    }
+  }
+}

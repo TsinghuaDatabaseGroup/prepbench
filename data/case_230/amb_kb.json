@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_within_benchmark_predicate",
+      "kind": "Operation boundary",
+      "node_id": "filter_benchmark",
+      "op": "filter",
+      "source_text": "Filter out the students that did not fall within the benchmark",
+      "ref": "df = df[df[\"time\"] <= df[\"Benchmark\"]]"
+    },
+    {
+      "id": "2_O2_drop_unmatched_benchmark_rows",
+      "kind": "Operation incomplete",
+      "node_id": "filter_benchmark",
+      "op": "filter",
+      "intent": "Whether to keep or drop student-event rows that have no matched benchmark after the benchmark join.",
+      "ref": "df = pd.merge(\n        df,\n        df_bench.rename(columns={\"Age\": \"Age_bench\"}),\n        left_on=[\"gender\", \"age\", \"track_event\"],\n        right_on=[\"Gender\", \"Age_bench\", \"Event\"],\n        how=\"left\",\n    )\ndf = df[df[\"time\"] <= df[\"Benchmark\"]]"
+    },
+    {
+      "id": "3_O1_200m_threshold_strictness",
+      "kind": "Operation boundary",
+      "node_id": "filter_err_200m",
+      "op": "filter",
+      "source_text": "remove any 200m times that fall below 25 seconds",
+      "ref": "df = df[~((df[\"track_event\"] == \"200m\") & (df[\"time\"] < 25.0))]"
+    },
+    {
+      "id": "4_O2_benchmark_join_type_left",
+      "kind": "Operation incomplete",
+      "node_id": "join_bench",
+      "op": "join",
+      "source_text": "Join the benchmark table with the right students",
+      "ref": "df = pd.merge(\n        df,\n        df_bench.rename(columns={\"Age\": \"Age_bench\"}),\n        left_on=[\"gender\", \"age\", \"track_event\"],\n        right_on=[\"Gender\", \"Age_bench\", \"Event\"],\n        how=\"left\",\n    )"
+    },
+    {
+      "id": "5_D2_benchmark_join_keys_gender_age_event",
+      "kind": "Multi-table alignment",
+      "node_id": "join_bench",
+      "op": "join",
+      "source_text": "Join the benchmark table with the right students",
+      "ref": "df = pd.merge(\n        df,\n        df_bench.rename(columns={\"Age\": \"Age_bench\"}),\n        left_on=[\"gender\", \"age\", \"track_event\"],\n        right_on=[\"Gender\", \"Age_bench\", \"Event\"],\n        how=\"left\",\n    )"
+    },
+    {
+      "id": "6_O2_students_times_join_type_inner",
+      "kind": "Operation incomplete",
+      "node_id": "join_st_times",
+      "op": "join",
+      "source_text": "Join the students basic information with their event and track time",
+      "ref": "df = pd.merge(df_students, df_times, on=\"id\", how=\"inner\")"
+    },
+    {
+      "id": "7_O3_ranking_tie_method_competition",
+      "kind": "Operation inconsistent",
+      "node_id": "project_output",
+      "op": "project",
+      "source_text": "Rank the students fastest to slowest for each event",
+      "ref": "out[\"Rank\"] = out.groupby(\"Event\")[\"time\"].rank(method=\"min\", ascending=True).astype(int)"
+    }
+  ]
+}

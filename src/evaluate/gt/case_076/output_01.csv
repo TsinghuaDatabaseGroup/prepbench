@@ -1,0 +1,11 @@
+Forecast Type,Date or Time,Temperature,Max Temp,Min Temp,Precipitation Chance
+Next 5 Hours,Now,4,,,50
+Next 5 Hours,23:00,4,,,50
+Next 5 Hours,0:00,4,,,40
+Next 5 Hours,1:00,4,,,25
+Next 5 Hours,2:00,4,,,20
+Next 5 Days,Today,,,3,55
+Next 5 Days,Wed 06,,5,-1,40
+Next 5 Days,Thu 07,,2,-2,25
+Next 5 Days,Fri 08,,3,-3,25
+Next 5 Days,Sat 09,,4,-3,10

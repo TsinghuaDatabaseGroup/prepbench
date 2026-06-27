@@ -1,0 +1,20 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_new_month_day_formula",
+      "kind": "Row-level concept",
+      "node_id": "compute_dates",
+      "op": "project",
+      "source_text": "Calculate the new months of the year such that the first 28 days of the month are month 1",
+      "ref": "new_month = ((day_of_year - 1) // 28) + 1  # 1..14\nnew_day = ((day_of_year - 1) % 28) + 1     "
+    },
+    {
+      "id": "2_C2_month_changed_predicate",
+      "kind": "Row-level concept",
+      "node_id": "filter_changed",
+      "op": "filter",
+      "source_text": "Filter the data to only contain dates for which the month has changed in the new system",
+      "ref": "orig_month = [d.month for d in all_dates]\nmask_changed = pd.Series(orig_month) != pd.Series(new_month)\ndf_out = df.loc[mask_changed].copy()"
+    }
+  ]
+}

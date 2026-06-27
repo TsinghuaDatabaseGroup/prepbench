@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_calendar_days_datediff",
+      "kind": "Operation boundary",
+      "node_id": "base_info",
+      "op": "project",
+      "source_text": "Work out how many calendar days occur in each engagement (including weekend days)",
+      "ref": "df[\"Calendar Days\"] = (df[\"Engagement End Date\"] - df[\"Engagement Start Date\"]).dt.days"
+    },
+    {
+      "id": "2_O2_calendar_days_negative_allowed",
+      "kind": "Operation boundary",
+      "node_id": "base_info",
+      "op": "project",
+      "intent": "Whether Calendar Days may be negative when start date is after end date.",
+      "ref": "(df[\"Engagement End Date\"] - df[\"Engagement Start Date\"]).dt.days"
+    },
+    {
+      "id": "3_O2_drop_groups_with_no_weekdays",
+      "kind": "Operation incomplete",
+      "node_id": "filter_workdays",
+      "op": "filter",
+      "intent": "Whether to exclude groups that generate zero retained weekday rows after removing weekends.",
+      "ref": "for work_day in weekday_dates: expanded_rows.append(...)"
+    },
+    {
+      "id": "4_O3_rank_ties_competition_min",
+      "kind": "Operation boundary",
+      "node_id": "with_ranks",
+      "op": "project",
+      "source_text": "Rank the consultants by day rate earned, per engagement",
+      "ref": "result[\"Day Rate\"].rank(method=\"min\", ascending=False)"
+    },
+    {
+      "id": "5_C2_day_rate_equals_sum_over_weekdays",
+      "kind": "Group-level concept",
+      "node_id": "workdays_and_rev",
+      "op": "project",
+      "source_text": "The total earned by each individual per engagement",
+      "ref": "expanded_df.groupby(...)[\"Day Rate\"].sum()"
+    },
+    {
+      "id": "6_O1_inclusive_daily_sequence",
+      "kind": "Operation boundary",
+      "node_id": "workdays_and_rev",
+      "op": "project",
+      "source_text": "Create a row for each day a consultant is on the engagement",
+      "ref": "dates = pd.date_range(start, end, freq=\"D\")"
+    },
+    {
+      "id": "7_O1_weekend_definition_mon_fri",
+      "kind": "Operation boundary",
+      "node_id": "workdays_and_rev",
+      "op": "project",
+      "source_text": "Remove weekend days",
+      "ref": "weekday_dates = [d for d in dates if d.weekday() < 5]"
+    },
+    {
+      "id": "8_O2_inverted_date_range_policy",
+      "kind": "Operation boundary",
+      "node_id": "workdays_and_rev",
+      "op": "project",
+      "intent": "When Start Date is after End Date, whether to generate between range or only endpoints.",
+      "ref": "elif start <= end: dates = pd.date_range(...) else: dates = pd.DatetimeIndex([start, end])"
+    }
+  ]
+}

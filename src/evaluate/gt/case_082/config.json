@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Subject", "Potential Teachers Hours", "Total Teaching Hours needed", "Classes required", "% utilised"],
+      "columns": {
+        "Subject": "text_exact",
+        "Potential Teachers Hours": "number",
+        "Total Teaching Hours needed": "number",
+        "Classes required": "number",
+        "% utilised": "number"
+      }
+    }
+  }
+}
+

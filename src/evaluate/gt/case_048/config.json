@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Date", "Time", "Date Time"],
+      "columns": {
+        "Date": "date",
+        "Time": "text_exact",
+        "Date Time": "datetime"
+      }
+    }
+  }
+}
+

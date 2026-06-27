@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Origin",
+        "Origin Country",
+        "Destination",
+        "Destination Country",
+        "Value",
+        "Target Value",
+        "Variance to Target"
+      ],
+      "columns": {
+        "Origin": "text_exact",
+        "Origin Country": "text_exact",
+        "Destination": "text_exact",
+        "Destination Country": "text_exact",
+        "Value": "number",
+        "Target Value": "number",
+        "Variance to Target": "number"
+      }
+    }
+  }
+}
+

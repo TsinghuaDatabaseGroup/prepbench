@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Profitability Rank", "Scent", "Total Profit"],
+      "columns": {
+        "Profitability Rank": "number",
+        "Scent": "text_exact",
+        "Total Profit": "number"
+      }
+    }
+  }
+}
+

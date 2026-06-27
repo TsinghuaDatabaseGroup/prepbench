@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Title", "LastName", "Product", "Priority"],
+      "columns": {
+        "Title": "text_exact",
+        "LastName": "text_exact",
+        "Product": "text_exact",
+        "Priority": "number"
+      }
+    }
+  }
+}
+

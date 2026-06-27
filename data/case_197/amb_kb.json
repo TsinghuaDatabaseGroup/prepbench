@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_date_string_01_mm_2022",
+      "kind": "Row-level concept",
+      "node_id": "project",
+      "op": "project",
+      "intent": "Create Date as '01/MM/2022' using month abbreviation to month number mapping and fixed year 2022.",
+      "ref": "date_str = f\"01/{month_num}/2022\""
+    },
+    {
+      "id": "2_D1_region_from_filename",
+      "kind": "Single-table reference",
+      "node_id": "project",
+      "op": "project",
+      "intent": "Set Region based on input filename mapping (input_01→London, input_02→Northern, input_03→Scotland, input_04→Wales).",
+      "ref": "region_map = {'input_01.csv': 'London', 'input_02.csv': 'Northern', 'input_03.csv': 'Scotland', 'input_04.csv': 'Wales'}"
+    },
+    {
+      "id": "3_D1_store_is_first_column",
+      "kind": "Single-table reference",
+      "node_id": "reshape",
+      "op": "script",
+      "intent": "Treat the first column of the data section as the Store identifier.",
+      "ref": "store_col = df.columns[0]"
+    },
+    {
+      "id": "4_D1_months_from_dedicated_header_row",
+      "kind": "Single-table reference",
+      "node_id": "reshape",
+      "op": "script",
+      "intent": "Read the list of months from the dedicated month header row containing month abbreviations.",
+      "ref": "month_row = pd.read_csv(input_file, skiprows=2, nrows=1, header=None)"
+    },
+    {
+      "id": "5_D1_month_block_two_columns",
+      "kind": "Single-table reference",
+      "node_id": "reshape",
+      "op": "script",
+      "intent": "For each month, take Sales and Profit from two columns associated with that month.",
+      "ref": "sales = row.iloc[col_idx]; profit = row.iloc[col_idx + 1]; col_idx += 2"
+    },
+    {
+      "id": "6_O3_union_append_no_dedup",
+      "kind": "Operation inconsistent",
+      "node_id": "union_all",
+      "op": "union",
+      "source_text": "update the workflow so that no rows get duplicated",
+      "ref": "result_df = pd.DataFrame(all_data)"
+    }
+  ]
+}

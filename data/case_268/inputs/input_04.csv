@@ -1,0 +1,433 @@
+Sales Date,Product,Price,Quantity Sold
+2023-01-16,Blossom Breeze Bath Fizzies,7.0,5
+2023-01-16,Bunny Hop Bubble Bar,4.0,18
+2023-01-16,Chocolate Bunny Exfoliating Scrub,10.0,23
+2023-01-16,Cinnamon Spice Hot Cross Bun Scrub,11.0,38
+2023-01-16,Honey Bunny Oaty Soap,3.0,19
+2023-01-16,Hot Cross Bun Soap Bar,5.0,30
+2023-01-16,Spring Garden Petal Soap,3.5,29
+2023-01-17,Blossom Breeze Bath Fizzies,7.0,33
+2023-01-17,Bunny Hop Bubble Bar,4.0,31
+2023-01-17,Bunny Kisses Shea Butter Bar,6.0,37
+2023-01-17,Cinnamon Spice Hot Cross Bun Scrub,11.0,16
+2023-01-17,Hot Cross Bun Soap Bar,5.0,6
+2023-01-17,Spring Garden Petal Soap,3.5,37
+2023-01-17,Spring Raindrop Handcrafted Soap,3.0,35
+2023-01-17,Springtime Blossom Handmade Soap,3.0,21
+2023-01-18,Blossom Breeze Bath Fizzies,7.0,28
+2023-01-18,Bunny Hop Bubble Bar,4.0,6
+2023-01-18,Bunny Kisses Shea Butter Bar,6.0,6
+2023-01-18,Chocolate Bunny Exfoliating Scrub,10.0,16
+2023-01-18,Honey Bunny Oaty Soap,3.0,11
+2023-01-18,Hot Cross Bun Soap Bar,5.0,38
+2023-01-18,Springtime Blossom Handmade Soap,3.0,9
+2023-01-19,Bunny Hop Bubble Bar,4.0,35
+2023-01-19,Bunny Kisses Shea Butter Bar,6.0,15
+2023-01-19,Bunny Trail Botanical Soap,5.0,28
+2023-01-19,Honey Bunny Oaty Soap,3.0,34
+2023-01-19,Hot Cross Bun Soap Bar,5.0,24
+2023-01-19,Lavender Fields Bunny Soap,2.5,12
+2023-01-19,Spring Garden Petal Soap,3.5,5
+2023-01-20,Blossom Breeze Bath Fizzies,7.0,8
+2023-01-20,Bunny Hop Bubble Bar,4.0,34
+2023-01-20,Bunny Kisses Shea Butter Bar,6.0,13
+2023-01-20,Bunny Trail Botanical Soap,5.0,25
+2023-01-20,Cinnamon Spice Hot Cross Bun Scrub,11.0,5
+2023-01-20,Hot Cross Bun Soap Bar,5.0,38
+2023-01-20,Lavender Fields Bunny Soap,2.5,18
+2023-01-20,Spring Raindrop Handcrafted Soap,3.0,11
+2023-01-20,Springtime Blossom Handmade Soap,3.0,19
+2023-01-21,Blossom Breeze Bath Fizzies,7.0,17
+2023-01-21,Bunny Hop Bubble Bar,4.0,24
+2023-01-21,Bunny Kisses Shea Butter Bar,6.0,16
+2023-01-21,Hot Cross Bun Soap Bar,5.0,31
+2023-01-21,Lavender Fields Bunny Soap,2.5,3
+2023-01-21,Spring Garden Petal Soap,3.5,6
+2023-01-21,Spring Raindrop Handcrafted Soap,3.0,38
+2023-01-22,Bunny Trail Botanical Soap,5.0,8
+2023-01-22,Chocolate Bunny Exfoliating Scrub,10.0,28
+2023-01-22,Cinnamon Spice Hot Cross Bun Scrub,11.0,12
+2023-01-22,Honey Bunny Oaty Soap,3.0,6
+2023-01-22,Hot Cross Bun Soap Bar,5.0,10
+2023-01-22,Spring Raindrop Handcrafted Soap,3.0,23
+2023-01-22,Springtime Blossom Handmade Soap,3.0,18
+2023-01-23,Blossom Breeze Bath Fizzies,7.0,32
+2023-01-23,Bunny Kisses Shea Butter Bar,6.0,22
+2023-01-23,Bunny Trail Botanical Soap,5.0,5
+2023-01-23,Chocolate Bunny Exfoliating Scrub,10.0,22
+2023-01-23,Cinnamon Spice Hot Cross Bun Scrub,11.0,33
+2023-01-23,Honey Bunny Oaty Soap,3.0,36
+2023-01-23,Hot Cross Bun Soap Bar,5.0,31
+2023-01-23,Spring Garden Petal Soap,3.5,21
+2023-01-23,Spring Raindrop Handcrafted Soap,3.0,9
+2023-01-23,Springtime Blossom Handmade Soap,3.0,26
+2023-01-24,Bunny Kisses Shea Butter Bar,6.0,24
+2023-01-24,Bunny Trail Botanical Soap,5.0,12
+2023-01-24,Chocolate Bunny Exfoliating Scrub,10.0,15
+2023-01-24,Hot Cross Bun Soap Bar,5.0,17
+2023-01-24,Spring Raindrop Handcrafted Soap,3.0,38
+2023-01-24,Springtime Blossom Handmade Soap,3.0,36
+2023-01-25,Bunny Kisses Shea Butter Bar,6.0,29
+2023-01-25,Bunny Trail Botanical Soap,5.0,4
+2023-01-25,Chocolate Bunny Exfoliating Scrub,10.0,25
+2023-01-25,Honey Bunny Oaty Soap,3.0,17
+2023-01-25,Hot Cross Bun Soap Bar,5.0,29
+2023-01-25,Spring Garden Petal Soap,3.5,33
+2023-01-25,Springtime Blossom Handmade Soap,3.0,38
+2023-01-26,Bunny Hop Bubble Bar,4.0,11
+2023-01-26,Bunny Trail Botanical Soap,5.0,19
+2023-01-26,Cinnamon Spice Hot Cross Bun Scrub,11.0,23
+2023-01-26,Honey Bunny Oaty Soap,3.0,25
+2023-01-26,Hot Cross Bun Soap Bar,5.0,20
+2023-01-26,Springtime Blossom Handmade Soap,3.0,34
+2023-01-27,Bunny Hop Bubble Bar,4.0,38
+2023-01-27,Bunny Trail Botanical Soap,5.0,4
+2023-01-27,Cinnamon Spice Hot Cross Bun Scrub,11.0,25
+2023-01-27,Honey Bunny Oaty Soap,3.0,38
+2023-01-27,Spring Garden Petal Soap,3.5,7
+2023-01-27,Spring Raindrop Handcrafted Soap,3.0,17
+2023-01-28,Bunny Hop Bubble Bar,4.0,29
+2023-01-28,Bunny Kisses Shea Butter Bar,6.0,10
+2023-01-28,Chocolate Bunny Exfoliating Scrub,10.0,7
+2023-01-28,Cinnamon Spice Hot Cross Bun Scrub,11.0,27
+2023-01-28,Honey Bunny Oaty Soap,3.0,21
+2023-01-28,Hot Cross Bun Soap Bar,5.0,19
+2023-01-28,Spring Garden Petal Soap,3.5,6
+2023-01-29,Bunny Hop Bubble Bar,4.0,13
+2023-01-29,Bunny Kisses Shea Butter Bar,6.0,5
+2023-01-29,Bunny Trail Botanical Soap,5.0,18
+2023-01-29,Chocolate Bunny Exfoliating Scrub,10.0,35
+2023-01-29,Honey Bunny Oaty Soap,3.0,10
+2023-01-29,Hot Cross Bun Soap Bar,5.0,28
+2023-01-29,Spring Garden Petal Soap,3.5,36
+2023-01-29,Spring Raindrop Handcrafted Soap,3.0,11
+2023-01-29,Springtime Blossom Handmade Soap,3.0,21
+2023-01-30,Bunny Hop Bubble Bar,4.0,18
+2023-01-30,Bunny Kisses Shea Butter Bar,6.0,9
+2023-01-30,Chocolate Bunny Exfoliating Scrub,10.0,9
+2023-01-30,Honey Bunny Oaty Soap,3.0,34
+2023-01-30,Spring Raindrop Handcrafted Soap,3.0,8
+2023-01-30,Springtime Blossom Handmade Soap,3.0,14
+2023-01-31,Chocolate Bunny Exfoliating Scrub,10.0,31
+2023-01-31,Cinnamon Spice Hot Cross Bun Scrub,11.0,35
+2023-01-31,Spring Garden Petal Soap,3.5,24
+2023-01-31,Springtime Blossom Handmade Soap,3.0,25
+2023-02-01,Bunny Kisses Shea Butter Bar,6.0,8
+2023-02-01,Bunny Trail Botanical Soap,5.0,6
+2023-02-01,Chocolate Bunny Exfoliating Scrub,10.0,7
+2023-02-01,Spring Raindrop Handcrafted Soap,3.0,38
+2023-02-01,Springtime Blossom Handmade Soap,3.0,5
+2023-02-02,Bunny Hop Bubble Bar,4.0,6
+2023-02-02,Bunny Kisses Shea Butter Bar,6.0,3
+2023-02-02,Bunny Trail Botanical Soap,5.0,34
+2023-02-02,Chocolate Bunny Exfoliating Scrub,10.0,29
+2023-02-02,Cinnamon Spice Hot Cross Bun Scrub,11.0,25
+2023-02-02,Honey Bunny Oaty Soap,3.0,25
+2023-02-02,Hot Cross Bun Soap Bar,5.0,6
+2023-02-02,Spring Garden Petal Soap,3.5,32
+2023-02-02,Spring Raindrop Handcrafted Soap,3.0,14
+2023-02-03,Bunny Hop Bubble Bar,4.0,18
+2023-02-03,Chocolate Bunny Exfoliating Scrub,10.0,21
+2023-02-03,Cinnamon Spice Hot Cross Bun Scrub,11.0,4
+2023-02-03,Honey Bunny Oaty Soap,3.0,17
+2023-02-03,Spring Raindrop Handcrafted Soap,3.0,5
+2023-02-03,Springtime Blossom Handmade Soap,3.0,9
+2023-02-04,Bunny Hop Bubble Bar,4.0,20
+2023-02-04,Bunny Kisses Shea Butter Bar,6.0,5
+2023-02-04,Bunny Trail Botanical Soap,5.0,35
+2023-02-04,Chocolate Bunny Exfoliating Scrub,10.0,29
+2023-02-04,Cinnamon Spice Hot Cross Bun Scrub,11.0,38
+2023-02-04,Honey Bunny Oaty Soap,3.0,3
+2023-02-04,Hot Cross Bun Soap Bar,5.0,19
+2023-02-04,Spring Raindrop Handcrafted Soap,3.0,25
+2023-02-04,Springtime Blossom Handmade Soap,3.0,33
+2023-02-05,Bunny Kisses Shea Butter Bar,6.0,5
+2023-02-05,Bunny Trail Botanical Soap,5.0,3
+2023-02-05,Honey Bunny Oaty Soap,3.0,6
+2023-02-05,Hot Cross Bun Soap Bar,5.0,34
+2023-02-06,Chocolate Bunny Exfoliating Scrub,10.0,11
+2023-02-06,Cinnamon Spice Hot Cross Bun Scrub,11.0,27
+2023-02-06,Honey Bunny Oaty Soap,3.0,30
+2023-02-06,Hot Cross Bun Soap Bar,5.0,24
+2023-02-07,Bunny Hop Bubble Bar,4.0,11
+2023-02-07,Bunny Kisses Shea Butter Bar,6.0,15
+2023-02-07,Chocolate Bunny Exfoliating Scrub,10.0,24
+2023-02-07,Cinnamon Spice Hot Cross Bun Scrub,11.0,33
+2023-02-07,Spring Garden Petal Soap,3.5,20
+2023-02-08,Bunny Hop Bubble Bar,4.0,6
+2023-02-08,Bunny Kisses Shea Butter Bar,6.0,37
+2023-02-08,Bunny Trail Botanical Soap,5.0,3
+2023-02-08,Chocolate Bunny Exfoliating Scrub,10.0,33
+2023-02-08,Cinnamon Spice Hot Cross Bun Scrub,11.0,21
+2023-02-08,Spring Garden Petal Soap,3.5,19
+2023-02-08,Springtime Blossom Handmade Soap,3.0,36
+2023-02-09,Bunny Kisses Shea Butter Bar,6.0,4
+2023-02-09,Bunny Trail Botanical Soap,5.0,11
+2023-02-09,Chocolate Bunny Exfoliating Scrub,10.0,33
+2023-02-09,Honey Bunny Oaty Soap,3.0,12
+2023-02-09,Spring Garden Petal Soap,3.5,32
+2023-02-09,Springtime Blossom Handmade Soap,3.0,14
+2023-02-10,Chocolate Bunny Exfoliating Scrub,10.0,26
+2023-02-10,Honey Bunny Oaty Soap,3.0,11
+2023-02-11,Bunny Hop Bubble Bar,4.0,34
+2023-02-11,Chocolate Bunny Exfoliating Scrub,10.0,38
+2023-02-11,Cinnamon Spice Hot Cross Bun Scrub,11.0,29
+2023-02-11,Spring Garden Petal Soap,3.5,5
+2023-02-11,Springtime Blossom Handmade Soap,3.0,31
+2023-02-12,Bunny Hop Bubble Bar,4.0,17
+2023-02-12,Bunny Kisses Shea Butter Bar,6.0,19
+2023-02-12,Bunny Trail Botanical Soap,5.0,26
+2023-02-12,Cinnamon Spice Hot Cross Bun Scrub,11.0,17
+2023-02-12,Honey Bunny Oaty Soap,3.0,18
+2023-02-12,Spring Garden Petal Soap,3.5,21
+2023-02-12,Springtime Blossom Handmade Soap,3.0,19
+2023-02-13,Bunny Hop Bubble Bar,4.0,8
+2023-02-13,Bunny Kisses Shea Butter Bar,6.0,26
+2023-02-13,Bunny Trail Botanical Soap,5.0,24
+2023-02-13,Chocolate Bunny Exfoliating Scrub,10.0,22
+2023-02-13,Cinnamon Spice Hot Cross Bun Scrub,11.0,6
+2023-02-13,Honey Bunny Oaty Soap,3.0,22
+2023-02-13,Spring Garden Petal Soap,3.5,21
+2023-02-13,Springtime Blossom Handmade Soap,3.0,4
+2023-02-14,Bunny Hop Bubble Bar,4.0,31
+2023-02-14,Bunny Trail Botanical Soap,5.0,10
+2023-02-14,Chocolate Bunny Exfoliating Scrub,10.0,30
+2023-02-14,Cinnamon Spice Hot Cross Bun Scrub,11.0,30
+2023-02-14,Honey Bunny Oaty Soap,3.0,3
+2023-02-14,Spring Garden Petal Soap,3.5,21
+2023-02-14,Springtime Blossom Handmade Soap,3.0,20
+2023-02-15,Bunny Kisses Shea Butter Bar,6.0,15
+2023-02-15,Honey Bunny Oaty Soap,3.0,38
+2023-02-16,Bunny Hop Bubble Bar,4.0,20
+2023-02-16,Bunny Trail Botanical Soap,5.0,5
+2023-02-16,Chocolate Bunny Exfoliating Scrub,10.0,37
+2023-02-16,Spring Garden Petal Soap,3.5,5
+2023-02-17,Bunny Hop Bubble Bar,4.0,9
+2023-02-17,Bunny Kisses Shea Butter Bar,6.0,34
+2023-02-17,Chocolate Bunny Exfoliating Scrub,10.0,20
+2023-02-18,Bunny Hop Bubble Bar,4.0,23
+2023-02-18,Bunny Kisses Shea Butter Bar,6.0,9
+2023-02-18,Springtime Blossom Handmade Soap,3.0,23
+2023-02-19,Bunny Hop Bubble Bar,4.0,33
+2023-02-19,Bunny Kisses Shea Butter Bar,6.0,15
+2023-02-19,Honey Bunny Oaty Soap,3.0,10
+2023-02-19,Spring Garden Petal Soap,3.5,26
+2023-02-19,Springtime Blossom Handmade Soap,3.0,37
+2023-02-20,Bunny Kisses Shea Butter Bar,6.0,6
+2023-02-20,Bunny Trail Botanical Soap,5.0,35
+2023-02-20,Honey Bunny Oaty Soap,3.0,10
+2023-02-20,Springtime Blossom Handmade Soap,3.0,23
+2023-02-21,Bunny Kisses Shea Butter Bar,6.0,23
+2023-02-21,Bunny Trail Botanical Soap,5.0,4
+2023-02-21,Chocolate Bunny Exfoliating Scrub,10.0,37
+2023-02-21,Spring Garden Petal Soap,3.5,14
+2023-02-22,Bunny Kisses Shea Butter Bar,6.0,25
+2023-02-22,Bunny Trail Botanical Soap,5.0,5
+2023-02-22,Chocolate Bunny Exfoliating Scrub,10.0,9
+2023-02-22,Honey Bunny Oaty Soap,3.0,35
+2023-02-22,Spring Garden Petal Soap,3.5,36
+2023-02-23,Bunny Hop Bubble Bar,4.0,31
+2023-02-23,Chocolate Bunny Exfoliating Scrub,10.0,16
+2023-02-23,Honey Bunny Oaty Soap,3.0,28
+2023-02-23,Spring Garden Petal Soap,3.5,13
+2023-02-23,Springtime Blossom Handmade Soap,3.0,15
+2023-02-24,Bunny Trail Botanical Soap,5.0,11
+2023-02-24,Chocolate Bunny Exfoliating Scrub,10.0,23
+2023-02-24,Honey Bunny Oaty Soap,3.0,38
+2023-02-24,Spring Garden Petal Soap,3.5,24
+2023-02-24,Springtime Blossom Handmade Soap,3.0,34
+2023-02-25,Bunny Hop Bubble Bar,4.0,27
+2023-02-25,Bunny Trail Botanical Soap,5.0,18
+2023-02-25,Chocolate Bunny Exfoliating Scrub,10.0,32
+2023-02-26,Bunny Kisses Shea Butter Bar,6.0,8
+2023-02-26,Bunny Trail Botanical Soap,5.0,14
+2023-02-26,Chocolate Bunny Exfoliating Scrub,10.0,31
+2023-02-26,Honey Bunny Oaty Soap,3.0,26
+2023-02-26,Spring Garden Petal Soap,3.5,25
+2023-02-26,Springtime Blossom Handmade Soap,3.0,6
+2023-02-27,Chocolate Bunny Exfoliating Scrub,10.0,24
+2023-02-27,Honey Bunny Oaty Soap,3.0,7
+2023-02-27,Springtime Blossom Handmade Soap,3.0,25
+2023-02-28,Bunny Trail Botanical Soap,5.0,10
+2023-02-28,Chocolate Bunny Exfoliating Scrub,10.0,14
+2023-02-28,Spring Garden Petal Soap,3.5,33
+2023-03-01,Bunny Kisses Shea Butter Bar,6.0,5
+2023-03-01,Spring Garden Petal Soap,3.5,27
+2023-03-01,Springtime Blossom Handmade Soap,3.0,22
+2023-03-02,Bunny Kisses Shea Butter Bar,6.0,14
+2023-03-02,Honey Bunny Oaty Soap,3.0,16
+2023-03-02,Spring Garden Petal Soap,3.5,8
+2023-03-02,Springtime Blossom Handmade Soap,3.0,30
+2023-03-03,Bunny Kisses Shea Butter Bar,6.0,5
+2023-03-03,Bunny Trail Botanical Soap,5.0,22
+2023-03-03,Chocolate Bunny Exfoliating Scrub,10.0,7
+2023-03-03,Spring Garden Petal Soap,3.5,38
+2023-03-04,Bunny Kisses Shea Butter Bar,6.0,7
+2023-03-04,Bunny Trail Botanical Soap,5.0,15
+2023-03-04,Honey Bunny Oaty Soap,3.0,29
+2023-03-04,Spring Garden Petal Soap,3.5,38
+2023-03-04,Springtime Blossom Handmade Soap,3.0,26
+2023-03-05,Bunny Trail Botanical Soap,5.0,33
+2023-03-05,Springtime Blossom Handmade Soap,3.0,19
+2023-03-06,Chocolate Bunny Exfoliating Scrub,10.0,14
+2023-03-06,Honey Bunny Oaty Soap,3.0,4
+2023-03-06,Springtime Blossom Handmade Soap,3.0,12
+2023-03-07,Bunny Kisses Shea Butter Bar,6.0,8
+2023-03-07,Honey Bunny Oaty Soap,3.0,37
+2023-03-07,Spring Garden Petal Soap,3.5,8
+2023-03-07,Springtime Blossom Handmade Soap,3.0,31
+2023-03-08,Bunny Kisses Shea Butter Bar,6.0,7
+2023-03-08,Bunny Trail Botanical Soap,5.0,10
+2023-03-08,Chocolate Bunny Exfoliating Scrub,10.0,38
+2023-03-08,Spring Garden Petal Soap,3.5,29
+2023-03-08,Springtime Blossom Handmade Soap,3.0,25
+2023-03-09,Bunny Trail Botanical Soap,5.0,17
+2023-03-09,Chocolate Bunny Exfoliating Scrub,10.0,33
+2023-03-10,Bunny Trail Botanical Soap,5.0,38
+2023-03-10,Honey Bunny Oaty Soap,3.0,15
+2023-03-10,Springtime Blossom Handmade Soap,3.0,8
+2023-03-11,Bunny Kisses Shea Butter Bar,6.0,33
+2023-03-11,Chocolate Bunny Exfoliating Scrub,10.0,7
+2023-03-11,Spring Garden Petal Soap,3.5,28
+2023-03-11,Springtime Blossom Handmade Soap,3.0,38
+2023-03-12,Bunny Kisses Shea Butter Bar,6.0,7
+2023-03-12,Bunny Trail Botanical Soap,5.0,27
+2023-03-12,Chocolate Bunny Exfoliating Scrub,10.0,28
+2023-03-12,Honey Bunny Oaty Soap,3.0,14
+2023-03-12,Springtime Blossom Handmade Soap,3.0,4
+2023-03-13,Bunny Kisses Shea Butter Bar,6.0,37
+2023-03-13,Chocolate Bunny Exfoliating Scrub,10.0,33
+2023-03-13,Spring Garden Petal Soap,3.5,26
+2023-03-14,Bunny Kisses Shea Butter Bar,6.0,14
+2023-03-14,Springtime Blossom Handmade Soap,3.0,7
+2023-03-15,Bunny Trail Botanical Soap,5.0,24
+2023-03-15,Spring Garden Petal Soap,3.5,21
+2023-03-16,Honey Bunny Oaty Soap,3.0,11
+2023-03-16,Spring Garden Petal Soap,3.5,38
+2023-03-17,Bunny Trail Botanical Soap,5.0,29
+2023-03-17,Spring Garden Petal Soap,3.5,18
+2023-03-18,Bunny Kisses Shea Butter Bar,6.0,16
+2023-03-18,Bunny Trail Botanical Soap,5.0,5
+2023-03-18,Chocolate Bunny Exfoliating Scrub,10.0,13
+2023-03-18,Spring Garden Petal Soap,3.5,22
+2023-03-19,Bunny Kisses Shea Butter Bar,6.0,30
+2023-03-20,Bunny Kisses Shea Butter Bar,6.0,16
+2023-03-20,Bunny Trail Botanical Soap,5.0,18
+2023-03-20,Chocolate Bunny Exfoliating Scrub,10.0,8
+2023-03-20,Honey Bunny Oaty Soap,3.0,20
+2023-03-20,Spring Garden Petal Soap,3.5,10
+2023-03-21,Bunny Kisses Shea Butter Bar,6.0,23
+2023-03-21,Bunny Trail Botanical Soap,5.0,31
+2023-03-21,Chocolate Bunny Exfoliating Scrub,10.0,19
+2023-03-21,Honey Bunny Oaty Soap,3.0,37
+2023-03-21,Spring Garden Petal Soap,3.5,21
+2023-03-22,Bunny Trail Botanical Soap,5.0,24
+2023-03-22,Chocolate Bunny Exfoliating Scrub,10.0,6
+2023-03-22,Honey Bunny Oaty Soap,3.0,14
+2023-03-22,Spring Garden Petal Soap,3.5,12
+2023-03-23,Bunny Trail Botanical Soap,5.0,19
+2023-03-23,Honey Bunny Oaty Soap,3.0,8
+2023-03-24,Bunny Trail Botanical Soap,5.0,6
+2023-03-24,Chocolate Bunny Exfoliating Scrub,10.0,7
+2023-03-24,Honey Bunny Oaty Soap,3.0,23
+2023-03-24,Spring Garden Petal Soap,3.5,38
+2023-03-25,Bunny Trail Botanical Soap,5.0,38
+2023-03-25,Chocolate Bunny Exfoliating Scrub,10.0,13
+2023-03-25,Honey Bunny Oaty Soap,3.0,18
+2023-03-25,Spring Garden Petal Soap,3.5,18
+2023-03-26,Bunny Trail Botanical Soap,5.0,21
+2023-03-26,Honey Bunny Oaty Soap,3.0,13
+2023-03-26,Spring Garden Petal Soap,3.5,8
+2023-03-27,Bunny Trail Botanical Soap,5.0,22
+2023-03-27,Spring Garden Petal Soap,3.5,24
+2023-03-28,Bunny Trail Botanical Soap,5.0,15
+2023-03-28,Spring Garden Petal Soap,3.5,13
+2023-03-29,Bunny Trail Botanical Soap,5.0,3
+2023-03-29,Spring Garden Petal Soap,3.5,22
+2023-03-30,Bunny Trail Botanical Soap,5.0,12
+2023-03-31,Bunny Trail Botanical Soap,5.0,14
+2023-04-01,Bunny Trail Botanical Soap,5.0,37
+2023-04-02,Blossom Breeze Bath Fizzies,7.0,6
+2023-04-02,Bunny Hop Bubble Bar,4.0,8
+2023-04-02,Bunny Kisses Shea Butter Bar,6.0,14
+2023-04-02,Bunny Trail Botanical Soap,5.0,22
+2023-04-02,Chocolate Bunny Exfoliating Scrub,10.0,33
+2023-04-02,Cinnamon Spice Hot Cross Bun Scrub,11.0,33
+2023-04-02,Honey Bunny Oaty Soap,3.0,10
+2023-04-02,Hot Cross Bun Soap Bar,5.0,32
+2023-04-02,Lavender Fields Bunny Soap,2.5,10
+2023-04-02,Spring Garden Petal Soap,3.5,18
+2023-04-02,Spring Raindrop Handcrafted Soap,3.0,8
+2023-04-02,Springtime Blossom Handmade Soap,3.0,9
+2023-04-03,Blossom Breeze Bath Fizzies,7.0,11
+2023-04-03,Bunny Hop Bubble Bar,4.0,8
+2023-04-03,Bunny Kisses Shea Butter Bar,6.0,38
+2023-04-03,Bunny Trail Botanical Soap,5.0,31
+2023-04-03,Chocolate Bunny Exfoliating Scrub,10.0,38
+2023-04-03,Cinnamon Spice Hot Cross Bun Scrub,11.0,21
+2023-04-03,Honey Bunny Oaty Soap,3.0,20
+2023-04-03,Hot Cross Bun Soap Bar,5.0,21
+2023-04-03,Lavender Fields Bunny Soap,2.5,34
+2023-04-03,Spring Garden Petal Soap,3.5,16
+2023-04-03,Spring Raindrop Handcrafted Soap,3.0,29
+2023-04-03,Springtime Blossom Handmade Soap,3.0,35
+2023-04-04,Blossom Breeze Bath Fizzies,7.0,29
+2023-04-04,Bunny Hop Bubble Bar,4.0,14
+2023-04-04,Bunny Kisses Shea Butter Bar,6.0,20
+2023-04-04,Bunny Trail Botanical Soap,5.0,35
+2023-04-04,Chocolate Bunny Exfoliating Scrub,10.0,22
+2023-04-04,Cinnamon Spice Hot Cross Bun Scrub,11.0,34
+2023-04-04,Honey Bunny Oaty Soap,3.0,20
+2023-04-04,Hot Cross Bun Soap Bar,5.0,22
+2023-04-04,Lavender Fields Bunny Soap,2.5,38
+2023-04-04,Spring Garden Petal Soap,3.5,4
+2023-04-04,Spring Raindrop Handcrafted Soap,3.0,5
+2023-04-04,Springtime Blossom Handmade Soap,3.0,25
+2023-04-05,Blossom Breeze Bath Fizzies,7.0,17
+2023-04-05,Bunny Hop Bubble Bar,4.0,24
+2023-04-05,Bunny Kisses Shea Butter Bar,6.0,36
+2023-04-05,Bunny Trail Botanical Soap,5.0,37
+2023-04-05,Chocolate Bunny Exfoliating Scrub,10.0,12
+2023-04-05,Cinnamon Spice Hot Cross Bun Scrub,11.0,18
+2023-04-05,Honey Bunny Oaty Soap,3.0,20
+2023-04-05,Hot Cross Bun Soap Bar,5.0,26
+2023-04-05,Lavender Fields Bunny Soap,2.5,35
+2023-04-05,Spring Garden Petal Soap,3.5,7
+2023-04-05,Spring Raindrop Handcrafted Soap,3.0,20
+2023-04-05,Springtime Blossom Handmade Soap,3.0,34
+2023-04-06,Blossom Breeze Bath Fizzies,7.0,20
+2023-04-06,Bunny Hop Bubble Bar,4.0,6
+2023-04-06,Bunny Kisses Shea Butter Bar,6.0,36
+2023-04-06,Bunny Trail Botanical Soap,5.0,11
+2023-04-06,Chocolate Bunny Exfoliating Scrub,10.0,23
+2023-04-06,Cinnamon Spice Hot Cross Bun Scrub,11.0,33
+2023-04-06,Honey Bunny Oaty Soap,3.0,20
+2023-04-06,Hot Cross Bun Soap Bar,5.0,21
+2023-04-06,Lavender Fields Bunny Soap,2.5,19
+2023-04-06,Spring Garden Petal Soap,3.5,26
+2023-04-06,Spring Raindrop Handcrafted Soap,3.0,36
+2023-04-06,Springtime Blossom Handmade Soap,3.0,33
+2023-04-07,Blossom Breeze Bath Fizzies,7.0,17
+2023-04-07,Bunny Hop Bubble Bar,4.0,12
+2023-04-07,Bunny Kisses Shea Butter Bar,6.0,34
+2023-04-07,Bunny Trail Botanical Soap,5.0,9
+2023-04-07,Chocolate Bunny Exfoliating Scrub,10.0,4
+2023-04-07,Cinnamon Spice Hot Cross Bun Scrub,11.0,37
+2023-04-07,Honey Bunny Oaty Soap,3.0,32
+2023-04-07,Hot Cross Bun Soap Bar,5.0,37
+2023-04-07,Lavender Fields Bunny Soap,2.5,21
+2023-04-07,Spring Garden Petal Soap,3.5,27
+2023-04-07,Spring Raindrop Handcrafted Soap,3.0,11
+2023-04-07,Springtime Blossom Handmade Soap,3.0,4
+2023-04-08,Blossom Breeze Bath Fizzies,7.0,8
+2023-04-08,Bunny Hop Bubble Bar,4.0,37
+2023-04-08,Bunny Kisses Shea Butter Bar,6.0,22
+2023-04-08,Bunny Trail Botanical Soap,5.0,36
+2023-04-08,Chocolate Bunny Exfoliating Scrub,10.0,26
+2023-04-08,Cinnamon Spice Hot Cross Bun Scrub,11.0,3
+2023-04-08,Honey Bunny Oaty Soap,3.0,12
+2023-04-08,Hot Cross Bun Soap Bar,5.0,4
+2023-04-08,Lavender Fields Bunny Soap,2.5,31
+2023-04-08,Spring Garden Petal Soap,3.5,12
+2023-04-08,Spring Raindrop Handcrafted Soap,3.0,29
+2023-04-08,Springtime Blossom Handmade Soap,3.0,16

@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_budget_rounding_bankers",
+      "kind": "Operation boundary",
+      "node_id": "budget_parse",
+      "op": "project",
+      "source_text": "Round the values to the nearest whole number",
+      "ref": "df_budget[\"MonthlyBudget\"] = (df_budget[\"AnnualBudget\"] / 12.0).round().astype(int)"
+    },
+    {
+      "id": "2_O1_actual_rounding_bankers",
+      "kind": "Operation boundary",
+      "node_id": "compute_fields",
+      "op": "project",
+      "source_text": "Round the values to the nearest whole number",
+      "ref": "long_actual[\"Actual Spending\"] = long_actual[\"Actual Spending\"].round().astype(int)"
+    },
+    {
+      "id": "3_O1_month_label_sepetember",
+      "kind": "Operation boundary",
+      "node_id": "compute_fields",
+      "op": "project",
+      "intent": "Use the exact month-name labels in the output, including spelling September as \"Sepetember\".",
+      "ref": "9: \"Sepetember\",  # Intentional typo to match GT"
+    },
+    {
+      "id": "4_O1_annual_budget_strict_greater_than",
+      "kind": "Operation boundary",
+      "node_id": "filter_above",
+      "op": "filter",
+      "source_text": "Exclude any area that is below budget at an annual level",
+      "ref": "df_above = df_above[df_above[\"AnnualActual\"] > df_above[\"AnnualBudget\"]]"
+    },
+    {
+      "id": "5_O2_budget_categories_canonical_set",
+      "kind": "Operation incomplete",
+      "node_id": "join_above",
+      "op": "join",
+      "intent": "When comparing annual actual vs budget, restrict to categories that exist in the budget table (drop actual-only categories).",
+      "ref": "df_above = annual_actual.merge(df_budget, on=\"Category\", how=\"inner\")"
+    },
+    {
+      "id": "6_O3_ties_pick_first_in_input_order",
+      "kind": "Operation inconsistent",
+      "node_id": "pick_best_per_month",
+      "op": "dedup",
+      "source_text": "For each month, find the category which has the highest overspending",
+      "ref": "idx = long_actual.groupby(\"Month\")[\"Difference\"].idxmax()"
+    }
+  ]
+}

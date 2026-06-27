@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Date", "Dealership"],
+      "columns": {
+        "Total Cars Sold": "number",
+        "Date": "date",
+        "Dealership": "text_exact",
+        "Red Cars": "number",
+        "Silver Cars": "number",
+        "Black Cars": "number",
+        "Blue Cars": "number"
+      }
+    }
+  }
+}

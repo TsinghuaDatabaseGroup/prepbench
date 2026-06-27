@@ -1,0 +1,48 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Event id",
+        "Game Order",
+        "Competitor Name",
+        "Score",
+        "Potout",
+        "note"
+      ],
+      "columns": {
+        "Event id": "number",
+        "Game Order": "text_exact",
+        "Competitor Name": "text_exact",
+        "Score": "number",
+        "Potout": "boolean",
+        "note": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Event id",
+        "Competitor Name",
+        "Event",
+        "Event Start Date",
+        "Event Description",
+        "Association",
+        "Points",
+        "Wins",
+        "Losses",
+        "Ties"
+      ],
+      "columns": {
+        "Event id": "number",
+        "Competitor Name": "text_exact",
+        "Event": "text_exact",
+        "Event Start Date": "date",
+        "Event Description": "text_exact",
+        "Association": "text_exact",
+        "Points": "number",
+        "Wins": "number",
+        "Losses": "number",
+        "Ties": "number"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_genre_explode_for_grouping",
+      "kind": "Row-level concept",
+      "node_id": "genre_explode",
+      "op": "script",
+      "source_text": "For each genre and type combination (e.g. Action & TV, Romance & Movie)",
+      "ref": "df[\"genre\"] = df[\"genre\"].str.split(\",\"); df = df.explode(\"genre\")"
+    },
+    {
+      "id": "2_O2_keep_aggregates_if_prime_missing",
+      "kind": "Operation incomplete",
+      "node_id": "join_prime",
+      "op": "join",
+      "intent": "Keep all aggregated (Genre, Type) rows even if no prime example is found.",
+      "ref": "agg.merge(prime, on=[\"genre\", \"type\"], how=\"left\")"
+    },
+    {
+      "id": "3_O3_prime_example_tiebreak",
+      "kind": "Operation inconsistent",
+      "node_id": "prime_pick",
+      "op": "dedup",
+      "source_text": "a prime example of the genre and type combination (i.e. the anime with the max rating for the combo).",
+      "ref": "df_sorted.sort_values([\"genre\", \"type\", \"rating\", \"members\", \"name\"], ascending=[True, True, False, False, True])"
+    },
+    {
+      "id": "4_O1_avg_rating_round_half_up",
+      "kind": "Operation boundary",
+      "node_id": "round_half_up",
+      "op": "script",
+      "source_text": "The average rating (to 2 decimal places).",
+      "ref": "Decimal(str(v)).quantize(quant, rounding=ROUND_HALF_UP)"
+    },
+    {
+      "id": "5_O1_avg_viewers_round_half_up_int",
+      "kind": "Operation boundary",
+      "node_id": "round_half_up",
+      "op": "script",
+      "source_text": "The average viewership (to 0 decimal places).",
+      "ref": "agg[\"Avg Viewers\"] = round_half_up_series(agg[\"Avg Viewers\"], 0).astype(int)"
+    },
+    {
+      "id": "6_O1_max_rating_round_half_up",
+      "kind": "Operation boundary",
+      "node_id": "round_half_up",
+      "op": "script",
+      "source_text": "The maximum rating.",
+      "ref": "agg[\"Max Rating\"] = round_half_up_series(agg[\"Max Rating\"], 2)"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Rank1",
+        "Win",
+        "Game Number per Team",
+        "Team"
+      ],
+      "columns": {
+        "Rank1": "number",
+        "Win": "number",
+        "Game Number per Team": "number",
+        "Team": "text_exact"
+      }
+    }
+  }
+}
+

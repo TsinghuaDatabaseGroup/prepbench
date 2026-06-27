@@ -1,0 +1,116 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_date_parse_failures",
+      "kind": "Operation incomplete",
+      "node_id": "local_in",
+      "op": "input",
+      "intent": "Parse the Date column as datetime and coerce parse failures to missing.",
+      "ref": "df_local[\"Date\"] = pd.to_datetime(df_local[\"Date\"], errors=\"coerce\")"
+    },
+    {
+      "id": "2_O1_days_hours_split_rounding",
+      "kind": "Operation boundary",
+      "node_id": "o1_compute",
+      "op": "project",
+      "source_text": "Convert the average time it has taken for each store to remove recalled items to 2 fields for days and hours",
+      "ref": "days = grp[\"days_to_removal\"].floordiv(1); hours = ((grp[\"days_to_removal\"] - days) * 24).round()"
+    },
+    {
+      "id": "3_O1_hours_24_overflow_carry",
+      "kind": "Operation boundary",
+      "node_id": "o1_compute",
+      "op": "project",
+      "source_text": "Convert the average time it has taken for each store to remove recalled items to 2 fields for days and hours",
+      "ref": "hours_overflow = hours == 24; days.loc[hours_overflow] += 1; hours.loc[hours_overflow] = 0"
+    },
+    {
+      "id": "4_C2_days_to_removal_fractional",
+      "kind": "Row-level concept",
+      "node_id": "o1_days",
+      "op": "project",
+      "source_text": "Calculate how long it has taken for each item to be removed",
+      "ref": "df_done[\"days_to_removal\"] = (df_done[\"Date\"] - RECALL_DATE).dt.total_seconds() / 86400.0"
+    },
+    {
+      "id": "5_O2_exclude_missing_date",
+      "kind": "Operation incomplete",
+      "node_id": "o1_nonnull",
+      "op": "filter",
+      "source_text": "Calculate and rank stores by how long it takes them on average to remove the recalled items",
+      "ref": "df_done = df_recalled.dropna(subset=[\"Date\"]).copy()"
+    },
+    {
+      "id": "6_O3_store_ranking_tie_break",
+      "kind": "Operation boundary",
+      "node_id": "o1_sort_rank",
+      "op": "sort",
+      "source_text": "Calculate and rank stores by how long it takes them on average to remove the recalled items",
+      "ref": "out.sort_values([\"days_to_removal\", \"Store\"], ascending=[True, True])"
+    },
+    {
+      "id": "7_C2_quantity_sum_vs_count",
+      "kind": "Group-level concept",
+      "node_id": "o2_agg",
+      "op": "aggregate",
+      "source_text": "as well as how many items each store has to remove",
+      "ref": "(\"Quantity\", \"sum\")"
+    },
+    {
+      "id": "8_C2_avg_days_overdue_aggregation",
+      "kind": "Group-level concept",
+      "node_id": "o2_agg",
+      "op": "aggregate",
+      "source_text": "Calculate how long, on average, each store is overdue",
+      "ref": "(\"days_overdue\", lambda s: round_half_up(float(pd.Series(s).mean())))"
+    },
+    {
+      "id": "9_O1_half_up_rounding_for_overdue",
+      "kind": "Operation boundary",
+      "node_id": "o2_final_compute",
+      "op": "project",
+      "source_text": "Round to the nearest whole number",
+      "ref": "return int(math.floor(x + 0.5))"
+    },
+    {
+      "id": "10_D2_recalled_match_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "recalled_join",
+      "op": "join",
+      "source_text": "the items in the ‘Recalled Items’ table needed to be removed from shelves",
+      "ref": "df.merge(recalled, on=[\"Category\", \"Product ID\"], how=\"inner\")"
+    },
+    {
+      "id": "11_O2_incomplete_by_missing_date",
+      "kind": "Operation incomplete",
+      "node_id": "status_days",
+      "op": "project",
+      "source_text": "those that haven’t been removed from the shelves yet",
+      "ref": "if pd.isna(row[\"Date\"]): return \"Incomplete\""
+    },
+    {
+      "id": "12_C2_overdue_days_formula",
+      "kind": "Row-level concept",
+      "node_id": "status_days",
+      "op": "project",
+      "source_text": "calculate how many days overdue they are",
+      "ref": "(df_over[\"Date\"] - DEADLINE_DATE).dt.total_seconds() / 86400.0"
+    },
+    {
+      "id": "13_O2_incomplete_days_overdue_clamped",
+      "kind": "Operation boundary",
+      "node_id": "status_days",
+      "op": "project",
+      "source_text": "calculate how many days overdue they are",
+      "ref": "snap = snap.mask(snap < DEADLINE_DATE, DEADLINE_DATE)"
+    },
+    {
+      "id": "14_O2_snapshot_date_definition",
+      "kind": "Group-level concept",
+      "node_id": "store_max",
+      "op": "aggregate",
+      "intent": "Define each store's snapshot date as the maximum non-missing Date for that store.",
+      "ref": "df2.groupby(\"Store\")[\"Date\"].max().rename(\"store_max_date\")"
+    }
+  ]
+}

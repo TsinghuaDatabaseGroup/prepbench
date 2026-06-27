@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Statement?",
+        "True Date",
+        "Balance?",
+        "Complaint?",
+        "Policy Number",
+        "Customer ID"
+      ],
+      "columns": {
+        "Statement?": "boolean",
+        "True Date": "date",
+        "Balance?": "boolean",
+        "Complaint?": "boolean",
+        "Policy Number": "number",
+        "Customer ID": "number"
+      }
+    }
+  }
+}

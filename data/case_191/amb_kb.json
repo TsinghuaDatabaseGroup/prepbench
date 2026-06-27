@@ -1,0 +1,20 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_range_inclusive_max",
+      "kind": "Operation boundary",
+      "node_id": "make_range",
+      "op": "script",
+      "source_text": "The input file is just the number 1 and 9 this week.",
+      "ref": "numbers = list(range(min_num, max_num + 1))"
+    },
+    {
+      "id": "2_O2_generate_full_integer_range",
+      "kind": "Row-level concept",
+      "node_id": "make_range",
+      "op": "script",
+      "source_text": "The input file is just the number 1 and 9 this week.",
+      "ref": "numbers = list(range(min_num, max_num + 1))"
+    }
+  ]
+}

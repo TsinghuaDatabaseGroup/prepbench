@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_cell_value_formula",
+      "kind": "Row-level concept",
+      "node_id": "compute_table",
+      "op": "project",
+      "source_text": "make the solution dynamic so you can create a multiplication grid of any size",
+      "ref": "        result_dict[str(col)] = [num * col for num in numbers]"
+    },
+    {
+      "id": "2_O1_multiplier_columns_range",
+      "kind": "Operation boundary",
+      "node_id": "compute_table",
+      "op": "project",
+      "intent": "Create one multiplier column for each integer k from 1 through grid_size (inclusive).",
+      "ref": "    for col in range(1, grid_size + 1):"
+    },
+    {
+      "id": "3_O1_grid_size_for_this_run",
+      "kind": "Row-level concept",
+      "node_id": "mk_scaffold",
+      "op": "project",
+      "source_text": "Create a parameter that allows the user to set the multiplication grid they want",
+      "ref": "    grid_size = 4"
+    },
+    {
+      "id": "4_O1_base_number_rows_range",
+      "kind": "Operation boundary",
+      "node_id": "mk_scaffold",
+      "op": "project",
+      "intent": "Generate one row per base Number from 1 through grid_size (inclusive).",
+      "ref": "    numbers = list(range(1, grid_size + 1))"
+    }
+  ]
+}

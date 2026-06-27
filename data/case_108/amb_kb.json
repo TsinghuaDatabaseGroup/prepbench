@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_exclude_areas_pre_join",
+      "kind": "Row-level concept",
+      "node_id": "area_filtered",
+      "op": "filter",
+      "source_text": "We don’t actually sell products in Clevedon, Fakenham, or Stornoway. Exclude these from our dataset",
+      "ref": "excluded_areas = {'Clevedon', 'Fakenham', 'Stornoway'}\narea_lookup = area_lookup[~area_lookup['Area'].isin(excluded_areas)]"
+    },
+    {
+      "id": "2_D2_area_join_key_derivation",
+      "kind": "Multi-table alignment",
+      "node_id": "area_prep",
+      "op": "project",
+      "source_text": "Input the Area Code Lookup Table – find a way to join it to the Customer information file",
+      "ref": "area_lookup['Area Code Suffix'] = area_lookup['Code'].astype(str).str[-2:]\narea_lookup['Area Initial'] = area_lookup['Area'].astype(\n        str).str[0].str.upper()"
+    },
+    {
+      "id": "3_C2_revenue_pence_transaction_formula",
+      "kind": "Row-level concept",
+      "node_id": "compute_revenue_pence",
+      "op": "project",
+      "source_text": "For each area, and product, find the total sales values",
+      "ref": "return int((Decimal(s) * 100).quantize(Decimal('1'), rounding=ROUND_HALF_UP))\nmerged['Revenue_Pence'] = merged['Quantity'] * merged['Price_Pence']"
+    },
+    {
+      "id": "4_O1_phone_number_first_6digit_occurrence",
+      "kind": "Row-level concept",
+      "node_id": "ids_parsed",
+      "op": "project",
+      "source_text": "The first 6 digits present in each ID is the customers phone number",
+      "ref": "phone_match = re.search(r\"(\\d{6})\", id_str)\nphone = phone_match.group(1) if phone_match else None"
+    },
+    {
+      "id": "5_D2_area_join_inner_on_suffix_initial",
+      "kind": "Multi-table alignment",
+      "node_id": "join_area",
+      "op": "join",
+      "source_text": "Input the Area Code Lookup Table – find a way to join it to the Customer information file",
+      "ref": "merged = parsed.merge(\n        area_lookup[['Area', 'Area Code Suffix', 'Area Initial']],\n        on=['Area Code Suffix', 'Area Initial'],\n        how='inner'\n    )"
+    },
+    {
+      "id": "6_D2_product_join_inner_on_product_id",
+      "kind": "Multi-table alignment",
+      "node_id": "join_product",
+      "op": "join",
+      "source_text": "Join this dataset to our product lookup table.",
+      "ref": "merged = merged.merge(product_lookup[[\n                          'Product ID', 'Product Name', 'Price_Pence']], on='Product ID', how='inner')"
+    },
+    {
+      "id": "7_O1_percent_total_half_up_2dp",
+      "kind": "Operation boundary",
+      "node_id": "pct_project",
+      "op": "project",
+      "source_text": "percent of total that each different product contributes to the overall revenue of that Area, rounded to 2 decimal places.",
+      "ref": "return float(pct.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))"
+    },
+    {
+      "id": "8_O3_drop_all_rows_for_ambiguous_phone",
+      "kind": "Operation inconsistent",
+      "node_id": "phone_unique",
+      "op": "filter",
+      "source_text": "Exclude any phone numbers where the join has produced duplicated records.",
+      "ref": "phone_counts = merged.groupby('Phone Number').size()\nambiguous_phones = set(phone_counts[phone_counts > 1].index)\nmerged = merged[~merged['Phone Number'].isin(ambiguous_phones)]"
+    },
+    {
+      "id": "9_O3_rank_ties_min_method",
+      "kind": "Operation boundary",
+      "node_id": "rank_project",
+      "op": "project",
+      "source_text": "Rank how well each product sold in each area.",
+      "ref": "agg_raw['Rank'] = agg_raw.groupby('Area')['Revenue'].rank(\n        method='min', ascending=False).astype(int)"
+    },
+    {
+      "id": "10_O1_revenue_round_half_up_0dp",
+      "kind": "Operation boundary",
+      "node_id": "rev_to_int",
+      "op": "project",
+      "source_text": "For each area, and product, find the total sales values, rounded to zero decimal places",
+      "ref": "def round_half_up_0(x: Decimal) -> int:\n        return int((x).quantize(Decimal('1'), rounding=ROUND_HALF_UP))\nagg_raw['Revenue'] = agg_raw['rev_pounds'].apply(round_half_up_0)"
+    }
+  ]
+}

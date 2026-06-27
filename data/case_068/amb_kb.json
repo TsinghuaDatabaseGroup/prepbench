@@ -1,0 +1,12 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_sales_source_lookup",
+      "kind": "Single-table reference",
+      "node_id": "script_add_sales",
+      "op": "join",
+      "source_text": "Calculate Sales for each Company for March and April.",
+      "ref": "scent_map = SALES_DATA[company]\n\"Sales\": scent_map[scent][month],"
+    }
+  ]
+}

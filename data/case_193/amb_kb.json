@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_last_session_scope",
+      "kind": "Operation incomplete",
+      "node_id": "agg_group_max",
+      "op": "aggregate",
+      "source_text": "For the most recent training session in the dataset, assign the next session as the maximum date in the dataset",
+      "ref": "max_date = df['Date'].max()\nfor (player, session), group in df.groupby(['Player', 'Session']):\n    else:\n        next_date = max_date"
+    },
+    {
+      "id": "2_O2_weekend_exclusion",
+      "kind": "Row-level concept",
+      "node_id": "filter_weekdays",
+      "op": "filter",
+      "source_text": "Exclude all weekends (Saturdays & Sundays) from the dataset",
+      "ref": "if date.weekday() < 5:"
+    },
+    {
+      "id": "3_O1_flag_actual_vs_carried",
+      "kind": "Row-level concept",
+      "node_id": "finalize",
+      "op": "project",
+      "source_text": "Create a flag to indicate whether the score comes from an actual session, or is carried over from the previous session",
+      "ref": "if date == current_date:\n    flag = 'Actual'\nelse:\n    flag = 'Carried over'"
+    },
+    {
+      "id": "4_O1_scaffold_end_excludes_next_session",
+      "kind": "Operation boundary",
+      "node_id": "from_to_first",
+      "op": "project",
+      "source_text": "their next Agility session was 6th Jan - so we have missing data on 5th Jan",
+      "ref": "date_range = pd.date_range(start=current_date, end=next_date - timedelta(days=1), freq='D')"
+    },
+    {
+      "id": "5_O1_final_session_includes_max_date",
+      "kind": "Operation boundary",
+      "node_id": "from_to_last",
+      "op": "project",
+      "intent": "For the final session per player/session, include the global maximum date in the generated daily rows.",
+      "ref": "date_range = pd.date_range(start=current_date, end=next_date, freq='D')"
+    }
+  ]
+}

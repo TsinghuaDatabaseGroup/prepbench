@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_classification_precedence",
+      "kind": "Operation inconsistent",
+      "node_id": "classify",
+      "op": "project",
+      "source_text": "Create the Customer Classification using the above definitions",
+      "ref": "def classify_customer(row):\n        if row['Order?'] == 0:\n            return 'Sleeping'\n        elif row['Year'] == row['First Purchase']:\n            return 'New'\n        elif row['Prev_Year_Order'] == 1:\n            return 'Consistent'\n        else:\n            return 'Returning'"
+    },
+    {
+      "id": "2_C2_customer_count_distinct_with_orders_only",
+      "kind": "Group-level concept",
+      "node_id": "cohort_year_counts",
+      "op": "aggregate",
+      "source_text": "Calculate the Year on Year difference in the number of customers from each Cohort in each year",
+      "ref": "cohort_year_counts = df_scaffold[df_scaffold['Order?'] == 1].groupby(['First Purchase', 'Year'])['Customer ID'].nunique().reset_index()"
+    },
+    {
+      "id": "3_C2_order_flag_1_else_0",
+      "kind": "Row-level concept",
+      "node_id": "fill_order_flag",
+      "op": "project",
+      "source_text": "Create a field to flag these new rows, making it clear whether a customer placed an order in that year or not",
+      "ref": "orders_by_customer_year['Order?'] = 1\n    df_scaffold['Order?'] = df_scaffold['Order?'].fillna(0).astype(int)"
+    },
+    {
+      "id": "7_O2_join_back_preserve_order_rows",
+      "kind": "Operation incomplete",
+      "node_id": "orders_with_classification",
+      "op": "join",
+      "source_text": "Join back to the original input data",
+      "ref": "df_orders_with_info = df_orders_with_info.merge(..., how='left')"
+    },
+    {
+      "id": "8_O2_prev_year_order_default_0",
+      "kind": "Operation incomplete",
+      "node_id": "prev_year_order",
+      "op": "project",
+      "source_text": "Create a field which flags whether or not a customer placed an order in the previous year",
+      "ref": "df_scaffold['Prev_Year_Order'] = df_scaffold.groupby('Customer ID')['Order?'].shift(1).fillna(0).astype(int)"
+    },
+    {
+      "id": "9_O1_scaffold_from_first_to_global_max_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "scaffold",
+      "op": "project",
+      "source_text": "Scaffold the dataset so that there is a row for each year after a customers First Purchase, even if they did not make an order",
+      "ref": "for year in range(first_year, max_year + 1):"
+    },
+    {
+      "id": "10_C2_yoy_diff_shift_within_cohort",
+      "kind": "Group-level concept",
+      "node_id": "yoy_diff",
+      "op": "project",
+      "source_text": "Calculate the Year on Year difference in the number of customers from each Cohort in each year",
+      "ref": "cohort_year_counts['Prev_Year_Count'] = cohort_year_counts.groupby('First Purchase')['Customer_Count'].shift(1)\n    cohort_year_counts['YoY Difference'] = cohort_year_counts['Customer_Count'] - cohort_year_counts['Prev_Year_Count']"
+    },
+    {
+      "id": "11_O2_yoy_no_prior_left_missing",
+      "kind": "Operation incomplete",
+      "node_id": "yoy_diff",
+      "op": "project",
+      "intent": "If there is no prior-year cohort value, leave YoY Difference missing (not zero).",
+      "ref": "cohort_year_counts['Prev_Year_Count'] = cohort_year_counts.groupby('First Purchase')['Customer_Count'].shift(1)"
+    }
+  ]
+}

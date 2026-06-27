@@ -1,0 +1,132 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_games_played_count_key",
+      "kind": "Group-level concept",
+      "node_id": "aggregate_by_formation",
+      "op": "aggregate",
+      "source_text": "For each Liverpool and Opposition formation, what were the average Goals Scored/Conceded",
+      "ref": "out1 = (\n        lineup.groupby([\"Formation\", \"Oppo Form.\"])\n        .agg({\n            \"No.\": \"count\","
+    },
+    {
+      "id": "2_D1_output2_player_name_trailing_space",
+      "kind": "Operation boundary",
+      "node_id": "build_output2",
+      "op": "script",
+      "intent": "Append a single trailing space to every Player Name value in output_02.csv.",
+      "ref": "    out2[\"Player Name\"] = out2[\"Player Name\"].astype(str) + \" \""
+    },
+    {
+      "id": "3_O2_player_list_drop_nonconforming_rows",
+      "kind": "Operation incomplete",
+      "node_id": "build_output2_prep",
+      "op": "script",
+      "intent": "When cleaning the Player List, keep only rows where both player name and preferred position type are extractable; ignore other rows.",
+      "ref": "        m = re.match(r\"\\d+\\s*([^()]+?)\\s*\\(([GDMA])\\)\", s)\n        if not m:\n            return None, None\n        player = m.group(1).strip()\n        code = m.group(2)\n        typ = {\"G\": \"Goalkeeper\", \"D\": \"Defender\", \"M\": \"Midfielder\", \"A\": \"Attacker\"}[code]\n        return player, typ\n\n    rows = []\n    for _, r in player_list_raw.iterrows():\n        p, t = clean_player_name(r.get(\"Player Name\"))\n        if p:\n            rows.append({\"Player Name\": p, \"Preferred Position Type\": t})"
+    },
+    {
+      "id": "4_O1_round_minutes_nearest_int",
+      "kind": "Operation boundary",
+      "node_id": "build_output2_records",
+      "op": "script",
+      "intent": "Round total minutes played to the nearest integer (and output as an integer).",
+      "ref": "                \"Mins Played\": int(round(total_mins)),"
+    },
+    {
+      "id": "5_O1_match_length_90_minutes",
+      "kind": "Operation boundary",
+      "node_id": "build_output2_starters",
+      "op": "script",
+      "intent": "Assume each match is 90 minutes long when computing playing segments.",
+      "ref": "        match_len = 90"
+    },
+    {
+      "id": "6_D2_player_name_standardization_match_rule",
+      "kind": "Single-table reference",
+      "node_id": "build_output2_starters",
+      "op": "script",
+      "intent": "Standardize lineup player strings by exact match to cleaned player names, otherwise case-insensitive substring match, otherwise keep original.",
+      "ref": "        hit = player_list[player_list[\"Player Name\"] == s]\n        if len(hit) > 0:\n            return hit.iloc[0][\"Player Name\"]\n        sl = s.lower()"
+    },
+    {
+      "id": "7_O3_player_name_substring_multi_match_tiebreak",
+      "kind": "Operation inconsistent",
+      "node_id": "build_output2_starters",
+      "op": "script",
+      "intent": "If multiple cleaned player names contain the lineup string as a substring, choose the first encountered match.",
+      "ref": "        best = None\n        best_len = 0\n        for _, rr in player_list.iterrows():\n            fn = rr[\"Player Name\"]\n            if sl in fn.lower() and len(s) > best_len:\n                best = fn\n                best_len = len(s)"
+    },
+    {
+      "id": "8_C2_games_oop_distinct_matches_player_level",
+      "kind": "Group-level concept",
+      "node_id": "build_output2_stats",
+      "op": "script",
+      "intent": "Compute Games OoP as the number of distinct matches where a player was out of position at least once, and assign that same total to each of the player's rows.",
+      "ref": "    player_oop_total = (\n        rec_df[rec_df[\"Is OoP\"]]\n        .drop_duplicates([\"Player Name\", \"Match No\"])\n        .groupby(\"Player Name\")\n        .size()\n        .reset_index(name=\"Total OoP\")\n    )\n    out2 = out2.merge(player_oop_total, on=\"Player Name\", how=\"left\")\n    out2[\"Games OoP\"] = out2[\"Total OoP\"].fillna(0).astype(int)"
+    },
+    {
+      "id": "9_D1_substitution_columns_adjacency_interpretation",
+      "kind": "Single-table reference",
+      "node_id": "build_output2_sub_events",
+      "op": "script",
+      "intent": "Interpret each subX block as: subX=off_pos, next column=on_no, next column=minute, using column adjacency.",
+      "ref": "                off_pos_raw = match.iloc[idx]\n                on_no_raw = match.iloc[idx + 1] if idx + 1 < len(match) else None\n                minute_raw = match.iloc[idx + 2] if idx + 2 < len(match) else None"
+    },
+    {
+      "id": "10_O2_substitution_process_only_if_all_numeric_present",
+      "kind": "Operation incomplete",
+      "node_id": "build_output2_sub_events",
+      "op": "script",
+      "intent": "Only process a substitution if off_pos, on_no, and minute are all present and numeric.",
+      "ref": "                off_pos = int(float(off_pos_raw)) if pd.notna(off_pos_raw) and str(off_pos_raw).strip() != \"\" else None\n                on_no = str(int(float(on_no_raw))) if pd.notna(on_no_raw) and str(on_no_raw).strip() != \"\" else None\n                sub_time = float(minute_raw) if pd.notna(minute_raw) and str(minute_raw).strip() != \"\" else None\n            except Exception:\n                off_pos, on_no, sub_time = None, None, None\n\n            if off_pos is None or on_no is None or sub_time is None:\n                continue"
+    },
+    {
+      "id": "11_O1_substitution_minute_clamped_to_90",
+      "kind": "Operation boundary",
+      "node_id": "build_output2_subs_off",
+      "op": "script",
+      "intent": "Clamp substituted-off segment end time to min(substitution minute, 90).",
+      "ref": "                                seg[1] = min(sub_time, match_len)"
+    },
+    {
+      "id": "12_O3_substitution_cut_only_active_segment",
+      "kind": "Operation inconsistent",
+      "node_id": "build_output2_subs_off",
+      "op": "script",
+      "intent": "When substituting off, update only the segment that currently ends at full match length (the active segment).",
+      "ref": "                            if seg[1] == match_len:\n                                seg[1] = min(sub_time, match_len)\n                                break"
+    },
+    {
+      "id": "13_D1_input03_header_row_detection",
+      "kind": "Single-table reference",
+      "node_id": "input_lineup",
+      "op": "input",
+      "intent": "Read input_03.csv by finding the header row as the first row whose first column equals 'No.' and treating following rows as data.",
+      "ref": "    raw = pd.read_csv(inputs_dir / \"input_03.csv\", header=None)\n    header_idx = None\n    for i in range(len(raw)):\n        if str(raw.iloc[i, 0]).strip() == \"No.\":\n            header_idx = i\n            break\n\n    header = raw.iloc[header_idx].astype(str).tolist()\n    data = raw.iloc[header_idx + 1:].copy()\n    data.columns = header"
+    },
+    {
+      "id": "14_C2_goals_assigned_by_home_location",
+      "kind": "Row-level concept",
+      "node_id": "project_goals",
+      "op": "project",
+      "source_text": "Calculate how many goals Liverpool and their Opposition scored in each game.",
+      "ref": "        if location == \"H\":\n            return (a, b)\n        return (b, a)"
+    },
+    {
+      "id": "15_O2_result_parse_failure_defaults_to_zero",
+      "kind": "Operation incomplete",
+      "node_id": "project_goals",
+      "op": "project",
+      "source_text": "Calculate how many goals Liverpool and their Opposition scored in each game.",
+      "ref": "        if pd.isna(result_str) or result_str == \"\":\n            return (0, 0)\n        parts = str(result_str).split(\"-\", 1)\n        if len(parts) != 2:\n            return (0, 0)"
+    },
+    {
+      "id": "16_D1_output1_formation_header_leading_space",
+      "kind": "Operation boundary",
+      "node_id": "project_rename_formation",
+      "op": "project",
+      "intent": "Name the first output_01 column header exactly ' Formation' (with a single leading space).",
+      "ref": "    out1.columns = [\n        \" Formation\",\n        \"Oppo Form.\",\n        \"Games Played\",\n        \"Liverpool Goals\",\n        \"Avg Goals Scored\",\n        \"Opposition Goals\",\n        \"Avg Goals Conceded\",\n    ]"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "ambiguities": [
+    {
+      "id": "2_C2_total_cars_sold_sum_of_colours",
+      "kind": "Row-level concept",
+      "node_id": "project_1",
+      "op": "project",
+      "source_text": "Work out the total car sales per month / per car dealership",
+      "ref": "df['Total Car Sales'] = df['Red Cars'] + df['Silver Cars'] + df['Black Cars'] + df['Blue Cars']"
+    },
+    {
+      "id": "3_O1_date_first_day_of_month",
+      "kind": "Row-level concept",
+      "node_id": "project_1",
+      "op": "project",
+      "source_text": "Make a date that will work in Tableau Desktop (from When Sold Year and When Sold Month)",
+      "ref": "df['When Sold Year'].astype(str) + '-' + \n        df['When Sold Month'].astype(str).str.zfill(2) + '-01'"
+    }
+  ]
+}

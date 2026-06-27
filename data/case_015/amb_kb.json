@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_region_custom_sort_order",
+      "kind": "Row-level concept",
+      "node_id": "add_sort_key",
+      "op": "project",
+      "intent": "Use the specific region ordering South, Central, North, West, East for sorting.",
+      "ref": "region_sort_order = [\"South\", \"Central\", \"North\", \"West\", \"East\"]"
+    },
+    {
+      "id": "2_C2_regional_total_denominator",
+      "kind": "Group-level concept",
+      "node_id": "agg_regional",
+      "op": "aggregate",
+      "source_text": "Determine the % of total sales each transaction makes up:",
+      "ref": "combined.groupby([\"Region\", \"Stock\"], as_index=False)[\"Sales\"]"
+    },
+    {
+      "id": "3_C2_firm_total_denominator",
+      "kind": "Group-level concept",
+      "node_id": "agg_stock",
+      "op": "aggregate",
+      "source_text": "Determine the % of total sales each transaction makes up:",
+      "ref": "regional_totals.groupby(\"Stock\")[\"Total Regional Sales\"].sum()"
+    },
+    {
+      "id": "4_C1_exclude_only_purchase_in_region",
+      "kind": "Row-level concept",
+      "node_id": "filter_ne",
+      "op": "filter",
+      "source_text": "The final file should only contain sales that are not the only purchase of that share.",
+      "ref": "enriched[enriched[\"Sales\"] != enriched[\"Total Regional Sales\"]]"
+    },
+    {
+      "id": "5_C1_input_file_to_region_mapping",
+      "kind": "Single-table reference",
+      "node_id": "prep_all",
+      "op": "project",
+      "intent": "Map input files to regions: input_01→Central, input_02→East, input_03→North, input_04→South, input_05→West.",
+      "ref": "region_map = {1: \"Central\", 2: \"East\", 3: \"North\", 4: \"South\", 5: \"West\"}"
+    },
+    {
+      "id": "6_O2_parse_order_date",
+      "kind": "Row-level concept",
+      "node_id": "prep_all",
+      "op": "project",
+      "intent": "Parse Order Date using day/month/year (%d/%m/%Y).",
+      "ref": "combined[\"Order Date\"] = pd.to_datetime(combined[\"Order Date\"], format=\"%d/%m/%Y\")"
+    },
+    {
+      "id": "7_O1_round_amount_fields_2dp",
+      "kind": "Operation boundary",
+      "node_id": "round_after_filter",
+      "op": "project",
+      "intent": "Round Sales, Total Regional Sales, and Total Sales to 2 decimal places.",
+      "ref": "x[\"Sales\"].round(2)"
+    },
+    {
+      "id": "8_O1_round_percent_fields_12dp",
+      "kind": "Operation boundary",
+      "node_id": "round_after_filter",
+      "op": "project",
+      "intent": "Round % of Regional Sales and % of Total Sales to 12 decimal places.",
+      "ref": "x[\"% of Total Sales\"].round(12)"
+    },
+    {
+      "id": "9_O1_sort_by_region_customer_stock",
+      "kind": "Row-level concept",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final output by Region, then Customer ID ascending, then Stock ascending.",
+      "ref": ".sort_values([\"Region\", \"Customer ID\", \"Stock\"])"
+    }
+  ]
+}

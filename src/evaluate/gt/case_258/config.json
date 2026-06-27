@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Price"],
+      "columns": {
+        "Difference to Target": "number",
+        "Date": "number",
+        "Price": "number",
+        "Class": "text_exact",
+        "Target": "number"
+      }
+    }
+  }
+}

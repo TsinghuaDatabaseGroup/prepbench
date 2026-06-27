@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_category_total_sales_sum",
+      "kind": "Group-level concept",
+      "node_id": "category_totals",
+      "op": "aggregate",
+      "source_text": "Calculate the Total Sales at a Category level",
+      "ref": "category_sales = df.groupby('Category')['Sales'].sum()"
+    },
+    {
+      "id": "2_C2_cumulative_pct_formula",
+      "kind": "Group-level concept",
+      "node_id": "compute_cumulative",
+      "op": "project",
+      "source_text": "Identify the products which make up the bottom 15% of each category's sales",
+      "ref": "df['Cumulative %'] = df.groupby('Category')['% of Total'].cumsum()"
+    },
+    {
+      "id": "3_C2_pct_of_total_formula",
+      "kind": "Group-level concept",
+      "node_id": "compute_pct",
+      "op": "project",
+      "source_text": "Work out the Percentage of Total for each Product within a Category",
+      "ref": "df['% of Total'] = (df['Sales'] / df['Category Total Sales'])"
+    },
+    {
+      "id": "4_C2_sales_price_times_quantity",
+      "kind": "Row-level concept",
+      "node_id": "compute_sales",
+      "op": "project",
+      "source_text": "Calculate the Total Sales Value for each Product",
+      "ref": "df['Sales'] = df['Price'] * df['Quantity']"
+    },
+    {
+      "id": "5_O1_bottom_15pct_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "filter_bottom",
+      "op": "filter",
+      "source_text": "Identify the products which make up the bottom 15% of each category's sales",
+      "ref": "worst_sellers = df[df['Cumulative %'] <= 0.15].copy()"
+    },
+    {
+      "id": "6_O1_pct_of_total_round_2dp",
+      "kind": "Operation boundary",
+      "node_id": "format_output",
+      "op": "project",
+      "intent": "Round % of Total to 2 decimal places for output.",
+      "ref": "output_df['% of Total'] = output_df['% of Total'].round(2)"
+    },
+    {
+      "id": "7_D2_join_totals_on_category",
+      "kind": "Multi-table alignment",
+      "node_id": "join_totals",
+      "op": "join",
+      "source_text": "Work out the Percentage of Total for each Product within a Category",
+      "ref": "df = pd.merge(df, category_sales, on='Category')"
+    },
+    {
+      "id": "8_C2_sort_by_sales_asc",
+      "kind": "Row-level concept",
+      "node_id": "sort_by_category_sales",
+      "op": "sort",
+      "source_text": "Identify the products which make up the bottom 15% of each category's sales",
+      "ref": "df = df.sort_values(by=['Category', 'Sales'], ascending=[True, True])"
+    }
+  ]
+}

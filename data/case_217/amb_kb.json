@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_year_range_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "n_filter_year",
+      "op": "filter",
+      "source_text": "Filter the dataset so that we only have past dates - i.e. 1700 - 2023",
+      "ref": "years = list(range(1700, 2024))"
+    },
+    {
+      "id": "2_C2_gregorian_easter_algorithm",
+      "kind": "Row-level concept",
+      "node_id": "n_project_easter",
+      "op": "project",
+      "source_text": "Create an Easter Sunday date field and remove all other fields",
+      "ref": "def _easter_sunday_gregorian(year: int) -> pd.Timestamp:\n    # Anonymous Gregorian algorithm implementation"
+    },
+    {
+      "id": "3_O1_calculation1_one_based",
+      "kind": "Operation boundary",
+      "node_id": "n_project_easter",
+      "op": "project",
+      "intent": "Create Calculation1 as a one-based sequence in ascending year order.",
+      "ref": "\"Calculation1\": range(1, len(years) + 1)"
+    },
+    {
+      "id": "4_O1_year_order_ascending",
+      "kind": "Operation boundary",
+      "node_id": "n_sort_year",
+      "op": "sort",
+      "intent": "Define the year ordering used to assign Calculation1 (ascending by year).",
+      "ref": "years = list(range(1700, 2024))"
+    }
+  ]
+}

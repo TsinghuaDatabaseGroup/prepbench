@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_split_on_first_colon",
+      "kind": "Row-level concept",
+      "node_id": "answers_parse",
+      "op": "project",
+      "source_text": "The category dataset requires some cleaning so that Category and Answer are 2 separate fields",
+      "ref": "cat = raw['raw'].astype(str).str.split(':', n=1, expand=True)"
+    },
+    {
+      "id": "2_D2_overlap_aware_smash_construction",
+      "kind": "Multi-table alignment",
+      "node_id": "pairs_compute",
+      "op": "project",
+      "source_text": "Filter the data so that each answer smash is matched with the corresponding name and answer",
+      "ref": "def _smash(name: str, answer: str) -> str:\n    n = _normalize(name)\n    a = _normalize(answer)\n    n_low = n.casefold()\n    a_low = a.casefold()\n    max_k = 0\n    max_possible = min(len(n_low), len(a_low))\n    for k in range(1, max_possible + 1):\n        if n_low.endswith(a_low[:k]):\n            max_k = k\n    return n + a[max_k:]"
+    },
+    {
+      "id": "3_D2_case_insensitive_match_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "smash_norm",
+      "op": "project",
+      "source_text": "Filter the data so that each answer smash is matched with the corresponding name and answer",
+      "ref": "def _norm_key(s: str) -> str:\n    return _normalize(s).casefold()"
+    }
+  ]
+}

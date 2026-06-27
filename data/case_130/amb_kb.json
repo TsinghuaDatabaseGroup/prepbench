@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_pivot_index_store",
+      "kind": "Group-level concept",
+      "node_id": "n5_pivot",
+      "op": "pivot",
+      "source_text": "Pivot the table using a Rows to Columns pivot where we have the Item as our Pivoted Fields",
+      "ref": "pivot_df = df_filtered.pivot_table(index='Store',"
+    },
+    {
+      "id": "2_C2_pivot_values_sum_number_of_items",
+      "kind": "Group-level concept",
+      "node_id": "n5_pivot",
+      "op": "pivot",
+      "source_text": "Sum Number of Items as the Rows",
+      "ref": "values='Number of Items', aggfunc='sum',"
+    },
+    {
+      "id": "3_O2_pivot_fill_missing_zero",
+      "kind": "Operation incomplete",
+      "node_id": "n5_pivot",
+      "op": "pivot",
+      "intent": "How to represent (Store, Item) combinations with no sales in the pivoted output (e.g., 0 vs blank/NA).",
+      "ref": "fill_value=0"
+    },
+    {
+      "id": "4_D2_join_on_store",
+      "kind": "Multi-table alignment",
+      "node_id": "n6_join",
+      "op": "join",
+      "intent": "Which key field should be used to join the pivoted item table with the store-level total table.",
+      "ref": "output_df = pd.merge(pivot_df, total_items_per_store, on='Store')"
+    },
+    {
+      "id": "5_O2_join_inner_only_common_stores",
+      "kind": "Multi-table alignment",
+      "node_id": "n6_join",
+      "op": "join",
+      "intent": "When joining totals to pivoted results, whether to keep only stores present in both tables (inner) or keep unmatched stores (left/right/outer).",
+      "ref": "output_df = pd.merge(pivot_df, total_items_per_store, on='Store')"
+    }
+  ]
+}

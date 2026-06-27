@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Player Name"
+      ],
+      "columns": {
+        "In Squad": "number",
+        "Player Name": "text_exact",
+        "Mins Played": "number",
+        "Appearances": "number",
+        "Mins per Game": "number"
+      }
+    }
+  }
+}
+

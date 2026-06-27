@@ -1,0 +1,11 @@
+Airport,Type,Number of flights 
+JFK,Departure,29
+JFK,Arrival,30
+HND,Departure,26
+HND,Arrival,16
+SEA,Departure,27
+SEA,Arrival,24
+SYD,Departure,34
+SYD,Arrival,26
+PER,Departure,66
+PER,Arrival,69

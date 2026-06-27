@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Day of the Week",
+        "Number of Days"
+      ],
+      "columns": {
+        "Day of the Week": "text_exact",
+        "Number of Days": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_month_representation_first_day",
+      "kind": "Operation boundary",
+      "node_id": "enrich",
+      "op": "project",
+      "source_text": "MiniBytes want one output to be able to see, for each month:",
+      "ref": "df[\"Sold Month\"] = df[\"Date Sold\"].dt.to_period(\"M\").dt.to_timestamp()"
+    },
+    {
+      "id": "2_O1_days_to_return_integer",
+      "kind": "Operation boundary",
+      "node_id": "enrich",
+      "op": "project",
+      "source_text": "Calculate the number of days between the Date Sold and Date Returned",
+      "ref": "df[\"Days to Return\"] = (df[\"Date Returned\"] - df[\"Date Sold\"]).dt.days"
+    },
+    {
+      "id": "3_O2_missing_days_refund_missing",
+      "kind": "Operation incomplete",
+      "node_id": "enrich",
+      "op": "project",
+      "intent": "If Days to Return is missing, treat the refund amount as missing (not contributing to totals).",
+      "ref": "if pd.isna(days): return np.nan"
+    },
+    {
+      "id": "4_O1_refund_day_ranges_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "enrich",
+      "op": "project",
+      "source_text": "For returns within 60 days, customers get a full refund.",
+      "ref": "if days <= 60: return price\nif days <= 100: return price * 0.5\nreturn 0.0"
+    },
+    {
+      "id": "5_O1_half_refund_rounding",
+      "kind": "Operation boundary",
+      "node_id": "enrich",
+      "op": "project",
+      "source_text": "customers will be refunded half (rounded to the nearest penny)",
+      "ref": "return float(np.round(price * 0.5, 2))"
+    }
+  ]
+}

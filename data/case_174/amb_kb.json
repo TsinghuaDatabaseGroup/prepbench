@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_combine_union_append",
+      "kind": "Multi-table alignment",
+      "node_id": "all_union",
+      "op": "union",
+      "source_text": "Bring in the additional information from the Opportunity History table about when each opportunity moved between each stage",
+      "ref": "combined_df = pd.concat([opp_result, history_df], ignore_index=True)"
+    },
+    {
+      "id": "2_O3_dedup_keys_and_policy",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_out",
+      "op": "dedup",
+      "source_text": "Remove duplicate rows that may have occurred when brining together the two tables",
+      "ref": "subset=[\"OppID\", \"Date\", \"Stage\", \"SortOrder\"], keep=\"first\""
+    },
+    {
+      "id": "3_D1_history_date_stage_fields",
+      "kind": "Single-table reference",
+      "node_id": "hist_project",
+      "op": "project",
+      "intent": "Use Opportunity History CreatedDate as Date and StageName as Stage.",
+      "ref": "history_df.rename(columns={\"CreatedDate\": \"Date\", \"StageName\": \"Stage\"})"
+    }
+  ]
+}

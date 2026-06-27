@@ -1,0 +1,25 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Stage_1",
+                "Stage_2",
+                "Stage_3",
+                "pokedex_number",
+                "gen_introduced",
+                "initial_combat_power",
+                "final_combat_power"
+            ],
+            "columns": {
+                "Stage_1": "text_exact",
+                "Stage_2": "text_exact",
+                "Stage_3": "text_exact",
+                "pokedex_number": "number",
+                "gen_introduced": "number",
+                "initial_combat_power": "number",
+                "final_combat_power": "number",
+                "combat_power_increase": "number"
+            }
+        }
+    }
+}

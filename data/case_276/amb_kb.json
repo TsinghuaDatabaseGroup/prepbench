@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_count_records",
+      "kind": "Group-level concept",
+      "node_id": "agg_counts",
+      "op": "aggregate",
+      "source_text": "Find the sum of customers that qualify for each type of byte category",
+      "ref": "counts = df.groupby([\"Category\", \"Gender\"], as_index=False).size().rename(columns={\"size\": \"Count\"})"
+    },
+    {
+      "id": "2_O2_missing_gender_fill_zero",
+      "kind": "Operation incomplete",
+      "node_id": "pivot_gender",
+      "op": "pivot",
+      "intent": "If a Category has no customers for a given gender, output 0.0 for that gender's percentage.",
+      "ref": "if \"Female\" not in pivot.columns:\n        pivot[\"Female\"] = 0.0\n    if \"Male\" not in pivot.columns:\n        pivot[\"Male\"] = 0.0"
+    },
+    {
+      "id": "3_C1_gender_normalization",
+      "kind": "Row-level concept",
+      "node_id": "proj_enrich",
+      "op": "project",
+      "intent": "Normalize gender values so the split uses exactly the two labels 'Female' and 'Male'.",
+      "ref": "df[\"Gender\"] = df[\"Gender\"].astype(str).str.strip().str.title()"
+    },
+    {
+      "id": "4_C1_mega_byte_label_spacing",
+      "kind": "Row-level concept",
+      "node_id": "proj_enrich",
+      "op": "project",
+      "source_text": "Points that are greater than or equal to 7 categorise them as \"MegaByte\"",
+      "ref": "if x >= 7:\n                return \"Mega Byte\""
+    },
+    {
+      "id": "5_C2_loyalty_points_fractional_formula",
+      "kind": "Group-level concept",
+      "node_id": "proj_enrich",
+      "op": "project",
+      "source_text": "For every £50 spent they get 1 loyalty point\n  - Round Loyalty Points to 1 decimal place",
+      "ref": "points = sales.astype(float) / 50.0\n        return points.round(1)"
+    },
+    {
+      "id": "6_C2_percentage_within_category",
+      "kind": "Group-level concept",
+      "node_id": "proj_percentage",
+      "op": "project",
+      "source_text": "Calculate the percentage of females and males in each category (round the percentages to 1 decimal place)",
+      "ref": "counts[\"Percentage\"] = (counts[\"Count\"] / counts[\"Total\"]) * 100.0"
+    }
+  ]
+}

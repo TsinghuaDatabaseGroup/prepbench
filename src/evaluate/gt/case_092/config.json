@@ -1,0 +1,29 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Category",
+        "Number of Incidents"
+      ],
+      "columns": {
+        "Category": "text_exact",
+        "Number of Incidents": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Date",
+        "Location",
+        "Aircraft",
+        "Incident Description"
+      ],
+      "columns": {
+        "Date": "date",
+        "Location": "text_exact",
+        "Aircraft": "text_exact",
+        "Incident Description": "text_exact"
+      }
+    }
+  }
+}
+

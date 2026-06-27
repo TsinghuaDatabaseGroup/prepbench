@@ -1,0 +1,1401 @@
+Inventory Date,Category,Product ID,Quantity Available,Store,Supplier
+2023-10-01,Beauty,BE4227,21,Oxford Street,SP4
+2023-10-08,Beauty,BE4227,16,Oxford Street,SP4
+2023-10-15,Beauty,BE4227,10,Oxford Street,SP4
+2023-10-22,Beauty,BE4227,12,Oxford Street,SP4
+2023-10-29,Beauty,BE4227,10,Oxford Street,SP4
+2023-11-05,Beauty,BE4227,10,Oxford Street,SP4
+2023-11-12,Beauty,BE4227,14,Oxford Street,SP4
+2023-11-19,Beauty,BE4227,8,Oxford Street,SP4
+2023-11-26,Beauty,BE4227,29,Oxford Street,SP4
+2023-12-03,Beauty,BE4227,28,Oxford Street,SP4
+2023-12-10,Beauty,BE4227,13,Oxford Street,SP4
+2023-12-17,Beauty,BE4227,8,Oxford Street,SP4
+2023-12-24,Beauty,BE4227,6,Oxford Street,SP4
+2023-12-31,Beauty,BE4227,7,Oxford Street,SP4
+2023-10-01,Beauty,BE4227,6,Richmond,SP4
+2023-10-08,Beauty,BE4227,11,Richmond,SP4
+2023-10-15,Beauty,BE4227,7,Richmond,SP4
+2023-10-22,Beauty,BE4227,14,Richmond,SP4
+2023-10-29,Beauty,BE4227,12,Richmond,SP4
+2023-11-05,Beauty,BE4227,7,Richmond,SP4
+2023-11-12,Beauty,BE4227,10,Richmond,SP4
+2023-11-19,Beauty,BE4227,11,Richmond,SP4
+2023-11-26,Beauty,BE4227,11,Richmond,SP4
+2023-12-03,Beauty,BE4227,11,Richmond,SP4
+2023-12-10,Beauty,BE4227,4,Richmond,SP4
+2023-12-17,Beauty,BE4227,13,Richmond,SP4
+2023-12-24,Beauty,BE4227,12,Richmond,SP4
+2023-12-31,Beauty,BE4227,11,Richmond,SP4
+2023-10-01,Beauty,BE4227,18,Stratford,SP4
+2023-10-08,Beauty,BE4227,7,Stratford,SP4
+2023-10-15,Beauty,BE4227,12,Stratford,SP4
+2023-10-22,Beauty,BE4227,5,Stratford,SP4
+2023-10-29,Beauty,BE4227,9,Stratford,SP4
+2023-11-05,Beauty,BE4227,7,Stratford,SP4
+2023-11-12,Beauty,BE4227,14,Stratford,SP4
+2023-11-19,Beauty,BE4227,5,Stratford,SP4
+2023-11-26,Beauty,BE4227,2,Stratford,SP4
+2023-12-03,Beauty,BE4227,15,Stratford,SP4
+2023-12-10,Beauty,BE4227,10,Stratford,SP4
+2023-12-17,Beauty,BE4227,11,Stratford,SP4
+2023-12-24,Beauty,BE4227,5,Stratford,SP4
+2023-12-31,Beauty,BE4227,4,Stratford,SP4
+2023-10-01,Beauty,BE4227,11,Wembley,SP4
+2023-10-08,Beauty,BE4227,11,Wembley,SP4
+2023-10-15,Beauty,BE4227,5,Wembley,SP4
+2023-10-22,Beauty,BE4227,3,Wembley,SP4
+2023-10-29,Beauty,BE4227,15,Wembley,SP4
+2023-11-05,Beauty,BE4227,10,Wembley,SP4
+2023-11-12,Beauty,BE4227,8,Wembley,SP4
+2023-11-19,Beauty,BE4227,21,Wembley,SP4
+2023-11-26,Beauty,BE4227,20,Wembley,SP4
+2023-12-03,Beauty,BE4227,20,Wembley,SP4
+2023-12-10,Beauty,BE4227,6,Wembley,SP4
+2023-12-17,Beauty,BE4227,14,Wembley,SP4
+2023-12-24,Beauty,BE4227,8,Wembley,SP4
+2023-12-31,Beauty,BE4227,26,Wembley,SP4
+2023-10-01,Beauty,BE5626,17,Oxford Street,SP4
+2023-10-08,Beauty,BE5626,8,Oxford Street,SP4
+2023-10-15,Beauty,BE5626,21,Oxford Street,SP4
+2023-10-22,Beauty,BE5626,13,Oxford Street,SP4
+2023-10-29,Beauty,BE5626,10,Oxford Street,SP4
+2023-11-05,Beauty,BE5626,28,Oxford Street,SP4
+2023-11-12,Beauty,BE5626,11,Oxford Street,SP4
+2023-11-19,Beauty,BE5626,3,Oxford Street,SP4
+2023-11-26,Beauty,BE5626,21,Oxford Street,SP4
+2023-12-03,Beauty,BE5626,15,Oxford Street,SP4
+2023-12-10,Beauty,BE5626,7,Oxford Street,SP4
+2023-12-17,Beauty,BE5626,14,Oxford Street,SP4
+2023-12-24,Beauty,BE5626,12,Oxford Street,SP4
+2023-12-31,Beauty,BE5626,9,Oxford Street,SP4
+2023-10-01,Beauty,BE5626,13,Richmond,SP4
+2023-10-08,Beauty,BE5626,11,Richmond,SP4
+2023-10-15,Beauty,BE5626,10,Richmond,SP4
+2023-10-22,Beauty,BE5626,13,Richmond,SP4
+2023-10-29,Beauty,BE5626,7,Richmond,SP4
+2023-11-05,Beauty,BE5626,10,Richmond,SP4
+2023-11-12,Beauty,BE5626,11,Richmond,SP4
+2023-11-19,Beauty,BE5626,10,Richmond,SP4
+2023-11-26,Beauty,BE5626,11,Richmond,SP4
+2023-12-03,Beauty,BE5626,2,Richmond,SP4
+2023-12-10,Beauty,BE5626,10,Richmond,SP4
+2023-12-17,Beauty,BE5626,12,Richmond,SP4
+2023-12-24,Beauty,BE5626,10,Richmond,SP4
+2023-12-31,Beauty,BE5626,12,Richmond,SP4
+2023-10-01,Beauty,BE5626,8,Stratford,SP4
+2023-10-08,Beauty,BE5626,3,Stratford,SP4
+2023-10-15,Beauty,BE5626,27,Stratford,SP4
+2023-10-22,Beauty,BE5626,4,Stratford,SP4
+2023-10-29,Beauty,BE5626,8,Stratford,SP4
+2023-11-05,Beauty,BE5626,18,Stratford,SP4
+2023-11-12,Beauty,BE5626,2,Stratford,SP4
+2023-11-19,Beauty,BE5626,22,Stratford,SP4
+2023-11-26,Beauty,BE5626,3,Stratford,SP4
+2023-12-03,Beauty,BE5626,4,Stratford,SP4
+2023-12-10,Beauty,BE5626,19,Stratford,SP4
+2023-12-17,Beauty,BE5626,2,Stratford,SP4
+2023-12-24,Beauty,BE5626,26,Stratford,SP4
+2023-12-31,Beauty,BE5626,2,Stratford,SP4
+2023-10-01,Beauty,BE5626,17,Wembley,SP4
+2023-10-08,Beauty,BE5626,16,Wembley,SP4
+2023-10-15,Beauty,BE5626,13,Wembley,SP4
+2023-10-22,Beauty,BE5626,6,Wembley,SP4
+2023-10-29,Beauty,BE5626,16,Wembley,SP4
+2023-11-05,Beauty,BE5626,9,Wembley,SP4
+2023-11-12,Beauty,BE5626,5,Wembley,SP4
+2023-11-19,Beauty,BE5626,16,Wembley,SP4
+2023-11-26,Beauty,BE5626,14,Wembley,SP4
+2023-12-03,Beauty,BE5626,13,Wembley,SP4
+2023-12-10,Beauty,BE5626,12,Wembley,SP4
+2023-12-17,Beauty,BE5626,6,Wembley,SP4
+2023-12-24,Beauty,BE5626,14,Wembley,SP4
+2023-12-31,Beauty,BE5626,10,Wembley,SP4
+2023-10-01,Beauty ,BE5681,16,Oxford Street,SP4
+2023-10-08,Beauty ,BE5681,6,Oxford Street,SP4
+2023-10-15,Beauty ,BE5681,11,Oxford Street,SP4
+2023-10-22,Beauty ,BE5681,2,Oxford Street,SP4
+2023-10-29,Beauty ,BE5681,24,Oxford Street,SP4
+2023-11-05,Beauty ,BE5681,5,Oxford Street,SP4
+2023-11-12,Beauty ,BE5681,27,Oxford Street,SP4
+2023-11-19,Beauty ,BE5681,24,Oxford Street,SP4
+2023-11-26,Beauty ,BE5681,6,Oxford Street,SP4
+2023-12-03,Beauty ,BE5681,9,Oxford Street,SP4
+2023-12-10,Beauty ,BE5681,14,Oxford Street,SP4
+2023-12-17,Beauty ,BE5681,14,Oxford Street,SP4
+2023-12-24,Beauty ,BE5681,11,Oxford Street,SP4
+2023-12-31,Beauty ,BE5681,5,Oxford Street,SP4
+2023-10-01,Beauty ,BE5681,10,Richmond,SP4
+2023-10-08,Beauty ,BE5681,14,Richmond,SP4
+2023-10-15,Beauty ,BE5681,10,Richmond,SP4
+2023-10-22,Beauty ,BE5681,12,Richmond,SP4
+2023-10-29,Beauty ,BE5681,11,Richmond,SP4
+2023-11-05,Beauty ,BE5681,1,Richmond,SP4
+2023-11-12,Beauty ,BE5681,14,Richmond,SP4
+2023-11-19,Beauty ,BE5681,6,Richmond,SP4
+2023-11-26,Beauty ,BE5681,14,Richmond,SP4
+2023-12-03,Beauty ,BE5681,5,Richmond,SP4
+2023-12-10,Beauty ,BE5681,10,Richmond,SP4
+2023-12-17,Beauty ,BE5681,12,Richmond,SP4
+2023-12-24,Beauty ,BE5681,6,Richmond,SP4
+2023-12-31,Beauty ,BE5681,7,Richmond,SP4
+2023-10-01,Beauty ,BE5681,15,Stratford,SP4
+2023-10-08,Beauty ,BE5681,11,Stratford,SP4
+2023-10-15,Beauty ,BE5681,7,Stratford,SP4
+2023-10-22,Beauty ,BE5681,7,Stratford,SP4
+2023-10-29,Beauty ,BE5681,11,Stratford,SP4
+2023-11-05,Beauty ,BE5681,10,Stratford,SP4
+2023-11-12,Beauty ,BE5681,7,Stratford,SP4
+2023-11-19,Beauty ,BE5681,14,Stratford,SP4
+2023-11-26,Beauty ,BE5681,11,Stratford,SP4
+2023-12-03,Beauty ,BE5681,9,Stratford,SP4
+2023-12-10,Beauty ,BE5681,26,Stratford,SP4
+2023-12-17,Beauty ,BE5681,10,Stratford,SP4
+2023-12-24,Beauty ,BE5681,8,Stratford,SP4
+2023-12-31,Beauty ,BE5681,17,Stratford,SP4
+2023-10-01,Beauty ,BE5681,12,Wembley,SP4
+2023-10-08,Beauty ,BE5681,8,Wembley,SP4
+2023-10-15,Beauty ,BE5681,8,Wembley,SP4
+2023-10-22,Beauty ,BE5681,14,Wembley,SP4
+2023-10-29,Beauty ,BE5681,9,Wembley,SP4
+2023-11-05,Beauty ,BE5681,29,Wembley,SP4
+2023-11-12,Beauty ,BE5681,22,Wembley,SP4
+2023-11-19,Beauty ,BE5681,21,Wembley,SP4
+2023-11-26,Beauty ,BE5681,20,Wembley,SP4
+2023-12-03,Beauty ,BE5681,16,Wembley,SP4
+2023-12-10,Beauty ,BE5681,6,Wembley,SP4
+2023-12-17,Beauty ,BE5681,18,Wembley,SP4
+2023-12-24,Beauty ,BE5681,10,Wembley,SP4
+2023-12-31,Beauty ,BE5681,14,Wembley,SP4
+2023-10-01,Beauty,BE9159,12,Oxford Street,SP4
+2023-10-08,Beauty,BE9159,8,Oxford Street,SP4
+2023-10-15,Beauty,BE9159,18,Oxford Street,SP4
+2023-10-22,Beauty,BE9159,11,Oxford Street,SP4
+2023-10-29,Beauty,BE9159,6,Oxford Street,SP4
+2023-11-05,Beauty,BE9159,26,Oxford Street,SP4
+2023-11-12,Beauty,BE9159,11,Oxford Street,SP4
+2023-11-19,Beauty,BE9159,1,Oxford Street,SP4
+2023-11-26,Beauty,BE9159,16,Oxford Street,SP4
+2023-12-03,Beauty,BE9159,14,Oxford Street,SP4
+2023-12-10,Beauty,BE9159,3,Oxford Street,SP4
+2023-12-17,Beauty,BE9159,16,Oxford Street,SP4
+2023-12-24,Beauty,BE9159,10,Oxford Street,SP4
+2023-12-31,Beauty,BE9159,10,Oxford Street,SP4
+2023-10-01,Beauty,BE9159,10,Richmond,SP4
+2023-10-08,Beauty,BE9159,3,Richmond,SP4
+2023-10-15,Beauty,BE9159,15,Richmond,SP4
+2023-10-22,Beauty,BE9159,10,Richmond,SP4
+2023-10-29,Beauty,BE9159,10,Richmond,SP4
+2023-11-05,Beauty,BE9159,14,Richmond,SP4
+2023-11-12,Beauty,BE9159,7,Richmond,SP4
+2023-11-19,Beauty,BE9159,10,Richmond,SP4
+2023-11-26,Beauty,BE9159,15,Richmond,SP4
+2023-12-03,Beauty,BE9159,13,Richmond,SP4
+2023-12-10,Beauty,BE9159,12,Richmond,SP4
+2023-12-17,Beauty,BE9159,4,Richmond,SP4
+2023-12-24,Beauty,BE9159,14,Richmond,SP4
+2023-12-31,Beauty,BE9159,13,Richmond,SP4
+2023-10-01,Beauty,BE9159,22,Stratford,SP4
+2023-10-08,Beauty,BE9159,13,Stratford,SP4
+2023-10-15,Beauty,BE9159,5,Stratford,SP4
+2023-10-22,Beauty,BE9159,25,Stratford,SP4
+2023-10-29,Beauty,BE9159,22,Stratford,SP4
+2023-11-05,Beauty,BE9159,13,Stratford,SP4
+2023-11-12,Beauty,BE9159,5,Stratford,SP4
+2023-11-19,Beauty,BE9159,21,Stratford,SP4
+2023-11-26,Beauty,BE9159,10,Stratford,SP4
+2023-12-03,Beauty,BE9159,12,Stratford,SP4
+2023-12-10,Beauty,BE9159,5,Stratford,SP4
+2023-12-17,Beauty,BE9159,11,Stratford,SP4
+2023-12-24,Beauty,BE9159,1,Stratford,SP4
+2023-12-31,Beauty,BE9159,11,Stratford,SP4
+2023-10-01,Beauty,BE9159,12,Wembley,SP4
+2023-10-08,Beauty,BE9159,6,Wembley,SP4
+2023-10-15,Beauty,BE9159,18,Wembley,SP4
+2023-10-22,Beauty,BE9159,3,Wembley,SP4
+2023-10-29,Beauty,BE9159,16,Wembley,SP4
+2023-11-05,Beauty,BE9159,14,Wembley,SP4
+2023-11-12,Beauty,BE9159,7,Wembley,SP4
+2023-11-19,Beauty,BE9159,24,Wembley,SP4
+2023-11-26,Beauty,BE9159,16,Wembley,SP4
+2023-12-03,Beauty,BE9159,11,Wembley,SP4
+2023-12-10,Beauty,BE9159,1,Wembley,SP4
+2023-12-17,Beauty,BE9159,14,Wembley,SP4
+2023-12-24,Beauty,BE9159,7,Wembley,SP4
+2023-12-31,Beauty,BE9159,21,Wembley,SP4
+2023-10-01,Beauty,BE9568,23,Oxford Street,SP4
+2023-10-08,Beauty,BE9568,4,Oxford Street,SP4
+2023-10-15,Beauty,BE9568,17,Oxford Street,SP4
+2023-10-22,Beauty,BE9568,10,Oxford Street,SP4
+2023-10-29,Beauty,BE9568,10,Oxford Street,SP4
+2023-11-05,Beauty,BE9568,30,Oxford Street,SP4
+2023-11-12,Beauty,BE9568,5,Oxford Street,SP4
+2023-11-19,Beauty,BE9568,2,Oxford Street,SP4
+2023-11-26,Beauty,BE9568,18,Oxford Street,SP4
+2023-12-03,Beauty,BE9568,11,Oxford Street,SP4
+2023-12-10,Beauty,BE9568,6,Oxford Street,SP4
+2023-12-17,Beauty,BE9568,19,Oxford Street,SP4
+2023-12-24,Beauty,BE9568,17,Oxford Street,SP4
+2023-12-31,Beauty,BE9568,11,Oxford Street,SP4
+2023-10-01,Beauty,BE9568,5,Richmond,SP4
+2023-10-08,Beauty,BE9568,11,Richmond,SP4
+2023-10-15,Beauty,BE9568,10,Richmond,SP4
+2023-10-22,Beauty,BE9568,11,Richmond,SP4
+2023-10-29,Beauty,BE9568,3,Richmond,SP4
+2023-11-05,Beauty,BE9568,10,Richmond,SP4
+2023-11-12,Beauty,BE9568,10,Richmond,SP4
+2023-11-19,Beauty,BE9568,11,Richmond,SP4
+2023-11-26,Beauty,BE9568,9,Richmond,SP4
+2023-12-03,Beauty,BE9568,12,Richmond,SP4
+2023-12-10,Beauty,BE9568,5,Richmond,SP4
+2023-12-17,Beauty,BE9568,10,Richmond,SP4
+2023-12-24,Beauty,BE9568,11,Richmond,SP4
+2023-12-31,Beauty,BE9568,10,Richmond,SP4
+2023-10-01,Beauty,BE9568,14,Stratford,SP4
+2023-10-08,Beauty,BE9568,6,Stratford,SP4
+2023-10-15,Beauty,BE9568,25,Stratford,SP4
+2023-10-22,Beauty,BE9568,11,Stratford,SP4
+2023-10-29,Beauty,BE9568,9,Stratford,SP4
+2023-11-05,Beauty,BE9568,13,Stratford,SP4
+2023-11-12,Beauty,BE9568,12,Stratford,SP4
+2023-11-19,Beauty,BE9568,6,Stratford,SP4
+2023-11-26,Beauty,BE9568,18,Stratford,SP4
+2023-12-03,Beauty,BE9568,11,Stratford,SP4
+2023-12-10,Beauty,BE9568,6,Stratford,SP4
+2023-12-17,Beauty,BE9568,21,Stratford,SP4
+2023-12-24,Beauty,BE9568,4,Stratford,SP4
+2023-12-31,Beauty,BE9568,16,Stratford,SP4
+2023-10-01,Beauty,BE9568,13,Wembley,SP4
+2023-10-08,Beauty,BE9568,3,Wembley,SP4
+2023-10-15,Beauty,BE9568,16,Wembley,SP4
+2023-10-22,Beauty,BE9568,11,Wembley,SP4
+2023-10-29,Beauty,BE9568,5,Wembley,SP4
+2023-11-05,Beauty,BE9568,24,Wembley,SP4
+2023-11-12,Beauty,BE9568,22,Wembley,SP4
+2023-11-19,Beauty,BE9568,21,Wembley,SP4
+2023-11-26,Beauty,BE9568,13,Wembley,SP4
+2023-12-03,Beauty,BE9568,1,Wembley,SP4
+2023-12-10,Beauty,BE9568,29,Wembley,SP4
+2023-12-17,Beauty,BE9568,14,Wembley,SP4
+2023-12-24,Beauty,BE9568,12,Wembley,SP4
+2023-12-31,Beauty,BE9568,1,Wembley,SP4
+2023-10-01,Clothes,CL1828,24,Oxford Street,SP1
+2023-10-08,Clothes,CL1828,6,Oxford Street,SP1
+2023-10-15,Clothes,CL1828,2,Oxford Street,SP1
+2023-10-22,Clothes,CL1828,7,Oxford Street,SP1
+2023-10-29,Clothes,CL1828,22,Oxford Street,SP1
+2023-11-05,Clothes,CL1828,20,Oxford Street,SP1
+2023-11-12,Clothes,CL1828,15,Oxford Street,SP1
+2023-11-19,Clothes,CL1828,6,Oxford Street,SP1
+2023-11-26,Clothes,CL1828,12,Oxford Street,SP1
+2023-12-03,Clothes,CL1828,8,Oxford Street,SP1
+2023-12-10,Clothes,CL1828,13,Oxford Street,SP1
+2023-12-17,Clothes,CL1828,9,Oxford Street,SP1
+2023-12-24,Clothes,CL1828,17,Oxford Street,SP1
+2023-12-31,Clothes,CL1828,17,Oxford Street,SP1
+2023-10-01,Clothes,CL1828,21,Richmond,SP1
+2023-10-08,Clothes,CL1828,14,Richmond,SP1
+2023-10-15,Clothes,CL1828,12,Richmond,SP1
+2023-10-22,Clothes,CL1828,10,Richmond,SP1
+2023-10-29,Clothes,CL1828,13,Richmond,SP1
+2023-11-05,Clothes,CL1828,11,Richmond,SP1
+2023-11-12,Clothes,CL1828,10,Richmond,SP1
+2023-11-19,Clothes,CL1828,10,Richmond,SP1
+2023-11-26,Clothes,CL1828,10,Richmond,SP1
+2023-12-03,Clothes,CL1828,13,Richmond,SP1
+2023-12-10,Clothes,CL1828,11,Richmond,SP1
+2023-12-17,Clothes,CL1828,6,Richmond,SP1
+2023-12-24,Clothes,CL1828,11,Richmond,SP1
+2023-12-31,Clothes,CL1828,7,Richmond,SP1
+2023-10-01,Clothes,CL1828,11,Stratford,SP1
+2023-10-08,Clothes,CL1828,3,Stratford,SP1
+2023-10-15,Clothes,CL1828,13,Stratford,SP1
+2023-10-22,Clothes,CL1828,12,Stratford,SP1
+2023-10-29,Clothes,CL1828,6,Stratford,SP1
+2023-11-05,Clothes,CL1828,10,Stratford,SP1
+2023-11-12,Clothes,CL1828,26,Stratford,SP1
+2023-11-19,Clothes,CL1828,19,Stratford,SP1
+2023-11-26,Clothes,CL1828,16,Stratford,SP1
+2023-12-03,Clothes,CL1828,13,Stratford,SP1
+2023-12-10,Clothes,CL1828,7,Stratford,SP1
+2023-12-17,Clothes,CL1828,8,Stratford,SP1
+2023-12-24,Clothes,CL1828,10,Stratford,SP1
+2023-12-31,Clothes,CL1828,4,Stratford,SP1
+2023-10-01,Clothes,CL1828,22,Wembley,SP1
+2023-10-08,Clothes,CL1828,19,Wembley,SP1
+2023-10-15,Clothes,CL1828,12,Wembley,SP1
+2023-10-22,Clothes,CL1828,2,Wembley,SP1
+2023-10-29,Clothes,CL1828,20,Wembley,SP1
+2023-11-05,Clothes,CL1828,15,Wembley,SP1
+2023-11-12,Clothes,CL1828,14,Wembley,SP1
+2023-11-19,Clothes,CL1828,12,Wembley,SP1
+2023-11-26,Clothes,CL1828,4,Wembley,SP1
+2023-12-03,Clothes,CL1828,23,Wembley,SP1
+2023-12-10,Clothes,CL1828,7,Wembley,SP1
+2023-12-17,Clothes,CL1828,10,Wembley,SP1
+2023-12-24,Clothes,CL1828,17,Wembley,SP1
+2023-12-31,Clothes,CL1828,9,Wembley,SP1
+2023-10-01,Clothes,CL1864,26,Oxford Street,SP1
+2023-10-08,Clothes,CL1864,2,Oxford Street,SP1
+2023-10-15,Clothes,CL1864,10,Oxford Street,SP1
+2023-10-22,Clothes,CL1864,20,Oxford Street,SP1
+2023-10-29,Clothes,CL1864,3,Oxford Street,SP1
+2023-11-05,Clothes,CL1864,4,Oxford Street,SP1
+2023-11-12,Clothes,CL1864,5,Oxford Street,SP1
+2023-11-19,Clothes,CL1864,5,Oxford Street,SP1
+2023-11-26,Clothes,CL1864,22,Oxford Street,SP1
+2023-12-03,Clothes,CL1864,12,Oxford Street,SP1
+2023-12-10,Clothes,CL1864,5,Oxford Street,SP1
+2023-12-17,Clothes,CL1864,30,Oxford Street,SP1
+2023-12-24,Clothes,CL1864,11,Oxford Street,SP1
+2023-12-31,Clothes,CL1864,2,Oxford Street,SP1
+2023-10-01,Clothes,CL1864,14,Richmond,SP1
+2023-10-08,Clothes,CL1864,13,Richmond,SP1
+2023-10-15,Clothes,CL1864,8,Richmond,SP1
+2023-10-22,Clothes,CL1864,6,Richmond,SP1
+2023-10-29,Clothes,CL1864,12,Richmond,SP1
+2023-11-05,Clothes,CL1864,9,Richmond,SP1
+2023-11-12,Clothes,CL1864,15,Richmond,SP1
+2023-11-19,Clothes,CL1864,12,Richmond,SP1
+2023-11-26,Clothes,CL1864,11,Richmond,SP1
+2023-12-03,Clothes,CL1864,11,Richmond,SP1
+2023-12-10,Clothes,CL1864,11,Richmond,SP1
+2023-12-17,Clothes,CL1864,11,Richmond,SP1
+2023-12-24,Clothes,CL1864,4,Richmond,SP1
+2023-12-31,Clothes,CL1864,12,Richmond,SP1
+2023-10-01,Clothes,CL1864,12,Stratford,SP1
+2023-10-08,Clothes,CL1864,5,Stratford,SP1
+2023-10-15,Clothes,CL1864,6,Stratford,SP1
+2023-10-22,Clothes,CL1864,13,Stratford,SP1
+2023-10-29,Clothes,CL1864,11,Stratford,SP1
+2023-11-05,Clothes,CL1864,3,Stratford,SP1
+2023-11-12,Clothes,CL1864,13,Stratford,SP1
+2023-11-19,Clothes,CL1864,5,Stratford,SP1
+2023-11-26,Clothes,CL1864,10,Stratford,SP1
+2023-12-03,Clothes,CL1864,10,Stratford,SP1
+2023-12-10,Clothes,CL1864,4,Stratford,SP1
+2023-12-17,Clothes,CL1864,6,Stratford,SP1
+2023-12-24,Clothes,CL1864,4,Stratford,SP1
+2023-12-31,Clothes,CL1864,3,Stratford,SP1
+2023-10-01,Clothes,CL1864,22,Wembley,SP1
+2023-10-08,Clothes,CL1864,20,Wembley,SP1
+2023-10-15,Clothes,CL1864,20,Wembley,SP1
+2023-10-22,Clothes,CL1864,14,Wembley,SP1
+2023-10-29,Clothes,CL1864,14,Wembley,SP1
+2023-11-05,Clothes,CL1864,12,Wembley,SP1
+2023-11-12,Clothes,CL1864,11,Wembley,SP1
+2023-11-19,Clothes,CL1864,7,Wembley,SP1
+2023-11-26,Clothes,CL1864,21,Wembley,SP1
+2023-12-03,Clothes,CL1864,17,Wembley,SP1
+2023-12-10,Clothes,CL1864,11,Wembley,SP1
+2023-12-17,Clothes,CL1864,3,Wembley,SP1
+2023-12-24,Clothes,CL1864,5,Wembley,SP1
+2023-12-31,Clothes,CL1864,12,Wembley,SP1
+2023-10-01,Clothes,CL4454,25,Oxford Street,SP1
+2023-10-08,Clothes,CL4454,17,Oxford Street,SP1
+2023-10-15,Clothes,CL4454,10,Oxford Street,SP1
+2023-10-22,Clothes,CL4454,24,Oxford Street,SP1
+2023-10-29,Clothes,CL4454,13,Oxford Street,SP1
+2023-11-05,Clothes,CL4454,12,Oxford Street,SP1
+2023-11-12,Clothes,CL4454,5,Oxford Street,SP1
+2023-11-19,Clothes,CL4454,10,Oxford Street,SP1
+2023-11-26,Clothes,CL4454,28,Oxford Street,SP1
+2023-12-03,Clothes,CL4454,14,Oxford Street,SP1
+2023-12-10,Clothes,CL4454,9,Oxford Street,SP1
+2023-12-17,Clothes,CL4454,2,Oxford Street,SP1
+2023-12-24,Clothes,CL4454,20,Oxford Street,SP1
+2023-12-31,Clothes,CL4454,15,Oxford Street,SP1
+2023-10-01,Clothes,CL4454,12,Richmond,SP1
+2023-10-08,Clothes,CL4454,11,Richmond,SP1
+2023-10-15,Clothes,CL4454,7,Richmond,SP1
+2023-10-22,Clothes,CL4454,13,Richmond,SP1
+2023-10-29,Clothes,CL4454,9,Richmond,SP1
+2023-11-05,Clothes,CL4454,12,Richmond,SP1
+2023-11-12,Clothes,CL4454,10,Richmond,SP1
+2023-11-19,Clothes,CL4454,14,Richmond,SP1
+2023-11-26,Clothes,CL4454,10,Richmond,SP1
+2023-12-03,Clothes,CL4454,13,Richmond,SP1
+2023-12-10,Clothes,CL4454,11,Richmond,SP1
+2023-12-17,Clothes,CL4454,3,Richmond,SP1
+2023-12-24,Clothes,CL4454,11,Richmond,SP1
+2023-12-31,Clothes,CL4454,1,Richmond,SP1
+2023-10-01,Clothes,CL4454,8,Stratford,SP1
+2023-10-08,Clothes,CL4454,3,Stratford,SP1
+2023-10-15,Clothes,CL4454,9,Stratford,SP1
+2023-10-22,Clothes,CL4454,8,Stratford,SP1
+2023-10-29,Clothes,CL4454,7,Stratford,SP1
+2023-11-05,Clothes,CL4454,2,Stratford,SP1
+2023-11-12,Clothes,CL4454,16,Stratford,SP1
+2023-11-19,Clothes,CL4454,10,Stratford,SP1
+2023-11-26,Clothes,CL4454,16,Stratford,SP1
+2023-12-03,Clothes,CL4454,6,Stratford,SP1
+2023-12-10,Clothes,CL4454,11,Stratford,SP1
+2023-12-17,Clothes,CL4454,9,Stratford,SP1
+2023-12-24,Clothes,CL4454,8,Stratford,SP1
+2023-12-31,Clothes,CL4454,12,Stratford,SP1
+2023-10-01,Clothes,CL4454,24,Wembley,SP1
+2023-10-08,Clothes,CL4454,18,Wembley,SP1
+2023-10-15,Clothes,CL4454,10,Wembley,SP1
+2023-10-22,Clothes,CL4454,21,Wembley,SP1
+2023-10-29,Clothes,CL4454,7,Wembley,SP1
+2023-11-05,Clothes,CL4454,8,Wembley,SP1
+2023-11-12,Clothes,CL4454,15,Wembley,SP1
+2023-11-19,Clothes,CL4454,5,Wembley,SP1
+2023-11-26,Clothes,CL4454,20,Wembley,SP1
+2023-12-03,Clothes,CL4454,6,Wembley,SP1
+2023-12-10,Clothes,CL4454,7,Wembley,SP1
+2023-12-17,Clothes,CL4454,23,Wembley,SP1
+2023-12-24,Clothes,CL4454,20,Wembley,SP1
+2023-12-31,Clothes,CL4454,15,Wembley,SP1
+2023-10-01,Clothes,CL5675,12,Oxford Street,SP1
+2023-10-08,Clothes,CL5675,5,Oxford Street,SP1
+2023-10-15,Clothes,CL5675,30,Oxford Street,SP1
+2023-10-22,Clothes,CL5675,8,Oxford Street,SP1
+2023-10-29,Clothes,CL5675,10,Oxford Street,SP1
+2023-11-05,Clothes,CL5675,3,Oxford Street,SP1
+2023-11-12,Clothes,CL5675,25,Oxford Street,SP1
+2023-11-19,Clothes,CL5675,7,Oxford Street,SP1
+2023-11-26,Clothes,CL5675,3,Oxford Street,SP1
+2023-12-03,Clothes,CL5675,29,Oxford Street,SP1
+2023-12-10,Clothes,CL5675,25,Oxford Street,SP1
+2023-12-17,Clothes,CL5675,19,Oxford Street,SP1
+2023-12-24,Clothes,CL5675,14,Oxford Street,SP1
+2023-12-31,Clothes,CL5675,10,Oxford Street,SP1
+2023-10-01,Clothes,CL5675,29,Richmond,SP1
+2023-10-08,Clothes,CL5675,12,Richmond,SP1
+2023-10-15,Clothes,CL5675,5,Richmond,SP1
+2023-10-22,Clothes,CL5675,13,Richmond,SP1
+2023-10-29,Clothes,CL5675,3,Richmond,SP1
+2023-11-05,Clothes,CL5675,14,Richmond,SP1
+2023-11-12,Clothes,CL5675,10,Richmond,SP1
+2023-11-19,Clothes,CL5675,12,Richmond,SP1
+2023-11-26,Clothes,CL5675,11,Richmond,SP1
+2023-12-03,Clothes,CL5675,1,Richmond,SP1
+2023-12-10,Clothes,CL5675,15,Richmond,SP1
+2023-12-17,Clothes,CL5675,11,Richmond,SP1
+2023-12-24,Clothes,CL5675,10,Richmond,SP1
+2023-12-31,Clothes,CL5675,13,Richmond,SP1
+2023-10-01,Clothes,CL5675,11,Stratford,SP1
+2023-10-08,Clothes,CL5675,7,Stratford,SP1
+2023-10-15,Clothes,CL5675,11,Stratford,SP1
+2023-10-22,Clothes,CL5675,10,Stratford,SP1
+2023-10-29,Clothes,CL5675,13,Stratford,SP1
+2023-11-05,Clothes,CL5675,10,Stratford,SP1
+2023-11-12,Clothes,CL5675,17,Stratford,SP1
+2023-11-19,Clothes,CL5675,11,Stratford,SP1
+2023-11-26,Clothes,CL5675,1,Stratford,SP1
+2023-12-03,Clothes,CL5675,6,Stratford,SP1
+2023-12-10,Clothes,CL5675,10,Stratford,SP1
+2023-12-17,Clothes,CL5675,6,Stratford,SP1
+2023-12-24,Clothes,CL5675,4,Stratford,SP1
+2023-12-31,Clothes,CL5675,6,Stratford,SP1
+2023-10-01,Clothes,CL5675,3,Wembley,SP1
+2023-10-08,Clothes,CL5675,29,Wembley,SP1
+2023-10-15,Clothes,CL5675,25,Wembley,SP1
+2023-10-22,Clothes,CL5675,22,Wembley,SP1
+2023-10-29,Clothes,CL5675,12,Wembley,SP1
+2023-11-05,Clothes,CL5675,6,Wembley,SP1
+2023-11-12,Clothes,CL5675,23,Wembley,SP1
+2023-11-19,Clothes,CL5675,17,Wembley,SP1
+2023-11-26,Clothes,CL5675,14,Wembley,SP1
+2023-12-03,Clothes,CL5675,10,Wembley,SP1
+2023-12-10,Clothes,CL5675,20,Wembley,SP1
+2023-12-17,Clothes,CL5675,16,Wembley,SP1
+2023-12-24,Clothes,CL5675,13,Wembley,SP1
+2023-12-31,Clothes,CL5675,4,Wembley,SP1
+2023-10-01,Clothes,CL9489,25,Oxford Street,SP1
+2023-10-08,Clothes,CL9489,11,Oxford Street,SP1
+2023-10-15,Clothes,CL9489,8,Oxford Street,SP1
+2023-10-22,Clothes,CL9489,20,Oxford Street,SP1
+2023-10-29,Clothes,CL9489,16,Oxford Street,SP1
+2023-11-05,Clothes,CL9489,7,Oxford Street,SP1
+2023-11-12,Clothes,CL9489,18,Oxford Street,SP1
+2023-11-19,Clothes,CL9489,16,Oxford Street,SP1
+2023-11-26,Clothes,CL9489,10,Oxford Street,SP1
+2023-12-03,Clothes,CL9489,20,Oxford Street,SP1
+2023-12-10,Clothes,CL9489,11,Oxford Street,SP1
+2023-12-17,Clothes,CL9489,4,Oxford Street,SP1
+2023-12-24,Clothes,CL9489,11,Oxford Street,SP1
+2023-12-31,Clothes,CL9489,8,Oxford Street,SP1
+2023-10-01,Clothes,CL9489,11,Richmond,SP1
+2023-10-08,Clothes,CL9489,7,Richmond,SP1
+2023-10-15,Clothes,CL9489,6,Richmond,SP1
+2023-10-22,Clothes,CL9489,13,Richmond,SP1
+2023-10-29,Clothes,CL9489,13,Richmond,SP1
+2023-11-05,Clothes,CL9489,11,Richmond,SP1
+2023-11-12,Clothes,CL9489,4,Richmond,SP1
+2023-11-19,Clothes,CL9489,10,Richmond,SP1
+2023-11-26,Clothes,CL9489,11,Richmond,SP1
+2023-12-03,Clothes,CL9489,4,Richmond,SP1
+2023-12-10,Clothes,CL9489,10,Richmond,SP1
+2023-12-17,Clothes,CL9489,13,Richmond,SP1
+2023-12-24,Clothes,CL9489,5,Richmond,SP1
+2023-12-31,Clothes,CL9489,12,Richmond,SP1
+2023-10-01,Clothes,CL9489,6,Stratford,SP1
+2023-10-08,Clothes,CL9489,6,Stratford,SP1
+2023-10-15,Clothes,CL9489,26,Stratford,SP1
+2023-10-22,Clothes,CL9489,10,Stratford,SP1
+2023-10-29,Clothes,CL9489,4,Stratford,SP1
+2023-11-05,Clothes,CL9489,4,Stratford,SP1
+2023-11-12,Clothes,CL9489,6,Stratford,SP1
+2023-11-19,Clothes,CL9489,16,Stratford,SP1
+2023-11-26,Clothes,CL9489,4,Stratford,SP1
+2023-12-03,Clothes,CL9489,11,Stratford,SP1
+2023-12-10,Clothes,CL9489,11,Stratford,SP1
+2023-12-17,Clothes,CL9489,5,Stratford,SP1
+2023-12-24,Clothes,CL9489,13,Stratford,SP1
+2023-12-31,Clothes,CL9489,2,Stratford,SP1
+2023-10-01,Clothes,CL9489,24,Wembley,SP1
+2023-10-08,Clothes,CL9489,10,Wembley,SP1
+2023-10-15,Clothes,CL9489,12,Wembley,SP1
+2023-10-22,Clothes,CL9489,12,Wembley,SP1
+2023-10-29,Clothes,CL9489,11,Wembley,SP1
+2023-11-05,Clothes,CL9489,2,Wembley,SP1
+2023-11-12,Clothes,CL9489,18,Wembley,SP1
+2023-11-19,Clothes,CL9489,8,Wembley,SP1
+2023-11-26,Clothes,CL9489,21,Wembley,SP1
+2023-12-03,Clothes,CL9489,14,Wembley,SP1
+2023-12-10,Clothes,CL9489,6,Wembley,SP1
+2023-12-17,Clothes,CL9489,9,Wembley,SP1
+2023-12-24,Clothes,CL9489,4,Wembley,SP1
+2023-12-31,Clothes,CL9489,6,Wembley,SP1
+2023-10-01,Electronics,EL2859,18,Oxford Street,SP3
+2023-10-08,Electronics,EL2859,12,Oxford Street,SP3
+2023-10-15,Electronics,EL2859,10,Oxford Street,SP3
+2023-10-22,Electronics,EL2859,20,Oxford Street,SP3
+2023-10-29,Electronics,EL2859,12,Oxford Street,SP3
+2023-11-05,Electronics,EL2859,7,Oxford Street,SP3
+2023-11-12,Electronics,EL2859,20,Oxford Street,SP3
+2023-11-19,Electronics,EL2859,3,Oxford Street,SP3
+2023-11-26,Electronics,EL2859,29,Oxford Street,SP3
+2023-12-03,Electronics,EL2859,6,Oxford Street,SP3
+2023-12-10,Electronics,EL2859,21,Oxford Street,SP3
+2023-12-17,Electronics,EL2859,5,Oxford Street,SP3
+2023-12-24,Electronics,EL2859,15,Oxford Street,SP3
+2023-12-31,Electronics,EL2859,6,Oxford Street,SP3
+2023-10-01,Electronics,EL2859,13,Richmond,SP3
+2023-10-08,Electronics,EL2859,10,Richmond,SP3
+2023-10-15,Electronics,EL2859,14,Richmond,SP3
+2023-10-22,Electronics,EL2859,12,Richmond,SP3
+2023-10-29,Electronics,EL2859,10,Richmond,SP3
+2023-11-05,Electronics,EL2859,12,Richmond,SP3
+2023-11-12,Electronics,EL2859,10,Richmond,SP3
+2023-11-19,Electronics,EL2859,13,Richmond,SP3
+2023-11-26,Electronics,EL2859,11,Richmond,SP3
+2023-12-03,Electronics,EL2859,10,Richmond,SP3
+2023-12-10,Electronics,EL2859,13,Richmond,SP3
+2023-12-17,Electronics,EL2859,12,Richmond,SP3
+2023-12-24,Electronics,EL2859,11,Richmond,SP3
+2023-12-31,Electronics,EL2859,6,Richmond,SP3
+2023-10-01,Electronics,EL2859,6,Stratford,SP3
+2023-10-08,Electronics,EL2859,25,Stratford,SP3
+2023-10-15,Electronics,EL2859,8,Stratford,SP3
+2023-10-22,Electronics,EL2859,3,Stratford,SP3
+2023-10-29,Electronics,EL2859,5,Stratford,SP3
+2023-11-05,Electronics,EL2859,8,Stratford,SP3
+2023-11-12,Electronics,EL2859,11,Stratford,SP3
+2023-11-19,Electronics,EL2859,10,Stratford,SP3
+2023-11-26,Electronics,EL2859,14,Stratford,SP3
+2023-12-03,Electronics,EL2859,10,Stratford,SP3
+2023-12-10,Electronics,EL2859,12,Stratford,SP3
+2023-12-17,Electronics,EL2859,9,Stratford,SP3
+2023-12-24,Electronics,EL2859,9,Stratford,SP3
+2023-12-31,Electronics,EL2859,10,Stratford,SP3
+2023-10-01,Electronics,EL2859,10,Wembley,SP3
+2023-10-08,Electronics,EL2859,11,Wembley,SP3
+2023-10-15,Electronics,EL2859,6,Wembley,SP3
+2023-10-22,Electronics,EL2859,10,Wembley,SP3
+2023-10-29,Electronics,EL2859,6,Wembley,SP3
+2023-11-05,Electronics,EL2859,6,Wembley,SP3
+2023-11-12,Electronics,EL2859,14,Wembley,SP3
+2023-11-19,Electronics,EL2859,8,Wembley,SP3
+2023-11-26,Electronics,EL2859,25,Wembley,SP3
+2023-12-03,Electronics,EL2859,23,Wembley,SP3
+2023-12-10,Electronics,EL2859,18,Wembley,SP3
+2023-12-17,Electronics,EL2859,12,Wembley,SP3
+2023-12-24,Electronics,EL2859,9,Wembley,SP3
+2023-12-31,Electronics,EL2859,10,Wembley,SP3
+2023-10-01,Electronics,EL3785,18,Oxford Street,SP3
+2023-10-08,Electronics,EL3785,2,Oxford Street,SP3
+2023-10-15,Electronics,EL3785,11,Oxford Street,SP3
+2023-10-22,Electronics,EL3785,2,Oxford Street,SP3
+2023-10-29,Electronics,EL3785,11,Oxford Street,SP3
+2023-11-05,Electronics,EL3785,3,Oxford Street,SP3
+2023-11-12,Electronics,EL3785,13,Oxford Street,SP3
+2023-11-19,Electronics,EL3785,7,Oxford Street,SP3
+2023-11-26,Electronics,EL3785,25,Oxford Street,SP3
+2023-12-03,Electronics,EL3785,13,Oxford Street,SP3
+2023-12-10,Electronics,EL3785,11,Oxford Street,SP3
+2023-12-17,Electronics,EL3785,10,Oxford Street,SP3
+2023-12-24,Electronics,EL3785,13,Oxford Street,SP3
+2023-12-31,Electronics,EL3785,3,Oxford Street,SP3
+2023-10-01,Electronics,EL3785,14,Richmond,SP3
+2023-10-08,Electronics,EL3785,7,Richmond,SP3
+2023-10-15,Electronics,EL3785,11,Richmond,SP3
+2023-10-22,Electronics,EL3785,5,Richmond,SP3
+2023-10-29,Electronics,EL3785,14,Richmond,SP3
+2023-11-05,Electronics,EL3785,10,Richmond,SP3
+2023-11-12,Electronics,EL3785,11,Richmond,SP3
+2023-11-19,Electronics,EL3785,3,Richmond,SP3
+2023-11-26,Electronics,EL3785,14,Richmond,SP3
+2023-12-03,Electronics,EL3785,10,Richmond,SP3
+2023-12-10,Electronics,EL3785,9,Richmond,SP3
+2023-12-17,Electronics,EL3785,15,Richmond,SP3
+2023-12-24,Electronics,EL3785,11,Richmond,SP3
+2023-12-31,Electronics,EL3785,11,Richmond,SP3
+2023-10-01,Electronics,EL3785,11,Stratford,SP3
+2023-10-08,Electronics,EL3785,10,Stratford,SP3
+2023-10-15,Electronics,EL3785,2,Stratford,SP3
+2023-10-22,Electronics,EL3785,13,Stratford,SP3
+2023-10-29,Electronics,EL3785,9,Stratford,SP3
+2023-11-05,Electronics,EL3785,18,Stratford,SP3
+2023-11-12,Electronics,EL3785,7,Stratford,SP3
+2023-11-19,Electronics,EL3785,5,Stratford,SP3
+2023-11-26,Electronics,EL3785,6,Stratford,SP3
+2023-12-03,Electronics,EL3785,18,Stratford,SP3
+2023-12-10,Electronics,EL3785,16,Stratford,SP3
+2023-12-17,Electronics,EL3785,14,Stratford,SP3
+2023-12-24,Electronics,EL3785,5,Stratford,SP3
+2023-12-31,Electronics,EL3785,12,Stratford,SP3
+2023-10-01,Electronics,EL3785,10,Wembley,SP3
+2023-10-08,Electronics,EL3785,27,Wembley,SP3
+2023-10-15,Electronics,EL3785,10,Wembley,SP3
+2023-10-22,Electronics,EL3785,15,Wembley,SP3
+2023-10-29,Electronics,EL3785,6,Wembley,SP3
+2023-11-05,Electronics,EL3785,27,Wembley,SP3
+2023-11-12,Electronics,EL3785,5,Wembley,SP3
+2023-11-19,Electronics,EL3785,8,Wembley,SP3
+2023-11-26,Electronics,EL3785,20,Wembley,SP3
+2023-12-03,Electronics,EL3785,7,Wembley,SP3
+2023-12-10,Electronics,EL3785,11,Wembley,SP3
+2023-12-17,Electronics,EL3785,10,Wembley,SP3
+2023-12-24,Electronics,EL3785,12,Wembley,SP3
+2023-12-31,Electronics,EL3785,4,Wembley,SP3
+2023-10-01,Electronics,EL4339,10,Oxford Street,SP3
+2023-10-08,Electronics,EL4339,24,Oxford Street,SP3
+2023-10-15,Electronics,EL4339,11,Oxford Street,SP3
+2023-10-22,Electronics,EL4339,11,Oxford Street,SP3
+2023-10-29,Electronics,EL4339,3,Oxford Street,SP3
+2023-11-05,Electronics,EL4339,21,Oxford Street,SP3
+2023-11-12,Electronics,EL4339,7,Oxford Street,SP3
+2023-11-19,Electronics,EL4339,22,Oxford Street,SP3
+2023-11-26,Electronics,EL4339,11,Oxford Street,SP3
+2023-12-03,Electronics,EL4339,2,Oxford Street,SP3
+2023-12-10,Electronics,EL4339,20,Oxford Street,SP3
+2023-12-17,Electronics,EL4339,5,Oxford Street,SP3
+2023-12-24,Electronics,EL4339,10,Oxford Street,SP3
+2023-12-31,Electronics,EL4339,22,Oxford Street,SP3
+2023-10-01,Electronics,EL4339,13,Richmond,SP3
+2023-10-08,Electronics,EL4339,13,Richmond,SP3
+2023-10-15,Electronics,EL4339,11,Richmond,SP3
+2023-10-22,Electronics,EL4339,3,Richmond,SP3
+2023-10-29,Electronics,EL4339,15,Richmond,SP3
+2023-11-05,Electronics,EL4339,10,Richmond,SP3
+2023-11-12,Electronics,EL4339,11,Richmond,SP3
+2023-11-19,Electronics,EL4339,3,Richmond,SP3
+2023-11-26,Electronics,EL4339,11,Richmond,SP3
+2023-12-03,Electronics,EL4339,11,Richmond,SP3
+2023-12-10,Electronics,EL4339,1,Richmond,SP3
+2023-12-17,Electronics,EL4339,11,Richmond,SP3
+2023-12-24,Electronics,EL4339,11,Richmond,SP3
+2023-12-31,Electronics,EL4339,10,Richmond,SP3
+2023-10-01,Electronics,EL4339,3,Stratford,SP3
+2023-10-08,Electronics,EL4339,11,Stratford,SP3
+2023-10-15,Electronics,EL4339,5,Stratford,SP3
+2023-10-22,Electronics,EL4339,4,Stratford,SP3
+2023-10-29,Electronics,EL4339,7,Stratford,SP3
+2023-11-05,Electronics,EL4339,15,Stratford,SP3
+2023-11-12,Electronics,EL4339,4,Stratford,SP3
+2023-11-19,Electronics,EL4339,14,Stratford,SP3
+2023-11-26,Electronics,EL4339,6,Stratford,SP3
+2023-12-03,Electronics,EL4339,2,Stratford,SP3
+2023-12-10,Electronics,EL4339,13,Stratford,SP3
+2023-12-17,Electronics,EL4339,6,Stratford,SP3
+2023-12-24,Electronics,EL4339,8,Stratford,SP3
+2023-12-31,Electronics,EL4339,24,Stratford,SP3
+2023-10-01,Electronics,EL4339,28,Wembley,SP3
+2023-10-08,Electronics,EL4339,18,Wembley,SP3
+2023-10-15,Electronics,EL4339,4,Wembley,SP3
+2023-10-22,Electronics,EL4339,24,Wembley,SP3
+2023-10-29,Electronics,EL4339,23,Wembley,SP3
+2023-11-05,Electronics,EL4339,13,Wembley,SP3
+2023-11-12,Electronics,EL4339,11,Wembley,SP3
+2023-11-19,Electronics,EL4339,3,Wembley,SP3
+2023-11-26,Electronics,EL4339,4,Wembley,SP3
+2023-12-03,Electronics,EL4339,12,Wembley,SP3
+2023-12-10,Electronics,EL4339,10,Wembley,SP3
+2023-12-17,Electronics,EL4339,21,Wembley,SP3
+2023-12-24,Electronics,EL4339,20,Wembley,SP3
+2023-12-31,Electronics,EL4339,13,Wembley,SP3
+2023-10-01,Electronics,EL5291,17,Oxford Street,SP3
+2023-10-08,Electronics,EL5291,11,Oxford Street,SP3
+2023-10-15,Electronics,EL5291,2,Oxford Street,SP3
+2023-10-22,Electronics,EL5291,10,Oxford Street,SP3
+2023-10-29,Electronics,EL5291,26,Oxford Street,SP3
+2023-11-05,Electronics,EL5291,17,Oxford Street,SP3
+2023-11-12,Electronics,EL5291,1,Oxford Street,SP3
+2023-11-19,Electronics,EL5291,15,Oxford Street,SP3
+2023-11-26,Electronics,EL5291,6,Oxford Street,SP3
+2023-12-03,Electronics,EL5291,24,Oxford Street,SP3
+2023-12-10,Electronics,EL5291,24,Oxford Street,SP3
+2023-12-17,Electronics,EL5291,21,Oxford Street,SP3
+2023-12-24,Electronics,EL5291,16,Oxford Street,SP3
+2023-12-31,Electronics,EL5291,13,Oxford Street,SP3
+2023-10-01,Electronics,EL5291,10,Richmond,SP3
+2023-10-08,Electronics,EL5291,10,Richmond,SP3
+2023-10-15,Electronics,EL5291,9,Richmond,SP3
+2023-10-22,Electronics,EL5291,11,Richmond,SP3
+2023-10-29,Electronics,EL5291,5,Richmond,SP3
+2023-11-05,Electronics,EL5291,11,Richmond,SP3
+2023-11-12,Electronics,EL5291,10,Richmond,SP3
+2023-11-19,Electronics,EL5291,14,Richmond,SP3
+2023-11-26,Electronics,EL5291,7,Richmond,SP3
+2023-12-03,Electronics,EL5291,13,Richmond,SP3
+2023-12-10,Electronics,EL5291,9,Richmond,SP3
+2023-12-17,Electronics,EL5291,11,Richmond,SP3
+2023-12-24,Electronics,EL5291,8,Richmond,SP3
+2023-12-31,Electronics,EL5291,13,Richmond,SP3
+2023-10-01,Electronics,EL5291,10,Stratford,SP3
+2023-10-08,Electronics,EL5291,22,Stratford,SP3
+2023-10-15,Electronics,EL5291,19,Stratford,SP3
+2023-10-22,Electronics,EL5291,5,Stratford,SP3
+2023-10-29,Electronics,EL5291,8,Stratford,SP3
+2023-11-05,Electronics,EL5291,11,Stratford,SP3
+2023-11-12,Electronics,EL5291,9,Stratford,SP3
+2023-11-19,Electronics,EL5291,10,Stratford,SP3
+2023-11-26,Electronics,EL5291,8,Stratford,SP3
+2023-12-03,Electronics,EL5291,10,Stratford,SP3
+2023-12-10,Electronics,EL5291,8,Stratford,SP3
+2023-12-17,Electronics,EL5291,10,Stratford,SP3
+2023-12-24,Electronics,EL5291,5,Stratford,SP3
+2023-12-31,Electronics,EL5291,13,Stratford,SP3
+2023-10-01,Electronics,EL5291,14,Wembley,SP3
+2023-10-08,Electronics,EL5291,13,Wembley,SP3
+2023-10-15,Electronics,EL5291,6,Wembley,SP3
+2023-10-22,Electronics,EL5291,24,Wembley,SP3
+2023-10-29,Electronics,EL5291,19,Wembley,SP3
+2023-11-05,Electronics,EL5291,15,Wembley,SP3
+2023-11-12,Electronics,EL5291,10,Wembley,SP3
+2023-11-19,Electronics,EL5291,6,Wembley,SP3
+2023-11-26,Electronics,EL5291,19,Wembley,SP3
+2023-12-03,Electronics,EL5291,18,Wembley,SP3
+2023-12-10,Electronics,EL5291,12,Wembley,SP3
+2023-12-17,Electronics,EL5291,12,Wembley,SP3
+2023-12-24,Electronics,EL5291,7,Wembley,SP3
+2023-12-31,Electronics,EL5291,9,Wembley,SP3
+2023-10-01,Electronics,EL9846,15,Oxford Street,SP3
+2023-10-08,Electronics,EL9846,11,Oxford Street,SP3
+2023-10-15,Electronics,EL9846,6,Oxford Street,SP3
+2023-10-22,Electronics,EL9846,22,Oxford Street,SP3
+2023-10-29,Electronics,EL9846,16,Oxford Street,SP3
+2023-11-05,Electronics,EL9846,11,Oxford Street,SP3
+2023-11-12,Electronics,EL9846,10,Oxford Street,SP3
+2023-11-19,Electronics,EL9846,13,Oxford Street,SP3
+2023-11-26,Electronics,EL9846,9,Oxford Street,SP3
+2023-12-03,Electronics,EL9846,19,Oxford Street,SP3
+2023-12-10,Electronics,EL9846,13,Oxford Street,SP3
+2023-12-17,Electronics,EL9846,11,Oxford Street,SP3
+2023-12-24,Electronics,EL9846,6,Oxford Street,SP3
+2023-12-31,Electronics,EL9846,17,Oxford Street,SP3
+2023-10-01,Electronics,EL9846,10,Richmond,SP3
+2023-10-08,Electronics,EL9846,14,Richmond,SP3
+2023-10-15,Electronics,EL9846,11,Richmond,SP3
+2023-10-22,Electronics,EL9846,1,Richmond,SP3
+2023-10-29,Electronics,EL9846,12,Richmond,SP3
+2023-11-05,Electronics,EL9846,9,Richmond,SP3
+2023-11-12,Electronics,EL9846,14,Richmond,SP3
+2023-11-19,Electronics,EL9846,4,Richmond,SP3
+2023-11-26,Electronics,EL9846,11,Richmond,SP3
+2023-12-03,Electronics,EL9846,9,Richmond,SP3
+2023-12-10,Electronics,EL9846,11,Richmond,SP3
+2023-12-17,Electronics,EL9846,9,Richmond,SP3
+2023-12-24,Electronics,EL9846,15,Richmond,SP3
+2023-12-31,Electronics,EL9846,11,Richmond,SP3
+2023-10-01,Electronics,EL9846,28,Stratford,SP3
+2023-10-08,Electronics,EL9846,8,Stratford,SP3
+2023-10-15,Electronics,EL9846,5,Stratford,SP3
+2023-10-22,Electronics,EL9846,3,Stratford,SP3
+2023-10-29,Electronics,EL9846,6,Stratford,SP3
+2023-11-05,Electronics,EL9846,14,Stratford,SP3
+2023-11-12,Electronics,EL9846,13,Stratford,SP3
+2023-11-19,Electronics,EL9846,10,Stratford,SP3
+2023-11-26,Electronics,EL9846,2,Stratford,SP3
+2023-12-03,Electronics,EL9846,14,Stratford,SP3
+2023-12-10,Electronics,EL9846,4,Stratford,SP3
+2023-12-17,Electronics,EL9846,13,Stratford,SP3
+2023-12-24,Electronics,EL9846,6,Stratford,SP3
+2023-12-31,Electronics,EL9846,2,Stratford,SP3
+2023-10-01,Electronics,EL9846,11,Wembley,SP3
+2023-10-08,Electronics,EL9846,7,Wembley,SP3
+2023-10-15,Electronics,EL9846,12,Wembley,SP3
+2023-10-22,Electronics,EL9846,2,Wembley,SP3
+2023-10-29,Electronics,EL9846,14,Wembley,SP3
+2023-11-05,Electronics,EL9846,10,Wembley,SP3
+2023-11-12,Electronics,EL9846,28,Wembley,SP3
+2023-11-19,Electronics,EL9846,8,Wembley,SP3
+2023-11-26,Electronics,EL9846,18,Wembley,SP3
+2023-12-03,Electronics,EL9846,11,Wembley,SP3
+2023-12-10,Electronics,EL9846,4,Wembley,SP3
+2023-12-17,Electronics,EL9846,10,Wembley,SP3
+2023-12-24,Electronics,EL9846,28,Wembley,SP3
+2023-12-31,Electronics,EL9846,13,Wembley,SP3
+2023-10-01,Groceries,GR1571,27,Oxford Street,SP5
+2023-10-08,Groceries,GR1571,4,Oxford Street,SP5
+2023-10-15,Groceries,GR1571,17,Oxford Street,SP5
+2023-10-22,Groceries,GR1571,7,Oxford Street,SP5
+2023-10-29,Groceries,GR1571,11,Oxford Street,SP5
+2023-11-05,Groceries,GR1571,4,Oxford Street,SP5
+2023-11-12,Groceries,GR1571,14,Oxford Street,SP5
+2023-11-19,Groceries,GR1571,2,Oxford Street,SP5
+2023-11-26,Groceries,GR1571,18,Oxford Street,SP5
+2023-12-03,Groceries,GR1571,9,Oxford Street,SP5
+2023-12-10,Groceries,GR1571,19,Oxford Street,SP5
+2023-12-17,Groceries,GR1571,9,Oxford Street,SP5
+2023-12-24,Groceries,GR1571,28,Oxford Street,SP5
+2023-12-31,Groceries,GR1571,20,Oxford Street,SP5
+2023-10-01,Groceries,GR1571,13,Richmond,SP5
+2023-10-08,Groceries,GR1571,11,Richmond,SP5
+2023-10-15,Groceries,GR1571,2,Richmond,SP5
+2023-10-22,Groceries,GR1571,14,Richmond,SP5
+2023-10-29,Groceries,GR1571,10,Richmond,SP5
+2023-11-05,Groceries,GR1571,12,Richmond,SP5
+2023-11-12,Groceries,GR1571,2,Richmond,SP5
+2023-11-19,Groceries,GR1571,12,Richmond,SP5
+2023-11-26,Groceries,GR1571,10,Richmond,SP5
+2023-12-03,Groceries,GR1571,11,Richmond,SP5
+2023-12-10,Groceries,GR1571,10,Richmond,SP5
+2023-12-17,Groceries,GR1571,12,Richmond,SP5
+2023-12-24,Groceries,GR1571,10,Richmond,SP5
+2023-12-31,Groceries,GR1571,7,Richmond,SP5
+2023-10-01,Groceries,GR1571,11,Stratford,SP5
+2023-10-08,Groceries,GR1571,1,Stratford,SP5
+2023-10-15,Groceries,GR1571,3,Stratford,SP5
+2023-10-22,Groceries,GR1571,4,Stratford,SP5
+2023-10-29,Groceries,GR1571,20,Stratford,SP5
+2023-11-05,Groceries,GR1571,5,Stratford,SP5
+2023-11-12,Groceries,GR1571,12,Stratford,SP5
+2023-11-19,Groceries,GR1571,3,Stratford,SP5
+2023-11-26,Groceries,GR1571,19,Stratford,SP5
+2023-12-03,Groceries,GR1571,3,Stratford,SP5
+2023-12-10,Groceries,GR1571,29,Stratford,SP5
+2023-12-17,Groceries,GR1571,3,Stratford,SP5
+2023-12-24,Groceries,GR1571,22,Stratford,SP5
+2023-12-31,Groceries,GR1571,10,Stratford,SP5
+2023-10-01,Groceries,GR1571,24,Wembley,SP5
+2023-10-08,Groceries,GR1571,22,Wembley,SP5
+2023-10-15,Groceries,GR1571,16,Wembley,SP5
+2023-10-22,Groceries,GR1571,8,Wembley,SP5
+2023-10-29,Groceries,GR1571,8,Wembley,SP5
+2023-11-05,Groceries,GR1571,13,Wembley,SP5
+2023-11-12,Groceries,GR1571,13,Wembley,SP5
+2023-11-19,Groceries,GR1571,9,Wembley,SP5
+2023-11-26,Groceries,GR1571,12,Wembley,SP5
+2023-12-03,Groceries,GR1571,6,Wembley,SP5
+2023-12-10,Groceries,GR1571,11,Wembley,SP5
+2023-12-17,Groceries,GR1571,2,Wembley,SP5
+2023-12-24,Groceries,GR1571,26,Wembley,SP5
+2023-12-31,Groceries,GR1571,11,Wembley,SP5
+2023-10-01,Groceries,GR2429,18,Oxford Street,SP5
+2023-10-08,Groceries,GR2429,14,Oxford Street,SP5
+2023-10-15,Groceries,GR2429,9,Oxford Street,SP5
+2023-10-22,Groceries,GR2429,6,Oxford Street,SP5
+2023-10-29,Groceries,GR2429,14,Oxford Street,SP5
+2023-11-05,Groceries,GR2429,6,Oxford Street,SP5
+2023-11-12,Groceries,GR2429,12,Oxford Street,SP5
+2023-11-19,Groceries,GR2429,9,Oxford Street,SP5
+2023-11-26,Groceries,GR2429,6,Oxford Street,SP5
+2023-12-03,Groceries,GR2429,8,Oxford Street,SP5
+2023-12-10,Groceries,GR2429,27,Oxford Street,SP5
+2023-12-17,Groceries,GR2429,8,Oxford Street,SP5
+2023-12-24,Groceries,GR2429,4,Oxford Street,SP5
+2023-12-31,Groceries,GR2429,18,Oxford Street,SP5
+2023-10-01,Groceries,GR2429,9,Richmond,SP5
+2023-10-08,Groceries,GR2429,10,Richmond,SP5
+2023-10-15,Groceries,GR2429,15,Richmond,SP5
+2023-10-22,Groceries,GR2429,5,Richmond,SP5
+2023-10-29,Groceries,GR2429,10,Richmond,SP5
+2023-11-05,Groceries,GR2429,10,Richmond,SP5
+2023-11-12,Groceries,GR2429,11,Richmond,SP5
+2023-11-19,Groceries,GR2429,1,Richmond,SP5
+2023-11-26,Groceries,GR2429,14,Richmond,SP5
+2023-12-03,Groceries,GR2429,11,Richmond,SP5
+2023-12-10,Groceries,GR2429,7,Richmond,SP5
+2023-12-17,Groceries,GR2429,12,Richmond,SP5
+2023-12-24,Groceries,GR2429,2,Richmond,SP5
+2023-12-31,Groceries,GR2429,14,Richmond,SP5
+2023-10-01,Groceries,GR2429,10,Stratford,SP5
+2023-10-08,Groceries,GR2429,15,Stratford,SP5
+2023-10-15,Groceries,GR2429,13,Stratford,SP5
+2023-10-22,Groceries,GR2429,5,Stratford,SP5
+2023-10-29,Groceries,GR2429,14,Stratford,SP5
+2023-11-05,Groceries,GR2429,13,Stratford,SP5
+2023-11-12,Groceries,GR2429,5,Stratford,SP5
+2023-11-19,Groceries,GR2429,12,Stratford,SP5
+2023-11-26,Groceries,GR2429,3,Stratford,SP5
+2023-12-03,Groceries,GR2429,4,Stratford,SP5
+2023-12-10,Groceries,GR2429,14,Stratford,SP5
+2023-12-17,Groceries,GR2429,12,Stratford,SP5
+2023-12-24,Groceries,GR2429,10,Stratford,SP5
+2023-12-31,Groceries,GR2429,11,Stratford,SP5
+2023-10-01,Groceries,GR2429,13,Wembley,SP5
+2023-10-08,Groceries,GR2429,9,Wembley,SP5
+2023-10-15,Groceries,GR2429,7,Wembley,SP5
+2023-10-22,Groceries,GR2429,27,Wembley,SP5
+2023-10-29,Groceries,GR2429,11,Wembley,SP5
+2023-11-05,Groceries,GR2429,5,Wembley,SP5
+2023-11-12,Groceries,GR2429,2,Wembley,SP5
+2023-11-19,Groceries,GR2429,28,Wembley,SP5
+2023-11-26,Groceries,GR2429,22,Wembley,SP5
+2023-12-03,Groceries,GR2429,18,Wembley,SP5
+2023-12-10,Groceries,GR2429,9,Wembley,SP5
+2023-12-17,Groceries,GR2429,29,Wembley,SP5
+2023-12-24,Groceries,GR2429,21,Wembley,SP5
+2023-12-31,Groceries,GR2429,17,Wembley,SP5
+2023-10-01,Groceries,GR3688,14,Oxford Street,SP5
+2023-10-08,Groceries,GR3688,10,Oxford Street,SP5
+2023-10-15,Groceries,GR3688,26,Oxford Street,SP5
+2023-10-22,Groceries,GR3688,14,Oxford Street,SP5
+2023-10-29,Groceries,GR3688,12,Oxford Street,SP5
+2023-11-05,Groceries,GR3688,6,Oxford Street,SP5
+2023-11-12,Groceries,GR3688,17,Oxford Street,SP5
+2023-11-19,Groceries,GR3688,13,Oxford Street,SP5
+2023-11-26,Groceries,GR3688,6,Oxford Street,SP5
+2023-12-03,Groceries,GR3688,14,Oxford Street,SP5
+2023-12-10,Groceries,GR3688,9,Oxford Street,SP5
+2023-12-17,Groceries,GR3688,10,Oxford Street,SP5
+2023-12-24,Groceries,GR3688,14,Oxford Street,SP5
+2023-12-31,Groceries,GR3688,10,Oxford Street,SP5
+2023-10-01,Groceries,GR3688,14,Richmond,SP5
+2023-10-08,Groceries,GR3688,7,Richmond,SP5
+2023-10-15,Groceries,GR3688,10,Richmond,SP5
+2023-10-22,Groceries,GR3688,10,Richmond,SP5
+2023-10-29,Groceries,GR3688,10,Richmond,SP5
+2023-11-05,Groceries,GR3688,12,Richmond,SP5
+2023-11-12,Groceries,GR3688,8,Richmond,SP5
+2023-11-19,Groceries,GR3688,15,Richmond,SP5
+2023-11-26,Groceries,GR3688,14,Richmond,SP5
+2023-12-03,Groceries,GR3688,11,Richmond,SP5
+2023-12-10,Groceries,GR3688,1,Richmond,SP5
+2023-12-17,Groceries,GR3688,11,Richmond,SP5
+2023-12-24,Groceries,GR3688,1,Richmond,SP5
+2023-12-31,Groceries,GR3688,15,Richmond,SP5
+2023-10-01,Groceries,GR3688,8,Stratford,SP5
+2023-10-08,Groceries,GR3688,6,Stratford,SP5
+2023-10-15,Groceries,GR3688,22,Stratford,SP5
+2023-10-22,Groceries,GR3688,10,Stratford,SP5
+2023-10-29,Groceries,GR3688,22,Stratford,SP5
+2023-11-05,Groceries,GR3688,4,Stratford,SP5
+2023-11-12,Groceries,GR3688,28,Stratford,SP5
+2023-11-19,Groceries,GR3688,15,Stratford,SP5
+2023-11-26,Groceries,GR3688,7,Stratford,SP5
+2023-12-03,Groceries,GR3688,5,Stratford,SP5
+2023-12-10,Groceries,GR3688,6,Stratford,SP5
+2023-12-17,Groceries,GR3688,3,Stratford,SP5
+2023-12-24,Groceries,GR3688,6,Stratford,SP5
+2023-12-31,Groceries,GR3688,14,Stratford,SP5
+2023-10-01,Groceries,GR3688,5,Wembley,SP5
+2023-10-08,Groceries,GR3688,30,Wembley,SP5
+2023-10-15,Groceries,GR3688,26,Wembley,SP5
+2023-10-22,Groceries,GR3688,12,Wembley,SP5
+2023-10-29,Groceries,GR3688,4,Wembley,SP5
+2023-11-05,Groceries,GR3688,18,Wembley,SP5
+2023-11-12,Groceries,GR3688,12,Wembley,SP5
+2023-11-19,Groceries,GR3688,4,Wembley,SP5
+2023-11-26,Groceries,GR3688,27,Wembley,SP5
+2023-12-03,Groceries,GR3688,10,Wembley,SP5
+2023-12-10,Groceries,GR3688,25,Wembley,SP5
+2023-12-17,Groceries,GR3688,24,Wembley,SP5
+2023-12-24,Groceries,GR3688,5,Wembley,SP5
+2023-12-31,Groceries,GR3688,30,Wembley,SP5
+2023-10-01,Groceries,GR4215,17,Oxford Street,SP5
+2023-10-08,Groceries,GR4215,10,Oxford Street,SP5
+2023-10-15,Groceries,GR4215,29,Oxford Street,SP5
+2023-10-22,Groceries,GR4215,24,Oxford Street,SP5
+2023-10-29,Groceries,GR4215,17,Oxford Street,SP5
+2023-11-05,Groceries,GR4215,13,Oxford Street,SP5
+2023-11-12,Groceries,GR4215,11,Oxford Street,SP5
+2023-11-19,Groceries,GR4215,7,Oxford Street,SP5
+2023-11-26,Groceries,GR4215,12,Oxford Street,SP5
+2023-12-03,Groceries,GR4215,7,Oxford Street,SP5
+2023-12-10,Groceries,GR4215,12,Oxford Street,SP5
+2023-12-17,Groceries,GR4215,9,Oxford Street,SP5
+2023-12-24,Groceries,GR4215,11,Oxford Street,SP5
+2023-12-31,Groceries,GR4215,5,Oxford Street,SP5
+2023-10-01,Groceries,GR4215,12,Richmond,SP5
+2023-10-08,Groceries,GR4215,9,Richmond,SP5
+2023-10-15,Groceries,GR4215,14,Richmond,SP5
+2023-10-22,Groceries,GR4215,13,Richmond,SP5
+2023-10-29,Groceries,GR4215,9,Richmond,SP5
+2023-11-05,Groceries,GR4215,15,Richmond,SP5
+2023-11-12,Groceries,GR4215,11,Richmond,SP5
+2023-11-19,Groceries,GR4215,1,Richmond,SP5
+2023-11-26,Groceries,GR4215,13,Richmond,SP5
+2023-12-03,Groceries,GR4215,12,Richmond,SP5
+2023-12-10,Groceries,GR4215,6,Richmond,SP5
+2023-12-17,Groceries,GR4215,15,Richmond,SP5
+2023-12-24,Groceries,GR4215,9,Richmond,SP5
+2023-12-31,Groceries,GR4215,13,Richmond,SP5
+2023-10-01,Groceries,GR4215,11,Stratford,SP5
+2023-10-08,Groceries,GR4215,9,Stratford,SP5
+2023-10-15,Groceries,GR4215,8,Stratford,SP5
+2023-10-22,Groceries,GR4215,7,Stratford,SP5
+2023-10-29,Groceries,GR4215,3,Stratford,SP5
+2023-11-05,Groceries,GR4215,10,Stratford,SP5
+2023-11-12,Groceries,GR4215,6,Stratford,SP5
+2023-11-19,Groceries,GR4215,13,Stratford,SP5
+2023-11-26,Groceries,GR4215,3,Stratford,SP5
+2023-12-03,Groceries,GR4215,9,Stratford,SP5
+2023-12-10,Groceries,GR4215,14,Stratford,SP5
+2023-12-17,Groceries,GR4215,12,Stratford,SP5
+2023-12-24,Groceries,GR4215,2,Stratford,SP5
+2023-12-31,Groceries,GR4215,7,Stratford,SP5
+2023-10-01,Groceries,GR4215,15,Wembley,SP5
+2023-10-08,Groceries,GR4215,9,Wembley,SP5
+2023-10-15,Groceries,GR4215,20,Wembley,SP5
+2023-10-22,Groceries,GR4215,13,Wembley,SP5
+2023-10-29,Groceries,GR4215,9,Wembley,SP5
+2023-11-05,Groceries,GR4215,20,Wembley,SP5
+2023-11-12,Groceries,GR4215,18,Wembley,SP5
+2023-11-19,Groceries,GR4215,15,Wembley,SP5
+2023-11-26,Groceries,GR4215,8,Wembley,SP5
+2023-12-03,Groceries,GR4215,22,Wembley,SP5
+2023-12-10,Groceries,GR4215,12,Wembley,SP5
+2023-12-17,Groceries,GR4215,4,Wembley,SP5
+2023-12-24,Groceries,GR4215,6,Wembley,SP5
+2023-12-31,Groceries,GR4215,26,Wembley,SP5
+2023-10-01,Groceries,GR8357,12,Oxford Street,SP5
+2023-10-08,Groceries,GR8357,12,Oxford Street,SP5
+2023-10-15,Groceries,GR8357,4,Oxford Street,SP5
+2023-10-22,Groceries,GR8357,11,Oxford Street,SP5
+2023-10-29,Groceries,GR8357,4,Oxford Street,SP5
+2023-11-05,Groceries,GR8357,20,Oxford Street,SP5
+2023-11-12,Groceries,GR8357,6,Oxford Street,SP5
+2023-11-19,Groceries,GR8357,10,Oxford Street,SP5
+2023-11-26,Groceries,GR8357,15,Oxford Street,SP5
+2023-12-03,Groceries,GR8357,13,Oxford Street,SP5
+2023-12-10,Groceries,GR8357,8,Oxford Street,SP5
+2023-12-17,Groceries,GR8357,20,Oxford Street,SP5
+2023-12-24,Groceries,GR8357,11,Oxford Street,SP5
+2023-12-31,Groceries,GR8357,5,Oxford Street,SP5
+2023-10-01,Groceries,GR8357,12,Richmond,SP5
+2023-10-08,Groceries,GR8357,10,Richmond,SP5
+2023-10-15,Groceries,GR8357,2,Richmond,SP5
+2023-10-22,Groceries,GR8357,12,Richmond,SP5
+2023-10-29,Groceries,GR8357,10,Richmond,SP5
+2023-11-05,Groceries,GR8357,13,Richmond,SP5
+2023-11-12,Groceries,GR8357,12,Richmond,SP5
+2023-11-19,Groceries,GR8357,11,Richmond,SP5
+2023-11-26,Groceries,GR8357,10,Richmond,SP5
+2023-12-03,Groceries,GR8357,4,Richmond,SP5
+2023-12-10,Groceries,GR8357,11,Richmond,SP5
+2023-12-17,Groceries,GR8357,9,Richmond,SP5
+2023-12-24,Groceries,GR8357,15,Richmond,SP5
+2023-12-31,Groceries,GR8357,11,Richmond,SP5
+2023-10-01,Groceries,GR8357,5,Stratford,SP5
+2023-10-08,Groceries,GR8357,21,Stratford,SP5
+2023-10-15,Groceries,GR8357,18,Stratford,SP5
+2023-10-22,Groceries,GR8357,3,Stratford,SP5
+2023-10-29,Groceries,GR8357,24,Stratford,SP5
+2023-11-05,Groceries,GR8357,13,Stratford,SP5
+2023-11-12,Groceries,GR8357,11,Stratford,SP5
+2023-11-19,Groceries,GR8357,3,Stratford,SP5
+2023-11-26,Groceries,GR8357,9,Stratford,SP5
+2023-12-03,Groceries,GR8357,19,Stratford,SP5
+2023-12-10,Groceries,GR8357,6,Stratford,SP5
+2023-12-17,Groceries,GR8357,11,Stratford,SP5
+2023-12-24,Groceries,GR8357,2,Stratford,SP5
+2023-12-31,Groceries,GR8357,9,Stratford,SP5
+2023-10-01,Groceries,GR8357,3,Wembley,SP5
+2023-10-08,Groceries,GR8357,21,Wembley,SP5
+2023-10-15,Groceries,GR8357,12,Wembley,SP5
+2023-10-22,Groceries,GR8357,1,Wembley,SP5
+2023-10-29,Groceries,GR8357,15,Wembley,SP5
+2023-11-05,Groceries,GR8357,14,Wembley,SP5
+2023-11-12,Groceries,GR8357,10,Wembley,SP5
+2023-11-19,Groceries,GR8357,20,Wembley,SP5
+2023-11-26,Groceries,GR8357,8,Wembley,SP5
+2023-12-03,Groceries,GR8357,13,Wembley,SP5
+2023-12-10,Groceries,GR8357,6,Wembley,SP5
+2023-12-17,Groceries,GR8357,20,Wembley,SP5
+2023-12-24,Groceries,GR8357,3,Wembley,SP5
+2023-12-31,Groceries,GR8357,28,Wembley,SP5
+2023-10-01,Home,HO1212,22,Oxford Street,SP2
+2023-10-08,Home,HO1212,11,Oxford Street,SP2
+2023-10-15,Home,HO1212,10,Oxford Street,SP2
+2023-10-22,Home,HO1212,10,Oxford Street,SP2
+2023-10-29,Home,HO1212,3,Oxford Street,SP2
+2023-11-05,Home,HO1212,16,Oxford Street,SP2
+2023-11-12,Home,HO1212,10,Oxford Street,SP2
+2023-11-19,Home,HO1212,28,Oxford Street,SP2
+2023-11-26,Home,HO1212,25,Oxford Street,SP2
+2023-12-03,Home,HO1212,10,Oxford Street,SP2
+2023-12-10,Home,HO1212,14,Oxford Street,SP2
+2023-12-17,Home,HO1212,6,Oxford Street,SP2
+2023-12-24,Home,HO1212,10,Oxford Street,SP2
+2023-12-31,Home,HO1212,16,Oxford Street,SP2
+2023-10-01,Home,HO1212,14,Richmond,SP2
+2023-10-08,Home,HO1212,6,Richmond,SP2
+2023-10-15,Home,HO1212,11,Richmond,SP2
+2023-10-22,Home,HO1212,7,Richmond,SP2
+2023-10-29,Home,HO1212,13,Richmond,SP2
+2023-11-05,Home,HO1212,10,Richmond,SP2
+2023-11-12,Home,HO1212,15,Richmond,SP2
+2023-11-19,Home,HO1212,11,Richmond,SP2
+2023-11-26,Home,HO1212,6,Richmond,SP2
+2023-12-03,Home,HO1212,13,Richmond,SP2
+2023-12-10,Home,HO1212,3,Richmond,SP2
+2023-12-17,Home,HO1212,13,Richmond,SP2
+2023-12-24,Home,HO1212,6,Richmond,SP2
+2023-12-31,Home,HO1212,8,Richmond,SP2
+2023-10-01,Home,HO1212,10,Stratford,SP2
+2023-10-08,Home,HO1212,9,Stratford,SP2
+2023-10-15,Home,HO1212,10,Stratford,SP2
+2023-10-22,Home,HO1212,12,Stratford,SP2
+2023-10-29,Home,HO1212,3,Stratford,SP2
+2023-11-05,Home,HO1212,13,Stratford,SP2
+2023-11-12,Home,HO1212,7,Stratford,SP2
+2023-11-19,Home,HO1212,7,Stratford,SP2
+2023-11-26,Home,HO1212,8,Stratford,SP2
+2023-12-03,Home,HO1212,10,Stratford,SP2
+2023-12-10,Home,HO1212,15,Stratford,SP2
+2023-12-17,Home,HO1212,9,Stratford,SP2
+2023-12-24,Home,HO1212,5,Stratford,SP2
+2023-12-31,Home,HO1212,23,Stratford,SP2
+2023-10-01,Home,HO1212,16,Wembley,SP2
+2023-10-08,Home,HO1212,5,Wembley,SP2
+2023-10-15,Home,HO1212,24,Wembley,SP2
+2023-10-22,Home,HO1212,21,Wembley,SP2
+2023-10-29,Home,HO1212,21,Wembley,SP2
+2023-11-05,Home,HO1212,16,Wembley,SP2
+2023-11-12,Home,HO1212,13,Wembley,SP2
+2023-11-19,Home,HO1212,3,Wembley,SP2
+2023-11-26,Home,HO1212,25,Wembley,SP2
+2023-12-03,Home,HO1212,19,Wembley,SP2
+2023-12-10,Home,HO1212,6,Wembley,SP2
+2023-12-17,Home,HO1212,26,Wembley,SP2
+2023-12-24,Home,HO1212,21,Wembley,SP2
+2023-12-31,Home,HO1212,11,Wembley,SP2
+2023-10-01,Home,HO2617,28,Oxford Street,SP2
+2023-10-08,Home,HO2617,14,Oxford Street,SP2
+2023-10-15,Home,HO2617,7,Oxford Street,SP2
+2023-10-22,Home,HO2617,12,Oxford Street,SP2
+2023-10-29,Home,HO2617,10,Oxford Street,SP2
+2023-11-05,Home,HO2617,21,Oxford Street,SP2
+2023-11-12,Home,HO2617,20,Oxford Street,SP2
+2023-11-19,Home,HO2617,12,Oxford Street,SP2
+2023-11-26,Home,HO2617,12,Oxford Street,SP2
+2023-12-03,Home,HO2617,12,Oxford Street,SP2
+2023-12-10,Home,HO2617,4,Oxford Street,SP2
+2023-12-17,Home,HO2617,19,Oxford Street,SP2
+2023-12-24,Home,HO2617,8,Oxford Street,SP2
+2023-12-31,Home,HO2617,9,Oxford Street,SP2
+2023-10-01,Home,HO2617,14,Richmond,SP2
+2023-10-08,Home,HO2617,6,Richmond,SP2
+2023-10-15,Home,HO2617,13,Richmond,SP2
+2023-10-22,Home,HO2617,3,Richmond,SP2
+2023-10-29,Home,HO2617,7,Richmond,SP2
+2023-11-05,Home,HO2617,12,Richmond,SP2
+2023-11-12,Home,HO2617,4,Richmond,SP2
+2023-11-19,Home,HO2617,13,Richmond,SP2
+2023-11-26,Home,HO2617,7,Richmond,SP2
+2023-12-03,Home,HO2617,5,Richmond,SP2
+2023-12-10,Home,HO2617,3,Richmond,SP2
+2023-12-17,Home,HO2617,15,Richmond,SP2
+2023-12-24,Home,HO2617,12,Richmond,SP2
+2023-12-31,Home,HO2617,11,Richmond,SP2
+2023-10-01,Home,HO2617,10,Stratford,SP2
+2023-10-08,Home,HO2617,8,Stratford,SP2
+2023-10-15,Home,HO2617,12,Stratford,SP2
+2023-10-22,Home,HO2617,7,Stratford,SP2
+2023-10-29,Home,HO2617,24,Stratford,SP2
+2023-11-05,Home,HO2617,4,Stratford,SP2
+2023-11-12,Home,HO2617,26,Stratford,SP2
+2023-11-19,Home,HO2617,10,Stratford,SP2
+2023-11-26,Home,HO2617,5,Stratford,SP2
+2023-12-03,Home,HO2617,28,Stratford,SP2
+2023-12-10,Home,HO2617,10,Stratford,SP2
+2023-12-17,Home,HO2617,11,Stratford,SP2
+2023-12-24,Home,HO2617,8,Stratford,SP2
+2023-12-31,Home,HO2617,5,Stratford,SP2
+2023-10-01,Home,HO2617,23,Wembley,SP2
+2023-10-08,Home,HO2617,6,Wembley,SP2
+2023-10-15,Home,HO2617,8,Wembley,SP2
+2023-10-22,Home,HO2617,10,Wembley,SP2
+2023-10-29,Home,HO2617,12,Wembley,SP2
+2023-11-05,Home,HO2617,12,Wembley,SP2
+2023-11-12,Home,HO2617,12,Wembley,SP2
+2023-11-19,Home,HO2617,9,Wembley,SP2
+2023-11-26,Home,HO2617,26,Wembley,SP2
+2023-12-03,Home,HO2617,11,Wembley,SP2
+2023-12-10,Home,HO2617,11,Wembley,SP2
+2023-12-17,Home,HO2617,8,Wembley,SP2
+2023-12-24,Home,HO2617,27,Wembley,SP2
+2023-12-31,Home,HO2617,24,Wembley,SP2
+2023-10-01,Home,HO4293,16,Oxford Street,SP2
+2023-10-08,Home,HO4293,10,Oxford Street,SP2
+2023-10-15,Home,HO4293,10,Oxford Street,SP2
+2023-10-22,Home,HO4293,19,Oxford Street,SP2
+2023-10-29,Home,HO4293,12,Oxford Street,SP2
+2023-11-05,Home,HO4293,3,Oxford Street,SP2
+2023-11-12,Home,HO4293,21,Oxford Street,SP2
+2023-11-19,Home,HO4293,10,Oxford Street,SP2
+2023-11-26,Home,HO4293,8,Oxford Street,SP2
+2023-12-03,Home,HO4293,27,Oxford Street,SP2
+2023-12-10,Home,HO4293,26,Oxford Street,SP2
+2023-12-17,Home,HO4293,19,Oxford Street,SP2
+2023-12-24,Home,HO4293,13,Oxford Street,SP2
+2023-12-31,Home,HO4293,11,Oxford Street,SP2
+2023-10-01,Home,HO4293,11,Richmond,SP2
+2023-10-08,Home,HO4293,2,Richmond,SP2
+2023-10-15,Home,HO4293,10,Richmond,SP2
+2023-10-22,Home,HO4293,15,Richmond,SP2
+2023-10-29,Home,HO4293,1,Richmond,SP2
+2023-11-05,Home,HO4293,11,Richmond,SP2
+2023-11-12,Home,HO4293,5,Richmond,SP2
+2023-11-19,Home,HO4293,13,Richmond,SP2
+2023-11-26,Home,HO4293,11,Richmond,SP2
+2023-12-03,Home,HO4293,6,Richmond,SP2
+2023-12-10,Home,HO4293,10,Richmond,SP2
+2023-12-17,Home,HO4293,8,Richmond,SP2
+2023-12-24,Home,HO4293,9,Richmond,SP2
+2023-12-31,Home,HO4293,11,Richmond,SP2
+2023-10-01,Home,HO4293,1,Stratford,SP2
+2023-10-08,Home,HO4293,4,Stratford,SP2
+2023-10-15,Home,HO4293,24,Stratford,SP2
+2023-10-22,Home,HO4293,8,Stratford,SP2
+2023-10-29,Home,HO4293,25,Stratford,SP2
+2023-11-05,Home,HO4293,9,Stratford,SP2
+2023-11-12,Home,HO4293,11,Stratford,SP2
+2023-11-19,Home,HO4293,11,Stratford,SP2
+2023-11-26,Home,HO4293,7,Stratford,SP2
+2023-12-03,Home,HO4293,9,Stratford,SP2
+2023-12-10,Home,HO4293,26,Stratford,SP2
+2023-12-17,Home,HO4293,20,Stratford,SP2
+2023-12-24,Home,HO4293,11,Stratford,SP2
+2023-12-31,Home,HO4293,2,Stratford,SP2
+2023-10-01,Home,HO4293,15,Wembley,SP2
+2023-10-08,Home,HO4293,15,Wembley,SP2
+2023-10-15,Home,HO4293,12,Wembley,SP2
+2023-10-22,Home,HO4293,10,Wembley,SP2
+2023-10-29,Home,HO4293,11,Wembley,SP2
+2023-11-05,Home,HO4293,7,Wembley,SP2
+2023-11-12,Home,HO4293,15,Wembley,SP2
+2023-11-19,Home,HO4293,10,Wembley,SP2
+2023-11-26,Home,HO4293,22,Wembley,SP2
+2023-12-03,Home,HO4293,17,Wembley,SP2
+2023-12-10,Home,HO4293,15,Wembley,SP2
+2023-12-17,Home,HO4293,11,Wembley,SP2
+2023-12-24,Home,HO4293,10,Wembley,SP2
+2023-12-31,Home,HO4293,4,Wembley,SP2
+2023-10-01,Home,HO7446,23,Oxford Street,SP2
+2023-10-08,Home,HO7446,16,Oxford Street,SP2
+2023-10-15,Home,HO7446,9,Oxford Street,SP2
+2023-10-22,Home,HO7446,19,Oxford Street,SP2
+2023-10-29,Home,HO7446,13,Oxford Street,SP2
+2023-11-05,Home,HO7446,5,Oxford Street,SP2
+2023-11-12,Home,HO7446,15,Oxford Street,SP2
+2023-11-19,Home,HO7446,10,Oxford Street,SP2
+2023-11-26,Home,HO7446,21,Oxford Street,SP2
+2023-12-03,Home,HO7446,11,Oxford Street,SP2
+2023-12-10,Home,HO7446,7,Oxford Street,SP2
+2023-12-17,Home,HO7446,12,Oxford Street,SP2
+2023-12-24,Home,HO7446,8,Oxford Street,SP2
+2023-12-31,Home,HO7446,10,Oxford Street,SP2
+2023-10-01,Home,HO7446,14,Richmond,SP2
+2023-10-08,Home,HO7446,10,Richmond,SP2
+2023-10-15,Home,HO7446,11,Richmond,SP2
+2023-10-22,Home,HO7446,2,Richmond,SP2
+2023-10-29,Home,HO7446,10,Richmond,SP2
+2023-11-05,Home,HO7446,12,Richmond,SP2
+2023-11-12,Home,HO7446,2,Richmond,SP2
+2023-11-19,Home,HO7446,12,Richmond,SP2
+2023-11-26,Home,HO7446,10,Richmond,SP2
+2023-12-03,Home,HO7446,10,Richmond,SP2
+2023-12-10,Home,HO7446,10,Richmond,SP2
+2023-12-17,Home,HO7446,7,Richmond,SP2
+2023-12-24,Home,HO7446,15,Richmond,SP2
+2023-12-31,Home,HO7446,12,Richmond,SP2
+2023-10-01,Home,HO7446,6,Stratford,SP2
+2023-10-08,Home,HO7446,25,Stratford,SP2
+2023-10-15,Home,HO7446,2,Stratford,SP2
+2023-10-22,Home,HO7446,3,Stratford,SP2
+2023-10-29,Home,HO7446,29,Stratford,SP2
+2023-11-05,Home,HO7446,6,Stratford,SP2
+2023-11-12,Home,HO7446,10,Stratford,SP2
+2023-11-19,Home,HO7446,10,Stratford,SP2
+2023-11-26,Home,HO7446,28,Stratford,SP2
+2023-12-03,Home,HO7446,15,Stratford,SP2
+2023-12-10,Home,HO7446,10,Stratford,SP2
+2023-12-17,Home,HO7446,30,Stratford,SP2
+2023-12-24,Home,HO7446,11,Stratford,SP2
+2023-12-31,Home,HO7446,6,Stratford,SP2
+2023-10-01,Home,HO7446,23,Wembley,SP2
+2023-10-08,Home,HO7446,14,Wembley,SP2
+2023-10-15,Home,HO7446,12,Wembley,SP2
+2023-10-22,Home,HO7446,10,Wembley,SP2
+2023-10-29,Home,HO7446,27,Wembley,SP2
+2023-11-05,Home,HO7446,23,Wembley,SP2
+2023-11-12,Home,HO7446,10,Wembley,SP2
+2023-11-19,Home,HO7446,22,Wembley,SP2
+2023-11-26,Home,HO7446,14,Wembley,SP2
+2023-12-03,Home,HO7446,6,Wembley,SP2
+2023-12-10,Home,HO7446,7,Wembley,SP2
+2023-12-17,Home,HO7446,12,Wembley,SP2
+2023-12-24,Home,HO7446,4,Wembley,SP2
+2023-12-31,Home,HO7446,21,Wembley,SP2
+2023-10-01,Home,HO8575,11,Oxford Street,SP2
+2023-10-08,Home,HO8575,1,Oxford Street,SP2
+2023-10-15,Home,HO8575,9,Oxford Street,SP2
+2023-10-22,Home,HO8575,26,Oxford Street,SP2
+2023-10-29,Home,HO8575,22,Oxford Street,SP2
+2023-11-05,Home,HO8575,20,Oxford Street,SP2
+2023-11-12,Home,HO8575,17,Oxford Street,SP2
+2023-11-19,Home,HO8575,13,Oxford Street,SP2
+2023-11-26,Home,HO8575,11,Oxford Street,SP2
+2023-12-03,Home,HO8575,10,Oxford Street,SP2
+2023-12-10,Home,HO8575,19,Oxford Street,SP2
+2023-12-17,Home,HO8575,9,Oxford Street,SP2
+2023-12-24,Home,HO8575,22,Oxford Street,SP2
+2023-12-31,Home,HO8575,14,Oxford Street,SP2
+2023-10-01,Home,HO8575,14,Richmond,SP2
+2023-10-08,Home,HO8575,11,Richmond,SP2
+2023-10-15,Home,HO8575,3,Richmond,SP2
+2023-10-22,Home,HO8575,15,Richmond,SP2
+2023-10-29,Home,HO8575,13,Richmond,SP2
+2023-11-05,Home,HO8575,12,Richmond,SP2
+2023-11-12,Home,HO8575,6,Richmond,SP2
+2023-11-19,Home,HO8575,11,Richmond,SP2
+2023-11-26,Home,HO8575,1,Richmond,SP2
+2023-12-03,Home,HO8575,12,Richmond,SP2
+2023-12-10,Home,HO8575,11,Richmond,SP2
+2023-12-17,Home,HO8575,4,Richmond,SP2
+2023-12-24,Home,HO8575,11,Richmond,SP2
+2023-12-31,Home,HO8575,1,Richmond,SP2
+2023-10-01,Home,HO8575,11,Stratford,SP2
+2023-10-08,Home,HO8575,11,Stratford,SP2
+2023-10-15,Home,HO8575,10,Stratford,SP2
+2023-10-22,Home,HO8575,7,Stratford,SP2
+2023-10-29,Home,HO8575,3,Stratford,SP2
+2023-11-05,Home,HO8575,6,Stratford,SP2
+2023-11-12,Home,HO8575,24,Stratford,SP2
+2023-11-19,Home,HO8575,6,Stratford,SP2
+2023-11-26,Home,HO8575,9,Stratford,SP2
+2023-12-03,Home,HO8575,5,Stratford,SP2
+2023-12-10,Home,HO8575,8,Stratford,SP2
+2023-12-17,Home,HO8575,2,Stratford,SP2
+2023-12-24,Home,HO8575,7,Stratford,SP2
+2023-12-31,Home,HO8575,6,Stratford,SP2
+2023-10-01,Home,HO8575,3,Wembley,SP2
+2023-10-08,Home,HO8575,25,Wembley,SP2
+2023-10-15,Home,HO8575,20,Wembley,SP2
+2023-10-22,Home,HO8575,17,Wembley,SP2
+2023-10-29,Home,HO8575,14,Wembley,SP2
+2023-11-05,Home,HO8575,13,Wembley,SP2
+2023-11-12,Home,HO8575,12,Wembley,SP2
+2023-11-19,Home,HO8575,12,Wembley,SP2
+2023-11-26,Home,HO8575,10,Wembley,SP2
+2023-12-03,Home,HO8575,30,Wembley,SP2
+2023-12-10,Home,HO8575,15,Wembley,SP2
+2023-12-17,Home,HO8575,7,Wembley,SP2
+2023-12-24,Home,HO8575,17,Wembley,SP2
+2023-12-31,Home,HO8575,11,Wembley,SP2

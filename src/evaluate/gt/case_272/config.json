@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Month", "Category"],
+      "columns": {
+        "Month": "text_exact",
+        "Category": "text_exact",
+        "Actual Spending": "number",
+        "Budget": "number",
+        "Difference": "number"
+      }
+    }
+  }
+}
+

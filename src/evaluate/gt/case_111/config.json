@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Breakdown", "Number of Tourists", "Month", "Country"],
+      "columns": {
+        "Breakdown": "text_exact",
+        "Number of Tourists": "text_exact",
+        "Month": "text_exact",
+        "Country": "text_exact"
+      }
+    }
+  }
+}

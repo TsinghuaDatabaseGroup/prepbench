@@ -1,0 +1,29 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "student_id",
+        "first_name",
+        "last_name",
+        "Gender",
+        "D.O.B",
+        "2021",
+        "2022",
+        "Difference",
+        "Progress"
+      ],
+      "columns": {
+        "student_id": "number",
+        "first_name": "text_exact",
+        "last_name": "text_exact",
+        "Gender": "text_exact",
+        "D.O.B": "date",
+        "2021": "number",
+        "2022": "number",
+        "Difference": "number",
+        "Progress": "text_exact"
+      }
+    }
+  }
+}
+

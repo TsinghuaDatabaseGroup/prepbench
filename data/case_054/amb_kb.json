@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_week_boundary_mid_latest",
+      "kind": "Operation boundary",
+      "node_id": "budget_choose",
+      "op": "project",
+      "intent": "Choose mid vs latest budget fields based on whether Week is <=5 (mid) or >=6 (latest), including boundary weeks 5 and 6.",
+      "ref": "df_budget[\"Budget Volume\"] = df_budget.apply(lambda r: r.get(\"Budget Volume_mid\") if r[\"Week\"] <= 5 else r.get(\"Budget Volume_latest\"), axis=1)"
+    },
+    {
+      "id": "2_O1_budget_not_reached_strict_lt",
+      "kind": "Operation boundary",
+      "node_id": "budget_filter",
+      "op": "filter",
+      "source_text": "Join the tables but only return those that haven't reached the budget expected for either Value or Volume",
+      "ref": "cond_not_reach = (df_budget[\"Sales Volume\"] < df_budget[\"Budget Volume\"]) | (df_budget[\"Sales Value\"] < df_budget[\"Budget Value\"])"
+    },
+    {
+      "id": "3_O1_budget_week_scope_5_to_8",
+      "kind": "Operation boundary",
+      "node_id": "budget_filter",
+      "op": "filter",
+      "intent": "Limit budget comparison output to weeks 5 through 8 inclusive.",
+      "ref": "cond_week = df_budget[\"Week\"].between(5, 8)"
+    },
+    {
+      "id": "4_O3_exclude_profit_exceed_from_budget_output",
+      "kind": "Operation inconsistent",
+      "node_id": "budget_filter",
+      "op": "filter",
+      "intent": "Exclude (Type, Week) rows that exceeded profit minimums (both volume and value) from the budget exception output.",
+      "ref": "out01 = df_budget.loc[cond_week & (~df_budget[\"exceed\"]) & cond_not_reach]"
+    },
+    {
+      "id": "5_O2_budget_section_header_detection",
+      "kind": "Operation incomplete",
+      "node_id": "budget_promote",
+      "op": "project",
+      "intent": "Identify the budget section header row by finding a row containing Type and Measure plus date-like columns.",
+      "ref": "if (\"Type\" in row) and (\"Measure\" in row) and any(\"00:00:00\" in c for c in row): header_idx = i"
+    },
+    {
+      "id": "6_C1_budget_type_mapping",
+      "kind": "Row-level concept",
+      "node_id": "budget_select",
+      "op": "project",
+      "intent": "Map messy budget Type strings to standardized categories: contains Bar->bar, contains Liquid->liquid.",
+      "ref": "def norm_type(t: str) -> str: if \"bar\" in t: return \"bar\"; if \"liquid\" in t: return \"liquid\""
+    },
+    {
+      "id": "7_O1_budget_date_columns_mid_latest_selection",
+      "kind": "Operation incomplete",
+      "node_id": "budget_select",
+      "op": "project",
+      "intent": "Select the chronologically middle and latest budget date columns.",
+      "ref": "mid_col = date_cols_sorted[1] if len(date_cols_sorted) >= 2 else date_cols_sorted[0]\nlatest_col = date_cols_sorted[-1]"
+    },
+    {
+      "id": "8_D2_join_budget_on_type",
+      "kind": "Multi-table alignment",
+      "node_id": "join_budget",
+      "op": "join",
+      "source_text": "Join the tables but only return those that haven't reached the budget expected",
+      "ref": "df_budget = weekly.merge(budgets, on=\"Type\", how=\"left\")"
+    },
+    {
+      "id": "9_D2_join_profit_on_type_week",
+      "kind": "Multi-table alignment",
+      "node_id": "join_profit",
+      "op": "join",
+      "source_text": "Join the tables but only bring back those that have exceeded their Profit Min points",
+      "ref": "df_profit = weekly.merge(profit_min, on=[\"Type\", \"Week\"], how=\"inner\")"
+    },
+    {
+      "id": "10_O2_profit_week_id_parse",
+      "kind": "Operation incomplete",
+      "node_id": "profit_clean",
+      "op": "project",
+      "intent": "Keep only profit-min rows whose Week matches the '2020_<number>' pattern and extract the numeric week.",
+      "ref": "profit_df = profit_df[profit_df[\"Week\"].astype(str).str.contains(\"2020_\")]\nprofit_df[\"Week\"] = profit_df[\"Week\"].astype(str).str.extract(r\"2020_(\\d+)\").astype(int)"
+    },
+    {
+      "id": "11_O1_profit_exceed_inclusive_ge",
+      "kind": "Operation boundary",
+      "node_id": "profit_exceed",
+      "op": "filter",
+      "source_text": "exceeded their Profit Min points for both Value and Volume",
+      "ref": "cond_profit = (df_profit[\"Sales Volume\"] >= df_profit[\"Profit Min Sales Volume\"]) & (df_profit[\"Sales Value\"] >= df_profit[\"Profit Min Sales Value\"])"
+    },
+    {
+      "id": "12_O2_profit_section_header_detection",
+      "kind": "Operation incomplete",
+      "node_id": "profit_promote",
+      "op": "project",
+      "intent": "Identify the profit-min section header row by finding a row containing Week, Type, and Profit Min Sales Volume.",
+      "ref": "if (\"Week\" in row) and (\"Type\" in row) and (\"Profit Min Sales Volume\" in row): header_idx = i"
+    },
+    {
+      "id": "13_D1_sales_measure_column_aliasing",
+      "kind": "Single-table reference",
+      "node_id": "proj_sales",
+      "op": "project",
+      "intent": "Accept sales inputs that use Volume/Value columns by renaming them to Sales Volume/Sales Value.",
+      "ref": "df = df.rename(columns={\"Volume\": \"Sales Volume\", \"Value\": \"Sales Value\"})"
+    }
+  ]
+}

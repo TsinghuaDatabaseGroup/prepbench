@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_start_balance_date_from_snapshot",
+      "kind": "Row-level concept",
+      "node_id": "accinfo_tmp",
+      "op": "project",
+      "intent": "For the starting-balance row, use the snapshot's Balance Date as the Transaction Date (rather than a hardcoded date).",
+      "ref": "account_info_clean[\"Transaction Date\"] = account_info_clean[\"Balance Date\"]"
+    },
+    {
+      "id": "2_O2_append_starting_balance_row",
+      "kind": "Row-level concept",
+      "node_id": "all_data",
+      "op": "union",
+      "source_text": "Bring the data together with the Balance as of 31st Jan",
+      "ref": "all_data = pd.concat(\n        [all_transactions, account_info_clean], ignore_index=True)"
+    },
+    {
+      "id": "5_C1_cancelled_flag_y_excluded",
+      "kind": "Row-level concept",
+      "node_id": "detail_keep",
+      "op": "filter",
+      "source_text": "Filter out the cancelled transactions",
+      "ref": "transaction_detail = transaction_detail[transaction_detail[\"Cancelled?\"] != \"Y\"].copy(\n    )"
+    },
+    {
+      "id": "6_D1_incoming_account_to",
+      "kind": "Single-table reference",
+      "node_id": "incoming_add",
+      "op": "project",
+      "source_text": "Split the flow into incoming and outgoing transactions",
+      "ref": "incoming = incoming.rename(columns={\"Account To\": \"Account Number\"})"
+    },
+    {
+      "id": "8_C2_outgoing_value_negative",
+      "kind": "Row-level concept",
+      "node_id": "outgoing_add",
+      "op": "project",
+      "source_text": "Split the flow into incoming and outgoing transactions",
+      "ref": "outgoing[\"Value\"] = -outgoing[\"Value\"]"
+    },
+    {
+      "id": "9_D1_outgoing_account_from",
+      "kind": "Single-table reference",
+      "node_id": "outgoing_add",
+      "op": "project",
+      "source_text": "Split the flow into incoming and outgoing transactions",
+      "ref": "outgoing = outgoing.rename(columns={\"Account From\": \"Account Number\"})"
+    },
+    {
+      "id": "10_D2_join_on_transaction_id",
+      "kind": "Multi-table alignment",
+      "node_id": "txn_join",
+      "op": "join",
+      "intent": "Join Transaction Path to Transaction Detail by matching on Transaction ID.",
+      "ref": "on=\"Transaction ID\","
+    },
+    {
+      "id": "11_O2_inner_join_only_matches",
+      "kind": "Operation incomplete",
+      "node_id": "txn_join",
+      "op": "join",
+      "intent": "When combining Transaction Path and Transaction Detail, keep only rows present in both tables (inner join).",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "12_O3_union_keep_duplicates",
+      "kind": "Operation incomplete",
+      "node_id": "txn_union",
+      "op": "union",
+      "intent": "When unioning incoming and outgoing transactions, do not deduplicate rows (keep duplicates).",
+      "ref": "all_transactions = pd.concat([outgoing, incoming], ignore_index=True)"
+    },
+    {
+      "id": "new_1_final_sort_statement_rows",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_output",
+      "op": "sort",
+      "intent": "Sort final statement rows by Account Number, Balance Date, and Transaction Value ascending, with null Transaction Value last.",
+      "ref": "output = output.sort_values(\n        by=[\"Account Number\", \"Balance Date\", \"Transaction Value\"],\n        ascending=[True, True, True],\n        na_position=\"last\"\n    ).reset_index(drop=True)"
+    }
+  ]
+}

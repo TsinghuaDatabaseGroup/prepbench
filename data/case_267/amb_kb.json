@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_whole_months_difference",
+      "kind": "Row-level concept",
+      "node_id": "compute_payments",
+      "op": "project",
+      "source_text": "Calculate the number of months between the payment date and April 2024",
+      "ref": "def months_between(start_year: int, start_month: int, end_year: int, end_month: int) -> int:\n        return (end_year - start_year) * 12 + (end_month - start_month)"
+    },
+    {
+      "id": "2_D2_attach_plan_as_single_record",
+      "kind": "Multi-table alignment",
+      "node_id": "cross_join",
+      "op": "join",
+      "source_text": "Join with the Repayment details table",
+      "ref": "plan_row = df_plan.loc[df_plan[\"Loan\"].str.strip().str.lower() == \"undergraduate\"].iloc[0]"
+    },
+    {
+      "id": "3_O2_choose_single_salary_value",
+      "kind": "Single-table reference",
+      "node_id": "final_compute",
+      "op": "project",
+      "source_text": "Introduce a Salary parameter with values: £30,000, £35,000, £40,000",
+      "ref": "salary = 35000.0"
+    },
+    {
+      "id": "4_O1_repayment_then_next_month_interest",
+      "kind": "Row-level concept",
+      "node_id": "final_compute",
+      "op": "project",
+      "source_text": "Also work out how much interest will be applied in the following month after repayment",
+      "ref": "current_balance_after_repayment = max(0.0, total_with_interest - monthly_repayment)\ninterest_next_month = current_balance_after_repayment * monthly_rate"
+    },
+    {
+      "id": "5_O1_clamp_negative_balance_to_zero",
+      "kind": "Operation incomplete",
+      "node_id": "final_compute",
+      "op": "project",
+      "intent": "Clamp the post-repayment balance to zero if repayment exceeds the balance.",
+      "ref": "current_balance_after_repayment = max(0.0, total_with_interest - monthly_repayment)"
+    },
+    {
+      "id": "6_C2_monthly_rate_equals_annual_div_12",
+      "kind": "Row-level concept",
+      "node_id": "plan_const",
+      "op": "project",
+      "source_text": "Interest is 7.7% applied monthly (compound)",
+      "ref": "monthly_rate = annual_interest / 12.0"
+    },
+    {
+      "id": "7_D1_select_undergraduate_plan_row",
+      "kind": "Single-table reference",
+      "node_id": "plan_filter",
+      "op": "filter",
+      "source_text": "Graduates are on Plan 2 student loans",
+      "ref": "plan_row = df_plan.loc[df_plan[\"Loan\"].str.strip().str.lower() == \"undergraduate\"].iloc[0]"
+    }
+  ]
+}

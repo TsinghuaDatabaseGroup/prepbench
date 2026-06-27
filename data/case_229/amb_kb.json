@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_sort_enumeration_within_school",
+      "kind": "Row-level concept",
+      "node_id": "add_sort",
+      "op": "project",
+      "intent": "Define Sort as a per-school row counter in the sorted order starting at 1.",
+      "ref": "pivot[\"Sort\"] = pivot.groupby(\"School Name\").cumcount() + 1"
+    },
+    {
+      "id": "2_O2_missing_category_columns_default_zero",
+      "kind": "Operation incomplete",
+      "node_id": "cast_costs",
+      "op": "project",
+      "intent": "If any of the four category columns are absent entirely after pivoting, create them with value 0.",
+      "ref": "for col in cost_cols:\n\t\tif col not in pivot.columns:\n\t\t\tpivot[col] = 0"
+    },
+    {
+      "id": "3_O2_non_numeric_category_values_as_zero_int",
+      "kind": "Operation incomplete",
+      "node_id": "cast_costs",
+      "op": "project",
+      "intent": "Treat missing or non-numeric category values as 0 and cast the four category columns to integers.",
+      "ref": "pivot[col] = pd.to_numeric(pivot[col], errors=\"coerce\").fillna(0).astype(int)"
+    },
+    {
+      "id": "4_C2_total_cost_sum_of_four_categories",
+      "kind": "Row-level concept",
+      "node_id": "compute_total_and_date",
+      "op": "project",
+      "source_text": "Calculate the total monthly cost for each school",
+      "ref": "pivot[\"Total Cost\"] = pivot[cost_cols].sum(axis=1).astype(int)"
+    },
+    {
+      "id": "6_O2_month_parse_name_else_numeric",
+      "kind": "Operation incomplete",
+      "node_id": "compute_total_and_date",
+      "op": "project",
+      "intent": "Convert Month using English month-name mapping; if not an English name, interpret Month as a numeric month value instead.",
+      "ref": "month_num = pivot[\"Month\"].map(month_to_num)\nif month_num.isna().any():\n\t\tmonth_num = pd.to_numeric(pivot[\"Month\"], errors=\"coerce\")\npivot[\"_month_num\"] = month_num"
+    },
+    {
+      "id": "7_C2_output_grain_school_year_month",
+      "kind": "Group-level concept",
+      "node_id": "pivot",
+      "op": "pivot",
+      "source_text": "each row is the monthly costs broken down into each category, for each school",
+      "ref": "index=[\"School Name\", \"Year\", \"Month\"],"
+    },
+    {
+      "id": "8_D1_category_and_amount_columns_name_value",
+      "kind": "Single-table reference",
+      "node_id": "pivot",
+      "op": "pivot",
+      "intent": "Use input column Name as the category and Value as the numeric amount when pivoting.",
+      "ref": "columns=\"Name\",\n\t\tvalues=\"Value\","
+    },
+    {
+      "id": "9_O3_duplicate_line_items_summed",
+      "kind": "Operation inconsistent",
+      "node_id": "pivot",
+      "op": "pivot",
+      "intent": "If multiple rows map to the same School Name/Year/Month/category, resolve the conflict by summing their Value amounts.",
+      "ref": "aggfunc=\"sum\","
+    },
+    {
+      "id": "10_O1_sort_by_school_then_year_then_monthnum",
+      "kind": "Row-level concept",
+      "node_id": "sort_rows",
+      "op": "sort",
+      "source_text": "Make it so that the dataset is ordered by month, for each school",
+      "ref": "pivot = pivot.sort_values(by=[\"School Name\", \"Year\", \"_month_num\"]).reset_index(drop=True)"
+    },
+    {
+      "id": "11_O3_union_stack_without_dedup",
+      "kind": "Operation inconsistent",
+      "node_id": "u",
+      "op": "union",
+      "source_text": "Consolidate the data from the 4 input files into 1 data set",
+      "ref": "raw = pd.concat(frames, ignore_index=True)"
+    }
+  ]
+}

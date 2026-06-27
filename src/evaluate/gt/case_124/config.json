@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "The Worst Pokémon",
+        "Evolution Group",
+        "Appearances"
+      ],
+      "columns": {
+        "The Worst Pokémon": "number",
+        "Evolution Group": "text_exact",
+        "Appearances": "number"
+      }
+    }
+  }
+}
+

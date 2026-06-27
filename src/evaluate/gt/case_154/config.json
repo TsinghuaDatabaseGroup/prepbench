@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Passed Subjects",
+        "Student's Avg Score",
+        "Student ID",
+        "Gender"
+      ],
+      "columns": {
+        "Passed Subjects": "text_exact",
+        "Student's Avg Score": "text_exact",
+        "Student ID": "text_exact",
+        "Gender": "text_exact"
+      }
+    }
+  }
+}

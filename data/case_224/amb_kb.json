@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_on_student_name",
+      "kind": "Multi-table alignment",
+      "node_id": "join",
+      "op": "join",
+      "source_text": "First we must join the test score data set and the additional class attendance data set",
+      "ref": "merged_df = pd.merge(\n        attendance_df,\n        test_scores_df,\n        on=\"student_name\",\n        how=\"inner\"\n    )"
+    },
+    {
+      "id": "2_O2_join_type_inner_only_matches",
+      "kind": "Operation incomplete",
+      "node_id": "join",
+      "op": "join",
+      "source_text": "First we must join the test score data set and the additional class attendance data set",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "3_O2_scores_header_second_row",
+      "kind": "Operation incomplete",
+      "node_id": "input_scores",
+      "op": "input",
+      "intent": "Parse scores file with header on second row (skip first row).",
+      "ref": "header=1"
+    },
+    {
+      "id": "4_C2_testscoreinteger_half_up_rounding",
+      "kind": "Operation boundary",
+      "node_id": "project_transform",
+      "op": "project",
+      "source_text": "each number is a rounded to the nearest whole number",
+      "ref": "def standard_round(x):\n        return int(math.floor(x + 0.5))"
+    },
+    {
+      "id": "5_O1_student_name_split_first_underscore",
+      "kind": "Operation boundary",
+      "node_id": "project_transform",
+      "op": "project",
+      "source_text": "Split the student name column so we can see the first name and surname in two separate columns, named appropriately",
+      "ref": "name_parts = merged_df[\"student_name\"].str.split(\"_\", n=1, expand=True)\nmerged_df[\"First Name\"] = name_parts[0].str.strip()\nmerged_df[\"Surname\"] = name_parts[1].str.strip()"
+    },
+    {
+      "id": "6_O1_attendance_threshold_boundaries",
+      "kind": "Operation boundary",
+      "node_id": "project_transform",
+      "op": "project",
+      "source_text": "If any student has an attendance percentage less than 70%, flag it as 'Low Attendance'",
+      "ref": "def get_attendance_flag(percentage):\n        if percentage >= 0.90:\n            return \"High Attendance\"\n        elif percentage >= 0.70:\n            return \"Medium Attendance\"\n        else:\n            return \"Low Attendance\""
+    }
+  ]
+}

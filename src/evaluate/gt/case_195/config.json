@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Order ID",
+        "Order Number",
+        "Customer",
+        "Order Date"
+      ],
+      "columns": {
+        "Order ID": "text_exact",
+        "Order Number": "number",
+        "Customer": "text_exact",
+        "Order Date": "date"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "AssociationRule",
+        "LHSItem",
+        "RHSItem"
+      ],
+      "columns": {
+        "AssociationRule": "text_exact",
+        "LHSItem": "text_exact",
+        "RHSItem": "text_exact",
+        "LHS Support": "number",
+        "RHS Support": "number",
+        "Confidence": "number",
+        "Lift": "number"
+      }
+    }
+  }
+}
+

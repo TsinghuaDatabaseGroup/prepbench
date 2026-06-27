@@ -1,0 +1,20 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Payment Date",
+        "Name",
+        "Monthly Cost",
+        "Contract Length (months)",
+        "Start Date"
+      ],
+      "columns": {
+        "Payment Date": "date",
+        "Name": "text_exact",
+        "Monthly Cost": "number",
+        "Contract Length (months)": "number",
+        "Start Date": "date"
+      }
+    }
+  }
+}

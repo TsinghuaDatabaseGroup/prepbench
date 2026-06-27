@@ -1,0 +1,19 @@
+Project,Sub-project,Task,Owner,Scheduled Date,Completed In Days from Scheduled Date
+New Loyalty Scheme,Marketing,Scope,Tom,2021-04-19,0
+New Loyalty Scheme,Marketing,Build,Tom,2021-04-21,2
+New Loyalty Scheme,Marketing,Deliver,Tom,2021-04-30,5
+New Loyalty Scheme,Operations,Scope,Jenny,2021-04-15,0
+New Loyalty Scheme,Operations,Build,Jenny,2021-04-23,3
+New Loyalty Scheme,Operations,Deliver,Jenny,2021-04-28,4
+Spring Sale,Marketing,Scope,Carl,2021-04-22,0
+Spring Sale,Marketing,Build,Carl,2021-04-29,6
+Spring Sale,Marketing,Deliver,Carl,2021-05-04,3
+Spring Sale,Operations,Scope,Jonathan,2021-04-25,0
+Spring Sale,Operations,Build,Jonathan,2021-04-28,2
+Spring Sale,Operations,Deliver,Jonathan,2021-05-02,4
+New Trolley Inventory,Marketing,Scope,Tom,2021-05-02,0
+New Trolley Inventory,Marketing,Build,Tom,2021-05-04,3
+New Trolley Inventory,Marketing,Deliver,Tom,2021-05-12,5
+New Trolley Inventory,Operations,Scope,Jenny,2021-04-30,0
+New Trolley Inventory,Operations,Build,Jenny,2021-05-05,2
+New Trolley Inventory,Operations,Deliver,Jenny,2021-05-11,6

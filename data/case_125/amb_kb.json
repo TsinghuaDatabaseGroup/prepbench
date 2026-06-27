@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_overall_daily_preagg",
+      "kind": "Group-level concept",
+      "node_id": "aggregate_daily",
+      "op": "aggregate",
+      "intent": "For the overall (\"all destinations\") rolling metrics, first aggregate revenue per Date into a daily total and daily record count before rolling.",
+      "ref": "daily = df.groupby(\"Date\").agg(**{\"Daily Total\": (\"Revenue\", \"sum\"), \"Daily Count\": (\"Revenue\", \"size\")})"
+    },
+    {
+      "id": "2_O1_round_avg_9dp",
+      "kind": "Operation boundary",
+      "node_id": "project_format",
+      "op": "project",
+      "intent": "Round Rolling Week Avg to 9 decimal places in the final output.",
+      "ref": "out[\"Rolling Week Avg\"] = out[\"Rolling Week Avg\"].round(9)"
+    },
+    {
+      "id": "3_O1_round_total_int",
+      "kind": "Operation boundary",
+      "node_id": "project_format",
+      "op": "project",
+      "intent": "Round Rolling Week Total to a whole number and output it as an integer.",
+      "ref": "out[\"Rolling Week Total\"] = out[\"Rolling Week Total\"].round(0).astype(int)"
+    },
+    {
+      "id": "4_O2_dayfirst_date_parse",
+      "kind": "Operation boundary",
+      "node_id": "project_parse_date",
+      "op": "project",
+      "intent": "Parse Date using day-first format (DD/MM/YYYY).",
+      "ref": "df[\"Date\"] = pd.to_datetime(df[\"Date\"], dayfirst=True)"
+    },
+    {
+      "id": "5_C1_all_destination_label",
+      "kind": "Row-level concept",
+      "node_id": "script_all_rolling",
+      "op": "script",
+      "source_text": "an overall number for all destinations",
+      "ref": "all_out.insert(0, \"Destination\", \"All\")"
+    },
+    {
+      "id": "6_C2_overall_avg_formula",
+      "kind": "Group-level concept",
+      "node_id": "script_all_rolling",
+      "op": "script",
+      "intent": "For the overall rolling average, compute it as Rolling Total Sum divided by Rolling Count Sum.",
+      "ref": "daily[\"Rolling Week Avg\"] = daily[\"Rolling Total Sum\"] / daily[\"Rolling Count Sum\"]"
+    },
+    {
+      "id": "7_C2_centered_7row_window",
+      "kind": "Group-level concept",
+      "node_id": "script_dest_rolling",
+      "op": "script",
+      "source_text": "3 days before and 3 days after a date as well as that day itself",
+      "ref": "g[\"Revenue\"].rolling(window=7, center=True, min_periods=1)"
+    },
+    {
+      "id": "8_O3_union_keep_duplicates",
+      "kind": "Operation boundary",
+      "node_id": "union_all",
+      "op": "union",
+      "intent": "When combining per-destination and overall results, append (union) rows without deduplicating.",
+      "ref": "out = pd.concat([dest_out, all_out], ignore_index=True)"
+    }
+  ]
+}

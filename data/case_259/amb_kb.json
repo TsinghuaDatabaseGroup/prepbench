@@ -1,0 +1,12 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_key_includes_class",
+      "kind": "Multi-table alignment",
+      "node_id": "anti",
+      "op": "join",
+      "source_text": "Join on the Seating Plan data to ensure you have a data set for every seat on the plane",
+      "ref": "merged = plan.merge(booked_keys, on=[\"Class\", \"Seat\", \"Row\"], how=\"left\", indicator=True)"
+    }
+  ]
+}

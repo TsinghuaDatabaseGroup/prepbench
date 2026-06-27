@@ -1,0 +1,13 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": ["status_before_withdrawal", "withdrawals", "total_in_status", "pct_withdrawn"],
+            "columns": {
+                "status_before_withdrawal": "text_exact",
+                "withdrawals": "number",
+                "total_in_status": "number",
+                "pct_withdrawn": "number"
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Rank",
+        "Coach",
+        "Calories",
+        "Music Type",
+        "Date",
+        "Mins"
+      ],
+      "columns": {
+        "Rank": "number",
+        "Coach": "text_exact",
+        "Calories": "number",
+        "Music Type": "text_exact",
+        "Date": "date",
+        "Mins": "number"
+      }
+    }
+  }
+}

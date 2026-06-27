@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_member_mean",
+      "kind": "Group-level concept",
+      "node_id": "avg_per_member",
+      "op": "aggregate",
+      "source_text": "Number 1 is the highest estimated average Estimated Sales per Day",
+      "ref": "df_avg = (\n        df_member_days.groupby([\"Store\", \"Team Member\"], as_index=False)[\"Est per Staff per Day\"].mean()\n    )"
+    },
+    {
+      "id": "2_O2_inner_join_member_days",
+      "kind": "Operation incomplete",
+      "node_id": "member_days",
+      "op": "join",
+      "source_text": "Join Store Sales and Team Member Days",
+      "ref": "df_member_days = df_staff.merge(\n        df_join[[\"Date\", \"Store\", \"Est per Staff per Day\"]],\n        on=[\"Date\", \"Store\"],\n        how=\"inner\",\n    )"
+    },
+    {
+      "id": "3_O1_round_2_decimals",
+      "kind": "Operation boundary",
+      "node_id": "post_process",
+      "op": "project",
+      "intent": "Round the per-member estimate to 2 decimal places.",
+      "ref": "df_avg[\"Estimate Sales per Staff Member\"] = df_avg[\"Est per Staff per Day\"].round(2)"
+    },
+    {
+      "id": "4_O3_dense_rank_ties",
+      "kind": "Operation boundary",
+      "node_id": "post_process",
+      "op": "project",
+      "source_text": "Determine the team member's rank within their store",
+      "ref": ".rank(method=\"dense\", ascending=False)"
+    },
+    {
+      "id": "5_O2_inner_join_sales_count",
+      "kind": "Operation incomplete",
+      "node_id": "sales_with_count",
+      "op": "join",
+      "source_text": "Estimate the Staff Sales per Day based on the Store Sales divided by the number of staff who worked that day",
+      "ref": "df_join = df_sales_long.merge(staff_count, on=[\"Date\", \"Store\"], how=\"inner\")"
+    }
+  ]
+}

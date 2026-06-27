@@ -1,0 +1,21 @@
+Attendance Flag,First Name,Surname,Attendance_Percentage,Student_ID,Subject,Test_score,TestScoreInteger
+Medium Attendance,Alice,Smith,0.75,1001,Math,95.5,96
+High Attendance,Bob,Jones,0.9,1002,English,82.0,82
+High Attendance,Charlie,Brown,0.95,1003,Science,78.75,79
+Medium Attendance,David,Wilson,0.8,1004,Math,91.25,91
+Medium Attendance,Eve,Taylor,0.7,1005,Science,88.0,88
+Low Attendance,Frank,Lee,0.6,1006,English,76.8,77
+High Attendance,Grace,Kim,1.0,1007,Math,86.5,87
+High Attendance,Henry,Chen,0.9,1008,Science,92.75,93
+Medium Attendance,Irene,Wong,0.8,1009,English,83.2,83
+Medium Attendance,Jack,Brown,0.85,1010,Math,88.33,88
+Medium Attendance,Kate,Liu,0.7,1011,Science,89.75,90
+Low Attendance,Liam,Cooper,0.6,1012,English,87.1,87
+Medium Attendance,Mary,Davis,0.75,1013,Math,92.9,93
+Medium Attendance,Nate,Hall,0.8,1014,Science,94.25,94
+High Attendance,Olivia,Kim,1.0,1015,English,91.7,92
+High Attendance,Paul,Jackson,0.9,1016,Math,87.45,87
+Medium Attendance,Quinn,Wang,0.7,1017,Science,88.12,88
+Low Attendance,Rachel,Tan,0.6,1018,English,85.8,86
+High Attendance,Sam,Kim,1.0,1019,Math,89.6,90
+Medium Attendance,Tina,Lee,0.8,1020,Science,91.9,92

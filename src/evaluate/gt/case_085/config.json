@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Person", "Monthly Spend", "Potential Savings", "Worthwhile?"],
+      "columns": {
+        "Person": "text_exact",
+        "Monthly Spend": "number",
+        "Potential Savings": "number",
+        "Worthwhile?": "boolean"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_dedup_earliest_by_parsed_date",
+      "kind": "Group-level concept",
+      "node_id": "dedup",
+      "op": "dedup",
+      "source_text": "If a customer appears multiple times take their earliest joining date",
+      "ref": "pivot_df[\"_jd\"] = pd.to_datetime(pivot_df[\"Joining Date\"], format=\"%d/%m/%Y\", errors=\"coerce\")"
+    },
+    {
+      "id": "2_O3_dedup_tie_break_by_id",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup",
+      "op": "dedup",
+      "intent": "If multiple records tie for earliest Joining Date per ID, break ties deterministically by ID using stable ordering.",
+      "ref": "pivot_df = pivot_df.sort_values(by=[\"_jd\", \"ID\"], kind=\"mergesort\")"
+    },
+    {
+      "id": "3_C2_input_file_to_month_mapping",
+      "kind": "Row-level concept",
+      "node_id": "p_all",
+      "op": "project",
+      "source_text": "Make a Joining Date field based on the Joining Day, Table Names and the year 2023",
+      "ref": "file_to_month = {\n\t\t\t\"input_01.csv\": 4,\n\t\t\t\"input_02.csv\": 8,\n\t\t\t\"input_03.csv\": 12,\n\t\t\t\"input_04.csv\": 2,\n\t\t\t\"input_05.csv\": 1,\n\t\t\t\"input_06.csv\": 7,\n\t\t\t\"input_07.csv\": 6,\n\t\t\t\"input_08.csv\": 3,\n\t\t\t\"input_09.csv\": 5,\n\t\t\t\"input_10.csv\": 11,\n\t\t\t\"input_11.csv\": 10,\n\t\t\t\"input_12.csv\": 9,\n\t\t}"
+    },
+    {
+      "id": "5_O2_dob_parse_coerce_and_format",
+      "kind": "Operation incomplete",
+      "node_id": "p_after_pivot",
+      "op": "project",
+      "intent": "For Date of Birth, coerce invalid/unparseable values to null and format as DD/MM/YYYY text.",
+      "ref": "parsed = pd.to_datetime(date_series, errors=\"coerce\", infer_datetime_format=True)\nreturn parsed.dt.strftime(\"%d/%m/%Y\")"
+    },
+    {
+      "id": "7_O3_pivot_multi_values_take_first",
+      "kind": "Operation inconsistent",
+      "node_id": "pv",
+      "op": "pivot",
+      "intent": "When pivoting, if multiple rows exist for the same ID/joining date/demographic, take the first available value.",
+      "ref": ".pivot_table(index=[\"ID\", \"Joining Day\", \"Joining Date\"], columns=\"Demographic\", values=\"Value\", aggfunc=\"first\")"
+    },
+    {
+      "id": "8_D1_union_align_by_name",
+      "kind": "Multi-table alignment",
+      "node_id": "u",
+      "op": "union",
+      "source_text": "We want to stack the tables on top of one another, since they have the same fields",
+      "ref": "union_df = pd.concat(all_frames, ignore_index=True)"
+    },
+    {
+      "id": "9_O2_union_missing_fields_null",
+      "kind": "Multi-table alignment",
+      "node_id": "u",
+      "op": "union",
+      "intent": "When unioning monthly tables, fields missing from a given month should be kept as null for that month's rows.",
+      "ref": "union_df = pd.concat(all_frames, ignore_index=True)"
+    },
+    {
+      "id": "new_1_final_sort_id",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final output rows by ID ascending.",
+      "ref": "out = out.sort_values(by=[\"ID\"], kind=\"mergesort\").reset_index(drop=True)"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Bank", "Value"],
+      "columns": {
+        "Bank": "text_exact",
+        "Value": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Bank", "Online or In-Person", "Transaction Date", "Value"],
+      "columns": {
+        "Bank": "text_exact",
+        "Online or In-Person": "text_exact",
+        "Transaction Date": "text_exact",
+        "Value": "number"
+      }
+    },
+    "output_03.csv": {
+      "key": ["Bank", "Customer Code", "Value"],
+      "columns": {
+        "Bank": "text_exact",
+        "Customer Code": "text_exact",
+        "Value": "number"
+      }
+    }
+  }
+}
+

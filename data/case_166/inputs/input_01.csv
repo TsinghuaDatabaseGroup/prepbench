@@ -1,0 +1,16 @@
+City,Office Size,People,Per Person,Rent per Month
+Bristol,Small,20,410,8200
+Bristol,Medium,50,410,20500
+Bristol,Large,100,410,41000
+Liverpool,Small,20,400,8000
+Liverpool,Medium,50,400,20000
+Liverpool,Large,100,400,40000
+London,Small,20,520,10400
+London,Medium,50,520,26000
+London,Large,100,520,52000
+Manchester,Small,20,430,8600
+Manchester,Medium,50,430,21500
+Manchester,Large,100,430,43000
+Newcastle,Small,20,380,7600
+Newcastle,Medium,50,380,19000
+Newcastle,Large,100,380,38000

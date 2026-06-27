@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_weekly_stats_partition",
+      "kind": "Group-level concept",
+      "node_id": "agg_week",
+      "op": "aggregate",
+      "source_text": "Create the mean and standard deviation for each Week",
+      "ref": "vals = df.loc[df[\"Week\"] == wk, \"Complaints\"]"
+    },
+    {
+      "id": "2_O1_outlier_strict_comparison",
+      "kind": "Operation boundary",
+      "node_id": "filter_sd",
+      "op": "filter",
+      "source_text": "Assess whether each complaint value is within or outside control limits",
+      "ref": "(df[\"Complaints\"] < df[\"Lower Control Limit\"]) | (df[\"Complaints\"] > df[\"Upper Control Limit\"])"
+    },
+    {
+      "id": "3_O2_date_parse_dmy",
+      "kind": "Row-level concept",
+      "node_id": "init_project",
+      "op": "project",
+      "intent": "Parse Date using day/month/year format.",
+      "ref": "df[\"Date\"] = pd.to_datetime(df[\"Date\"], format=\"%d/%m/%Y\", errors=\"raise\")"
+    },
+    {
+      "id": "4_D2_join_on_week_only",
+      "kind": "Multi-table alignment",
+      "node_id": "merge_week_stats",
+      "op": "join",
+      "source_text": "Join the original data set back on to these results",
+      "ref": "df = df.merge(agg, on=\"Week\", how=\"left\")"
+    },
+    {
+      "id": "5_O2_join_left_keep_all_rows",
+      "kind": "Operation incomplete",
+      "node_id": "merge_week_stats",
+      "op": "join",
+      "source_text": "Join the original data set back on to these results",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "6_C2_sample_standard_deviation",
+      "kind": "Group-level concept",
+      "node_id": "proj_sd",
+      "op": "project",
+      "source_text": "Create the mean and standard deviation for each Week",
+      "ref": "sd = stats.stdev(vals) if len(vals) > 1 else NaN"
+    },
+    {
+      "id": "7_O2_sd_undefined_when_n_lt_2",
+      "kind": "Operation incomplete",
+      "node_id": "proj_sd",
+      "op": "project",
+      "intent": "When a week has fewer than 2 observations, set Standard Deviation to NaN.",
+      "ref": "if len(vals) > 1 else float(\"nan\")"
+    },
+    {
+      "id": "8_C1_outlier_label",
+      "kind": "Row-level concept",
+      "node_id": "project_compute",
+      "op": "project",
+      "source_text": "Output only Outliers",
+      "ref": "\"Outlier? (1SD)\": \"Outside\"; \"Outlier (2SD)\": \"Outlier\"; \"Outlier (3SD)\": \"Outlier\""
+    }
+  ]
+}

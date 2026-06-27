@@ -1,0 +1,761 @@
+Matchday,Position,Team,Goal Difference (RT),Points (RT),Latest Result,Last 5 games
+25,1,Liverpool,35,57,4-1,WWLWW
+25,2,Man City,32,56,1-1,WWWWD
+25,3,Arsenal,36,55,5-0,WWWWW
+25,4,Aston Villa,19,49,2-1,DLWLW
+25,5,Tottenham,14,47,1-2,DWDWL
+25,6,Man United,1,44,2-1,DWWWW
+25,7,Brighton,8,38,5-0,DLWLW
+25,8,Newcastle,12,37,2-2,LWDWD
+25,9,West Ham,-8,36,0-2,DDLLL
+25,10,Chelsea,1,35,1-1,WLLWD
+25,11,Wolves,-1,35,2-1,DLWLW
+25,12,Bournemouth,-12,31,2-2,LDDLD
+25,13,Everton,-6,30,1-1,DDDLD
+25,14,Fulham,-7,29,1-2,LDDWL
+25,15,Brentford,-9,25,1-4,WLLWL
+25,16,Crystal Palace,-16,25,1-1,LWLLD
+25,17,Nottm Forest,-12,24,2-0,LLDLW
+25,18,Luton Town,-14,20,1-2,DWDLL
+25,19,Burnley,-30,13,0-5,DLDLL
+25,20,Sheffield United,-43,13,0-5,DLLWL
+18,1,Arsenal,20,40,1-1,WWLWD
+18,2,Liverpool,21,39,1-1,WWWDD
+18,3,Aston Villa,16,39,1-1,DWWWD
+18,4,Man City,21,37,1-0,DLWDW
+18,5,Tottenham,13,36,2-1,DLWWW
+18,6,West Ham,1,30,2-0,DWLWW
+18,7,Newcastle,14,29,0-1,WLLWL
+18,8,Man United,-5,28,0-2,LWLDL
+18,9,Brighton,3,27,1-1,LWDLD
+18,10,Everton,1,26,1-2,WWWWL
+18,11,Bournemouth,-7,25,3-2,DWWWW
+18,12,Chelsea,1,22,1-2,WLLWL
+18,13,Wolves,-7,22,2-1,LWDLW
+18,14,Fulham,-5,21,0-2,LWWLL
+18,15,Brentford,-1,19,0-1,WLLLL
+18,16,Crystal Palace,-8,18,1-1,DLLDD
+18,17,Nottm Forest,-14,14,2-3,LLDLL
+18,18,Luton Town,-15,12,1-0,LLLLW
+18,19,Burnley,-18,11,2-0,WLDLW
+18,20,Sheffield United,-31,9,1-1,LLWLD
+13,1,Arsenal,17,30,1-0,DWLWW
+13,2,Man City,20,29,1-1,WWWDD
+13,3,Liverpool,17,28,1-1,WWDWD
+13,4,Aston Villa,13,28,2-1,WWLWW
+13,5,Tottenham,8,26,1-2,WWLLL
+13,6,Man United,0,24,3-0,WLWWW
+13,7,Newcastle,17,23,4-1,WDWLW
+13,8,Brighton,5,22,3-2,LDDDW
+13,9,West Ham,0,20,2-1,LLLWW
+13,10,Chelsea,2,16,1-4,DLWDL
+13,11,Brentford,1,16,0-1,WWWLL
+13,12,Wolves,-5,15,2-3,WDLWL
+13,13,Crystal Palace,-5,15,1-2,LLWLL
+13,14,Fulham,-9,15,3-2,LDLLW
+13,15,Everton,-6,14,0-3,LWDWL
+13,16,Nottm Forest,-5,13,2-3,DLWLL
+13,17,Bournemouth,-14,12,3-1,LWLWW
+13,18,Luton Town,-11,9,2-1,DLDLW
+13,19,Sheffield United,-23,5,1-3,LLWDL
+13,20,Burnley,-22,4,1-2,LLLLL
+26,1,Liverpool,38,60,4-1,WLWWW
+26,2,Man City,33,59,1-0,WWWDW
+26,3,Arsenal,39,58,4-1,WWWWW
+26,4,Aston Villa,21,52,4-2,LWLWW
+26,5,Tottenham,12,47,0-2,WDWLL
+26,6,Man United,0,44,1-2,WWWWL
+26,7,Brighton,8,39,1-1,LWLWD
+26,8,West Ham,-6,39,4-2,DLLLW
+26,9,Chelsea,3,38,2-0,LLWDW
+26,10,Wolves,0,38,1-0,LWLWW
+26,11,Newcastle,9,37,1-4,WDWDL
+26,12,Fulham,-6,32,2-1,DDWLW
+26,13,Everton,-6,31,1-1,DDLDD
+26,14,Bournemouth,-13,31,0-1,DDLDL
+26,15,Crystal Palace,-13,28,3-0,WLLDW
+26,16,Brentford,-11,25,2-4,LLWLL
+26,17,Nottm Forest,-14,24,2-4,LDLWL
+26,18,Luton Town,-17,20,1-4,WDLLL
+26,19,Burnley,-33,13,0-3,LDLLL
+26,20,Sheffield United,-44,13,0-1,LLWLL
+6,1,Man City,13,18,2-0,WWWWW
+6,2,Liverpool,10,16,3-1,WWWWW
+6,3,Brighton,10,15,3-1,WLWWW
+6,4,Tottenham,8,14,2-2,WWWWD
+6,5,Arsenal,5,14,2-2,WDWWD
+6,6,Aston Villa,2,12,1-0,WWLWW
+6,7,West Ham,1,10,1-3,WWWLL
+6,8,Newcastle,9,9,8-0,LLLWW
+6,9,Man United,-3,9,1-0,LWLLW
+6,10,Crystal Palace,-1,8,0-0,LDWLD
+6,11,Fulham,-5,8,0-0,LDLWD
+6,12,Nottm Forest,-2,7,0-2,WLWDL
+6,13,Brentford,0,6,1-3,WDDLL
+6,14,Chelsea,-1,5,0-1,LWLDL
+6,15,Everton,-5,4,3-1,LLDLW
+6,16,Wolves,-6,4,1-1,LWLLD
+6,17,Burnley,-8,4,0-1,WLLDL
+6,18,Bournemouth,-6,3,1-3,LLDDL
+6,19,Luton Town,-9,1,1-1,LLLLD
+6,20,Sheffield United,-12,1,0-8,LLDLL
+34,1,Man City,50,79,2-0,DWWWW
+34,2,Arsenal,56,77,2-0,DWWLW
+34,3,Liverpool,41,74,3-1,WWDLW
+34,4,Aston Villa,21,66,3-1,WLDWW
+34,5,Tottenham,12,60,0-2,WDWLL
+34,6,Man United,2,56,3-2,DLDDW
+34,7,Chelsea,7,53,2-1,DWDWW
+34,8,Newcastle,14,50,2-3,WDWWL
+34,9,West Ham,-9,48,2-5,LDWLL
+34,10,Bournemouth,-11,45,1-3,WWLDL
+34,11,Brighton,-3,44,1-2,LDLDL
+34,12,Wolves,-8,43,0-2,LDLDL
+34,13,Fulham,-4,42,1-3,DLLWL
+34,14,Everton,-12,41,2-0,LDWLW
+34,15,Crystal Palace,-12,39,5-2,DLLWW
+34,16,Brentford,-7,35,5-1,DDDWW
+34,17,Nottm Forest,-18,30,0-2,DWLDL
+34,18,Luton Town,-28,25,1-5,LLWLL
+34,19,Burnley,-32,23,4-1,DDLDW
+34,20,Sheffield United,-59,16,1-4,DLDLL
+2,1,Brighton,6,6,4-1,---WW
+2,2,Man City,4,6,1-0,---WW
+2,3,Arsenal,2,6,1-0,---WW
+2,4,Brentford,3,4,3-0,---DW
+2,5,West Ham,2,4,3-1,---DW
+2,6,Tottenham,2,4,2-0,---DW
+2,7,Liverpool,2,4,3-1,---DW
+2,8,Newcastle,3,3,0-1,---WL
+2,9,Nottm Forest,0,3,2-1,---LW
+2,10,Crystal Palace,0,3,0-1,---WL
+2,11,Aston Villa,0,3,4-0,---LW
+2,12,Man United,-1,3,0-2,---WL
+2,13,Fulham,-2,3,0-3,---WL
+2,14,Burnley,-2,3,2-1,---LW
+2,15,Chelsea,-2,1,1-3,---DL
+2,16,Bournemouth,-2,1,1-3,---DL
+2,17,Sheffield United,-2,0,1-2,---LL
+2,18,Wolves,-4,0,1-4,---LL
+2,19,Luton Town,-4,0,1-2,---LL
+2,20,Everton,-5,0,0-4,---LL
+24,1,Man City,32,55,2-0,WWWWW
+24,2,Liverpool,32,54,3-1,WWWLW
+24,3,Arsenal,31,52,6-0,LWWWW
+24,4,Tottenham,15,47,2-1,WDWDW
+24,5,Aston Villa,18,46,1-2,WDLWL
+24,6,Man United,0,41,2-1,LDWWW
+24,7,Newcastle,12,36,3-2,LLWDW
+24,8,West Ham,-6,36,0-6,DDDLL
+24,9,Brighton,3,35,1-2,DDLWL
+24,10,Chelsea,1,34,3-1,WWLLW
+24,11,Wolves,-2,32,0-2,WDLWL
+24,12,Bournemouth,-12,30,1-3,LLDDL
+24,13,Fulham,-6,29,3-1,WLDDW
+24,14,Everton,-6,29,0-2,LDDDL
+24,15,Brentford,-6,25,2-0,LWLLW
+24,16,Crystal Palace,-16,24,1-3,WLWLL
+24,17,Nottm Forest,-14,21,2-3,WLLDL
+24,18,Luton Town,-13,20,1-3,LDWDL
+24,19,Burnley,-25,13,1-3,LDLDL
+24,20,Sheffield United,-38,13,3-1,LDLLW
+32,1,Arsenal,56,74,3-0,WWDWW
+32,2,Man City,44,73,4-2,DWDWW
+32,3,Liverpool,40,71,2-2,DLWWD
+32,4,Tottenham,18,60,3-1,WLWDW
+32,5,Aston Villa,17,60,3-3,LDWLD
+32,6,Man United,1,52,2-2,WWDLD
+32,7,West Ham,-4,48,2-1,DDLDW
+32,8,Newcastle,11,47,1-0,LLWDW
+32,9,Chelsea,0,47,2-2,WLDWD
+32,10,Bournemouth,-9,44,1-2,DWWWL
+32,11,Brighton,-2,43,0-3,WLLDL
+32,12,Wolves,-6,42,1-2,WLLDL
+32,13,Fulham,-4,39,0-1,LWDLL
+32,14,Everton,-8,38,1-0,LWLDW
+32,15,Crystal Palace,-16,33,2-4,DWDLL
+32,16,Brentford,-13,29,3-3,LLDDD
+32,17,Nottm Forest,-16,29,1-3,LDDWL
+32,18,Luton Town,-20,25,2-1,DDLLW
+32,19,Burnley,-35,19,0-1,DWDDL
+32,20,Sheffield United,-54,16,2-2,DLDLD
+35,1,Man City,52,82,2-0,WWWWW
+35,2,Arsenal,57,80,3-2,WWLWW
+35,3,Liverpool,41,75,2-2,WDLWD
+35,4,Aston Villa,21,67,2-2,LDWWD
+35,5,Tottenham,11,60,2-3,DWLLL
+35,6,Man United,2,57,1-1,LDDWD
+35,7,Chelsea,7,54,2-2,WDWWD
+35,8,Newcastle,18,53,5-1,DWWLW
+35,9,West Ham,-9,49,2-2,DWLLD
+35,10,Bournemouth,-8,48,3-0,WLDLW
+35,11,Wolves,-7,46,2-1,DLDLW
+35,12,Brighton,-6,44,0-3,DLDLL
+35,13,Everton,-11,44,1-0,DWLWW
+35,14,Fulham,-4,43,1-1,LLWLD
+35,15,Crystal Palace,-12,40,1-1,LLWWD
+35,16,Brentford,-8,35,0-1,DDWWL
+35,17,Nottm Forest,-20,30,0-2,WLDLL
+35,18,Luton Town,-29,25,1-2,LWLLL
+35,19,Burnley,-32,24,1-1,DLDWD
+35,20,Sheffield United,-63,16,1-5,LDLLL
+36,1,Man City,56,85,5-1,WWWWW
+36,2,Arsenal,60,83,3-0,WLWWW
+36,3,Liverpool,43,78,4-2,DLWDW
+36,4,Aston Villa,20,67,0-1,DWWDL
+36,5,Tottenham,9,60,2-4,WLLLL
+36,6,Chelsea,12,57,5-0,DWWDW
+36,7,Man United,-2,57,0-4,DDWDL
+36,8,Newcastle,21,56,4-1,WWLWW
+36,9,West Ham,-14,49,0-5,WLLDL
+36,10,Bournemouth,-11,48,0-3,LDLWL
+36,11,Brighton,-5,47,1-0,LDLLW
+36,12,Wolves,-11,46,1-5,LDLWL
+36,13,Everton,-11,45,1-1,WLWWD
+36,14,Fulham,-4,44,0-0,LWLDD
+36,15,Crystal Palace,-8,43,4-0,LWWDW
+36,16,Brentford,-8,36,0-0,DWWLD
+36,17,Nottm Forest,-18,33,3-1,LDLLW
+36,18,Luton Town,-29,26,1-1,WLLLD
+36,19,Burnley,-35,24,1-4,LDWDL
+36,20,Sheffield United,-65,16,1-3,DLLLL
+3,1,Man City,5,9,2-1,--WWW
+3,2,West Ham,4,7,3-1,--DWW
+3,3,Tottenham,4,7,2-0,--DWW
+3,4,Liverpool,3,7,2-1,--DWW
+3,5,Arsenal,2,7,2-2,--WWD
+3,6,Brighton,4,6,1-3,--WWL
+3,7,Aston Villa,2,6,3-1,--LWW
+3,8,Man United,0,6,3-2,--WLW
+3,9,Brentford,3,5,1-1,--DWD
+3,10,Chelsea,1,4,3-0,--DLW
+3,11,Crystal Palace,0,4,1-1,--WLD
+3,12,Fulham,-2,4,2-2,--WLD
+3,13,Newcastle,2,3,1-2,--WLL
+3,14,Nottm Forest,-1,3,2-3,--LWL
+3,15,Wolves,-3,3,1-0,--LLW
+3,16,Burnley,-4,3,1-3,--LWL
+3,17,Bournemouth,-4,1,0-2,--DLL
+3,18,Sheffield United,-3,0,1-2,--LLL
+3,19,Everton,-6,0,0-1,--LLL
+3,20,Luton Town,-7,0,0-3,--LLL
+11,1,Man City,20,27,6-1,LLWWW
+11,2,Tottenham,10,26,1-4,WWWWL
+11,3,Liverpool,14,24,1-1,LDWWD
+11,4,Arsenal,14,24,0-1,WWDWL
+11,5,Aston Villa,10,22,0-2,WDWWL
+11,6,Newcastle,16,20,1-0,WDWDW
+11,7,Brighton,4,18,1-1,LDLDD
+11,8,Man United,-4,18,1-0,LWWLW
+11,9,Brentford,5,16,3-2,DLWWW
+11,10,Chelsea,5,15,4-1,WWDLW
+11,11,Crystal Palace,-3,15,2-0,WDLLW
+11,12,West Ham,-2,14,2-3,WDLLL
+11,13,Nottm Forest,-3,13,2-0,DDDLW
+11,14,Wolves,-5,12,1-2,WDWDL
+11,15,Fulham,-8,12,0-1,LWLDL
+11,16,Everton,-4,11,1-1,LWLWD
+11,17,Luton Town,-11,6,1-1,WLDLD
+11,18,Bournemouth,-18,6,1-6,LLLWL
+11,19,Burnley,-19,4,0-2,LLLLL
+11,20,Sheffield United,-21,4,2-1,LLLLW
+4,1,Man City,9,12,5-1,-WWWW
+4,2,Tottenham,7,10,5-2,-DWWW
+4,3,Liverpool,6,10,3-0,-DWWW
+4,4,West Ham,5,10,2-1,-DWWW
+4,5,Arsenal,4,10,3-1,-WWDW
+4,6,Brighton,6,9,3-1,-WWLW
+4,7,Crystal Palace,1,7,3-2,-WLDW
+4,8,Brentford,3,6,2-2,-DWDD
+4,9,Nottm Forest,0,6,1-0,-LWLW
+4,10,Aston Villa,-1,6,0-3,-LWWL
+4,11,Man United,-2,6,1-3,-WLWL
+4,12,Chelsea,0,4,0-1,-DLWL
+4,13,Fulham,-6,4,1-5,-WLDL
+4,14,Newcastle,0,3,1-3,-WLLL
+4,15,Wolves,-4,3,2-3,-LLWL
+4,16,Burnley,-7,3,2-5,-LWLL
+4,17,Bournemouth,-4,2,2-2,-DLLD
+4,18,Sheffield United,-3,1,2-2,-LLLD
+4,19,Everton,-6,1,2-2,-LLLD
+4,20,Luton Town,-8,0,1-2,-LLLL
+5,1,Man City,11,15,3-1,WWWWW
+5,2,Tottenham,8,13,2-1,DWWWW
+5,3,Liverpool,8,13,3-1,DWWWW
+5,4,Arsenal,5,13,1-0,WWDWW
+5,5,Brighton,8,12,3-1,WWLWW
+5,6,West Ham,3,10,1-3,DWWWL
+5,7,Aston Villa,1,9,3-1,LWWLW
+5,8,Nottm Forest,0,7,1-1,LWLWD
+5,9,Crystal Palace,-1,7,1-3,WLDWL
+5,10,Fulham,-5,7,1-0,WLDLW
+5,11,Brentford,2,6,0-1,DWDDL
+5,12,Newcastle,1,6,1-0,WLLLW
+5,13,Man United,-4,6,1-3,WLWLL
+5,14,Chelsea,0,5,0-0,DLWLD
+5,15,Burnley,-7,4,1-1,LWLLD
+5,16,Bournemouth,-4,3,0-0,DLLDD
+5,17,Wolves,-6,3,1-3,LLWLL
+5,18,Sheffield United,-4,1,1-2,LLLDL
+5,19,Everton,-7,1,0-1,LLLDL
+5,20,Luton Town,-9,0,0-1,LLLLL
+19,1,Liverpool,23,42,2-0,WWDDW
+19,2,Man City,23,40,3-1,LWDWW
+19,3,Arsenal,18,40,0-2,WLWDL
+19,4,Aston Villa,15,39,2-3,WWWDL
+19,5,Tottenham,11,36,2-4,LWWWL
+19,6,West Ham,3,33,2-0,WLWWW
+19,7,Man United,-4,31,3-2,WLDLW
+19,8,Brighton,5,30,4-2,WDLDW
+19,9,Newcastle,12,29,1-3,LLWLL
+19,10,Bournemouth,-4,28,3-0,WWWWW
+19,11,Everton,-1,26,1-3,WWWLL
+19,12,Chelsea,2,25,2-1,LLWLW
+19,13,Wolves,-4,25,4-1,WDLWW
+19,14,Fulham,-8,21,0-3,WWLLL
+19,15,Brentford,-4,19,1-4,LLLLL
+19,16,Crystal Palace,-9,18,1-2,LLDDL
+19,17,Nottm Forest,-12,17,3-1,LDLLW
+19,18,Luton Town,-14,15,3-2,LLLWW
+19,19,Burnley,-20,11,0-2,LDLWL
+19,20,Sheffield United,-32,9,2-3,LWLDL
+10,1,Tottenham,13,26,2-1,DWWWW
+10,2,Man City,15,24,3-0,WLLWW
+10,3,Arsenal,15,24,5-0,DWWDW
+10,4,Liverpool,14,23,3-0,WLDWW
+10,5,Aston Villa,12,22,3-1,WWDWW
+10,6,Newcastle,15,17,2-2,WWDWD
+10,7,Brighton,4,17,1-1,WLDLD
+10,8,Man United,-5,15,0-3,WLWWL
+10,9,West Ham,-1,14,0-1,LWDLL
+10,10,Brentford,4,13,2-0,LDLWW
+10,11,Chelsea,2,12,0-2,LWWDL
+10,12,Wolves,-4,12,2-2,DWDWD
+10,13,Crystal Palace,-5,12,1-2,DWDLL
+10,14,Fulham,-7,12,1-1,DLWLD
+10,15,Everton,-4,10,1-0,WLWLW
+10,16,Nottm Forest,-5,10,0-3,LDDDL
+10,17,Bournemouth,-13,6,2-1,LLLLW
+10,18,Luton Town,-11,5,1-3,DWLDL
+10,19,Burnley,-17,4,1-2,LLLLL
+10,20,Sheffield United,-22,1,0-5,LLLLL
+16,1,Liverpool,21,37,2-1,WDWWW
+16,2,Arsenal,18,36,0-1,WWWWL
+16,3,Aston Villa,15,35,1-0,WWDWW
+16,4,Man City,20,33,2-1,DDDLW
+16,5,Tottenham,10,30,4-1,LLDLW
+16,6,Man United,-3,27,0-3,WWLWL
+16,7,Newcastle,12,26,1-4,LWWLL
+16,8,Brighton,5,26,1-1,DWLWD
+16,9,West Ham,-4,24,0-5,WWDWL
+16,10,Everton,0,23,2-0,WLWWW
+16,11,Fulham,0,21,5-0,LWLWW
+16,12,Brentford,1,19,0-1,LLWLL
+16,13,Chelsea,0,19,0-2,DLWLL
+16,14,Wolves,-5,19,1-1,WLLWD
+16,15,Bournemouth,-9,19,3-0,WWDWW
+16,16,Crystal Palace,-8,16,1-2,LLDLL
+16,17,Nottm Forest,-11,14,1-1,LLLLD
+16,18,Luton Town,-15,9,1-2,LWLLL
+16,19,Burnley,-18,8,1-1,LLWLD
+16,20,Sheffield United,-29,8,1-0,DLLLW
+9,1,Tottenham,12,23,2-0,WDWWW
+9,2,Man City,12,21,2-1,WWLLW
+9,3,Arsenal,10,21,2-2,WDWWD
+9,4,Liverpool,11,20,2-0,WWLDW
+9,5,Aston Villa,10,19,4-1,WWWDW
+9,6,Newcastle,15,16,4-0,WWWDW
+9,7,Brighton,4,16,1-2,WWLDL
+9,8,Man United,-2,15,2-1,LWLWW
+9,9,West Ham,0,14,1-4,LLWDL
+9,10,Chelsea,4,12,2-2,DLWWD
+9,11,Crystal Palace,-4,12,0-4,LDWDL
+9,12,Wolves,-4,11,2-1,LDWDW
+9,13,Fulham,-7,11,0-2,WDLWL
+9,14,Brentford,2,10,3-0,LLDLW
+9,15,Nottm Forest,-2,10,2-2,DLDDD
+9,16,Everton,-5,7,0-2,LWLWL
+9,17,Luton Town,-9,5,2-2,LDWLD
+9,18,Burnley,-16,4,0-3,DLLLL
+9,19,Bournemouth,-14,3,1-2,DLLLL
+9,20,Sheffield United,-17,1,1-2,LLLLL
+7,1,Man City,12,18,1-2,WWWWL
+7,2,Tottenham,9,17,2-1,WWWDW
+7,3,Arsenal,9,17,4-0,DWWDW
+7,4,Liverpool,9,16,1-2,WWWWL
+7,5,Aston Villa,7,15,6-1,WLWWW
+7,6,Brighton,5,15,1-6,LWWWL
+7,7,West Ham,3,13,2-0,WWLLW
+7,8,Newcastle,11,12,2-0,LLWWW
+7,9,Crystal Palace,0,11,1-0,DWLDW
+7,10,Man United,-4,9,0-1,WLLWL
+7,11,Chelsea,1,8,2-0,WLDLW
+7,12,Nottm Forest,-2,8,1-1,LWDLD
+7,13,Fulham,-7,8,0-2,DLWDL
+7,14,Brentford,0,7,1-1,DDLLD
+7,15,Wolves,-5,7,2-1,WLLDW
+7,16,Everton,-6,4,1-2,LDLWL
+7,17,Luton Town,-8,4,2-1,LLLDW
+7,18,Burnley,-10,4,0-2,LLDLL
+7,19,Bournemouth,-10,3,0-4,LDDLL
+7,20,Sheffield United,-14,1,0-2,LDLLL
+1,1,Newcastle,4,3,5-1,----W
+1,2,Man City,3,3,3-0,----W
+1,3,Brighton,3,3,4-1,----W
+1,4,Man United,1,3,1-0,----W
+1,5,Fulham,1,3,1-0,----W
+1,6,Crystal Palace,1,3,1-0,----W
+1,7,Arsenal,1,3,2-1,----W
+1,8,West Ham,0,1,1-1,----D
+1,9,Tottenham,0,1,2-2,----D
+1,10,Liverpool,0,1,1-1,----D
+1,11,Chelsea,0,1,1-1,----D
+1,12,Brentford,0,1,2-2,----D
+1,13,Bournemouth,0,1,1-1,----D
+1,14,Wolves,-1,0,0-1,----L
+1,15,Sheffield United,-1,0,0-1,----L
+1,16,Nottm Forest,-1,0,1-2,----L
+1,17,Everton,-1,0,0-1,----L
+1,18,Luton Town,-3,0,1-4,----L
+1,19,Burnley,-3,0,0-3,----L
+1,20,Aston Villa,-4,0,1-5,----L
+37,1,Man City,60,88,4-0,WWWWW
+37,2,Arsenal,61,86,1-0,LWWWW
+37,3,Liverpool,43,79,3-3,LWDWD
+37,4,Aston Villa,20,68,3-3,WWDLD
+37,5,Tottenham,10,63,2-1,LLLLW
+37,6,Chelsea,13,60,3-2,WWDWW
+37,7,Newcastle,21,57,1-1,WLWWD
+37,8,Man United,-3,57,0-1,DWDLL
+37,9,West Ham,-12,52,3-1,LLDLW
+37,10,Brighton,-5,48,1-1,DLLWD
+37,11,Everton,-10,48,1-0,LWWDW
+37,12,Bournemouth,-12,48,1-2,DLWLL
+37,13,Crystal Palace,-6,46,3-1,WWDWW
+37,14,Wolves,-13,46,1-3,DLWLL
+37,15,Fulham,-8,44,0-4,WLDDL
+37,16,Brentford,-7,39,2-1,WWLDW
+37,17,Nottm Forest,-19,33,2-3,DLLWL
+37,18,Luton Town,-31,26,1-3,LLLDL
+37,19,Burnley,-36,24,1-2,DWDLL
+37,20,Sheffield United,-66,16,0-1,LLLLL
+23,1,Man City,30,52,3-1,WWWWW
+23,2,Liverpool,30,51,1-3,WWWWL
+23,3,Arsenal,25,49,3-1,LLWWW
+23,4,Aston Villa,19,46,5-0,LWDLW
+23,5,Tottenham,14,44,2-2,LWDWD
+23,6,Man United,-1,38,3-0,WLDWW
+23,7,West Ham,0,36,0-3,WDDDL
+23,8,Brighton,4,35,4-1,WDDLW
+23,9,Newcastle,11,33,4-4,LLLWD
+23,10,Wolves,0,32,4-2,WWDLW
+23,11,Chelsea,-1,31,2-4,WWWLL
+23,12,Bournemouth,-10,30,1-1,WLLDD
+23,13,Everton,-4,29,2-2,LLDDD
+23,14,Fulham,-8,26,2-2,LWLDD
+23,15,Crystal Palace,-14,24,1-4,LWLWL
+23,16,Brentford,-8,22,1-3,LLWLL
+23,17,Nottm Forest,-13,21,1-1,WWLLD
+23,18,Luton Town,-11,20,4-4,WLDWD
+23,19,Burnley,-23,13,2-2,LLDLD
+23,20,Sheffield United,-40,10,0-5,LLDLL
+17,1,Arsenal,20,39,2-0,WWWLW
+17,2,Liverpool,21,38,0-0,DWWWD
+17,3,Aston Villa,16,38,2-1,WDWWW
+17,4,Man City,20,34,2-2,DDLWD
+17,5,Tottenham,12,33,2-0,LDLWW
+17,6,Newcastle,15,29,3-0,WWLLW
+17,7,Man United,-3,28,0-0,WLWLD
+17,8,West Ham,-1,27,3-0,WDWLW
+17,9,Brighton,3,26,0-2,WLWDL
+17,10,Everton,2,26,2-0,LWWWW
+17,11,Chelsea,2,22,2-0,LWLLW
+17,12,Bournemouth,-8,22,4-3,WDWWW
+17,13,Fulham,-3,21,0-3,WLWWL
+17,14,Brentford,0,19,1-2,LWLLL
+17,15,Wolves,-8,19,0-3,LLWDL
+17,16,Crystal Palace,-8,17,2-2,LDLLD
+17,17,Nottm Forest,-13,14,0-2,LLLDL
+17,18,Luton Town,-16,9,3-4,WLLLL
+17,19,Burnley,-20,8,0-2,LWLDL
+17,20,Sheffield United,-31,8,0-2,LLLWL
+21,1,Liverpool,29,48,4-0,DDWWW
+21,2,Man City,26,46,3-2,DWWWW
+21,3,Arsenal,22,43,5-0,WDLLW
+21,4,Aston Villa,16,43,0-0,WDLWD
+21,5,Tottenham,13,40,2-2,WWLWD
+21,6,West Ham,3,35,2-2,WWWDD
+21,7,Brighton,5,32,0-0,LDWDD
+21,8,Man United,-5,32,2-2,DLWLD
+21,9,Chelsea,4,31,1-0,WLWWW
+21,10,Newcastle,9,29,2-3,WLLLL
+21,11,Wolves,-1,29,0-0,LWWWD
+21,12,Bournemouth,-10,28,0-4,WWWLL
+21,13,Everton,-4,27,0-0,WLLLD
+21,14,Fulham,-8,24,0-1,LLLWL
+21,15,Brentford,-5,22,3-2,LLLLW
+21,16,Crystal Palace,-12,21,0-5,DDLWL
+21,17,Nottm Forest,-12,20,2-3,LLWWL
+21,18,Luton Town,-15,16,1-1,LWWLD
+21,19,Burnley,-21,12,1-1,LWLLD
+21,20,Sheffield United,-34,10,2-2,LDLLD
+14,1,Arsenal,18,33,2-1,WLWWW
+14,2,Liverpool,18,31,4-3,WDWDW
+14,3,Man City,20,30,3-3,WWDDD
+14,4,Aston Villa,13,29,2-2,WLWWD
+14,5,Tottenham,8,27,3-3,WLLLD
+14,6,Newcastle,18,26,1-0,DWLWW
+14,7,Man United,-1,24,0-1,LWWWL
+14,8,Brighton,4,22,2-3,DDDWL
+14,9,West Ham,0,21,1-1,LLWWD
+14,10,Chelsea,3,19,3-2,LWDLW
+14,11,Brentford,3,19,3-1,WWLLW
+14,12,Everton,-5,17,1-0,WDWLW
+14,13,Crystal Palace,-5,16,1-1,LWLLD
+14,14,Wolves,-6,15,1-2,DLWLL
+14,15,Fulham,-10,15,3-4,DLLWL
+14,16,Nottm Forest,-6,13,0-1,LWLLL
+14,17,Bournemouth,-14,13,2-2,WLWWD
+14,18,Luton Town,-13,9,1-3,LDLWL
+14,19,Burnley,-17,7,5-0,LLLLW
+14,20,Sheffield United,-28,5,0-5,LWDLL
+33,1,Man City,48,76,5-1,WDWWW
+33,2,Arsenal,54,74,0-2,WDWWL
+33,3,Liverpool,39,71,0-1,LWWDL
+33,4,Aston Villa,19,63,2-0,DWLDW
+33,5,Tottenham,14,60,0-4,LWDWL
+33,6,Man United,1,53,2-2,WDLDD
+33,7,Newcastle,15,50,4-0,LWDWW
+33,8,Chelsea,6,50,6-0,LDWDW
+33,9,West Ham,-6,48,0-2,DLDWL
+33,10,Bournemouth,-9,45,2-2,WWWLD
+33,11,Brighton,-2,44,1-1,LLDLD
+33,12,Wolves,-6,43,2-2,LLDLD
+33,13,Fulham,-2,42,2-0,WDLLW
+33,14,Everton,-14,38,0-6,WLDWL
+33,15,Crystal Palace,-15,36,1-0,WDLLW
+33,16,Brentford,-11,32,2-0,LDDDW
+33,17,Nottm Forest,-16,30,2-2,DDWLD
+33,18,Luton Town,-24,25,1-5,DLLWL
+33,19,Burnley,-35,20,1-1,WDDLD
+33,20,Sheffield United,-56,16,0-2,LDLDL
+15,1,Arsenal,19,36,4-3,LWWWW
+15,2,Liverpool,20,34,2-0,DWDWW
+15,3,Aston Villa,14,32,1-0,LWWDW
+15,4,Man City,19,30,0-1,WDDDL
+15,5,Tottenham,7,27,1-2,LLLDL
+15,6,Man United,0,27,2-1,WWWLW
+15,7,Newcastle,15,26,0-3,WLWWL
+15,8,Brighton,5,25,2-1,DDWLW
+15,9,West Ham,1,24,2-1,LWWDW
+15,10,Everton,-2,20,3-0,DWLWW
+15,11,Chelsea,2,19,1-2,WDLWL
+15,12,Brentford,2,19,1-2,WLLWL
+15,13,Wolves,-5,18,1-0,LWLLW
+15,14,Fulham,-5,18,5-0,LLWLW
+15,15,Crystal Palace,-7,16,0-2,WLLDL
+15,16,Bournemouth,-12,16,2-0,LWWDW
+15,17,Nottm Forest,-11,13,0-5,WLLLL
+15,18,Luton Town,-14,9,3-4,DLWLL
+15,19,Burnley,-18,7,0-1,LLLWL
+15,20,Sheffield United,-30,5,0-2,WDLLL
+29,1,Arsenal,51,67,5-0,WWWWW
+29,2,Man City,39,66,4-0,DWWDW
+29,3,Liverpool,37,64,0-2,WWWDL
+29,4,Aston Villa,18,56,1-1,WWWLD
+29,5,Tottenham,15,53,0-3,LLWWL
+29,6,Man United,2,50,4-2,WLLWW
+29,7,West Ham,-4,44,1-1,LWWDD
+29,8,Brighton,2,42,0-4,WDLWL
+29,9,Chelsea,-1,42,0-5,DWDWL
+29,10,Wolves,-3,41,0-1,WWLWL
+29,11,Newcastle,9,40,0-2,DLWLL
+29,12,Fulham,-1,38,3-0,LWWLW
+29,13,Bournemouth,-10,38,1-0,DLWDW
+29,14,Everton,-8,34,2-0,DDLLW
+29,15,Crystal Palace,-13,32,2-0,DWLDW
+29,16,Brentford,-13,26,1-2,LLDLL
+29,17,Nottm Forest,-16,25,1-1,WLLLD
+29,18,Luton Town,-18,22,1-1,LLLDD
+29,19,Burnley,-34,17,2-1,LLLDW
+29,20,Sheffield United,-52,14,2-4,LLLDL
+27,1,Liverpool,39,63,1-0,LWWWW
+27,2,Man City,35,62,3-1,WWDWW
+27,3,Arsenal,45,61,6-0,WWWWW
+27,4,Aston Villa,22,55,3-2,WLWWW
+27,5,Tottenham,14,50,3-1,DWLLW
+27,6,Man United,-2,44,1-3,WWWLL
+27,7,West Ham,-4,42,3-1,LLLWW
+27,8,Newcastle,12,40,3-0,DWDLW
+27,9,Brighton,5,39,0-3,WLWDL
+27,10,Chelsea,3,39,2-2,LWDWD
+27,11,Wolves,-3,38,0-3,WLWWL
+27,12,Fulham,-3,35,3-0,DWLWW
+27,13,Bournemouth,-11,34,2-0,DLDLW
+27,14,Everton,-8,31,1-3,DLDDL
+27,15,Crystal Palace,-15,28,1-3,LLDWL
+27,16,Brentford,-11,26,2-2,LWLLD
+27,17,Nottm Forest,-15,24,0-1,DLWLL
+27,18,Luton Town,-18,20,2-3,DLLLL
+27,19,Burnley,-35,13,0-2,DLLLL
+27,20,Sheffield United,-50,13,0-6,LWLLL
+8,1,Tottenham,10,20,1-0,WWDWW
+8,2,Arsenal,10,20,1-0,WWDWW
+8,3,Man City,11,18,0-1,WWWLL
+8,4,Liverpool,9,17,2-2,WWWLD
+8,5,Aston Villa,7,16,1-1,LWWWD
+8,6,Brighton,5,16,2-2,WWWLD
+8,7,West Ham,3,14,2-2,WLLWD
+8,8,Newcastle,11,13,2-2,LWWWD
+8,9,Crystal Palace,0,12,0-0,WLDWD
+8,10,Man United,-3,12,2-1,LLWLW
+8,11,Chelsea,4,11,4-1,LDLWW
+8,12,Fulham,-5,11,3-1,LWDLW
+8,13,Nottm Forest,-2,9,0-0,WDLDD
+8,14,Wolves,-5,8,1-1,LLDWD
+8,15,Brentford,-1,7,1-2,DLLDL
+8,16,Everton,-3,7,3-0,DLWLW
+8,17,Luton Town,-9,4,0-1,LLDWL
+8,18,Burnley,-13,4,1-4,LDLLL
+8,19,Bournemouth,-13,3,0-3,DDLLL
+8,20,Sheffield United,-16,1,1-3,DLLLL
+31,1,Arsenal,53,71,2-0,WWWDW
+31,2,Man City,42,70,4-1,WDWDW
+31,3,Liverpool,40,70,3-1,WDLWW
+31,4,Aston Villa,17,59,1-4,WLDWL
+31,5,Tottenham,16,57,1-1,WWLWD
+31,6,Man United,1,51,3-4,LWWDL
+31,7,Chelsea,0,46,4-3,DWLDW
+31,8,West Ham,-5,45,1-1,WDDLD
+31,9,Newcastle,10,44,1-1,WLLWD
+31,10,Bournemouth,-8,44,1-0,WDWWW
+31,11,Brighton,1,43,0-0,LWLLD
+31,12,Wolves,-5,42,1-1,LWLLD
+31,13,Fulham,-3,39,1-3,WLWDL
+31,14,Everton,-9,35,1-1,LLWLD
+31,15,Crystal Palace,-14,33,0-1,LDWDL
+31,16,Nottm Forest,-14,29,3-1,LLDDW
+31,17,Brentford,-13,28,0-0,DLLDD
+31,18,Luton Town,-21,22,0-2,LDDLL
+31,19,Burnley,-34,19,1-1,LDWDD
+31,20,Sheffield United,-54,15,1-3,LDLDL
+20,1,Liverpool,25,45,4-2,WDDWW
+20,2,Man City,25,43,2-0,WDWWW
+20,3,Aston Villa,16,42,3-2,WWDLW
+20,4,Arsenal,17,40,1-2,LWDLL
+20,5,Tottenham,13,39,3-1,WWWLW
+20,6,West Ham,3,34,0-0,LWWWD
+20,7,Brighton,5,31,0-0,DLDWD
+20,8,Man United,-5,31,1-2,LDLWL
+20,9,Newcastle,10,29,2-4,LWLLL
+20,10,Chelsea,3,28,3-2,LWLWW
+20,11,Wolves,-1,28,3-0,DLWWW
+20,12,Bournemouth,-6,28,1-3,WWWWL
+20,13,Everton,-4,26,0-3,WWLLL
+20,14,Fulham,-7,24,2-1,WLLLW
+20,15,Crystal Palace,-7,21,3-1,LDDLW
+20,16,Nottm Forest,-11,20,2-1,DLLWW
+20,17,Brentford,-6,19,1-3,LLLLL
+20,18,Luton Town,-15,15,2-3,LLWWL
+20,19,Burnley,-21,11,2-3,DLWLL
+20,20,Sheffield United,-34,9,0-2,WLDLL
+12,1,Man City,20,28,4-4,LWWWD
+12,2,Liverpool,17,27,3-0,DWWDW
+12,3,Arsenal,16,27,3-1,WDWLW
+12,4,Tottenham,9,26,1-2,WWWLL
+12,5,Aston Villa,12,25,3-1,DWWLW
+12,6,Man United,-3,21,1-0,WWLWW
+12,7,Newcastle,14,20,0-2,DWDWL
+12,8,Brighton,4,19,1-1,DLDDD
+12,9,West Ham,-1,17,3-2,DLLLW
+12,10,Chelsea,5,16,4-4,WDLWD
+12,11,Brentford,2,16,0-3,LWWWL
+12,12,Wolves,-4,15,2-1,DWDLW
+12,13,Crystal Palace,-4,15,2-3,DLLWL
+12,14,Everton,-3,14,3-2,WLWDW
+12,15,Nottm Forest,-4,13,2-3,DDLWL
+12,16,Fulham,-10,12,1-3,WLDLL
+12,17,Bournemouth,-16,9,2-0,LLWLW
+12,18,Luton Town,-12,6,0-1,LDLDL
+12,19,Sheffield United,-21,5,1-1,LLLWD
+12,20,Burnley,-21,4,1-3,LLLLL
+22,1,Liverpool,32,51,4-1,DWWWW
+22,2,Man City,28,49,3-1,WWWWW
+22,3,Arsenal,23,46,2-1,DLLWW
+22,4,Tottenham,14,43,3-2,WLWDW
+22,5,Aston Villa,14,43,1-3,DLWDL
+22,6,West Ham,3,36,1-1,WWDDD
+22,7,Man United,-4,35,4-3,LWLDW
+22,8,Newcastle,11,32,3-1,LLLLW
+22,9,Brighton,1,32,0-4,DWDDL
+22,10,Chelsea,1,31,1-4,LWWWL
+22,11,Wolves,-2,29,3-4,WWWDL
+22,12,Bournemouth,-10,29,1-1,WWLLD
+22,13,Everton,-4,28,0-0,LLLDD
+22,14,Fulham,-8,25,0-0,LLWLD
+22,15,Crystal Palace,-11,24,3-2,DLWLW
+22,16,Brentford,-6,22,2-3,LLLWL
+22,17,Nottm Forest,-13,20,1-2,LWWLL
+22,18,Luton Town,-11,19,4-0,WWLDW
+22,19,Burnley,-23,12,1-3,WLLDL
+22,20,Sheffield United,-35,10,2-3,DLLDL
+28,1,Arsenal,46,64,2-1,WWWWW
+28,2,Liverpool,39,64,1-1,WWWWD
+28,3,Man City,35,63,1-1,WDWWD
+28,4,Aston Villa,18,55,0-4,LWWWL
+28,5,Tottenham,18,53,4-0,WLLWW
+28,6,Man United,0,47,2-0,WWLLW
+28,7,West Ham,-4,43,2-2,LLWWD
+28,8,Brighton,6,42,1-0,LWDLW
+28,9,Chelsea,4,42,3-2,WDWDW
+28,10,Wolves,-2,41,2-1,LWWLW
+28,11,Newcastle,11,40,2-3,WDLWL
+28,12,Fulham,-4,35,1-2,WLWWL
+28,13,Bournemouth,-11,35,2-2,LDLWD
+28,14,Everton,-10,31,0-2,LDDLL
+28,15,Crystal Palace,-15,29,1-1,LDWLD
+28,16,Brentford,-12,26,1-2,WLLDL
+28,17,Nottm Forest,-16,24,0-1,LWLLL
+28,18,Luton Town,-18,21,1-1,LLLLD
+28,19,Burnley,-35,14,2-2,LLLLD
+28,20,Sheffield United,-50,14,2-2,WLLLD
+38,1,Man City,62,91,3-1,WWWWW
+38,2,Arsenal,62,89,2-1,WWWWW
+38,3,Liverpool,45,82,2-0,WDWDW
+38,4,Aston Villa,15,68,0-5,WDLDL
+38,5,Tottenham,13,66,3-0,LLLWW
+38,6,Chelsea,14,63,2-1,WDWWW
+38,7,Newcastle,23,60,4-2,LWWDW
+38,8,Man United,-1,60,2-0,WDLLW
+38,9,West Ham,-14,52,1-3,LDLWL
+38,10,Crystal Palace,-1,49,5-0,WDWWW
+38,11,Brighton,-7,48,0-2,LLWDL
+38,12,Everton,-11,48,1-2,WWDWL
+38,13,Bournemouth,-13,48,1-2,LWLLL
+38,14,Fulham,-6,47,4-2,LDDLW
+38,15,Wolves,-15,46,0-2,LWLLL
+38,16,Brentford,-9,39,2-4,WLDWL
+38,17,Nottm Forest,-18,36,2-1,LLWLW
+38,18,Luton Town,-33,26,2-4,LLDLL
+38,19,Burnley,-37,24,1-2,WDLLL
+38,20,Sheffield United,-69,16,0-3,LLLLL
+30,1,Arsenal,51,68,0-0,WWWWD
+30,2,Man City,39,67,0-0,WWDWD
+30,3,Liverpool,38,67,2-1,WWDLW
+30,4,Aston Villa,20,59,2-0,WWLDW
+30,5,Tottenham,16,56,2-1,LWWLW
+30,6,Man United,2,51,1-1,LLWWD
+30,7,West Ham,-5,44,3-4,WWDDL
+30,8,Newcastle,10,43,4-3,LWLLW
+30,9,Chelsea,-1,43,2-2,WDWLD
+30,10,Brighton,1,42,1-2,DLWLL
+30,11,Wolves,-5,41,0-2,WLWLL
+30,12,Bournemouth,-9,41,2-1,LWDWW
+30,13,Fulham,-1,39,3-3,WWLWD
+30,14,Everton,-9,34,1-2,DLLWL
+30,15,Crystal Palace,-13,33,1-1,WLDWD
+30,16,Brentford,-13,27,1-1,LDLLD
+30,17,Nottm Forest,-16,26,1-1,LLLDD
+30,18,Luton Town,-19,22,1-2,LLDDL
+30,19,Burnley,-34,18,2-2,LLDWD
+30,20,Sheffield United,-52,15,3-3,LLDLD

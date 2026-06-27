@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Default Position", "Avg travel from default position", "Avg Travel between trips currently", "Difference"],
+      "columns": {
+        "Default Position": "text_exact",
+        "Avg travel from default position": "number",
+        "Avg Travel between trips currently": "number",
+        "Difference": "number"
+      }
+    }
+  }
+}

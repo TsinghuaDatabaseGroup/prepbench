@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_avg_attendance_grouping",
+      "kind": "Group-level concept",
+      "node_id": "agg_avg",
+      "op": "aggregate",
+      "source_text": "Find the average Attendance per Lesson and Subject per weekday",
+      "ref": "avg_attendance = df.groupby(['Weekday', 'Subject', 'Lesson Name'])['Attendance'].mean().reset_index()"
+    },
+    {
+      "id": "2_D2_join_keys_for_avg",
+      "kind": "Multi-table alignment",
+      "node_id": "join_avg",
+      "op": "join",
+      "source_text": "Avg. Attendance per Subject & Lesson",
+      "ref": "df = df.merge(avg_attendance, on=['Weekday', 'Subject', 'Lesson Name'], how='left')"
+    },
+    {
+      "id": "3_O2_left_join_retain_rows",
+      "kind": "Operation boundary",
+      "node_id": "join_avg",
+      "op": "join",
+      "source_text": "Avg. Attendance per Subject & Lesson",
+      "ref": "df = df.merge(avg_attendance, on=['Weekday', 'Subject', 'Lesson Name'], how='left')"
+    },
+    {
+      "id": "4_C1_fill_group_schedule_slot_keys",
+      "kind": "Row-level concept",
+      "node_id": "script_fill",
+      "op": "script",
+      "source_text": "Fill in the blanks",
+      "ref": "group_cols = ['Weekday', 'Lesson Time', 'Teacher']"
+    },
+    {
+      "id": "5_O2_blank_strings_treated_as_missing",
+      "kind": "Operation boundary",
+      "node_id": "script_fill",
+      "op": "script",
+      "source_text": "Fill in the blanks",
+      "ref": "df['Lesson Name'] = df['Lesson Name'].replace('', pd.NA)"
+    },
+    {
+      "id": "6_O2_fill_gaps_including_group_ends",
+      "kind": "Operation boundary",
+      "node_id": "script_fill",
+      "op": "script",
+      "source_text": "Fill in the blanks",
+      "ref": "df['Lesson Name'] = df.groupby(group_cols)['Lesson Name'].ffill().bfill()"
+    },
+    {
+      "id": "7_O1_custom_weekday_sort_order",
+      "kind": "Operation boundary",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort output rows by weekday order Monday–Friday, then by Time, then by Week (ascending).",
+      "ref": "weekday_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']\noutput_df['Weekday'] = pd.Categorical(output_df['Weekday'], categories=weekday_order, ordered=True)"
+    }
+  ]
+}

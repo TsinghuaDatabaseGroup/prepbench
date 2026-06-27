@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_whole_days_diff",
+      "kind": "Operation boundary",
+      "node_id": "add_durations",
+      "op": "project",
+      "source_text": "Average Time for a customer to have their order sent after placing their order",
+      "ref": "def days_between(a: pd.Series, b: pd.Series) -> pd.Series:\n        return (a - b).dt.days.astype(\"float\")"
+    },
+    {
+      "id": "2_C2_kpi_denominator_includes_unsent",
+      "kind": "Group-level concept",
+      "node_id": "agg_city",
+      "op": "aggregate",
+      "source_text": "For orders sent, which % of each cities orders have been sent out within 3 days or less",
+      "ref": "# KPI: time_to_send <= 3 days; denominator = total orders per city (including not sent)"
+    },
+    {
+      "id": "3_O2_kpi_null_time_to_send_counts_as_fail",
+      "kind": "Operation boundary",
+      "node_id": "agg_city",
+      "op": "aggregate",
+      "source_text": "For orders sent, which % of each cities orders have been sent out within 3 days or less",
+      "ref": "kpi_met_per_order = (pivot[\"time_to_send\"] <= 3).fillna(False)"
+    },
+    {
+      "id": "4_O2_order_not_sent_label_value",
+      "kind": "Operation incomplete",
+      "node_id": "format_dates",
+      "op": "project",
+      "source_text": "output_03.csv\n  - 6 fields:\n    - City\n    - Order not sent",
+      "ref": "out3.insert(1, \"Order not sent\", \"Not Sent\")"
+    },
+    {
+      "id": "5_O2_output02_filter_to_qualifying_reviewed_orders",
+      "kind": "Operation incomplete",
+      "node_id": "have_review",
+      "op": "filter",
+      "source_text": "Average Time for a customer to review their products after we sent their order (for those that have reviewed)",
+      "ref": "pivot.dropna(subset=[\"time_to_review_from_send\"])  # only orders that have been reviewed and sent"
+    },
+    {
+      "id": "6_O2_output01_include_customers_with_no_sent_orders",
+      "kind": "Operation incomplete",
+      "node_id": "join_out1",
+      "op": "join",
+      "intent": "Include all customers even if they have no sent orders (null average).",
+      "ref": "out1 = all_customers.merge(avg_send, on=\"Customer\", how=\"left\")[[\"Avg Time to Send\", \"Customer\"]]"
+    },
+    {
+      "id": "7_C2_order_level_reshape_grain",
+      "kind": "Group-level concept",
+      "node_id": "orders_by_status_dates",
+      "op": "aggregate",
+      "intent": "Reshape data to one row per (Order, Customer, City) before computing durations.",
+      "ref": "pivot = (\n        df.pivot_table(index=[\"Order\", \"Customer\", \"City\"],\n                        columns=\"Status\",\n                        values=\"Date\",\n                        aggfunc=\"first\")\n          .reset_index()\n    )"
+    },
+    {
+      "id": "8_O3_multiple_status_events_choose_first",
+      "kind": "Operation inconsistent",
+      "node_id": "orders_by_status_dates",
+      "op": "aggregate",
+      "intent": "If multiple rows exist for the same order and status, use the first/earliest status date.",
+      "ref": "df.pivot_table(index=[\"Order\", \"Customer\", \"City\"],\n                        columns=\"Status\",\n                        values=\"Date\",\n                        aggfunc=\"first\")"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Series", "Couple"],
+      "columns": {
+        "Series": "number",
+        "Couple": "text_norm",
+        "Finalist Positions": "text_norm",
+        "Avg Judge's Score": "number",
+        "% Change": "number"
+      }
+    }
+  }
+}
+
+

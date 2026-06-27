@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_date_calculation_from_week_base",
+      "kind": "Row-level concept",
+      "node_id": "proj_01",
+      "op": "project",
+      "source_text": "Create the date of the sale",
+      "ref": "base_monday0 = pd.Timestamp(\"2019-07-15\")\nbase_monday = base_monday0 + pd.Timedelta(days=7 * idx)\ndf[\"Date\"] = base_monday + pd.to_timedelta(df[\"Day\"].map(day_offset), unit=\"D\")"
+    },
+    {
+      "id": "2_C2_name_extract_before_wants",
+      "kind": "Row-level concept",
+      "node_id": "proj_01",
+      "op": "project",
+      "source_text": "Create a column for the customer name - with the customer's name in Title Case",
+      "ref": "df[\"Name\"] = df[\"Notes\"].str.extract(r\"^(.*?)\\s+wants\", flags=re.IGNORECASE)"
+    },
+    {
+      "id": "3_C2_value_extract_after_pound",
+      "kind": "Row-level concept",
+      "node_id": "proj_01",
+      "op": "project",
+      "intent": "Derive Value as the integer amount immediately following the £ symbol in Notes.",
+      "ref": "df[\"Value\"] = df[\"Notes\"].str.extract(r\"£(\\d+)\", flags=re.IGNORECASE).astype(int)"
+    },
+    {
+      "id": "4_C2_product_extract_after_of",
+      "kind": "Row-level concept",
+      "node_id": "proj_01",
+      "op": "project",
+      "source_text": "Create a column for the product",
+      "ref": "product_info = df[\"Notes\"].str.extract(r\"of\\s+(.*?)$\", flags=re.IGNORECASE)[0]"
+    },
+    {
+      "id": "5_C2_scent_first_word",
+      "kind": "Row-level concept",
+      "node_id": "proj_01",
+      "op": "project",
+      "source_text": "Create a column for the scent of the product",
+      "ref": "df[\"Scent\"] = product_info.str.split().str[0].str.title()"
+    },
+    {
+      "id": "6_C2_product_remaining_words",
+      "kind": "Row-level concept",
+      "node_id": "proj_01",
+      "op": "project",
+      "source_text": "Create a column for the product",
+      "ref": "df[\"Product\"] = product_info.str.split().str[1:].str.join(\" \").str.title()"
+    },
+    {
+      "id": "7_O3_no_dedup_when_stacking",
+      "kind": "Operation boundary",
+      "node_id": "union_all",
+      "op": "union",
+      "intent": "When combining all weeks, keep duplicates (do not de-duplicate rows).",
+      "ref": "output_df = pd.concat(frames, ignore_index=True)"
+    }
+  ]
+}

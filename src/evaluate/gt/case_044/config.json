@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Estimate Sales per Staff Member",
+        "Store",
+        "Team Member",
+        "Rank"
+      ],
+      "columns": {
+        "Estimate Sales per Staff Member": "number",
+        "Store": "text_exact",
+        "Team Member": "text_exact",
+        "Rank": "number"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_clapham_dates_positional_pairing",
+      "kind": "Multi-table alignment",
+      "node_id": "cl_join_dates",
+      "op": "join",
+      "source_text": "Replace Weekday with full date",
+      "ref": "for file, date_str in zip(clapham_files, date_strings): df[\"Dates\"] = date_str"
+    },
+    {
+      "id": "2_D2_wimbledon_dates_positional_pairing",
+      "kind": "Multi-table alignment",
+      "node_id": "wi_join_dates",
+      "op": "join",
+      "source_text": "Replace Weekday with full date",
+      "ref": "for file, date_str in zip(wimbledon_files, date_strings): df[\"Dates\"] = date_str"
+    },
+    {
+      "id": "3_O1_round_weekday_percentages_2dp",
+      "kind": "Operation boundary",
+      "node_id": "daily_pct",
+      "op": "project",
+      "intent": "Round weekday (date) percentage values to 2 decimal places.",
+      "ref": "daily_sales[\"Weekday % of Store Sales Volumes\"] = (daily_sales[\"Daily_Volume\"] / daily_sales[\"Total_Volume\"]).round(2)"
+    },
+    {
+      "id": "4_D2_reorder_dates_list_before_pairing",
+      "kind": "Multi-table alignment",
+      "node_id": "dates_proj",
+      "op": "project",
+      "intent": "If there are exactly five dates, reorder them to [D5, D1, D4, D2, D3] before pairing to files.",
+      "ref": "date_strings = [date_strings[4], date_strings[0], date_strings[3], date_strings[1], date_strings[2]]"
+    },
+    {
+      "id": "5_O1_dedup_after_store_dates_attached",
+      "kind": "Operation inconsistent",
+      "node_id": "full_dedup",
+      "op": "dedup",
+      "source_text": "Remove Duplicates (identical rows)",
+      "ref": "full_data = full_data.drop_duplicates()"
+    },
+    {
+      "id": "6_O1_round_scent_percentages_2dp",
+      "kind": "Operation boundary",
+      "node_id": "scent_pct",
+      "op": "project",
+      "intent": "Round scent percentage values to 2 decimal places.",
+      "ref": "scent_sales[\"Scent % of Store Sales Volumes\"] = (scent_sales[\"Scent_Volume\"] / scent_sales[\"Total_Volume\"]).round(2)"
+    }
+  ]
+}

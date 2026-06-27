@@ -1,0 +1,20 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Store",
+        "Employee",
+        "Avg monthly Sales",
+        "% of months target met",
+        "Monthly Target"
+      ],
+      "columns": {
+        "Store": "text_exact",
+        "Employee": "text_exact",
+        "Avg monthly Sales": "number",
+        "% of months target met": "number",
+        "Monthly Target": "number"
+      }
+    }
+  }
+}

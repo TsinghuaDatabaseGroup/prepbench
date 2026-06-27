@@ -1,0 +1,12 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Transaction ID", "IBAN"],
+      "columns": {
+        "Transaction ID": "text_exact",
+        "IBAN": "text_exact"
+      }
+    }
+  }
+}
+

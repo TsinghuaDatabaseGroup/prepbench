@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Airline",
+        "NPS",
+        "Z-Score"
+      ],
+      "columns": {
+        "Airline": "text_exact",
+        "NPS": "number",
+        "Z-Score": "number"
+      }
+    }
+  }
+}
+

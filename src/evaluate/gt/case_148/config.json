@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Name", "Reporting Year"],
+      "columns": {
+        "Name": "text_exact",
+        "Employment Range": "text_exact",
+        "Reporting Year": "number",
+        "Tenure by End of Reporting Year": "number",
+        "Salary Paid": "number",
+        "Yearly Bonus": "number",
+        "Total Paid": "number"
+      }
+    }
+  }
+}

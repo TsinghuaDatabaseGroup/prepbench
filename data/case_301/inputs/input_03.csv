@@ -1,0 +1,709 @@
+Line,Branch,Path Order,Station,Right_Line,Right_Longitude,Right_Latitude,name
+District,district-line-stations-branch-0,124,Earls Court,District,-0.1943141,51.4913561,Earls Court
+District,district-line-stations-branch-0,124,Earls Court,Piccadilly,-0.1943141,51.4913561,Earls Court
+District,district-line-stations-branch-2,168,Earls Court,District,-0.1943141,51.4913561,Earls Court
+District,district-line-stations-branch-2,168,Earls Court,Piccadilly,-0.1943141,51.4913561,Earls Court
+District,district-line-stations-branch-3,174,Earls Court,District,-0.1943141,51.4913561,Earls Court
+District,district-line-stations-branch-3,174,Earls Court,Piccadilly,-0.1943141,51.4913561,Earls Court
+District,district-line-stations-branch-4,176,Earls Court,District,-0.1943141,51.4913561,Earls Court
+District,district-line-stations-branch-4,176,Earls Court,Piccadilly,-0.1943141,51.4913561,Earls Court
+Piccadilly,piccadilly-line-stations-branch-0,341,Earls Court,District,-0.1943141,51.4913561,Earls Court
+Piccadilly,piccadilly-line-stations-branch-0,341,Earls Court,Piccadilly,-0.1943141,51.4913561,Earls Court
+Northern,northern-line-stations-branch-1,314,Old Street,Northern,-0.087623,51.5255811,Old Street
+Northern,northern-line-stations-branch-1,305,East Finchley,Northern,-0.1647437,51.5873322,East Finchley
+Central,central-line-stations-branch-0,47,Bank,Waterloo & City,-0.0890004,51.5133468,Bank
+Central,central-line-stations-branch-0,47,Bank,Central,-0.0890004,51.5133468,Bank
+Central,central-line-stations-branch-0,47,Bank,Northern,-0.0890004,51.5133468,Bank
+Northern,northern-line-stations-branch-1,316,Bank,Waterloo & City,-0.0890004,51.5133468,Bank
+Northern,northern-line-stations-branch-1,316,Bank,Central,-0.0890004,51.5133468,Bank
+Northern,northern-line-stations-branch-1,316,Bank,Northern,-0.0890004,51.5133468,Bank
+Waterloo,waterloo-line-stations-branch-0,395,Bank,Waterloo & City,-0.0890004,51.5133468,Bank
+Waterloo,waterloo-line-stations-branch-0,395,Bank,Central,-0.0890004,51.5133468,Bank
+Waterloo,waterloo-line-stations-branch-0,395,Bank,Northern,-0.0890004,51.5133468,Bank
+Circle,circle-line-stations-branch-0,89,Euston Square,Hammersmith & City,-0.1353447,51.5254683,Euston Square
+Circle,circle-line-stations-branch-0,89,Euston Square,Metropolitan,-0.1353447,51.5254683,Euston Square
+Circle,circle-line-stations-branch-0,89,Euston Square,Circle,-0.1353447,51.5254683,Euston Square
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,189,Euston Square,Hammersmith & City,-0.1353447,51.5254683,Euston Square
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,189,Euston Square,Metropolitan,-0.1353447,51.5254683,Euston Square
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,189,Euston Square,Circle,-0.1353447,51.5254683,Euston Square
+Metropolitan,metropolitan-line-stations-branch-0,249,Euston Square,Hammersmith & City,-0.1353447,51.5254683,Euston Square
+Metropolitan,metropolitan-line-stations-branch-0,249,Euston Square,Metropolitan,-0.1353447,51.5254683,Euston Square
+Metropolitan,metropolitan-line-stations-branch-0,249,Euston Square,Circle,-0.1353447,51.5254683,Euston Square
+Jubilee,jubilee-line-stations-branch-0,207,Canons Park,Jubilee,-0.2943914,51.6076499,Canons Park
+Circle,circle-line-stations-branch-0,91,Farringdon,Hammersmith & City,-0.1048433,51.5201953,Farringdon
+Circle,circle-line-stations-branch-0,91,Farringdon,Metropolitan,-0.1048433,51.5201953,Farringdon
+Circle,circle-line-stations-branch-0,91,Farringdon,Circle,-0.1048433,51.5201953,Farringdon
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,191,Farringdon,Hammersmith & City,-0.1048433,51.5201953,Farringdon
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,191,Farringdon,Metropolitan,-0.1048433,51.5201953,Farringdon
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,191,Farringdon,Circle,-0.1048433,51.5201953,Farringdon
+Metropolitan,metropolitan-line-stations-branch-0,251,Farringdon,Hammersmith & City,-0.1048433,51.5201953,Farringdon
+Metropolitan,metropolitan-line-stations-branch-0,251,Farringdon,Metropolitan,-0.1048433,51.5201953,Farringdon
+Metropolitan,metropolitan-line-stations-branch-0,251,Farringdon,Circle,-0.1048433,51.5201953,Farringdon
+Northern,northern-line-stations-branch-1,303,West Finchley,Northern,-0.1889174,51.6092622,West Finchley
+Bakerloo,bakerloo-line-stations-branch-0,21,Charing Cross,Bakerloo,-0.1248028,51.5083586,Charing Cross
+Bakerloo,bakerloo-line-stations-branch-0,21,Charing Cross,Northern,-0.1248028,51.5083586,Charing Cross
+Northern,northern-line-stations-branch-0,286,Charing Cross,Bakerloo,-0.1248028,51.5083586,Charing Cross
+Northern,northern-line-stations-branch-0,286,Charing Cross,Northern,-0.1248028,51.5083586,Charing Cross
+Circle,circle-line-stations-branch-0,90,Kings Cross St. Pancras,Metropolitan,-0.1238723,51.5303121,Kings Cross St. Pancras
+Circle,circle-line-stations-branch-0,90,Kings Cross St. Pancras,Hammersmith & City,-0.1238723,51.5303121,Kings Cross St. Pancras
+Circle,circle-line-stations-branch-0,90,Kings Cross St. Pancras,Northern,-0.1238723,51.5303121,Kings Cross St. Pancras
+Circle,circle-line-stations-branch-0,90,Kings Cross St. Pancras,Piccadilly,-0.1238723,51.5303121,Kings Cross St. Pancras
+Circle,circle-line-stations-branch-0,90,Kings Cross St. Pancras,Circle,-0.1238723,51.5303121,Kings Cross St. Pancras
+Circle,circle-line-stations-branch-0,90,Kings Cross St. Pancras,Victoria,-0.1238723,51.5303121,Kings Cross St. Pancras
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,190,Kings Cross St. Pancras,Metropolitan,-0.1238723,51.5303121,Kings Cross St. Pancras
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,190,Kings Cross St. Pancras,Hammersmith & City,-0.1238723,51.5303121,Kings Cross St. Pancras
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,190,Kings Cross St. Pancras,Northern,-0.1238723,51.5303121,Kings Cross St. Pancras
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,190,Kings Cross St. Pancras,Piccadilly,-0.1238723,51.5303121,Kings Cross St. Pancras
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,190,Kings Cross St. Pancras,Circle,-0.1238723,51.5303121,Kings Cross St. Pancras
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,190,Kings Cross St. Pancras,Victoria,-0.1238723,51.5303121,Kings Cross St. Pancras
+Metropolitan,metropolitan-line-stations-branch-0,250,Kings Cross St. Pancras,Metropolitan,-0.1238723,51.5303121,Kings Cross St. Pancras
+Metropolitan,metropolitan-line-stations-branch-0,250,Kings Cross St. Pancras,Hammersmith & City,-0.1238723,51.5303121,Kings Cross St. Pancras
+Metropolitan,metropolitan-line-stations-branch-0,250,Kings Cross St. Pancras,Northern,-0.1238723,51.5303121,Kings Cross St. Pancras
+Metropolitan,metropolitan-line-stations-branch-0,250,Kings Cross St. Pancras,Piccadilly,-0.1238723,51.5303121,Kings Cross St. Pancras
+Metropolitan,metropolitan-line-stations-branch-0,250,Kings Cross St. Pancras,Circle,-0.1238723,51.5303121,Kings Cross St. Pancras
+Metropolitan,metropolitan-line-stations-branch-0,250,Kings Cross St. Pancras,Victoria,-0.1238723,51.5303121,Kings Cross St. Pancras
+Northern,northern-line-stations-branch-1,312,Kings Cross St. Pancras,Metropolitan,-0.1238723,51.5303121,Kings Cross St. Pancras
+Northern,northern-line-stations-branch-1,312,Kings Cross St. Pancras,Hammersmith & City,-0.1238723,51.5303121,Kings Cross St. Pancras
+Northern,northern-line-stations-branch-1,312,Kings Cross St. Pancras,Northern,-0.1238723,51.5303121,Kings Cross St. Pancras
+Northern,northern-line-stations-branch-1,312,Kings Cross St. Pancras,Piccadilly,-0.1238723,51.5303121,Kings Cross St. Pancras
+Northern,northern-line-stations-branch-1,312,Kings Cross St. Pancras,Circle,-0.1238723,51.5303121,Kings Cross St. Pancras
+Northern,northern-line-stations-branch-1,312,Kings Cross St. Pancras,Victoria,-0.1238723,51.5303121,Kings Cross St. Pancras
+Piccadilly,piccadilly-line-stations-branch-0,352,Kings Cross St. Pancras,Metropolitan,-0.1238723,51.5303121,Kings Cross St. Pancras
+Piccadilly,piccadilly-line-stations-branch-0,352,Kings Cross St. Pancras,Hammersmith & City,-0.1238723,51.5303121,Kings Cross St. Pancras
+Piccadilly,piccadilly-line-stations-branch-0,352,Kings Cross St. Pancras,Northern,-0.1238723,51.5303121,Kings Cross St. Pancras
+Piccadilly,piccadilly-line-stations-branch-0,352,Kings Cross St. Pancras,Piccadilly,-0.1238723,51.5303121,Kings Cross St. Pancras
+Piccadilly,piccadilly-line-stations-branch-0,352,Kings Cross St. Pancras,Circle,-0.1238723,51.5303121,Kings Cross St. Pancras
+Piccadilly,piccadilly-line-stations-branch-0,352,Kings Cross St. Pancras,Victoria,-0.1238723,51.5303121,Kings Cross St. Pancras
+Victoria,victoria-line-stations-branch-0,387,Kings Cross St. Pancras,Metropolitan,-0.1238723,51.5303121,Kings Cross St. Pancras
+Victoria,victoria-line-stations-branch-0,387,Kings Cross St. Pancras,Hammersmith & City,-0.1238723,51.5303121,Kings Cross St. Pancras
+Victoria,victoria-line-stations-branch-0,387,Kings Cross St. Pancras,Northern,-0.1238723,51.5303121,Kings Cross St. Pancras
+Victoria,victoria-line-stations-branch-0,387,Kings Cross St. Pancras,Piccadilly,-0.1238723,51.5303121,Kings Cross St. Pancras
+Victoria,victoria-line-stations-branch-0,387,Kings Cross St. Pancras,Circle,-0.1238723,51.5303121,Kings Cross St. Pancras
+Victoria,victoria-line-stations-branch-0,387,Kings Cross St. Pancras,Victoria,-0.1238723,51.5303121,Kings Cross St. Pancras
+Bakerloo,bakerloo-line-stations-branch-0,13,Warwick Avenue,Bakerloo,-0.1829534,51.5231042,Warwick Avenue
+District,district-line-stations-branch-0,150,Dagenham Heathway,District,0.1476799,51.541212,Dagenham Heathway
+Circle,circle-line-stations-branch-0,104,St. Jamess Park,District,-0.133879,51.4996095,St. Jamess Park
+Circle,circle-line-stations-branch-0,104,St. Jamess Park,Circle,-0.133879,51.4996095,St. Jamess Park
+District,district-line-stations-branch-0,129,St. Jamess Park,District,-0.133879,51.4996095,St. Jamess Park
+District,district-line-stations-branch-0,129,St. Jamess Park,Circle,-0.133879,51.4996095,St. Jamess Park
+Metropolitan,metropolitan-line-stations-branch-0,243,Northwick Park,Metropolitan,-0.3181996,51.5785081,Northwick Park
+District,district-line-stations-branch-0,140,Stepney Green,District,-0.0473825,51.5219956,Stepney Green
+District,district-line-stations-branch-0,140,Stepney Green,Hammersmith & City,-0.0473825,51.5219956,Stepney Green
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,197,Stepney Green,District,-0.0473825,51.5219956,Stepney Green
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,197,Stepney Green,Hammersmith & City,-0.0473825,51.5219956,Stepney Green
+Piccadilly,piccadilly-line-stations-branch-1,369,Hounslow Central,Piccadilly,-0.3659579,51.470925,Hounslow Central
+Metropolitan,metropolitan-line-stations-branch-0,234,Chalfont and Latimer,Metropolitan,-0.5610678,51.6679067,Chalfont and Latimer
+Metropolitan,metropolitan-line-stations-branch-2,266,Chalfont and Latimer,Metropolitan,-0.5610678,51.6679067,Chalfont and Latimer
+Bakerloo,bakerloo-line-stations-branch-0,16,Marylebone,Bakerloo,-0.1634924,51.5223966,Marylebone
+Bakerloo,bakerloo-line-stations-branch-0,3,South Kenton,Bakerloo,-0.308143,51.5710442,South Kenton
+District,district-line-stations-branch-0,145,Upton Park,District,0.0345419,51.5366283,Upton Park
+District,district-line-stations-branch-0,145,Upton Park,Hammersmith & City,0.0345419,51.5366283,Upton Park
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,203,Upton Park,District,0.0345419,51.5366283,Upton Park
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,203,Upton Park,Hammersmith & City,0.0345419,51.5366283,Upton Park
+District,district-line-stations-branch-0,122,Barons Court,District,-0.2134302,51.4902285,Barons Court
+District,district-line-stations-branch-0,122,Barons Court,Piccadilly,-0.2134302,51.4902285,Barons Court
+Piccadilly,piccadilly-line-stations-branch-0,340,Barons Court,District,-0.2134302,51.4902285,Barons Court
+Piccadilly,piccadilly-line-stations-branch-0,340,Barons Court,Piccadilly,-0.2134302,51.4902285,Barons Court
+Central,central-line-stations-branch-0,61,Epping,Central,0.1138255,51.6936864,Epping
+Circle,circle-line-stations-branch-0,83,Westbourne Park,Hammersmith & City,-0.2008824,51.5209883,Westbourne Park
+Circle,circle-line-stations-branch-0,83,Westbourne Park,Circle,-0.2008824,51.5209883,Westbourne Park
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,183,Westbourne Park,Hammersmith & City,-0.2008824,51.5209883,Westbourne Park
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,183,Westbourne Park,Circle,-0.2008824,51.5209883,Westbourne Park
+Northern,northern-line-stations-branch-1,313,Angel,Northern,-0.1055812,51.5329677,Angel
+Jubilee,jubilee-line-stations-branch-0,211,Neasden,Jubilee,-0.250115,51.5546272,Neasden
+Metropolitan,metropolitan-line-stations-branch-3,267,Watford,Metropolitan,-0.4172703,51.6576044,Watford
+Northern,northern-line-stations-branch-0,272,Colindale,Northern,-0.2502874,51.5952299,Colindale
+Circle,circle-line-stations-branch-0,103,Westminster,District,-0.1250022,51.5014012,Westminster
+Circle,circle-line-stations-branch-0,103,Westminster,Jubilee,-0.1250022,51.5014012,Westminster
+Circle,circle-line-stations-branch-0,103,Westminster,Circle,-0.1250022,51.5014012,Westminster
+District,district-line-stations-branch-0,130,Westminster,District,-0.1250022,51.5014012,Westminster
+District,district-line-stations-branch-0,130,Westminster,Jubilee,-0.1250022,51.5014012,Westminster
+District,district-line-stations-branch-0,130,Westminster,Circle,-0.1250022,51.5014012,Westminster
+Jubilee,jubilee-line-stations-branch-0,222,Westminster,District,-0.1250022,51.5014012,Westminster
+Jubilee,jubilee-line-stations-branch-0,222,Westminster,Jubilee,-0.1250022,51.5014012,Westminster
+Jubilee,jubilee-line-stations-branch-0,222,Westminster,Circle,-0.1250022,51.5014012,Westminster
+Metropolitan,metropolitan-line-stations-branch-0,237,Moor Park,Metropolitan,-0.4329132,51.6299299,Moor Park
+Metropolitan,metropolitan-line-stations-branch-3,269,Moor Park,Metropolitan,-0.4329132,51.6299299,Moor Park
+Circle,circle-line-stations-branch-0,111,Bayswater,District,-0.1879015,51.5121109,Bayswater
+Circle,circle-line-stations-branch-0,111,Bayswater,Circle,-0.1879015,51.5121109,Bayswater
+District,district-line-stations-branch-3,171,Bayswater,District,-0.1879015,51.5121109,Bayswater
+District,district-line-stations-branch-3,171,Bayswater,Circle,-0.1879015,51.5121109,Bayswater
+Central,central-line-stations-branch-0,39,Lancaster Gate,Central,-0.1754299,51.5118909,Lancaster Gate
+Bakerloo,bakerloo-line-stations-branch-0,24,Elephant and Castle,Northern,-0.1007386,51.4958492,Elephant and Castle
+Bakerloo,bakerloo-line-stations-branch-0,24,Elephant and Castle,Bakerloo,-0.1007386,51.4958492,Elephant and Castle
+Northern,northern-line-stations-branch-1,319,Elephant and Castle,Northern,-0.1007386,51.4958492,Elephant and Castle
+Northern,northern-line-stations-branch-1,319,Elephant and Castle,Bakerloo,-0.1007386,51.4958492,Elephant and Castle
+District,district-line-stations-branch-0,152,Elm Park,District,0.1972528,51.5491251,Elm Park
+Jubilee,jubilee-line-stations-branch-0,210,Wembley Park,Jubilee,-0.2792424,51.5633219,Wembley Park
+Jubilee,jubilee-line-stations-branch-0,210,Wembley Park,Metropolitan,-0.2792424,51.5633219,Wembley Park
+Metropolitan,metropolitan-line-stations-branch-0,245,Wembley Park,Jubilee,-0.2792424,51.5633219,Wembley Park
+Metropolitan,metropolitan-line-stations-branch-0,245,Wembley Park,Metropolitan,-0.2792424,51.5633219,Wembley Park
+Bakerloo,bakerloo-line-stations-branch-0,14,Paddington,Hammersmith & City,-0.1757365,51.5153934,Paddington
+Bakerloo,bakerloo-line-stations-branch-0,14,Paddington,Bakerloo,-0.1757365,51.5153934,Paddington
+Bakerloo,bakerloo-line-stations-branch-0,14,Paddington,Circle,-0.1757365,51.5153934,Paddington
+Bakerloo,bakerloo-line-stations-branch-0,14,Paddington,District,-0.1757365,51.5153934,Paddington
+Circle,circle-line-stations-branch-0,85,Paddington,Hammersmith & City,-0.1757365,51.5153934,Paddington
+Circle,circle-line-stations-branch-0,85,Paddington,Bakerloo,-0.1757365,51.5153934,Paddington
+Circle,circle-line-stations-branch-0,85,Paddington,Circle,-0.1757365,51.5153934,Paddington
+Circle,circle-line-stations-branch-0,85,Paddington,District,-0.1757365,51.5153934,Paddington
+Circle,circle-line-stations-branch-0,112,Paddington,Hammersmith & City,-0.1757365,51.5153934,Paddington
+Circle,circle-line-stations-branch-0,112,Paddington,Bakerloo,-0.1757365,51.5153934,Paddington
+Circle,circle-line-stations-branch-0,112,Paddington,Circle,-0.1757365,51.5153934,Paddington
+Circle,circle-line-stations-branch-0,112,Paddington,District,-0.1757365,51.5153934,Paddington
+District,district-line-stations-branch-3,170,Paddington,Hammersmith & City,-0.1757365,51.5153934,Paddington
+District,district-line-stations-branch-3,170,Paddington,Bakerloo,-0.1757365,51.5153934,Paddington
+District,district-line-stations-branch-3,170,Paddington,Circle,-0.1757365,51.5153934,Paddington
+District,district-line-stations-branch-3,170,Paddington,District,-0.1757365,51.5153934,Paddington
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,185,Paddington,Hammersmith & City,-0.1757365,51.5153934,Paddington
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,185,Paddington,Bakerloo,-0.1757365,51.5153934,Paddington
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,185,Paddington,Circle,-0.1757365,51.5153934,Paddington
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,185,Paddington,District,-0.1757365,51.5153934,Paddington
+Piccadilly,piccadilly-line-stations-branch-1,374,South Ealing,Piccadilly,-0.3070401,51.5016435,South Ealing
+Piccadilly,piccadilly-line-stations-branch-0,351,Russell Square,Piccadilly,-0.1245902,51.5230126,Russell Square
+Northern,northern-line-stations-branch-0,283,Goodge Street,Northern,-0.1348078,51.520613,Goodge Street
+Bakerloo,bakerloo-line-stations-branch-0,1,Harrow and Wealdstone,Bakerloo,-0.3342527,51.5925943,Harrow and Wealdstone
+Jubilee,jubilee-line-stations-branch-0,230,Canning Town,Jubilee,0.0083056,51.5138705,Canning Town
+Victoria,victoria-line-stations-branch-0,393,Walthamstow Central,Victoria,-0.0199407,51.5830179,Walthamstow Central
+Central,central-line-stations-branch-0,55,South Woodford,Central,0.0279432,51.5915527,South Woodford
+Bakerloo,bakerloo-line-stations-branch-0,11,Kilburn Park,Bakerloo,-0.1939663,51.5351352,Kilburn Park
+Central,central-line-stations-branch-0,27,South Ruislip,Central,-0.3991161,51.5568899,South Ruislip
+Piccadilly,piccadilly-line-stations-branch-0,331,Sudbury Hill,Piccadilly,-0.3363921,51.5573391,Sudbury Hill
+Northern,northern-line-stations-branch-0,275,Golders Green,Northern,-0.1948343,51.5722153,Golders Green
+Northern,northern-line-stations-branch-0,270,Edgware,Northern,-0.2750937,51.6142292,Edgware
+Piccadilly,piccadilly-line-stations-branch-0,357,Manor House,Piccadilly,-0.0956851,51.5707468,Manor House
+Circle,circle-line-stations-branch-0,107,South Kensington,Circle,-0.1739231,51.4940713,South Kensington
+Circle,circle-line-stations-branch-0,107,South Kensington,District,-0.1739231,51.4940713,South Kensington
+Circle,circle-line-stations-branch-0,107,South Kensington,Piccadilly,-0.1739231,51.4940713,South Kensington
+District,district-line-stations-branch-0,126,South Kensington,Circle,-0.1739231,51.4940713,South Kensington
+District,district-line-stations-branch-0,126,South Kensington,District,-0.1739231,51.4940713,South Kensington
+District,district-line-stations-branch-0,126,South Kensington,Piccadilly,-0.1739231,51.4940713,South Kensington
+Piccadilly,piccadilly-line-stations-branch-0,343,South Kensington,Circle,-0.1739231,51.4940713,South Kensington
+Piccadilly,piccadilly-line-stations-branch-0,343,South Kensington,District,-0.1739231,51.4940713,South Kensington
+Piccadilly,piccadilly-line-stations-branch-0,343,South Kensington,Piccadilly,-0.1739231,51.4940713,South Kensington
+Jubilee,jubilee-line-stations-branch-0,227,Canada Water,Jubilee,-0.050807,51.4981686,Canada Water
+Bakerloo,bakerloo-line-stations-branch-0,4,North Wembley,Bakerloo,-0.3039484,51.562396,North Wembley
+Victoria,victoria-line-stations-branch-0,388,Highbury and Islington,Victoria,-0.1040824,51.5464953,Highbury and Islington
+Central,central-line-stations-branch-0,38,Queensway,Central,-0.1874197,51.5104488,Queensway
+Jubilee,jubilee-line-stations-branch-0,206,Stanmore,Jubilee,-0.3030993,51.6196728,Stanmore
+Piccadilly,piccadilly-line-stations-branch-0,362,Southgate,Piccadilly,-0.1277702,51.6323759,Southgate
+Circle,circle-line-stations-branch-0,109,High Street Kensington,Circle,-0.1915661,51.5007291,High Street Kensington
+Circle,circle-line-stations-branch-0,109,High Street Kensington,District,-0.1915661,51.5007291,High Street Kensington
+District,district-line-stations-branch-3,173,High Street Kensington,Circle,-0.1915661,51.5007291,High Street Kensington
+District,district-line-stations-branch-3,173,High Street Kensington,District,-0.1915661,51.5007291,High Street Kensington
+Central,central-line-stations-branch-0,50,Mile End,District,-0.032666,51.5253107,Mile End
+Central,central-line-stations-branch-0,50,Mile End,Hammersmith & City,-0.032666,51.5253107,Mile End
+Central,central-line-stations-branch-0,50,Mile End,Central,-0.032666,51.5253107,Mile End
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,198,Mile End,District,-0.032666,51.5253107,Mile End
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,198,Mile End,Hammersmith & City,-0.032666,51.5253107,Mile End
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,198,Mile End,Central,-0.032666,51.5253107,Mile End
+Victoria,victoria-line-stations-branch-0,390,Seven Sisters,Victoria,-0.0724666,51.5833622,Seven Sisters
+Bakerloo,bakerloo-line-stations-branch-0,23,Lambeth North,Bakerloo,-0.111768,51.49913,Lambeth North
+Metropolitan,metropolitan-line-stations-branch-0,242,Harrow-on-the-Hill,Metropolitan,-0.3370017,51.5793876,Harrow-on-the-Hill
+Metropolitan,metropolitan-line-stations-branch-1,264,Harrow-on-the-Hill,Metropolitan,-0.3370017,51.5793876,Harrow-on-the-Hill
+Northern,northern-line-stations-branch-1,309,Kentish Town,Northern,-0.1404715,51.5500092,Kentish Town
+Central,central-line-stations-branch-0,26,Ruislip Gardens,Central,-0.4092941,51.5599598,Ruislip Gardens
+Central,central-line-stations-branch-0,49,Bethnal Green,Central,-0.0553918,51.5271917,Bethnal Green
+District,district-line-stations-branch-0,151,Dagenham East,District,0.1658335,51.5441874,Dagenham East
+Northern,northern-line-stations-branch-1,301,Totteridge and Whetstone,Northern,-0.1793541,51.6302462,Totteridge and Whetstone
+Piccadilly,piccadilly-line-stations-branch-0,334,Park Royal,Piccadilly,-0.284929,51.5268336,Park Royal
+District,district-line-stations-branch-0,144,Plaistow,Hammersmith & City,0.0177806,51.5312884,Plaistow
+District,district-line-stations-branch-0,144,Plaistow,District,0.0177806,51.5312884,Plaistow
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,202,Plaistow,Hammersmith & City,0.0177806,51.5312884,Plaistow
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,202,Plaistow,District,0.0177806,51.5312884,Plaistow
+Victoria,victoria-line-stations-branch-0,380,Vauxhall,Victoria,-0.1238299,51.4857354,Vauxhall
+District,district-line-stations-branch-2,166,Fulham Broadway,District,-0.1955442,51.4802608,Fulham Broadway
+Jubilee,jubilee-line-stations-branch-0,226,Bermondsey,Jubilee,-0.06433,51.4979606,Bermondsey
+Central,central-line-stations-branch-0,59,Debden,Central,0.0838014,51.645492,Debden
+Central,central-line-stations-branch-0,51,Stratford,Jubilee,-0.0037517,51.5416927,Stratford
+Central,central-line-stations-branch-0,51,Stratford,Central,-0.0037517,51.5416927,Stratford
+Jubilee,jubilee-line-stations-branch-0,232,Stratford,Jubilee,-0.0037517,51.5416927,Stratford
+Jubilee,jubilee-line-stations-branch-0,232,Stratford,Central,-0.0037517,51.5416927,Stratford
+Central,central-line-stations-branch-0,37,Notting Hill Gate,Circle,-0.1959218,51.509375,Notting Hill Gate
+Central,central-line-stations-branch-0,37,Notting Hill Gate,District,-0.1959218,51.509375,Notting Hill Gate
+Central,central-line-stations-branch-0,37,Notting Hill Gate,Central,-0.1959218,51.509375,Notting Hill Gate
+Circle,circle-line-stations-branch-0,110,Notting Hill Gate,Circle,-0.1959218,51.509375,Notting Hill Gate
+Circle,circle-line-stations-branch-0,110,Notting Hill Gate,District,-0.1959218,51.509375,Notting Hill Gate
+Circle,circle-line-stations-branch-0,110,Notting Hill Gate,Central,-0.1959218,51.509375,Notting Hill Gate
+District,district-line-stations-branch-3,172,Notting Hill Gate,Circle,-0.1959218,51.509375,Notting Hill Gate
+District,district-line-stations-branch-3,172,Notting Hill Gate,District,-0.1959218,51.509375,Notting Hill Gate
+District,district-line-stations-branch-3,172,Notting Hill Gate,Central,-0.1959218,51.509375,Notting Hill Gate
+Metropolitan,metropolitan-line-stations-branch-0,235,Chorleywood,Metropolitan,-0.5183337,51.6542652,Chorleywood
+Piccadilly,piccadilly-line-stations-branch-0,330,South Harrow,Piccadilly,-0.3518941,51.5646798,South Harrow
+Bakerloo,bakerloo-line-stations-branch-0,10,Queens Park,Bakerloo,-0.204798,51.5343124,Queens Park
+District,district-line-stations-branch-0,117,Chiswick Park,District,-0.2677369,51.4943704,Chiswick Park
+District,district-line-stations-branch-0,139,Whitechapel,Hammersmith & City,-0.0594203,51.5195874,Whitechapel
+District,district-line-stations-branch-0,139,Whitechapel,District,-0.0594203,51.5195874,Whitechapel
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,196,Whitechapel,Hammersmith & City,-0.0594203,51.5195874,Whitechapel
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,196,Whitechapel,District,-0.0594203,51.5195874,Whitechapel
+Northern,northern-line-stations-branch-0,274,Brent Cross,Northern,-0.2133357,51.576599,Brent Cross
+District,district-line-stations-branch-2,165,Parsons Green,District,-0.2011242,51.4749598,Parsons Green
+Central,central-line-stations-branch-2,73,Grange Hill,Central,0.0922726,51.6134803,Grange Hill
+Northern,northern-line-stations-branch-0,296,Tooting Broadway,Northern,-0.1686845,51.427049,Tooting Broadway
+Circle,circle-line-stations-branch-0,106,Sloane Square,District,-0.1564891,51.4923593,Sloane Square
+Circle,circle-line-stations-branch-0,106,Sloane Square,Circle,-0.1564891,51.4923593,Sloane Square
+District,district-line-stations-branch-0,127,Sloane Square,District,-0.1564891,51.4923593,Sloane Square
+District,district-line-stations-branch-0,127,Sloane Square,Circle,-0.1564891,51.4923593,Sloane Square
+Piccadilly,piccadilly-line-stations-branch-1,368,Hounslow West,Piccadilly,-0.3857077,51.4731051,Hounslow West
+Jubilee,jubilee-line-stations-branch-0,209,Kingsbury,Jubilee,-0.2786019,51.584876,Kingsbury
+Northern,northern-line-stations-branch-2,321,Mill Hill East,Northern,-0.2098956,51.6083163,Mill Hill East
+Northern,northern-line-stations-branch-1,302,Woodside Park,Northern,-0.1854258,51.617868,Woodside Park
+Metropolitan,metropolitan-line-stations-branch-0,244,Preston Road,Metropolitan,-0.2949719,51.572103,Preston Road
+Piccadilly,piccadilly-line-stations-branch-0,355,Arsenal,Piccadilly,-0.1054999,51.5585411,Arsenal
+Victoria,victoria-line-stations-branch-0,378,Brixton,Victoria,-0.114552,51.4627368,Brixton
+Central,central-line-stations-branch-0,34,White City,Central,-0.2246321,51.5122318,White City
+Northern,northern-line-stations-branch-1,306,Highgate,Northern,-0.146935,51.5776464,Highgate
+Central,central-line-stations-branch-2,66,Wanstead,Central,0.0287602,51.5749019,Wanstead
+Circle,circle-line-stations-branch-0,95,Aldgate,Circle,-0.075627,51.514342,Aldgate
+Circle,circle-line-stations-branch-0,95,Aldgate,Metropolitan,-0.075627,51.514342,Aldgate
+Metropolitan,metropolitan-line-stations-branch-0,255,Aldgate,Circle,-0.075627,51.514342,Aldgate
+Metropolitan,metropolitan-line-stations-branch-0,255,Aldgate,Metropolitan,-0.075627,51.514342,Aldgate
+Metropolitan,metropolitan-line-stations-branch-0,233,Amersham,Metropolitan,-0.6065136,51.6741285,Amersham
+District,district-line-stations-branch-0,147,Barking,Hammersmith & City,0.0808317,51.5395212,Barking
+District,district-line-stations-branch-0,147,Barking,District,0.0808317,51.5395212,Barking
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,205,Barking,Hammersmith & City,0.0808317,51.5395212,Barking
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,205,Barking,District,0.0808317,51.5395212,Barking
+Northern,northern-line-stations-branch-0,294,Balham,Northern,-0.1526852,51.4431824,Balham
+Circle,circle-line-stations-branch-0,78,Goldhawk Road,Hammersmith & City,-0.2274041,51.5020767,Goldhawk Road
+Circle,circle-line-stations-branch-0,78,Goldhawk Road,Circle,-0.2274041,51.5020767,Goldhawk Road
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,178,Goldhawk Road,Hammersmith & City,-0.2274041,51.5020767,Goldhawk Road
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,178,Goldhawk Road,Circle,-0.2274041,51.5020767,Goldhawk Road
+Central,central-line-stations-branch-0,53,Leytonstone,Central,0.0091404,51.568522,Leytonstone
+Central,central-line-stations-branch-2,65,Leytonstone,Central,0.0091404,51.568522,Leytonstone
+Metropolitan,metropolitan-line-stations-branch-1,259,Ruislip,Metropolitan,-0.4212351,51.5721615,Ruislip
+Metropolitan,metropolitan-line-stations-branch-1,259,Ruislip,Piccadilly,-0.4212351,51.5721615,Ruislip
+Piccadilly,piccadilly-line-stations-branch-0,326,Ruislip,Metropolitan,-0.4212351,51.5721615,Ruislip
+Piccadilly,piccadilly-line-stations-branch-0,326,Ruislip,Piccadilly,-0.4212351,51.5721615,Ruislip
+Central,central-line-stations-branch-2,71,Fairlop,Central,0.0905932,51.59611,Fairlop
+Northern,northern-line-stations-branch-0,271,Burnt Oak,Northern,-0.2643306,51.6025517,Burnt Oak
+Jubilee,jubilee-line-stations-branch-0,215,West Hampstead,Jubilee,-0.1911267,51.5474739,West Hampstead
+Northern,northern-line-stations-branch-1,300,High Barnet,Northern,-0.1941657,51.651688,High Barnet
+Metropolitan,metropolitan-line-stations-branch-1,257,Hillingdon,Metropolitan,-0.4498979,51.553777,Hillingdon
+Metropolitan,metropolitan-line-stations-branch-1,257,Hillingdon,Piccadilly,-0.4498979,51.553777,Hillingdon
+Piccadilly,piccadilly-line-stations-branch-0,324,Hillingdon,Metropolitan,-0.4498979,51.553777,Hillingdon
+Piccadilly,piccadilly-line-stations-branch-0,324,Hillingdon,Piccadilly,-0.4498979,51.553777,Hillingdon
+Piccadilly,piccadilly-line-stations-branch-0,344,Knightsbridge,Piccadilly,-0.1606642,51.5013548,Knightsbridge
+District,district-line-stations-branch-0,115,Ealing Common,Piccadilly,-0.2871516,51.5102482,Ealing Common
+District,district-line-stations-branch-0,115,Ealing Common,District,-0.2871516,51.5102482,Ealing Common
+Piccadilly,piccadilly-line-stations-branch-0,336,Ealing Common,Piccadilly,-0.2871516,51.5102482,Ealing Common
+Piccadilly,piccadilly-line-stations-branch-0,336,Ealing Common,District,-0.2871516,51.5102482,Ealing Common
+Piccadilly,piccadilly-line-stations-branch-0,332,Sudbury Town,Piccadilly,-0.3163437,51.5513969,Sudbury Town
+Central,central-line-stations-branch-0,44,Holborn,Central,-0.1198404,51.5172354,Holborn
+Central,central-line-stations-branch-0,44,Holborn,Piccadilly,-0.1198404,51.5172354,Holborn
+Piccadilly,piccadilly-line-stations-branch-0,350,Holborn,Central,-0.1198404,51.5172354,Holborn
+Piccadilly,piccadilly-line-stations-branch-0,350,Holborn,Piccadilly,-0.1198404,51.5172354,Holborn
+Metropolitan,metropolitan-line-stations-branch-0,236,Rickmansworth,Metropolitan,-0.4736848,51.6403222,Rickmansworth
+District,district-line-stations-branch-1,156,Richmond,District,-0.3017391,51.4632325,Richmond
+Jubilee,jubilee-line-stations-branch-0,225,London Bridge,Jubilee,-0.0860055,51.5046745,London Bridge
+Jubilee,jubilee-line-stations-branch-0,225,London Bridge,Northern,-0.0860055,51.5046745,London Bridge
+Northern,northern-line-stations-branch-1,317,London Bridge,Jubilee,-0.0860055,51.5046745,London Bridge
+Northern,northern-line-stations-branch-1,317,London Bridge,Northern,-0.0860055,51.5046745,London Bridge
+District,district-line-stations-branch-2,167,West Brompton,District,-0.195539,51.4873288,West Brompton
+Central,central-line-stations-branch-1,62,Ealing Broadway,Central,-0.3020106,51.5148617,Ealing Broadway
+Central,central-line-stations-branch-1,62,Ealing Broadway,District,-0.3020106,51.5148617,Ealing Broadway
+District,district-line-stations-branch-0,114,Ealing Broadway,Central,-0.3020106,51.5148617,Ealing Broadway
+District,district-line-stations-branch-0,114,Ealing Broadway,District,-0.3020106,51.5148617,Ealing Broadway
+District,district-line-stations-branch-0,138,Aldgate East,District,-0.0730017,51.5150817,Aldgate East
+District,district-line-stations-branch-0,138,Aldgate East,Hammersmith & City,-0.0730017,51.5150817,Aldgate East
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,195,Aldgate East,District,-0.0730017,51.5150817,Aldgate East
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,195,Aldgate East,Hammersmith & City,-0.0730017,51.5150817,Aldgate East
+Central,central-line-stations-branch-2,70,Barkingside,Central,0.0884767,51.5858506,Barkingside
+Jubilee,jubilee-line-stations-branch-0,224,Southwark,Jubilee,-0.1057949,51.5038534,Southwark
+Central,central-line-stations-branch-2,74,Chigwell,Central,0.0761793,51.6178577,Chigwell
+Metropolitan,metropolitan-line-stations-branch-1,256,Uxbridge,Piccadilly,-0.4771014,51.546454,Uxbridge
+Metropolitan,metropolitan-line-stations-branch-1,256,Uxbridge,Metropolitan,-0.4771014,51.546454,Uxbridge
+Piccadilly,piccadilly-line-stations-branch-0,323,Uxbridge,Piccadilly,-0.4771014,51.546454,Uxbridge
+Piccadilly,piccadilly-line-stations-branch-0,323,Uxbridge,Metropolitan,-0.4771014,51.546454,Uxbridge
+District,district-line-stations-branch-1,158,Gunnersbury,District,-0.2751641,51.4918632,Gunnersbury
+Northern,northern-line-stations-branch-0,276,Hampstead,Northern,-0.1780145,51.5565421,Hampstead
+Jubilee,jubilee-line-stations-branch-0,212,Dollis Hill,Jubilee,-0.2387979,51.5518501,Dollis Hill
+District,district-line-stations-branch-0,119,Stamford Brook,District,-0.2452466,51.4944495,Stamford Brook
+District,district-line-stations-branch-2,164,Putney Bridge,District,-0.2093657,51.4678648,Putney Bridge
+Central,central-line-stations-branch-0,48,Liverpool Street,Hammersmith & City,-0.0822498,51.5175981,Liverpool Street
+Central,central-line-stations-branch-0,48,Liverpool Street,Metropolitan,-0.0822498,51.5175981,Liverpool Street
+Central,central-line-stations-branch-0,48,Liverpool Street,Circle,-0.0822498,51.5175981,Liverpool Street
+Central,central-line-stations-branch-0,48,Liverpool Street,Central,-0.0822498,51.5175981,Liverpool Street
+Circle,circle-line-stations-branch-0,94,Liverpool Street,Hammersmith & City,-0.0822498,51.5175981,Liverpool Street
+Circle,circle-line-stations-branch-0,94,Liverpool Street,Metropolitan,-0.0822498,51.5175981,Liverpool Street
+Circle,circle-line-stations-branch-0,94,Liverpool Street,Circle,-0.0822498,51.5175981,Liverpool Street
+Circle,circle-line-stations-branch-0,94,Liverpool Street,Central,-0.0822498,51.5175981,Liverpool Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,194,Liverpool Street,Hammersmith & City,-0.0822498,51.5175981,Liverpool Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,194,Liverpool Street,Metropolitan,-0.0822498,51.5175981,Liverpool Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,194,Liverpool Street,Circle,-0.0822498,51.5175981,Liverpool Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,194,Liverpool Street,Central,-0.0822498,51.5175981,Liverpool Street
+Metropolitan,metropolitan-line-stations-branch-0,254,Liverpool Street,Hammersmith & City,-0.0822498,51.5175981,Liverpool Street
+Metropolitan,metropolitan-line-stations-branch-0,254,Liverpool Street,Metropolitan,-0.0822498,51.5175981,Liverpool Street
+Metropolitan,metropolitan-line-stations-branch-0,254,Liverpool Street,Circle,-0.0822498,51.5175981,Liverpool Street
+Metropolitan,metropolitan-line-stations-branch-0,254,Liverpool Street,Central,-0.0822498,51.5175981,Liverpool Street
+Central,central-line-stations-branch-0,32,North Acton,Central,-0.2597298,51.523432,North Acton
+Central,central-line-stations-branch-1,64,North Acton,Central,-0.2597298,51.523432,North Acton
+Bakerloo,bakerloo-line-stations-branch-0,22,Waterloo,Bakerloo,-0.1132594,51.5031464,Waterloo
+Bakerloo,bakerloo-line-stations-branch-0,22,Waterloo,Jubilee,-0.1132594,51.5031464,Waterloo
+Bakerloo,bakerloo-line-stations-branch-0,22,Waterloo,Waterloo & City,-0.1132594,51.5031464,Waterloo
+Bakerloo,bakerloo-line-stations-branch-0,22,Waterloo,Northern,-0.1132594,51.5031464,Waterloo
+Jubilee,jubilee-line-stations-branch-0,223,Waterloo,Bakerloo,-0.1132594,51.5031464,Waterloo
+Jubilee,jubilee-line-stations-branch-0,223,Waterloo,Jubilee,-0.1132594,51.5031464,Waterloo
+Jubilee,jubilee-line-stations-branch-0,223,Waterloo,Waterloo & City,-0.1132594,51.5031464,Waterloo
+Jubilee,jubilee-line-stations-branch-0,223,Waterloo,Northern,-0.1132594,51.5031464,Waterloo
+Northern,northern-line-stations-branch-0,287,Waterloo,Bakerloo,-0.1132594,51.5031464,Waterloo
+Northern,northern-line-stations-branch-0,287,Waterloo,Jubilee,-0.1132594,51.5031464,Waterloo
+Northern,northern-line-stations-branch-0,287,Waterloo,Waterloo & City,-0.1132594,51.5031464,Waterloo
+Northern,northern-line-stations-branch-0,287,Waterloo,Northern,-0.1132594,51.5031464,Waterloo
+Waterloo,waterloo-line-stations-branch-0,394,Waterloo,Bakerloo,-0.1132594,51.5031464,Waterloo
+Waterloo,waterloo-line-stations-branch-0,394,Waterloo,Jubilee,-0.1132594,51.5031464,Waterloo
+Waterloo,waterloo-line-stations-branch-0,394,Waterloo,Waterloo & City,-0.1132594,51.5031464,Waterloo
+Waterloo,waterloo-line-stations-branch-0,394,Waterloo,Northern,-0.1132594,51.5031464,Waterloo
+Piccadilly,piccadilly-line-stations-branch-1,367,Hatton Cross,Piccadilly,-0.4233803,51.4666845,Hatton Cross
+Central,central-line-stations-branch-2,67,Redbridge,Central,0.0453943,51.576367,Redbridge
+Northern,northern-line-stations-branch-0,293,Clapham South,Northern,-0.1479841,51.4526763,Clapham South
+Circle,circle-line-stations-branch-0,93,Moorgate,Metropolitan,-0.0890176,51.5184369,Moorgate
+Circle,circle-line-stations-branch-0,93,Moorgate,Northern,-0.0890176,51.5184369,Moorgate
+Circle,circle-line-stations-branch-0,93,Moorgate,Hammersmith & City,-0.0890176,51.5184369,Moorgate
+Circle,circle-line-stations-branch-0,93,Moorgate,Circle,-0.0890176,51.5184369,Moorgate
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,193,Moorgate,Metropolitan,-0.0890176,51.5184369,Moorgate
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,193,Moorgate,Northern,-0.0890176,51.5184369,Moorgate
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,193,Moorgate,Hammersmith & City,-0.0890176,51.5184369,Moorgate
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,193,Moorgate,Circle,-0.0890176,51.5184369,Moorgate
+Metropolitan,metropolitan-line-stations-branch-0,253,Moorgate,Metropolitan,-0.0890176,51.5184369,Moorgate
+Metropolitan,metropolitan-line-stations-branch-0,253,Moorgate,Northern,-0.0890176,51.5184369,Moorgate
+Metropolitan,metropolitan-line-stations-branch-0,253,Moorgate,Hammersmith & City,-0.0890176,51.5184369,Moorgate
+Metropolitan,metropolitan-line-stations-branch-0,253,Moorgate,Circle,-0.0890176,51.5184369,Moorgate
+Northern,northern-line-stations-branch-1,315,Moorgate,Metropolitan,-0.0890176,51.5184369,Moorgate
+Northern,northern-line-stations-branch-1,315,Moorgate,Northern,-0.0890176,51.5184369,Moorgate
+Northern,northern-line-stations-branch-1,315,Moorgate,Hammersmith & City,-0.0890176,51.5184369,Moorgate
+Northern,northern-line-stations-branch-1,315,Moorgate,Circle,-0.0890176,51.5184369,Moorgate
+Piccadilly,piccadilly-line-stations-branch-0,359,Wood Green,Piccadilly,-0.1095266,51.5974535,Wood Green
+Circle,circle-line-stations-branch-0,81,Latimer Road,Hammersmith & City,-0.2174598,51.5139576,Latimer Road
+Circle,circle-line-stations-branch-0,81,Latimer Road,Circle,-0.2174598,51.5139576,Latimer Road
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,181,Latimer Road,Hammersmith & City,-0.2174598,51.5139576,Latimer Road
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,181,Latimer Road,Circle,-0.2174598,51.5139576,Latimer Road
+District,district-line-stations-branch-0,116,Acton Town,Piccadilly,-0.2803024,51.5030708,Acton Town
+District,district-line-stations-branch-0,116,Acton Town,District,-0.2803024,51.5030708,Acton Town
+Piccadilly,piccadilly-line-stations-branch-0,337,Acton Town,Piccadilly,-0.2803024,51.5030708,Acton Town
+Piccadilly,piccadilly-line-stations-branch-0,337,Acton Town,District,-0.2803024,51.5030708,Acton Town
+Piccadilly,piccadilly-line-stations-branch-1,375,Acton Town,Piccadilly,-0.2803024,51.5030708,Acton Town
+Piccadilly,piccadilly-line-stations-branch-1,375,Acton Town,District,-0.2803024,51.5030708,Acton Town
+Northern,northern-line-stations-branch-0,295,Tooting Bec,Northern,-0.1597005,51.4358376,Tooting Bec
+District,district-line-stations-branch-0,120,Ravenscourt Park,District,-0.2359692,51.4940673,Ravenscourt Park
+Northern,northern-line-stations-branch-0,289,Oval,Northern,-0.1133213,51.4814124,Oval
+Circle,circle-line-stations-branch-0,98,Cannon Street,District,-0.0902506,51.5113621,Cannon Street
+Circle,circle-line-stations-branch-0,98,Cannon Street,Circle,-0.0902506,51.5113621,Cannon Street
+District,district-line-stations-branch-0,135,Cannon Street,District,-0.0902506,51.5113621,Cannon Street
+District,district-line-stations-branch-0,135,Cannon Street,Circle,-0.0902506,51.5113621,Cannon Street
+Northern,northern-line-stations-branch-0,290,Stockwell,Victoria,-0.1228462,51.4721591,Stockwell
+Northern,northern-line-stations-branch-0,290,Stockwell,Northern,-0.1228462,51.4721591,Stockwell
+Victoria,victoria-line-stations-branch-0,379,Stockwell,Victoria,-0.1228462,51.4721591,Stockwell
+Victoria,victoria-line-stations-branch-0,379,Stockwell,Northern,-0.1228462,51.4721591,Stockwell
+Bakerloo,bakerloo-line-stations-branch-0,8,Willesden Junction,Bakerloo,-0.2439093,51.5322338,Willesden Junction
+District,district-line-stations-branch-2,163,East Putney,District,-0.210998,51.4588797,East Putney
+Central,central-line-stations-branch-0,40,Marble Arch,Central,-0.1585712,51.513965,Marble Arch
+Central,central-line-stations-branch-0,45,Chancery Lane,Central,-0.1119623,51.5184937,Chancery Lane
+Piccadilly,piccadilly-line-stations-branch-0,333,Alperton,Piccadilly,-0.299516,51.5412086,Alperton
+Northern,northern-line-stations-branch-0,277,Belsize Park,Northern,-0.1639742,51.5501908,Belsize Park
+Jubilee,jubilee-line-stations-branch-0,214,Kilburn,Jubilee,-0.2046324,51.5469439,Kilburn
+Metropolitan,metropolitan-line-stations-branch-2,265,Chesham,Metropolitan,-0.6114296,51.7053787,Chesham
+Circle,circle-line-stations-branch-0,105,Victoria,District,-0.1439207,51.4964239,Victoria
+Circle,circle-line-stations-branch-0,105,Victoria,Victoria,-0.1439207,51.4964239,Victoria
+Circle,circle-line-stations-branch-0,105,Victoria,Circle,-0.1439207,51.4964239,Victoria
+District,district-line-stations-branch-0,128,Victoria,District,-0.1439207,51.4964239,Victoria
+District,district-line-stations-branch-0,128,Victoria,Victoria,-0.1439207,51.4964239,Victoria
+District,district-line-stations-branch-0,128,Victoria,Circle,-0.1439207,51.4964239,Victoria
+Victoria,victoria-line-stations-branch-0,382,Victoria,District,-0.1439207,51.4964239,Victoria
+Victoria,victoria-line-stations-branch-0,382,Victoria,Victoria,-0.1439207,51.4964239,Victoria
+Victoria,victoria-line-stations-branch-0,382,Victoria,Circle,-0.1439207,51.4964239,Victoria
+Circle,circle-line-stations-branch-0,80,Wood Lane,Circle,-0.2244728,51.5096581,Wood Lane
+Circle,circle-line-stations-branch-0,80,Wood Lane,Hammersmith & City,-0.2244728,51.5096581,Wood Lane
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,180,Wood Lane,Circle,-0.2244728,51.5096581,Wood Lane
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,180,Wood Lane,Hammersmith & City,-0.2244728,51.5096581,Wood Lane
+Central,central-line-stations-branch-2,68,Gants Hill,Central,0.0660844,51.5765532,Gants Hill
+District,district-line-stations-branch-0,148,Upney,District,0.1015316,51.5384057,Upney
+Central,central-line-stations-branch-0,30,Perivale,Central,-0.3230703,51.5363413,Perivale
+Circle,circle-line-stations-branch-0,99,Mansion House,District,-0.0941977,51.5120914,Mansion House
+Circle,circle-line-stations-branch-0,99,Mansion House,Circle,-0.0941977,51.5120914,Mansion House
+District,district-line-stations-branch-0,134,Mansion House,District,-0.0941977,51.5120914,Mansion House
+District,district-line-stations-branch-0,134,Mansion House,Circle,-0.0941977,51.5120914,Mansion House
+Bakerloo,bakerloo-line-stations-branch-0,18,Regents Park,Bakerloo,-0.1453445,51.5238107,Regents Park
+Northern,northern-line-stations-branch-0,279,Camden Town,Northern,-0.1424522,51.5399693,Camden Town
+Northern,northern-line-stations-branch-1,310,Camden Town,Northern,-0.1424522,51.5399693,Camden Town
+Piccadilly,piccadilly-line-stations-branch-0,363,Oakwood,Piccadilly,-0.1318536,51.6476378,Oakwood
+Piccadilly,piccadilly-line-stations-branch-0,335,North Ealing,Piccadilly,-0.2889936,51.5176216,North Ealing
+Circle,circle-line-stations-branch-0,101,Temple,District,-0.1137258,51.5110406,Temple
+Circle,circle-line-stations-branch-0,101,Temple,Circle,-0.1137258,51.5110406,Temple
+District,district-line-stations-branch-0,132,Temple,District,-0.1137258,51.5110406,Temple
+District,district-line-stations-branch-0,132,Temple,Circle,-0.1137258,51.5110406,Temple
+Central,central-line-stations-branch-0,60,Theydon Bois,Central,0.1028906,51.6725523,Theydon Bois
+Central,central-line-stations-branch-0,29,Greenford,Central,-0.3458786,51.5419798,Greenford
+Metropolitan,metropolitan-line-stations-branch-1,261,Eastcote,Piccadilly,-0.3968231,51.5765509,Eastcote
+Metropolitan,metropolitan-line-stations-branch-1,261,Eastcote,Metropolitan,-0.3968231,51.5765509,Eastcote
+Piccadilly,piccadilly-line-stations-branch-0,328,Eastcote,Piccadilly,-0.3968231,51.5765509,Eastcote
+Piccadilly,piccadilly-line-stations-branch-0,328,Eastcote,Metropolitan,-0.3968231,51.5765509,Eastcote
+Bakerloo,bakerloo-line-stations-branch-0,19,Oxford Circus,Bakerloo,-0.1408359,51.5152232,Oxford Circus
+Bakerloo,bakerloo-line-stations-branch-0,19,Oxford Circus,Central,-0.1408359,51.5152232,Oxford Circus
+Bakerloo,bakerloo-line-stations-branch-0,19,Oxford Circus,Victoria,-0.1408359,51.5152232,Oxford Circus
+Central,central-line-stations-branch-0,42,Oxford Circus,Bakerloo,-0.1408359,51.5152232,Oxford Circus
+Central,central-line-stations-branch-0,42,Oxford Circus,Central,-0.1408359,51.5152232,Oxford Circus
+Central,central-line-stations-branch-0,42,Oxford Circus,Victoria,-0.1408359,51.5152232,Oxford Circus
+Victoria,victoria-line-stations-branch-0,384,Oxford Circus,Bakerloo,-0.1408359,51.5152232,Oxford Circus
+Victoria,victoria-line-stations-branch-0,384,Oxford Circus,Central,-0.1408359,51.5152232,Oxford Circus
+Victoria,victoria-line-stations-branch-0,384,Oxford Circus,Victoria,-0.1408359,51.5152232,Oxford Circus
+Piccadilly,piccadilly-line-stations-branch-0,360,Bounds Green,Piccadilly,-0.1241771,51.6070317,Bounds Green
+Circle,circle-line-stations-branch-0,108,Gloucester Road,District,-0.1835436,51.4944993,Gloucester Road
+Circle,circle-line-stations-branch-0,108,Gloucester Road,Piccadilly,-0.1835436,51.4944993,Gloucester Road
+Circle,circle-line-stations-branch-0,108,Gloucester Road,Circle,-0.1835436,51.4944993,Gloucester Road
+District,district-line-stations-branch-0,125,Gloucester Road,District,-0.1835436,51.4944993,Gloucester Road
+District,district-line-stations-branch-0,125,Gloucester Road,Piccadilly,-0.1835436,51.4944993,Gloucester Road
+District,district-line-stations-branch-0,125,Gloucester Road,Circle,-0.1835436,51.4944993,Gloucester Road
+Piccadilly,piccadilly-line-stations-branch-0,342,Gloucester Road,District,-0.1835436,51.4944993,Gloucester Road
+Piccadilly,piccadilly-line-stations-branch-0,342,Gloucester Road,Piccadilly,-0.1835436,51.4944993,Gloucester Road
+Piccadilly,piccadilly-line-stations-branch-0,342,Gloucester Road,Circle,-0.1835436,51.4944993,Gloucester Road
+Circle,circle-line-stations-branch-0,88,Great Portland Street,Metropolitan,-0.1439614,51.5237884,Great Portland Street
+Circle,circle-line-stations-branch-0,88,Great Portland Street,Hammersmith & City,-0.1439614,51.5237884,Great Portland Street
+Circle,circle-line-stations-branch-0,88,Great Portland Street,Circle,-0.1439614,51.5237884,Great Portland Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,188,Great Portland Street,Metropolitan,-0.1439614,51.5237884,Great Portland Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,188,Great Portland Street,Hammersmith & City,-0.1439614,51.5237884,Great Portland Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,188,Great Portland Street,Circle,-0.1439614,51.5237884,Great Portland Street
+Metropolitan,metropolitan-line-stations-branch-0,248,Great Portland Street,Metropolitan,-0.1439614,51.5237884,Great Portland Street
+Metropolitan,metropolitan-line-stations-branch-0,248,Great Portland Street,Hammersmith & City,-0.1439614,51.5237884,Great Portland Street
+Metropolitan,metropolitan-line-stations-branch-0,248,Great Portland Street,Circle,-0.1439614,51.5237884,Great Portland Street
+District,district-line-stations-branch-0,154,Upminster Bridge,District,0.234542,51.5577189,Upminster Bridge
+District,district-line-stations-branch-0,146,East Ham,Hammersmith & City,0.0515164,51.5392462,East Ham
+District,district-line-stations-branch-0,146,East Ham,District,0.0515164,51.5392462,East Ham
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,204,East Ham,Hammersmith & City,0.0515164,51.5392462,East Ham
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,204,East Ham,District,0.0515164,51.5392462,East Ham
+Central,central-line-stations-branch-2,72,Hainault,Central,0.0941083,51.6028457,Hainault
+Circle,circle-line-stations-branch-0,102,Embankment,District,-0.1223672,51.5073124,Embankment
+Circle,circle-line-stations-branch-0,102,Embankment,Bakerloo,-0.1223672,51.5073124,Embankment
+Circle,circle-line-stations-branch-0,102,Embankment,Circle,-0.1223672,51.5073124,Embankment
+Circle,circle-line-stations-branch-0,102,Embankment,Northern,-0.1223672,51.5073124,Embankment
+District,district-line-stations-branch-0,131,Embankment,District,-0.1223672,51.5073124,Embankment
+District,district-line-stations-branch-0,131,Embankment,Bakerloo,-0.1223672,51.5073124,Embankment
+District,district-line-stations-branch-0,131,Embankment,Circle,-0.1223672,51.5073124,Embankment
+District,district-line-stations-branch-0,131,Embankment,Northern,-0.1223672,51.5073124,Embankment
+Central,central-line-stations-branch-0,46,St. Pauls,Central,-0.0975713,51.5148353,St. Pauls
+District,district-line-stations-branch-0,118,Turnham Green,Piccadilly,-0.2545245,51.4951817,Turnham Green
+District,district-line-stations-branch-0,118,Turnham Green,District,-0.2545245,51.4951817,Turnham Green
+District,district-line-stations-branch-1,159,Turnham Green,Piccadilly,-0.2545245,51.4951817,Turnham Green
+District,district-line-stations-branch-1,159,Turnham Green,District,-0.2545245,51.4951817,Turnham Green
+Piccadilly,piccadilly-line-stations-branch-0,338,Turnham Green,Piccadilly,-0.2545245,51.4951817,Turnham Green
+Piccadilly,piccadilly-line-stations-branch-0,338,Turnham Green,District,-0.2545245,51.4951817,Turnham Green
+Piccadilly,piccadilly-line-stations-branch-0,349,Covent Garden,Piccadilly,-0.1245072,51.5127601,Covent Garden
+Metropolitan,metropolitan-line-stations-branch-0,238,Northwood,Metropolitan,-0.4238375,51.6112131,Northwood
+Jubilee,jubilee-line-stations-branch-0,217,Swiss Cottage,Jubilee,-0.1756265,51.5430346,Swiss Cottage
+District,district-line-stations-branch-0,143,West Ham,Jubilee,0.0053176,51.5285256,West Ham
+District,district-line-stations-branch-0,143,West Ham,District,0.0053176,51.5285256,West Ham
+District,district-line-stations-branch-0,143,West Ham,Hammersmith & City,0.0053176,51.5285256,West Ham
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,201,West Ham,Jubilee,0.0053176,51.5285256,West Ham
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,201,West Ham,District,0.0053176,51.5285256,West Ham
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,201,West Ham,Hammersmith & City,0.0053176,51.5285256,West Ham
+Jubilee,jubilee-line-stations-branch-0,231,West Ham,Jubilee,0.0053176,51.5285256,West Ham
+Jubilee,jubilee-line-stations-branch-0,231,West Ham,District,0.0053176,51.5285256,West Ham
+Jubilee,jubilee-line-stations-branch-0,231,West Ham,Hammersmith & City,0.0053176,51.5285256,West Ham
+Jubilee,jubilee-line-stations-branch-0,208,Queensbury,Jubilee,-0.2863316,51.5938823,Queensbury
+Bakerloo,bakerloo-line-stations-branch-0,2,Kenton,Bakerloo,-0.3152167,51.5814955,Kenton
+Bakerloo,bakerloo-line-stations-branch-0,20,Piccadilly Circus,Piccadilly,-0.1337117,51.5096965,Piccadilly Circus
+Bakerloo,bakerloo-line-stations-branch-0,20,Piccadilly Circus,Bakerloo,-0.1337117,51.5096965,Piccadilly Circus
+Piccadilly,piccadilly-line-stations-branch-0,347,Piccadilly Circus,Piccadilly,-0.1337117,51.5096965,Piccadilly Circus
+Piccadilly,piccadilly-line-stations-branch-0,347,Piccadilly Circus,Bakerloo,-0.1337117,51.5096965,Piccadilly Circus
+Central,central-line-stations-branch-0,31,Hanger Lane,Central,-0.2929963,51.5300714,Hanger Lane
+Piccadilly,piccadilly-line-stations-branch-2,376,Heathrow Terminal 4,Piccadilly,-0.4477298,51.4597798,Heathrow Terminal 4
+Piccadilly,piccadilly-line-stations-branch-0,358,Turnpike Lane,Piccadilly,-0.1028052,51.590358,Turnpike Lane
+Bakerloo,bakerloo-line-stations-branch-0,7,Harlesden,Bakerloo,-0.2574958,51.5362576,Harlesden
+Northern,northern-line-stations-branch-1,307,Archway,Northern,-0.1351218,51.5654905,Archway
+Central,central-line-stations-branch-0,36,Holland Park,Central,-0.2065576,51.5071462,Holland Park
+Metropolitan,metropolitan-line-stations-branch-1,258,Ickenham,Metropolitan,-0.4415797,51.5608244,Ickenham
+Metropolitan,metropolitan-line-stations-branch-1,258,Ickenham,Piccadilly,-0.4415797,51.5608244,Ickenham
+Piccadilly,piccadilly-line-stations-branch-0,325,Ickenham,Metropolitan,-0.4415797,51.5608244,Ickenham
+Piccadilly,piccadilly-line-stations-branch-0,325,Ickenham,Piccadilly,-0.4415797,51.5608244,Ickenham
+Central,central-line-stations-branch-0,41,Bond Street,Jubilee,-0.1496136,51.5137971,Bond Street
+Central,central-line-stations-branch-0,41,Bond Street,Central,-0.1496136,51.5137971,Bond Street
+Jubilee,jubilee-line-stations-branch-0,220,Bond Street,Jubilee,-0.1496136,51.5137971,Bond Street
+Jubilee,jubilee-line-stations-branch-0,220,Bond Street,Central,-0.1496136,51.5137971,Bond Street
+District,district-line-stations-branch-2,161,Wimbledon Park,District,-0.1991865,51.4345806,Wimbledon Park
+Central,central-line-stations-branch-0,52,Leyton,Central,-0.0064653,51.558132,Leyton
+Jubilee,jubilee-line-stations-branch-0,221,Green Park,Piccadilly,-0.1424774,51.5067601,Green Park
+Jubilee,jubilee-line-stations-branch-0,221,Green Park,Victoria,-0.1424774,51.5067601,Green Park
+Jubilee,jubilee-line-stations-branch-0,221,Green Park,Jubilee,-0.1424774,51.5067601,Green Park
+Piccadilly,piccadilly-line-stations-branch-0,346,Green Park,Piccadilly,-0.1424774,51.5067601,Green Park
+Piccadilly,piccadilly-line-stations-branch-0,346,Green Park,Victoria,-0.1424774,51.5067601,Green Park
+Piccadilly,piccadilly-line-stations-branch-0,346,Green Park,Jubilee,-0.1424774,51.5067601,Green Park
+Victoria,victoria-line-stations-branch-0,383,Green Park,Piccadilly,-0.1424774,51.5067601,Green Park
+Victoria,victoria-line-stations-branch-0,383,Green Park,Victoria,-0.1424774,51.5067601,Green Park
+Victoria,victoria-line-stations-branch-0,383,Green Park,Jubilee,-0.1424774,51.5067601,Green Park
+District,district-line-stations-branch-2,160,Wimbledon,District,-0.206663,51.4211074,Wimbledon
+Central,central-line-stations-branch-0,43,Tottenham Court Road,Central,-0.1311105,51.5162104,Tottenham Court Road
+Central,central-line-stations-branch-0,43,Tottenham Court Road,Northern,-0.1311105,51.5162104,Tottenham Court Road
+Northern,northern-line-stations-branch-0,284,Tottenham Court Road,Central,-0.1311105,51.5162104,Tottenham Court Road
+Northern,northern-line-stations-branch-0,284,Tottenham Court Road,Northern,-0.1311105,51.5162104,Tottenham Court Road
+Piccadilly,piccadilly-line-stations-branch-0,354,Holloway Road,Piccadilly,-0.1129357,51.5528161,Holloway Road
+Piccadilly,piccadilly-line-stations-branch-1,372,Boston Manor,Piccadilly,-0.3247473,51.495765,Boston Manor
+Metropolitan,metropolitan-line-stations-branch-1,263,West Harrow,Metropolitan,-0.3538467,51.5789235,West Harrow
+Piccadilly,piccadilly-line-stations-branch-0,356,Finsbury Park,Victoria,-0.1058815,51.5646351,Finsbury Park
+Piccadilly,piccadilly-line-stations-branch-0,356,Finsbury Park,Piccadilly,-0.1058815,51.5646351,Finsbury Park
+Victoria,victoria-line-stations-branch-0,389,Finsbury Park,Victoria,-0.1058815,51.5646351,Finsbury Park
+Victoria,victoria-line-stations-branch-0,389,Finsbury Park,Piccadilly,-0.1058815,51.5646351,Finsbury Park
+Piccadilly,piccadilly-line-stations-branch-1,373,Northfields,Piccadilly,-0.3150649,51.5004913,Northfields
+Jubilee,jubilee-line-stations-branch-0,229,North Greenwich,Jubilee,0.0035861,51.5002553,North Greenwich
+Victoria,victoria-line-stations-branch-0,381,Pimlico,Victoria,-0.1331084,51.4895524,Pimlico
+Piccadilly,piccadilly-line-stations-branch-1,366,Heathrow Terminals 1 2 3,Piccadilly,-0.4524075,51.4712888,Heathrow Terminals 1 2 3
+Piccadilly,piccadilly-line-stations-branch-2,377,Heathrow Terminals 1 2 3,Piccadilly,-0.4524075,51.4712888,Heathrow Terminals 1 2 3
+Bakerloo,bakerloo-line-stations-branch-0,12,Maida Vale,Bakerloo,-0.1854326,51.5299946,Maida Vale
+Piccadilly,piccadilly-line-stations-branch-1,370,Hounslow East,Piccadilly,-0.3552751,51.4737073,Hounslow East
+District,district-line-stations-branch-4,175,Kensington (Olympia),District,-0.2103792,51.4978792,Kensington
+Circle,circle-line-stations-branch-0,97,Monument,District,-0.0861883,51.5106304,Monument
+Circle,circle-line-stations-branch-0,97,Monument,Circle,-0.0861883,51.5106304,Monument
+District,district-line-stations-branch-0,136,Monument,District,-0.0861883,51.5106304,Monument
+District,district-line-stations-branch-0,136,Monument,Circle,-0.0861883,51.5106304,Monument
+District,district-line-stations-branch-0,149,Becontree,District,0.1268804,51.5395854,Becontree
+Northern,northern-line-stations-branch-0,298,South Wimbledon,Northern,-0.1919747,51.4153607,South Wimbledon
+Metropolitan,metropolitan-line-stations-branch-1,260,Ruislip Manor,Piccadilly,-0.4128493,51.5734506,Ruislip Manor
+Metropolitan,metropolitan-line-stations-branch-1,260,Ruislip Manor,Metropolitan,-0.4128493,51.5734506,Ruislip Manor
+Piccadilly,piccadilly-line-stations-branch-0,327,Ruislip Manor,Piccadilly,-0.4128493,51.5734506,Ruislip Manor
+Piccadilly,piccadilly-line-stations-branch-0,327,Ruislip Manor,Metropolitan,-0.4128493,51.5734506,Ruislip Manor
+Metropolitan,metropolitan-line-stations-branch-1,262,Rayners Lane,Piccadilly,-0.3710606,51.5753964,Rayners Lane
+Metropolitan,metropolitan-line-stations-branch-1,262,Rayners Lane,Metropolitan,-0.3710606,51.5753964,Rayners Lane
+Piccadilly,piccadilly-line-stations-branch-0,329,Rayners Lane,Piccadilly,-0.3710606,51.5753964,Rayners Lane
+Piccadilly,piccadilly-line-stations-branch-0,329,Rayners Lane,Metropolitan,-0.3710606,51.5753964,Rayners Lane
+Northern,northern-line-stations-branch-0,292,Clapham Common,Northern,-0.1383149,51.4618035,Clapham Common
+Northern,northern-line-stations-branch-0,280,Mornington Crescent,Northern,-0.1387446,51.5343617,Mornington Crescent
+Bakerloo,bakerloo-line-stations-branch-0,5,Wembley Central,Bakerloo,-0.2963922,51.5518644,Wembley Central
+Bakerloo,bakerloo-line-stations-branch-0,6,Stonebridge Park,Bakerloo,-0.2754002,51.5439863,Stonebridge Park
+Northern,northern-line-stations-branch-1,304,Finchley Central,Northern,-0.1932208,51.6009028,Finchley Central
+Northern,northern-line-stations-branch-2,322,Finchley Central,Northern,-0.1932208,51.6009028,Finchley Central
+Circle,circle-line-stations-branch-0,100,Blackfriars,Circle,-0.1029955,51.5115867,Blackfriars
+Circle,circle-line-stations-branch-0,100,Blackfriars,District,-0.1029955,51.5115867,Blackfriars
+District,district-line-stations-branch-0,133,Blackfriars,Circle,-0.1029955,51.5115867,Blackfriars
+District,district-line-stations-branch-0,133,Blackfriars,District,-0.1029955,51.5115867,Blackfriars
+District,district-line-stations-branch-0,141,Bow Road,Hammersmith & City,-0.0243599,51.5270416,Bow Road
+District,district-line-stations-branch-0,141,Bow Road,District,-0.0243599,51.5270416,Bow Road
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,199,Bow Road,Hammersmith & City,-0.0243599,51.5270416,Bow Road
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,199,Bow Road,District,-0.0243599,51.5270416,Bow Road
+Circle,circle-line-stations-branch-0,96,Tower Hill,District,-0.0767013,51.5103943,Tower Hill
+Circle,circle-line-stations-branch-0,96,Tower Hill,Circle,-0.0767013,51.5103943,Tower Hill
+District,district-line-stations-branch-0,137,Tower Hill,District,-0.0767013,51.5103943,Tower Hill
+District,district-line-stations-branch-0,137,Tower Hill,Circle,-0.0767013,51.5103943,Tower Hill
+Northern,northern-line-stations-branch-0,288,Kennington,Northern,-0.1050707,51.488662,Kennington
+Northern,northern-line-stations-branch-1,320,Kennington,Northern,-0.1050707,51.488662,Kennington
+Circle,circle-line-stations-branch-0,82,Ladbroke Grove,Circle,-0.2101982,51.5172102,Ladbroke Grove
+Circle,circle-line-stations-branch-0,82,Ladbroke Grove,Hammersmith & City,-0.2101982,51.5172102,Ladbroke Grove
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,182,Ladbroke Grove,Circle,-0.2101982,51.5172102,Ladbroke Grove
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,182,Ladbroke Grove,Hammersmith & City,-0.2101982,51.5172102,Ladbroke Grove
+District,district-line-stations-branch-0,155,Upminster,District,0.2514007,51.558764,Upminster
+Piccadilly,piccadilly-line-stations-branch-0,345,Hyde Park Corner,Piccadilly,-0.1524744,51.5025838,Hyde Park Corner
+Jubilee,jubilee-line-stations-branch-0,216,Finchley Road,Jubilee,-0.1800508,51.5470957,Finchley Road
+Jubilee,jubilee-line-stations-branch-0,216,Finchley Road,Metropolitan,-0.1800508,51.5470957,Finchley Road
+Metropolitan,metropolitan-line-stations-branch-0,246,Finchley Road,Jubilee,-0.1800508,51.5470957,Finchley Road
+Metropolitan,metropolitan-line-stations-branch-0,246,Finchley Road,Metropolitan,-0.1800508,51.5470957,Finchley Road
+Central,central-line-stations-branch-0,54,Snaresbrook,Central,0.0214641,51.5808911,Snaresbrook
+Central,central-line-stations-branch-0,25,West Ruislip,Central,-0.4378601,51.5695872,West Ruislip
+Jubilee,jubilee-line-stations-branch-0,213,Willesden Green,Jubilee,-0.2224073,51.5493726,Willesden Green
+Jubilee,jubilee-line-stations-branch-0,228,Canary Wharf,Jubilee,-0.0194668,51.5035784,Canary Wharf
+Victoria,victoria-line-stations-branch-0,391,Tottenham Hale,Victoria,-0.0601881,51.5879974,Tottenham Hale
+District,district-line-stations-branch-0,142,Bromley-by-Bow,Hammersmith & City,-0.0116826,51.5248403,Bromley-by-Bow
+District,district-line-stations-branch-0,142,Bromley-by-Bow,District,-0.0116826,51.5248403,Bromley-by-Bow
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,200,Bromley-by-Bow,Hammersmith & City,-0.0116826,51.5248403,Bromley-by-Bow
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,200,Bromley-by-Bow,District,-0.0116826,51.5248403,Bromley-by-Bow
+Northern,northern-line-stations-branch-0,282,Warren Street,Victoria,-0.1382782,51.5245796,Warren Street
+Northern,northern-line-stations-branch-0,282,Warren Street,Northern,-0.1382782,51.5245796,Warren Street
+Victoria,victoria-line-stations-branch-0,385,Warren Street,Victoria,-0.1382782,51.5245796,Warren Street
+Victoria,victoria-line-stations-branch-0,385,Warren Street,Northern,-0.1382782,51.5245796,Warren Street
+Northern,northern-line-stations-branch-0,291,Clapham North,Northern,-0.1299102,51.4649158,Clapham North
+Jubilee,jubilee-line-stations-branch-0,218,St. Johns Wood,Jubilee,-0.1740646,51.5348539,St. Johns Wood
+Central,central-line-stations-branch-0,58,Loughton,Central,0.055279,51.6415707,Loughton
+Northern,northern-line-stations-branch-0,299,Morden,Northern,-0.1948521,51.4021855,Morden
+Piccadilly,piccadilly-line-stations-branch-0,361,Arnos Grove,Piccadilly,-0.1342704,51.6162299,Arnos Grove
+Central,central-line-stations-branch-0,56,Woodford,Central,0.034056,51.6072018,Woodford
+Central,central-line-stations-branch-0,33,East Acton,Central,-0.2481125,51.5162631,East Acton
+Piccadilly,piccadilly-line-stations-branch-0,364,Cockfosters,Piccadilly,-0.1499167,51.6520243,Cockfosters
+Metropolitan,metropolitan-line-stations-branch-0,239,Northwood Hills,Metropolitan,-0.4093113,51.6008019,Northwood Hills
+Piccadilly,piccadilly-line-stations-branch-0,353,Caledonian Road,Piccadilly,-0.118361,51.5478852,Caledonian Road
+Metropolitan,metropolitan-line-stations-branch-3,268,Croxley,Metropolitan,-0.4416038,51.6470047,Croxley
+Northern,northern-line-stations-branch-0,278,Chalk Farm,Northern,-0.1537332,51.544149,Chalk Farm
+Bakerloo,bakerloo-line-stations-branch-0,9,Kensal Green,Bakerloo,-0.2247135,51.5305241,Kensal Green
+Piccadilly,piccadilly-line-stations-branch-1,371,Osterley,Piccadilly,-0.3520963,51.4812165,Osterley
+Metropolitan,metropolitan-line-stations-branch-0,240,Pinner,Metropolitan,-0.3812238,51.5923611,Pinner
+Circle,circle-line-stations-branch-0,92,Barbican,Hammersmith & City,-0.0977214,51.5202154,Barbican
+Circle,circle-line-stations-branch-0,92,Barbican,Circle,-0.0977214,51.5202154,Barbican
+Circle,circle-line-stations-branch-0,92,Barbican,Metropolitan,-0.0977214,51.5202154,Barbican
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,192,Barbican,Hammersmith & City,-0.0977214,51.5202154,Barbican
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,192,Barbican,Circle,-0.0977214,51.5202154,Barbican
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,192,Barbican,Metropolitan,-0.0977214,51.5202154,Barbican
+Metropolitan,metropolitan-line-stations-branch-0,252,Barbican,Hammersmith & City,-0.0977214,51.5202154,Barbican
+Metropolitan,metropolitan-line-stations-branch-0,252,Barbican,Circle,-0.0977214,51.5202154,Barbican
+Metropolitan,metropolitan-line-stations-branch-0,252,Barbican,Metropolitan,-0.0977214,51.5202154,Barbican
+District,district-line-stations-branch-0,153,Hornchurch,District,0.2189272,51.5543557,Hornchurch
+Central,central-line-stations-branch-1,63,West Acton,Central,-0.2806571,51.5177694,West Acton
+Central,central-line-stations-branch-0,35,Shepherds Bush,Central,-0.2185192,51.5045318,Shepherds Bush
+Central,central-line-stations-branch-2,75,Roding Valley,Central,0.0440261,51.6169565,Roding Valley
+Northern,northern-line-stations-branch-0,281,Euston,Northern,-0.1332963,51.5286642,Euston
+Northern,northern-line-stations-branch-0,281,Euston,Victoria,-0.1332963,51.5286642,Euston
+Northern,northern-line-stations-branch-1,311,Euston,Northern,-0.1332963,51.5286642,Euston
+Northern,northern-line-stations-branch-1,311,Euston,Victoria,-0.1332963,51.5286642,Euston
+Victoria,victoria-line-stations-branch-0,386,Euston,Northern,-0.1332963,51.5286642,Euston
+Victoria,victoria-line-stations-branch-0,386,Euston,Victoria,-0.1332963,51.5286642,Euston
+District,district-line-stations-branch-1,157,Kew Gardens,District,-0.2853811,51.4767886,Kew Gardens
+Central,central-line-stations-branch-0,57,Buckhurst Hill,Central,0.0467127,51.626577,Buckhurst Hill
+Central,central-line-stations-branch-2,76,Buckhurst Hill,Central,0.0467127,51.626577,Buckhurst Hill
+Central,central-line-stations-branch-0,28,Northolt,Central,-0.3684405,51.5482124,Northolt
+Northern,northern-line-stations-branch-0,285,Leicester Square,Piccadilly,-0.1282423,51.511291,Leicester Square
+Northern,northern-line-stations-branch-0,285,Leicester Square,Northern,-0.1282423,51.511291,Leicester Square
+Piccadilly,piccadilly-line-stations-branch-0,348,Leicester Square,Piccadilly,-0.1282423,51.511291,Leicester Square
+Piccadilly,piccadilly-line-stations-branch-0,348,Leicester Square,Northern,-0.1282423,51.511291,Leicester Square
+Northern,northern-line-stations-branch-0,273,Hendon Central,Northern,-0.2267343,51.5831325,Hendon Central
+Metropolitan,metropolitan-line-stations-branch-0,241,North Harrow,Metropolitan,-0.362633,51.5846307,North Harrow
+Northern,northern-line-stations-branch-0,297,Colliers Wood,Northern,-0.1774152,51.4187589,Colliers Wood
+District,district-line-stations-branch-0,123,West Kensington,District,-0.2062035,51.4901088,West Kensington
+Piccadilly,piccadilly-line-stations-branch-1,365,Heathrow Terminal 5,Piccadilly,-0.4906473,51.4700249,Heathrow Terminal 5
+Central,central-line-stations-branch-2,69,Newbury Park,Central,0.0903033,51.5756387,Newbury Park
+Bakerloo,bakerloo-line-stations-branch-0,17,Baker Street,Hammersmith & City,-0.1569039,51.5231295,Baker Street
+Bakerloo,bakerloo-line-stations-branch-0,17,Baker Street,Metropolitan,-0.1569039,51.5231295,Baker Street
+Bakerloo,bakerloo-line-stations-branch-0,17,Baker Street,Jubilee,-0.1569039,51.5231295,Baker Street
+Bakerloo,bakerloo-line-stations-branch-0,17,Baker Street,Circle,-0.1569039,51.5231295,Baker Street
+Bakerloo,bakerloo-line-stations-branch-0,17,Baker Street,Bakerloo,-0.1569039,51.5231295,Baker Street
+Circle,circle-line-stations-branch-0,87,Baker Street,Hammersmith & City,-0.1569039,51.5231295,Baker Street
+Circle,circle-line-stations-branch-0,87,Baker Street,Metropolitan,-0.1569039,51.5231295,Baker Street
+Circle,circle-line-stations-branch-0,87,Baker Street,Jubilee,-0.1569039,51.5231295,Baker Street
+Circle,circle-line-stations-branch-0,87,Baker Street,Circle,-0.1569039,51.5231295,Baker Street
+Circle,circle-line-stations-branch-0,87,Baker Street,Bakerloo,-0.1569039,51.5231295,Baker Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,187,Baker Street,Hammersmith & City,-0.1569039,51.5231295,Baker Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,187,Baker Street,Metropolitan,-0.1569039,51.5231295,Baker Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,187,Baker Street,Jubilee,-0.1569039,51.5231295,Baker Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,187,Baker Street,Circle,-0.1569039,51.5231295,Baker Street
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,187,Baker Street,Bakerloo,-0.1569039,51.5231295,Baker Street
+Jubilee,jubilee-line-stations-branch-0,219,Baker Street,Hammersmith & City,-0.1569039,51.5231295,Baker Street
+Jubilee,jubilee-line-stations-branch-0,219,Baker Street,Metropolitan,-0.1569039,51.5231295,Baker Street
+Jubilee,jubilee-line-stations-branch-0,219,Baker Street,Jubilee,-0.1569039,51.5231295,Baker Street
+Jubilee,jubilee-line-stations-branch-0,219,Baker Street,Circle,-0.1569039,51.5231295,Baker Street
+Jubilee,jubilee-line-stations-branch-0,219,Baker Street,Bakerloo,-0.1569039,51.5231295,Baker Street
+Metropolitan,metropolitan-line-stations-branch-0,247,Baker Street,Hammersmith & City,-0.1569039,51.5231295,Baker Street
+Metropolitan,metropolitan-line-stations-branch-0,247,Baker Street,Metropolitan,-0.1569039,51.5231295,Baker Street
+Metropolitan,metropolitan-line-stations-branch-0,247,Baker Street,Jubilee,-0.1569039,51.5231295,Baker Street
+Metropolitan,metropolitan-line-stations-branch-0,247,Baker Street,Circle,-0.1569039,51.5231295,Baker Street
+Metropolitan,metropolitan-line-stations-branch-0,247,Baker Street,Bakerloo,-0.1569039,51.5231295,Baker Street
+Victoria,victoria-line-stations-branch-0,392,Blackhorse Road,Victoria,-0.0396258,51.5857767,Blackhorse Road
+Circle,circle-line-stations-branch-0,79,Shepherds Bush Market,Circle,-0.2274006,51.5058806,Shepherds Bush Market
+Circle,circle-line-stations-branch-0,79,Shepherds Bush Market,Hammersmith & City,-0.2274006,51.5058806,Shepherds Bush Market
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,179,Shepherds Bush Market,Circle,-0.2274006,51.5058806,Shepherds Bush Market
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,179,Shepherds Bush Market,Hammersmith & City,-0.2274006,51.5058806,Shepherds Bush Market
+Northern,northern-line-stations-branch-1,318,Borough,Northern,-0.0941971,51.5010488,Borough
+District,district-line-stations-branch-2,162,Southfields,District,-0.2066092,51.4448829,Southfields
+Northern,northern-line-stations-branch-1,308,Tufnell Park,Northern,-0.1377419,51.5564407,Tufnell Park
+Circle,circle-line-stations-branch-0,84,Royal Oak,Circle,-0.1888234,51.5182943,Royal Oak
+Circle,circle-line-stations-branch-0,84,Royal Oak,Hammersmith & City,-0.1888234,51.5182943,Royal Oak
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,184,Royal Oak,Circle,-0.1888234,51.5182943,Royal Oak
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,184,Royal Oak,Hammersmith & City,-0.1888234,51.5182943,Royal Oak
+Bakerloo,bakerloo-line-stations-branch-0,15,Edgware Road,Bakerloo,-0.1705397,51.5206451,Edgware Road
+Circle,circle-line-stations-branch-0,86,Edgware Road,Bakerloo,-0.1705397,51.5206451,Edgware Road
+Circle,circle-line-stations-branch-0,113,Edgware Road,Bakerloo,-0.1705397,51.5206451,Edgware Road
+District,district-line-stations-branch-3,169,Edgware Road,Bakerloo,-0.1705397,51.5206451,Edgware Road
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,186,Edgware Road,Bakerloo,-0.1705397,51.5206451,Edgware Road
+Circle,circle-line-stations-branch-0,77,Hammersmith,Circle,-0.2228611,51.4918196,Hammersmith
+Circle,circle-line-stations-branch-0,77,Hammersmith,District,-0.2228611,51.4918196,Hammersmith
+Circle,circle-line-stations-branch-0,77,Hammersmith,Piccadilly,-0.2228611,51.4918196,Hammersmith
+District,district-line-stations-branch-0,121,Hammersmith,Circle,-0.2228611,51.4918196,Hammersmith
+District,district-line-stations-branch-0,121,Hammersmith,District,-0.2228611,51.4918196,Hammersmith
+District,district-line-stations-branch-0,121,Hammersmith,Piccadilly,-0.2228611,51.4918196,Hammersmith
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,177,Hammersmith,Circle,-0.2228611,51.4918196,Hammersmith
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,177,Hammersmith,District,-0.2228611,51.4918196,Hammersmith
+Hammersmith & City,hammersmith-and-city-line-stations-branch-0,177,Hammersmith,Piccadilly,-0.2228611,51.4918196,Hammersmith
+Piccadilly,piccadilly-line-stations-branch-0,339,Hammersmith,Circle,-0.2228611,51.4918196,Hammersmith
+Piccadilly,piccadilly-line-stations-branch-0,339,Hammersmith,District,-0.2228611,51.4918196,Hammersmith
+Piccadilly,piccadilly-line-stations-branch-0,339,Hammersmith,Piccadilly,-0.2228611,51.4918196,Hammersmith

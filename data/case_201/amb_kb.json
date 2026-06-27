@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_rank_tie_break",
+      "kind": "Operation boundary",
+      "node_id": "sort_desc",
+      "op": "sort",
+      "source_text": "Rank the statuses based on the timestamp (ts) field",
+      "ref": "df['rank'] = df.groupby(['candidate_id', 'position_id'])['ts'].rank(method='first', ascending=False)"
+    },
+    {
+      "id": "2_total_count_grain",
+      "kind": "Group-level concept",
+      "node_id": "dedup_total",
+      "op": "dedup",
+      "source_text": "Count the total number of candidate/positions that have ever been in each status",
+      "ref": "total_in_status = df[['status', 'candidate_id', 'position_id']].drop_duplicates()"
+    },
+    {
+      "id": "3_join_direction",
+      "kind": "Operation incomplete",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "Make sure that statuses with no withdrawals are included in the output",
+      "ref": "result_df = pd.merge(total_in_status, withdrawals_count, on='status_before_withdrawal', how='left')"
+    },
+    {
+      "id": "4_pct_formula",
+      "kind": "Group-level concept",
+      "node_id": "calc_pct",
+      "op": "project",
+      "source_text": "Calculate the % of candidates who withdrew after each status",
+      "ref": "result_df['pct_withdrawn'] = (result_df['withdrawals'] / result_df['total_in_status'] * 100).round(1)"
+    }
+  ]
+}

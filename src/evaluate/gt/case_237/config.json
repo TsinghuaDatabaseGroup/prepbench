@@ -1,0 +1,29 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "dc_nbr",
+        "month_end_date",
+        "ee_count",
+        "ee_leaving",
+        "ee_leaving_p12",
+        "avg_ee_month",
+        "avg_ee_p12",
+        "turnover_month",
+        "turnover_p12"
+      ],
+      "columns": {
+        "dc_nbr": "number",
+        "month_end_date": "date",
+        "ee_count": "number",
+        "ee_leaving": "number",
+        "ee_leaving_p12": "number",
+        "avg_ee_month": "number",
+        "avg_ee_p12": "number",
+        "turnover_month": "number",
+        "turnover_p12": "number"
+      }
+    }
+  }
+}
+

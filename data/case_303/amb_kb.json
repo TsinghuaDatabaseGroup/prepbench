@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_zscore_sample_std",
+      "kind": "Group-level concept",
+      "node_id": "metrics",
+      "op": "project",
+      "source_text": "o=Standard Deviation of Ranking Field within sport",
+      "ref": "std = vals.std(ddof=1)"
+    },
+    {
+      "id": "2_O2_zscore_zero_std_defaults",
+      "kind": "Operation boundary",
+      "node_id": "metrics",
+      "op": "project",
+      "intent": "If within-sport standard deviation is 0, set z-scores to 0 for that sport.",
+      "ref": "if std == 0 or np.isclose(std, 0.0):\n        return pd.Series([0.0] * len(vals), index=vals.index)"
+    },
+    {
+      "id": "3_C2_conf_record_wins_component",
+      "kind": "Single-table reference",
+      "node_id": "nba_compute",
+      "op": "project",
+      "source_text": "The Conference Record Field is structured Wins-Losses",
+      "ref": "def _parse_conf_record_wins(s: object) -> int:\n    try:\n        if s is None:\n            return 0\n        parts = str(s).strip().split(\"-\")\n        return _safe_to_int(parts[0], 0)\n    except Exception:\n        return 0\n\nnba_df[\"ConfWins\"] = nba_df[\"ConfConference record\"].map(_parse_conf_record_wins)"
+    },
+    {
+      "id": "4_O1_games_behind_ascending",
+      "kind": "Operation boundary",
+      "node_id": "nba_sort",
+      "op": "sort",
+      "source_text": "NBA: Tie Breaker 1 = Conference Wins, Tie Breaker 2 = Games Behind",
+      "ref": "nba_df[\"Sport Rank\"] = _rank_with_keys(\n        nba_df, by=[(\"Ranking Field\", True), (\"ConfWins\", True), (\"GB\", False)]\n    )"
+    },
+    {
+      "id": "5_O3_cross_rank_competition_ties",
+      "kind": "Operation boundary",
+      "node_id": "rank_cross",
+      "op": "project",
+      "source_text": "Create a Cross Sport Rank based on the z-scores and using the Sport Specific Percentile Rank to break ties",
+      "ref": "within = combined.groupby([\"z-score\", \"Sport Specific Percentile Rank\"]).cumcount()\ncombined[\"Cross Sport Rank\"] = (pos - within + 1).astype(int)"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+Category,Product,Product ID,Price,Sales,% of Total
+Electronics,SIM card,EL4339,3,12,0.03
+Electronics,Andriod charger,EL2859,8,16,0.03
+Electronics,Batteries,EL5291,5,20,0.04
+Clothes,White top,CL1828,3.99,7.98,0.02
+Clothes,Black top,CL5675,4.99,24.95,0.07
+Beauty,Moisturiser,BE4227,3,6,0.03
+Beauty,Hairbrush,BE5681,7,14,0.07
+Home,Striped tea towels,HO1212,3.99,7.98,0.06
+Home,Yellow mug,HO7446,3,9,0.07
+Groceries,Milk,GR2429,0.8,4,0.04
+Groceries,Bagels,GR8357,1.2,7.2,0.07

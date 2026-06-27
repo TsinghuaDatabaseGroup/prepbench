@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_schema_link_animal_outcome_columns",
+      "kind": "Single-table reference",
+      "node_id": "n1_project_norm",
+      "op": "project",
+      "intent": "Resolve which input columns are treated as Animal Type and Outcome Type (allow common name variants).",
+      "ref": "    animal_col = None\n    for cand in [\n        \"Animal Type\", \"animal_type\", \"animal type\",\n    ]:\n        if cand in cols:\n            animal_col = cols[cand]\n            break\n    outcome_col = None\n    for cand in [\n        \"Outcome Type\", \"outcome_type\", \"outcome type\", \"Outcome\", \"outcome\",\n    ]:\n        if cand in cols:\n            outcome_col = cols[cand]\n            break"
+    },
+    {
+      "id": "2_outcome_group_synonyms_included",
+      "kind": "Row-level concept",
+      "node_id": "n1_project_norm",
+      "op": "project",
+      "source_text": "Adopted, Returned to Owner or Transferred",
+      "ref": "        s = str(x).strip().title()\n        if s in {\"Adoption\", \"Adopted\"}:\n            return \"Adopted, Returned to Owner or Transferred\"\n        if s in {\"Return To Owner\", \"Returned To Owner\"}:\n            return \"Adopted, Returned to Owner or Transferred\"\n        if s in {\"Transfer\", \"Transferred\"}:\n            return \"Adopted, Returned to Owner or Transferred\""
+    },
+    {
+      "id": "3_missing_outcome_maps_to_other",
+      "kind": "Operation incomplete",
+      "node_id": "n1_project_norm",
+      "op": "project",
+      "intent": "Decide how to group rows with missing Outcome Type (map to Other).",
+      "ref": "        if pd.isna(x):\n            return \"Other\""
+    },
+    {
+      "id": "4_pct_denominator_per_animal_type",
+      "kind": "Group-level concept",
+      "node_id": "n6_project_pct",
+      "op": "project",
+      "source_text": "Calculate the % of Total for each Outcome Type Grouping and for each Animal Type",
+      "ref": "    totals = df_cd.groupby(\"AnimalTypeNorm\").size().rename(\n        \"Total\").reset_index()\n    grp[\"pct\"] = grp[\"cnt\"] / grp[\"Total\"] * 100.0"
+    },
+    {
+      "id": "5_zero_grouping_outputs_as_0",
+      "kind": "Operation incomplete",
+      "node_id": "n7_pivot",
+      "op": "pivot",
+      "intent": "If an animal type has zero rows in a grouping, output 0.0 for that grouping.",
+      "ref": "        grp.pivot(index=\"AnimalTypeNorm\", columns=\"group\", values=\"pct\")\n        .fillna(0.0)"
+    },
+    {
+      "id": "6_round_percentages_1_decimal",
+      "kind": "Operation boundary",
+      "node_id": "n9_project_round",
+      "op": "project",
+      "intent": "Round the output percentages to 1 decimal place.",
+      "ref": "    pivot[pos_col] = pivot[pos_col].astype(float).round(1)\n    pivot[other_col] = pivot[other_col].astype(float).round(1)"
+    }
+  ]
+}

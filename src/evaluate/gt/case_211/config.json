@@ -1,0 +1,28 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Market Capitalisation Categorisation",
+                "Purchase Price Categorisation",
+                "File Date",
+                "Ticker",
+                "Sector",
+                "Market",
+                "Stock Name",
+                "Rank"
+            ],
+            "columns": {
+                "Market Capitalisation Categorisation": "text_exact",
+                "Purchase Price Categorisation": "text_exact",
+                "File Date": "date",
+                "Ticker": "text_exact",
+                "Sector": "text_exact",
+                "Market": "text_exact",
+                "Stock Name": "text_exact",
+                "Market Capitalisation": "number",
+                "Purchase Price": "number",
+                "Rank": "number"
+            }
+        }
+    }
+}

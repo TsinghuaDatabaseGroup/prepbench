@@ -1,0 +1,22 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Genre",
+                "Type",
+                "Avg Rating",
+                "Max Rating",
+                "Avg Viewers",
+                "Prime Example"
+            ],
+            "columns": {
+                "Genre": "text_exact",
+                "Type": "text_exact",
+                "Avg Rating": "number",
+                "Max Rating": "number",
+                "Avg Viewers": "number",
+                "Prime Example": "text_exact"
+            }
+        }
+    }
+}

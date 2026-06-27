@@ -1,0 +1,20 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Year", "Name"],
+      "columns": {
+        "Year": "number",
+        "Rank": "number",
+        "Name": "text_exact",
+        "Sport": "text_norm",
+        "Country": "text_norm",
+        "Total earnings": "number",
+        "Salary/Winnings": "number",
+        "Endorsements": "number",
+        "Source": "text_exact"
+      }
+    }
+  }
+}
+

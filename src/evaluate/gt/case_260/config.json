@@ -1,0 +1,43 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Date", "Customer ID", "Flight Number", "Ticket Price"],
+      "columns": {
+        "Date": "text_exact",
+        "From": "text_norm",
+        "To": "text_norm",
+        "Flight Number": "text_exact",
+        "Customer ID": "number",
+        "Last Date Flown": "date",
+        "first_name": "text_norm",
+        "last_name": "text_norm",
+        "email": "text_exact",
+        "gender": "text_exact",
+        "Ticket Price": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Date", "Flight Number"],
+      "columns": {
+        "Flights unbooked as of": "date",
+        "Date": "date",
+        "Flight Number": "text_exact",
+        "From": "text_norm",
+        "To": "text_norm"
+      }
+    },
+    "output_03.csv": {
+      "key": ["Customer ID", "Last Date Flown"],
+      "columns": {
+        "Customer ID": "number",
+        "Customer Category": "text_exact",
+        "Days Since Last Flown": "number",
+        "Last Date Flown": "date",
+        "first_name": "text_norm",
+        "last_name": "text_norm",
+        "email": "text_exact",
+        "gender": "text_exact"
+      }
+    }
+  }
+}

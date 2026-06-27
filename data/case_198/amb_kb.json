@@ -1,0 +1,124 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_pm_mgr_join_inner_on_date",
+      "kind": "Multi-table alignment",
+      "node_id": "combined",
+      "op": "join",
+      "source_text": "Bring the 3 datasets together",
+      "ref": "combined = pm_days.merge(\n        manager_match_days[[\"Date\", \"Chelsea Managers\", *match_cols]],\n        on=\"Date\",\n        how=\"inner\",\n    )"
+    },
+    {
+      "id": "3_C2_count_distinct_managers_per_pm_term",
+      "kind": "Group-level concept",
+      "node_id": "group_pm",
+      "op": "aggregate",
+      "source_text": "count the number of Chelsea Managers for each Prime Minister",
+      "ref": "Chelsea_Managers=(\"Chelsea Managers\", \"nunique\"),"
+    },
+    {
+      "id": "4_O2_drop_unparseable_match_dates",
+      "kind": "Operation incomplete",
+      "node_id": "matches_dropna",
+      "op": "filter",
+      "source_text": "Make sure the Date is a Date Data Type",
+      "ref": "matches = matches.dropna(subset=[\"Match Date\"])"
+    },
+    {
+      "id": "5_O2_missing_result_categories_as_zero",
+      "kind": "Operation incomplete",
+      "node_id": "matches_pivot",
+      "op": "pivot",
+      "source_text": "Pivot the data so we know how many matches were won, drawn or lost on each day",
+      "ref": "daily_counts = (\n        matches.groupby([\"Match Date\", \"Result\"]).size().unstack(fill_value=0)\n    )\n    for col in [\"Match Won\", \"Match Drawn\", \"Match Lost\"]:\n        if col not in daily_counts:\n            daily_counts[col] = 0"
+    },
+    {
+      "id": "6_O2_join_matches_left_keep_manager_days",
+      "kind": "Multi-table alignment",
+      "node_id": "mgr_days_with_matches",
+      "op": "join",
+      "source_text": "Bring the 3 datasets together",
+      "ref": "manager_match_days = manager_days.merge(\n        matches_daily, on=\"Date\", how=\"left\")"
+    },
+    {
+      "id": "7_O2_fill_missing_match_counts_with_zero",
+      "kind": "Operation incomplete",
+      "node_id": "mgr_fill_zeros",
+      "op": "project",
+      "source_text": "Bring the 3 datasets together",
+      "ref": "manager_match_days[match_cols] = manager_match_days[match_cols].fillna(0)"
+    },
+    {
+      "id": "8_O1_cm_day_expansion_inclusive_endpoints",
+      "kind": "Operation boundary",
+      "node_id": "mgr_filter_range",
+      "op": "filter",
+      "source_text": "Create a row for every day the Chelsea Manager was in place",
+      "ref": "new_col: pd.date_range(start, end, freq=\"D\"),"
+    },
+    {
+      "id": "9_O2_cm_skip_invalid_or_incomplete_ranges",
+      "kind": "Operation incomplete",
+      "node_id": "mgr_filter_range",
+      "op": "filter",
+      "source_text": "Create a row for every day the Chelsea Manager was in place",
+      "ref": "if pd.isna(start) or pd.isna(end) or end < start:\n            continue"
+    },
+    {
+      "id": "10_O2_parse_two_digit_years_with_rolling_century",
+      "kind": "Row-level concept",
+      "node_id": "mgr_parse_start",
+      "op": "script",
+      "intent": "Interpret 2-digit years using a rolling century rule based on prior records (add 100 years when needed).",
+      "ref": "candidate = current_century + year_two\n        if last_year and candidate < last_year:\n            candidate += 100"
+    },
+    {
+      "id": "11_O1_pm_day_expansion_inclusive_endpoints",
+      "kind": "Operation boundary",
+      "node_id": "pm_filter_range",
+      "op": "filter",
+      "source_text": "Create a row for every day the Prime Minister was in office",
+      "ref": "new_col: pd.date_range(start, end, freq=\"D\"),"
+    },
+    {
+      "id": "12_O2_pm_skip_invalid_or_incomplete_ranges",
+      "kind": "Operation incomplete",
+      "node_id": "pm_filter_range",
+      "op": "filter",
+      "source_text": "Create a row for every day the Prime Minister was in office",
+      "ref": "if pd.isna(start) or pd.isna(end) or end < start:\n            continue"
+    },
+    {
+      "id": "13_O2_win_pct_null_when_no_matches",
+      "kind": "Operation incomplete",
+      "node_id": "post_project",
+      "op": "project",
+      "source_text": "Calculate the Win % for each Prime Minister",
+      "ref": "win_pct = win_pct.where(result[\"Matches\"] > 0)"
+    },
+    {
+      "id": "14_O1_define_today_as_max_match_date_plus_one",
+      "kind": "Row-level concept",
+      "node_id": "today_compute",
+      "op": "project",
+      "source_text": "For the null End Date PM, replace with today's date",
+      "ref": "today = max_match_date + pd.Timedelta(days=1)"
+    },
+    {
+      "id": "new_1_swap_drawn_lost",
+      "kind": "Row-level concept",
+      "node_id": "post_project",
+      "op": "project",
+      "intent": "Swap the final Matches Drawn and Matches Lost values after aggregation.",
+      "ref": "result[[\"Matches Drawn\", \"Matches Lost\"]] = result[[\n        \"Matches Lost\", \"Matches Drawn\"]].to_numpy()"
+    },
+    {
+      "id": "new_2_final_sort_start_date_pm",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final rows by Start Date PM ascending, then Prime Ministers ascending.",
+      "ref": "result = result.sort_values([\"Start Date PM\", \"Prime Ministers\"], ascending=[\n                                True, True]).reset_index(drop=True)"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Round1",
+        "Round2",
+        "Round3",
+        "Round4",
+        "Round5",
+        "Total Score",
+        "Position",
+        "Name"
+      ],
+      "columns": {
+        "Round1": "number",
+        "Round2": "number",
+        "Round3": "number",
+        "Round4": "number",
+        "Round5": "number",
+        "Total Score": "number",
+        "Position": "number",
+        "Name": "text_exact"
+      }
+    }
+  }
+}
+

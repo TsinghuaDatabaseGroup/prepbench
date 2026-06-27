@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Flow Card?", "Quarter", "Economy", "Premium", "Business", "First"],
+      "columns": {
+        "Flow Card?": "boolean",
+        "Quarter": "number",
+        "Economy": "number",
+        "Premium": "number",
+        "Business": "number",
+        "First": "number"
+      }
+    }
+  }
+}

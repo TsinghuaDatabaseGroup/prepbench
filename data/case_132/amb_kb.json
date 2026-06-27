@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_fulfilled_rows_beyond_last_available_week",
+      "kind": "Operation boundary",
+      "node_id": "fulfill_filter",
+      "op": "filter",
+      "source_text": "Add one week on to the maximum date to show when an order was fulfilled by",
+      "ref": "known_weeks = sorted(full[\"Reporting Date\"].dropna().unique())\nlast_available_week = known_weeks[-1]\n\nfulfill = fulfill[fulfill[\"Reporting Date\"] <= last_available_week].copy()"
+    },
+    {
+      "id": "2_D1_stack_exactly_five_weekly_snapshot_files",
+      "kind": "Operation incomplete",
+      "node_id": "full",
+      "op": "union",
+      "intent": "Stack exactly the five weekly snapshot inputs input_01.csv through input_05.csv into one combined dataset.",
+      "ref": "file_dates = [\n    (\"input_01.csv\", pd.to_datetime(\"2021-01-01\")),\n    (\"input_02.csv\", pd.to_datetime(\"2021-01-08\")),\n    (\"input_03.csv\", pd.to_datetime(\"2021-01-15\")),\n    (\"input_04.csv\", pd.to_datetime(\"2021-01-22\")),\n    (\"input_05.csv\", pd.to_datetime(\"2021-01-29\")),\n]\nfull = pd.concat(frames, ignore_index=True)"
+    },
+    {
+      "id": "3_O2_parse_sale_date_as_date_with_coercion",
+      "kind": "Operation incomplete",
+      "node_id": "p_parse",
+      "op": "project",
+      "intent": "Parse Sale Date as a date type, coercing invalid values to null.",
+      "ref": "df[\"Sale Date\"] = pd.to_datetime(df[\"Sale Date\"], format=\"%Y-%m-%d\", errors=\"coerce\")"
+    },
+    {
+      "id": "4_C2_reporting_date_mapping_input_to_date",
+      "kind": "Row-level concept",
+      "node_id": "p_mapping",
+      "op": "project",
+      "source_text": "Use the Table Names field to create the Reporting Date",
+      "ref": "file_dates = [\n    (\"input_01.csv\", pd.to_datetime(\"2021-01-01\")),\n    (\"input_02.csv\", pd.to_datetime(\"2021-01-08\")),\n    (\"input_03.csv\", pd.to_datetime(\"2021-01-15\")),\n    (\"input_04.csv\", pd.to_datetime(\"2021-01-22\")),\n    (\"input_05.csv\", pd.to_datetime(\"2021-01-29\")),\n]\ndf[\"Reporting Date\"] = rdate"
+    },
+    {
+      "id": "5_C2_sale_date_for_generated_fulfilled_row_use_min_per_order",
+      "kind": "Group-level concept",
+      "node_id": "sale_per_order",
+      "op": "aggregate",
+      "intent": "Populate Sale Date on generated Fulfilled rows by carrying forward the minimum Sale Date observed for that order.",
+      "ref": "sale_per_order = full.groupby(\"Orders\", as_index=False)[\"Sale Date\"].min()\nfulfill = fulfill.merge(sale_per_order, on=\"Orders\", how=\"left\")"
+    }
+  ]
+}

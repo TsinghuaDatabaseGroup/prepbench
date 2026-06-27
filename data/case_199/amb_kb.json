@@ -1,0 +1,132 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_missing_or_unparseable_game_scores",
+      "kind": "Operation incomplete",
+      "node_id": "filter_games",
+      "op": "filter",
+      "intent": "For the Games output, exclude rows where the raw game value is missing or no numeric score can be parsed.",
+      "ref": "            if pd.isna(val):\n                continue\n            score, pot = parse_number_with_fraction(val)\n            if score is None:\n                continue"
+    },
+    {
+      "id": "2_O2_na_string_as_missing",
+      "kind": "Single-table reference",
+      "node_id": "in_csv",
+      "op": "input",
+      "intent": "Treat the literal string \"NA\" as a missing value when reading the input.",
+      "ref": "df = df.replace({\"NA\": pd.NA})"
+    },
+    {
+      "id": "3_D1_games_columns_and_order",
+      "kind": "Single-table reference",
+      "node_id": "pivot_games",
+      "op": "pivot",
+      "source_text": "Reshape the data so we have a row per Game for each Event id and Competitor",
+      "ref": "game_cols = [c for c in [\"G2\",\"G3\",\"G4\",\"G5\",\"G6\",\"G7\",\"G8\",\"G1\"] if c in df.columns]"
+    },
+    {
+      "id": "4_O1_event_id_trailing_integer",
+      "kind": "Row-level concept",
+      "node_id": "proj_base",
+      "op": "project",
+      "source_text": "Extract the Event id from the Event field",
+      "ref": "m = re.search(r\"(\\d+)\\s*$\", str(s))"
+    },
+    {
+      "id": "5_O1_competitor_association_parentheses_at_end",
+      "kind": "Row-level concept",
+      "node_id": "proj_base",
+      "op": "project",
+      "source_text": "Parse the competitor field into Competitor and Association",
+      "ref": "m = re.match(r\"^(.*?)\\s*\\(([^)]+)\\)\\s*$\", s)"
+    },
+    {
+      "id": "6_O1_points_round_thirds_to_2dp",
+      "kind": "Operation boundary",
+      "node_id": "proj_base",
+      "op": "project",
+      "source_text": "Clean the Points field so that fractions are translated to decimals",
+      "ref": "frac_map = {\n    \"½\": 0.5,\n    \"⅓\": 1/3,\n    \"⅔\": 2/3,\n}\nif any(ch in s for ch in (\"⅓\", \"⅔\")):\n                base_num = round(base_num + 1e-12, 2)"
+    },
+    {
+      "id": "7_O1_event_start_date_pattern_d_month_yyyy",
+      "kind": "Row-level concept",
+      "node_id": "proj_base",
+      "op": "project",
+      "source_text": "Extract the Event Start Date from the description and translate it to a date data type",
+      "ref": "m = re.search(r\"(\\d{1,2} \\w+ \\d{4})\", s)\nreturn pd.to_datetime(date_str, dayfirst=True)"
+    },
+    {
+      "id": "8_O2_association_missing_as_null",
+      "kind": "Operation incomplete",
+      "node_id": "proj_base",
+      "op": "project",
+      "intent": "When no association is present in the competitor string, output Association as null.",
+      "ref": "# No association present\n        return s, None"
+    },
+    {
+      "id": "9_O2_event_description_normalize_linebreaks_and_trim",
+      "kind": "Row-level concept",
+      "node_id": "proj_base",
+      "op": "project",
+      "intent": "Standardize Event Description line breaks to \\n, trim whitespace on each line, and use empty string when missing.",
+      "ref": "def normalize_desc(desc: object) -> str:\n        if pd.isna(desc):\n            return \"\"\n        s = str(desc).replace(\"\\r\\n\", \"\\n\").replace(\"\\r\", \"\\n\")\n        parts = [p.strip() for p in s.split(\"\\n\")]\n        return \"\\n\".join(parts)"
+    },
+    {
+      "id": "10_O2_wlt_missing_as_zero_int",
+      "kind": "Operation incomplete",
+      "node_id": "proj_base",
+      "op": "project",
+      "intent": "For Wins/Losses/Ties, treat missing values as 0 and output as integers.",
+      "ref": "\"Wins\": df[\"W\"].astype(\"Int64\").fillna(0).astype(int),\n\"Losses\": df[\"L\"].astype(\"Int64\").fillna(0).astype(int),\n\"Ties\": df[\"T\"].astype(\"Int64\").fillna(0).astype(int),"
+    },
+    {
+      "id": "11_O3_event_start_date_first_match_if_multiple",
+      "kind": "Operation inconsistent",
+      "node_id": "proj_base",
+      "op": "project",
+      "intent": "If multiple date-like substrings exist in the description, use the first match as Event Start Date.",
+      "ref": "m = re.search(r\"(\\d{1,2} \\w+ \\d{4})\", s)"
+    },
+    {
+      "id": "12_O1_potout_detect_trailing_asterisk_and_strip",
+      "kind": "Row-level concept",
+      "node_id": "proj_games",
+      "op": "project",
+      "source_text": "Potouts are denoted by a * in the Score field. Add a boolean field to indicate whether there has been a Potout",
+      "ref": "if s.endswith(\"*\"):\n            potout = True\n            s = s[:-1]"
+    },
+    {
+      "id": "13_O1_score_round_thirds_to_2dp",
+      "kind": "Operation boundary",
+      "node_id": "proj_games",
+      "op": "project",
+      "source_text": "Clean the Score field so that fractions are translated to decimals",
+      "ref": "frac_map = {\n    \"½\": 0.5,\n    \"⅓\": 1/3,\n    \"⅔\": 2/3,\n}\nif any(ch in s for ch in (\"⅓\", \"⅔\")):\n                base_num = round(base_num + 1e-12, 2)"
+    },
+    {
+      "id": "14_O2_note_missing_as_empty_string",
+      "kind": "Operation incomplete",
+      "node_id": "proj_games",
+      "op": "project",
+      "intent": "If note is missing in the Games output, output it as an empty string.",
+      "ref": "\"note\": note if pd.notna(note) else \"\","
+    },
+    {
+      "id": "15_O1_sort_out1_event_id_desc_stable",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_out1",
+      "op": "sort",
+      "intent": "Sort output_01 rows by Event id descending, keeping stable order within each Event id.",
+      "ref": "out1 = out1.sort_values([\"Event id\"], ascending=False, kind=\"stable\")"
+    },
+    {
+      "id": "16_O1_sort_out2_event_id_desc_stable",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_out2",
+      "op": "sort",
+      "intent": "Sort output_02 rows by Event id descending, keeping stable order within each Event id.",
+      "ref": "out2 = out2.sort_values([\"Event id\"], ascending=False, kind=\"stable\")"
+    }
+  ]
+}

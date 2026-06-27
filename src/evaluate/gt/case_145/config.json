@@ -1,0 +1,49 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "ItemID","OrderID"
+      ],
+      "columns": {
+        "Book ID": "text_exact",
+        "Sale Date": "text_exact",
+        "ISBN": "text_exact",
+        "Discount": "number",
+        "ItemID": "text_exact",
+        "OrderID": "text_exact",
+        "First Name": "text_exact",
+        "Last Name": "text_exact",
+        "Birthday": "text_exact",
+        "Country of Residence": "text_exact",
+        "Hrs Writing per Day": "number",
+        "Title": "text_exact",
+        "AuthID": "text_exact",
+        "Format": "text_exact",
+        "PubID": "text_exact",
+        "Publication Date": "text_exact",
+        "Pages": "text_exact",
+        "Print Run Size (k)": "text_exact",
+        "Price": "number",
+        "Publishing House": "text_exact",
+        "City": "text_exact",
+        "State": "text_exact",
+        "Country": "text_exact",
+        "Year Established": "text_exact",
+        "Marketing Spend": "text_exact",
+        "Number of Awards Won (avg only)": "text_exact",
+        "Number of Months Checked Out": "text_exact",
+        "Total Checkouts": "text_exact",
+        "Genre": "text_exact",
+        "SeriesID": "text_exact",
+        "Volume Number": "text_exact",
+        "Staff Comment": "text_exact",
+        "Series Name": "text_exact",
+        "Planned Volumes": "text_exact",
+        "Book Tour Events": "text_exact",
+        "Average Rating": "number",
+        "Number of Reviewers": "text_exact",
+        "Number of Reviews": "text_exact"
+      }
+    }
+  }
+}

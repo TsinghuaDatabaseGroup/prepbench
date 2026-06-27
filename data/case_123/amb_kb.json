@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_absence_calendar_days",
+      "kind": "Row-level concept",
+      "node_id": "abs_daily",
+      "op": "project",
+      "source_text": "Build a data set containing each date someone will be off work",
+      "ref": "dates = pd.date_range(start=start, periods=days, freq=\"D\")"
+    },
+    {
+      "id": "2_O1_absence_inclusive_span",
+      "kind": "Operation boundary",
+      "node_id": "abs_daily",
+      "op": "project",
+      "source_text": "Build a data set containing each date someone will be off work",
+      "ref": "dates = pd.date_range(start=start, periods=days, freq=\"D\")"
+    },
+    {
+      "id": "3_C2_distinct_people_count_per_day",
+      "kind": "Group-level concept",
+      "node_id": "daily_counts",
+      "op": "aggregate",
+      "source_text": "Workout the number of people off each day",
+      "ref": "df_daily.groupby(\"Date\", as_index=False)[\"Name\"].nunique()"
+    },
+    {
+      "id": "4_O2_left_join_scaffold_to_counts",
+      "kind": "Multi-table alignment",
+      "node_id": "join_counts",
+      "op": "join",
+      "source_text": "Merge these two data sets together",
+      "ref": "df_scaffold.merge(counts, on=\"Date\", how=\"left\")"
+    },
+    {
+      "id": "5_O2_fill_missing_counts_with_zero",
+      "kind": "Operation incomplete",
+      "node_id": "post_fill",
+      "op": "project",
+      "intent": "For scaffold dates with no matching daily count, set the count to 0.",
+      "ref": ".fillna({\"Number of people off each day\": 0})"
+    },
+    {
+      "id": "6_C2_scaffold_date_calculation",
+      "kind": "Row-level concept",
+      "node_id": "scaf_date",
+      "op": "project",
+      "source_text": "Build a data set that has each date listed out between 1st April to 31st May 2021",
+      "ref": "start_date = pd.Timestamp(\"2021-04-01\")\ndf_scaffold[\"Date\"] = start_date + pd.to_timedelta(df_scaffold.iloc[:, 0], unit=\"D\")"
+    },
+    {
+      "id": "7_O1_scaffold_range_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "scaf_filter",
+      "op": "filter",
+      "source_text": "Build a data set that has each date listed out between 1st April to 31st May 2021",
+      "ref": "end_date = pd.Timestamp(\"2021-05-31\")\ndf_scaffold = df_scaffold.loc[(df_scaffold[\"Date\"] >= start_date) & (df_scaffold[\"Date\"] <= end_date)]"
+    }
+  ]
+}

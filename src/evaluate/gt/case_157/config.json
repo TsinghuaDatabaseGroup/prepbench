@@ -1,0 +1,19 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Points Rank",
+                "Likelihood Rank",
+                "7 letter word",
+                "Total Points"
+            ],
+            "columns": {
+                "Points Rank": "number",
+                "Likelihood Rank": "number",
+                "7 letter word": "text_exact",
+                "% Chance": "number",
+                "Total Points": "number"
+            }
+        }
+    }
+}

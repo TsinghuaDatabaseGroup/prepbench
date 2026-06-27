@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_av_majority_denominator",
+      "kind": "Group-level concept",
+      "node_id": "n_av",
+      "op": "script",
+      "source_text": "ranked first in more than 50% of the votes, they win",
+      "ref": "total = len(ballots)\n            if counts[winner] > total / 2:\n                return winner"
+    },
+    {
+      "id": "2_O2_av_single_remaining",
+      "kind": "Operation incomplete",
+      "node_id": "n_av",
+      "op": "script",
+      "source_text": "counting and deleting continues until a candidate holds over 50% of the popular vote",
+      "ref": "        return next(iter(remaining))"
+    },
+    {
+      "id": "3_O3_av_elimination_tiebreak",
+      "kind": "Operation boundary",
+      "node_id": "n_av",
+      "op": "script",
+      "source_text": "the candidate least commonly ranked first is deleted from all the votes and there is a recount",
+      "ref": "            min_votes = counts.min()\n            to_eliminate = counts[counts == min_votes].index.min()"
+    },
+    {
+      "id": "4_C2_borda_points_by_N",
+      "kind": "Row-level concept",
+      "node_id": "n_borda",
+      "op": "script",
+      "source_text": "if there are 3 candidates, the candidate ranked first gets 3 points",
+      "ref": "N = len(candidates)\n    borda_df['points'] = N - borda_df['rank'] + 1"
+    },
+    {
+      "id": "5_D1_ballot_column_name",
+      "kind": "Single-table reference",
+      "node_id": "n_rename",
+      "op": "project",
+      "intent": "Which input column should be used as the ranked ballot preference string.",
+      "ref": "pref_col = \"Voting Preferences\""
+    }
+  ]
+}

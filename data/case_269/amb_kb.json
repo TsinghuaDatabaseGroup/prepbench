@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_lost_amount_formula",
+      "kind": "Row-level concept",
+      "node_id": "compute_loss",
+      "op": "project",
+      "source_text": "Create a field which shows how much money will be lost for each item",
+      "ref": "recalled[\"Lost Amount\"] = recalled[\"Unit Price\"] * recalled[\"Quantity\"]"
+    },
+    {
+      "id": "2_O1_priority_threshold",
+      "kind": "Operation boundary",
+      "node_id": "final_store_compute",
+      "op": "project",
+      "source_text": "Create a new field that identifies stores as High Priority (lost £5000 or more) or Low Priority (below £5000)",
+      "ref": "out2[\"Issue Level\"] = out2[\"Total Price Rounded\"].apply(lambda v: \"High Priority\" if v >= 5000 else \"Low Priority\")"
+    },
+    {
+      "id": "3_D2_join_keys_for_recall",
+      "kind": "Multi-table alignment",
+      "node_id": "recalled_join",
+      "op": "join",
+      "source_text": "Identify which recalled items are located in each store",
+      "ref": "recalled = store.merge(recall, on=[\"Category\", \"Product ID\"], how=\"inner\")"
+    },
+    {
+      "id": "4_O2_unmatched_inventory_excluded",
+      "kind": "Operation incomplete",
+      "node_id": "recalled_join",
+      "op": "join",
+      "source_text": "Identify which recalled items are located in each store",
+      "ref": "how=\"inner\""
+    }
+  ]
+}

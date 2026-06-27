@@ -1,0 +1,33 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Product Size",
+        "Scent",
+        "Product",
+        "Store"
+      ],
+      "columns": {
+        "Product Size": "text_exact",
+        "Scent": "text_exact",
+        "Product": "text_exact",
+        "Store": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Sales with the wrong size",
+        "Product Code",
+        "Product Size",
+        "Scent"
+      ],
+      "columns": {
+        "Sales with the wrong size": "number",
+        "Product Code": "text_exact",
+        "Product Size": "text_exact",
+        "Scent": "text_exact"
+      }
+    }
+  }
+}
+

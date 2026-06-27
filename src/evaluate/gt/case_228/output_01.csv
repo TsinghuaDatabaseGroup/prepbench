@@ -1,0 +1,101 @@
+Student ID,Full Name,Date of Birth,Region,School Name,School Status,Subject Selection,English,Maths,Science,Grade Score
+17573,EDITH FOSKEN,19/11/2006,EAST,Evergreen School,Average Performing,Psychology,A,A,B,140
+17653,NIKOLAS GRINSTON,05/01/2007,EAST,Southbridge Secondary,Average Performing,Psychology,B,A,A,140
+18971,LAND TRADEWELL,25/07/2007,EAST,Waterview Academy,High Performing,Psychology,A,B,A,140
+18877,FEY MACEUR,10/12/2006,EAST,Waterview Academy,High Performing,Psychology,A,B,A,140
+17472,GEORGEANNE ROTHERA,16/01/2007,EAST,Evergreen School,Average Performing,Psychology,A,B,A,140
+17335,DORELLE HILLAND,17/03/2007,EAST,Evergreen School,Average Performing,Psychology,A,B,A,140
+18032,LYSSA MAGINN,01/09/2006,EAST,Oak Valley,Average Performing,Psychology,A,A,B,140
+18219,AVRIL HOCKING,25/06/2007,EAST,Park View,Average Performing,Psychology,A,B,A,140
+17986,SILAS CABANE,09/07/2007,EAST,Oak Valley,Average Performing,Psychology,A,A,B,140
+17076,KENNY CAPPLEMAN,28/12/2006,EAST,Vista Academy,Low Performing,Psychology,A,B,A,140
+18063,RENEE KEILING,12/02/2007,EAST,Oak Valley,Average Performing,Psychology,A,B,A,140
+17822,BERKY DORANT,18/05/2007,EAST,Southbridge Secondary,Average Performing,Psychology,A,A,B,140
+17676,JOELA GOSTLING,11/03/2007,EAST,Southbridge Secondary,Average Performing,Psychology,B,B,A,130
+17803,INGEMAR RICKERSY,06/10/2006,EAST,Southbridge Secondary,Average Performing,Psychology,A,B,B,130
+18802,ELYSIA KENVIN,03/05/2007,EAST,Waterview Academy,High Performing,Psychology,B,B,A,130
+16269,BEVERLIE ANTONI,21/02/2007,WEST,Villiers Hill,Low Performing,Psychology,A,A,A,150
+15367,BEVERLY HACKSBY,06/07/2007,WEST,St. Mary's,High Performing,Psychology,B,A,A,140
+15021,LOU BRITTLE,19/02/2007,WEST,Park Road Secondary,Average Performing,Psychology,B,A,A,140
+15477,WOLF MURRIGANS,10/11/2006,WEST,St. Mary's,High Performing,Psychology,A,B,A,140
+16884,FONSIE BRAVERY,28/03/2007,WEST,Riverbank School,Average Performing,Psychology,B,A,A,140
+15310,SUMNER COUGHTREY,14/06/2007,WEST,St. Mary's,High Performing,Engineering,A,A,A,150
+15542,MILL EASTHOPE,17/01/2007,WEST,St. Mary's,High Performing,Engineering,B,A,A,140
+15285,LOREN BECKERS,07/05/2007,WEST,Park Road Secondary,Average Performing,Engineering,B,A,A,140
+15890,ASHTON KAMAN,24/03/2007,WEST,Eight Kings,Average Performing,Engineering,B,A,A,140
+15120,CHERLYN KREBER,23/10/2006,WEST,Park Road Secondary,Average Performing,Engineering,A,A,B,140
+17985,BROCKIE GORCE,24/01/2007,EAST,Oak Valley,Average Performing,Engineering,A,A,A,150
+18738,JOSHUA EVILL,13/12/2006,EAST,Waterview Academy,High Performing,Engineering,A,A,A,150
+17893,REMINGTON PEARMAN,23/01/2007,EAST,Southbridge Secondary,Average Performing,Engineering,A,A,A,150
+18896,HARMAN JOYCE,07/09/2006,EAST,Waterview Academy,High Performing,Engineering,B,A,A,140
+18910,YANCY DURRAND,18/04/2007,EAST,Waterview Academy,High Performing,Engineering,A,B,A,140
+18377,JEN LOFFEL,18/12/2006,EAST,Park View,Average Performing,Engineering,A,A,B,140
+18884,ISA MACDOWAL,19/04/2007,EAST,Waterview Academy,High Performing,Engineering,A,A,B,140
+17456,DEEANN TANKUS,12/12/2006,EAST,Evergreen School,Average Performing,Engineering,A,B,A,140
+18536,KAROLY CAVY,01/04/2007,EAST,Waterview Academy,High Performing,Engineering,A,B,A,140
+18397,GRAEHME MCMINN,04/03/2007,EAST,Park View,Average Performing,Engineering,B,A,A,140
+18046,PADRAIC MOYE,15/05/2007,EAST,Oak Valley,Average Performing,Engineering,A,B,B,130
+17920,HAYES CHARTRE,09/02/2007,EAST,Oak Valley,Average Performing,Engineering,B,B,A,130
+17636,DONOVAN BIERS,05/05/2007,EAST,Southbridge Secondary,Average Performing,Engineering,B,A,B,130
+18496,AMABEL MASEY,14/03/2007,EAST,Park View,Average Performing,Engineering,C,A,A,130
+18049,JOY KEWARD,23/08/2007,EAST,Oak Valley,Average Performing,Engineering,B,A,B,130
+16170,JOURDAIN STILES,22/02/2007,WEST,Villiers Hill,Low Performing,Business Management,A,A,A,150
+16894,GLEN LIBREY,12/03/2007,WEST,Riverbank School,Average Performing,Business Management,A,A,A,150
+15804,KLARA MALY,26/06/2007,WEST,Eight Kings,Average Performing,Business Management,A,A,A,150
+16340,FRANCISCA PLAISTOWE,23/04/2007,WEST,Long Road School,Average Performing,Business Management,A,A,A,150
+15766,TANDY CHALLICUM,13/08/2007,WEST,Eight Kings,Average Performing,Business Management,A,A,B,140
+17579,CONSALVE DRABBLE,12/08/2007,EAST,Evergreen School,Average Performing,Computer Science,A,A,A,150
+18798,MYRILLA LEADSTON,13/12/2006,EAST,Waterview Academy,High Performing,Computer Science,A,A,A,150
+17438,FRANK SYMINGTON,02/10/2006,EAST,Evergreen School,Average Performing,Computer Science,A,A,A,150
+17601,LYNN PITKEATHLY,13/04/2007,EAST,Southbridge Secondary,Average Performing,Computer Science,A,A,A,150
+18492,ERV ARROW,17/03/2007,EAST,Park View,Average Performing,Computer Science,A,A,A,150
+18874,MOSHE LEARMOUTH,14/05/2007,EAST,Waterview Academy,High Performing,Computer Science,A,A,A,150
+17148,ANABEL JOVIS,12/03/2007,EAST,Vista Academy,Low Performing,Computer Science,A,B,A,140
+17951,ERMENGARDE CHESTLE,03/09/2006,EAST,Oak Valley,Average Performing,Computer Science,A,A,B,140
+18455,HASKEL THURLBOURNE,17/09/2006,EAST,Park View,Average Performing,Computer Science,B,A,A,140
+18763,CRIN TERRAZZO,15/08/2007,EAST,Waterview Academy,High Performing,Computer Science,B,A,A,140
+17758,NORBERT DENISYEV,01/02/2007,EAST,Southbridge Secondary,Average Performing,Computer Science,A,A,B,140
+18642,LYNNELL PHAIR,08/05/2007,EAST,Waterview Academy,High Performing,Computer Science,B,A,A,140
+18437,BENT WITTERING,26/05/2007,EAST,Park View,Average Performing,Computer Science,B,A,A,140
+17919,NERISSA POPPLESTONE,12/10/2006,EAST,Oak Valley,Average Performing,Computer Science,A,B,A,140
+17781,ROXANNA JUSTIS,31/07/2007,EAST,Southbridge Secondary,Average Performing,Computer Science,A,B,A,140
+17559,AVIE BABBE,19/12/2006,EAST,Evergreen School,Average Performing,Business Management,A,A,A,150
+18513,CORNELIUS BARTHELME,27/11/2006,EAST,Waterview Academy,High Performing,Business Management,A,A,A,150
+17276,MIKAELA DORRINGTON,19/04/2007,EAST,Vista Academy,Low Performing,Business Management,A,A,A,150
+18538,BEVVY JACOBOVITZ,07/04/2007,EAST,Waterview Academy,High Performing,Business Management,B,A,A,140
+17937,MINNAMINNIE TERZO,23/02/2007,EAST,Oak Valley,Average Performing,Business Management,B,A,A,140
+17757,WES POPLEY,23/03/2007,EAST,Southbridge Secondary,Average Performing,Business Management,B,A,A,140
+18770,BRANDY ANGLIN,23/04/2007,EAST,Waterview Academy,High Performing,Business Management,A,B,A,140
+17995,ILKA LEHRAHAN,02/02/2007,EAST,Oak Valley,Average Performing,Business Management,A,B,A,140
+18449,RODERICK DAT,21/05/2007,EAST,Park View,Average Performing,Business Management,A,A,B,140
+18273,LOUTITIA TICIC,14/05/2007,EAST,Park View,Average Performing,Business Management,A,B,A,140
+18846,DARA DI PIETRO,08/12/2006,EAST,Waterview Academy,High Performing,Business Management,A,B,A,140
+17807,BEVERLIE PLIMMER,18/11/2006,EAST,Southbridge Secondary,Average Performing,Business Management,A,B,A,140
+17595,DEVA DEVONSHIRE,05/06/2007,EAST,Evergreen School,Average Performing,Business Management,A,B,A,140
+17735,LY ADRIANO,30/07/2007,EAST,Southbridge Secondary,Average Performing,Business Management,B,A,A,140
+17594,EMILIA QUERIPEL,03/12/2006,EAST,Evergreen School,Average Performing,Business Management,A,B,B,130
+17660,VIOLA PINCKSTONE,08/09/2006,EAST,Southbridge Secondary,Average Performing,Data Analytics,A,A,A,150
+17666,OTIS BRAHAN,15/04/2007,EAST,Southbridge Secondary,Average Performing,Data Analytics,A,A,A,150
+17293,CHAUNCEY FARDO,07/08/2007,EAST,Vista Academy,Low Performing,Data Analytics,A,B,A,140
+17376,DANYETTE SEEDULL,06/12/2006,EAST,Evergreen School,Average Performing,Data Analytics,A,B,A,140
+17623,CONSALVE CHITHAM,05/01/2007,EAST,Southbridge Secondary,Average Performing,Data Analytics,A,B,A,140
+17137,RIOBARD WINSBORROW,27/10/2006,EAST,Vista Academy,Low Performing,Data Analytics,A,A,B,140
+17518,ADELHEID MCSAUL,22/12/2006,EAST,Evergreen School,Average Performing,Data Analytics,B,A,A,140
+17435,KAITLIN FREW,19/03/2007,EAST,Evergreen School,Average Performing,Data Analytics,B,A,A,140
+18017,BLISS DANELL,22/10/2006,EAST,Oak Valley,Average Performing,Data Analytics,B,A,A,140
+18745,MORIE KALINSKY,09/09/2006,EAST,Waterview Academy,High Performing,Data Analytics,A,A,B,140
+18980,SEAN ROOSE,17/10/2006,EAST,Waterview Academy,High Performing,Data Analytics,A,B,A,140
+17957,THERESSA VOAS,11/02/2007,EAST,Oak Valley,Average Performing,Data Analytics,A,A,B,140
+17665,HENDRICK IDIENS,04/01/2007,EAST,Southbridge Secondary,Average Performing,Data Analytics,A,A,B,140
+18366,WAYLEN HOWSIN,01/08/2007,EAST,Park View,Average Performing,Data Analytics,A,A,B,140
+18170,TIFFI FELIX,10/04/2007,EAST,Oak Valley,Average Performing,Data Analytics,B,A,A,140
+15108,ORAZIO STOKER,25/04/2007,WEST,Park Road Secondary,Average Performing,Computer Science,A,A,A,150
+16572,SHEFF DOLDON,15/01/2007,WEST,Riverbank School,Average Performing,Computer Science,A,A,A,150
+16469,WYNNE O'HOOLAHAN,03/04/2007,WEST,Long Road School,Average Performing,Computer Science,A,A,B,140
+15499,EYDE CHADWELL,10/05/2007,WEST,St. Mary's,High Performing,Computer Science,A,A,B,140
+15494,CASSAUNDRA ANTHON,16/06/2007,WEST,St. Mary's,High Performing,Computer Science,A,A,B,140
+15368,FELICDAD DONE,07/07/2007,WEST,St. Mary's,High Performing,Data Analytics,A,A,A,150
+15889,TAMARA ROSENGREN,26/06/2007,WEST,Eight Kings,Average Performing,Data Analytics,A,A,A,150
+16435,MELODY EBLE,16/09/2006,WEST,Long Road School,Average Performing,Data Analytics,B,A,A,140
+16661,TERIANN ARIES,20/10/2006,WEST,Riverbank School,Average Performing,Data Analytics,A,B,A,140
+15228,FREDERIGO PITTOCK,21/09/2006,WEST,Park Road Secondary,Average Performing,Data Analytics,A,B,A,140

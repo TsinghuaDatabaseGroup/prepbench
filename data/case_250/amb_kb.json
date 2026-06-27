@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_out2_exclude_null_mavg",
+      "kind": "Operation incomplete",
+      "node_id": "filter_terms36",
+      "op": "filter",
+      "source_text": "filter to keep only terms 3 and 6, then create percentiles for each term based on the moving average of GPA",
+      "ref": "top = top[top[\"3 Term GPA Moving Average\"].notna()].copy()"
+    },
+    {
+      "id": "2_O2_join_keep_all_left_rows",
+      "kind": "Row-level concept",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "Use the student lookup table to bring in names for the students",
+      "ref": "all_terms = all_terms.merge(df_names, on=\"id\", how=\"left\")"
+    },
+    {
+      "id": "3_O2_term_date_day_16",
+      "kind": "Row-level concept",
+      "node_id": "parse_term_date",
+      "op": "project",
+      "source_text": "All terms report on the 16th day of the month",
+      "ref": "dt = dt.replace(day=16)"
+    },
+    {
+      "id": "5_C2_mavg_trailing_window",
+      "kind": "Group-level concept",
+      "node_id": "proj_mavg_round",
+      "op": "project",
+      "source_text": "Calculate a 3 term moving average of each student's GPA",
+      "ref": "s.rolling(window=3, min_periods=3).mean()"
+    },
+    {
+      "id": "6_O2_mavg_require_three_terms",
+      "kind": "Operation incomplete",
+      "node_id": "proj_mavg_round",
+      "op": "project",
+      "intent": "Only populate the 3-term moving average when all three terms exist; otherwise leave it blank/null.",
+      "ref": "min_periods=3"
+    },
+    {
+      "id": "7_C2_student_name_first_space_last",
+      "kind": "Row-level concept",
+      "node_id": "proj_names",
+      "op": "project",
+      "source_text": "use calculated fields to get the full name of each student",
+      "ref": "df_names[\"Student Name\"] = df_names[\"first_name\"] + \" \" + df_names[\"last_name\"]"
+    },
+    {
+      "id": "8_C2_rank_is_1_based_row_number",
+      "kind": "Row-level concept",
+      "node_id": "proj_rank_out1",
+      "op": "project",
+      "intent": "Create Rank as the 1-based row number after sorting.",
+      "ref": "out1[\"Rank\"] = out1.index + 1"
+    },
+    {
+      "id": "9_C2_mavg_term_order",
+      "kind": "Row-level concept",
+      "node_id": "sort_for_roll",
+      "op": "sort",
+      "intent": "Order each student's terms chronologically by term number before computing the rolling average.",
+      "ref": "all_terms.sort_values(by=[\"id\", \"__term_no\"])"
+    },
+    {
+      "id": "10_O1_top2pct_fixed_k",
+      "kind": "Group-level concept",
+      "node_id": "sort_top",
+      "op": "sort",
+      "source_text": "Filter to students in the top 2%",
+      "ref": "k = 11 if term_no == 3 else 13"
+    },
+    {
+      "id": "11_O3_top_selection_tie_breakers",
+      "kind": "Operation incomplete",
+      "node_id": "sort_top",
+      "op": "sort",
+      "intent": "Within term, break ties for top selection by (1) moving average desc, (2) GPA desc, (3) Student Name asc.",
+      "ref": "group.sort_values(by=[\"3 Term GPA Moving Average\", \"GPA\", \"Student Name\"], ascending=[False, False, True])"
+    }
+  ]
+}

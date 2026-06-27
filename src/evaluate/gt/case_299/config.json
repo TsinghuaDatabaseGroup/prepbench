@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Date"],
+      "columns": {
+        "Date": "date",
+        "Revenue": "number",
+        "Total Returns Value": "number",
+        "Number of Returns": "number",
+        "Avg Days to Return": "number"
+      }
+    }
+  }
+}
+

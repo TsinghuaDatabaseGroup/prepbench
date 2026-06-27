@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Receipt Number"],
+      "columns": {
+        "Rank": "number",
+        "Customer ID": "text_exact",
+        "Receipt Number": "text_exact",
+        "Gender": "text_exact",
+        "Online or In Person": "text_exact",
+        "Sales": "number",
+        "Weekday": "text_exact"
+      }
+    }
+  }
+}
+

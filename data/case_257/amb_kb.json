@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_pivot_missing_class_nulls",
+      "kind": "Operation incomplete",
+      "node_id": "pv_class",
+      "op": "pivot",
+      "source_text": "Pivot the data to have a column per class for each quarter and Flow Card? status",
+      "ref": "for col in ['Economy','Premium','Business','First']:\n            if col not in wide.columns:\n                wide[col] = pd.NA"
+    },
+    {
+      "id": "2_O1_custom_sort_order_blocks_rows",
+      "kind": "Operation boundary",
+      "node_id": "sort_blocks",
+      "op": "sort",
+      "intent": "Sort the final stacked output deterministically: keep aggregation blocks in union order, and within each block apply the specified (Flow Card?, Quarter) row sequence.",
+      "ref": "desired_order = [\n        ('Yes', 2), ('No', 1), ('No', 4), ('Yes', 3),\n        ('Yes', 1), ('No', 2), ('No', 3), ('Yes', 4),\n    ]"
+    },
+    {
+      "id": "3_O1_union_append_no_dedup",
+      "kind": "Operation boundary",
+      "node_id": "u_all",
+      "op": "union",
+      "intent": "Union the input files by appending rows without deduplicating.",
+      "ref": "df = pd.concat(df_list, ignore_index=True)"
+    },
+    {
+      "id": "4_O1_union_block_stack_order",
+      "kind": "Operation boundary",
+      "node_id": "u_all_blocks",
+      "op": "union",
+      "source_text": "Union these three flows back together",
+      "ref": "agg_funcs = [\n        ('median', 'median'),\n        ('max', 'max'),\n        ('min', 'min'),\n    ]\nout = pd.concat(flows, ignore_index=True)"
+    }
+  ]
+}

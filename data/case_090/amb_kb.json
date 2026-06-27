@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_sum_sales_before_pivot",
+      "kind": "Group-level concept",
+      "node_id": "agg_sum",
+      "op": "aggregate",
+      "intent": "Sum sales amounts at the grain of Costume, Country, Currency, Price, and Fiscal Year before pivoting.",
+      "ref": "grouped = df_melted.groupby(\n    ['Costume', 'Country', 'Currency', 'Price', 'Fiscal_Year'],\n    as_index=False\n)['Sales_Amount'].sum()"
+    },
+    {
+      "id": "2_O2_exclude_missing_sales_rows",
+      "kind": "Operation incomplete",
+      "node_id": "dropna_sales",
+      "op": "filter",
+      "intent": "Exclude records where the sales value is missing after reshaping to long format.",
+      "ref": "df_melted = df_melted.dropna(subset=['Sales_Value'])"
+    },
+    {
+      "id": "3_O2_currency_token_can_be_multiword_or_symbol",
+      "kind": "Row-level concept",
+      "node_id": "parse_price_currency_amount",
+      "op": "project",
+      "source_text": "Careful, some currencies are described by 2 words.",
+      "ref": "match = re.match(r'([A-Za-z$\\u20ac\\u00a3\\u20b9\\s]+?)\\s+([\\d,]+\\.?\\d*)', sales_str.strip())"
+    },
+    {
+      "id": "4_O1_remove_decimal_component_not_round",
+      "kind": "Operation boundary",
+      "node_id": "parse_price_currency_amount",
+      "op": "project",
+      "source_text": "with the value being rounded to a whole number.",
+      "ref": "df_melted['Sales_Amount'] = df_melted['Sales_Amount'].astype(int)"
+    },
+    {
+      "id": "5_O2_fill_missing_fy_sales_with_zero",
+      "kind": "Operation incomplete",
+      "node_id": "pivot_fy",
+      "op": "pivot",
+      "intent": "If a row has no sales for a given fiscal year, output 0 for that fiscal-year sales field.",
+      "ref": "result['2019 FY Sales'] = result['2019 FY Sales'].fillna(0).astype('Int64')"
+    }
+  ]
+}

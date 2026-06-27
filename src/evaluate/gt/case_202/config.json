@@ -1,0 +1,13 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": ["Application Month", "Total Candidates", "Candidates with Preferred Qualifications", "% of Candidates"],
+            "columns": {
+                "Application Month": "date",
+                "Total Candidates": "number",
+                "Candidates with Preferred Qualifications": "number",
+                "% of Candidates": "number"
+            }
+        }
+    }
+}

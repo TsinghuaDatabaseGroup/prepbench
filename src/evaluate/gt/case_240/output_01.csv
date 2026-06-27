@@ -1,0 +1,19 @@
+Customer,Book,Date,Sequence ID,Quantity,Bigger Order?
+WHSmiths,Tableau Prep Up & Running,01/07/2023,9,22,
+WHSmiths,Tableau Prep Up & Running,01/08/2023,17,110,88
+Waterstones,Data Curious,01/07/2023,4,56,
+Barnes & Noble,Data Curious,01/07/2023,7,137,
+Barnes & Noble,Data Curious,01/08/2023,11,32,-105
+Boyles,Data Curious,01/07/2023,2,119,
+Boyles,Data Curious,01/08/2023,12,131,12
+Barnes & Noble,Tableau Prep Up & Running,01/07/2023,6,137,
+Barnes & Noble,Tableau Prep Up & Running,01/08/2023,10,35,-102
+WHSmiths,Communicating with Data,01/07/2023,1,33,
+WHSmiths,Communicating with Data,01/08/2023,15,124,91
+WHSmiths,Data Curious,01/07/2023,8,115,
+WHSmiths,Data Curious,01/08/2023,16,22,-93
+Waterstones,Tableau Prep Up & Running,01/07/2023,3,51,
+Waterstones,Tableau Prep Up & Running,01/08/2023,13,86,35
+Borders,Communicating with Data,01/07/2023,5,52,
+Borders,Communicating with Data,01/08/2023,14,72,20
+Borders,Communicating with Data,01/08/2023,18,95,23

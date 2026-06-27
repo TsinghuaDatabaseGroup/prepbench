@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Pupil Name",
+        "Date of Birth",
+        "This Year's Birthday",
+        "Cake Needed On",
+        "Month",
+        "BDs per Weekday and Month"
+      ],
+      "columns": {
+        "Pupil Name": "text_exact",
+        "Date of Birth": "text_exact",
+        "This Year's Birthday": "text_exact",
+        "Cake Needed On": "text_exact",
+        "Month": "text_exact",
+        "BDs per Weekday and Month": "text_exact"
+      }
+    }
+  }
+}

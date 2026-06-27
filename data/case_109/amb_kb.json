@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_dedup_evo_pair",
+      "kind": "Operation inconsistent",
+      "node_id": "evo_dedup_pair",
+      "op": "dedup",
+      "intent": "If multiple evolution records exist for the same (Evolving from, Evolving to) pair, keep only one record.",
+      "ref": "evo = evo.drop_duplicates(\n        subset=[\"Evolving from\", \"Evolving to\"], keep=\"first\")"
+    },
+    {
+      "id": "2_O3_single_parent_choice",
+      "kind": "Operation inconsistent",
+      "node_id": "parent_lookup",
+      "op": "dedup",
+      "source_text": "Bring in information about what a Pokémon evolves from",
+      "ref": "    # Build parent mapping: child -> parent (choose first if multiple)\n        parent_map.setdefault(child, parent)"
+    },
+    {
+      "id": "3_O3_dedup_stats_name",
+      "kind": "Operation inconsistent",
+      "node_id": "stats_dedup_name",
+      "op": "dedup",
+      "source_text": "remove this field and ensure we have one row per Pokémon",
+      "ref": "df = df[cols_keep].drop_duplicates(\n        subset=[\"Name\"], keep=\"first\").reset_index(drop=True)"
+    },
+    {
+      "id": "4_O1_mega_word_boundary",
+      "kind": "Operation boundary",
+      "node_id": "stats_filter_gen",
+      "op": "filter",
+      "source_text": "filter Pokémon whose name start with \"Mega\"",
+      "ref": "df = df[~df[\"Name\"].str.match(r\"^Mega\\b\", na=False)]"
+    },
+    {
+      "id": "5_O3_children_multirow_grain",
+      "kind": "Row-level concept",
+      "node_id": "stats_with_children",
+      "op": "join",
+      "intent": "When a Pokémon has multiple immediate evolutions, output one row per immediate “Evolving to” option (do not collapse to a single row).",
+      "ref": "        tos = children_map.get(name, [])\n            for to_name in tos:\n                out_rows.append({"
+    },
+    {
+      "id": "6_C2_evolution_group_root",
+      "kind": "Row-level concept",
+      "node_id": "stats_with_group_flags",
+      "op": "project",
+      "source_text": "The Evolution Group will be named after the First Evolution",
+      "ref": "    def find_root(name: str) -> str:\n        seen = set()\n        cur = name\n        while cur in parent_map and cur not in seen:\n            seen.add(cur)\n            cur = parent_map[cur]\n        return cur"
+    },
+    {
+      "id": "7_O2_first_evolution_third_stage_only",
+      "kind": "Operation incomplete",
+      "node_id": "stats_with_group_flags",
+      "op": "project",
+      "source_text": "for Pokémon that have 3 evolutions, we want to know what the First Evolution is",
+      "ref": "    def is_third_stage(name: str) -> bool:\n        p = parent_map.get(name)\n        if not p:\n            return False\n        gp = parent_map.get(p)\n        return gp is not None\n                \"First Evolution\": root if is_third_stage(name) else \"\","
+    }
+  ]
+}

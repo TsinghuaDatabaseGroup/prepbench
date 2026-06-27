@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_date_parse_to_datetime",
+      "kind": "Operation incomplete",
+      "node_id": "input_01",
+      "op": "input",
+      "source_text": "Fix some date issues!",
+      "ref": "df[\"DATE\"] = pd.to_datetime(df[\"DATE\"])"
+    },
+    {
+      "id": "2_C1_home_away_from_vs_prefix",
+      "kind": "Row-level concept",
+      "node_id": "project_init",
+      "op": "project",
+      "source_text": "Determine whether each game was played by the Spurs: Home or Away",
+      "ref": "hoa = df[\"OPPONENT\"].str.startswith(\"vs\").map({True: \"Home\", False: \"Away\"})"
+    },
+    {
+      "id": "3_C1_opponent_clean_remove_prefix",
+      "kind": "Row-level concept",
+      "node_id": "project_init",
+      "op": "project",
+      "intent": "Create Opponent (clean) by removing any leading 'vs' or '@' (and following spaces) from OPPONENT.",
+      "ref": "opp_clean = df[\"OPPONENT\"].str.replace(r\"^(vs|@)\\s*\", \"\", regex=True)"
+    },
+    {
+      "id": "4_C1_win_loss_from_result_first_char",
+      "kind": "Row-level concept",
+      "node_id": "project_init",
+      "op": "project",
+      "source_text": "Determine whether the Spurs won or lost each game",
+      "ref": "wol = df[\"RESULT\"].str[0]"
+    },
+    {
+      "id": "5_O2_hi_fields_split_on_final_space",
+      "kind": "Row-level concept",
+      "node_id": "project_init",
+      "op": "project",
+      "source_text": "Split the \"Hi-\" categories up so player and value is separate",
+      "ref": "parts = col.str.rsplit(\" \", n=1, expand=True)\nreturn parts[0], parts[1].astype(int)"
+    },
+    {
+      "id": "6_C2_wl_cumulative_format",
+      "kind": "Group-level concept",
+      "node_id": "project_wl",
+      "op": "project",
+      "intent": "Compute W-L as cumulative wins and losses formatted as '<wins>-<losses>' for each game.",
+      "ref": "w_cum = (wol == \"W\").astype(int).cumsum()\nl_cum = (wol == \"L\").astype(int).cumsum()\nwl_text = w_cum.astype(str) + \"-\" + l_cum.astype(str)"
+    },
+    {
+      "id": "7_O1_wl_order_by_date_ascending",
+      "kind": "Operation boundary",
+      "node_id": "sort_by_date",
+      "op": "sort",
+      "intent": "Order games by DATE ascending before computing the cumulative W-L running record.",
+      "ref": "order = df[\"DATE\"].sort_values().index"
+    }
+  ]
+}

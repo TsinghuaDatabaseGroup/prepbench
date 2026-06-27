@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Sort"],
+      "columns": {
+        "Sort": "number",
+        "Position": "number",
+        "Athlete": "text_norm",
+        "Nationality": "text_exact",
+        "Total Points": "number",
+        "Event Name": "text_norm",
+        "Event Type": "text_exact",
+        "Event No.": "number",
+        "Event Time/Distance": "text_exact",
+        "Event Points": "number",
+        "Event Position": "number",
+        "Rolling Total Points": "number",
+        "Position After Event": "number"
+      }
+    }
+  }
+}
+
+

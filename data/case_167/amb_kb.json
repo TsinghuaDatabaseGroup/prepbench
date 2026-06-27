@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_course_header_filter",
+      "kind": "Row-level concept",
+      "node_id": "filter_dishes",
+      "op": "filter",
+      "source_text": "Filter out where the Dish = Course",
+      "ref": "combined[\"course_marker\"].isna()"
+    },
+    {
+      "id": "2_selected_tick_only",
+      "kind": "Row-level concept",
+      "node_id": "filter_dishes",
+      "op": "filter",
+      "source_text": "Filter out Dishes which have not been selected",
+      "ref": "combined[\"selection\"] == TICK"
+    },
+    {
+      "id": "3_exclude_null_dish_text",
+      "kind": "Operation incomplete",
+      "node_id": "filter_dishes",
+      "op": "filter",
+      "intent": "Whether to exclude rows where the dish/value text is null when filtering to selected dishes.",
+      "ref": "combined[\"value\"].notna()"
+    },
+    {
+      "id": "4_join_on_dish_text",
+      "kind": "Multi-table alignment",
+      "node_id": "join_lookup",
+      "op": "join",
+      "intent": "Which field to use to match selected dishes to the lookup table for Recipe ID.",
+      "ref": "on=\"Dish\""
+    },
+    {
+      "id": "5_left_join_unmatched_kept",
+      "kind": "Operation boundary",
+      "node_id": "join_lookup",
+      "op": "join",
+      "intent": "Whether dishes without a lookup match should be kept (with missing Recipe ID) or dropped.",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "6_orders_headerless_csv",
+      "kind": "Single-table reference",
+      "node_id": "orders_input",
+      "op": "input",
+      "intent": "Whether the Orders file should be read as a headerless table (no column names row).",
+      "ref": "orders_df = pd.read_csv(orders_path, header=None, dtype=str)"
+    },
+    {
+      "id": "7_course_marker_startswith_mapping",
+      "kind": "Row-level concept",
+      "node_id": "project_course_marker",
+      "op": "project",
+      "intent": "How to detect and normalize course header rows from Dish text (e.g., starts-with, case-insensitive mapping to canonical course names).",
+      "ref": "cleaned = value.strip().lower()\n    if cleaned.startswith(\"starter\"):\n        return \"Starters\"\n    if cleaned.startswith(\"main\"):\n        return \"Mains\"\n    if cleaned.startswith(\"dessert\"):\n        return \"Dessert\"\n    return None"
+    },
+    {
+      "id": "8_recipe_id_cast_int",
+      "kind": "Operation boundary",
+      "node_id": "project_fix_fields",
+      "op": "project",
+      "intent": "How to enforce Recipe ID being an integer in the final output (and what to do if it is missing/non-numeric).",
+      "ref": "result[\"Recipe ID\"] = result[\"Recipe ID\"].astype(int)"
+    },
+    {
+      "id": "9_guest_names_row0_data_row1",
+      "kind": "Single-table reference",
+      "node_id": "reshape_orders",
+      "op": "pivot",
+      "intent": "Which row contains guest names and where the data rows begin in the Orders layout.",
+      "ref": "name_row = orders_df.iloc[0]\n\"value\": orders_df.loc[1:, col],"
+    },
+    {
+      "id": "10_identify_guest_columns_nonempty_headers",
+      "kind": "Single-table reference",
+      "node_id": "reshape_orders",
+      "op": "pivot",
+      "intent": "How to dynamically identify which columns in Orders correspond to guests (dish text columns) when there may be empty separator columns.",
+      "ref": "guest_mask = name_row.notna() & (name_row.astype(\"string\").str.strip() != \"\")\nguest_cols = name_row.index[guest_mask].tolist()"
+    },
+    {
+      "id": "11_selection_column_adjacent",
+      "kind": "Single-table reference",
+      "node_id": "reshape_orders",
+      "op": "pivot",
+      "intent": "Whether each guest’s selection indicator column is assumed to be immediately adjacent to that guest’s dish text column.",
+      "ref": "\"selection\": orders_df.loc[1:, col + 1],"
+    }
+  ]
+}

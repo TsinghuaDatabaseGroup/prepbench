@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Venue", "Number of Games", "Best Rank (Standard Competition)", "Worst Rank (Standard Competition)", "Avg. Rank (Standard Competition)"],
+      "columns": {
+        "Venue": "text_exact",
+        "Number of Games": "number",
+        "Best Rank (Standard Competition)": "number",
+        "Worst Rank (Standard Competition)": "number",
+        "Avg. Rank (Standard Competition)": "number"
+      }
+    }
+  }
+}
+

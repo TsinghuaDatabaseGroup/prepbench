@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_customer_code_cast_to_string",
+      "kind": "Row-level concept",
+      "node_id": "clean_customer_code",
+      "op": "project",
+      "intent": "Output Customer Code as a string in output_03.",
+      "ref": "output_03[\"Customer Code\"] = output_03[\"Customer Code\"].astype(str)"
+    },
+    {
+      "id": "2_O2_transaction_date_parse_format",
+      "kind": "Row-level concept",
+      "node_id": "parse_dates",
+      "op": "project",
+      "source_text": "Change the date to be the day of the week",
+      "ref": "df[\"Transaction Date\"] = pd.to_datetime(df[\"Transaction Date\"], format=\"%d/%m/%Y %H:%M:%S\")\ndf[\"Transaction Date\"] = df[\"Transaction Date\"].dt.day_name()"
+    },
+    {
+      "id": "3_O1_transaction_code_bank_split_rule",
+      "kind": "Row-level concept",
+      "node_id": "extract_bank",
+      "op": "project",
+      "source_text": "Split the Transaction Code to extract the letters at the start of the transaction code.",
+      "ref": "df[\"Bank\"] = df[\"Transaction Code\"].str.split(\"-\").str[0]"
+    },
+    {
+      "id": "new_1_output_sort_order",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_outputs",
+      "op": "sort",
+      "intent": "Sort output_01 by Bank; output_02 by Bank, Online or In-Person, Transaction Date; and output_03 by Bank, Customer Code.",
+      "ref": "output_01 = output_01.sort_values(\"Bank\")\noutput_02 = output_02.sort_values([\"Bank\", \"Online or In-Person\", \"Transaction Date\"])\noutput_03 = output_03.sort_values([\"Bank\", \"Customer Code\"])"
+    }
+  ]
+}

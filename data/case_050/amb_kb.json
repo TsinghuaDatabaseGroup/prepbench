@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "new_1_question_number_field_mapping",
+      "kind": "Single-table reference",
+      "node_id": "pivot_questions",
+      "op": "pivot",
+      "source_text": "Change the Question Number for the question asked",
+      "ref": "qm = src.pivot_table(index=\"Response\", columns=\"Question Number\", values=\"Answer\", aggfunc=\"first\")\nqm = qm.rename(columns={\"1\": \"date_str\", \"2\": \"time_str\", \"3\": \"nps\", \"3a\": \"pos_reason\", \"3b\": \"neg_reason\"})"
+    },
+    {
+      "id": "new_2_age_year_only_reference_date",
+      "kind": "Operation boundary",
+      "node_id": "calc_age",
+      "op": "project",
+      "source_text": "Their age is taken to the date of 22nd January 2020",
+      "ref": "ref = datetime(2020, 1, 22)\nyears = ref.year - dob.year"
+    },
+    {
+      "id": "new_3_valid_completion_required_for_selection",
+      "kind": "Operation incomplete",
+      "node_id": "select_first_latest",
+      "op": "filter",
+      "intent": "Only responses with a non-null parsed Completion Date are eligible for first/latest selection.",
+      "ref": "df_valid = df.dropna(subset=[\"CompletionDT\"]).copy()"
+    },
+    {
+      "id": "new_4_same_first_latest_keep_single_first",
+      "kind": "Operation inconsistent",
+      "node_id": "select_first_latest",
+      "op": "dedup",
+      "source_text": "Find the first answer for each customer in each store and country",
+      "ref": "sel_set = set(first_idx.tolist()) | set(latest_idx.tolist())\nout[\"Result (First / Latest)\"] = \"First\"\nif len(idxs) >= 2:\n    out.loc[idx_latest_kept, \"Result (First / Latest)\"] = \"Latest\""
+    },
+    {
+      "id": "new_5_nps_indicator_one_else_null",
+      "kind": "Row-level concept",
+      "node_id": "classify_nps",
+      "op": "project",
+      "source_text": "Classify the 'NPS Recommendation' question based on the standard logic",
+      "ref": "df[\"Promoter\"] = np.where(df[\"NPS\"].between(9, 10, inclusive=\"both\"), 1, np.nan)\ndf[\"Passive\"] = np.where(df[\"NPS\"].between(7, 8, inclusive=\"both\"), 1, np.nan)\ndf[\"Detractor\"] = np.where(df[\"NPS\"].between(0, 6, inclusive=\"both\"), 1, np.nan)"
+    }
+  ]
+}

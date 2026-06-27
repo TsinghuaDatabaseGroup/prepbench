@@ -1,0 +1,116 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_target_from_series_measure_prefix",
+      "kind": "Single-table reference",
+      "node_id": "n_add_target",
+      "op": "project",
+      "source_text": "Split out the Continent and Country names from the relevant fields",
+      "ref": "df_from['target'] = df_from['Series-Measure'].str[len(PREFIX_FROM):]"
+    },
+    {
+      "id": "2_O2_month_parse_pattern_b_y",
+      "kind": "Row-level concept",
+      "node_id": "n_clean",
+      "op": "project",
+      "intent": "Parse Month as a date using the month-year pattern in the headers (e.g., %b-%y).",
+      "ref": "df['Month'] = pd.to_datetime(df['Month'], format='%b-%y')"
+    },
+    {
+      "id": "3_O2_numeric_parse_errors_coerce",
+      "kind": "Operation incomplete",
+      "node_id": "n_clean",
+      "op": "project",
+      "intent": "When converting Number of Tourists to numeric, coerce non-numeric values to null.",
+      "ref": "df['Number of Tourists'] = pd.to_numeric(df['Number of Tourists'], errors='coerce')"
+    },
+    {
+      "id": "4_C1_continent_label_set_for_totals",
+      "kind": "Single-table reference",
+      "node_id": "n_continents_only",
+      "op": "filter",
+      "source_text": "in our Continents level of detail, we also have The Middle East and UN passport holders as categories.",
+      "ref": "CONTINENTS = ['Europe', 'Asia', 'Africa', 'Americas', 'Oceania', 'the Middle East']"
+    },
+    {
+      "id": "5_C1_breakdown_last_path_segment_for_country_rows",
+      "kind": "Row-level concept",
+      "node_id": "n_countries_compute",
+      "op": "project",
+      "source_text": "Split out the Continent and Country names from the relevant fields",
+      "ref": "df_c['Breakdown'] = df_c['Breakdown'].apply(lambda x: x.split(' / ')[-1])"
+    },
+    {
+      "id": "6_C1_keep_only_specified_country_continent_combos",
+      "kind": "Row-level concept",
+      "node_id": "n_countries_keep",
+      "op": "filter",
+      "intent": "Restrict country rows to a fixed allowlist of countries and their associated continents.",
+      "ref": "COUNTRY_ORDER = [\n    (\"Europe\", \"Germany\"),\n    (\"Europe\", \"Italy\"),\n    ...]"
+    },
+    {
+      "id": "7_C1_series_in_scope_prefix_from",
+      "kind": "Single-table reference",
+      "node_id": "n_from",
+      "op": "filter",
+      "source_text": "Filter our dataset so our Values are referring to Number of Tourists",
+      "ref": "PREFIX_FROM = 'Tourist arrivals from '"
+    },
+    {
+      "id": "8_D1_pivot_identifier_columns",
+      "kind": "Single-table reference",
+      "node_id": "n_melt",
+      "op": "pivot",
+      "source_text": "Pivot all of the month fields into a single column",
+      "ref": "df = raw.melt(\n        id_vars=['id', 'Series-Measure', 'Hierarchy-Breakdown', 'Unit-Detail'],\n        var_name='Month',\n        value_name='Value'\n    )"
+    },
+    {
+      "id": "9_C2_country_to_continent_aggregation_sum_keys",
+      "kind": "Group-level concept",
+      "node_id": "n_sum_c",
+      "op": "aggregate",
+      "source_text": "Aggregate our Country stream to the Continent level",
+      "ref": "sum_c = df_c.groupby(['Month', 'Breakdown'], as_index=False)['Number of Tourists'].sum()"
+    },
+    {
+      "id": "10_C1_include_un_passport_series_as_unknown",
+      "kind": "Single-table reference",
+      "node_id": "n_un_filter",
+      "op": "filter",
+      "source_text": "we also have The Middle East and UN passport holders as categories.",
+      "ref": "SERIES_UN = 'Tourist arrivals - UN passport holders and others'"
+    },
+    {
+      "id": "11_C1_un_rows_set_breakdown_and_country_unknown",
+      "kind": "Row-level concept",
+      "node_id": "n_un_set",
+      "op": "project",
+      "intent": "For UN passport holders and others, set Breakdown to that label and Country to Unknown.",
+      "ref": "df_un['Breakdown'] = 'UN passport holders and others'\ndf_un['Country'] = 'Unknown'"
+    },
+    {
+      "id": "12_O1_unknown_negative_clip_to_zero",
+      "kind": "Operation boundary",
+      "node_id": "n_unknown_compute",
+      "op": "project",
+      "intent": "If Continent Total minus Countries Sum is negative, set Unknown to 0.",
+      "ref": "unknown['Number of Tourists'] = (unknown['Continent Total'] - unknown['Countries Sum']).clip(lower=0).astype(int)"
+    },
+    {
+      "id": "13_O2_unknown_missing_country_sum_as_zero",
+      "kind": "Operation incomplete",
+      "node_id": "n_unknown_compute",
+      "op": "project",
+      "intent": "If a continent-month has no matching country sum, treat Countries Sum as 0.",
+      "ref": "unknown['Countries Sum'] = unknown['Countries Sum'].fillna(0).astype(int)"
+    },
+    {
+      "id": "14_D2_unknown_join_keys_and_left_join",
+      "kind": "Multi-table alignment",
+      "node_id": "n_unknown_join",
+      "op": "join",
+      "source_text": "Join the two streams together and work out how many tourists arrivals there are that we don't know the country of",
+      "ref": "unknown = pd.merge(df_cont, sum_c, on=['Month', 'Continent'], how='left')"
+    }
+  ]
+}

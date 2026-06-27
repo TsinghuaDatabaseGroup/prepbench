@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "2_o3_latest_by_max_index",
+      "kind": "Operation boundary",
+      "node_id": "latest_per_name",
+      "op": "dedup",
+      "source_text": "If there is an even split between naughty and nice mentions, the latest mention",
+      "ref": "latest = (\n        df.sort_values([\"Name\", \"Index\"])\n        .groupby(\"Name\", as_index=False)\n        .tail(1)[[\"Name\", \"ListLabel\"]]\n        .rename(columns={\"ListLabel\": \"latest_label\"})\n    )"
+    },
+    {
+      "id": "3_c2_index_formula",
+      "kind": "Row-level concept",
+      "node_id": "proj_index_label",
+      "op": "project",
+      "source_text": "Create an Index field combining the File Path number and id",
+      "ref": "df[\"Index\"] = df[\"FileNo\"] * 1000 + df[\"id\"]"
+    },
+    {
+      "id": "4_d1_name_from_first_name",
+      "kind": "Single-table reference",
+      "node_id": "proj_rename",
+      "op": "project",
+      "source_text": "leaves Name and 'Naughty or Nice' field",
+      "ref": "df = df.rename(columns={\"first_name\": \"Name\"})"
+    }
+  ]
+}

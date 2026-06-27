@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_date_mapping",
+      "kind": "Row-level concept",
+      "node_id": "add_date",
+      "op": "project",
+      "source_text": "Use the file names to create a date",
+      "ref": "df_jul[\"Date\"] = \"01/07/2023\"; df_aug[\"Date\"] = \"01/08/2023\""
+    },
+    {
+      "id": "2_O1_sequence_id_1_based",
+      "kind": "Operation boundary",
+      "node_id": "add_seq_cast",
+      "op": "project",
+      "source_text": "Create a sequence ID for the first order through to the last",
+      "ref": "combined[\"Sequence ID\"] = range(1, len(combined) + 1)"
+    },
+    {
+      "id": "3_C1_prev_order_grouping_keys",
+      "kind": "Group-level concept",
+      "node_id": "compute_prev_diff",
+      "op": "project",
+      "source_text": "Create a field to determine how the current order differed to the previous order",
+      "ref": "combined_sorted.groupby([\"Customer\", \"Book\"])[\"Quantity\"].shift(1)"
+    },
+    {
+      "id": "4_C2_bigger_order_formula",
+      "kind": "Row-level concept",
+      "node_id": "compute_prev_diff",
+      "op": "project",
+      "source_text": "Create a field to determine how the current order differed to the previous order",
+      "ref": "combined_sorted[\"Bigger Order?\"] = combined_sorted[\"Quantity\"] - combined_sorted[\"Prev Qty\"]"
+    },
+    {
+      "id": "5_O2_first_in_group_null",
+      "kind": "Operation incomplete",
+      "node_id": "compute_prev_diff",
+      "op": "project",
+      "intent": "For the first order in each Customer+Book group, Bigger Order? should be blank/null.",
+      "ref": "shift(1)"
+    },
+    {
+      "id": "6_O1_restore_global_sequence_order",
+      "kind": "Operation boundary",
+      "node_id": "sort_back",
+      "op": "sort",
+      "intent": "After computing Bigger Order?, sort back to global Sequence ID ascending for output.",
+      "ref": "out = combined_sorted.sort_values(\"Sequence ID\")"
+    },
+    {
+      "id": "7_O1_within_group_ordering",
+      "kind": "Operation boundary",
+      "node_id": "sort_for_shift",
+      "op": "sort",
+      "source_text": "Create a field to determine how the current order differed to the previous order",
+      "ref": "combined_sorted = combined.sort_values([\"Customer\", \"Book\", \"Date\", \"Sequence ID\"])"
+    },
+    {
+      "id": "8_O1_append_file_order",
+      "kind": "Operation boundary",
+      "node_id": "union_all",
+      "op": "union",
+      "source_text": "Pull the two tables together",
+      "ref": "combined = pd.concat([df_jul, df_aug], ignore_index=True)"
+    }
+  ]
+}

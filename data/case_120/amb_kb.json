@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_date_fixed_year_2021",
+      "kind": "Row-level concept",
+      "node_id": "compute_core",
+      "op": "project",
+      "intent": "When constructing Date from Day of Month and month, use a fixed year of 2021.",
+      "ref": "df_all[\"Date\"] = pd.to_datetime({'year': 2021, 'month': df_all[\"__month\"], 'day': df_all[\"Day of Month\"].astype('int')}, errors='coerce')"
+    },
+    {
+      "id": "2_O1_product_split_first_hyphen",
+      "kind": "Row-level concept",
+      "node_id": "compute_core",
+      "op": "project",
+      "source_text": "Only return any names before the '-' (hyphen)",
+      "ref": "parts = x.split('-', 1)\n        return parts[0].strip() if len(parts) > 1 else x.strip()"
+    },
+    {
+      "id": "3_C2_variance_price_minus_avg",
+      "kind": "Row-level concept",
+      "node_id": "post_join_compute",
+      "op": "project",
+      "source_text": "Workout the Variance (difference) between the selling price and the average selling price",
+      "ref": "df_all[\"Variance\"] = (df_all[\"Price_num\"] - df_all[\"Avg Price per Product\"]).round(9)"
+    },
+    {
+      "id": "4_O3_rank_tiebreak_first",
+      "kind": "Operation boundary",
+      "node_id": "post_join_compute",
+      "op": "project",
+      "intent": "If multiple rows have the same variance, break ties using first-encountered order.",
+      "ref": "df_all.groupby([\"Destination\", \"New Trolley Inventory?\"])[\"Variance\"]\n        .rank(method=\"first\", ascending=False)"
+    }
+  ]
+}

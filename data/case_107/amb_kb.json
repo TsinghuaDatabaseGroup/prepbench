@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_latest_entry_time_tiebreak",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_session",
+      "op": "dedup",
+      "intent": "When multiple customer entries qualify for the same session, choose the latest (nearest-before-start) entry time.",
+      "ref": "df_cust = df_cust.sort_values(\"Entry Time\").reset_index(drop=True)\ndirection=\"backward\","
+    },
+    {
+      "id": "2_D2_entry_not_later_than_session_start",
+      "kind": "Operation boundary",
+      "node_id": "filter_window",
+      "op": "filter",
+      "source_text": "Customers arrive a maximum of 10 minutes before their sessions begin",
+      "ref": "direction=\"backward\","
+    },
+    {
+      "id": "3_O1_10_minute_window_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "filter_window",
+      "op": "filter",
+      "source_text": "Customers arrive a maximum of 10 minutes before their sessions begin",
+      "ref": "tolerance=pd.Timedelta(minutes=10),\nallow_exact_matches=True,"
+    },
+    {
+      "id": "4_D2_choose_closest_qualifying_entry",
+      "kind": "Multi-table alignment",
+      "node_id": "project_best",
+      "op": "project",
+      "source_text": "Match the customers to the correct session, based on their entry time",
+      "ref": "matched = pd.merge_asof(\n        sessions,\n        df_cust,\n        left_on=\"session_start\",\n        right_on=\"Entry Time\",\n        direction=\"backward\",\n        tolerance=pd.Timedelta(minutes=10),\n        allow_exact_matches=True,\n    )"
+    },
+    {
+      "id": "5_O1_customer_id_scientific_notation_rule",
+      "kind": "Operation boundary",
+      "node_id": "project_format",
+      "op": "project",
+      "intent": "Format Customer ID in scientific notation with two decimals and uppercase exponent when it is all digits and length ≥ 7.",
+      "ref": "if s.isdigit() and len(s) >= 7:\n            try:\n                return f\"{int(s):.2E}\""
+    },
+    {
+      "id": "6_O1_date_round_then_format",
+      "kind": "Operation boundary",
+      "node_id": "project_format",
+      "op": "project",
+      "intent": "Round Date to the nearest minute before formatting as DD/MM/YYYY HH:MM:SS.",
+      "ref": "out_df[\"Date\"] = out_df[\"Date\"].dt.round(\n        \"min\").dt.strftime(\"%d/%m/%Y %H:%M:%S\")"
+    },
+    {
+      "id": "7_O2_unmatched_customer_id_empty_value",
+      "kind": "Operation incomplete",
+      "node_id": "project_format",
+      "op": "project",
+      "source_text": "Customer ID field should be null if there were no customers",
+      "ref": "out_df[\"Customer ID\"] = out_df[\"Customer ID\"].fillna(\"\")"
+    },
+    {
+      "id": "8_C2_session_number_starts_at_1",
+      "kind": "Row-level concept",
+      "node_id": "project_sessions",
+      "op": "project",
+      "source_text": "Create a session number field",
+      "ref": "df_songs[\"Session #\"] = df_songs[\"new_session\"].cumsum().astype(int)"
+    },
+    {
+      "id": "9_C2_song_order_by_time_within_session",
+      "kind": "Row-level concept",
+      "node_id": "project_sessions",
+      "op": "project",
+      "source_text": "Number the songs in order for each session",
+      "ref": "df_songs[\"Song Order\"] = df_songs.groupby(\"Session #\").cumcount() + 1"
+    },
+    {
+      "id": "10_O2_first_song_starts_new_session",
+      "kind": "Operation boundary",
+      "node_id": "project_sessions",
+      "op": "project",
+      "source_text": "flag this as being a new session",
+      "ref": "df_songs[\"new_session\"] = df_songs[\"gap_min\"].isna() | (\n        df_songs[\"gap_min\"] >= 59)"
+    },
+    {
+      "id": "11_C2_session_start_is_earliest_song_time",
+      "kind": "Group-level concept",
+      "node_id": "sessions_min",
+      "op": "aggregate",
+      "source_text": "Match the customers to the correct session, based on their entry time",
+      "ref": "sessions = (\n        df_songs.groupby(\"Session #\", as_index=False)[\"Date\"]\n        .min()\n        .rename(columns={\"Date\": \"session_start\"})"
+    },
+    {
+      "id": "12_C2_sort_songs_by_date_before_gap_calc",
+      "kind": "Operation boundary",
+      "node_id": "sort_by_date",
+      "op": "sort",
+      "source_text": "Calculate the time between songs",
+      "ref": "df_songs = df_songs.sort_values(\"Date\").reset_index(drop=True)"
+    },
+    {
+      "id": "13_O1_output_sorted_by_session_then_song_order",
+      "kind": "Operation boundary",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final output rows by Session # ascending, then Song Order ascending.",
+      "ref": "out_df = out_df.sort_values(\n        [\"Session #\", \"Song Order\"]).reset_index(drop=True)"
+    }
+  ]
+}

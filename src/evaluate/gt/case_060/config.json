@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Trait",
+        "Species"
+      ],
+      "columns": {
+        "Normalised Value": "number",
+        "Max Value": "number",
+        "Min Value": "number",
+        "Value": "number",
+        "Trait": "text_exact",
+        "Species": "text_exact"
+      }
+    }
+  }
+}
+

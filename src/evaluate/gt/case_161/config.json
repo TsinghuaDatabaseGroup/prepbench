@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Movie",
+        "Year",
+        "Pass/Fail",
+        "Ranking",
+        "Categorisation"
+      ],
+      "columns": {
+        "Movie": "text_exact",
+        "Year": "number",
+        "Pass/Fail": "text_exact",
+        "Ranking": "number",
+        "Categorisation": "text_exact"
+      }
+    }
+  }
+}
+

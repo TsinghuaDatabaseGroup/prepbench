@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_only_fully_empty_rows",
+      "kind": "Operation incomplete",
+      "node_id": "filter_nonempty",
+      "op": "filter",
+      "source_text": "Exclude null rows",
+      "ref": "df = df.replace(\"\", np.nan)\ndf = df.dropna(how=\"all\")"
+    },
+    {
+      "id": "2_O2_whitespace_delimited_input",
+      "kind": "Operation incomplete",
+      "node_id": "input_raw",
+      "op": "input",
+      "intent": "Parse the input as whitespace-delimited using runs of spaces (not a single fixed delimiter).",
+      "ref": "df = pd.read_csv(in_file, sep=r\"\\s{2,}\", engine=\"python\", dtype=str, keep_default_na=False)"
+    },
+    {
+      "id": "3_O1_insert_ww1_block_before_1914_15",
+      "kind": "Operation boundary",
+      "node_id": "project_anchors",
+      "op": "project",
+      "source_text": "Create new rows for seasons that were missed due to WW1 and WW2",
+      "ref": "if r[\"Season\"] == \"1914-15\":\n            for s in [\"1918-19\", \"1917-18\", \"1916-17\", \"1915-16\"]:\n                rows.append(empty_row(s, \"WW1\"))"
+    },
+    {
+      "id": "4_O1_insert_ww2_block_before_1939_40",
+      "kind": "Operation boundary",
+      "node_id": "project_anchors",
+      "op": "project",
+      "source_text": "Create new rows for seasons that were missed due to WW1 and WW2",
+      "ref": "if r[\"Season\"] == \"1939-40\":\n            for s in [\"1945-46\", \"1944-45\", \"1943-44\", \"1942-43\", \"1941-42\", \"1940-41\"]:\n                rows.append(empty_row(s, \"WW2\"))"
+    },
+    {
+      "id": "5_C1_league_to_level_mapping",
+      "kind": "Row-level concept",
+      "node_id": "project_level_outcome",
+      "op": "project",
+      "source_text": "Extract the numeric values from the leagues",
+      "ref": "league_level = {\n    \"FL-CH\": 0,\n    \"FL-1\": 1,\n    \"EFL-1\": 1,\n    \"FL-2\": 2,\n    \"EFL-2\": 2,\n    \"FL-3\": 3,\n    \"FL-3S\": 3,\n    \"FL-4\": 4,\n    \"SOUTH-1\": 2,\n    \"SOUTH-2\": 3,\n    \"NAT-P\": 5,\n}"
+    },
+    {
+      "id": "6_C2_outcome_direction_by_level",
+      "kind": "Row-level concept",
+      "node_id": "project_level_outcome",
+      "op": "project",
+      "source_text": "Promoted, where they are in a league higher than their current league in the following season",
+      "ref": "outcome.loc[mask_valid & (next_levels < levels)] = \"Promoted\"\n        outcome.loc[mask_valid & (next_levels > levels)] = \"Relegated\"\n        outcome.loc[mask_valid & (next_levels == levels)] = \"Same League\""
+    },
+    {
+      "id": "7_O1_ignore_inserted_war_rows_for_outcome_comparison",
+      "kind": "Operation incomplete",
+      "node_id": "project_level_outcome",
+      "op": "project",
+      "source_text": "Note: this should apply to all seasons in the data order regardless of any gaps.",
+      "ref": "base_for_outcome = base.copy()\nbase_for_outcome[\"Special Circumstances\"] = \"N/A\"\nbase_for_outcome.loc[base_for_outcome[\"Season\"].eq(\"1939-40\"), \"Special Circumstances\"] = \"Abandoned due to WW2\"\nbase_for_outcome.loc[base_for_outcome[\"Season\"].eq(\"2021-22\"), \"Special Circumstances\"] = \"Incomplete\"\nseason_to_outcome = compute_outcome(base_for_outcome)\nseason_to_outcome.index = base_for_outcome[\"Season\"].astype(str).values\nout_df[\"Outcome\"] = np.where(\n    out_df[\"League\"].notna(),\n    out_df[\"Season\"].map(season_to_outcome).fillna(\"N/A\"),\n    \"N/A\",\n)"
+    },
+    {
+      "id": "8_O2_null_pos_when_not_full_season",
+      "kind": "Operation incomplete",
+      "node_id": "project_special_flags",
+      "op": "project",
+      "source_text": "Ensure the POS field only has values for full seasons",
+      "ref": "df.loc[df[\"Special Circumstances\"].ne(\"N/A\"), \"POS\"] = np.nan"
+    },
+    {
+      "id": "9_O2_ww1_placeholder_null_fields",
+      "kind": "Operation incomplete",
+      "node_id": "ww1_rows",
+      "op": "script",
+      "source_text": "Update the fields with relevant values for these new rows",
+      "ref": "def empty_row(season: str, sc: str) -> dict:\n    return {\n        \"Season\": season,\n        \"Outcome\": \"N/A\",\n        \"Special Circumstances\": sc,\n        \"League\": np.nan,\n        \"P\": np.nan,\n        \"W\": np.nan,\n        \"D\": np.nan,\n        \"L\": np.nan,\n        \"F\": np.nan,\n        \"A\": np.nan,\n        \"Pts\": np.nan,\n        \"POS\": np.nan,\n    }"
+    }
+  ]
+}

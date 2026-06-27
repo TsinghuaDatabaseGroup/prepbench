@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_key_product",
+      "kind": "Multi-table alignment",
+      "node_id": "join_prod",
+      "op": "join",
+      "source_text": "Link in the product Lookup to name the products instead of having their ID number",
+      "ref": "combined = combined.merge(product_lookup, on=\"Product\", how=\"left\")"
+    },
+    {
+      "id": "2_O2_join_how_left",
+      "kind": "Operation incomplete",
+      "node_id": "join_prod",
+      "op": "join",
+      "source_text": "Link in the product Lookup to name the products instead of having their ID number",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "3_D1_online_timestamp_rename",
+      "kind": "Single-table reference",
+      "node_id": "online_std",
+      "op": "project",
+      "source_text": "Link the Instore and Online sales together to be one data source",
+      "ref": "online_sales = online_sales.rename(columns={\"Sales Timestamp\": \"Sales Date\"})"
+    },
+    {
+      "id": "4_O2_datetime_parse",
+      "kind": "Operation boundary",
+      "node_id": "prep_sales",
+      "op": "project",
+      "source_text": "Workout how long it took between the original sale and the next sale in minutes",
+      "ref": "combined[\"Sales Date\"] = pd.to_datetime(combined[\"Sales Date\"], format=\"%d/%m/%Y %H:%M:%S\")"
+    },
+    {
+      "id": "5_O2_product_type_from_first_word",
+      "kind": "Row-level concept",
+      "node_id": "prep_sales",
+      "op": "project",
+      "source_text": "Create the 'Product Type' field by taking the first word of the product name",
+      "ref": "combined[\"Product Type\"] = combined[\"Product Name\"].str.split().str[0]"
+    },
+    {
+      "id": "7_O2_drop_rows_without_next_sale",
+      "kind": "Operation incomplete",
+      "node_id": "valid_rows",
+      "op": "filter",
+      "source_text": "includes the next sale after the one made in the SAME store of the same product type",
+      "ref": "combined2 = combined2[combined2[\"Time Diff Minutes\"].notna()]"
+    },
+    {
+      "id": "new_1_instore_dedup_same_store_product_date",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_instore",
+      "op": "dedup",
+      "intent": "Before calculating next sale, de-duplicate only in-store transactions by Store, Product Type, and Sales Date, keeping the first sorted record.",
+      "ref": "instore = (\n    instore.sort_values([\"Store\", \"Product Type\", \"Sales Date\"])\n    .drop_duplicates(subset=[\"Store\", \"Product Type\", \"Sales Date\"], keep=\"first\")\n)"
+    },
+    {
+      "id": "new_2_nonnegative_time_diff_filter",
+      "kind": "Operation boundary",
+      "node_id": "valid_rows",
+      "op": "filter",
+      "source_text": "Remove any negative differences. These are sales that got refunded.",
+      "ref": "combined2 = combined2[combined2[\"Time Diff Minutes\"] >= 0]"
+    },
+    {
+      "id": "new_3_average_round_1dp",
+      "kind": "Operation boundary",
+      "node_id": "agg_average",
+      "op": "aggregate",
+      "source_text": "Create a data set that shows the average of these values for each store and product type",
+      "ref": "result = (\n    combined2.groupby([\"Store\", \"Product Type\"], as_index=False)[\"Time Diff Minutes\"].mean()\n    .rename(columns={\"Time Diff Minutes\": \"Average mins to next sale\"})\n)\nresult[\"Average mins to next sale\"] = result[\"Average mins to next sale\"].round(1)"
+    }
+  ]
+}

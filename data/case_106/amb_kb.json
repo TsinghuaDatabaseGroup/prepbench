@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_contains_excludes_e_numbers",
+      "kind": "Row-level concept",
+      "node_id": "build_contains",
+      "op": "script",
+      "source_text": "Write a calculation to concatenate all the keywords into a single comma-separated list for each product",
+      "ref": "# E-number based detection (does not add to Contains but toggles non-vegan)\nhas_e = False\nif e_num_pattern is not None and e_num_pattern.search(s):\n    has_e = True\nif contains_list or has_e:\n    non_vegan_rows.append({\n        \"Product\": row[\"Product\"],\n        \"Description\": desc,\n        \"Contains\": \", \".join(contains_list)\n    })"
+    },
+    {
+      "id": "2_O3_contains_priority_order",
+      "kind": "Operation inconsistent",
+      "node_id": "build_contains",
+      "op": "script",
+      "intent": "Order matched animal-ingredient keywords in Contains by the specified priority sequence.",
+      "ref": "desired_priority = [\n    \"milk\", \"whey\", \"lactose\", \"egg\", \"honey\",\n    \"gelatin\", \"gelatine\", \"collagen\", \"elastin\", \"keratin\",\n    \"pepsin\", \"isinglass\", \"shellac\", \"lard\", \"aspic\", \"beeswax\"\n]\nordered = [t for t in animal_terms if t in found]\nreturn ordered, has_e"
+    },
+    {
+      "id": "3_O1_match_case_insensitive",
+      "kind": "Row-level concept",
+      "node_id": "compute_flags",
+      "op": "project",
+      "intent": "Match both animal-ingredient keywords and E-numbers case-insensitively.",
+      "ref": "pattern = re.compile(\n    rf\"(?i)(?<![a-zA-Z]){re.escape(term)}(?![a-zA-Z])\")\ne_num_pattern = re.compile(rf\"(?i)\\bE?\\s*(?:{group})\\b\")"
+    },
+    {
+      "id": "4_O1_animal_term_standalone_word",
+      "kind": "Operation boundary",
+      "node_id": "compute_flags",
+      "op": "project",
+      "intent": "For animal-ingredient keywords, avoid matching the keyword as part of a larger word by requiring standalone word/term boundaries.",
+      "ref": "pattern = re.compile(\n    rf\"(?i)(?<![a-zA-Z]){re.escape(term)}(?![a-zA-Z])\")"
+    },
+    {
+      "id": "5_C1_gelatin_gelatine_include_both",
+      "kind": "Row-level concept",
+      "node_id": "compute_flags",
+      "op": "project",
+      "intent": "If either gelatin or gelatine is found, include both gelatin and gelatine in the matched animal-ingredient list.",
+      "ref": "if (\"gelatin\" in found) or (\"gelatine\" in found):\n    found.add(\"gelatin\")\n    found.add(\"gelatine\")"
+    }
+  ]
+}

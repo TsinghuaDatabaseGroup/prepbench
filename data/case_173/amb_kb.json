@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_dedup_keep_first",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_all",
+      "op": "dedup",
+      "source_text": "Ensure no duplication of rows has occurred",
+      "ref": "result_df = result_df.drop_duplicates(keep='first').reset_index(drop=True)"
+    },
+    {
+      "id": "2_O1_dialogue_round_6dp",
+      "kind": "Operation boundary",
+      "node_id": "dialog_format",
+      "op": "project",
+      "intent": "For numeric-like dialogue values, round to 6 decimal places, trim trailing zeros, and normalize \"-0\" to \"0\".",
+      "ref": "        quantized = dec.quantize(Decimal('0.000001'))\n        normalized = quantized.normalize()\n        formatted = format(normalized, 'f')\n        if formatted == '-0':\n            formatted = '0'\n        return formatted"
+    },
+    {
+      "id": "3_O2_dialogue_preserve_non_numeric",
+      "kind": "Operation incomplete",
+      "node_id": "dialog_format",
+      "op": "project",
+      "intent": "Preserve dialogue values as-is when they are not numeric-like (decimal parse fails).",
+      "ref": "        try:\n            dec = Decimal(text)\n        except InvalidOperation:\n            return text"
+    },
+    {
+      "id": "4_O1_duration_positive_only",
+      "kind": "Operation boundary",
+      "node_id": "duration_pos",
+      "op": "filter",
+      "intent": "Remove dialogue rows where computed Duration is not strictly positive (Duration must be > 0).",
+      "ref": "result_df = result_df[result_df['Duration'] > 0].copy()"
+    },
+    {
+      "id": "5_D1_episode_end_runtime_in_secs",
+      "kind": "Single-table reference",
+      "node_id": "end_times",
+      "op": "project",
+      "intent": "Use the episode details column runtime_in_secs as the episode end time for duration calculations.",
+      "ref": "episode_df['runtime_in_secs'] = pd.to_numeric(episode_df['runtime_in_secs'], errors='coerce')\nepisode_end = episode_df[['Episode', 'runtime_in_secs']].copy()"
+    },
+    {
+      "id": "6_D1_input_dialogue_file",
+      "kind": "Single-table reference",
+      "node_id": "in_dialogue",
+      "op": "input",
+      "intent": "Use input_03.csv as the dialogue-level input dataset.",
+      "ref": "dialogue_df = pd.read_csv(inputs_dir / \"input_03.csv\", dtype={'dialogue': str})"
+    },
+    {
+      "id": "7_D1_input_episode_file",
+      "kind": "Single-table reference",
+      "node_id": "in_episode",
+      "op": "input",
+      "intent": "Use input_04.csv as the episode-level details input dataset.",
+      "ref": "episode_df = pd.read_csv(inputs_dir / \"input_04.csv\")"
+    },
+    {
+      "id": "8_O2_drop_empty_names_after_split",
+      "kind": "Operation incomplete",
+      "node_id": "name_non_empty",
+      "op": "filter",
+      "intent": "After splitting/exploding names, drop rows where name is missing or empty.",
+      "ref": "        if not name_str:\n            return []\n        if not names:\n            continue"
+    },
+    {
+      "id": "9_C2_next_distinct_timestamp",
+      "kind": "Operation incomplete",
+      "node_id": "unique_dedup",
+      "op": "dedup",
+      "source_text": "work out the difference from one timestamp to the next",
+      "ref": "            for j in range(i + 1, len(times)):\n                if times[j] != current_time:\n                    next_time = times[j]\n                    break"
+    }
+  ]
+}

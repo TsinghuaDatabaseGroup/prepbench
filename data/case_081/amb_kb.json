@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_fully_empty_rows",
+      "kind": "Operation incomplete",
+      "node_id": "filter_drop_empty_rows",
+      "op": "filter",
+      "source_text": "Make sure Store names have filled down correctly and remove nulls",
+      "ref": "month_cols = [col for col in df.columns if col not in ['Row_ID', 'Store']]\ndf = df[~(df['Store'].isna() & df[month_cols].isna().all(axis=1))].copy()"
+    },
+    {
+      "id": "2_O2_drop_untyped_rows",
+      "kind": "Operation incomplete",
+      "node_id": "filter_row_type",
+      "op": "filter",
+      "intent": "Exclude rows that cannot be assigned one of Sales/Target/Difference.",
+      "ref": "df = df[df['Row_Type'].notna()].copy()"
+    },
+    {
+      "id": "3_O2_drop_null_pivot_values",
+      "kind": "Operation incomplete",
+      "node_id": "filter_value_notna",
+      "op": "filter",
+      "intent": "After pivoting months long, keep only records with non-null pivoted values.",
+      "ref": "df_melted = df_melted[df_melted['Value'].notna()].copy()"
+    },
+    {
+      "id": "4_O1_row_type_by_rowid_order",
+      "kind": "Row-level concept",
+      "node_id": "project_add_row_no",
+      "op": "project",
+      "source_text": "the Sales value will have the lowest Row ID value for each Store",
+      "ref": "store_indices = df[store_mask].index\ndf.loc[store_indices[0], 'Row_Type'] = 'Sales'\ndf.loc[store_indices[1], 'Row_Type'] = 'Target'\ndf.loc[store_indices[2], 'Row_Type'] = 'Difference'"
+    },
+    {
+      "id": "5_O1_month_first_day_2020",
+      "kind": "Single-table reference",
+      "node_id": "project_build_month",
+      "op": "project",
+      "source_text": "Change the Month field to a Date data type (these months are all from 2020)",
+      "ref": "return f\"01/{month_num}/2020\""
+    },
+    {
+      "id": "6_O2_unrecognized_month_cols_dropped",
+      "kind": "Operation incomplete",
+      "node_id": "project_month_extract",
+      "op": "project",
+      "intent": "Only recognize Jan–Jul month column names when deriving Month; drop records whose Month cannot be derived.",
+      "ref": "month_map = {\n            'Jan': '01',\n            'Feb': '02',\n            ...\n        }\ndf_melted = df_melted[df_melted['Month'].notna()].copy()"
+    }
+  ]
+}

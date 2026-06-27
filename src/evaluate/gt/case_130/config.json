@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Items sold per store",
+        "Wheels",
+        "Tyres",
+        "Saddles",
+        "Brakes",
+        "Store"
+      ],
+      "columns": {
+        "Items sold per store": "number",
+        "Wheels": "number",
+        "Tyres": "number",
+        "Saddles": "number",
+        "Brakes": "number",
+        "Store": "text_exact"
+      }
+    }
+  }
+}

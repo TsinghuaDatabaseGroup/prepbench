@@ -1,0 +1,20 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_case_insensitive_compare",
+      "kind": "Operation boundary",
+      "node_id": "proj_anagram",
+      "op": "project",
+      "intent": "Whether anagram checking should be performed case-insensitively (e.g., lowercasing both words first).",
+      "ref": "w1 = str(word1).lower().strip()\nw2 = str(word2).lower().strip()"
+    },
+    {
+      "id": "2_trim_leading_trailing_whitespace",
+      "kind": "Operation boundary",
+      "node_id": "proj_anagram",
+      "op": "project",
+      "intent": "Whether leading/trailing whitespace in each word should be ignored (trimmed) before checking for anagrams.",
+      "ref": "w1 = str(word1).lower().strip()\nw2 = str(word2).lower().strip()"
+    }
+  ]
+}

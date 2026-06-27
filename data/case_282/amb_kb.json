@@ -1,0 +1,116 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_dedup_wins_per_year_stage",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_wins",
+      "op": "dedup",
+      "intent": "When multiple wins map to the same (Year, Stage Number), deduplicate to one record for joining.",
+      "ref": "wins_key = wins[[\"Year\", \"Stage Number\"]].drop_duplicates()"
+    },
+    {
+      "id": "2_O2_exclude_rest_days",
+      "kind": "Operation incomplete",
+      "node_id": "flt_stages",
+      "op": "filter",
+      "intent": "Exclude non-racing/rest-day rows from the stages data before output.",
+      "ref": "stages = stages[~stages[\"Stage\"].fillna(\"\").str.contains(\"Restday\", case=False, na=False)]"
+    },
+    {
+      "id": "3_O2_drop_unparseable_stage_number",
+      "kind": "Operation incomplete",
+      "node_id": "flt_stages",
+      "op": "filter",
+      "intent": "Exclude stages where Stage Number cannot be derived (i.e., parsing fails).",
+      "ref": "stages = stages[[\n        \"Year\",\n        \"Stage Number\",\n        \"Origin - Destination\",\n        \"Time Trial?\",\n        \"KM\",\n        \"Stage Type\",\n    ]].dropna(subset=[\"Stage Number\"]).copy()"
+    },
+    {
+      "id": "4_C1_filter_wins_to_tdf_stages",
+      "kind": "Row-level concept",
+      "node_id": "flt_wins_tdf",
+      "op": "filter",
+      "source_text": "Join in the 'Wins' data.",
+      "ref": "wins = wins[wins[\"Race\"].str.contains(r\"Tour de France \\| Stage\", regex=True, na=False)]"
+    },
+    {
+      "id": "5_D2_join_grand_on_year",
+      "kind": "Multi-table alignment",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "Join the races started to the overall data set to provide the overall finishing position",
+      "ref": "out = out.merge(ans, on=\"Year\", how=\"left\")"
+    },
+    {
+      "id": "6_O2_join_grand_left_keep_all_stages",
+      "kind": "Operation incomplete",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "Join the races started to the overall data set to provide the overall finishing position",
+      "ref": "out = out.merge(ans, on=\"Year\", how=\"left\")"
+    },
+    {
+      "id": "7_D2_join_stage_type_on_identifier",
+      "kind": "Multi-table alignment",
+      "node_id": "join_stage_type",
+      "op": "join",
+      "source_text": "Join together the Stages and Stage Type table",
+      "ref": "df_stage_types[\"Stage Type ID\"] = df_stage_types[\"Stage Type ID\"].astype(float)\nid_to_type = dict(zip(df_stage_types[\"Stage Type ID\"], df_stage_types[\"Stage Type\"]))\nstages[\"Stage Type\"] = stages[\"Stage Type\"].astype(float).map(id_to_type)"
+    },
+    {
+      "id": "8_O2_join_stage_type_keep_all_stages",
+      "kind": "Operation incomplete",
+      "node_id": "join_stage_type",
+      "op": "join",
+      "source_text": "Join together the Stages and Stage Type table",
+      "ref": "stages[\"Stage Type\"] = stages[\"Stage Type\"].astype(float).map(id_to_type)"
+    },
+    {
+      "id": "9_D2_join_wins_on_year_and_stage_number",
+      "kind": "Multi-table alignment",
+      "node_id": "join_stages_wins",
+      "op": "join",
+      "source_text": "You'll need to prepare the data to be able to join to the data set you've built thus far",
+      "ref": "out = stages.merge(wins_key, on=[\"Year\", \"Stage Number\"], how=\"left\")"
+    },
+    {
+      "id": "10_C2_origin_destination_from_pipe_suffix",
+      "kind": "Row-level concept",
+      "node_id": "proj_stages_prep",
+      "op": "project",
+      "source_text": "Create an 'Origin - Destination' field",
+      "ref": "def parse_origin_dest(stage_str: str) -> str:\n    s = str(stage_str)\n    if \"|\" in s:\n        return s.split(\"|\", 1)[1].strip()"
+    },
+    {
+      "id": "11_C2_stage_number_extract_from_stage_text",
+      "kind": "Row-level concept",
+      "node_id": "proj_stages_prep",
+      "op": "project",
+      "source_text": "Create an 'Origin - Destination' field and a 'Stage Number' field",
+      "ref": "def parse_stage_number(stage_str: str) -> int:\n    s = str(stage_str)\n    if s.startswith(\"Prologue\"):\n        return 0\n    try:\n        after = s.split(\"Stage \", 1)[1]\n        num_part = after.split(\" \", 1)[0]\n        return int(num_part)\n    except Exception:\n        return None"
+    },
+    {
+      "id": "12_C2_time_trial_label_individual_team_blank",
+      "kind": "Row-level concept",
+      "node_id": "proj_stages_prep",
+      "op": "project",
+      "source_text": "Create a field called 'Time Trial ?' to determine if the stage was a Time Trial",
+      "ref": "def parse_time_trial(stage_str: str) -> str:\n    s = str(stage_str)\n    if \"(ITT)\" in s:\n        return \"Individual\"\n    if \"(TTT)\" in s:\n        return \"Team\"\n    return \"\""
+    },
+    {
+      "id": "13_C2_wins_year_from_win_date",
+      "kind": "Row-level concept",
+      "node_id": "proj_wins_keys",
+      "op": "project",
+      "source_text": "You'll need to prepare the data to be able to join to the data set you've built thus far",
+      "ref": "wins[\"Year\"] = pd.to_datetime(wins[\"Date\"]).dt.year"
+    },
+    {
+      "id": "14_C2_wins_stage_number_from_race_text",
+      "kind": "Row-level concept",
+      "node_id": "proj_wins_keys",
+      "op": "project",
+      "source_text": "You'll need to prepare the data to be able to join to the data set you've built thus far",
+      "ref": "wins[\"Stage Number\"] = wins[\"Race\"].str.extract(r\"Stage\\s+(\\d+)\").astype(int)"
+    }
+  ]
+}

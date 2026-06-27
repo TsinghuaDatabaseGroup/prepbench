@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_stopword_filter_via_reference_list",
+      "kind": "Multi-table alignment",
+      "node_id": "anti_stop_join",
+      "op": "join",
+      "source_text": "Remove the 250 most common words in the English language",
+      "ref": "stop_norm_set = set(map(norm, stops['Word']))"
+    },
+    {
+      "id": "2_O1_output_tweet_preserve_punct_casing",
+      "kind": "Row-level concept",
+      "node_id": "final_project",
+      "op": "project",
+      "source_text": "Output a list of words used alongside the original tweet so we know the context",
+      "ref": "{'Words': tok, 'Tweet': t}"
+    },
+    {
+      "id": "3_D1_input_schema_structure",
+      "kind": "Single-table reference",
+      "node_id": "inputs",
+      "op": "input",
+      "intent": "Use input_01.csv for tweets (Tweet field) and input_02.csv for stop-words (Word field).",
+      "ref": "stops = pd.read_csv('input_02.csv'); df = pd.read_csv('input_01.csv')"
+    },
+    {
+      "id": "4_O3_dedup_words_within_tweet_keep_first",
+      "kind": "Operation inconsistent",
+      "node_id": "tokens_dedup_per_tweet",
+      "op": "dedup",
+      "source_text": "Pivot the words so we get just one column of each word used in the tweets",
+      "ref": "for tok in dict.fromkeys(re.sub(r\"[^A-Za-z ]\", \"\", t).split())"
+    },
+    {
+      "id": "5_O1_remove_handle_literal_only",
+      "kind": "Row-level concept",
+      "node_id": "tweets_project",
+      "op": "project",
+      "source_text": "Remove Chin & Beard Suds Co Twitter handle",
+      "ref": "df['Tweet'].str.replace('@C&BSudsCo', '', regex=False)"
+    }
+  ]
+}

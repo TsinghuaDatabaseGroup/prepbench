@@ -1,0 +1,101 @@
+Date,Location,Aircraft,Incident Description
+14/11/2019,Newquay,Flybe DH8D,aileron cable broke
+16/01/2020,London,Wizz UK A321,late rotation on takeoff
+01/02/2020,Salt Lake City,Emirates A388,turbulence injures passenger
+24/12/2019,Manchester,TUI B738,wheel overtakes aircraft on landing
+26/06/2018,Brisbane,Sunstate DH8D,uncommanded engine shut down in flight due to confusing maintenance procedures
+28/02/2020,London,Royal Maroc B738,late rotation for takeoff
+20/06/2019,Kozhikode,Etihad A320,temporary runway excursion
+23/02/2018,Brussels,Europa E195,loss of separation resolved by TCAS
+27/09/2019,Barcelona,Vueling A320,loss of separation resolved by TCAS resolution
+21/06/2019,Fort Hope,North Star DC3T,both engines lost power after departure
+26/08/2020,Birmingham,Vueling A320,Alpha Floor on second missed approach
+14/10/2011,London,Jet Airways B738,unqualified pilot monitoring
+16/12/2019,Johannesburg,Comair B738,cabin did not pressurize
+30/08/2019,Carlisle,Nyxair SF34,lost control of propeller rpm
+16/09/2019,Lisbon,Easyjet A320,wrong performance calculation results in late takeoff
+27/03/2019,Johannesburg,SA Airlink RJ85,engine shut down in flight
+23/04/2019,Perth,Skippers DH8C,trouble on both engines
+12/06/2018,Phoenix,Southwest B738,don't storm out of lavatory
+11/06/2018,Harbin,American B789,burned flight attendants
+20/01/2019,Dubai,Global Africa MD11,engine shut down in flight
+04/06/2019,Brussels,West Atlantic B734,partial electrical failure
+27/07/2018,Amsterdam,KLM Cityhopper E190,both cleared for takeoff from same runway different intersection
+17/08/2016,Waco,United B738,turbulence injures flight attendant
+26/06/2016,Little Rock,United B739,hot coffee pot
+03/02/2019,Male,Indigo A320,approached runway under construction
+04/11/2019,Sunshine Coast,Jetstar A320,loss of separation
+02/06/2016,Toronto,Fedex DC10,large LiOn batteries ignited after unloading
+16/07/2018,Lourdes,Bulgarian Charter MD82,go around without thrust change
+11/05/2019,Birmingham,Easyjet A319,fumes and smoke in cockpit
+24/11/2019,Glasgow,British Airways A321,incorrect takeoff performance
+08/08/2019,Whyalla,Eastern Australia DH8C,inflight deployment of ditching dam
+09/06/2019,London,British Airways B744,unreliable airspeed and stick shaker
+19/10/2019,Boise,Horizon DH8D,bird strike fractures front wing spar web
+26/08/2019,Chicago,Delta MD88,turbulence injures flight attendant
+31/12/2018,Charlotte,American B752,tail strike on landing
+10/09/2018,Phoenix,American B738,wake turbulence injures flight attendant
+01/06/2019,Bristol,Neos B738,descended below safe height on approach and again on go around
+01/12/2017,Pristina,Orange2fly A320,severe hard landing at 3.04G
+18/01/2019,Chennai,Singapore B772,turbulence injures passenger
+29/08/2019,Nice,Easyjet A319,takeoff with insufficient thrust
+22/07/2019,BIrmingham,Flybe DH8D,cabin pressure problems
+15/10/2019,Malta,Ryanair B738,turbulence injures flight attendant
+09/05/2016,Lahore,Vision B732,engine shut down in flight
+02/10/2019,London,British Airways A319,departed from wrong intersection without adjusting takeoff performance
+29/09/2018,Sydney,Jetstar A320,wrong speeds
+12/08/2019,Dublin,Lingus A320,fumes in DEO
+14/12/2016,Raipur,Indigo A320,hard landing at +3.164G
+27/05/2018,Madrid,"Various A332, A320, B738, CRJX",wind shear and go arounds cause losses of separations involving a total of 8 aircraft
+07/08/2019,London,Logan E145,ran over towbar on landing
+07/05/2019,Lisbon,Easyjet Europe A320,takeoff with insufficient thrust
+24/04/2019,Lisbon,Easyjet A320,takeoff with insufficient thrust
+22/07/2019,London,Smartlynx A321,low on approach
+08/05/2019,Linkoping,Saab SB20,runway excursion on takeoff
+05/06/2016,Paris,Mid East B772,wing tip and horizontal tail strike on go around
+20/05/2019,London,LOT B738,too many cooks spoil the broth
+18/08/2017,Bogota,France A343,windshear during rotation for takeoff
+09/10/2018,Bay of Biscay,Ryanair B738,altitude deviation
+10/10/2018,Paris,TUI B738,IRS and associated systems failure
+21/06/2018,Riga,Baltic BCS3,runway excursion on landing
+29/04/2019,London,United B763,smoke in cabin
+17/10/2018,Norrkoping,bmi E145,captured false localizer signal
+29/09/2017,Chennai,India A319,severe hard landing detected only after 30 more sectors
+30/05/2019,Nuuk,Greenland DH8B,rejected takeoff after Vr due to no rotation
+30/09/2018,Glasgow,Easyjet A319,first officer incapacitated
+04/05/2014,Port of Spain,Caribbean AT72,fracture of propeller trunnion pin
+09/10/2018,Trollhattan,RAF AT72,runway excursion discovered 2 days later
+12/10/2018,East Midlands,West Atlantic B734,electrical failures
+24/11/2013,Philadelphia,Piedmont DH8A,bird strike
+06/01/2019,Nassau,Skyway Enterprises SH36,rejected takeoff above Vr
+26/11/2010,Frankfurt,Lufthansa B744,right hand main gear fractured during line up
+28/01/2019,East Midlands,Flybe DH8D,loss of cabin pressure
+04/02/2018,Entebbe,Rwanda CRJ9,engine damage by foreign object ingestion
+16/07/2018,Dusseldorf,Flybe DH8D,retracted flaps instead of gear
+21/02/2019,Copenhagen,DAT AT72,smoke in cockpit
+13/06/2018,Kiev,Flydubai B738,many ATC spoil the separation
+07/10/2017,Delhi,British Airways B789,simultaneous go around and takeoff result in loss of separation
+22/09/2018,Nassau,Western SF34,near midair collision over runway
+13/08/2018,Edinburgh,Easyjet Europe A320,loss of separation on runway
+24/11/2017,Nagpur,Spicejet DH8D,smoke in cabin and cockpit
+06/08/2019,Christchurch,Jetstar A320,descent below minimum safe height on approach
+18/07/2018,Paderborn,Lufthana Cityline E190,near collision with glider aircraft
+03/05/2018,East Midlands,West Sweden ATP,temporary total electrical DC failure
+20/09/2018,Sydney,Jetstar A320,thrust reversers did not deploy
+27/09/2018,Bahrain,Etihad B772,captain incapacitated
+08/09/2018,Mannheim,MHS D328,near collision with private aircraft
+08/04/2015,Brasilia,TAM A320,touched down before runway during go around
+27/06/2016,Marseille,France A319,near collision with helicopter
+27/10/2017,Melbourne,Jetgo E135,descended below safe height on approach
+08/01/2015,Ulanbaator,Air China B738,rejected takeoff due to amended route clearance
+07/08/2018,Shiraz,Iran Aseman F100,runway incursion
+14/02/2018,Guernsey,West Sweden ATP,frozen flight and engine controls
+28/03/2018,London,Norwegian UK B789,began takeoff from incorrect point on runway
+29/03/2018,Tel Aviv,El Al B789,departure using wrong takeoff performance data
+11/01/2018,Belfast,Flybe DH8D,on initial climb autopilot targets 0 feet altitude
+26/05/2018,Esperance,REX SF34,de-icing boot failure
+08/12/2011,Rio de Janeiro,TAP A343,overran runway on takeoff and continued to Lisbon
+11/06/2014,Surabaya,Wings Abadi AT72,aircraft being  'hammered' during landing roll
+07/12/2015,Bern,Skywork D328,went off runway while backtracking for departure
+21/04/2016,Friedrichshafen,VLM F50,near collision with private aircraft
+08/08/2017,Dubai,Flydubai B738,hydraulic failure caused by damaged tyre

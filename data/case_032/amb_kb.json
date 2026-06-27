@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_hyphen_to_space",
+      "kind": "Row-level concept",
+      "node_id": "clean_product",
+      "op": "project",
+      "source_text": "Clean the product names to remove punctuation",
+      "ref": "df_unpivoted['Product'] = df_unpivoted['Product'].str.replace('-', ' ', regex=False)"
+    },
+    {
+      "id": "2_C1_property_number_numeric_extract",
+      "kind": "Row-level concept",
+      "node_id": "derive_property_number_and_cast",
+      "op": "project",
+      "intent": "Derive \"Property Number\" by extracting the numeric portion from \"Property Info\" as an integer.",
+      "ref": "address_parts['Property Number'] = address_parts['Property Info'].str.extract(r'(\\d+)').astype(int)"
+    },
+    {
+      "id": "3_C1_address_split_four_parts",
+      "kind": "Row-level concept",
+      "node_id": "extract_address",
+      "op": "project",
+      "intent": "Split the single Address field into four comma-separated components: Property Info, Town, Postal Code, Country (in that order).",
+      "ref": "address_parts = df_unpivoted['Address'].str.split(', ', expand=True)\naddress_parts.columns = ['Property Info', 'Town', 'Postal Code', 'Country']"
+    },
+    {
+      "id": "4_O2_drop_missing_product",
+      "kind": "Operation incomplete",
+      "node_id": "filter_product_notna",
+      "op": "filter",
+      "intent": "Exclude stacked/unpivoted line items where Product is missing.",
+      "ref": "df_unpivoted.dropna(subset=['Product'], inplace=True)"
+    },
+    {
+      "id": "5_D1_product1_sales_pairing",
+      "kind": "Single-table reference",
+      "node_id": "proj_product1",
+      "op": "project",
+      "intent": "Treat input columns \"Product 1\" and \"Sales\" as a paired line item and rename them to Product and Sales.",
+      "ref": "df1 = input_df[['Customer', 'Address', 'Product 1', 'Sales']].copy()"
+    },
+    {
+      "id": "6_D1_product2_sales1_pairing",
+      "kind": "Single-table reference",
+      "node_id": "proj_product2",
+      "op": "project",
+      "intent": "Treat input columns \"Product 2\" and \"Sales.1\" as a paired line item and rename them to Product and Sales.",
+      "ref": "df2 = input_df[['Customer', 'Address', 'Product 2', 'Sales.1']].copy()"
+    }
+  ]
+}

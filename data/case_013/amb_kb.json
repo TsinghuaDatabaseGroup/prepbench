@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_on_account",
+      "kind": "Multi-table alignment",
+      "node_id": "join_acct",
+      "op": "join",
+      "source_text": "Bring in the customer name",
+      "ref": "df = df.merge(acct, on=\"Account\", how=\"left\")"
+    },
+    {
+      "id": "2_C2_beyond_max_credit_formula",
+      "kind": "Row-level concept",
+      "node_id": "project_features",
+      "op": "project",
+      "source_text": "Credit limit is a positive number in the input but needs to be made negative",
+      "ref": "df[\"BeyondMax\"] = (df[\"Balance\"] < -df[\"Max Credit\"]).astype(int)"
+    },
+    {
+      "id": "3_O1_below_zero_strict",
+      "kind": "Operation boundary",
+      "node_id": "project_features",
+      "op": "project",
+      "source_text": "Determine the number of days a customer's balance is below zero",
+      "ref": "df[\"BelowZero\"] = (df[\"Balance\"] < 0).astype(int)"
+    },
+    {
+      "id": "4_O1_week_numbering_custom",
+      "kind": "Row-level concept",
+      "node_id": "project_features",
+      "op": "project",
+      "intent": "Custom week numbering: Week 1 is before the first Sunday, then Sunday-anchored weeks starting from Week 2.",
+      "ref": "def week_number_and_anchor(d: pd.Timestamp) -> tuple[int, pd.Timestamp]:\n        fs = first_sunday(d.year)\n        if d < fs:\n            return 1, pd.Timestamp(year=d.year, month=1, day=1)\n        delta_days = (d - fs).days\n        delta_weeks = delta_days // 7\n        week_no = 2 + delta_weeks\n        anchor = fs + pd.Timedelta(days=7 * delta_weeks)\n        return week_no, anchor"
+    },
+    {
+      "id": "5_O1_avg_transactions_round_to_int",
+      "kind": "Operation boundary",
+      "node_id": "project_month_fmt",
+      "op": "project",
+      "source_text": "average (mean) for transactions per customer to no decimal places",
+      "ref": "g_month[\"Monthly Avg Transactions\"] = g_month[\"Monthly Avg Transactions\"].round(0).astype(int)"
+    }
+  ]
+}

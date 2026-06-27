@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_output2_leeds_only",
+      "kind": "Operation incomplete",
+      "node_id": "leeds_filter",
+      "op": "filter",
+      "intent": "Restrict the outlier output (output_02.csv) to Leeds Store employees only.",
+      "ref": "leeds = staff[staff[\"Store\"] == \"Leeds Store\"].copy().reset_index(drop=True)"
+    },
+    {
+      "id": "2_O2_outside_outlier_field_defaults",
+      "kind": "Operation incomplete",
+      "node_id": "outside_project",
+      "op": "project",
+      "source_text": "Find who's pay sits outside of the pay bands",
+      "ref": "\"Correct Salary for Role?\": False,\n\"Assumed Position based on Salary Range\": \"Team Member\",\n\"Pay Status\": \"Incorrect Pay\",\n\"End Date\": pd.Timestamp(\"2019-10-01\"),\n\"Salary Range Minimum\": np.nan,\n\"Salary Range Maximum\": np.nan,\n\"Bonus amount\": np.nan"
+    },
+    {
+      "id": "3_C1_assumed_role_thresholds",
+      "kind": "Row-level concept",
+      "node_id": "proj_compute_bonus",
+      "op": "project",
+      "source_text": "checking actual roles against expected roles (based on assumption on pay bands and our three possible roles)",
+      "ref": "assumed_role = pd.Series(\n    np.select(\n        [leeds_match[\"min\"] >= 40000, leeds_match[\"min\"] >= 30000],\n        [\"Area Manager\", \"Manager\"],\n        default=\"Team Member\",\n    ),\n    index=leeds.index,\n)"
+    },
+    {
+      "id": "4_C2_bonus_calculation",
+      "kind": "Group-level concept",
+      "node_id": "proj_compute_bonus",
+      "op": "project",
+      "source_text": "bonuses paid for 2019 and what % the bonuses are of basic salary per person",
+      "ref": "bonus_amt = bonus_per_q * eligible_count"
+    },
+    {
+      "id": "5_O1_salary_range_inclusive_bounds",
+      "kind": "Operation boundary",
+      "node_id": "proj_compute_bonus",
+      "op": "project",
+      "intent": "Treat salary range minimum and maximum as inclusive when determining whether a salary falls within a pay band.",
+      "ref": "hits = (salaries[:, None] >= mins) & (salaries[:, None] <= maxs)"
+    },
+    {
+      "id": "6_O2_only_q1_to_q3_considered",
+      "kind": "Operation incomplete",
+      "node_id": "proj_compute_bonus",
+      "op": "project",
+      "source_text": "Assume today's date for the analysis is 1st October 2019",
+      "ref": "q_final_month_date = {\n    \"Q1\": pd.Timestamp(\"2019-03-01\"),\n    \"Q2\": pd.Timestamp(\"2019-06-01\"),\n    \"Q3\": pd.Timestamp(\"2019-09-01\"),\n}"
+    },
+    {
+      "id": "7_O2_outside_range_bonus_zero",
+      "kind": "Operation incomplete",
+      "node_id": "proj_compute_bonus",
+      "op": "project",
+      "source_text": "Anyone paid above the salary range will receive no bonus (we pay them enough already)",
+      "ref": "bonus_per_q = matched[\"Bonus amount\"].fillna(0)"
+    },
+    {
+      "id": "8_O2_pct_bonus_null_outside_range",
+      "kind": "Operation incomplete",
+      "node_id": "proj_compute_bonus",
+      "op": "project",
+      "source_text": "% the bonuses are of basic salary per person",
+      "ref": "pct_bonus = pct_bonus.where(pd.Series(range_idx, index=staff.index) >= 0)"
+    },
+    {
+      "id": "9_C2_quarterly_target_attainment",
+      "kind": "Group-level concept",
+      "node_id": "sales_proj",
+      "op": "project",
+      "source_text": "assess whether each store has met their quarterly sales targets",
+      "ref": "for q, cols in q_months.items():\n    sales[q] = sales[cols].astype(float).sum(axis=1) >= sales[\"Quarterly Target\"]"
+    },
+    {
+      "id": "10_D2_sales_store_suffix_alignment",
+      "kind": "Multi-table alignment",
+      "node_id": "sales_proj",
+      "op": "project",
+      "intent": "Align sales Store names to staff Store names by appending the literal suffix \" Store\" before joining.",
+      "ref": "store_met = sales[[\"Store\", \"Q1\", \"Q2\", \"Q3\"]].assign(Store=lambda df: df[\"Store\"] + \" Store\").set_index(\"Store\")"
+    },
+    {
+      "id": "11_C1_input_file_to_store_mapping",
+      "kind": "Row-level concept",
+      "node_id": "staff1_proj",
+      "op": "project",
+      "intent": "Map input files to store labels: input_01.csv → 'Sheffield Store', input_02.csv → 'Leeds Store'.",
+      "ref": "pd.read_csv(inputs_dir / \"input_01.csv\").assign(Store=\"Sheffield Store\"),\npd.read_csv(inputs_dir / \"input_02.csv\").assign(Store=\"Leeds Store\")"
+    },
+    {
+      "id": "12_O1_employed_overlap_2019",
+      "kind": "Operation boundary",
+      "node_id": "staff_filter_2019",
+      "op": "filter",
+      "source_text": "Only look at staff who have been employed during 2019",
+      "ref": "staff = staff.loc[\n    (staff[\"Start Date\"] <= end_2019)\n    & (staff[\"End Date\"].isna() | (staff[\"End Date\"] >= start_2019))\n].reset_index(drop=True)"
+    },
+    {
+      "id": "13_O2_wrong_outlier_field_population",
+      "kind": "Operation incomplete",
+      "node_id": "wrong_project",
+      "op": "project",
+      "source_text": "Find out who is in the incorrect pay band by checking actual roles against expected roles",
+      "ref": "\"Correct Salary for Role?\": False,\n\"Assumed Position based on Salary Range\": assumed_role.loc[mask_wrong],\n\"Pay Status\": \"Assumed Correct Pay\",\n\"End Date\": pd.Timestamp(\"2019-10-01\")"
+    }
+  ]
+}

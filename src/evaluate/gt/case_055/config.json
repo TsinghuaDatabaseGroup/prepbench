@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Candidate", "Poll Results", "Spread from 1st to 2nd Place", "Rank", "End Date", "Sample Type", "Poll"],
+      "columns": {
+        "Candidate": "text_exact",
+        "Poll Results": "number",
+        "Spread from 1st to 2nd Place": "number",
+        "Rank": "number",
+        "End Date": "date",
+        "Sample Type": "text_exact",
+        "Poll": "text_exact"
+      }
+    }
+  }
+}
+

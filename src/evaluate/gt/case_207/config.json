@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["ID", "Joining Date", "Account Type", "Date of Birth", "Ethnicity"],
+      "columns": {
+        "ID": "text_exact",
+        "Joining Date": "date",
+        "Account Type": "text_exact",
+        "Date of Birth": "date",
+        "Ethnicity": "text_exact"
+      }
+    }
+  }
+}
+

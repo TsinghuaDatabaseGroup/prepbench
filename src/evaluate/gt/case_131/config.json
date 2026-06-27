@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Flight",
+        "Class",
+        "Avg. daily sales 7 days or more until the flight",
+        "Avg. daily sales less than 7 days until the flight",
+        "Sales less than 7 days until the flight",
+        "Sales 7 days or more until the flight"
+      ],
+      "columns": {
+        "Flight": "text_exact",
+        "Class": "text_exact",
+        "Avg. daily sales 7 days or more until the flight": "number",
+        "Avg. daily sales less than 7 days until the flight": "number",
+        "Sales less than 7 days until the flight": "number",
+        "Sales 7 days or more until the flight": "number"
+      }
+    }
+  }
+}

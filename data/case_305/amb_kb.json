@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_percent_change_formula",
+      "kind": "Group-level concept",
+      "node_id": "compute_change",
+      "op": "project",
+      "source_text": "Find the Percentage difference between their Avg Judge's Score for the first dance and the average Avg Judge's Score in the final",
+      "ref": "% Change = (Final_Avg - First_Avg) / First_Avg"
+    },
+    {
+      "id": "2_O2_repeated_header_detection",
+      "kind": "Operation incomplete",
+      "node_id": "filter_headers",
+      "op": "filter",
+      "intent": "Drop rows that appear to be repeated headers (where column values match header names).",
+      "ref": "mask_header = (df.get(\"Couple\").fillna(\"\") == \"Couple\") | (df.get(\"Scores\").fillna(\"\") == \"Scores\")\ndf = df.loc[~mask_header].copy()"
+    },
+    {
+      "id": "3_O2_drop_uncomputable_avg_judge_score",
+      "kind": "Operation incomplete",
+      "node_id": "filter_valid",
+      "op": "filter",
+      "intent": "Drop rows where Avg Judge's Score cannot be computed.",
+      "ref": "df_scored = df.loc[df[\"Avg_Judge_Score\"].notna()].copy()"
+    },
+    {
+      "id": "4_C1_finalist_position_from_result_keywords",
+      "kind": "Row-level concept",
+      "node_id": "final_post",
+      "op": "project",
+      "source_text": "Result (win, runner-up, third place)",
+      "ref": "if \"winner\" in sl:\n            return \"Winners\"\n        if \"runner\" in sl:\n            return \"Runners-up\"\n        if \"third\" in sl:\n            return \"Third place\""
+    },
+    {
+      "id": "5_C2_final_avg_weighted_by_judge_count",
+      "kind": "Group-level concept",
+      "node_id": "final_post",
+      "op": "project",
+      "source_text": "For couples who danced multiple times in the final, calculate the average of their Avg Judge's Score",
+      "ref": "final_scores = grp.agg({\n        \"Total_Score\": \"sum\",\n        \"Num_Judges\": \"sum\",\n        \"Finalist Positions\": lambda s: s.dropna().iloc[0] if s.dropna().size > 0 else None,\n    })\nfinal_scores[\"Final_Avg\"] = final_scores[\"Total_Score\"] / final_scores[\"Num_Judges\"]"
+    },
+    {
+      "id": "6_O3_first_dance_same_week_aggregation",
+      "kind": "Group-level concept",
+      "node_id": "first_dance",
+      "op": "aggregate",
+      "source_text": "couple's first dance",
+      "ref": "first_scores = (\n        tmp.loc[tmp[\"Week_num\"] == tmp[\"first_week\"]]\n        .groupby(group_keys, as_index=False)\n        .agg({\"Avg_Judge_Score\": \"mean\"})\n        .rename(columns={\"Avg_Judge_Score\": \"First_Avg\"})\n    )"
+    },
+    {
+      "id": "7_C1_first_dance_is_min_numeric_week",
+      "kind": "Row-level concept",
+      "node_id": "first_dance",
+      "op": "project",
+      "source_text": "couple's first dance",
+      "ref": "first_week = tmp.groupby(group_keys, as_index=False)[\"Week_num\"].min().rename(columns={\"Week_num\": \"first_week\"})"
+    },
+    {
+      "id": "8_O2_keep_only_couples_with_finalist_position",
+      "kind": "Operation incomplete",
+      "node_id": "output_filter",
+      "op": "filter",
+      "source_text": "only include couples who made it to the final",
+      "ref": "final_scores = final_scores.loc[final_scores[\"Finalist Positions\"].notna()].copy()"
+    },
+    {
+      "id": "9_C1_final_week_text_matching_rule",
+      "kind": "Row-level concept",
+      "node_id": "parse_fields",
+      "op": "project",
+      "source_text": "their dances in the final",
+      "ref": "Match 'final' but not 'semi-final' or 'quarter-final'"
+    },
+    {
+      "id": "10_O2_week_number_extraction_pattern",
+      "kind": "Single-table reference",
+      "node_id": "parse_week",
+      "op": "project",
+      "source_text": "Ensure the Week field is numeric",
+      "ref": "m = re.search(r\"Week\\s*(\\d+)\", str(week_str))\nreturn int(m.group(1)) if m else None"
+    }
+  ]
+}

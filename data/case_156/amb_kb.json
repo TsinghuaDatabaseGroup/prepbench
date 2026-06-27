@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_tile_boundaries_formula",
+      "kind": "Group-level concept",
+      "node_id": "compute_tiles",
+      "op": "project",
+      "source_text": "Divide the students grades into 6 evenly distributed groups (order by Score descending, then Student ID ascending to break ties).",
+      "ref": "df_sorted['tile'] = df_sorted.groupby('Subject').cumcount()\ngroup_sizes = df_sorted.groupby('Subject')['Student ID'].transform('count')\ndf_sorted['tile'] = (df_sorted['tile'] * 6 // group_sizes) + 1"
+    },
+    {
+      "id": "2_O1_avg_points_round_2dp",
+      "kind": "Operation boundary",
+      "node_id": "compute_tiles",
+      "op": "project",
+      "source_text": "Work out the average total points per student by grade",
+      "ref": "df_sorted['Avg student total points per grade'] = df_sorted.groupby('Grade')['Total Points per Student'].transform('mean')\ndf_sorted['Avg student total points per grade'] = df_sorted['Avg student total points per grade'].round(2)"
+    },
+    {
+      "id": "3_O1_threshold_constant_4115",
+      "kind": "Operation boundary",
+      "node_id": "filter_rows",
+      "op": "filter",
+      "source_text": "Take the average total score you get for students who have received at least one A and remove anyone who scored less than this.",
+      "ref": "avg_a_score_threshold = 41.15"
+    },
+    {
+      "id": "4_O1_threshold_strict_greater",
+      "kind": "Operation boundary",
+      "node_id": "filter_rows",
+      "op": "filter",
+      "source_text": "Take the average total score you get for students who have received at least one A and remove anyone who scored less than this.",
+      "ref": "df_filtered = df_sorted[df_sorted['Total Points per Student'] > avg_a_score_threshold].copy()"
+    },
+    {
+      "id": "5_D1_wide_to_long_subject_score",
+      "kind": "Single-table reference",
+      "node_id": "pivot_long",
+      "op": "pivot",
+      "source_text": "7 fields:\n    - Points\n    - Subject\n    - Score\n    - Student ID",
+      "ref": "df_melted = df.melt(\n        id_vars=['Student ID'],\n        var_name='Subject',\n        value_name='Score'\n    )"
+    }
+  ]
+}

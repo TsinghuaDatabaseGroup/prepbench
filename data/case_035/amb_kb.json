@@ -1,0 +1,156 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_surplus_sum_after_fulfill",
+      "kind": "Group-level concept",
+      "node_id": "agg_delayed",
+      "op": "aggregate",
+      "intent": "Compute delayed-request surplus as a sum of stock quantities (not e.g., last value).",
+      "ref": "surplus_amt = int(grp.loc[grp['Date'] > fulfilled_date, 'Quantity'].sum())"
+    },
+    {
+      "id": "2_O1_surplus_strictly_after_fulfill_date",
+      "kind": "Operation boundary",
+      "node_id": "filter_after_fulfill",
+      "op": "filter",
+      "intent": "For delayed single-request surplus, include only stock movements with Date strictly greater than Date Fulfilled.",
+      "ref": "grp.loc[grp['Date'] > fulfilled_date, 'Quantity'].sum()"
+    },
+    {
+      "id": "3_O3_pick_earliest_stock_date",
+      "kind": "Operation inconsistent",
+      "node_id": "first_avail_per_req",
+      "op": "aggregate",
+      "intent": "When multiple stock dates satisfy cumulative stock >= cumulative requested, select the earliest such stock date.",
+      "ref": "first_available_date = product_stock['Date'].min()"
+    },
+    {
+      "id": "4_O1_date_fulfilled_is_later_of_required_and_available",
+      "kind": "Operation incomplete",
+      "node_id": "req_compute_fulfill",
+      "op": "project",
+      "source_text": "Which store requests can be met on their requested date?",
+      "ref": "return max(row['Date Required'], first_available_date)"
+    },
+    {
+      "id": "5_O1_days_delayed_clipped_at_zero",
+      "kind": "Operation boundary",
+      "node_id": "req_compute_fulfill",
+      "op": "project",
+      "intent": "Clip negative delay values to 0 days.",
+      "ref": "req['Days Request Delayed'] = req['Days Request Delayed'].apply(lambda x: max(0, x))"
+    },
+    {
+      "id": "6_O2_date_fulfilled_null_when_no_stock",
+      "kind": "Operation incomplete",
+      "node_id": "req_compute_fulfill",
+      "op": "project",
+      "intent": "If no stock date ever satisfies the cumulative condition, set Date Fulfilled to null/NaT.",
+      "ref": "return pd.NaT"
+    },
+    {
+      "id": "7_O2_days_delayed_null_when_unfulfilled",
+      "kind": "Operation incomplete",
+      "node_id": "req_compute_fulfill",
+      "op": "project",
+      "intent": "When Date Fulfilled is null, keep Days Request Delayed as null.",
+      "ref": "lambda x: max(0, x) if pd.notnull(x) else x"
+    },
+    {
+      "id": "8_O2_stock_ready_true_only_if_zero_delay",
+      "kind": "Operation boundary",
+      "node_id": "req_compute_fulfill",
+      "op": "project",
+      "source_text": "Stock Ready?",
+      "ref": "req['Stock Ready?'] = req['Days Request Delayed'] == 0"
+    },
+    {
+      "id": "9_C2_exactly_one_request_count",
+      "kind": "Group-level concept",
+      "node_id": "req_counts",
+      "op": "aggregate",
+      "intent": "Define \"exactly one request\" by counting requests per (Product, Scent) ignoring Supplier.",
+      "ref": "req_counts_df = req.groupby(['Product','Scent']).size()"
+    },
+    {
+      "id": "10_C2_request_running_total_partition",
+      "kind": "Group-level concept",
+      "node_id": "req_cumsum",
+      "op": "project",
+      "source_text": "Form a running total of the requested quantities for each product & scent.",
+      "ref": "store_requests_with_supplier.groupby(['Product', 'Scent', 'Supplier'])['Quantity Requested'].cumsum()"
+    },
+    {
+      "id": "11_O1_delayed_means_fulfilled_strictly_later",
+      "kind": "Operation boundary",
+      "node_id": "req_single_delayed",
+      "op": "filter",
+      "intent": "Treat a request as delayed only when Date Fulfilled is strictly greater than Date Required.",
+      "ref": "req_single = req_single[req_single['Date Fulfilled'] > req_single['Date Required']]"
+    },
+    {
+      "id": "12_D2_stock_satisfies_request_condition",
+      "kind": "Multi-table alignment",
+      "node_id": "req_stock_candidates",
+      "op": "filter",
+      "source_text": "Which store requests can be met on their requested date?",
+      "ref": "(stock_levels['Cumulative Stock'] >= row['Cumulative Requested'])"
+    },
+    {
+      "id": "13_D2_attach_supplier_by_product_scent",
+      "kind": "Multi-table alignment",
+      "node_id": "req_with_supplier",
+      "op": "join",
+      "source_text": "Store - Product - Scent - Supplier - Quantity Requested",
+      "ref": "pd.merge(store_requests, supplier_mapping, on=['Product', 'Scent'], how='left')"
+    },
+    {
+      "id": "14_O2_keep_requests_without_supplier",
+      "kind": "Operation incomplete",
+      "node_id": "req_with_supplier",
+      "op": "join",
+      "intent": "If no supplier mapping match exists for a request, keep the request with Supplier missing/null.",
+      "ref": "how='left'"
+    },
+    {
+      "id": "15_C2_stock_running_total_partition",
+      "kind": "Group-level concept",
+      "node_id": "stock_cumsum",
+      "op": "project",
+      "source_text": "Form a running total of our stock levels for each product & scent.",
+      "ref": "stock_levels.groupby(['Product', 'Scent', 'Supplier'])['Quantity'].cumsum()"
+    },
+    {
+      "id": "16_O3_supplier_mapping_keeps_all",
+      "kind": "Operation inconsistent",
+      "node_id": "supplier_mapping",
+      "op": "dedup",
+      "intent": "If multiple suppliers exist for the same Product+Scent, keep all unique mappings.",
+      "ref": "supplier_mapping = stock_levels[['Product', 'Scent', 'Supplier']].drop_duplicates()"
+    },
+    {
+      "id": "17_O3_output_01_includes_both_surplus_sets",
+      "kind": "Operation inconsistent",
+      "node_id": "surplus_union",
+      "op": "union",
+      "intent": "Combine surplus rows from the two rule sets without deduplicating between them.",
+      "ref": "output_01 = pd.concat([zero_df, delayed_df], ignore_index=True)"
+    },
+    {
+      "id": "18_C2_never_requested_surplus_formula",
+      "kind": "Group-level concept",
+      "node_id": "zero_agg",
+      "op": "aggregate",
+      "source_text": "Are any products held in stock not actually needed by any stores?",
+      "ref": ".groupby(['Supplier','Product','Scent'])['Quantity'].sum()"
+    },
+    {
+      "id": "19_D2_never_requested_definition",
+      "kind": "Multi-table alignment",
+      "node_id": "zero_ps",
+      "op": "join",
+      "source_text": "Are any products held in stock not actually needed by any stores?",
+      "ref": "pd.merge(stock_ps, req_ps, on=['Product','Scent'], how='left', indicator=True)"
+    }
+  ]
+}

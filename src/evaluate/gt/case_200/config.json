@@ -1,0 +1,32 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "candidate_id",
+        "position_id",
+        "status",
+        "ts",
+        "filename"
+      ],
+      "columns": {
+        "candidate_id": "number",
+        "position_id": "number",
+        "status": "text_exact",
+        "ts": "datetime",
+        "filename": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "candidate_id",
+        "position_id",
+        "current_status"
+      ],
+      "columns": {
+        "candidate_id": "number",
+        "position_id": "number",
+        "current_status": "text_exact"
+      }
+    }
+  }
+}

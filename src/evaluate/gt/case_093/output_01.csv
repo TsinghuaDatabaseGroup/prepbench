@@ -1,0 +1,11 @@
+Airport,Type,% Flights Delayed,Avg Delay (mins)
+JFK,Departure,29.27,9.66
+SYD,Departure,17.07,4.61
+HND,Arrival,40.74,7.78
+SYD,Arrival,27.78,9.44
+PER,Arrival,9.21,4.33
+HND,Departure,23.53,5.76
+SEA,Arrival,36.84,15.21
+SEA,Departure,25,8.19
+JFK,Arrival,25,6.13
+PER,Departure,15.38,4.18

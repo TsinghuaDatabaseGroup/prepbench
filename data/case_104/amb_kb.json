@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_client_exact_match",
+      "kind": "Single-table reference",
+      "node_id": "join_latest",
+      "op": "join",
+      "intent": "Match records by exact Client string value (case-sensitive, no normalization).",
+      "ref": "client_mapping = latest_info.set_index('Client').to_dict('index')\n        client = row['Client']\n        if client in client_mapping:"
+    },
+    {
+      "id": "2_O3_latest_tie_break_input_order",
+      "kind": "Operation boundary",
+      "node_id": "latest_per_client",
+      "op": "dedup",
+      "intent": "When multiple records for a Client share the same latest From Date, select the first one encountered in input order as the most recent.",
+      "ref": "latest_info = df.loc[df.groupby('Client')['From Date Parsed'].idxmax()][\n        ['Client', 'Client ID', 'Account Manager', 'From Date']\n    ].copy()"
+    },
+    {
+      "id": "3_O2_from_date_parse_format",
+      "kind": "Operation incomplete",
+      "node_id": "proj_enrich",
+      "op": "project",
+      "source_text": "For each Client, work out who the most recent Account Manager is",
+      "ref": "df['From Date Parsed'] = pd.to_datetime(df['From Date'], format='%d/%m/%Y', errors='coerce')"
+    },
+    {
+      "id": "4_O2_client_id_integer_cast",
+      "kind": "Row-level concept",
+      "node_id": "project_cleanup",
+      "op": "project",
+      "intent": "Convert Client ID to an integer type in the final output.",
+      "ref": "output_df['Client ID'] = output_df['Client ID'].astype(int)"
+    },
+    {
+      "id": "5_O2_overwrite_latest_owner_fields_keep_attendees",
+      "kind": "Row-level concept",
+      "node_id": "project_final",
+      "op": "project",
+      "intent": "Preserve all attendance records and overwrite Client ID and Account Manager for every row with the Client's most recent values (instead of filtering rows out).",
+      "ref": "            row['Client ID'] = client_mapping[client]['Client ID']\n            row['Account Manager'] = client_mapping[client]['Account Manager']\n    df_updated = df.apply(update_client_info, axis=1)"
+    },
+    {
+      "id": "6_O2_overwrite_from_date_to_latest",
+      "kind": "Row-level concept",
+      "node_id": "project_final",
+      "op": "project",
+      "intent": "Overwrite From Date on every row with the most recent From Date for that Client.",
+      "ref": "            row['From Date'] = client_mapping[client]['From Date']"
+    }
+  ]
+}

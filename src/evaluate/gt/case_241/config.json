@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Country",
+        "2023 SDG Index Score",
+        "2023 SDG Index Rank",
+        "Regions used for the SDR",
+        "SDG Name",
+        "SDG Value",
+        "SDG Trend"
+      ],
+      "columns": {
+        "Country": "text_exact",
+        "2023 SDG Index Score": "number",
+        "2023 SDG Index Rank": "number",
+        "Regions used for the SDR": "text_exact",
+        "SDG Name": "text_exact",
+        "SDG Value": "text_exact",
+        "SDG Trend": "text_exact"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Destination", "Date", "Rolling Week Avg", "Rolling Week Total"],
+      "columns": {
+        "Destination": "text_exact",
+        "Date": "date",
+        "Rolling Week Avg": "number",
+        "Rolling Week Total": "number"
+      }
+    }
+  }
+}

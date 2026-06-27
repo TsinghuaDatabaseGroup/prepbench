@@ -1,0 +1,33 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Student ID",
+        "Full Name",
+        "Date of Birth",
+        "Region",
+        "School Name",
+        "School Status",
+        "Subject Selection",
+        "English",
+        "Maths",
+        "Science",
+        "Grade Score"
+      ],
+      "columns": {
+        "Student ID": "number",
+        "Full Name": "text_exact",
+        "Date of Birth": "date",
+        "Region": "text_exact",
+        "School Name": "text_exact",
+        "School Status": "text_exact",
+        "Subject Selection": "text_exact",
+        "English": "text_exact",
+        "Maths": "text_exact",
+        "Science": "text_exact",
+        "Grade Score": "number"
+      }
+    }
+  }
+}
+

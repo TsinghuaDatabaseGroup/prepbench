@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_date_parse_format_dmy",
+      "kind": "Operation incomplete",
+      "node_id": "n2_project_enrich",
+      "op": "project",
+      "intent": "Parse Date and Date of Flight as day/month/year dates before date arithmetic.",
+      "ref": "df[\"Date\"] = pd.to_datetime(df[\"Date\"], format=\"%d/%m/%Y\")\ndf[\"Date of Flight\"] = pd.to_datetime(df[\"Date of Flight\"], format=\"%d/%m/%Y\")"
+    },
+    {
+      "id": "2_C2_flight_identifier_concat",
+      "kind": "Row-level concept",
+      "node_id": "n2_project_enrich",
+      "op": "project",
+      "source_text": "Form Flight name",
+      "ref": "df[\"Flight\"] = df[\"Departure\"] + \" to \" + df[\"Destination\"]"
+    },
+    {
+      "id": "3_O1_days_until_whole_days_direction",
+      "kind": "Row-level concept",
+      "node_id": "n2_project_enrich",
+      "op": "project",
+      "source_text": "Workout how many days between the sale and the flight departing",
+      "ref": "df[\"days_until\"] = (df[\"Date of Flight\"] - df[\"Date\"]).dt.days"
+    },
+    {
+      "id": "4_C2_average_daily_sales_mean_ticket_sales",
+      "kind": "Group-level concept",
+      "node_id": "n3_agg",
+      "op": "aggregate",
+      "source_text": "Mimic the SUMIFS and AverageIFS functions by aggregating the previous requirements fields by each Flight and Class",
+      "ref": "grouped = df.groupby([\"Flight\", \"Class\", \"bucket\"])[\"Ticket Sales\"].agg(total='sum', avg='mean')"
+    },
+    {
+      "id": "5_O2_missing_bucket_fill_zero",
+      "kind": "Operation incomplete",
+      "node_id": "n4_pivot",
+      "op": "pivot",
+      "intent": "If a (Flight, Class) has no records in a bucket, output 0 for that bucket's sum and average columns.",
+      "ref": "unstacked = grouped.unstack(level='bucket', fill_value=0)"
+    }
+  ]
+}

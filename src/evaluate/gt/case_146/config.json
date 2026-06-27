@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["name", "metric"],
+      "columns": {
+        "name": "text_exact",
+        "metric": "text_exact",
+        "raw_value": "number",
+        "scaled_value": "number"
+      }
+    }
+  }
+}

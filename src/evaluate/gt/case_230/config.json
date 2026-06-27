@@ -1,0 +1,29 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Rank",
+        "id",
+        "first_name",
+        "last_name",
+        "Gender",
+        "Age",
+        "Event",
+        "time",
+        "Benchmark"
+      ],
+      "columns": {
+        "Rank": "number",
+        "id": "number",
+        "first_name": "text_exact",
+        "last_name": "text_exact",
+        "Gender": "text_exact",
+        "Age": "number",
+        "Event": "text_exact",
+        "time": "number",
+        "Benchmark": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_split_on_first_delimiter",
+      "kind": "Row-level concept",
+      "node_id": "add_parts",
+      "op": "project",
+      "source_text": "Split the Product Name field into Product Type and Size",
+      "ref": "product_parts = df[\"Product Name\"].str.split(\" - \", n=1, expand=True)"
+    },
+    {
+      "id": "2_O3_dense_rank_ties",
+      "kind": "Operation boundary",
+      "node_id": "add_rank",
+      "op": "project",
+      "source_text": "Rank each of the Product Size and Scent combinations for each Store",
+      "ref": "aggregated[\"Rank of Product & Scent by Store\"] = aggregated.groupby(\"Store Name\")[\"Sale Value\"].rank(\n        method=\"dense\", ascending=False\n    ).astype(int)"
+    },
+    {
+      "id": "3_O2_output_store_mapping",
+      "kind": "Row-level concept",
+      "node_id": "filter_stores",
+      "op": "filter",
+      "intent": "Map each output file to a specific store in alphabetical order: Chelsea→1, Dulwich→2, Lewisham→3, Notting Hill→4, Shoreditch→5, Wimbledon→6.",
+      "ref": "store_order = [\"Chelsea\", \"Dulwich\", \"Lewisham\", \"Notting Hill\", \"Shoreditch\", \"Wimbledon\"]"
+    },
+    {
+      "id": "4_C1_liquid_definition_equals_product_type",
+      "kind": "Single-table reference",
+      "node_id": "filter_liquid",
+      "op": "filter",
+      "source_text": "Only keep the Liquid products",
+      "ref": "df = df[df[\"Product Type\"] == \"Liquid\"].copy()"
+    },
+    {
+      "id": "5_O1_top10_cutoff_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "filter_top10",
+      "op": "filter",
+      "source_text": "Only leave the top 10 based on total sales value calculated above",
+      "ref": "top10 = aggregated[aggregated[\"Rank of Product & Scent by Store\"] <= 10].copy()"
+    },
+    {
+      "id": "6_O1_round_to_nearest_10_via_divide_round_multiply",
+      "kind": "Operation boundary",
+      "node_id": "round_and_cast",
+      "op": "project",
+      "source_text": "Round the Sales Values to the nearest 10 value (ie 1913 becomes 1910)",
+      "ref": "top10[\"Sale Value\"] = (top10[\"Sale Value\"] / 10).round() * 10"
+    }
+  ]
+}

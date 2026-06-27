@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_postcode_missing_or_blank",
+      "kind": "Operation incomplete",
+      "node_id": "filter_postcode",
+      "op": "filter",
+      "source_text": "Filter out customers without postcodes",
+      "ref": "merged = merged[merged[\"Postcode\"].notna() & (\n        merged[\"Postcode\"].astype(str).str.strip() != \"\")]"
+    },
+    {
+      "id": "2_D2_join_customers_on_first_key_last_initial",
+      "kind": "Multi-table alignment",
+      "node_id": "join_loyalty_customers",
+      "op": "join",
+      "source_text": "Join to the Customer Details table, ensuring the number of rows remains at 999",
+      "ref": "merged = df_loyalty.merge(\n        df_customers[[\"First Key\", \"Last Initial\",\n                      \"First Name\", \"Last Name\", \"Postcode\", \"address\"]],\n        on=[\"First Key\", \"Last Initial\"],\n        how=\"left\",\n    )"
+    },
+    {
+      "id": "3_O2_join_customers_left_preserve_rows",
+      "kind": "Operation incomplete",
+      "node_id": "join_loyalty_customers",
+      "op": "join",
+      "source_text": "Join to the Customer Details table, ensuring the number of rows remains at 999",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "4_D2_join_store_on_store_id",
+      "kind": "Multi-table alignment",
+      "node_id": "join_store",
+      "op": "join",
+      "source_text": "Join on the Store Data table",
+      "ref": "merged = merged.merge(df_stores, on=\"Store ID\", how=\"left\")"
+    },
+    {
+      "id": "5_O2_join_store_left",
+      "kind": "Operation incomplete",
+      "node_id": "join_store",
+      "op": "join",
+      "source_text": "Join on the Store Data table",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "6_O1_loyalty_points_allow_decimals_float",
+      "kind": "Operation boundary",
+      "node_id": "proj_loyalty_clean",
+      "op": "project",
+      "source_text": "Extract the numeric part of the Loyalty Points field",
+      "ref": ".str.extract(r\"([0-9]+(?:\\.[0-9]+)?)\", expand=False)\n            .astype(float)"
+    },
+    {
+      "id": "7_O1_email_first_name_localpart_dot_capitalize",
+      "kind": "Operation boundary",
+      "node_id": "proj_loyalty_clean",
+      "op": "project",
+      "source_text": "Extract the First Name and Last Name Initial from the Email Address",
+      "ref": "def split_email(email: str) -> tuple[str, str]:\n        local = str(email).split(\"@\")[0]\n        parts = local.split(\".\")"
+    },
+    {
+      "id": "8_D1_store_defined_by_city_and_store",
+      "kind": "Single-table reference",
+      "node_id": "proj_rank",
+      "op": "project",
+      "source_text": "For each store, rank the customers",
+      "ref": "merged[\"Rank\"] = merged.groupby([\"City\", \"Store\"], dropna=False)[...]"
+    },
+    {
+      "id": "9_O3_dense_rank_ties",
+      "kind": "Operation inconsistent",
+      "node_id": "proj_rank",
+      "op": "project",
+      "source_text": "For each store, rank the customers",
+      "ref": ".rank(method=\"dense\", ascending=False).astype(int)"
+    }
+  ]
+}

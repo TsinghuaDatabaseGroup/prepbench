@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_location_split_lat_lon_order",
+      "kind": "Operation boundary",
+      "node_id": "n3_venue_clean",
+      "op": "project",
+      "source_text": "Combine the Venue table",
+      "ref": "def split_location(loc: str):\n        if pd.isna(loc):\n            return pd.NA, pd.NA\n        parts = [p.strip() for p in str(loc).split(\",\")]\n        if len(parts) != 2:\n            return pd.NA, pd.NA\n        try:\n            lat = float(parts[0])\n            lon = float(parts[1])\n        except Exception:\n            return pd.NA, pd.NA\n        return lat, lon\n\n    venues[[\"Latitude\", \"Longitude\"]] = venues[\"Location\"].apply(\n        lambda x: pd.Series(split_location(x)))"
+    },
+    {
+      "id": "2_O2_location_parse_invalid_to_null",
+      "kind": "Operation incomplete",
+      "node_id": "n3_venue_clean",
+      "op": "project",
+      "source_text": "Combine the Venue table",
+      "ref": "def split_location(loc: str):\n        if pd.isna(loc):\n            return pd.NA, pd.NA\n        parts = [p.strip() for p in str(loc).split(\",\")]\n        if len(parts) != 2:\n            return pd.NA, pd.NA\n        try:\n            lat = float(parts[0])\n            lon = float(parts[1])\n        except Exception:\n            return pd.NA, pd.NA"
+    },
+    {
+      "id": "3_O2_date_parse_underscore_ordinal_suffix",
+      "kind": "Operation boundary",
+      "node_id": "n4_sched_clean",
+      "op": "project",
+      "source_text": "Create a correctly formatted DateTime field",
+      "ref": "def parse_date(d: str) -> datetime:\n        d = str(d).replace(\"_\", \" \")\n        parts = d.split(\" \")\n        if len(parts) >= 1:\n            day = parts[0]\n            for s in suffixes:\n                day = day.replace(s, \"\")\n            parts[0] = day\n        clean = \" \".join(parts)\n        return datetime.strptime(clean, \"%d %B %Y\")"
+    },
+    {
+      "id": "4_O2_events_split_delimiter_comma_trim",
+      "kind": "Operation boundary",
+      "node_id": "n5_explode_events",
+      "op": "script",
+      "source_text": "Parse the event list so each event is on a separate row",
+      "ref": "parts = [p.strip() for p in s.split(\",\") if p.strip() != \"\"]"
+    },
+    {
+      "id": "5_O2_events_split_dash_preserved",
+      "kind": "Operation boundary",
+      "node_id": "n5_explode_events",
+      "op": "script",
+      "source_text": "Parse the event list so each event is on a separate row",
+      "ref": "if s == \"-\":\n            return [\"-\"]"
+    },
+    {
+      "id": "6_O2_events_split_missing_blank_to_empty_item",
+      "kind": "Operation incomplete",
+      "node_id": "n5_explode_events",
+      "op": "script",
+      "source_text": "Parse the event list so each event is on a separate row",
+      "ref": "if pd.isna(s):\n            return [\"\"]\n        s = str(s).strip()\n        if s == \"-\":\n            return [\"-\"]\n        if s == \"\":\n            return [\"\"]"
+    },
+    {
+      "id": "7_C1_medal_ceremony_contains_phrases",
+      "kind": "Row-level concept",
+      "node_id": "n6_compute_flags_time",
+      "op": "project",
+      "source_text": "Calculate whether the event is a 'Victory Ceremony' or 'Gold Medal' event.",
+      "ref": "def is_medal_event(e: str) -> bool:\n        s = str(e).lower()\n        return (\"victory ceremony\" in s) or (\"gold medal\" in s)\n\n    df[\"Medal Ceremony?\"] = df[\"Events_Split_List\"].apply(is_medal_event)"
+    },
+    {
+      "id": "8_C2_uk_date_time_excel_serial_text_format",
+      "kind": "Row-level concept",
+      "node_id": "n6_compute_flags_time",
+      "op": "project",
+      "source_text": "Create a correctly formatted DateTime field",
+      "ref": "base = datetime(1899, 12, 30)\n        serial = (d.date() - base.date()).days\n        txt = f\"{serial} days {hh}:{mm}:00\""
+    },
+    {
+      "id": "9_O2_time_parse_fallback_to_midnight",
+      "kind": "Operation incomplete",
+      "node_id": "n6_compute_flags_time",
+      "op": "project",
+      "source_text": "Create a correctly formatted DateTime field",
+      "ref": "        except Exception:\n            hh, mm = \"00\", \"00\""
+    },
+    {
+      "id": "10_D2_join_keys_sport_and_venue",
+      "kind": "Multi-table alignment",
+      "node_id": "n8_join_venue",
+      "op": "join",
+      "source_text": "Combine the Venue table",
+      "ref": "out = df.merge(\n        venues_key,\n        how=\"left\",\n        left_on=[\"_sport_norm\", \"_venue_norm\"],\n        right_on=[\"_sport_norm\", \"_venue_norm\"],\n        validate=\"m:1\",\n    )"
+    },
+    {
+      "id": "11_O2_join_left_keep_all_schedule_rows",
+      "kind": "Multi-table alignment",
+      "node_id": "n8_join_venue",
+      "op": "join",
+      "source_text": "Combine the Venue table",
+      "ref": "out = df.merge(\n        venues_key,\n        how=\"left\","
+    },
+    {
+      "id": "12_O3_join_validate_many_to_one_error_on_violation",
+      "kind": "Operation boundary",
+      "node_id": "n8_join_venue",
+      "op": "join",
+      "source_text": "Combine the Venue table",
+      "ref": "out = df.merge(\n        venues_key,\n        how=\"left\",\n        left_on=[\"_sport_norm\", \"_venue_norm\"],\n        right_on=[\"_sport_norm\", \"_venue_norm\"],\n        validate=\"m:1\",\n    )"
+    },
+    {
+      "id": "13_D1_output_venue_from_schedule_not_venue_table",
+      "kind": "Single-table reference",
+      "node_id": "n9b_select",
+      "op": "project",
+      "source_text": "Combine the Venue table",
+      "ref": "    out = out[[\n        \"Latitude\",\n        \"Longitude\",\n        \"Medal Ceremony?\",\n        \"Sport Group\",\n        \"Events Split\",\n        \"UK Date Time\",\n        \"Date\",\n        \"Sport\",\n        \"Venue\",\n    ]]"
+    }
+  ]
+}

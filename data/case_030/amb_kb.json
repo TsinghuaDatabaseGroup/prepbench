@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_per_tweet_token_dedup",
+      "kind": "Operation boundary",
+      "node_id": "dedup_tokens",
+      "op": "dedup",
+      "intent": "When a token appears multiple times in the same tweet, keep only the first occurrence (preserving original order).",
+      "ref": "def _filter_tokens(tokens: list[str], stopwords: set[str]) -> list[str]:\n    filtered: list[str] = []\n    seen: set[str] = set()\n    for token in tokens:\n        if token in stopwords or not token or token in seen:\n            continue\n        seen.add(token)\n        filtered.append(token)"
+    },
+    {
+      "id": "2_O1_limit_25_tokens_per_tweet",
+      "kind": "Operation boundary",
+      "node_id": "sort_top25",
+      "op": "sort",
+      "intent": "Limit to at most 25 tokens per tweet after per-tweet de-duplication, keeping earliest tokens.",
+      "ref": "MAX_TOKENS = 25\n\n        if len(filtered) >= MAX_TOKENS:\n            break"
+    },
+    {
+      "id": "3_C1_duplicate_rows_for_water_and_air",
+      "kind": "Row-level concept",
+      "node_id": "stack_union",
+      "op": "union",
+      "source_text": "7 fields: Comment Split, Category, TempF, TempC",
+      "ref": "    stacked = pd.concat(\n        [\n            exploded.assign(\n                Category=\"Water\",\n                TempF=exploded[\"Water TempF\"],\n                TempC=exploded[\"Water TempC\"],\n            ),\n            exploded.assign(\n                Category=\"Air\",\n                TempF=exploded[\"Air TempF\"],\n                TempC=exploded[\"Air TempC\"],\n            ),\n        ],\n        ignore_index=True,\n    )"
+    },
+    {
+      "id": "4_O1_temperature_parsing_format",
+      "kind": "Operation boundary",
+      "node_id": "tweets_extract_temps",
+      "op": "project",
+      "source_text": "Extract Water and Air Temperatures as separate columns",
+      "ref": "WATER_F_RE = re.compile(r\"Water\\s*-\\s*([-\\d.]+)F\", re.IGNORECASE | re.DOTALL)"
+    },
+    {
+      "id": "5_O2_drop_rows_missing_any_temp",
+      "kind": "Operation incomplete",
+      "node_id": "tweets_filter_complete_temps",
+      "op": "filter",
+      "intent": "Exclude tweets from further processing if any of the four temperature values (Water F/C, Air F/C) is missing after extraction.",
+      "ref": "    tweets = (\n        pd.concat([tweets, temperature_data], axis=1)\n        .dropna(subset=[\"Water TempF\", \"Water TempC\", \"Air TempF\", \"Air TempC\"])\n    )"
+    },
+    {
+      "id": "6_O2_require_both_water_and_air_present",
+      "kind": "Row-level concept",
+      "node_id": "tweets_filter_has",
+      "op": "filter",
+      "source_text": "Only keep tweets that give water / air temperatues",
+      "ref": "    has_water = tweets[\"Text\"].str.contains(\n        r\"Water\\s*-\\s*\\d\", case=False, na=False, regex=True)\n    has_air = tweets[\"Text\"].str.contains(\n        r\"Air\\s*-\\s*\\d\", case=False, na=False, regex=True)\n    tweets = tweets.loc[has_water & has_air].reset_index(drop=True)"
+    }
+  ]
+}

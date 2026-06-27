@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_most_recent_year_is_max_year",
+      "kind": "Group-level concept",
+      "node_id": "agg_max_year",
+      "op": "aggregate",
+      "source_text": "For each EmployerId, find the most recent report they submitted",
+      "ref": "max_year = df.groupby(\"EmployerId\")[\"Year\"].transform(\"max\")"
+    },
+    {
+      "id": "2_O3_final_dedup",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_final",
+      "op": "dedup",
+      "source_text": "Output the data, deduplicate records to avoid duplicate rows",
+      "ref": "output = df[output_cols].drop_duplicates().copy()"
+    },
+    {
+      "id": "3_O3_distinct_latest_names",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_latest_names",
+      "op": "dedup",
+      "source_text": "For each EmployerId, find the most recent report they submitted",
+      "ref": "latest_name_rows = latest_name_rows.drop_duplicates(subset=[\"EmployerId\", \"EmployerName\"])"
+    },
+    {
+      "id": "4_O2_drop_invalid_employerid",
+      "kind": "Operation incomplete",
+      "node_id": "f_valid_emp",
+      "op": "filter",
+      "intent": "Drop rows where EmployerId is missing/invalid after parsing.",
+      "ref": "df = df[df[\"EmployerId\"].notna()].copy()"
+    },
+    {
+      "id": "5_O3_replicate_rows_multiple_names",
+      "kind": "Operation inconsistent",
+      "node_id": "j_names",
+      "op": "join",
+      "source_text": "For each EmployerId, find the most recent report they submitted",
+      "ref": "df = df_no_name.merge(latest_name_rows, on=\"EmployerId\", how=\"inner\")"
+    },
+    {
+      "id": "6_O2_employerid_parse_coerce",
+      "kind": "Operation incomplete",
+      "node_id": "p_clean",
+      "op": "project",
+      "intent": "When parsing EmployerId as integer, treat non-parsable values as null.",
+      "ref": "df[\"EmployerId\"] = pd.to_numeric(df[\"EmployerId\"], errors=\"coerce\").astype(\"Int64\")"
+    },
+    {
+      "id": "7_O2_diffmedian_parse_coerce",
+      "kind": "Operation incomplete",
+      "node_id": "p_clean",
+      "op": "project",
+      "intent": "When parsing DiffMedianHourlyPercent as numeric, leave non-parsable values as missing.",
+      "ref": "df[\"DiffMedianHourlyPercent\"] = pd.to_numeric(df[\"DiffMedianHourlyPercent\"], errors=\"coerce\")"
+    },
+    {
+      "id": "8_C1_input_file_to_report_label_mapping",
+      "kind": "Single-table reference",
+      "node_id": "p_tag",
+      "op": "project",
+      "source_text": "Extract the Report years from the file paths",
+      "ref": "file_to_report_map = {\n    \"input_01.csv\": \"2017 to 2018\",\n    \"input_02.csv\": \"2018 to 2019\",\n    \"input_03.csv\": \"2019 to 2020\",\n    \"input_04.csv\": \"2020 to 2021\",\n    \"input_05.csv\": \"2021 to 2022\"\n}"
+    },
+    {
+      "id": "9_C2_year_from_report_prefix",
+      "kind": "Row-level concept",
+      "node_id": "p_year",
+      "op": "project",
+      "source_text": "Create a Year field based on the the first year in the Report name",
+      "ref": "df[\"Year\"] = df[\"Report\"].str.extract(r\"^(\\d{4})\").astype(int)"
+    },
+    {
+      "id": "10_C1_paygap_direction_sign",
+      "kind": "Row-level concept",
+      "node_id": "script_paygap",
+      "op": "script",
+      "source_text": "a positive DiffMedianHourlyPercent means the women's pay is lower than the men's pay",
+      "ref": "direction = \"lower\" if value > 0 else \"higher\""
+    },
+    {
+      "id": "11_O1_paygap_float_precision_handling",
+      "kind": "Operation boundary",
+      "node_id": "script_paygap",
+      "op": "script",
+      "source_text": "You may encounter floating point inaccuracies. Find out more about how to resolve them",
+      "ref": "rounded = round(abs_val, 1)\nceil_val = math.ceil(rounded * 100) / 100"
+    },
+    {
+      "id": "12_O2_paygap_equal_when_zero",
+      "kind": "Operation boundary",
+      "node_id": "script_paygap",
+      "op": "script",
+      "source_text": "men's and women's median hourly pay is equal",
+      "ref": "if pd.isna(value) or value == 0:\n    return \"In this organisation, men's and women's median hourly pay is equal.\""
+    },
+    {
+      "id": "13_O3_union_without_deduplication",
+      "kind": "Operation boundary",
+      "node_id": "u_all",
+      "op": "union",
+      "source_text": "Combine the files",
+      "ref": "return pd.concat(frames, ignore_index=True)"
+    }
+  ]
+}

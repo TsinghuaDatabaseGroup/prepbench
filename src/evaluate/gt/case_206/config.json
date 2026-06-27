@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Online or In-Person", "Quarter", "Value", "Quarterly Targets", "Variance to Target"],
+      "columns": {
+        "Online or In-Person": "text_exact",
+        "Quarter": "number",
+        "Value": "number",
+        "Quarterly Targets": "number",
+        "Variance to Target": "number"
+      }
+    }
+  }
+}
+

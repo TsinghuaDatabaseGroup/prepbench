@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_group_total_score_null",
+      "kind": "Row-level concept",
+      "node_id": "cast_types",
+      "op": "project",
+      "intent": "Set Total Score to null for group-dance rows.",
+      "ref": "df.loc[df['Couple'] == 'Group', 'Total Score'] = None"
+    },
+    {
+      "id": "2_O3_final_row_dedup_keep_first",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_rows",
+      "op": "dedup",
+      "intent": "After all transformations, remove exact duplicate output rows keeping the first occurrence.",
+      "ref": "df = df.groupby(group_by_cols, dropna=False).first().reset_index()"
+    },
+    {
+      "id": "3_C1_header_row_filter",
+      "kind": "Row-level concept",
+      "node_id": "f_header",
+      "op": "filter",
+      "source_text": "Remove repeated table headers from the dataset",
+      "ref": "df = df[df['Couple'] != 'Couple'].copy()"
+    },
+    {
+      "id": "4_O2_music_missing_keep_row",
+      "kind": "Operation incomplete",
+      "node_id": "music_list_fill",
+      "op": "project",
+      "source_text": "Split the Music field into separate rows for each song",
+      "ref": "        if not songs:\n            music_expanded.append({\n                'idx': idx,\n                'Song': None,\n                'Artist': None\n            })"
+    },
+    {
+      "id": "5_O2_scores_missing_placeholder_null",
+      "kind": "Operation incomplete",
+      "node_id": "scores_extract",
+      "op": "project",
+      "source_text": "Split the Score field into Total Score and Judges Scores",
+      "ref": "        if pd.isna(scores) or scores == 'No scoresreceived':\n            return pd.Series([None, None])"
+    },
+    {
+      "id": "6_C1_theme_detail_concat_fields",
+      "kind": "Row-level concept",
+      "node_id": "theme_detail",
+      "op": "project",
+      "source_text": "Combine the Film and Musical fields into one (max 1 theme per week)",
+      "ref": "        for col in ['Film', 'Broadway musical', 'Musical', 'Country', 'CelebratingBBC']:\n            val = row.get(col, '')"
+    },
+    {
+      "id": "7_O2_week_theme_from_colon_else_null",
+      "kind": "Row-level concept",
+      "node_id": "week_parse_map",
+      "op": "project",
+      "source_text": "Split the Week field into a numeric value and extra details into Theme Week",
+      "ref": "        if ':' in week_str:\n            theme = week_str.split(':', 1)[1].strip()\n        else:\n            theme = None"
+    },
+    {
+      "id": "8_O1_quarter_final_exception_theme_week_style",
+      "kind": "Operation boundary",
+      "node_id": "week_theme_compute",
+      "op": "project",
+      "source_text": "Final/Semi Final/Quarter Final details go into a Stage field",
+      "ref": "        is_theme_week = re.search(\n            r'\\s+Week\\s*\\(', week_str, re.IGNORECASE) is not None"
+    }
+  ]
+}

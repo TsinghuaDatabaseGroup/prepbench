@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_mtd_october_to_date_window",
+      "kind": "Group-level concept",
+      "node_id": "filter_mtd",
+      "op": "filter",
+      "source_text": "Calculate the Year to Date, Month to Date, and Week to Date values",
+      "ref": "sub[\"Date\"] >= datetime(2020, 10, 1)) & (sub[\"Date\"] <= cutoff_this"
+    },
+    {
+      "id": "2_O1_last_year_aligned_cutoff",
+      "kind": "Operation boundary",
+      "node_id": "filter_mtd",
+      "op": "filter",
+      "source_text": "Calculate the Year to Date, Month to Date, and Week to Date values for each product and metric (Income & Quantity).",
+      "ref": "weeks_index = (cutoff_this.date() - fs_2020.date()).days // 7"
+    },
+    {
+      "id": "3_O2_drop_uncategorized_years",
+      "kind": "Operation incomplete",
+      "node_id": "filter_trans_tyly",
+      "op": "filter",
+      "source_text": "Categorise whether a row happened this year, last year or is a target.",
+      "ref": "trans_df = trans_df[trans_df[\"Type\"].notna()]"
+    },
+    {
+      "id": "4_C2_wtd_defined_by_anchor",
+      "kind": "Group-level concept",
+      "node_id": "filter_wtd",
+      "op": "filter",
+      "source_text": "Calculate the Year to Date, Month to Date, and Week to Date values for each product and metric (Income & Quantity).",
+      "ref": "(sub[\"Week\"] == cutoff_wk) & (sub[\"Day\"] <= cutoff_dy)"
+    },
+    {
+      "id": "5_O1_ytd_cutoff_includes_anchor",
+      "kind": "Operation boundary",
+      "node_id": "filter_ytd",
+      "op": "filter",
+      "source_text": "keep up this point for each period",
+      "ref": "(df[\"Week\"] < cutoff_wk) | ((df[\"Week\"] == cutoff_wk) & (df[\"Day\"] <= cutoff_dy))"
+    },
+    {
+      "id": "6_O2_pct_diff_zero_denominator",
+      "kind": "Operation boundary",
+      "node_id": "proj_compute",
+      "op": "project",
+      "intent": "When Last Year or Target is 0, set percent difference to 0.0.",
+      "ref": "if b == 0: return 0.0"
+    },
+    {
+      "id": "7_O1_pct_diff_uses_rounded_integers",
+      "kind": "Operation boundary",
+      "node_id": "proj_compute",
+      "op": "project",
+      "intent": "Compute percent differences using rounded integer aggregates.",
+      "ref": "r_ty = int(round(ty))"
+    },
+    {
+      "id": "8_O1_custom_day_numbering",
+      "kind": "Operation boundary",
+      "node_id": "proj_trans_add_cols",
+      "op": "project",
+      "intent": "Use custom day numbering where Sunday=1 through Saturday=7.",
+      "ref": "day = ((py + 1) % 7) + 1"
+    },
+    {
+      "id": "9_O1_week1_starts_jan1",
+      "kind": "Operation boundary",
+      "node_id": "proj_trans_add_cols",
+      "op": "project",
+      "source_text": "Week's in Tableau Prep work from Sunday to Saturday, apart from the start of the year where this could be different.",
+      "ref": "if dt < first_sun: wk = 1"
+    },
+    {
+      "id": "10_C2_targets_divide_by_7",
+      "kind": "Group-level concept",
+      "node_id": "targets_finalize",
+      "op": "project",
+      "source_text": "Assume there are 7 days in the week and daily demand is split evenly",
+      "ref": "per_day_qty = qty_week / 7.0"
+    },
+    {
+      "id": "11_O1_week1_targets_fewer_days",
+      "kind": "Operation boundary",
+      "node_id": "targets_range",
+      "op": "project",
+      "source_text": "Week's in Tableau Prep work from Sunday to Saturday, apart from the start of the year where this could be different.",
+      "ref": "days = (first_sat.date() - jan1.date()).days + 1"
+    }
+  ]
+}

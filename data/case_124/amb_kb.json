@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_competition_ranking_ties",
+      "kind": "Operation boundary",
+      "node_id": "add_rank",
+      "op": "project",
+      "source_text": "Rank them in ascending order of how many times they've appeared in the anime",
+      "ref": "group_appearances['The Worst Pokémon'] = group_appearances['Appearances'].rank(\n        method='min', ascending=True).astype(int)"
+    },
+    {
+      "id": "2_D2_alolan_prefix_base_species",
+      "kind": "Single-table reference",
+      "node_id": "alolan_norm",
+      "op": "project",
+      "source_text": "Exclude any Pokémon with a mega evolution, Alolan, Galarian or Gigantamax form",
+      "ref": "alolan['Name'] = alolan['Name'].str.replace(r'^Alolan\\s+', '', regex=True)"
+    },
+    {
+      "id": "3_D2_galarian_prefix_base_species",
+      "kind": "Single-table reference",
+      "node_id": "galarian_norm",
+      "op": "project",
+      "source_text": "Exclude any Pokémon with a mega evolution, Alolan, Galarian or Gigantamax form",
+      "ref": "galarian['Name'] = galarian['Name'].str.replace(\n        r'^Galarian\\s+', '', regex=True)"
+    },
+    {
+      "id": "4_D2_gigantamax_name_as_provided",
+      "kind": "Single-table reference",
+      "node_id": "gigantamax_sel",
+      "op": "project",
+      "source_text": "Exclude any Pokémon with a mega evolution, Alolan, Galarian or Gigantamax form",
+      "ref": "special_form_names = set(mega['Name']).union(set(alolan['Name'])).union(\n        set(galarian['Name'])).union(set(gigantamax['Name']))"
+    },
+    {
+      "id": "5_C2_distinct_episode_count_per_group",
+      "kind": "Group-level concept",
+      "node_id": "group_appearances",
+      "op": "aggregate",
+      "source_text": "Rank them in ascending order of how many times they've appeared in the anime",
+      "ref": "grp_epi = (name_group.merge(anime[['Episode', 'Pokemon']], on='Pokemon', how='left')\n               .dropna(subset=['Episode'])\n               .drop_duplicates(subset=['Evolution Group', 'Episode']))\n    group_appearances = (grp_epi.groupby('Evolution Group', as_index=False)['Episode']\n                         .nunique()\n                         .rename(columns={'Episode': 'Appearances'}))"
+    },
+    {
+      "id": "6_D2_mega_base_species_and_variants",
+      "kind": "Single-table reference",
+      "node_id": "mega_norm",
+      "op": "project",
+      "source_text": "Exclude any Pokémon with a mega evolution, Alolan, Galarian or Gigantamax form",
+      "ref": "mega['Name'] = (mega['Name']\n                    .str.replace(r'^Mega\\s+', '', regex=True)\n                    .str.replace(r'\\s+[XY]$', '', regex=True))"
+    },
+    {
+      "id": "7_O2_left_join_gen1_to_evo_groups",
+      "kind": "Multi-table alignment",
+      "node_id": "pokemon_join",
+      "op": "join",
+      "source_text": "Clean up the Evolution Group input so that we can join it to the Gen 1 list",
+      "ref": "pokemon = pd.merge(gen1, evo_groups, on='#', how='left')"
+    },
+    {
+      "id": "8_C1_unattainable_filter_applies_at_group_level",
+      "kind": "Row-level concept",
+      "node_id": "pokemon_kept",
+      "op": "join",
+      "source_text": "These are the only ones we will consider from this point on",
+      "ref": "unattainable_groups = set(pokemon[pokemon['Name'].isin(\n        unattainable['Name'])]['Evolution Group'].unique())\n    pokemon = pokemon[pokemon['Evolution Group'].isin(unattainable_groups)]"
+    }
+  ]
+}

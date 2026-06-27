@@ -1,0 +1,43 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Country", "Gold", "Silver", "Bronze", "Year"],
+      "columns": {
+        "Country": "text_exact",
+        "Gold": "number",
+        "Silver": "number",
+        "Bronze": "number",
+        "Year": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Year", "Host City", "Host Country", "Start Date", "End Date", "Games", "Nations", "Sports", "Events"],
+      "columns": {
+        "Year": "number",
+        "Host City": "text_exact",
+        "Host Country": "text_exact",
+        "Start Date": "date",
+        "End Date": "date",
+        "Games": "text_exact",
+        "Nations": "number",
+        "Sports": "number",
+        "Events": "number"
+      }
+    },
+    "output_03.csv": {
+      "key": ["Country", "Code", "Sport", "Medal", "Event", "Athlete", "Year", "Event_Gender", "Discipline"],
+      "columns": {
+        "Country": "text_exact",
+        "Code": "text_exact",
+        "Sport": "text_exact",
+        "Medal": "text_exact",
+        "Event": "text_exact",
+        "Athlete": "text_exact",
+        "Year": "text_exact",
+        "Event_Gender": "text_exact",
+        "Discipline": "text_exact"
+      }
+    }
+  }
+}
+

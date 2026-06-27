@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_d1_fruit_nonfruit_basis_column",
+      "kind": "Single-table reference",
+      "node_id": "clean_flags",
+      "op": "project",
+      "source_text": "Categorise Product Types as Fruit or Non-Fruit",
+      "ref": "data[\"FruitFlag\"] = np.where(data[\"Scent\"].isin(fruit_scents), \"Fruit\", \"Non-Fruit\")"
+    },
+    {
+      "id": "2_c1_fruit_scent_whitelist",
+      "kind": "Row-level concept",
+      "node_id": "clean_flags",
+      "op": "project",
+      "intent": "Define which specific scents are classified as Fruit (all others are Non-Fruit).",
+      "ref": "fruit_scents = set([\"Apricot\", \"Raspberry\", \"Pineapple\", \"Lemon\", \"Lime\"])"
+    },
+    {
+      "id": "3_o2_return_flag_parsing_default",
+      "kind": "Operation incomplete",
+      "node_id": "clean_flags",
+      "op": "project",
+      "intent": "Specify how to interpret the Return field as a boolean and what to do with missing/unrecognized values.",
+      "ref": "ret_map = {\"true\": True, \"false\": False, \"True\": True, \"False\": False}\ndata[\"is_return\"] = data[\"Return\"].map(ret_map)\ndata[\"is_return\"] = data[\"is_return\"].fillna(False)"
+    },
+    {
+      "id": "4_o1_month_label_format_year_day",
+      "kind": "Operation boundary",
+      "node_id": "p01",
+      "op": "project",
+      "source_text": "Form a Date using the file number as a month",
+      "ref": "by_month = agg_counts(data, data[\"Month\"].map(lambda m: f\"2019-{int(m):02d}-01\"))"
+    },
+    {
+      "id": "5_c2_percent_return_rate_definition",
+      "kind": "Group-level concept",
+      "node_id": "post_prod1",
+      "op": "project",
+      "source_text": "Form your % Return Rates for:",
+      "ref": "grouped[\"% Returned\"] = (grouped[\"Returned Orders\"] / grouped[\"Total Orders\"] * 100).round(1)"
+    },
+    {
+      "id": "6_c1_overall_type_label_all",
+      "kind": "Row-level concept",
+      "node_id": "type_all",
+      "op": "project",
+      "intent": "Choose the Type label used for the single overall (full dataset) summary row.",
+      "ref": "all_row = agg_counts(data, pd.Series([\"All\"] * len(data), index=data.index))"
+    },
+    {
+      "id": "new_1_final_output_type_order",
+      "kind": "Operation boundary",
+      "node_id": "final_order",
+      "op": "sort",
+      "intent": "Order final rows as product types Bar, Massage Bar, Bath Bomb, Liquid; then All, Non-Fruit, Fruit; then months 2019-05-01, 2019-04-01, 2019-03-01, 2019-02-01, 2019-01-01, 2019-06-01.",
+      "ref": "order_types = [\"Bar\", \"Massage Bar\", \"Bath Bomb\", \"Liquid\"]\n    by_prod = by_prod.set_index(\"Type\").loc[order_types].reset_index()\n    mid = pd.concat([\n        all_row,\n        by_fruit.set_index(\"Type\").loc[[\"Non-Fruit\", \"Fruit\"]].reset_index(),\n    ], ignore_index=True)\n    month_order = [\n        \"2019-05-01\",\n        \"2019-04-01\",\n        \"2019-03-01\",\n        \"2019-02-01\",\n        \"2019-01-01\",\n        \"2019-06-01\",\n    ]\n    by_month = by_month.set_index(\"Type\").loc[month_order].reset_index()\n    out = pd.concat([by_prod, mid, by_month], ignore_index=True)"
+    }
+  ]
+}

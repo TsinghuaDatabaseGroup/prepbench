@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_rank_by_distance_dense",
+      "kind": "Group-level concept",
+      "node_id": "derive_flights",
+      "op": "project",
+      "source_text": "Rank the flights based on Distance - Use a dense rank",
+      "ref": "df_flights['Rank'] = df_flights['Distance - km'].rank(method='dense', ascending=False)"
+    },
+    {
+      "id": "2_O1_distance_fields_as_integers",
+      "kind": "Operation incomplete",
+      "node_id": "derive_flights",
+      "op": "project",
+      "source_text": "Ensure these fields are numeric",
+      "ref": "return int(match.group(1).replace(',', ''))"
+    },
+    {
+      "id": "3_O1_route_delimiter",
+      "kind": "Row-level concept",
+      "node_id": "derive_flights",
+      "op": "project",
+      "source_text": "Create a Route field which concatenates the From and To fields with a hyphen",
+      "ref": "df_flights['Route'] = df_flights['From'] + ' - ' + df_flights['To']"
+    },
+    {
+      "id": "4_D2_join_from_to_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_latlong",
+      "op": "join",
+      "source_text": "Join on the lat & longs for the From and To cities",
+      "ref": "on='From', on='To'"
+    },
+    {
+      "id": "5_O2_join_left_keep_unmatched",
+      "kind": "Operation incomplete",
+      "node_id": "join_latlong",
+      "op": "join",
+      "source_text": "Join on the lat & longs for the From and To cities",
+      "ref": "how='left'"
+    }
+  ]
+}

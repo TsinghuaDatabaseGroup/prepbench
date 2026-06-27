@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_c2_sales_day_dedup",
+      "kind": "Row-level concept",
+      "node_id": "dedup_sales_dates",
+      "op": "dedup",
+      "intent": "Treat multiple sales on the same calendar date as a single sales day when excluding sales dates.",
+      "ref": "sales_dates = set(df['Date'].unique())"
+    },
+    {
+      "id": "2_o1_inclusive_date_range",
+      "kind": "Operation boundary",
+      "node_id": "project_calendar",
+      "op": "project",
+      "intent": "Generate the calendar over the inclusive date range from min through max sales date.",
+      "ref": "all_dates = pd.date_range(start=min_date, end=max_date, freq='D')"
+    },
+    {
+      "id": "3_o1_date_only_truncation",
+      "kind": "Row-level concept",
+      "node_id": "project_date",
+      "op": "project",
+      "intent": "Derive a date-only field from the sales timestamp by ignoring time-of-day.",
+      "ref": "df['Date'] = df['Sale Date'].dt.date"
+    },
+    {
+      "id": "4_o1_weekday_full_name",
+      "kind": "Row-level concept",
+      "node_id": "project_weekday",
+      "op": "project",
+      "source_text": "Create a column for Day of the Week",
+      "ref": "no_sales_df['Day of the Week'] = no_sales_df['Date'].dt.day_name()"
+    }
+  ]
+}

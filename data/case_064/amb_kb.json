@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_mpg_zero_appearances",
+      "kind": "Operation boundary",
+      "node_id": "compute_mpg",
+      "op": "project",
+      "intent": "Define Mins per Game when a player has zero appearances.",
+      "ref": "mins_per_game = mins / apps if apps > 0 else 0"
+    },
+    {
+      "id": "2_C1_starters_always_appearance",
+      "kind": "Row-level concept",
+      "node_id": "starters_clean",
+      "op": "project",
+      "source_text": "How many appearances has each player made?",
+      "ref": "for player in starting_players:\n            appearances[player] += 1"
+    },
+    {
+      "id": "3_D2_off_pos_matches_starting_xi_positions",
+      "kind": "Multi-table alignment",
+      "node_id": "starters_join_off",
+      "op": "join",
+      "source_text": "SubX = Substitute Off, the player number who has left the field",
+      "ref": "            for pos, player in starting_xi:\n                if pos == sub_off_pos:\n                    sub_off_player = player\n                    break"
+    },
+    {
+      "id": "4_C2_starters_mins_default_90_subbed_off_at_time",
+      "kind": "Row-level concept",
+      "node_id": "starters_mins",
+      "op": "project",
+      "source_text": "If a player was substituted in the 90th minute, then we count this as 1 appearance but 0 mins played",
+      "ref": "        player_mins = {player: 90.0 for _, player in starting_xi}\n                player_mins[sub_off_player] = sub_time"
+    },
+    {
+      "id": "5_D2_on_pos_matches_bench_positions_12_18",
+      "kind": "Multi-table alignment",
+      "node_id": "subs_join_on",
+      "op": "join",
+      "source_text": "SubX 1 = Substitute On, the player number who is entering the field",
+      "ref": "            for pos, player in substitutes:\n                if pos == sub_on_pos:\n                    sub_on_player = player\n                    break"
+    },
+    {
+      "id": "6_C1_subs_appearance_only_if_came_on",
+      "kind": "Row-level concept",
+      "node_id": "subs_mins",
+      "op": "project",
+      "source_text": "How many appearances has each player made?",
+      "ref": "                appearances[sub_on_player] += 1"
+    },
+    {
+      "id": "7_C2_subs_mins_90_minus_sub_time_else_0",
+      "kind": "Row-level concept",
+      "node_id": "subs_mins",
+      "op": "project",
+      "source_text": "If a player was substituted in the 90th minute, then we count this as 1 appearance but 0 mins played",
+      "ref": "                player_mins[player] = 0.0\n                player_mins[sub_on_player] = max(0, 90 - sub_time)"
+    }
+  ]
+}

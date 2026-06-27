@@ -1,0 +1,16 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Last 6 Months Rank",
+                "Email",
+                "Order Total"
+            ],
+            "columns": {
+                "Last 6 Months Rank": "number",
+                "Email": "text_exact",
+                "Order Total": "number"
+            }
+        }
+    }
+}

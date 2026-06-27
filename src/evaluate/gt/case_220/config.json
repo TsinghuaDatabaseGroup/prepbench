@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Location", "Revenue", "Avg. Price (£) per pack"],
+      "columns": {
+        "Location": "text_exact",
+        "Revenue": "number",
+        "Avg. Price (£) per pack": "number"
+      }
+    }
+  }
+}
+

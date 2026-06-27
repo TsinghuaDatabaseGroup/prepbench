@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Priority",
+        "Technique",
+        "Beginner",
+        "Intermediate",
+        "Advanced",
+        "3-in-1",
+        "Total"
+      ],
+      "columns": {
+        "Priority": "number",
+        "Technique": "text_exact",
+        "Beginner": "number",
+        "Intermediate": "number",
+        "Advanced": "number",
+        "3-in-1": "number",
+        "Total": "number"
+      }
+    }
+  }
+}
+

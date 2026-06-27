@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Name", "Area of Work", "% of Total", "Avg Number of Hours worked per day"],
+      "columns": {
+        "Name": "text_exact",
+        "Area of Work": "text_exact",
+        "% of Total": "text_exact",
+        "Avg Number of Hours worked per day": "number"
+      }
+    }
+  }
+}

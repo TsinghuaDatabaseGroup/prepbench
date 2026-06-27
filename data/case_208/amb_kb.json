@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_bank_parse_before_hyphen",
+      "kind": "Row-level concept",
+      "node_id": "p1a",
+      "op": "project",
+      "source_text": "Create the bank code by splitting out off the letters from the Transaction code",
+      "ref": "df['Bank'] = df['Transaction Code'].str.split('-', n=1, expand=True)[0].str.strip()"
+    },
+    {
+      "id": "2_C1_transaction_date_month_name",
+      "kind": "Row-level concept",
+      "node_id": "p1a",
+      "op": "project",
+      "source_text": "Change transaction date to the just be the month of the transaction",
+      "ref": "df['Transaction Date'] = df['Transaction Date'].dt.strftime('%B')"
+    },
+    {
+      "id": "3_O3_rank_ties_min_method",
+      "kind": "Operation boundary",
+      "node_id": "rank",
+      "op": "project",
+      "source_text": "Rank each bank for their value of transactions each month against the other banks.",
+      "ref": "aggregated['Bank Rank per Month'] = aggregated.groupby('Transaction Date')['Value'].rank(method='min', ascending=False)"
+    },
+    {
+      "id": "4_O1_round_averages_9dp",
+      "kind": "Operation boundary",
+      "node_id": "round",
+      "op": "project",
+      "intent": "Round Avg Rank per Bank and Avg Transaction Value per Rank to 9 decimal places.",
+      "ref": "avg_rank_per_bank['Avg Rank per Bank'].round(9)"
+    },
+    {
+      "id": "new_1_final_sort_month_rank",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final rows by Transaction Date ascending, then Bank Rank per Month ascending.",
+      "ref": "output = output.sort_values(\n        ['Transaction Date', 'Bank Rank per Month']).reset_index(drop=True)"
+    }
+  ]
+}

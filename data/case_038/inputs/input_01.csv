@@ -1,0 +1,1001 @@
+VisitID,PatientID,Date of Servce,Visit Type,Doctor
+1,89,10/6/2015,GP checkup,Smith
+2,37,7/3/2016,Acupuncture,Frances
+3,135,6/11/2015,Physiotherapy,Smith
+4,137,4/29/2017,GP checkup,Ridley
+5,198,2/16/2016,Physiotherapy,Clooney
+6,90,2/3/2016,GP checkup,Ridley
+7,59,4/27/2016,Major surgery,Ridley
+8,34,5/8/2018,Physiotherapy,Clooney
+9,35,6/18/2019,GP checkup,Hathaway
+10,173,10/12/2015,Major surgery,Hathaway
+11,146,8/1/2017,Major surgery,Hathaway
+12,88,6/10/2015,Acupuncture,Smith
+13,173,7/28/2015,Acupuncture,Frances
+14,116,6/26/2015,GP checkup,Hathaway
+15,153,5/25/2017,Major surgery,Clooney
+16,78,7/2/2016,GP checkup,Ridley
+17,51,8/15/2018,Acupuncture,Smith
+18,120,1/8/2016,Acupuncture,Ridley
+19,143,7/20/2018,GP checkup,Frances
+20,112,11/11/2015,Physiotherapy,Frances
+21,29,9/21/2016,Major surgery,Ridley
+22,42,2/29/2016,Minor surgery,Frances
+23,115,4/4/2018,GP checkup,Hathaway
+24,186,4/24/2017,Major surgery,Clooney
+25,49,7/13/2018,Major surgery,Clooney
+26,86,10/1/2017,Major surgery,Smith
+27,155,1/9/2016,Minor surgery,Clooney
+28,24,11/6/2015,Acupuncture,Ridley
+29,189,12/30/2015,GP checkup,Frances
+30,83,9/30/2015,Minor surgery,Hathaway
+31,25,8/22/2019,GP checkup,Ridley
+32,62,7/18/2019,Physiotherapy,Clooney
+33,192,10/8/2019,GP checkup,Hathaway
+34,92,4/30/2019,GP checkup,Frances
+35,130,12/5/2017,Acupuncture,Clooney
+36,150,3/10/2015,Minor surgery,Frances
+37,176,8/27/2018,Physiotherapy,Frances
+38,8,4/21/2018,Major surgery,Ridley
+39,125,1/16/2017,Major surgery,Ridley
+40,18,5/9/2015,Major surgery,Ridley
+41,132,12/29/2017,Physiotherapy,Frances
+42,144,10/13/2018,Physiotherapy,Clooney
+43,140,4/18/2015,Physiotherapy,Hathaway
+44,32,5/16/2016,Acupuncture,Ridley
+45,10,3/12/2015,Major surgery,Ridley
+46,136,9/12/2015,Acupuncture,Ridley
+47,79,3/20/2015,Physiotherapy,Frances
+48,121,12/8/2015,Major surgery,Smith
+49,137,3/20/2016,Major surgery,Clooney
+50,114,5/29/2017,Major surgery,Frances
+51,105,6/6/2017,GP checkup,Smith
+52,48,12/12/2016,Major surgery,Smith
+53,85,9/17/2018,Acupuncture,Ridley
+54,155,8/22/2017,Acupuncture,Hathaway
+55,140,1/5/2018,Acupuncture,Smith
+56,94,8/12/2017,Physiotherapy,Ridley
+57,179,12/9/2015,Acupuncture,Hathaway
+58,143,3/14/2019,Major surgery,Clooney
+59,181,2/12/2018,Major surgery,Smith
+60,179,2/17/2017,Minor surgery,Ridley
+61,140,8/19/2018,Minor surgery,Ridley
+62,134,5/22/2015,Minor surgery,Clooney
+63,33,3/18/2018,GP checkup,Hathaway
+64,7,10/22/2018,GP checkup,Smith
+65,1,4/20/2016,Acupuncture,Frances
+66,91,10/14/2016,Physiotherapy,Hathaway
+67,90,5/20/2017,GP checkup,Frances
+68,101,6/19/2016,GP checkup,Ridley
+69,175,8/31/2018,Physiotherapy,Ridley
+70,112,8/18/2019,Major surgery,Clooney
+71,160,4/18/2018,GP checkup,Frances
+72,146,8/31/2016,Acupuncture,Smith
+73,60,7/31/2016,Physiotherapy,Ridley
+74,39,6/20/2017,GP checkup,Hathaway
+75,121,9/8/2019,Minor surgery,Frances
+76,26,7/27/2018,Major surgery,Smith
+77,197,11/1/2017,Minor surgery,Smith
+78,83,9/7/2015,Physiotherapy,Clooney
+79,18,8/29/2016,Major surgery,Ridley
+80,172,9/11/2017,Acupuncture,Smith
+81,196,3/6/2017,Major surgery,Ridley
+82,89,9/10/2017,Physiotherapy,Frances
+83,107,5/27/2019,Major surgery,Hathaway
+84,87,2/24/2019,Minor surgery,Smith
+85,150,1/18/2016,Physiotherapy,Hathaway
+86,162,6/13/2018,Minor surgery,Ridley
+87,72,3/20/2015,Minor surgery,Frances
+88,102,12/13/2016,Acupuncture,Frances
+89,158,9/16/2018,Acupuncture,Smith
+90,7,5/9/2017,Minor surgery,Clooney
+91,22,3/31/2016,Minor surgery,Hathaway
+92,55,9/30/2016,Physiotherapy,Frances
+93,98,4/6/2019,Acupuncture,Ridley
+94,168,12/29/2016,Minor surgery,Smith
+95,95,11/21/2018,GP checkup,Ridley
+96,105,10/3/2019,Acupuncture,Ridley
+97,170,3/30/2016,GP checkup,Clooney
+98,179,1/9/2019,Physiotherapy,Ridley
+99,125,8/6/2016,Minor surgery,Frances
+100,198,3/3/2015,GP checkup,Frances
+101,124,2/20/2016,Acupuncture,Smith
+102,138,3/5/2017,Acupuncture,Clooney
+103,155,5/20/2017,Acupuncture,Hathaway
+104,71,4/22/2019,GP checkup,Frances
+105,158,5/10/2018,Major surgery,Hathaway
+106,197,12/24/2015,Major surgery,Clooney
+107,132,8/4/2019,Minor surgery,Smith
+108,37,8/14/2017,Major surgery,Ridley
+109,101,3/2/2018,Acupuncture,Smith
+110,74,1/4/2015,GP checkup,Smith
+111,57,7/20/2017,GP checkup,Ridley
+112,83,3/31/2015,Major surgery,Hathaway
+113,125,4/17/2018,Major surgery,Clooney
+114,17,9/27/2019,Minor surgery,Frances
+115,110,5/26/2017,Major surgery,Smith
+116,80,3/7/2017,Acupuncture,Smith
+117,191,1/23/2016,Minor surgery,Ridley
+118,128,1/6/2015,Acupuncture,Frances
+119,157,8/11/2015,Acupuncture,Smith
+120,19,10/27/2018,GP checkup,Hathaway
+121,104,1/9/2016,Acupuncture,Frances
+122,136,7/19/2015,Major surgery,Frances
+123,156,3/12/2015,Physiotherapy,Smith
+124,113,5/17/2016,Physiotherapy,Smith
+125,195,2/10/2015,Minor surgery,Smith
+126,143,8/2/2019,Minor surgery,Clooney
+127,101,8/23/2015,GP checkup,Hathaway
+128,38,3/29/2017,Major surgery,Smith
+129,11,6/28/2018,GP checkup,Clooney
+130,57,5/31/2015,Minor surgery,Ridley
+131,148,10/23/2017,Acupuncture,Frances
+132,79,5/15/2017,Minor surgery,Smith
+133,119,2/19/2016,GP checkup,Ridley
+134,80,8/23/2017,Major surgery,Clooney
+135,161,1/29/2016,Minor surgery,Frances
+136,76,1/3/2016,Physiotherapy,Smith
+137,94,4/1/2016,Minor surgery,Smith
+138,7,5/8/2018,Major surgery,Ridley
+139,72,3/17/2018,Major surgery,Frances
+140,191,12/5/2017,Minor surgery,Frances
+141,30,1/4/2019,Minor surgery,Clooney
+142,163,9/28/2018,Minor surgery,Smith
+143,199,8/29/2015,Physiotherapy,Frances
+144,180,7/11/2016,Acupuncture,Smith
+145,28,1/18/2017,Physiotherapy,Hathaway
+146,129,3/25/2017,GP checkup,Clooney
+147,162,2/12/2016,Minor surgery,Ridley
+148,104,11/10/2018,Acupuncture,Clooney
+149,181,2/7/2018,Major surgery,Smith
+150,176,3/2/2016,Acupuncture,Smith
+151,67,9/15/2017,Major surgery,Clooney
+152,54,12/17/2015,Acupuncture,Clooney
+153,34,7/15/2016,Major surgery,Clooney
+154,197,8/6/2015,GP checkup,Hathaway
+155,133,4/11/2019,Acupuncture,Hathaway
+156,141,2/16/2015,Minor surgery,Clooney
+157,190,10/13/2015,Physiotherapy,Hathaway
+158,88,7/23/2018,GP checkup,Smith
+159,9,1/1/2017,Acupuncture,Frances
+160,93,7/12/2017,Major surgery,Hathaway
+161,93,9/22/2019,GP checkup,Smith
+162,165,11/8/2015,Physiotherapy,Hathaway
+163,124,5/20/2019,Major surgery,Smith
+164,25,6/29/2016,GP checkup,Smith
+165,128,4/10/2015,Physiotherapy,Clooney
+166,78,3/28/2015,Major surgery,Ridley
+167,50,7/20/2015,Minor surgery,Hathaway
+168,187,10/17/2016,Minor surgery,Hathaway
+169,44,8/10/2015,Physiotherapy,Clooney
+170,12,7/24/2019,Major surgery,Smith
+171,111,9/18/2015,Minor surgery,Frances
+172,105,10/23/2017,Physiotherapy,Hathaway
+173,14,12/14/2016,Major surgery,Clooney
+174,184,12/27/2015,Major surgery,Hathaway
+175,41,11/21/2017,GP checkup,Clooney
+176,54,2/12/2017,Major surgery,Smith
+177,21,12/20/2015,Minor surgery,Ridley
+178,41,5/20/2015,Acupuncture,Ridley
+179,103,1/3/2015,GP checkup,Smith
+180,28,7/8/2016,Acupuncture,Clooney
+181,89,5/11/2018,GP checkup,Clooney
+182,73,7/16/2017,Physiotherapy,Smith
+183,115,8/6/2018,GP checkup,Smith
+184,2,8/3/2015,GP checkup,Ridley
+185,34,5/16/2019,Physiotherapy,Frances
+186,159,4/1/2019,GP checkup,Hathaway
+187,195,11/6/2015,Minor surgery,Frances
+188,156,1/14/2015,Major surgery,Clooney
+189,173,4/5/2016,GP checkup,Ridley
+190,68,2/8/2019,Major surgery,Smith
+191,5,8/26/2019,Physiotherapy,Hathaway
+192,15,1/31/2016,Minor surgery,Ridley
+193,151,5/15/2016,Acupuncture,Smith
+194,130,7/4/2015,Major surgery,Clooney
+195,43,8/15/2015,Acupuncture,Ridley
+196,185,5/8/2017,Minor surgery,Ridley
+197,105,5/17/2018,GP checkup,Hathaway
+198,175,3/5/2019,Minor surgery,Ridley
+199,159,3/15/2019,GP checkup,Ridley
+200,84,8/28/2015,GP checkup,Clooney
+201,90,5/23/2019,GP checkup,Smith
+202,97,4/27/2015,Physiotherapy,Frances
+203,169,4/4/2018,GP checkup,Hathaway
+204,5,5/7/2016,Acupuncture,Ridley
+205,15,5/6/2017,Minor surgery,Ridley
+206,66,6/10/2019,GP checkup,Clooney
+207,81,5/5/2015,Minor surgery,Frances
+208,60,7/21/2016,GP checkup,Hathaway
+209,28,11/18/2017,Acupuncture,Frances
+210,65,8/23/2019,GP checkup,Frances
+211,180,11/16/2016,Major surgery,Clooney
+212,28,11/16/2015,GP checkup,Frances
+213,102,7/11/2017,Minor surgery,Clooney
+214,46,1/23/2018,GP checkup,Hathaway
+215,22,7/3/2017,Acupuncture,Smith
+216,72,8/4/2018,Major surgery,Ridley
+217,52,2/13/2015,Physiotherapy,Clooney
+218,181,10/31/2015,Major surgery,Ridley
+219,84,8/31/2016,Minor surgery,Clooney
+220,88,8/28/2018,Minor surgery,Ridley
+221,196,3/10/2018,Physiotherapy,Clooney
+222,147,5/30/2019,Minor surgery,Hathaway
+223,140,5/24/2017,Physiotherapy,Smith
+224,129,11/10/2016,Major surgery,Smith
+225,87,6/2/2018,GP checkup,Clooney
+226,71,7/18/2017,Minor surgery,Ridley
+227,93,11/7/2015,Acupuncture,Frances
+228,173,7/19/2015,Major surgery,Ridley
+229,70,4/12/2017,Physiotherapy,Clooney
+230,65,6/19/2015,Acupuncture,Frances
+231,20,5/21/2019,Major surgery,Frances
+232,103,3/26/2019,GP checkup,Frances
+233,60,5/8/2016,Physiotherapy,Frances
+234,75,9/26/2018,Minor surgery,Ridley
+235,57,6/4/2017,Minor surgery,Smith
+236,178,5/8/2019,GP checkup,Smith
+237,164,5/29/2019,Major surgery,Hathaway
+238,19,4/30/2015,Major surgery,Clooney
+239,5,1/16/2017,Acupuncture,Smith
+240,51,2/3/2019,Major surgery,Frances
+241,137,1/20/2017,Minor surgery,Ridley
+242,21,8/4/2017,Acupuncture,Frances
+243,3,12/3/2015,GP checkup,Hathaway
+244,116,9/9/2015,Major surgery,Ridley
+245,158,8/27/2018,Major surgery,Frances
+246,131,2/9/2018,Major surgery,Clooney
+247,96,6/21/2018,Physiotherapy,Smith
+248,122,6/2/2016,Minor surgery,Ridley
+249,80,9/8/2015,Acupuncture,Frances
+250,38,8/14/2019,GP checkup,Hathaway
+251,32,7/18/2018,Acupuncture,Frances
+252,86,5/31/2015,Minor surgery,Frances
+253,161,12/6/2015,Minor surgery,Clooney
+254,154,6/27/2017,Major surgery,Clooney
+255,174,6/16/2019,Physiotherapy,Ridley
+256,63,12/30/2017,Major surgery,Hathaway
+257,110,3/20/2017,Minor surgery,Smith
+258,39,1/8/2018,Minor surgery,Hathaway
+259,3,2/5/2018,Minor surgery,Ridley
+260,44,11/3/2016,GP checkup,Smith
+261,64,7/20/2017,Physiotherapy,Clooney
+262,21,8/2/2018,GP checkup,Ridley
+263,30,8/20/2016,Acupuncture,Frances
+264,174,3/21/2018,Physiotherapy,Smith
+265,18,7/30/2017,Physiotherapy,Ridley
+266,130,2/20/2019,Acupuncture,Clooney
+267,107,7/23/2017,Acupuncture,Smith
+268,130,3/20/2017,Physiotherapy,Smith
+269,132,10/25/2015,Acupuncture,Smith
+270,36,8/29/2017,GP checkup,Ridley
+271,45,3/21/2017,Minor surgery,Smith
+272,44,12/11/2015,Acupuncture,Clooney
+273,136,5/11/2017,Major surgery,Ridley
+274,156,3/31/2016,GP checkup,Clooney
+275,61,5/8/2018,Minor surgery,Ridley
+276,9,11/6/2015,Physiotherapy,Smith
+277,58,11/20/2018,Physiotherapy,Frances
+278,101,8/7/2018,Acupuncture,Smith
+279,172,12/3/2018,Acupuncture,Frances
+280,86,12/28/2015,Acupuncture,Hathaway
+281,5,11/5/2018,Minor surgery,Smith
+282,184,3/17/2017,Minor surgery,Ridley
+283,137,10/26/2018,Physiotherapy,Hathaway
+284,186,2/11/2018,Acupuncture,Smith
+285,165,8/28/2016,GP checkup,Ridley
+286,133,4/7/2016,Minor surgery,Clooney
+287,199,5/27/2017,Acupuncture,Frances
+288,61,6/30/2016,Minor surgery,Ridley
+289,152,9/7/2016,Acupuncture,Ridley
+290,22,5/8/2015,GP checkup,Ridley
+291,169,8/8/2017,Minor surgery,Clooney
+292,98,8/16/2016,Physiotherapy,Hathaway
+293,106,5/28/2017,Acupuncture,Smith
+294,198,5/2/2015,GP checkup,Ridley
+295,190,3/19/2019,Acupuncture,Clooney
+296,117,7/25/2018,Major surgery,Smith
+297,59,1/22/2018,Acupuncture,Hathaway
+298,47,9/15/2018,Physiotherapy,Smith
+299,110,9/21/2017,Minor surgery,Ridley
+300,45,1/21/2018,GP checkup,Smith
+301,184,7/16/2018,GP checkup,Ridley
+302,74,5/20/2015,GP checkup,Hathaway
+303,29,1/1/2017,Major surgery,Clooney
+304,77,11/4/2015,Major surgery,Ridley
+305,163,1/1/2018,Physiotherapy,Clooney
+306,99,7/28/2018,Major surgery,Hathaway
+307,52,9/8/2016,Acupuncture,Frances
+308,186,6/1/2018,Physiotherapy,Smith
+309,11,6/22/2016,Physiotherapy,Ridley
+310,76,9/19/2017,Major surgery,Smith
+311,142,12/25/2016,Minor surgery,Ridley
+312,145,7/7/2016,Physiotherapy,Hathaway
+313,46,3/28/2018,Minor surgery,Clooney
+314,155,3/25/2016,GP checkup,Frances
+315,45,6/8/2018,GP checkup,Frances
+316,171,5/21/2018,Major surgery,Smith
+317,142,6/18/2016,GP checkup,Smith
+318,67,7/1/2015,Major surgery,Smith
+319,76,3/23/2019,Minor surgery,Smith
+320,32,5/23/2015,Major surgery,Smith
+321,176,7/7/2017,Acupuncture,Clooney
+322,61,9/5/2015,GP checkup,Hathaway
+323,142,7/24/2015,Minor surgery,Clooney
+324,17,2/4/2016,GP checkup,Clooney
+325,97,5/29/2016,Acupuncture,Ridley
+326,45,5/18/2018,Physiotherapy,Hathaway
+327,41,8/7/2019,Minor surgery,Clooney
+328,14,2/14/2015,Acupuncture,Hathaway
+329,145,3/27/2018,GP checkup,Smith
+330,65,1/12/2017,GP checkup,Frances
+331,33,5/3/2015,Physiotherapy,Smith
+332,177,8/14/2016,Minor surgery,Hathaway
+333,127,4/2/2015,Acupuncture,Frances
+334,140,2/22/2019,Minor surgery,Ridley
+335,51,4/27/2017,Major surgery,Smith
+336,170,7/19/2017,GP checkup,Smith
+337,113,1/4/2015,Minor surgery,Clooney
+338,170,10/31/2016,Minor surgery,Frances
+339,106,12/27/2018,Minor surgery,Smith
+340,152,10/30/2015,Major surgery,Hathaway
+341,199,10/2/2015,Major surgery,Ridley
+342,147,7/19/2018,Physiotherapy,Hathaway
+343,145,6/4/2016,Minor surgery,Frances
+344,198,7/24/2019,Physiotherapy,Hathaway
+345,145,9/11/2016,Major surgery,Smith
+346,42,8/21/2015,Minor surgery,Clooney
+347,32,11/20/2017,Minor surgery,Clooney
+348,196,8/12/2015,Minor surgery,Frances
+349,65,11/30/2017,Major surgery,Hathaway
+350,98,3/26/2017,Physiotherapy,Ridley
+351,9,3/9/2015,Acupuncture,Clooney
+352,152,4/14/2017,Minor surgery,Ridley
+353,2,1/31/2016,Physiotherapy,Ridley
+354,25,4/19/2017,Major surgery,Clooney
+355,32,10/28/2015,GP checkup,Frances
+356,88,3/26/2016,Physiotherapy,Hathaway
+357,149,3/4/2017,GP checkup,Hathaway
+358,127,2/3/2015,Major surgery,Frances
+359,167,5/23/2018,GP checkup,Smith
+360,78,9/4/2018,Major surgery,Smith
+361,79,2/10/2017,Major surgery,Frances
+362,111,9/1/2016,GP checkup,Smith
+363,92,5/2/2016,GP checkup,Ridley
+364,23,2/6/2018,GP checkup,Frances
+365,15,11/23/2017,Minor surgery,Hathaway
+366,64,3/19/2019,Physiotherapy,Smith
+367,8,1/22/2018,Major surgery,Smith
+368,3,8/5/2019,Physiotherapy,Smith
+369,167,7/18/2016,Major surgery,Clooney
+370,159,5/24/2015,Acupuncture,Ridley
+371,169,5/31/2017,GP checkup,Smith
+372,49,6/19/2018,Physiotherapy,Frances
+373,73,6/9/2017,Acupuncture,Clooney
+374,79,12/6/2018,Major surgery,Ridley
+375,191,12/27/2018,Acupuncture,Hathaway
+376,114,5/15/2017,Major surgery,Smith
+377,162,4/29/2017,Minor surgery,Frances
+378,128,9/15/2017,Major surgery,Frances
+379,131,11/20/2018,Acupuncture,Clooney
+380,27,1/16/2015,GP checkup,Hathaway
+381,18,1/29/2017,Acupuncture,Smith
+382,54,7/8/2017,Acupuncture,Ridley
+383,132,12/27/2017,Major surgery,Frances
+384,191,1/7/2016,Acupuncture,Ridley
+385,67,10/8/2016,GP checkup,Smith
+386,15,6/18/2018,Minor surgery,Ridley
+387,153,5/18/2018,Major surgery,Hathaway
+388,126,6/30/2019,GP checkup,Frances
+389,154,1/30/2017,Minor surgery,Hathaway
+390,48,3/23/2019,Major surgery,Ridley
+391,49,1/21/2019,GP checkup,Clooney
+392,178,7/15/2015,GP checkup,Clooney
+393,8,10/10/2018,GP checkup,Frances
+394,189,1/19/2019,Acupuncture,Hathaway
+395,19,2/11/2017,Major surgery,Ridley
+396,106,10/4/2019,Major surgery,Hathaway
+397,16,5/21/2016,Major surgery,Frances
+398,101,3/18/2017,GP checkup,Ridley
+399,17,1/22/2019,Minor surgery,Ridley
+400,12,10/27/2018,Acupuncture,Frances
+401,12,6/21/2018,Minor surgery,Hathaway
+402,54,8/25/2016,Minor surgery,Frances
+403,98,6/15/2015,Acupuncture,Ridley
+404,92,1/14/2016,Minor surgery,Ridley
+405,107,3/21/2015,Acupuncture,Hathaway
+406,23,5/9/2017,Minor surgery,Smith
+407,71,6/3/2018,Acupuncture,Frances
+408,52,1/8/2019,Physiotherapy,Hathaway
+409,86,3/30/2018,Minor surgery,Hathaway
+410,173,2/4/2016,Physiotherapy,Ridley
+411,180,2/20/2018,Acupuncture,Clooney
+412,142,3/4/2016,GP checkup,Smith
+413,145,2/2/2015,Major surgery,Frances
+414,96,8/29/2015,Physiotherapy,Clooney
+415,125,4/12/2019,Physiotherapy,Clooney
+416,94,10/6/2015,Physiotherapy,Ridley
+417,100,3/7/2018,Physiotherapy,Hathaway
+418,29,9/28/2016,Major surgery,Hathaway
+419,157,6/22/2019,Minor surgery,Ridley
+420,121,8/22/2019,Minor surgery,Ridley
+421,69,5/11/2016,GP checkup,Frances
+422,81,10/25/2018,Acupuncture,Ridley
+423,1,7/3/2019,Minor surgery,Smith
+424,86,2/5/2017,GP checkup,Clooney
+425,134,10/6/2019,GP checkup,Frances
+426,75,1/21/2016,Major surgery,Clooney
+427,147,6/15/2019,Major surgery,Frances
+428,84,4/15/2019,Physiotherapy,Hathaway
+429,56,5/8/2015,Major surgery,Frances
+430,164,10/2/2018,Acupuncture,Hathaway
+431,73,12/15/2017,Minor surgery,Clooney
+432,174,11/5/2018,Acupuncture,Hathaway
+433,146,12/24/2016,GP checkup,Frances
+434,64,4/29/2016,Physiotherapy,Ridley
+435,67,3/19/2018,Major surgery,Frances
+436,179,11/1/2016,Minor surgery,Clooney
+437,44,4/13/2017,Major surgery,Frances
+438,161,9/26/2015,Minor surgery,Frances
+439,166,12/30/2016,Minor surgery,Frances
+440,128,9/23/2017,Acupuncture,Ridley
+441,65,12/2/2016,Acupuncture,Ridley
+442,100,1/14/2019,Major surgery,Frances
+443,20,12/5/2017,Acupuncture,Clooney
+444,71,11/26/2018,Minor surgery,Clooney
+445,67,9/24/2015,Major surgery,Clooney
+446,196,4/10/2016,Minor surgery,Frances
+447,53,11/27/2015,Physiotherapy,Smith
+448,169,5/29/2016,Minor surgery,Smith
+449,123,10/10/2019,Major surgery,Ridley
+450,61,4/29/2019,Major surgery,Clooney
+451,37,5/21/2019,Acupuncture,Clooney
+452,199,8/19/2017,Major surgery,Frances
+453,15,6/20/2017,GP checkup,Clooney
+454,72,2/4/2015,GP checkup,Hathaway
+455,192,9/16/2017,Major surgery,Frances
+456,181,3/7/2016,Acupuncture,Clooney
+457,41,10/22/2017,Minor surgery,Smith
+458,27,4/15/2015,Major surgery,Frances
+459,123,11/9/2018,GP checkup,Hathaway
+460,66,6/26/2016,Acupuncture,Clooney
+461,176,1/5/2016,Acupuncture,Frances
+462,182,2/13/2019,Major surgery,Smith
+463,153,6/25/2017,Major surgery,Smith
+464,46,3/8/2016,Physiotherapy,Smith
+465,71,12/27/2016,Minor surgery,Hathaway
+466,127,7/26/2016,Minor surgery,Smith
+467,143,9/27/2016,Major surgery,Clooney
+468,113,3/4/2018,Minor surgery,Frances
+469,47,4/25/2019,Major surgery,Clooney
+470,70,1/10/2015,Major surgery,Hathaway
+471,40,10/15/2018,Major surgery,Clooney
+472,192,6/4/2019,Major surgery,Hathaway
+473,114,8/4/2016,Major surgery,Frances
+474,26,5/1/2015,Acupuncture,Hathaway
+475,140,7/18/2016,GP checkup,Smith
+476,24,12/3/2017,GP checkup,Clooney
+477,86,5/9/2016,GP checkup,Smith
+478,161,11/12/2015,Acupuncture,Frances
+479,109,7/1/2016,GP checkup,Clooney
+480,81,12/18/2017,Minor surgery,Frances
+481,33,7/7/2017,Physiotherapy,Smith
+482,46,11/8/2018,Acupuncture,Hathaway
+483,184,7/26/2017,GP checkup,Frances
+484,11,11/28/2017,Major surgery,Ridley
+485,168,11/1/2017,GP checkup,Smith
+486,11,11/16/2018,Major surgery,Hathaway
+487,82,11/24/2016,Major surgery,Hathaway
+488,43,2/12/2016,Major surgery,Frances
+489,49,11/19/2015,Acupuncture,Hathaway
+490,154,5/4/2018,Acupuncture,Frances
+491,147,5/6/2016,Minor surgery,Smith
+492,165,12/8/2016,Acupuncture,Hathaway
+493,171,3/13/2019,Major surgery,Smith
+494,183,6/13/2016,GP checkup,Ridley
+495,79,4/12/2015,Minor surgery,Frances
+496,49,3/9/2016,Acupuncture,Clooney
+497,139,10/12/2018,Physiotherapy,Smith
+498,150,6/25/2019,GP checkup,Ridley
+499,48,11/27/2015,Physiotherapy,Smith
+500,181,9/23/2019,Minor surgery,Frances
+501,114,2/23/2015,Minor surgery,Frances
+502,122,8/24/2016,Major surgery,Frances
+503,59,10/11/2015,GP checkup,Ridley
+504,143,5/6/2018,Minor surgery,Frances
+505,136,8/9/2016,GP checkup,Smith
+506,193,5/1/2015,Minor surgery,Clooney
+507,162,5/22/2015,Major surgery,Smith
+508,191,8/16/2019,GP checkup,Hathaway
+509,153,9/30/2015,Minor surgery,Frances
+510,189,10/19/2017,Acupuncture,Hathaway
+511,125,6/3/2016,Minor surgery,Hathaway
+512,139,3/31/2017,Acupuncture,Clooney
+513,135,9/6/2017,Minor surgery,Clooney
+514,18,9/18/2017,Major surgery,Hathaway
+515,33,10/1/2016,GP checkup,Ridley
+516,159,7/13/2016,Minor surgery,Smith
+517,15,3/20/2015,GP checkup,Hathaway
+518,64,7/28/2017,GP checkup,Ridley
+519,145,11/1/2017,Acupuncture,Frances
+520,142,7/2/2015,Physiotherapy,Frances
+521,122,8/3/2017,GP checkup,Clooney
+522,2,9/8/2019,Major surgery,Ridley
+523,53,1/3/2018,GP checkup,Hathaway
+524,108,6/13/2018,Physiotherapy,Clooney
+525,155,3/29/2019,Major surgery,Ridley
+526,164,5/12/2016,Major surgery,Ridley
+527,83,2/25/2017,Major surgery,Frances
+528,59,8/21/2019,Acupuncture,Smith
+529,87,4/20/2015,Minor surgery,Frances
+530,127,5/8/2015,Minor surgery,Frances
+531,109,1/23/2017,Major surgery,Clooney
+532,168,9/23/2015,Acupuncture,Clooney
+533,143,1/31/2019,Physiotherapy,Frances
+534,75,5/11/2015,Acupuncture,Clooney
+535,101,2/12/2017,GP checkup,Smith
+536,133,1/3/2017,Physiotherapy,Clooney
+537,85,3/2/2016,Acupuncture,Clooney
+538,80,1/2/2016,Acupuncture,Clooney
+539,178,7/12/2016,Acupuncture,Frances
+540,96,2/9/2016,Minor surgery,Clooney
+541,143,12/29/2015,Acupuncture,Clooney
+542,19,9/21/2018,Acupuncture,Smith
+543,52,1/20/2016,Physiotherapy,Frances
+544,173,12/20/2015,Major surgery,Frances
+545,22,2/21/2019,Major surgery,Hathaway
+546,73,1/1/2015,GP checkup,Hathaway
+547,127,7/12/2018,GP checkup,Clooney
+548,95,10/3/2018,Major surgery,Frances
+549,115,11/5/2017,Major surgery,Clooney
+550,12,7/13/2016,Acupuncture,Hathaway
+551,74,2/16/2019,Physiotherapy,Smith
+552,193,12/6/2016,Major surgery,Clooney
+553,73,4/1/2016,GP checkup,Smith
+554,14,5/17/2015,Minor surgery,Smith
+555,108,11/3/2017,Physiotherapy,Ridley
+556,26,10/2/2016,Major surgery,Frances
+557,13,7/20/2015,Acupuncture,Hathaway
+558,182,2/21/2019,Physiotherapy,Hathaway
+559,38,5/7/2015,Physiotherapy,Hathaway
+560,166,8/8/2016,Minor surgery,Smith
+561,12,1/20/2019,Major surgery,Hathaway
+562,137,2/14/2015,Major surgery,Ridley
+563,185,7/4/2017,Physiotherapy,Frances
+564,153,4/30/2018,Major surgery,Hathaway
+565,194,12/9/2015,Minor surgery,Hathaway
+566,178,2/20/2017,Minor surgery,Ridley
+567,64,4/16/2015,Physiotherapy,Ridley
+568,5,8/6/2018,GP checkup,Smith
+569,8,4/3/2019,Major surgery,Hathaway
+570,110,5/19/2017,Physiotherapy,Smith
+571,22,11/23/2017,GP checkup,Hathaway
+572,31,7/1/2015,GP checkup,Frances
+573,46,1/27/2017,Minor surgery,Hathaway
+574,115,3/9/2015,Physiotherapy,Frances
+575,161,2/25/2019,Major surgery,Ridley
+576,35,3/27/2017,Acupuncture,Smith
+577,123,5/29/2015,Acupuncture,Smith
+578,18,10/1/2017,Minor surgery,Hathaway
+579,89,1/3/2017,Physiotherapy,Ridley
+580,95,8/4/2016,GP checkup,Smith
+581,14,10/7/2016,Acupuncture,Clooney
+582,157,3/20/2018,Minor surgery,Ridley
+583,18,3/3/2017,Major surgery,Ridley
+584,94,8/10/2016,Physiotherapy,Frances
+585,125,2/18/2019,Physiotherapy,Frances
+586,29,8/8/2019,Major surgery,Frances
+587,76,6/20/2019,Major surgery,Frances
+588,175,6/27/2018,Major surgery,Frances
+589,173,4/30/2019,Minor surgery,Frances
+590,132,4/30/2016,Acupuncture,Hathaway
+591,60,6/6/2016,Major surgery,Hathaway
+592,118,10/11/2018,Major surgery,Hathaway
+593,99,12/26/2016,Physiotherapy,Clooney
+594,43,4/14/2019,GP checkup,Hathaway
+595,76,10/29/2016,Acupuncture,Smith
+596,15,9/9/2019,Physiotherapy,Ridley
+597,151,4/25/2015,Acupuncture,Hathaway
+598,194,5/18/2018,Acupuncture,Frances
+599,87,6/11/2019,GP checkup,Hathaway
+600,88,7/25/2015,Acupuncture,Smith
+601,16,11/6/2018,Minor surgery,Hathaway
+602,169,5/20/2019,Minor surgery,Smith
+603,106,8/17/2016,Physiotherapy,Clooney
+604,30,9/7/2018,Minor surgery,Ridley
+605,57,11/24/2018,GP checkup,Clooney
+606,131,2/26/2018,Acupuncture,Hathaway
+607,193,12/18/2018,Minor surgery,Ridley
+608,74,12/16/2016,Physiotherapy,Hathaway
+609,115,8/21/2015,Minor surgery,Ridley
+610,126,1/19/2019,Physiotherapy,Smith
+611,96,2/21/2019,Minor surgery,Ridley
+612,76,1/12/2015,GP checkup,Hathaway
+613,133,12/9/2017,Physiotherapy,Frances
+614,30,12/3/2018,Minor surgery,Hathaway
+615,67,3/14/2017,Physiotherapy,Ridley
+616,88,4/23/2016,Physiotherapy,Clooney
+617,49,4/9/2019,Acupuncture,Ridley
+618,77,2/12/2015,Physiotherapy,Frances
+619,173,4/5/2017,Acupuncture,Ridley
+620,20,1/24/2017,Major surgery,Smith
+621,98,5/22/2015,Physiotherapy,Smith
+622,145,3/20/2016,Acupuncture,Frances
+623,46,2/18/2018,Minor surgery,Smith
+624,61,3/20/2019,Major surgery,Frances
+625,63,3/24/2019,Physiotherapy,Smith
+626,164,4/23/2018,Physiotherapy,Ridley
+627,4,2/19/2018,Minor surgery,Frances
+628,66,8/13/2019,GP checkup,Hathaway
+629,75,3/8/2019,Major surgery,Ridley
+630,154,3/26/2018,Acupuncture,Clooney
+631,130,12/21/2015,Physiotherapy,Frances
+632,73,2/21/2017,Major surgery,Smith
+633,111,9/4/2016,Major surgery,Clooney
+634,88,5/9/2019,Physiotherapy,Smith
+635,124,3/25/2019,Acupuncture,Smith
+636,62,5/26/2018,GP checkup,Hathaway
+637,33,6/29/2016,Minor surgery,Hathaway
+638,54,10/18/2016,Acupuncture,Ridley
+639,124,7/4/2018,Physiotherapy,Hathaway
+640,67,8/21/2015,Physiotherapy,Ridley
+641,175,5/24/2018,Acupuncture,Smith
+642,92,1/7/2017,Physiotherapy,Smith
+643,68,3/8/2015,Acupuncture,Frances
+644,51,9/25/2015,Acupuncture,Hathaway
+645,116,3/29/2015,Major surgery,Clooney
+646,106,2/6/2016,Major surgery,Ridley
+647,163,3/17/2019,Physiotherapy,Hathaway
+648,185,10/16/2015,GP checkup,Ridley
+649,101,2/1/2018,GP checkup,Hathaway
+650,145,6/29/2017,Major surgery,Frances
+651,80,4/24/2019,Major surgery,Clooney
+652,158,11/8/2018,GP checkup,Frances
+653,198,6/13/2018,GP checkup,Clooney
+654,16,1/18/2017,Major surgery,Ridley
+655,64,6/3/2019,Minor surgery,Frances
+656,21,8/2/2016,Acupuncture,Hathaway
+657,73,7/30/2019,Acupuncture,Hathaway
+658,147,3/8/2016,GP checkup,Hathaway
+659,126,1/23/2015,Minor surgery,Clooney
+660,92,7/30/2019,Acupuncture,Ridley
+661,74,3/6/2019,Acupuncture,Smith
+662,195,10/1/2018,Major surgery,Ridley
+663,8,9/27/2018,Major surgery,Frances
+664,66,8/31/2019,GP checkup,Ridley
+665,197,5/12/2017,GP checkup,Ridley
+666,55,4/28/2019,Minor surgery,Ridley
+667,198,6/9/2018,Minor surgery,Hathaway
+668,87,3/7/2017,Minor surgery,Hathaway
+669,182,1/18/2017,GP checkup,Smith
+670,103,6/14/2017,Acupuncture,Clooney
+671,18,7/4/2016,Acupuncture,Smith
+672,32,3/22/2019,GP checkup,Ridley
+673,115,6/7/2018,Major surgery,Hathaway
+674,70,9/10/2019,Acupuncture,Frances
+675,58,3/31/2017,Minor surgery,Frances
+676,25,5/22/2016,Acupuncture,Hathaway
+677,159,1/24/2018,Physiotherapy,Clooney
+678,140,6/5/2017,GP checkup,Ridley
+679,76,4/9/2019,GP checkup,Hathaway
+680,150,11/1/2016,Minor surgery,Ridley
+681,22,4/12/2019,Minor surgery,Clooney
+682,38,6/22/2015,Physiotherapy,Smith
+683,137,9/19/2019,Acupuncture,Hathaway
+684,159,11/8/2017,Major surgery,Clooney
+685,94,10/8/2017,Acupuncture,Clooney
+686,32,5/11/2019,Physiotherapy,Ridley
+687,96,4/13/2017,Major surgery,Smith
+688,185,11/23/2016,GP checkup,Smith
+689,19,11/1/2015,GP checkup,Smith
+690,57,3/12/2016,Acupuncture,Hathaway
+691,112,10/29/2018,GP checkup,Hathaway
+692,33,6/13/2018,Major surgery,Hathaway
+693,94,4/25/2019,GP checkup,Hathaway
+694,174,4/29/2016,Minor surgery,Clooney
+695,200,2/2/2017,Major surgery,Clooney
+696,51,6/25/2017,Major surgery,Frances
+697,30,6/7/2015,Physiotherapy,Clooney
+698,190,8/31/2015,Major surgery,Ridley
+699,148,11/20/2018,GP checkup,Ridley
+700,187,7/22/2019,Physiotherapy,Clooney
+701,52,6/5/2017,Physiotherapy,Smith
+702,147,8/10/2015,Physiotherapy,Hathaway
+703,50,6/2/2019,Major surgery,Frances
+704,127,11/16/2018,Major surgery,Hathaway
+705,186,10/3/2017,Physiotherapy,Smith
+706,86,12/29/2018,Minor surgery,Clooney
+707,175,6/24/2019,Minor surgery,Frances
+708,149,6/24/2015,Minor surgery,Smith
+709,50,10/15/2019,Major surgery,Frances
+710,84,10/13/2019,Acupuncture,Frances
+711,166,8/28/2018,GP checkup,Hathaway
+712,180,1/1/2017,Minor surgery,Smith
+713,11,10/21/2015,Acupuncture,Hathaway
+714,48,10/9/2018,Physiotherapy,Hathaway
+715,46,10/18/2016,Minor surgery,Ridley
+716,43,9/10/2017,Major surgery,Smith
+717,55,4/13/2017,Acupuncture,Ridley
+718,139,9/30/2016,GP checkup,Clooney
+719,137,3/26/2016,Physiotherapy,Ridley
+720,113,4/4/2019,Physiotherapy,Smith
+721,10,3/13/2015,Minor surgery,Smith
+722,180,9/3/2019,GP checkup,Hathaway
+723,111,8/4/2016,Physiotherapy,Ridley
+724,101,3/3/2015,Acupuncture,Hathaway
+725,101,8/11/2016,Physiotherapy,Smith
+726,54,7/21/2017,Physiotherapy,Frances
+727,94,4/21/2018,Acupuncture,Smith
+728,177,9/28/2017,Minor surgery,Hathaway
+729,49,4/29/2019,Major surgery,Smith
+730,81,2/23/2018,Minor surgery,Ridley
+731,198,9/27/2016,Physiotherapy,Smith
+732,178,11/5/2016,Major surgery,Frances
+733,191,9/1/2015,Physiotherapy,Smith
+734,34,12/18/2017,Minor surgery,Hathaway
+735,9,3/3/2019,GP checkup,Hathaway
+736,76,1/16/2015,Physiotherapy,Ridley
+737,148,12/22/2017,GP checkup,Ridley
+738,134,4/26/2015,Minor surgery,Smith
+739,21,1/28/2016,Acupuncture,Frances
+740,152,5/21/2017,Physiotherapy,Smith
+741,5,3/16/2016,Major surgery,Ridley
+742,18,5/12/2017,Acupuncture,Ridley
+743,193,2/11/2019,Minor surgery,Frances
+744,161,4/4/2017,Acupuncture,Frances
+745,4,8/31/2017,Physiotherapy,Smith
+746,12,12/21/2017,Physiotherapy,Smith
+747,45,5/17/2019,GP checkup,Hathaway
+748,195,7/1/2015,Acupuncture,Frances
+749,135,12/27/2015,Minor surgery,Frances
+750,143,4/3/2019,Major surgery,Smith
+751,93,1/30/2018,Major surgery,Smith
+752,81,7/19/2018,Major surgery,Smith
+753,63,10/7/2018,Acupuncture,Ridley
+754,93,5/27/2016,Acupuncture,Ridley
+755,111,4/9/2018,Acupuncture,Ridley
+756,142,3/2/2018,Acupuncture,Ridley
+757,54,12/18/2016,Acupuncture,Ridley
+758,31,6/14/2017,Minor surgery,Hathaway
+759,148,3/6/2019,Acupuncture,Clooney
+760,192,6/13/2016,Minor surgery,Frances
+761,187,2/10/2018,Major surgery,Hathaway
+762,78,10/18/2015,Minor surgery,Ridley
+763,43,6/7/2018,Physiotherapy,Ridley
+764,55,7/14/2016,Minor surgery,Hathaway
+765,78,3/29/2016,Minor surgery,Clooney
+766,80,7/26/2015,Minor surgery,Smith
+767,132,7/5/2018,GP checkup,Ridley
+768,101,7/12/2018,GP checkup,Ridley
+769,51,7/12/2018,Major surgery,Ridley
+770,181,9/13/2016,Physiotherapy,Hathaway
+771,43,7/12/2018,Acupuncture,Frances
+772,118,1/30/2018,Acupuncture,Ridley
+773,158,3/5/2017,Acupuncture,Hathaway
+774,196,2/10/2019,Acupuncture,Smith
+775,112,1/20/2018,Major surgery,Frances
+776,63,9/8/2015,GP checkup,Hathaway
+777,98,5/21/2018,Minor surgery,Frances
+778,2,6/13/2016,GP checkup,Clooney
+779,147,3/2/2018,Physiotherapy,Ridley
+780,70,4/8/2015,Acupuncture,Ridley
+781,46,6/26/2017,GP checkup,Smith
+782,85,10/18/2017,GP checkup,Ridley
+783,40,3/8/2016,GP checkup,Clooney
+784,95,8/24/2019,Physiotherapy,Clooney
+785,167,2/20/2015,Physiotherapy,Smith
+786,138,8/1/2019,GP checkup,Frances
+787,72,9/26/2016,GP checkup,Frances
+788,200,10/2/2019,Major surgery,Hathaway
+789,126,1/2/2018,Major surgery,Clooney
+790,2,8/2/2019,Physiotherapy,Clooney
+791,76,2/11/2016,GP checkup,Clooney
+792,2,2/15/2019,GP checkup,Hathaway
+793,179,4/25/2015,Physiotherapy,Clooney
+794,53,8/3/2015,GP checkup,Smith
+795,142,7/17/2017,GP checkup,Clooney
+796,125,2/2/2015,GP checkup,Frances
+797,121,9/21/2017,GP checkup,Frances
+798,52,1/18/2015,GP checkup,Ridley
+799,75,9/1/2017,Physiotherapy,Hathaway
+800,176,7/31/2019,Physiotherapy,Smith
+801,127,12/3/2017,Acupuncture,Frances
+802,149,7/9/2015,Minor surgery,Clooney
+803,18,10/6/2018,Physiotherapy,Frances
+804,126,11/21/2017,Physiotherapy,Smith
+805,34,9/20/2019,Acupuncture,Ridley
+806,196,6/23/2019,Physiotherapy,Clooney
+807,58,6/26/2019,Physiotherapy,Frances
+808,45,8/14/2015,Physiotherapy,Ridley
+809,5,9/29/2015,Minor surgery,Ridley
+810,33,4/29/2015,Minor surgery,Smith
+811,185,6/28/2015,Minor surgery,Clooney
+812,13,10/17/2018,Physiotherapy,Clooney
+813,167,10/16/2017,Minor surgery,Clooney
+814,82,12/28/2017,GP checkup,Clooney
+815,31,1/27/2016,Minor surgery,Hathaway
+816,112,1/10/2019,Physiotherapy,Smith
+817,133,5/31/2019,Acupuncture,Ridley
+818,37,1/24/2019,GP checkup,Smith
+819,142,2/5/2016,Major surgery,Clooney
+820,9,5/28/2016,Minor surgery,Clooney
+821,153,7/11/2016,Major surgery,Frances
+822,188,1/22/2016,Acupuncture,Smith
+823,28,12/13/2017,GP checkup,Smith
+824,130,4/18/2018,GP checkup,Hathaway
+825,59,2/20/2019,GP checkup,Clooney
+826,102,9/4/2018,Minor surgery,Smith
+827,189,10/23/2017,Physiotherapy,Clooney
+828,184,9/1/2016,Major surgery,Ridley
+829,96,3/28/2019,GP checkup,Ridley
+830,67,8/6/2015,Physiotherapy,Frances
+831,161,4/26/2015,Major surgery,Ridley
+832,153,8/20/2015,GP checkup,Clooney
+833,103,3/7/2019,Acupuncture,Smith
+834,196,1/18/2017,Physiotherapy,Clooney
+835,41,7/20/2019,Minor surgery,Hathaway
+836,19,3/12/2017,Major surgery,Ridley
+837,89,4/25/2016,Major surgery,Smith
+838,97,7/6/2015,Acupuncture,Hathaway
+839,199,7/24/2017,Physiotherapy,Clooney
+840,137,4/19/2017,Physiotherapy,Ridley
+841,128,12/9/2016,Physiotherapy,Hathaway
+842,77,10/6/2015,Major surgery,Ridley
+843,53,5/22/2018,Physiotherapy,Smith
+844,149,6/27/2015,Minor surgery,Hathaway
+845,197,3/3/2016,Major surgery,Clooney
+846,66,6/10/2016,Acupuncture,Frances
+847,142,10/26/2017,Minor surgery,Hathaway
+848,148,9/2/2017,Minor surgery,Ridley
+849,35,4/28/2019,Minor surgery,Frances
+850,84,1/20/2017,Physiotherapy,Hathaway
+851,158,12/3/2015,GP checkup,Smith
+852,170,6/7/2018,Major surgery,Clooney
+853,177,12/8/2017,GP checkup,Hathaway
+854,175,1/16/2016,GP checkup,Ridley
+855,2,6/5/2015,GP checkup,Smith
+856,163,4/27/2016,Minor surgery,Ridley
+857,100,7/9/2017,GP checkup,Ridley
+858,26,8/13/2015,Physiotherapy,Frances
+859,85,7/6/2018,Acupuncture,Smith
+860,161,10/29/2017,GP checkup,Clooney
+861,147,3/24/2019,Acupuncture,Hathaway
+862,70,3/13/2018,Minor surgery,Ridley
+863,131,7/31/2017,GP checkup,Smith
+864,66,10/6/2018,Major surgery,Smith
+865,129,11/20/2015,Minor surgery,Smith
+866,17,3/16/2016,Acupuncture,Clooney
+867,71,6/21/2019,GP checkup,Frances
+868,141,5/25/2017,Major surgery,Frances
+869,160,7/7/2018,GP checkup,Ridley
+870,20,12/2/2015,Major surgery,Smith
+871,193,5/28/2015,Physiotherapy,Frances
+872,5,1/12/2016,Physiotherapy,Frances
+873,37,6/10/2018,Physiotherapy,Clooney
+874,7,1/16/2018,Physiotherapy,Clooney
+875,51,1/5/2015,GP checkup,Smith
+876,70,10/10/2019,Major surgery,Clooney
+877,53,5/22/2016,Major surgery,Ridley
+878,180,1/16/2018,Minor surgery,Smith
+879,51,1/29/2019,Acupuncture,Clooney
+880,21,12/18/2017,Acupuncture,Ridley
+881,123,3/23/2019,Minor surgery,Hathaway
+882,48,4/18/2018,Physiotherapy,Smith
+883,6,5/22/2017,Major surgery,Hathaway
+884,88,4/21/2015,GP checkup,Ridley
+885,63,9/2/2019,GP checkup,Ridley
+886,81,5/19/2019,Minor surgery,Smith
+887,143,4/22/2016,Minor surgery,Smith
+888,199,6/24/2016,Minor surgery,Hathaway
+889,148,10/10/2019,Major surgery,Clooney
+890,51,3/9/2016,Acupuncture,Ridley
+891,188,3/26/2017,Acupuncture,Hathaway
+892,132,8/6/2019,Major surgery,Clooney
+893,108,6/10/2019,Physiotherapy,Smith
+894,45,1/28/2015,Major surgery,Frances
+895,65,3/28/2017,Major surgery,Frances
+896,170,8/9/2016,GP checkup,Frances
+897,28,3/21/2017,Minor surgery,Clooney
+898,70,9/25/2018,Minor surgery,Smith
+899,130,10/13/2017,Acupuncture,Smith
+900,90,2/7/2015,Major surgery,Frances
+901,31,9/5/2017,GP checkup,Smith
+902,63,8/17/2016,Major surgery,Frances
+903,187,7/17/2018,Major surgery,Hathaway
+904,163,12/6/2015,Physiotherapy,Clooney
+905,110,5/3/2016,Physiotherapy,Smith
+906,183,9/14/2018,Acupuncture,Hathaway
+907,158,6/23/2017,Major surgery,Clooney
+908,128,7/16/2015,GP checkup,Smith
+909,130,7/21/2016,Physiotherapy,Clooney
+910,72,2/27/2017,GP checkup,Smith
+911,93,2/23/2019,Minor surgery,Ridley
+912,162,2/1/2018,Major surgery,Ridley
+913,128,3/13/2015,GP checkup,Ridley
+914,98,9/7/2018,Physiotherapy,Hathaway
+915,134,11/16/2018,Minor surgery,Ridley
+916,102,7/26/2019,GP checkup,Hathaway
+917,159,12/17/2017,Acupuncture,Frances
+918,100,7/29/2018,Major surgery,Clooney
+919,45,8/23/2016,GP checkup,Clooney
+920,156,3/11/2019,Minor surgery,Ridley
+921,69,4/19/2019,GP checkup,Hathaway
+922,102,4/17/2019,Minor surgery,Clooney
+923,151,8/17/2017,Physiotherapy,Frances
+924,116,6/13/2017,GP checkup,Clooney
+925,51,3/5/2015,Minor surgery,Smith
+926,76,3/6/2018,Minor surgery,Smith
+927,89,5/16/2019,Acupuncture,Frances
+928,88,1/13/2019,Acupuncture,Hathaway
+929,28,8/9/2017,Minor surgery,Ridley
+930,88,4/6/2019,GP checkup,Smith
+931,2,9/20/2019,Physiotherapy,Ridley
+932,129,8/2/2016,Major surgery,Ridley
+933,180,8/31/2016,GP checkup,Hathaway
+934,142,12/2/2016,GP checkup,Ridley
+935,127,6/20/2019,GP checkup,Clooney
+936,160,3/20/2018,Acupuncture,Smith
+937,186,2/8/2015,Minor surgery,Smith
+938,14,2/15/2015,Minor surgery,Frances
+939,166,3/26/2018,Minor surgery,Hathaway
+940,21,6/2/2018,Acupuncture,Hathaway
+941,195,11/29/2016,GP checkup,Smith
+942,63,6/18/2019,Minor surgery,Hathaway
+943,33,2/2/2015,Minor surgery,Ridley
+944,193,9/25/2016,Minor surgery,Clooney
+945,73,10/25/2016,Minor surgery,Clooney
+946,52,6/14/2015,Minor surgery,Smith
+947,193,8/2/2019,Minor surgery,Ridley
+948,136,2/4/2018,Major surgery,Ridley
+949,38,6/26/2016,Acupuncture,Clooney
+950,38,9/2/2018,Physiotherapy,Ridley
+951,65,1/13/2016,Physiotherapy,Hathaway
+952,187,3/14/2016,Major surgery,Ridley
+953,190,4/14/2015,Physiotherapy,Hathaway
+954,154,12/28/2016,Physiotherapy,Ridley
+955,149,4/22/2015,Minor surgery,Hathaway
+956,164,8/28/2016,Minor surgery,Clooney
+957,131,5/23/2015,Acupuncture,Hathaway
+958,117,7/20/2017,Minor surgery,Smith
+959,64,3/22/2019,Physiotherapy,Ridley
+960,39,8/9/2015,Minor surgery,Ridley
+961,140,1/13/2018,Major surgery,Ridley
+962,152,10/2/2017,Minor surgery,Clooney
+963,112,1/28/2015,Acupuncture,Ridley
+964,157,9/14/2019,GP checkup,Hathaway
+965,45,7/26/2015,Physiotherapy,Hathaway
+966,111,3/26/2018,Acupuncture,Hathaway
+967,115,6/15/2015,Major surgery,Hathaway
+968,190,4/11/2017,Acupuncture,Frances
+969,119,4/23/2019,Physiotherapy,Smith
+970,25,7/26/2016,Physiotherapy,Frances
+971,93,7/7/2016,Minor surgery,Frances
+972,199,3/13/2019,Acupuncture,Hathaway
+973,121,5/8/2018,Acupuncture,Ridley
+974,55,6/19/2019,Major surgery,Frances
+975,112,4/27/2016,GP checkup,Hathaway
+976,84,5/17/2018,Major surgery,Smith
+977,37,7/6/2019,Physiotherapy,Clooney
+978,40,3/4/2015,Physiotherapy,Ridley
+979,57,12/26/2015,Physiotherapy,Hathaway
+980,62,12/18/2017,GP checkup,Hathaway
+981,184,1/28/2019,Physiotherapy,Ridley
+982,12,10/22/2016,Minor surgery,Frances
+983,92,7/23/2018,GP checkup,Smith
+984,84,12/2/2017,GP checkup,Clooney
+985,75,8/14/2017,Physiotherapy,Clooney
+986,107,11/25/2017,Minor surgery,Smith
+987,118,9/9/2018,Major surgery,Frances
+988,92,5/5/2019,Minor surgery,Clooney
+989,161,10/30/2016,Major surgery,Smith
+990,162,9/11/2018,Physiotherapy,Clooney
+991,165,9/23/2015,Physiotherapy,Clooney
+992,131,8/19/2019,GP checkup,Ridley
+993,116,4/22/2019,GP checkup,Frances
+994,8,10/28/2015,Physiotherapy,Ridley
+995,147,8/21/2017,Physiotherapy,Frances
+996,120,6/10/2018,Major surgery,Frances
+997,152,7/9/2019,Physiotherapy,Frances
+998,9,4/12/2018,Major surgery,Frances
+999,171,4/24/2017,Minor surgery,Smith
+1000,197,3/23/2016,Acupuncture,Frances

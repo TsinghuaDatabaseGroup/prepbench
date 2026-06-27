@@ -1,0 +1,164 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_germany_grouping_rule",
+      "kind": "Single-table reference",
+      "node_id": "all_base",
+      "op": "project",
+      "source_text": "group the two German countries (eg, West Germany & Germany)",
+      "ref": "mapping = {\n            \"West Germany\": \"Germany\",\n        }\nfor col in [\"Winner\", \"Loser\"]:\n        if col in df_all.columns:\n            df_all[col] = df_all[col].apply(norm_team)"
+    },
+    {
+      "id": "2_shootout_identifier_column",
+      "kind": "Single-table reference",
+      "node_id": "all_base",
+      "op": "project",
+      "intent": "Use the `No.` column as the shootout identifier used downstream (as `No`).",
+      "ref": "df_all[[\"Competition\", \"No.\", \"Winner\", \"Loser\"]]"
+    },
+    {
+      "id": "3_taker_columns_by_prefix",
+      "kind": "Single-table reference",
+      "node_id": "all_base",
+      "op": "project",
+      "intent": "Select the winning/losing taker text columns by prefix matching on column names (“winning team taker” / “losing team taker”).",
+      "ref": "win_taker_col = [c for c in df_all.columns if c.lower().startswith(\"winning team taker\")]\nlose_taker_col = [c for c in df_all.columns if c.lower().startswith(\"losing team taker\")]"
+    },
+    {
+      "id": "4_competition_tag_euros",
+      "kind": "Row-level concept",
+      "node_id": "eu_tag",
+      "op": "project",
+      "source_text": "Determine what competition each penalty was taken in",
+      "ref": "eu_path = inputs_dir / \"input_02.csv\"\ndf_eu = read_clean_csv(eu_path, \"Euros\")"
+    },
+    {
+      "id": "5_include_both_teams_attempts",
+      "kind": "Row-level concept",
+      "node_id": "pen_all",
+      "op": "union",
+      "source_text": "What is the most and least successful time to take a penalty?",
+      "ref": "outcome_w = parse_outcome(r.get(win_taker_col))\nif outcome_w is not None and pd.notna(pen_no):\n    penalties.append({\n        \"Competition\": r[\"Competition\"],\n        \"No\": str(r.get(\"No.\", \"\")).strip(),\n        \"Team\": norm_team(r.get(\"Winner\", \"\")),\n        \"Penalty Number\": int(pen_no),\n        \"outcome\": outcome_w,\n    })\noutcome_l = parse_outcome(r.get(lose_taker_col))\nif outcome_l is not None and pd.notna(pen_no):\n    penalties.append({\n        \"Competition\": r[\"Competition\"],\n        \"No\": str(r.get(\"No.\", \"\")).strip(),\n        \"Team\": norm_team(r.get(\"Loser\", \"\")),\n        \"Penalty Number\": int(pen_no),\n        \"outcome\": outcome_l,\n    })"
+    },
+    {
+      "id": "6_require_valid_penalty_number_and_outcome",
+      "kind": "Operation incomplete",
+      "node_id": "pen_valid",
+      "op": "filter",
+      "intent": "Include only penalty attempts where the penalty number is present/parsable and the outcome is classified as scored or missed.",
+      "ref": "if outcome_w is not None and pd.notna(pen_no):\nif outcome_l is not None and pd.notna(pen_no):"
+    },
+    {
+      "id": "7_outcome_parse_scored_missed_only",
+      "kind": "Row-level concept",
+      "node_id": "pen_win",
+      "op": "project",
+      "intent": "Classify outcomes only when taker text contains “Penalty scored” or “Penalty missed”; otherwise treat as invalid (null).",
+      "ref": "def parse_outcome(cell: str) -> str | None:\n        if cell is None:\n            return None\n        s = str(cell).strip()\n        if s == \"\" or s.lower() == \"nan\":\n            return None\n        if \"Penalty scored\" in s:\n            return \"scored\"\n        if \"Penalty missed\" in s:\n            return \"missed\"\n        return None"
+    },
+    {
+      "id": "8_penalty_number_parse_strip_comma",
+      "kind": "Operation boundary",
+      "node_id": "pen_win",
+      "op": "project",
+      "intent": "Parse Penalty Number as an integer after trimming whitespace and stripping a trailing comma; treat parse failures as null.",
+      "ref": "try:\n            pen_no = int(str(r.get(\"Penalty Number\", \"\").strip()).rstrip(\",\"))\n        except Exception:\n            pen_no = pd.NA"
+    },
+    {
+      "id": "9_round_penalty_scored_pct_whole",
+      "kind": "Operation boundary",
+      "node_id": "penpos_enrich",
+      "op": "project",
+      "intent": "Round penalty scored percentage to the nearest whole percent (integer).",
+      "ref": "pen_grp[\"Penalty Scored %\"] = (pen_grp[\"Penalties Scored\"] / pen_grp[\"Total Penalties\"] * 100).round().astype(int)"
+    },
+    {
+      "id": "10_dense_rank_penalty_position",
+      "kind": "Operation boundary",
+      "node_id": "penpos_enrich",
+      "op": "project",
+      "intent": "Use dense ranking (no gaps) when assigning Rank for penalty positions by percentage.",
+      "ref": "pen_grp[\"Rank\"] = pen_grp[\"Penalty Scored %\"].rank(method=\"dense\", ascending=False).astype(int)"
+    },
+    {
+      "id": "11_exclude_zero_total_penalties_positions",
+      "kind": "Operation incomplete",
+      "node_id": "penpos_filter",
+      "op": "filter",
+      "intent": "Exclude penalty numbers where Total Penalties equals 0.",
+      "ref": "pen_grp = pen_grp[pen_grp[\"Total Penalties\"] > 0].copy()"
+    },
+    {
+      "id": "12_unique_shootout_keys_comp_no_winner_loser",
+      "kind": "Operation boundary",
+      "node_id": "shoot_dedup",
+      "op": "dedup",
+      "intent": "Define unique shootouts by the combination of Competition, No., Winner, and Loser (post-cleaning).",
+      "ref": "shootouts = (\n        df_all[[\"Competition\", \"No.\", \"Winner\", \"Loser\"]]\n        .drop_duplicates()\n        .rename(columns={\"Winner\": \"WinnerTeam\", \"Loser\": \"LoserTeam\", \"No.\": \"No\"})\n    )"
+    },
+    {
+      "id": "13_loser_counts_as_participation_no_win",
+      "kind": "Row-level concept",
+      "node_id": "shoot_lose_rows",
+      "op": "project",
+      "intent": "For shootout-level stats, count the loser as 1 total shootout and 0 shootout wins.",
+      "ref": "all_teams_rows.append({\"Team\": s[\"LoserTeam\"], \"win\": 0, \"total\": 1})"
+    },
+    {
+      "id": "14_winner_counts_as_participation_and_win",
+      "kind": "Row-level concept",
+      "node_id": "shoot_win_rows",
+      "op": "project",
+      "intent": "For shootout-level stats, count the winner as 1 total shootout and 1 shootout win.",
+      "ref": "all_teams_rows.append({\"Team\": s[\"WinnerTeam\"], \"win\": 1, \"total\": 1})"
+    },
+    {
+      "id": "15_round_shootout_win_pct_whole",
+      "kind": "Operation boundary",
+      "node_id": "shoot_rank",
+      "op": "project",
+      "source_text": "Shootout win % (exclude teams who have never won a shootout)",
+      "ref": "agg[\"Shootout Win %\"] = (agg[\"Shootouts\"] / agg[\"Total Shootouts\"] * 100).round().astype(int)"
+    },
+    {
+      "id": "16_dense_rank_shootout_win_pct",
+      "kind": "Operation boundary",
+      "node_id": "shoot_rank",
+      "op": "project",
+      "source_text": "Rank the countries on the following: Shootout win %",
+      "ref": "agg[\"Win % Rank\"] = agg[\"Shootout Win %\"].rank(method=\"dense\", ascending=False).astype(int)"
+    },
+    {
+      "id": "17_round_team_penalty_scored_pct_whole",
+      "kind": "Operation boundary",
+      "node_id": "team_enrich",
+      "op": "project",
+      "source_text": "Penalties scored %",
+      "ref": "team_pen[\"% Total Penalties Scored\"] = (team_pen[\"Penalties Scored\"] / team_pen[\"Total\"] * 100).round().astype(int)"
+    },
+    {
+      "id": "18_dense_rank_team_penalty_scored_pct",
+      "kind": "Operation boundary",
+      "node_id": "team_enrich",
+      "op": "project",
+      "source_text": "Rank the countries on the following: Penalties scored %",
+      "ref": "team_pen[\"Penalties Scored %Rank\"] = team_pen[\"% Total Penalties Scored\"].rank(method=\"dense\", ascending=False).astype(int)"
+    },
+    {
+      "id": "19_exclude_teams_with_zero_total_penalties",
+      "kind": "Operation incomplete",
+      "node_id": "team_filter",
+      "op": "filter",
+      "intent": "Exclude teams where total counted penalties (scored+missed) equals 0.",
+      "ref": "team_pen = team_pen[team_pen[\"Total\"] > 0].copy()"
+    },
+    {
+      "id": "20_competition_tag_world_cup",
+      "kind": "Row-level concept",
+      "node_id": "wc_tag",
+      "op": "project",
+      "source_text": "Determine what competition each penalty was taken in",
+      "ref": "wc_path = inputs_dir / \"input_01.csv\"\ndf_wc = read_clean_csv(wc_path, \"World Cup\")"
+    }
+  ]
+}

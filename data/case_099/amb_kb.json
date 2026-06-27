@@ -1,0 +1,100 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_d2_cusp_pairing_cartesian_2v1",
+      "kind": "Multi-table alignment",
+      "node_id": "cartesian_dates",
+      "op": "filter",
+      "source_text": "For dates on the cusp, if at least one of their new star signs matches",
+      "ref": "pair_len = min(len(old_matches), len(new_matches))"
+    },
+    {
+      "id": "2_o2_keep_only_valid_2020_dates",
+      "kind": "Operation incomplete",
+      "node_id": "dates_filter",
+      "op": "filter",
+      "intent": "Drop invalid/unparseable dates and keep only dates that fall in year 2020.",
+      "ref": "dates_2020 = dates_raw[dates_raw[\"Date\"].dt.year == YEAR]"
+    },
+    {
+      "id": "3_d1_input_schema_headers",
+      "kind": "Single-table reference",
+      "node_id": "inputs",
+      "op": "input",
+      "source_text": "Be careful your data isn't mistaken for a header.",
+      "ref": "input_01/input_02: header=None; input_03: has header"
+    },
+    {
+      "id": "4_o1_birthday_field_format",
+      "kind": "Row-level concept",
+      "node_id": "dates_parse",
+      "op": "project",
+      "intent": "Format the Birthday field as '<month_abbrev> <day_number>'.",
+      "ref": "f\"{current_date.strftime('%b')} {current_date.day}\""
+    },
+    {
+      "id": "5_o2_input_03_date_parsing_dd_mm_yyyy",
+      "kind": "Row-level concept",
+      "node_id": "dates_parse",
+      "op": "project",
+      "intent": "Parse input_03.csv Date values using DD/MM/YYYY format.",
+      "ref": "pd.to_datetime(dates_raw[\"Date\"], format=\"%d/%m/%Y\", errors=\"coerce\")"
+    },
+    {
+      "id": "6_d1_date_range_from_new_system_label",
+      "kind": "Single-table reference",
+      "node_id": "final_cols",
+      "op": "project",
+      "source_text": "Create a date range for the new star signs.",
+      "ref": "\"Date Range\": new_sign[\"range_str\"]"
+    },
+    {
+      "id": "7_o1_system_range_inclusive_and_wrap_year_end",
+      "kind": "Operation boundary",
+      "node_id": "match_filter",
+      "op": "filter",
+      "intent": "Treat sign ranges as inclusive, and wrap across year-end if needed.",
+      "ref": "_range_contains(start_doy, end_doy, target_doy)"
+    },
+    {
+      "id": "8_o3_system_multi_match_ordering",
+      "kind": "Operation inconsistent",
+      "node_id": "match_sort",
+      "op": "sort",
+      "intent": "When multiple sign ranges match, order by cyclic distance from start date.",
+      "ref": "matched.sort(key=lambda item: (item[0], item[1]))"
+    },
+    {
+      "id": "9_o1_new_system_date_range_label_format",
+      "kind": "Row-level concept",
+      "node_id": "new_parse",
+      "op": "project",
+      "intent": "Create Date Range label as '<start_day> <start_month_abbrev> - <end_day> <end_month_abbrev>'.",
+      "ref": "f\"{start_day} {_month_abbrev(start_month)} - {end_day} {_month_abbrev(end_month)}\""
+    },
+    {
+      "id": "10_o2_old_system_range_parsing_month_day_order",
+      "kind": "Row-level concept",
+      "node_id": "old_parse",
+      "op": "project",
+      "intent": "Parse old-system date ranges in M/D format (month/day, month first).",
+      "ref": "re.match(r\"(\\d{1,2})/(\\d{1,2})–(\\d{1,2})/(\\d{1,2})\", range_clean)"
+    },
+    {
+      "id": "11_d2_pair_matches_by_ordered_position",
+      "kind": "Multi-table alignment",
+      "node_id": "pairs_rank_join",
+      "op": "join",
+      "source_text": "For dates on the cusp, if at least one of their new star signs matches",
+      "ref": "for idx in range(pair_len): old_sign = old_matches[idx]"
+    },
+    {
+      "id": "new_1_exclude_june_21_cusp_date",
+      "kind": "Operation incomplete",
+      "node_id": "dates_filter_special_case",
+      "op": "filter",
+      "intent": "Exclude June 21, 2020 from the output entirely before old/new star-sign pairing.",
+      "ref": "if current_date.month == 6 and current_date.day == 21:\n    continue"
+    }
+  ]
+}

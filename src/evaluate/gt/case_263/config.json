@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Tier"],
+      "columns": {
+        "Tier": "text_exact",
+        "Year Cost": "number",
+        "Number of Customers": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Tier"],
+      "columns": {
+        "Tier": "text_exact",
+        "Year Cost": "number",
+        "Number of Customers": "number"
+      }
+    }
+  }
+}
+
+

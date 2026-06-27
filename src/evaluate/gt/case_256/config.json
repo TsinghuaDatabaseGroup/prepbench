@@ -1,0 +1,33 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Date", "Flight Number", "From", "To", "Class", "Price", "Flow Card?", "Bags Checked", "Meal Type"],
+      "columns": {
+        "Date": "date",
+        "Flight Number": "text_exact",
+        "From": "text_exact",
+        "To": "text_exact",
+        "Class": "text_exact",
+        "Price": "number",
+        "Flow Card?": "boolean",
+        "Bags Checked": "number",
+        "Meal Type": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Date", "Flight Number", "From", "To", "Class", "Price", "Flow Card?", "Bags Checked", "Meal Type"],
+      "columns": {
+        "Date": "date",
+        "Flight Number": "text_exact",
+        "From": "text_exact",
+        "To": "text_exact",
+        "Class": "text_exact",
+        "Price": "number",
+        "Flow Card?": "boolean",
+        "Bags Checked": "number",
+        "Meal Type": "text_exact"
+      }
+    }
+  }
+}
+

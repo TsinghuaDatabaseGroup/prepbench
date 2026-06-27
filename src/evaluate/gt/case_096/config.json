@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Email",
+        "Email Subject",
+        "Email Body"
+      ],
+      "columns": {
+        "Email": "text_exact",
+        "Email Subject": "text_exact",
+        "Email Body": "text_exact"
+      }
+    }
+  }
+}
+

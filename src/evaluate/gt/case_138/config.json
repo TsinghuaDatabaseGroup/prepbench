@@ -1,0 +1,27 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Batch No.",
+        "Name of Process Step",
+        "Bike Type",
+        "Batch Status",
+        "Datetime",
+        "Data Parameter",
+        "Target",
+        "Actual"
+      ],
+      "columns": {
+        "Batch No.": "number",
+        "Name of Process Step": "text_exact",
+        "Bike Type": "text_exact",
+        "Batch Status": "boolean",
+        "Datetime": "datetime",
+        "Data Parameter": "text_exact",
+        "Target": "number",
+        "Actual": "number"
+      }
+    }
+  }
+}
+

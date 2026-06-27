@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_length_inclusive_upper_bound",
+      "kind": "Operation boundary",
+      "node_id": "filter_len",
+      "op": "filter",
+      "source_text": "from their start date until 'x' months in the future when the contract runs out",
+      "ref": "exp = exp[exp[\"Length\"] <= exp[\"Contract Length (months)\"]].copy()"
+    },
+    {
+      "id": "2_D2_cartesian_expand_via_constant_key",
+      "kind": "Multi-table alignment",
+      "node_id": "join_expand",
+      "op": "join",
+      "intent": "Expand contracts by pairing each contract with all rows in the lengths table (cartesian-style) via a constant join key.",
+      "ref": "contracts_[\"__key\"] = 1\nlengths_[\"__key\"] = 1\nexp = pd.merge(contracts_, lengths_, on=\"__key\").drop(columns=[\"__key\"])"
+    },
+    {
+      "id": "3_C2_payment_date_add_month_offset",
+      "kind": "Row-level concept",
+      "node_id": "proj_after_join",
+      "op": "project",
+      "intent": "Compute Payment Date by adding the month offset (idx months) to Start Date for each expanded row.",
+      "ref": "exp[\"Payment Date\"] = exp[\"Start Date\"] + exp[\"idx\"].apply(lambda m: pd.DateOffset(months=int(m)))"
+    },
+    {
+      "id": "4_O1_zero_based_month_offset_idx",
+      "kind": "Operation boundary",
+      "node_id": "proj_after_join",
+      "op": "project",
+      "intent": "Define the month offset idx as zero-based (Length minus 1).",
+      "ref": "exp[\"idx\"] = exp[\"Length\"] - 1"
+    },
+    {
+      "id": "5_O2_start_date_parse_iso_strict",
+      "kind": "Operation incomplete",
+      "node_id": "proj_contracts",
+      "op": "project",
+      "intent": "Parse Start Date strictly from an ISO-style YYYY-MM-DD string, raising an error on parse failures.",
+      "ref": "contracts[\"Start Date\"] = pd.to_datetime(contracts[\"Start Date\"], format=\"%Y-%m-%d\", errors=\"raise\")"
+    }
+  ]
+}

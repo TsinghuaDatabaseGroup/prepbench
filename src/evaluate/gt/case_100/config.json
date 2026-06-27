@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Quarter", "Day of Month", "Store", "Bike", "Order ID", "Customer Age", "Bike Value", "Existing Customer?"],
+      "columns": {
+        "Quarter": "number",
+        "Day of Month": "number",
+        "Store": "text_exact",
+        "Bike": "text_exact",
+        "Order ID": "number",
+        "Customer Age": "number",
+        "Bike Value": "number",
+        "Existing Customer?": "boolean"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_date_end_columns",
+      "kind": "Single-table reference",
+      "node_id": "compute_core",
+      "op": "project",
+      "source_text": "Create an engagement start date and an engagement end date (the year is 2024 in case you are doing this task after the normal release week)",
+      "ref": "engagements[\"Engagement End Date\"] = to_date(\"Engagement End Day\", \"Engagement End Month\")"
+    },
+    {
+      "id": "2_date_start_columns",
+      "kind": "Single-table reference",
+      "node_id": "compute_core",
+      "op": "project",
+      "source_text": "Create an engagement start date and an engagement end date (the year is 2024 in case you are doing this task after the normal release week)",
+      "ref": "engagements[\"Engagement Start Date\"] = to_date(\"Engagement Start Day\", \"Engagement Start Month\")"
+    },
+    {
+      "id": "3_inverted_range_strict_lt",
+      "kind": "Operation boundary",
+      "node_id": "drop_invalid_same_day",
+      "op": "filter",
+      "intent": "When filtering inverted date ranges within duplicated start dates, treat invalid as Engagement End Date strictly earlier than Engagement Start Date (end < start).",
+      "ref": "mask_invalid = (g[\"Engagement End Date\"] < g[\"Engagement Start Date\"]) & dup_start"
+    },
+    {
+      "id": "4_inverted_range_only_on_duplicated_starts",
+      "kind": "Row-level concept",
+      "node_id": "drop_invalid_same_day",
+      "op": "filter",
+      "intent": "Apply the inverted date-range removal only within (Initials, Engagement Start Date) duplicated-start-date sets; do not apply it when the start date is unique for that person.",
+      "ref": "dup_start = g.duplicated(subset=[\"Engagement Start Date\"], keep=False)\nengagements = engagements.groupby(\"Initials\", group_keys=False).apply(drop_invalid_same_day)"
+    },
+    {
+      "id": "18_sort_ties_by_end_date_ascending",
+      "kind": "Row-level concept",
+      "node_id": "sort1",
+      "op": "sort",
+      "source_text": "Create an 'Engagement Order' based on the Engagement Start Date",
+      "ref": "df = df.sort_values([\"Initials\", \"Engagement Start Date\", \"Engagement End Date\"], ascending=[True, True, True]).reset_index(drop=True)"
+    }
+  ]
+}

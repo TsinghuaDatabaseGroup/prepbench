@@ -1,0 +1,13 @@
+Country,Month,Product,Profit
+Scotland,2019-01-19,Bar Soap,1475
+Scotland,2019-02-19,Bar Soap,1350
+Scotland,2019-03-19,Bar Soap,1550
+Scotland,2019-01-19,Liquid Soap,755
+Scotland,2019-02-19,Liquid Soap,695
+Scotland,2019-03-19,Liquid Soap,645
+England,2019-01-19,Bar Soap,1955
+England,2019-02-19,Bar Soap,2145
+England,2019-01-19,Liquid Soap,1630
+England,2019-02-19,Liquid Soap,1755
+England,2019-03-19,Bar Soap,2079
+England,2019-03-19,Liquid Soap,914

@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_employee_uniqueness_keys",
+      "kind": "Single-table reference",
+      "node_id": "employees_dedup",
+      "op": "dedup",
+      "source_text": "Get a unique list of employees with their full name, first/last name fields, and employee id",
+      "ref": "employees_df = df[['emp_id', 'first_name', 'last_name', 'full_name']].drop_duplicates()"
+    },
+    {
+      "id": "2_O1_output_date_string_format_mdyyyy",
+      "kind": "Operation boundary",
+      "node_id": "finalize_compute",
+      "op": "project",
+      "intent": "Format scheduled_date as M/D/YYYY with no leading zeros for month/day.",
+      "ref": "employee_calendar['scheduled_date'] = employee_calendar['scheduled_date_parsed'].apply(\n        lambda x: f\"{x.month}/{x.day}/{x.year}\"\n    )"
+    },
+    {
+      "id": "3_O2_unscheduled_fill_false",
+      "kind": "Operation incomplete",
+      "node_id": "finalize_compute",
+      "op": "project",
+      "source_text": "Handle any null values",
+      "ref": "result['scheduled'] = result['scheduled'].fillna(False)"
+    },
+    {
+      "id": "4_O2_output_type_casts",
+      "kind": "Operation boundary",
+      "node_id": "finalize_compute",
+      "op": "project",
+      "intent": "Cast emp_id to integer and scheduled to boolean in the output.",
+      "ref": "output['emp_id'] = output['emp_id'].astype(int)\noutput['scheduled'] = output['scheduled'].astype(bool)"
+    },
+    {
+      "id": "5_D2_join_keys_empid_and_date",
+      "kind": "Multi-table alignment",
+      "node_id": "mark_scheduled",
+      "op": "join",
+      "source_text": "Join the new calendar table to the main table",
+      "ref": "        on=['emp_id', 'scheduled_date_parsed'],"
+    },
+    {
+      "id": "6_O2_parse_date_mmddyyyy",
+      "kind": "Operation boundary",
+      "node_id": "parse_dates_and_fullname",
+      "op": "project",
+      "source_text": "If earliest date is 06/01/2021, the start date should be 01/01/2021",
+      "ref": "df['scheduled_date_parsed'] = pd.to_datetime(df['scheduled_date'], format='%m/%d/%Y')"
+    },
+    {
+      "id": "7_C2_full_name_first_space_last",
+      "kind": "Row-level concept",
+      "node_id": "parse_dates_and_fullname",
+      "op": "project",
+      "source_text": "Create a field containing the full name for each employee",
+      "ref": "df['full_name'] = df['first_name'] + ' ' + df['last_name']"
+    },
+    {
+      "id": "8_O3_dedup_scheduled_occurrences_by_empid_date",
+      "kind": "Operation inconsistent",
+      "node_id": "scheduled_dedup",
+      "op": "dedup",
+      "intent": "If multiple input rows share the same (emp_id, scheduled_date), treat them as one scheduled occurrence.",
+      "ref": "df_scheduled = df_scheduled.drop_duplicates(subset=['emp_id', 'scheduled_date_parsed'])"
+    },
+    {
+      "id": "9_O2_scheduled_flag_value_true",
+      "kind": "Row-level concept",
+      "node_id": "scheduled_flag",
+      "op": "project",
+      "intent": "Set the scheduled flag to boolean True for matched scheduled occurrences.",
+      "ref": "df_scheduled['scheduled'] = True"
+    }
+  ]
+}

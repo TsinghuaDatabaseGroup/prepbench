@@ -1,0 +1,100 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_daily_max_min_first_second",
+      "kind": "Row-level concept",
+      "node_id": "days_compute",
+      "op": "project",
+      "intent": "For daily rows, assign the first extracted temperature to Max Temp and the second to Min Temp.",
+      "ref": "max_temp = temp_values[0]; min_temp = temp_values[1]"
+    },
+    {
+      "id": "2_C2_daily_temperature_null",
+      "kind": "Operation incomplete",
+      "node_id": "days_compute",
+      "op": "project",
+      "intent": "For daily rows, leave the Temperature field null.",
+      "ref": "temperature = None"
+    },
+    {
+      "id": "3_O1_daily_today_min_only",
+      "kind": "Operation incomplete",
+      "node_id": "days_compute",
+      "op": "project",
+      "intent": "For daily rows where Date equals 'Today', only populate Min Temp with the first temperature.",
+      "ref": "if date_str == 'Today': min_temp = temp_values[0]"
+    },
+    {
+      "id": "4_O2_numeric_nullable_int",
+      "kind": "Operation incomplete",
+      "node_id": "compute",
+      "op": "project",
+      "intent": "Ensure numeric output fields use nullable integer types so missing values remain null.",
+      "ref": "output_df['Temperature'] = output_df['Temperature'].astype('Int64')"
+    },
+    {
+      "id": "5_O2_drop_empty_data_cells",
+      "kind": "Operation incomplete",
+      "node_id": "filter_valid",
+      "op": "filter",
+      "intent": "Drop input rows where the Data cell is empty/blank.",
+      "ref": "if not data_str.strip(): continue"
+    },
+    {
+      "id": "6_C2_date_first_line",
+      "kind": "Row-level concept",
+      "node_id": "parse",
+      "op": "project",
+      "intent": "Set Date or Time to the first line of the Data cell.",
+      "ref": "date_str = lines[0].strip()"
+    },
+    {
+      "id": "7_C2_precip_pattern_extract",
+      "kind": "Row-level concept",
+      "node_id": "parse",
+      "op": "project",
+      "intent": "Extract Precipitation Chance as an integer from 'Chance of Rain{N}%'.",
+      "ref": "precip_match = re.search(r'Chance of Rain(\\d+)%', line)"
+    },
+    {
+      "id": "8_C2_temp_values_extract_signed",
+      "kind": "Row-level concept",
+      "node_id": "parse",
+      "op": "project",
+      "intent": "Extract signed integer temperature values from Data lines.",
+      "ref": "temp_matches = re.findall(r'(-?\\d+)', line)"
+    },
+    {
+      "id": "9_O2_precip_missing_null",
+      "kind": "Operation incomplete",
+      "node_id": "parse",
+      "op": "project",
+      "intent": "If no precipitation pattern is present, leave Precipitation Chance null.",
+      "ref": "precip = None"
+    },
+    {
+      "id": "10_C2_hours_forecast_type_constant",
+      "kind": "Row-level concept",
+      "node_id": "hours_parse",
+      "op": "project",
+      "intent": "For hourly rows, set Forecast Type to 'Next 5 Hours'.",
+      "ref": "'Forecast Type': 'Next 5 Hours'"
+    },
+    {
+      "id": "11_C2_hours_max_min_null",
+      "kind": "Operation incomplete",
+      "node_id": "hours_parse",
+      "op": "project",
+      "intent": "For hourly rows, set Max Temp and Min Temp to null.",
+      "ref": "'Max Temp': None, 'Min Temp': None"
+    },
+    {
+      "id": "12_O3_union_keep_all_rows",
+      "kind": "Operation inconsistent",
+      "node_id": "union_all",
+      "op": "union",
+      "intent": "Union hourly and daily rows without deduplication.",
+      "ref": "output_df = pd.DataFrame(results)"
+    }
+  ]
+}
