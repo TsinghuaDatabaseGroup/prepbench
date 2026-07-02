@@ -79,7 +79,7 @@ guidelines: |
   - `node_id`, `op`: The responsible pipeline node and operation type
   - `ref`: A minimal code snippet from solution.py (evidence only, DO NOT quote in answers)
   - Either `source_text` (verbatim ambiguous phrase from the original request)
-    OR `intent` (the corresponding clarified interpretation from disamb request
+    OR `intent` (the corresponding clarified interpretation from the clarified request
     when the original request does not explicitly state it)
   
   IMPORTANT: The `ref` field in amb_kb is a CODE SNIPPET. When you answer from the library,

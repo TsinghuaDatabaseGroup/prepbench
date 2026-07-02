@@ -194,9 +194,9 @@ More details: [docs/USER_SIMULATOR.md](docs/USER_SIMULATOR.md) and
 ## Results
 
 Paper result figures and benchmark analysis are collected in
-[docs/RESULTS.md](docs/RESULTS.md). The public repository exposes the
-table-output evaluator for the tracks above; ambiguity and workflow-translation
-figures are paper analysis.
+[docs/RESULTS.md](docs/RESULTS.md) as paper context. The open-source benchmark
+surface for leaderboard submissions is the table-output evaluator for the tracks
+above.
 
 ## Reporting Results
 

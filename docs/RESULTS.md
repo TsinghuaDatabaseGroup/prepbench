@@ -1,9 +1,11 @@
-# Experimental Results
+# Paper Results
 
-This page collects the figures used in the PrepBench paper. The public
-repository exposes table-output evaluation for the `interactive`, `direct`, and
-`oracle` tracks described in [EVALUATION.md](EVALUATION.md). Figures about
-ambiguity, interaction, and workflow translation are paper analysis.
+This page collects figures from the PrepBench paper. They are included as
+context for the benchmark design, not as a required reproduction workflow for
+leaderboard users.
+
+For leaderboard submissions, use the table-output evaluator described in
+[EVALUATION.md](EVALUATION.md) and report the score from `acc.txt`.
 
 ## Dataset Statistics
 
@@ -34,7 +36,7 @@ the model and on question quality.
 
 ![Question budget usage across models](assets/result_question_budget.png)
 
-![Disambiguation recall by ambiguity type](assets/result_disambiguation_recall.png)
+![Clarification recall by ambiguity type](assets/result_clarification_recall.png)
 
 ## Profiling
 
@@ -47,8 +49,8 @@ Data profiling has uneven effects across agents and irregularity types.
 ## Workflow Translation
 
 These figures analyze the paper's workflow-translation setting. They are
-included here for completeness, but the current public release centers on
-table-output evaluation.
+included here for paper context, but workflow translation is not part of the
+public leaderboard interface.
 
 ![Translation outcome composition across models](assets/result_workflow_translation.png)
 
