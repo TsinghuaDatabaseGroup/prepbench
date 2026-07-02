@@ -111,15 +111,16 @@ Disallowed examples:
 - asking for code, target outputs, or a full hidden specification
 - bundling multiple unrelated decisions into one sub-question
 
-## Private Reference Solutions
+## Reference Solutions
 
-The simulator uses private reference solutions as benchmark-side evidence. They
-are not shipped in the public repository.
+The simulator uses reference solutions as benchmark-side evidence. The public
+repository includes them under `reference/solutions/` for reproducibility and
+local simulator use.
 
-Configure them with:
+The default path can be overridden with:
 
 ```bash
-export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/private_solutions
+export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/reference_solutions
 ```
 
 Supported layouts:
@@ -134,10 +135,11 @@ case_001.py
 Default local mount point:
 
 ```text
-src/simulator/assets/solutions/
+reference/solutions/
 ```
 
-That directory is ignored by Git.
+Reference solutions are answer artifacts. Do not provide them as model input or
+use them as submission assistance when evaluating an agent.
 
 ## Detailed Contract
 

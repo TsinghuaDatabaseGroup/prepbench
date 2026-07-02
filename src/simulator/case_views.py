@@ -84,8 +84,8 @@ def load_internal_case_view(
     if require_reference_solution and not reference_solution_text.strip():
         raise FileNotFoundError(
             "Reference solution is required for "
-            f"{public.case_id}. Set PREPBENCH_SOLUTIONS_ROOT to your private "
-            "solutions directory if not using the default local mount point."
+            f"{public.case_id}. Set PREPBENCH_SOLUTIONS_ROOT to a compatible "
+            "solutions directory if not using the default reference/solutions path."
         )
 
     return InternalCaseView(

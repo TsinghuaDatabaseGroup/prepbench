@@ -25,8 +25,7 @@ make check
 
 ## Reference Verification
 
-Benchmark-side maintainers with private reference solutions can verify generated
-answers against the public evaluator:
+Maintainers can verify public reference solutions against the public evaluator:
 
 ```bash
 make verify-reference-outputs

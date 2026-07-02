@@ -116,7 +116,7 @@ Asset visibility:
 | `query_full.md` | Only in `oracle` track | Clarified task instruction |
 | `amb_kb.json` | No | Simulator and ambiguity metadata |
 | `src/evaluate/gt/` | No | Ground-truth outputs and comparison config |
-| private reference solutions | No | Simulator-side evidence only |
+| `reference/solutions/` | No | Reference implementations for reproducibility and simulator evidence |
 
 Validate the local dataset:
 
@@ -127,7 +127,7 @@ python scripts/validate_dataset.py
 Expected summary:
 
 ```text
-cases=306 input_tables=829 gt_cases=306 errors=0
+cases=306 input_tables=829 gt_cases=306 solution_cases=306 errors=0
 ```
 
 More details: [docs/DATASET.md](docs/DATASET.md).
@@ -169,11 +169,9 @@ PREPBENCH_SIMULATOR_MODEL=your-model-name
 OPENROUTER_API_KEY=your_openrouter_api_key
 ```
 
-Provide private reference solutions locally:
-
-```bash
-export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/private_solutions
-```
+The local simulator uses the public reference solutions in `reference/solutions/`
+by default. You can override that path with `PREPBENCH_SOLUTIONS_ROOT` when
+testing alternate benchmark-side solutions.
 
 Then call the local API:
 
@@ -220,13 +218,15 @@ table preparation under clarified instructions.
 **Why is my case marked `NOT_FOUND`?** The evaluator expects candidate CSVs under
 `case_xxx/solution/cand/`.
 
-**Why does the simulator fail before answering?** Set a simulator API key and
-make sure `PREPBENCH_SOLUTIONS_ROOT` points to private reference solutions.
+**Why does the simulator fail before answering?** Set a simulator API key. If
+you changed the default reference-solution path, make sure
+`PREPBENCH_SOLUTIONS_ROOT` points to a compatible solutions directory.
 
-## Private Assets
+## Reference Solutions
 
-Reference solutions are used only by benchmark-side simulation. They are not
-part of the public repository and are ignored by Git.
+Reference solutions are included for reproducibility, validator maintenance, and
+benchmark-side user simulation. They are answer artifacts: do not use them as
+model input or submission assistance when evaluating an agent.
 
 Supported local layouts:
 
@@ -240,7 +240,7 @@ case_001.py
 Default local mount point:
 
 ```text
-src/simulator/assets/solutions/
+reference/solutions/
 ```
 
 ## Citation

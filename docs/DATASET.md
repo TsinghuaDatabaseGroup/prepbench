@@ -36,6 +36,7 @@ data/case_xxx/query_full.md
 data/case_xxx/amb_kb.json
 src/evaluate/gt/case_xxx/config.json
 src/evaluate/gt/case_xxx/output_*.csv
+reference/solutions/case_xxx/solution.py
 ```
 
 Meanings:
@@ -45,6 +46,8 @@ Meanings:
   ambiguity analysis.
 - `config.json`: typed output-comparison rules for the evaluator.
 - `output_*.csv`: ground-truth prepared tables.
+- `reference/solutions/`: reference implementations used for reproducibility
+  checks and simulator evidence.
 
 ## Asset Visibility
 
@@ -55,7 +58,7 @@ Meanings:
 | `inputs/*.csv` | Visible | Visible | Visible | Raw input tables |
 | `amb_kb.json` | Hidden | Hidden | Hidden | Simulator and ambiguity metadata |
 | `src/evaluate/gt/` | Hidden | Hidden | Hidden | Evaluation target |
-| private reference solutions | Hidden | Hidden | Hidden | Simulator-side evidence |
+| `reference/solutions/` | Hidden | Hidden | Hidden | Reference implementation |
 
 ## Expected Layout
 
@@ -73,6 +76,11 @@ src/evaluate/gt/
   case_001/
     config.json
     output_01.csv
+  ...
+
+reference/solutions/
+  case_001/
+    solution.py
   ...
 ```
 
@@ -92,11 +100,12 @@ The validator checks:
 - at least one input CSV per case
 - at least one GT output CSV per case
 - one GT directory per data case
+- one reference solution per data case
 
 Expected summary:
 
 ```text
-cases=306 input_tables=829 gt_cases=306 errors=0
+cases=306 input_tables=829 gt_cases=306 solution_cases=306 errors=0
 ```
 
 ## Source Links

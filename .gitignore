@@ -59,7 +59,7 @@ tmp/
 
 @output.zip
 
-# Benchmark reference solutions (gtcode) are kept local only.
+# Legacy/local reference-solution override paths.
 data/case_*/solution.py
 simulator/assets/solutions/
 src/simulator/assets/solutions/

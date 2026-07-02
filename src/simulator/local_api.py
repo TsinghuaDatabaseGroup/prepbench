@@ -29,7 +29,7 @@ class LocalUserSimulatorAPI:
     """
     Local (non-network) user simulator interface for external-agent integration.
 
-    This API hides benchmark-private assets (query_full/amb_kb/reference solution)
+    This API hides benchmark-side assets (query_full/amb_kb/reference solution)
     behind a simple session-based interface:
       - start_session(case_id, run_id)
       - ask(session_id, questions, round)

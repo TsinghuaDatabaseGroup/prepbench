@@ -7,10 +7,10 @@ Implementation:
 - `simulator.LocalUserSimulatorAPI`
 
 Reference-solution dependency:
-- `start_session(...)` requires benchmark-private reference solutions.
-- The public repository intentionally does not ship a reference-solutions folder.
-- Set `PREPBENCH_SOLUTIONS_ROOT` to your private solutions directory.
-- Recommended layout: `case001/solution.py` (legacy `case_001.py` style is also accepted).
+- `start_session(...)` requires reference solutions.
+- The public repository ships them under `reference/solutions/`.
+- Set `PREPBENCH_SOLUTIONS_ROOT` only when overriding the default path.
+- Recommended layout: `case_001/solution.py` (legacy `case001.py` style is also accepted).
 
 This API is the supported external interface. It is preferable to calling
 `UserSimulator` directly, because it owns session state, question budgets, and

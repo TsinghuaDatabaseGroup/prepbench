@@ -13,6 +13,11 @@ def parse_args() -> argparse.Namespace:
         default="src/evaluate/gt",
         help="Path to ground-truth case directories.",
     )
+    parser.add_argument(
+        "--solutions-root",
+        default="reference/solutions",
+        help="Path to public reference-solution case directories.",
+    )
     parser.add_argument("--expected-cases", type=int, default=306)
     return parser.parse_args()
 
@@ -38,6 +43,7 @@ def main() -> int:
     args = parse_args()
     data_root = Path(args.data_root)
     gt_root = Path(args.gt_root)
+    solutions_root = Path(args.solutions_root)
     errors: list[str] = []
 
     if not data_root.is_dir():
@@ -58,29 +64,47 @@ def main() -> int:
             key=case_sort_key,
         )
 
+    if not solutions_root.is_dir():
+        errors.append(f"missing solutions root: {solutions_root}")
+        solution_cases: list[Path] = []
+    else:
+        solution_cases = sorted(
+            [path for path in solutions_root.glob("case_*") if path.is_dir()],
+            key=case_sort_key,
+        )
+
     case_names = {path.name for path in cases}
     gt_case_names = {path.name for path in gt_cases}
+    solution_case_names = {path.name for path in solution_cases}
     input_table_count = 0
 
     if len(cases) != args.expected_cases:
         errors.append(f"expected {args.expected_cases} data cases, found {len(cases)}")
     if len(gt_cases) != args.expected_cases:
         errors.append(f"expected {args.expected_cases} GT cases, found {len(gt_cases)}")
+    if len(solution_cases) != args.expected_cases:
+        errors.append(f"expected {args.expected_cases} solution cases, found {len(solution_cases)}")
 
     expected_names = {f"case_{idx:03d}" for idx in range(1, args.expected_cases + 1)}
     missing_data_cases = sorted(expected_names - case_names)
     missing_gt_cases = sorted(expected_names - gt_case_names)
+    missing_solution_cases = sorted(expected_names - solution_case_names)
     extra_data_cases = sorted(case_names - expected_names)
     extra_gt_cases = sorted(gt_case_names - expected_names)
+    extra_solution_cases = sorted(solution_case_names - expected_names)
 
     if missing_data_cases:
         errors.append(f"missing data cases: {', '.join(missing_data_cases[:10])}")
     if missing_gt_cases:
         errors.append(f"missing GT cases: {', '.join(missing_gt_cases[:10])}")
+    if missing_solution_cases:
+        errors.append(f"missing solution cases: {', '.join(missing_solution_cases[:10])}")
     if extra_data_cases:
         errors.append(f"extra data cases: {', '.join(extra_data_cases[:10])}")
     if extra_gt_cases:
         errors.append(f"extra GT cases: {', '.join(extra_gt_cases[:10])}")
+    if extra_solution_cases:
+        errors.append(f"extra solution cases: {', '.join(extra_solution_cases[:10])}")
 
     for case_dir in cases:
         for name in ("query.md", "query_full.md", "amb_kb.json"):
@@ -109,9 +133,15 @@ def main() -> int:
         if not sorted(gt_case_dir.glob("output_*.csv")):
             errors.append(f"{gt_case_dir}: no output CSV files")
 
+    for solution_case_dir in solution_cases:
+        solution_path = solution_case_dir / "solution.py"
+        if not solution_path.is_file():
+            errors.append(f"{solution_case_dir}: missing solution.py")
+
     print(
         f"cases={len(cases)} input_tables={input_table_count} "
-        f"gt_cases={len(gt_cases)} errors={len(errors)}"
+        f"gt_cases={len(gt_cases)} solution_cases={len(solution_cases)} "
+        f"errors={len(errors)}"
     )
     for error in errors:
         print(f"ERROR: {error}")

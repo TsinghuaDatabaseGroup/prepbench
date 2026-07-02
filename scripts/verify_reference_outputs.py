@@ -64,6 +64,9 @@ def default_solutions_root() -> Path:
     env_root = os.getenv("PREPBENCH_SOLUTIONS_ROOT", "").strip()
     if env_root:
         return Path(env_root).expanduser().resolve()
+    public_root = REPO_ROOT / "reference" / "solutions"
+    if public_root.is_dir():
+        return public_root.resolve()
     return (REPO_ROOT / "src" / "simulator" / "assets" / "solutions").resolve()
 
 
@@ -260,7 +263,7 @@ def check_case_in_subprocess(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Run private PrepBench reference solutions, write their outputs under "
+            "Run PrepBench reference solutions, write their outputs under "
             "@output/reference_check, and verify them with the public evaluator."
         )
     )
@@ -269,7 +272,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--solutions-root",
         default=str(default_solutions_root()),
-        help="Private reference-solution root. Defaults to PREPBENCH_SOLUTIONS_ROOT or src/simulator/assets/solutions.",
+        help="Reference-solution root. Defaults to PREPBENCH_SOLUTIONS_ROOT or reference/solutions.",
     )
     parser.add_argument(
         "--output-root",
