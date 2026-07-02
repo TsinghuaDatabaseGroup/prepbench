@@ -22,7 +22,7 @@
         "Requires Accessible Room?": "boolean",
         "Additional Requests": "text_exact",
         "Request Satisfaction %": "number",
-        "Room": "number",
+        "Room": "text_exact",
         "Adults": "number",
         "Children": "number",
         "Features": "text_exact"
@@ -30,4 +30,3 @@
     }
   }
 }
-

@@ -17,9 +17,9 @@
         "Scent": "text_exact",
         "Supplier": "text_exact",
         "Quantity Requested": "number",
-        "Date Required": "text_date:%d/%m/%Y",
+        "Date Required": "date",
         "Stock Ready?": "boolean",
-        "Date Fulfilled": "text_date:%d/%m/%Y",
+        "Date Fulfilled": "date",
         "Days Request Delayed": "number"
       }
     }

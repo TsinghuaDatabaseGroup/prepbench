@@ -1,10 +1,9 @@
 # Experimental Results
 
 This page collects the figures used in the PrepBench paper. The public
-repository exposes table-output evaluation and disambiguation metrics for the
-`interactive`, `direct`, and `oracle` tracks described in
-[EVALUATION.md](EVALUATION.md). Figures about workflow translation are paper
-analysis unless a corresponding public workflow evaluator is released.
+repository exposes table-output evaluation for the `interactive`, `direct`, and
+`oracle` tracks described in [EVALUATION.md](EVALUATION.md). Figures about
+ambiguity, interaction, and workflow translation are paper analysis.
 
 ## Dataset Statistics
 

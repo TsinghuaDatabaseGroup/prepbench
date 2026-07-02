@@ -22,14 +22,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Compile public packages and example
+      - name: Run public checks
         run: |
-          python -m compileall -q src/evaluate src/simulator/*.py examples scripts/validate_dataset.py
-
-      - name: Dataset layout check
-        run: |
-          python scripts/validate_dataset.py
-
-      - name: Evaluator CLI smoke test
-        run: |
-          PYTHONPATH=src python -m evaluate.batch --help
+          make check

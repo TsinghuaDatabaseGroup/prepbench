@@ -24,17 +24,17 @@ The HRIS tracks employee departments, but sub-department information is needed f
 
 - output_01.csv
   - 14 fields:
-    - Field1
-    - Field2
-    - Field3
-    - Field4
-    - Field5
-    - Field6
-    - Field7
-    - Field8
-    - Field9
-    - Field10
-    - Field11
-    - Field12
-    - Field13
-    - Field14
+    - position_id
+    - employee_id
+    - title
+    - department
+    - supervisor_id
+    - team_id
+    - direct_reports
+    - team_name
+    - team_hierarchy
+    - employee_id_hierarchy
+    - dependent_team_ids
+    - hierarchy_level
+    - subdept_team_id
+    - subdept_name

@@ -15,7 +15,10 @@ def normalize_key_row(row: pd.Series, key_cols: Sequence[str], key_types: Sequen
     normalized_parts: List[Any] = []
     for col, t in zip(key_cols, key_types):
         raw_val = row.get(col)
-        norm = normalize_vector([raw_val], t)
+        try:
+            norm = normalize_vector([raw_val], t)
+        except ValueError as e:
+            raise ValueError(f"column {col!r} ({t}) value {raw_val!r}: {e}") from e
         part = norm[0] if norm else None
         normalized_parts.append(part)
     return tuple(normalized_parts)
@@ -29,7 +32,10 @@ def build_unique_index(
 ) -> Tuple[Optional[Dict[KeyTuple, int]], Optional[Tuple[int, KeyTuple]], Optional[KeyTuple]]:
     index: Dict[KeyTuple, int] = {}
     for i, row in df.iterrows():
-        k = normalize_key_row(row, key_cols, key_types)
+        try:
+            k = normalize_key_row(row, key_cols, key_types)
+        except ValueError as e:
+            raise ValueError(f"row {int(i)}: {e}") from e
         if not allow_empty and any(part is None for part in k):
             return None, (int(i), k), None
         if k in index:
@@ -135,6 +141,11 @@ class TolerantKeyIndex:
     def find_matches(self, target_key: KeyTuple, excluded_indices: set) -> List[Tuple[KeyTuple, int]]:
         if len(target_key) != len(self.key_types):
             return []
+
+        exact_idx = self.cand_index.get(target_key)
+        if exact_idx is not None and exact_idx not in excluded_indices:
+            return [(target_key, exact_idx)]
+
         candidate_sets: List[set[int]] = []
         for col_idx, t in enumerate(self.key_types):
             col = self.col_indexes[col_idx]

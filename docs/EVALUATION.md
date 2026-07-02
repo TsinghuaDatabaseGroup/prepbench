@@ -72,23 +72,6 @@ passed, first_error = evaluate(
 `first_error` is `None` when the candidate passes. Otherwise, it contains the
 first meaningful mismatch.
 
-## Disambiguation Metrics
-
-If your agent stores clarify artifacts, run:
-
-```bash
-PYTHONPATH=src python -m evaluate.disamb --results-root @output/my_agent/interactive
-```
-
-Generated files:
-
-```text
-@output/my_agent/interactive/disamb_summary.csv
-@output/my_agent/interactive/disamb_by_type.csv
-@output/my_agent/interactive/disamb_metrics.json
-@output/my_agent/interactive/disamb_f1.txt
-```
-
 ## Reporting
 
 For each run, report:
@@ -97,4 +80,3 @@ For each run, report:
 - method or model name
 - number of evaluated cases
 - table accuracy from `acc.txt`
-- disambiguation metrics, if the `interactive` track used clarification logs

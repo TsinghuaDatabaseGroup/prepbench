@@ -48,10 +48,10 @@ from the clarified request.
 
 ## Leaderboard
 
-Coming soon. The public evaluator is ready for reproducible submissions; report
-the track, method name, number of evaluated cases, table accuracy from
-`acc.txt`, and disambiguation metrics when the `interactive` track uses
-clarification.
+A public leaderboard will be announced separately. The public evaluator is ready
+for reproducible submissions; report the track, method name, number of evaluated
+cases, table accuracy from `acc.txt`, and any subset boundary if not all cases
+were evaluated.
 
 ## Task Formulation
 
@@ -114,7 +114,7 @@ Asset visibility:
 | `query.md` | Yes | Original task instruction |
 | `inputs/*.csv` | Yes | Raw input tables |
 | `query_full.md` | Only in `oracle` track | Clarified task instruction |
-| `amb_kb.json` | No | Simulator and disambiguation metadata |
+| `amb_kb.json` | No | Simulator and ambiguity metadata |
 | `src/evaluate/gt/` | No | Ground-truth outputs and comparison config |
 | private reference solutions | No | Simulator-side evidence only |
 
@@ -197,15 +197,14 @@ More details: [docs/USER_SIMULATOR.md](docs/USER_SIMULATOR.md) and
 
 Paper result figures and benchmark analysis are collected in
 [docs/RESULTS.md](docs/RESULTS.md). The public repository exposes the
-table-output evaluator and disambiguation metrics for the tracks above; workflow
-translation results are documented as paper analysis unless a corresponding
-public evaluator is released.
+table-output evaluator for the tracks above; ambiguity and workflow-translation
+figures are paper analysis.
 
 ## Reporting Results
 
-Report the track, model or agent name, table accuracy from `acc.txt`, and
-whether disambiguation metrics were used. If only a subset of cases was run,
-report the case range explicitly.
+Report the track, model or agent name, number of evaluated cases, and table
+accuracy from `acc.txt`. If only a subset of cases was run, report the case
+range explicitly.
 
 ## Minimal Example
 

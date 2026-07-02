@@ -1,4 +1,4 @@
-from typing import Any, Callable, Dict, List, Tuple
+from typing import Any, Callable, Dict, List
 
 _NORMALIZERS: Dict[str, Callable[[List[str]], List[Any]]] = {}
 
@@ -25,13 +25,6 @@ def normalize_vector(values: List[str], type_name: str) -> List[Any]:
     return normalizer(values)
 
 
-def _sort_key(v: Any) -> Tuple[int, str]:
-    # Ensure stable comparable key across types
-    if v is None:
-        return (0, "")
-    return (1, repr(v))
-
-
 def _numbers_equal(a: Any, b: Any, tolerance: float = 0.02) -> bool:
     """Compare two numbers with relative tolerance (default 2%)"""
     if a is None and b is None:
@@ -51,7 +44,7 @@ def _numbers_equal(a: Any, b: Any, tolerance: float = 0.02) -> bool:
     return a == b
 
 
-def equals(vec_a: List[Any], vec_b: List[Any], ignore_order: bool, use_number_tolerance: bool = False) -> bool:
+def equals(vec_a: List[Any], vec_b: List[Any], use_number_tolerance: bool = False) -> bool:
     if len(vec_a) != len(vec_b):
         return False
     
@@ -61,8 +54,4 @@ def equals(vec_a: List[Any], vec_b: List[Any], ignore_order: bool, use_number_to
     else:
         compare_fn = lambda a, b: a == b
     
-    if ignore_order:
-        vec_a = sorted(vec_a, key=_sort_key)
-        vec_b = sorted(vec_b, key=_sort_key)
-
     return all(compare_fn(x, y) for x, y in zip(vec_a, vec_b))

@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-git clone https://github.com/zzzbitz/prepbench.git
+git clone https://github.com/TsinghuaDatabaseGroup/prepbench.git
 cd prepbench
 python -m venv .venv
 source .venv/bin/activate
@@ -20,9 +20,16 @@ cp .env.example .env
 ## Pull Request Checklist
 
 ```bash
-python -m compileall src/evaluate src/simulator examples scripts/validate_dataset.py
-python scripts/validate_dataset.py
-PYTHONPATH=src python -m evaluate.batch --help
+make check
+```
+
+## Reference Verification
+
+Benchmark-side maintainers with private reference solutions can verify generated
+answers against the public evaluator:
+
+```bash
+make verify-reference-outputs
 ```
 
 ## Reporting Issues

@@ -48,9 +48,6 @@ You are given two input datasets: a guest list (parties and their needs) and a r
 - Finally, for the rooms with the largest capacity, ensure guests with larger parties are prioritised. Filter the data to remove parties that could fit into smaller rooms:
   - Remove any remaining pairing where the room has adult capacity at least 4 (`Room Adults >= 4`) while the party has 2 or fewer adults (`Party Adults <= 2`).
 
-- Apply the final explicit override used in the allocation logic:
-  - For the party `Gendrich`, when considering rooms with `Room Adults == 4`, retain only `Room == 601` and remove the other `Room Adults == 4` options.
-
 - Output the data:
   - Output grain: one row per remaining valid guest-room pairing after all filters above.
   - Use the room `Features` text as-is in the output.

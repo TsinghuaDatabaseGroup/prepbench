@@ -41,8 +41,8 @@ src/evaluate/gt/case_xxx/output_*.csv
 Meanings:
 
 - `query_full.md`: clarified specification used by benchmark-side components.
-- `amb_kb.json`: ambiguity slots used by the user simulator and disambiguation
-  metrics.
+- `amb_kb.json`: ambiguity slots used by the user simulator and paper-side
+  ambiguity analysis.
 - `config.json`: typed output-comparison rules for the evaluator.
 - `output_*.csv`: ground-truth prepared tables.
 
@@ -53,7 +53,7 @@ Meanings:
 | `query.md` | Visible | Visible | Optional | Original task instruction |
 | `query_full.md` | Hidden | Hidden | Visible | Clarified task instruction |
 | `inputs/*.csv` | Visible | Visible | Visible | Raw input tables |
-| `amb_kb.json` | Hidden | Hidden | Hidden | Simulator and disambiguation metadata |
+| `amb_kb.json` | Hidden | Hidden | Hidden | Simulator and ambiguity metadata |
 | `src/evaluate/gt/` | Hidden | Hidden | Hidden | Evaluation target |
 | private reference solutions | Hidden | Hidden | Hidden | Simulator-side evidence |
 

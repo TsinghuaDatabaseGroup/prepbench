@@ -102,7 +102,6 @@ class Evaluator:
 
         key_cols: List[str] = file_cfg.get("key", [])
         columns_spec: Dict[str, str] = file_cfg.get("columns", {})
-        ignore_order: bool = bool(file_cfg.get("ignore_order", True))
 
         if not self._validate_columns(gt_path.name, gt_df, cand_df, columns_spec):
             return
@@ -113,7 +112,7 @@ class Evaluator:
             self.report["diff_summary"].setdefault("row_count_delta", {})[filename] = delta
             return
 
-        self._compare_data(gt_path.name, gt_df, cand_df, key_cols, columns_spec, ignore_order)
+        self._compare_data(gt_path.name, gt_df, cand_df, key_cols, columns_spec)
 
     def _validate_columns(self, filename: str, gt_df: pd.DataFrame, cand_df: pd.DataFrame, columns_spec: Dict[str, str]) -> bool:
         required_cols = set(columns_spec.keys())
@@ -125,7 +124,7 @@ class Evaluator:
             return False
         return True
 
-    def _compare_data(self, filename: str, gt_df: pd.DataFrame, cand_df: pd.DataFrame, key_cols: List[str], columns_spec: Dict[str, str], ignore_order: bool):
+    def _compare_data(self, filename: str, gt_df: pd.DataFrame, cand_df: pd.DataFrame, key_cols: List[str], columns_spec: Dict[str, str]):
         """
         Tolerant key matching with fail-fast behavior.
         - Key matching is tolerant (e.g., numeric tolerance).
@@ -141,8 +140,27 @@ class Evaluator:
         key_types = [columns_spec[c] for c in key_cols]
         compare_cols = [c for c in columns_spec if c not in key_cols]
         
-        gt_k_index, _, gt_dup = build_unique_index(gt_df, key_cols, key_types, allow_empty=True)
-        cand_k_index, _, cand_dup = build_unique_index(cand_df, key_cols, key_types, allow_empty=True)
+        try:
+            gt_k_index, _, gt_dup = build_unique_index(gt_df, key_cols, key_types, allow_empty=True)
+        except ValueError as e:
+            self._add_error(
+                "KEY_MISMATCH",
+                f"Invalid key value in gold for file {filename}: {e}",
+                file=filename,
+                detail={"reason": "invalid_key_value", "side": "gold"},
+            )
+            return
+
+        try:
+            cand_k_index, _, cand_dup = build_unique_index(cand_df, key_cols, key_types, allow_empty=True)
+        except ValueError as e:
+            self._add_error(
+                "KEY_MISMATCH",
+                f"Invalid key value in candidate for file {filename}: {e}",
+                file=filename,
+                detail={"reason": "invalid_key_value", "side": "candidate"},
+            )
+            return
 
         if gt_dup or cand_dup:
             side = "GT" if gt_dup else "CAND"
@@ -233,7 +251,7 @@ class Evaluator:
                     cand_vec = normalize_vector([cand_val], type_name)
                     use_tol = (type_name == "number")
 
-                    if not equals(gt_vec, cand_vec, ignore_order=ignore_order, use_number_tolerance=use_tol):
+                    if not equals(gt_vec, cand_vec, use_number_tolerance=use_tol):
                         sample = {
                             "file": filename,
                             "col": col,

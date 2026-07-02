@@ -2,7 +2,8 @@
     "files": {
         "output_01.csv": {
             "key": [
-                "TicketID"
+                "TicketID",
+                "MemberID"
             ],
             "columns": {
                 "Total Ticket Price": "number",
