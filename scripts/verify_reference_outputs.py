@@ -21,17 +21,7 @@ if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
 from evaluate.core import evaluate
-
-
-def normalize_case_id(value: str) -> str:
-    raw = str(value or "").strip().lower()
-    if not raw:
-        raise ValueError("empty case id")
-    if raw.startswith("case_"):
-        return f"case_{int(raw.split('_', 1)[1]):03d}"
-    if raw.startswith("case"):
-        return f"case_{int(raw[4:]):03d}"
-    return f"case_{int(raw):03d}"
+from prepbench.case_ids import normalize_case_id
 
 
 def parse_case_selectors(values: list[str]) -> set[str]:

@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Tuple, Set
 
 import pandas as pd
 
-from .config import load_config
+from .config import ConfigError, load_config
 from .io_utils import list_csvs, read_csv
 from .keys import build_unique_index
 from .matchers.base import normalize_vector, equals
@@ -44,7 +44,11 @@ class Evaluator:
 
     def _load_config(self):
         if self.config_path:
-            self.cfg = load_config(self.config_path)
+            try:
+                self.cfg = load_config(self.config_path)
+            except ConfigError as exc:
+                self._add_error("CONFIG_MISSING", f"Invalid config {self.config_path}: {exc}")
+                return
             if not self.cfg or "files" not in self.cfg:
                 self._add_error("CONFIG_MISSING", f"Cannot parse or missing 'files' in config: {self.config_path}")
 

@@ -27,7 +27,7 @@ If a change touches `data/`, `src/evaluate/gt/`, `reference/solutions/`,
 `src/evaluate/`, or simulator evidence loading, run the full release gate:
 
 ```bash
-make release-validate
+make check-all
 ```
 
 ## Reference Verification
@@ -37,6 +37,8 @@ Maintainers can verify public reference solutions against the public evaluator:
 ```bash
 make verify-reference-outputs
 ```
+
+`make release-validate` is an alias for the full maintainer gate.
 
 ## Reporting Issues
 

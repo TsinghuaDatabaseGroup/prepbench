@@ -129,7 +129,7 @@ def main() -> None:
         "--results-root",
         required=True,
         type=str,
-        help="Path like @output/<method>/<track>, containing case_* directories.",
+        help="Path like @output/<method>/<setting>, containing case_* directories.",
     )
     args = parser.parse_args()
 

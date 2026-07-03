@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import os
-import re
 from pathlib import Path
+
+from prepbench.case_ids import case_index_text
 
 
 def package_root() -> Path:
@@ -25,18 +26,6 @@ def solution_assets_root(root: Path | None = None) -> Path:
     return package_root() / "simulator" / "assets" / "solutions"
 
 
-def _extract_case_index(case_name: str) -> str | None:
-    token = str(case_name or "").strip().lower()
-    if not token:
-        return None
-    match = re.fullmatch(r"case[_-]?(\d+)", token)
-    if match:
-        return f"{int(match.group(1)):03d}"
-    if token.isdigit():
-        return f"{int(token):03d}"
-    return None
-
-
 def _candidate_relative_paths(case_name: str) -> list[Path]:
     raw = str(case_name or "").strip()
     if not raw:
@@ -50,7 +39,7 @@ def _candidate_relative_paths(case_name: str) -> list[Path]:
             candidates.append(val)
 
     push(raw)
-    idx = _extract_case_index(raw)
+    idx = case_index_text(raw)
     if idx is not None:
         push(f"case_{idx}")
         push(f"case{idx}")

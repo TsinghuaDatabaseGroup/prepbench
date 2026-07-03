@@ -149,7 +149,10 @@ class OpenAICompatibleClient:
                 "OPENROUTER_API_KEY, or OPENAI_API_KEY."
             )
         if not model_name:
-            raise RuntimeError("Simulator model is missing. Set PREPBENCH_SIMULATOR_MODEL.")
+            raise RuntimeError(
+                "Simulator model is missing. Set PREPBENCH_SIMULATOR_MODEL "
+                "to an OpenAI-compatible model name."
+            )
         self.api_key = api_key
         self.model_name = model_name
         self.url = _chat_completions_url(base_url)
@@ -413,8 +416,12 @@ class UserSimulator:
             or _env("PREPBENCH_SIMULATOR_MODEL")
             or _env("LLM_USER_SIMULATOR_MODEL")
             or _env("LLM_MODEL")
-            or "openai/gpt-5.2"
         )
+        if not self.model_name:
+            raise RuntimeError(
+                "Simulator model is missing. Set PREPBENCH_SIMULATOR_MODEL "
+                "to an OpenAI-compatible model name."
+            )
         self.api_key = (
             api_key
             or _env("PREPBENCH_SIMULATOR_API_KEY")

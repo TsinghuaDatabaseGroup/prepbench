@@ -32,7 +32,6 @@ def main() -> int:
     response = api.ask(
         session_id=session["session_id"],
         questions=[args.question],
-        round=1,
     )
     print(json.dumps({"session": session, "response": response}, indent=2, ensure_ascii=False))
     return 0

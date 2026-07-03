@@ -6,7 +6,7 @@ public release is `v0.1.0`.
 
 ## Public Case Inputs
 
-For `interactive` and `direct` tracks, participant agents should read only:
+For `direct` and `interactive` settings, participant agents should read only:
 
 ```text
 data/case_xxx/query.md
@@ -16,20 +16,20 @@ data/case_xxx/inputs/*.csv
 `query.md` is the natural-language request available to the model-under-test.
 `inputs/*.csv` are the raw input tables.
 
-For the `oracle` track, the agent may use:
+For the `oracle` setting, the agent may use:
 
 ```text
 data/case_xxx/query_full.md
 data/case_xxx/inputs/*.csv
 ```
 
-`query_full.md` is the clarified instruction. It should not be used in
-`interactive` or `direct` runs.
+`query_full.md` is the clarified instruction. It should not be used in `direct`
+or `interactive` runs. It is not an answer file and does not expose GT outputs.
 
 ## Additional Case Assets
 
 The following files are included to support benchmark execution, but they must not
-be used as model inputs except where explicitly allowed by the `oracle` track:
+be used as model inputs except where explicitly allowed by the `oracle` setting:
 
 ```text
 data/case_xxx/query_full.md
@@ -52,12 +52,12 @@ Meanings:
 ## Model-Input Policy
 
 These assets are included in the repository so the benchmark is self-contained.
-The table below describes what the model-under-test may read for each track.
+The table below describes what the model-under-test may read for each setting.
 
-| Asset | `interactive` | `direct` | `oracle` | Purpose |
+| Asset | `oracle` | `direct` | `interactive` | Purpose |
 | --- | --- | --- | --- | --- |
-| `query.md` | Allowed | Allowed | Optional | Original task instruction |
-| `query_full.md` | Not allowed | Not allowed | Allowed | Clarified task instruction |
+| `query.md` | Optional | Allowed | Allowed | Original task instruction |
+| `query_full.md` | Allowed | Not allowed | Not allowed | Clarified task instruction |
 | `inputs/*.csv` | Allowed | Allowed | Allowed | Raw input tables |
 | `amb_kb.json` | Not allowed | Not allowed | Not allowed | Simulator and ambiguity metadata |
 | `src/evaluate/gt/` | Not allowed | Not allowed | Not allowed | Evaluation target |

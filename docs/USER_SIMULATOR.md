@@ -10,9 +10,9 @@ src/simulator/local_api.py
 src/simulator/user_simulator.py
 ```
 
-The simulator uses an OpenAI-compatible chat-completions endpoint. Configure it
-with environment variables or a local `.env` file. Replace the model value with
-an OpenAI-compatible model available from your provider:
+The simulator uses an OpenAI-compatible chat-completions endpoint. Configure both
+the model and API key with environment variables or a local `.env` file. Replace
+the model value with an OpenAI-compatible model available from your provider:
 
 ```bash
 PREPBENCH_SIMULATOR_MODEL=your-model-name
@@ -55,7 +55,6 @@ response = api.ask(
     questions=[
         "Should the monthly date be represented as the first day of each month?"
     ],
-    round=1,
 )
 ```
 
@@ -76,7 +75,12 @@ response = api.ask(
 - `answers`
 - `budget`
 - `done`
+- `next_round`
 - `parse_error`
+
+`round` is optional. If omitted, `ask(...)` uses the next expected round. If a
+caller provides `round`, it must match the next expected round or the API raises
+`ValueError`.
 
 ## Question Budget
 

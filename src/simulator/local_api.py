@@ -3,10 +3,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 import math
 from pathlib import Path
-import re
 from typing import Any, Dict, List, Optional
 from uuid import uuid4
 
+from prepbench.case_ids import normalize_case_id as normalize_case_id_value
 from simulator.user_simulator import UserSimulator
 from simulator.case_views import InternalCaseView, load_internal_case_view
 
@@ -32,7 +32,7 @@ class LocalUserSimulatorAPI:
     This API hides benchmark-side assets (query_full/amb_kb/reference solution)
     behind a simple session-based interface:
       - start_session(case_id, run_id)
-      - ask(session_id, questions, round)
+      - ask(session_id, questions, round=None)
     """
 
     def __init__(
@@ -69,15 +69,7 @@ class LocalUserSimulatorAPI:
 
     @staticmethod
     def normalize_case_id(case_id: str) -> str:
-        raw = str(case_id or "").strip().lower()
-        if not raw:
-            raise ValueError("case_id must be a non-empty string")
-        match = re.fullmatch(r"case[_-]?(\d+)", raw)
-        if match:
-            return f"case_{int(match.group(1)):03d}"
-        if raw.isdigit():
-            return f"case_{int(raw):03d}"
-        return raw
+        return normalize_case_id_value(case_id, passthrough=True)
 
     def _resolve_case_dir(self, case_id: str) -> Path:
         normalized_case_id = self.normalize_case_id(case_id)
@@ -137,31 +129,43 @@ class LocalUserSimulatorAPI:
             raise ValueError("questions must contain at least one non-empty string")
         return normalized
 
-    def ask(self, *, session_id: str, questions: List[str], round: int) -> Dict[str, Any]:
+    @staticmethod
+    def _budget_payload(state: _SessionState) -> Dict[str, int]:
+        return {
+            "max_rounds": state.max_rounds,
+            "used_rounds": state.used_rounds,
+            "max_questions": state.max_questions,
+            "used_questions": state.used_questions,
+            "remaining_questions": max(state.max_questions - state.used_questions, 0),
+        }
+
+    @staticmethod
+    def _next_round(state: _SessionState) -> Optional[int]:
+        if state.done:
+            return None
+        return state.used_rounds + 1
+
+    def ask(self, *, session_id: str, questions: List[str], round: Optional[int] = None) -> Dict[str, Any]:
         state = self._sessions.get(session_id)
         if state is None:
             raise KeyError(f"Unknown session_id: {session_id}")
+        round_index = state.used_rounds + 1 if round is None else int(round)
 
         if state.done:
             return {
                 "session_id": state.session_id,
                 "case_id": state.case_id,
                 "run_id": state.run_id,
-                "round": round,
+                "round": round_index,
                 "answers": [],
-                "budget": {
-                    "max_rounds": state.max_rounds,
-                    "used_rounds": state.used_rounds,
-                    "max_questions": state.max_questions,
-                    "used_questions": state.used_questions,
-                    "remaining_questions": max(state.max_questions - state.used_questions, 0),
-                },
+                "budget": self._budget_payload(state),
                 "done": True,
+                "next_round": None,
                 "parse_error": None,
             }
 
-        if round != state.used_rounds + 1:
-            raise ValueError(f"Round mismatch: expected {state.used_rounds + 1}, got {round}")
+        if round_index != state.used_rounds + 1:
+            raise ValueError(f"Round mismatch: expected {state.used_rounds + 1}, got {round_index}")
 
         normalized_questions = self._normalize_questions(questions)
         if len(normalized_questions) > state.max_questions_per_ask:
@@ -174,16 +178,11 @@ class LocalUserSimulatorAPI:
                 "session_id": state.session_id,
                 "case_id": state.case_id,
                 "run_id": state.run_id,
-                "round": round,
+                "round": round_index,
                 "answers": [],
-                "budget": {
-                    "max_rounds": state.max_rounds,
-                    "used_rounds": state.used_rounds,
-                    "max_questions": state.max_questions,
-                    "used_questions": state.used_questions,
-                    "remaining_questions": 0,
-                },
+                "budget": self._budget_payload(state),
                 "done": True,
+                "next_round": None,
                 "parse_error": None,
             }
 
@@ -220,15 +219,10 @@ class LocalUserSimulatorAPI:
             "session_id": state.session_id,
             "case_id": state.case_id,
             "run_id": state.run_id,
-            "round": round,
+            "round": round_index,
             "answers": answers,
-            "budget": {
-                "max_rounds": state.max_rounds,
-                "used_rounds": state.used_rounds,
-                "max_questions": state.max_questions,
-                "used_questions": state.used_questions,
-                "remaining_questions": max(state.max_questions - state.used_questions, 0),
-            },
+            "budget": self._budget_payload(state),
             "done": state.done,
+            "next_round": self._next_round(state),
             "parse_error": result.parse_error,
         }

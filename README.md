@@ -24,14 +24,16 @@
   <a href="CITATION.cff">Citation</a>
 </p>
 
-PrepBench is a benchmark for evaluating agents that prepare raw tables from
-natural-language instructions. Each case gives an agent a task instruction and
-one or more CSV inputs; the agent must produce prepared output tables that pass
-executable table-level evaluation.
+PrepBench does one thing: it evaluates whether an agent prepared the correct
+output tables from natural-language instructions.
 
-PrepBench focuses on three public evaluation tracks: solving from the original
-request, solving with clarification through a local user simulator, and solving
-from the clarified request.
+Each case gives an agent a task instruction and one or more CSV inputs; the
+agent must produce prepared output tables that pass executable table-level
+evaluation.
+
+PrepBench focuses on three public settings, ordered from easiest to hardest:
+the clarified instruction, the original instruction, and the original
+instruction with clarification through a local user simulator.
 
 ## At a Glance
 
@@ -40,7 +42,7 @@ from the clarified request.
 | Release version | v0.1.0 |
 | Cases | 306 |
 | Input tables | 829 |
-| Public tracks | `interactive`, `direct`, `oracle` |
+| Public settings | `oracle`, `direct`, `interactive` |
 | Primary input | `query.md` + `inputs/*.csv` |
 | Candidate output | `solution/cand/output_*.csv` |
 | Ground truth | `src/evaluate/gt/case_xxx/` |
@@ -49,7 +51,7 @@ from the clarified request.
 ## Leaderboard
 
 A public leaderboard will be announced separately. Official submissions should
-cover all 306 cases in one track. Submit candidate outputs in the documented
+cover all 306 cases in one setting. Submit candidate outputs in the documented
 layout; the evaluator produces the final table-accuracy score in `acc.txt`.
 Subset runs are useful for debugging, but they are not official leaderboard
 scores.
@@ -69,20 +71,25 @@ simulator before producing outputs.
 
 ![PrepBench overview](docs/assets/prepbench_overview.png)
 
-## Evaluation Tracks
+## Evaluation Settings
 
-PrepBench keeps the public evaluation surface small. Use one of three tracks:
+PrepBench keeps the public evaluation surface small. Use one of three settings,
+ordered from easiest to hardest. All settings are evaluated the same way: the
+candidate CSVs are compared with the expected output tables.
 
-| Track | Agent input | Interaction | Purpose |
+| Setting | Agent input | Interaction | Purpose |
 | --- | --- | --- | --- |
-| `interactive` | `query.md` + `inputs/*.csv` | May call `LocalUserSimulatorAPI` | Full ambiguous-task setting with clarification |
-| `direct` | `query.md` + `inputs/*.csv` | No simulator | Tests whether the agent can solve from the original instruction alone |
-| `oracle` | `query_full.md` + `inputs/*.csv` | No simulator | Tests table preparation under the clarified instruction |
+| `oracle` | `query_full.md` + `inputs/*.csv` | No simulator | Easiest setting: solve from the clarified instruction |
+| `direct` | `query.md` + `inputs/*.csv` | No simulator | Solve directly from the original instruction |
+| `interactive` | `query.md` + `inputs/*.csv` | May call `LocalUserSimulatorAPI` | Hardest setting: resolve ambiguity before solving |
 
-All tracks use the same candidate-output contract:
+`oracle` means the instruction is clarified. It does not give the agent access
+to GT outputs or reference solutions.
+
+All settings use the same candidate-output contract:
 
 ```text
-@output/<method>/<track>/case_xxx/solution/cand/output_*.csv
+@output/<method>/<setting>/case_xxx/solution/cand/output_*.csv
 ```
 
 ## Install
@@ -116,8 +123,8 @@ Model-input policy:
 
 | Asset | Included in repo? | Allowed as model input? | Purpose |
 | --- | --- | --- | --- |
-| `query.md` | Yes | `interactive`, `direct` | Original task instruction |
-| `inputs/*.csv` | Yes | All tracks | Raw input tables |
+| `query.md` | Yes | `direct`, `interactive` | Original task instruction |
+| `inputs/*.csv` | Yes | All settings | Raw input tables |
 | `query_full.md` | Yes | `oracle` only | Clarified task instruction |
 | `amb_kb.json` | Yes | No | Simulator and ambiguity metadata |
 | `src/evaluate/gt/` | Yes | No | Ground-truth outputs and comparison config |
@@ -164,6 +171,16 @@ The evaluator writes:
 
 More details: [docs/EVALUATION.md](docs/EVALUATION.md).
 
+For a 30-second evaluator smoke test, run:
+
+```bash
+python examples/evaluate_demo.py
+```
+
+The demo creates a known-correct `case_001` candidate under
+`@output/evaluate_demo/oracle/` and verifies it with the single-case evaluator
+API.
+
 ## Use the Local User Simulator
 
 Set simulator credentials in `.env` or the process environment. Replace the
@@ -189,7 +206,6 @@ session = api.start_session(case_id="case_001", run_id="demo")
 response = api.ask(
     session_id=session["session_id"],
     questions=["Should the monthly date be the first day of each month?"],
-    round=1,
 )
 print(response["answers"])
 ```
@@ -201,33 +217,44 @@ More details: [docs/USER_SIMULATOR.md](docs/USER_SIMULATOR.md) and
 
 Paper result figures and benchmark analysis are collected in
 [docs/RESULTS.md](docs/RESULTS.md) as paper context. The open-source benchmark
-surface for leaderboard submissions is the table-output evaluator for the tracks
-above.
+surface for leaderboard submissions is the table-output evaluator for the
+settings above.
 
 ## Reporting Results
 
 For leaderboard submission, provide candidate outputs for all 306 cases in one
-track. The published score is the table accuracy produced by the evaluator.
+setting. The published score is the table accuracy produced by the evaluator.
 For local debugging, subset runs are allowed, but their `acc.txt` denominator
 still covers all GT cases because missing cases are marked `NOT_FOUND`.
 
 ## Minimal Example
 
-`examples/user_simulator_demo.py` shows the local simulator API. For submission
-layout only, see `examples/submission_layout/README.md`.
+`examples/evaluate_demo.py` shows the evaluator contract with a known-correct
+single-case candidate. `examples/user_simulator_demo.py` shows the local
+simulator API. For submission layout only, see
+`examples/submission_layout/README.md`.
 
 ## FAQ
 
-**Which track should I use?** Use `interactive` for the full benchmark,
-`direct` for no-clarification agents, and `oracle` when you want to isolate
-table preparation under clarified instructions.
+**Which setting should I use?** Start with `oracle` to test table preparation
+under clarified instructions, then `direct`, then `interactive` for the full
+ambiguous-task setting with clarification.
+
+**Does `oracle` expose the answers?** No. It exposes only `query_full.md`, the
+clarified instruction. GT outputs and reference solutions remain forbidden as
+model input.
 
 **Why is my case marked `NOT_FOUND`?** The evaluator expects candidate CSVs under
 `case_xxx/solution/cand/`.
 
-**Why does the simulator fail before answering?** Set a simulator API key. If
-you changed the default reference-solution path, make sure
-`PREPBENCH_SOLUTIONS_ROOT` points to a compatible solutions directory.
+**Why did I only get one error?** The programmatic `evaluate(gt_dir, cand_dir)`
+API is fail-fast and returns the first mismatch for a case. For batch debugging,
+inspect `evaluation_summary.csv`, which reports one row per case.
+
+**Why does the simulator fail before answering?** Set both
+`PREPBENCH_SIMULATOR_MODEL` and a simulator API key. If you changed the default
+reference-solution path, make sure `PREPBENCH_SOLUTIONS_ROOT` points to a
+compatible solutions directory.
 
 ## Reference Solutions
 

@@ -38,6 +38,7 @@ dev = []
 
 [tool.setuptools]
 packages = [
+  "prepbench",
   "evaluate",
   "evaluate.matchers",
   "simulator",

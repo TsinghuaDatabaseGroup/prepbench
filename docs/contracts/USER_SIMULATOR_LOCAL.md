@@ -23,8 +23,9 @@ response normalization.
 ### `LocalUserSimulatorAPI(...)`
 
 Constructor options:
-- `model_name` (default from `PREPBENCH_SIMULATOR_MODEL`, then legacy model envs):
+- `model_name`:
   - OpenAI-compatible model name used by the simulator backend
+  - required unless provided by `PREPBENCH_SIMULATOR_MODEL` or legacy model envs
 - `data_root` (default repository `data/`):
   - path to the public `data/case_xxx` directories
 - `question_ratio` (default `2.5`):
@@ -64,12 +65,13 @@ Output:
 - `question_ratio`
 - `max_questions_cap`
 
-### `ask(session_id: str, questions: list[str], round: int) -> dict`
+### `ask(session_id: str, questions: list[str], round: int | None = None) -> dict`
 
 Input:
 - `session_id`: value from `start_session`
 - `questions`: list of sub-questions for this round
-- `round`: current round index (1-based)
+- `round`: optional current round index (1-based). If omitted, the API uses the
+  next expected round.
 
 Output:
 - `session_id`
@@ -79,11 +81,12 @@ Output:
 - `answers`: list of answer items
 - `budget`: round/question budget state
 - `done`: whether the session has reached its budget limit
+- `next_round`: next expected round number, or `null` when `done=true`
 - `parse_error`: parser error from simulator model output (if any)
 
 Behavior notes:
 - If the session is already done, `ask(...)` returns `done=true` with empty `answers` (no exception).
-- If `round` does not match the expected next round, `ask(...)` raises a `ValueError`.
+- If `round` is provided and does not match the expected next round, `ask(...)` raises a `ValueError`.
 - If `questions` exceeds `max_questions_per_ask` or remaining budget, it is truncated in order.
 
 Answer item fields:
