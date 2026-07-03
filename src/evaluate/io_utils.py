@@ -41,9 +41,7 @@ def read_csv(path: Path) -> Optional[pd.DataFrame]:
                     na_filter=False,
                     encoding=enc,
                     engine="python",
-                    on_bad_lines="skip",
                 )
             except Exception:
                 continue
     return None
-

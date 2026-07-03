@@ -40,6 +40,18 @@ Rules:
 - Candidate output file names must match the expected GT names, such as
   `output_01.csv`.
 
+## Comparison Semantics
+
+Each output file has a `config.json` entry that declares the columns to compare,
+their matcher types, and the key columns used for row alignment. Maintainer
+checks require the configured columns to match the GT output columns exactly.
+
+Numeric columns use a general-purpose tolerance. Nonzero numeric values match
+when `abs(gt - cand) / max(abs(gt), abs(cand)) < 0.02`; if either side is zero,
+they match when `abs(gt - cand) < 0.02`. The same numeric matcher is used for
+numeric key columns, because many PrepBench configs use all output columns as an
+unordered row signature rather than a separate database-style primary key.
+
 ## Batch Evaluation
 
 ```bash

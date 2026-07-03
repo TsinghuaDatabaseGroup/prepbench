@@ -3,7 +3,16 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import sys
 from urllib.parse import urlparse
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from evaluate.config import ConfigError, load_config
+from evaluate.io_utils import read_csv
 
 
 def parse_args() -> argparse.Namespace:
@@ -28,14 +37,56 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def read_json_object(path: Path, errors: list[str]) -> None:
+def read_json_object(path: Path, errors: list[str]) -> dict | None:
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except Exception as exc:
         errors.append(f"{path}: invalid JSON: {exc}")
-        return
+        return None
     if not isinstance(data, dict):
         errors.append(f"{path}: expected a JSON object")
+        return None
+    return data
+
+
+def validate_gt_config(gt_case_dir: Path, config_path: Path, errors: list[str]) -> None:
+    try:
+        cfg = load_config(str(config_path))
+    except ConfigError as exc:
+        errors.append(f"{config_path}: {exc}")
+        return
+
+    configured_files = set(cfg.get("files", {}))
+    output_files = {path.name for path in gt_case_dir.glob("output_*.csv")}
+    missing_cfg = sorted(output_files - configured_files)
+    extra_cfg = sorted(configured_files - output_files)
+    if missing_cfg:
+        errors.append(f"{config_path}: missing config entries for outputs: {', '.join(missing_cfg[:10])}")
+    if extra_cfg:
+        errors.append(f"{config_path}: config entries without GT outputs: {', '.join(extra_cfg[:10])}")
+
+    for filename, spec in cfg.get("files", {}).items():
+        gt_path = gt_case_dir / filename
+        if not gt_path.is_file():
+            continue
+        df = read_csv(gt_path)
+        if df is None:
+            errors.append(f"{gt_path}: failed to read GT CSV")
+            continue
+
+        gt_cols = set(df.columns)
+        config_cols = set(spec.get("columns", {}))
+        missing_cols = sorted(gt_cols - config_cols)
+        extra_cols = sorted(config_cols - gt_cols)
+        if missing_cols:
+            errors.append(f"{config_path}: {filename} has GT columns missing from config: {missing_cols}")
+        if extra_cols:
+            errors.append(f"{config_path}: {filename} has config columns missing from GT: {extra_cols}")
+
+        key_cols = spec.get("key", [])
+        missing_key_cols = [col for col in key_cols if col not in config_cols]
+        if missing_key_cols:
+            errors.append(f"{config_path}: {filename} key columns missing from columns: {missing_key_cols}")
 
 
 def case_sort_key(path: Path) -> int:
@@ -165,7 +216,7 @@ def main() -> int:
         if not config_path.is_file():
             errors.append(f"{gt_case_dir}: missing config.json")
         else:
-            read_json_object(config_path, errors)
+            validate_gt_config(gt_case_dir, config_path, errors)
         if not sorted(gt_case_dir.glob("output_*.csv")):
             errors.append(f"{gt_case_dir}: no output CSV files")
 

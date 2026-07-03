@@ -17,6 +17,10 @@ def register(type_name: str, normalizer: Callable[[List[str]], List[Any]]) -> No
     _NORMALIZERS[type_name] = normalizer
 
 
+def registered_type_names() -> set[str]:
+    return set(_NORMALIZERS)
+
+
 def normalize_vector(values: List[str], type_name: str) -> List[Any]:
     normalizer = _NORMALIZERS.get(type_name)
     if not normalizer:
