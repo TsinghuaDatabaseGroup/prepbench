@@ -91,7 +91,7 @@ def resolve_solution_path(solutions_root: Path, case_name: str) -> Path | None:
 def load_solution_globals(solution_path: Path, case_dir: Path) -> dict[str, Any]:
     # Present __file__ as if the solution lived beside data/case_xxx/inputs.
     # This keeps legacy zero-argument solve() functions working without copying
-    # private solution files into the public data tree.
+    # reference solution files into the public data tree.
     module_name = f"prepbench_reference_{case_dir.name}"
     module = types.ModuleType(module_name)
     module.__file__ = str(case_dir / "solution.py")

@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: install check validate verify-reference-outputs clean-outputs
+.PHONY: install check validate verify-reference-outputs release-validate clean-outputs
 
 install:
 	$(PYTHON) -m pip install -r requirements.txt
@@ -15,6 +15,8 @@ validate:
 
 verify-reference-outputs:
 	$(PYTHON) scripts/verify_reference_outputs.py
+
+release-validate: check verify-reference-outputs
 
 clean-outputs:
 	rm -rf @output

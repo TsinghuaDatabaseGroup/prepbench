@@ -1,5 +1,7 @@
 cff-version: 1.2.0
 title: "PrepBench: How Far Are We from Natural-Language-Driven Data Preparation?"
+version: "0.1.0"
+date-released: "2026-07-03"
 message: "If you use PrepBench in your research, please cite this repository and the associated paper."
 type: software
 authors:

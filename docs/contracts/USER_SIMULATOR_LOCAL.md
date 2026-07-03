@@ -11,6 +11,8 @@ Reference-solution dependency:
 - The public repository ships them under `reference/solutions/`.
 - Set `PREPBENCH_SOLUTIONS_ROOT` only when overriding the default path.
 - Recommended layout: `case_001/solution.py` (legacy `case001.py` style is also accepted).
+- The default data and reference-solution paths are repository-relative; run the
+  API from a source checkout unless explicit paths are provided.
 
 This API is the supported external interface. It is preferable to calling
 `UserSimulator` directly, because it owns session state, question budgets, and
@@ -21,6 +23,10 @@ response normalization.
 ### `LocalUserSimulatorAPI(...)`
 
 Constructor options:
+- `model_name` (default from `PREPBENCH_SIMULATOR_MODEL`, then legacy model envs):
+  - OpenAI-compatible model name used by the simulator backend
+- `data_root` (default repository `data/`):
+  - path to the public `data/case_xxx` directories
 - `question_ratio` (default `2.5`):
   - case budget formula: `max_questions = ceil(question_ratio * ambiguity_count)`
 - `max_questions_cap` (default `25`):
@@ -29,6 +35,11 @@ Constructor options:
   - optional explicit override for fixed budget
 - `max_rounds` (default `3`)
 - `max_questions_per_ask` (default `10`)
+
+Credential lookup order:
+- `PREPBENCH_SIMULATOR_API_KEY`
+- `OPENROUTER_API_KEY`
+- `OPENAI_API_KEY`
 
 Budget examples (default ratio/cap):
 - if `ambiguity_count=4`: ratio budget = `ceil(2.5*4)=10`, cap=25 -> final `max_questions=10`

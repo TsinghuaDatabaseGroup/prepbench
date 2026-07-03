@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from urllib.parse import urlparse
 
 
 def parse_args() -> argparse.Namespace:
@@ -17,6 +18,11 @@ def parse_args() -> argparse.Namespace:
         "--solutions-root",
         default="reference/solutions",
         help="Path to public reference-solution case directories.",
+    )
+    parser.add_argument(
+        "--case-links",
+        default="data/case_links.txt",
+        help="Path to one source URL per benchmark case.",
     )
     parser.add_argument("--expected-cases", type=int, default=306)
     return parser.parse_args()
@@ -37,6 +43,34 @@ def case_sort_key(path: Path) -> int:
         return int(path.name.split("_", 1)[1])
     except Exception:
         return 10**9
+
+
+def parse_case_link(line: str) -> str:
+    value = line.strip()
+    if value.startswith('"') and value.endswith('"'):
+        value = value[1:-1]
+    return value.strip()
+
+
+def validate_case_links(path: Path, expected_cases: int, errors: list[str]) -> None:
+    if not path.is_file():
+        errors.append(f"missing case links file: {path}")
+        return
+
+    raw_lines = path.read_text(encoding="utf-8").splitlines()
+    links = [parse_case_link(line) for line in raw_lines if line.strip()]
+    if len(links) != expected_cases:
+        errors.append(f"{path}: expected {expected_cases} links, found {len(links)}")
+
+    seen: dict[str, int] = {}
+    for idx, link in enumerate(links, 1):
+        parsed = urlparse(link)
+        if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+            errors.append(f"{path}:{idx}: invalid URL: {link}")
+        previous_idx = seen.get(link)
+        if previous_idx is not None:
+            errors.append(f"{path}:{idx}: duplicate URL also used on line {previous_idx}: {link}")
+        seen[link] = idx
 
 
 def main() -> int:
@@ -84,6 +118,8 @@ def main() -> int:
         errors.append(f"expected {args.expected_cases} GT cases, found {len(gt_cases)}")
     if len(solution_cases) != args.expected_cases:
         errors.append(f"expected {args.expected_cases} solution cases, found {len(solution_cases)}")
+
+    validate_case_links(Path(args.case_links), args.expected_cases, errors)
 
     expected_names = {f"case_{idx:03d}" for idx in range(1, args.expected_cases + 1)}
     missing_data_cases = sorted(expected_names - case_names)

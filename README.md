@@ -48,10 +48,11 @@ from the clarified request.
 
 ## Leaderboard
 
-A public leaderboard will be announced separately. The public evaluator is ready
-for reproducible submissions; report the track, method name, number of evaluated
-cases, table accuracy from `acc.txt`, and any subset boundary if not all cases
-were evaluated.
+A public leaderboard will be announced separately. Official submissions should
+cover all 306 cases in one track. Submit candidate outputs in the documented
+layout; the evaluator produces the final table-accuracy score in `acc.txt`.
+Subset runs are useful for debugging, but they are not official leaderboard
+scores.
 
 ## Task Formulation
 
@@ -94,6 +95,10 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
+PrepBench is intended to be run from a source checkout. The evaluator, dataset,
+ground truth, and reference solutions use repository-relative paths; an installed
+wheel alone is not a complete benchmark bundle.
+
 ## Dataset
 
 Each case has this shape:
@@ -107,16 +112,16 @@ data/case_001/
     input_01.csv
 ```
 
-Asset visibility:
+Model-input policy:
 
-| Asset | Visible to agents? | Purpose |
-| --- | --- | --- |
-| `query.md` | Yes | Original task instruction |
-| `inputs/*.csv` | Yes | Raw input tables |
-| `query_full.md` | Only in `oracle` track | Clarified task instruction |
-| `amb_kb.json` | No | Simulator and ambiguity metadata |
-| `src/evaluate/gt/` | No | Ground-truth outputs and comparison config |
-| `reference/solutions/` | No | Reference implementations for reproducibility and simulator evidence |
+| Asset | Included in repo? | Allowed as model input? | Purpose |
+| --- | --- | --- | --- |
+| `query.md` | Yes | `interactive`, `direct` | Original task instruction |
+| `inputs/*.csv` | Yes | All tracks | Raw input tables |
+| `query_full.md` | Yes | `oracle` only | Clarified task instruction |
+| `amb_kb.json` | Yes | No | Simulator and ambiguity metadata |
+| `src/evaluate/gt/` | Yes | No | Ground-truth outputs and comparison config |
+| `reference/solutions/` | Yes | No | Reference implementations for reproducibility and simulator evidence |
 
 Validate the local dataset:
 
@@ -166,7 +171,8 @@ model value with an OpenAI-compatible model available from your provider:
 
 ```bash
 PREPBENCH_SIMULATOR_MODEL=your-model-name
-OPENROUTER_API_KEY=your_openrouter_api_key
+PREPBENCH_SIMULATOR_API_KEY=your_api_key
+# Also supported: OPENROUTER_API_KEY or OPENAI_API_KEY
 ```
 
 The local simulator uses the public reference solutions in `reference/solutions/`
@@ -200,9 +206,10 @@ above.
 
 ## Reporting Results
 
-Report the track, model or agent name, number of evaluated cases, and table
-accuracy from `acc.txt`. If only a subset of cases was run, report the case
-range explicitly.
+For leaderboard submission, provide candidate outputs for all 306 cases in one
+track. The published score is the table accuracy produced by the evaluator.
+For local debugging, subset runs are allowed, but their `acc.txt` denominator
+still covers all GT cases because missing cases are marked `NOT_FOUND`.
 
 ## Minimal Example
 
@@ -228,6 +235,12 @@ Reference solutions are included for reproducibility, validator maintenance, and
 benchmark-side user simulation. They are answer artifacts: do not use them as
 model input or submission assistance when evaluating an agent.
 
+Run the supported verifier instead of executing a `solution.py` file directly:
+
+```bash
+make verify-reference-outputs
+```
+
 Supported local layouts:
 
 ```text
@@ -246,4 +259,5 @@ reference/solutions/
 ## Citation
 
 If you use PrepBench in research, cite the paper and this repository. Citation
-metadata is available in [CITATION.cff](CITATION.cff).
+metadata is available in [CITATION.cff](CITATION.cff). Third-party source
+attribution is summarized in [NOTICE.md](NOTICE.md).

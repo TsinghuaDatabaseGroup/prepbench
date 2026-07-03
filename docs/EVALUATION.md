@@ -49,7 +49,9 @@ Generated files:
 ```
 
 The batch evaluator iterates every GT case. If your run contains only a subset,
-missing cases are marked as `NOT_FOUND`.
+missing cases are marked as `NOT_FOUND`, and `acc.txt` still uses all GT cases as
+the denominator. Use subset runs for local debugging only; official leaderboard
+submissions should include all 306 cases for one track.
 
 ## Single-Case Debugging
 
@@ -74,9 +76,6 @@ first meaningful mismatch.
 
 ## Reporting
 
-For each run, report:
-
-- track name: `interactive`, `direct`, or `oracle`
-- method or model name
-- number of evaluated cases
-- table accuracy from `acc.txt`
+For leaderboard submission, provide candidate outputs for all 306 cases in one
+track. The leaderboard score is the table accuracy written to `acc.txt` by the
+public evaluator; participants do not need to compute additional metrics.

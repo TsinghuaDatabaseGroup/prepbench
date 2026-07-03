@@ -16,12 +16,17 @@ an OpenAI-compatible model available from your provider:
 
 ```bash
 PREPBENCH_SIMULATOR_MODEL=your-model-name
-OPENROUTER_API_KEY=your_openrouter_api_key
+PREPBENCH_SIMULATOR_API_KEY=your_api_key
 # Optional:
+# OPENROUTER_API_KEY=your_openrouter_api_key
+# OPENAI_API_KEY=your_openai_api_key
 # PREPBENCH_SIMULATOR_BASE_URL=https://openrouter.ai/api/v1
 # PREPBENCH_SIMULATOR_MAX_TOKENS=8192
 # PREPBENCH_SIMULATOR_TIMEOUT=120
 ```
+
+The simulator checks API keys in this order: `PREPBENCH_SIMULATOR_API_KEY`,
+`OPENROUTER_API_KEY`, then `OPENAI_API_KEY`.
 
 Public import:
 
@@ -35,6 +40,8 @@ from simulator import LocalUserSimulatorAPI
 from simulator import LocalUserSimulatorAPI
 
 api = LocalUserSimulatorAPI(
+    model_name="your-model-name",
+    data_root="data",
     max_rounds=3,
     question_ratio=2.5,
     max_questions_cap=25,
@@ -117,7 +124,8 @@ The simulator uses reference solutions as benchmark-side evidence. The public
 repository includes them under `reference/solutions/` for reproducibility and
 local simulator use.
 
-The default path can be overridden with:
+The default path is repository-relative, so run the simulator from a source
+checkout. The reference-solution root can be overridden with:
 
 ```bash
 export PREPBENCH_SOLUTIONS_ROOT=/absolute/path/to/reference_solutions

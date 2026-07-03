@@ -23,6 +23,13 @@ cp .env.example .env
 make check
 ```
 
+If a change touches `data/`, `src/evaluate/gt/`, `reference/solutions/`,
+`src/evaluate/`, or simulator evidence loading, run the full release gate:
+
+```bash
+make release-validate
+```
+
 ## Reference Verification
 
 Maintainers can verify public reference solutions against the public evaluator:

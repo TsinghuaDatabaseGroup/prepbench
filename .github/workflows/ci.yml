@@ -25,3 +25,7 @@ jobs:
       - name: Run public checks
         run: |
           make check
+
+      - name: Verify reference outputs
+        run: |
+          make verify-reference-outputs

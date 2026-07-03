@@ -49,16 +49,19 @@ Meanings:
 - `reference/solutions/`: reference implementations used for reproducibility
   checks and simulator evidence.
 
-## Asset Visibility
+## Model-Input Policy
+
+These assets are included in the repository so the benchmark is self-contained.
+The table below describes what the model-under-test may read for each track.
 
 | Asset | `interactive` | `direct` | `oracle` | Purpose |
 | --- | --- | --- | --- | --- |
-| `query.md` | Visible | Visible | Optional | Original task instruction |
-| `query_full.md` | Hidden | Hidden | Visible | Clarified task instruction |
-| `inputs/*.csv` | Visible | Visible | Visible | Raw input tables |
-| `amb_kb.json` | Hidden | Hidden | Hidden | Simulator and ambiguity metadata |
-| `src/evaluate/gt/` | Hidden | Hidden | Hidden | Evaluation target |
-| `reference/solutions/` | Hidden | Hidden | Hidden | Reference implementation |
+| `query.md` | Allowed | Allowed | Optional | Original task instruction |
+| `query_full.md` | Not allowed | Not allowed | Allowed | Clarified task instruction |
+| `inputs/*.csv` | Allowed | Allowed | Allowed | Raw input tables |
+| `amb_kb.json` | Not allowed | Not allowed | Not allowed | Simulator and ambiguity metadata |
+| `src/evaluate/gt/` | Not allowed | Not allowed | Not allowed | Evaluation target |
+| `reference/solutions/` | Not allowed | Not allowed | Not allowed | Reference implementation |
 
 ## Expected Layout
 
@@ -111,4 +114,9 @@ cases=306 input_tables=829 gt_cases=306 solution_cases=306 errors=0
 ## Source Links
 
 `data/case_links.txt` records source challenge links used by the benchmark authors.
-It is metadata for traceability, not an execution input.
+It has one link per case and is metadata for traceability, not an execution input.
+
+The benchmark cases are derived from public Preppin' Data challenge materials.
+PrepBench code is MIT-licensed; benchmark data and source-derived assets should
+retain source attribution. See [../NOTICE.md](../NOTICE.md) for the repository
+attribution note.
