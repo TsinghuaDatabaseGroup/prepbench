@@ -71,14 +71,6 @@
       "op": "project",
       "source_text": "Classify IDs from Internal and 3rd Party Data which have not been matched",
       "ref": "unmatched_third_final[\"ID\"] = \"\"\nunmatched_third_final[\"Sales\"] = \"\""
-    },
-    {
-      "id": "new_1_sales_diff_candidate_threshold",
-      "kind": "Operation boundary",
-      "node_id": "filter_scent_pairs",
-      "op": "filter",
-      "source_text": "find the Internal ID with the lowest sales difference",
-      "ref": "pairs_filtered = pairs_join[(pairs_join[\"Sales_Diff\"] <= 12969.60) | (abs(pairs_join[\"Sales_Diff\"] - 29802.211101587) < 0.01)].copy()"
     }
   ]
 }

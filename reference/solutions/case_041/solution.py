@@ -173,10 +173,7 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
     complaint_with_flags = complaint_details.merge(
         batch_stats[["Batch Number", "recall"]], on="Batch Number", how="left"
     )
-    refund_rows = complaint_with_flags[
-        (~complaint_with_flags["recall"]
-         ) | complaint_with_flags["is_ambiguous"]
-    ]
+    refund_rows = complaint_with_flags[~complaint_with_flags["recall"]]
     refund_total = round(float(refund_rows["Price"].sum()), 2)
     total_loss = round(recall_total + refund_total, 2)
 
@@ -194,26 +191,6 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
         batch_stats.groupby(["Product", "Scent"], as_index=False)[
             "stock_remaining"].sum()
     )
-    ambiguous_recall = complaint_with_flags[
-        complaint_with_flags["is_ambiguous"] & complaint_with_flags["recall"]
-    ]
-    if not ambiguous_recall.empty:
-        adjust = (
-            ambiguous_recall.groupby(["Product", "Scent"])
-            .size()
-            .reset_index(name="ambiguous_count")
-        )
-        stock_remaining = stock_remaining.merge(
-            adjust, on=["Product", "Scent"], how="left"
-        )
-        stock_remaining["ambiguous_count"] = (
-            stock_remaining["ambiguous_count"].fillna(0).astype(int)
-        )
-        stock_remaining["stock_remaining"] = (
-            stock_remaining["stock_remaining"] -
-            stock_remaining["ambiguous_count"]
-        ).clip(lower=0)
-        stock_remaining = stock_remaining.drop(columns=["ambiguous_count"])
     stock_remaining.rename(
         columns={"stock_remaining": "Stock Remaining"}, inplace=True)
     stock_remaining["Stock Remaining"] = stock_remaining["Stock Remaining"].astype(

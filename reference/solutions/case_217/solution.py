@@ -23,7 +23,9 @@ def _easter_sunday_gregorian(year: int) -> pd.Timestamp:
 
 
 def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
-	years = list(range(1700, 2024))
+	raw = pd.read_csv(inputs_dir / "input_01.csv", header=None)
+	values = pd.to_numeric(raw.stack(), errors="coerce").dropna().astype(int)
+	years = sorted(set(values[(values >= 1700) & (values <= 2023)].tolist()))
 	dates = [_easter_sunday_gregorian(y) for y in years]
 	df = pd.DataFrame(
 		{

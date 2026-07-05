@@ -7,6 +7,7 @@ SuperBytes maintains a complaints log where each row represents a single custome
   - Map `true` (case-insensitive) to `True`.
   - Map `false` (case-insensitive) to `False`.
   - Any other value should be treated as `False`.
+- For complaints whose `Response to Consumer` is `In Progress`, set `Date Resolved` to `26/06/2024`.
 - Do not derive or add any new fields (e.g., do not calculate “Days to Resolve” / “Days Open”), and do not apply any filtering (e.g., do not separate “In Progress” vs “Closed”) in the output.
 - Produce the output by selecting only the required fields listed in the output specification, in exactly that order.
 - Output the data to the specified file.

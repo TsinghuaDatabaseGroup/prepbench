@@ -23,7 +23,7 @@ You are given one input file containing annual budget amounts by spending catego
   - Round `Actual Spending` to the nearest whole number using “round half to even” (banker’s rounding), and store as an integer.
   - Compute `Difference = Actual Spending - Budget` (integer arithmetic).
   - Derive `Month` as the month name from the month date, using these exact labels:
-    - January, February, March, April, May, June, July, August, **Sepetember**, October, November, December.
+    - January, February, March, April, May, June, July, August, September, October, November, December.
 - For each month, find the category which has the highest overspending:
   - For each `Month`, select the single row with the maximum `Difference` value among the included categories.
   - If multiple categories tie for the maximum `Difference` within a month, select the one that appears first in the combined long table order (based on the processing order of monthly files, then the category order within each month).

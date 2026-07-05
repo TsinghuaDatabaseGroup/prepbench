@@ -2,9 +2,9 @@
 
 This challenge simulates the NBA Draft Lottery, a process that determines the top draft picks for teams that did not make the playoffs. The lottery gives teams with poorer records a better chance at securing a top pick.
 
-You are provided with three datasets to perform this simulation:
+You are provided with two input datasets plus an implied lottery-number scaffold to perform this simulation:
 - **Lottery Odds:** A table detailing the percentage chance for each team (seeds 1–14) to win each of the first four picks. Columns `1`, `2`, `3`, `4` contain the odds per pick.
-- **Lottery Combinations:** A scaffold of 1,000 numbers (1–1000), representing the possible outcomes of a lottery draw.
+- **Lottery Combinations:** Use the ordered integers 1–1000 as the scaffold of possible lottery outcomes. This scaffold is not a separate input file.
 - **Team Seeding:** A list of the 14 participating teams and their original seeds.
 
 ## Requirements

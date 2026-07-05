@@ -1,6 +1,6 @@
 ## Context
 
-Please enter your name and which challenge you have completed.
+Standardize two weather-forecast extracts (hourly and daily) into one unified table with consistent fields.
 
 ## Requirements
 

@@ -39,22 +39,6 @@
       "op": "project",
       "source_text": "If percent of total fields don't exist, create these and make them an integer",
       "ref": "shares = [v * 100 / total for v in vals]"
-    },
-    {
-      "id": "6_O1_origin_percent_floor_and_allocate_to_94",
-      "kind": "Operation boundary",
-      "node_id": "parse_values_origin",
-      "op": "project",
-      "source_text": "If percent of total fields don't exist in any files, create these and make them an integer",
-      "ref": "floors = [int(s) for s in shares]; target_sum=94"
-    },
-    {
-      "id": "7_O3_origin_allocation_tie_break_by_input_order",
-      "kind": "Operation inconsistent",
-      "node_id": "parse_values_origin",
-      "op": "project",
-      "intent": "When allocating the remaining Origin percentage points up to the target sum, assign +1 by descending fractional remainder and break ties by input order.",
-      "ref": "order = sorted(range(len(vals)), key=lambda i: (-remainders[i], i))"
     }
   ]
 }

@@ -23,6 +23,14 @@
       "op": "sort",
       "source_text": "Assign Secret Santas to Secret Santees that follow them in the alphabet",
       "ref": "df_sorted = df.sort_values('Secret Santa').reset_index(drop=True)\n...\nresult = result.iloc[::-1].reset_index(drop=True)"
+    },
+    {
+      "id": "new_2_email_typo_punctuation",
+      "kind": "Operation incomplete",
+      "node_id": "n_clean_email",
+      "op": "project",
+      "source_text": "Some of the email addresses contain typos. Clean them up",
+      "ref": "email = email.replace(',', '.')\nemail = email.replace('!', '.')"
     }
   ]
 }

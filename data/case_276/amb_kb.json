@@ -25,12 +25,12 @@
       "ref": "df[\"Gender\"] = df[\"Gender\"].astype(str).str.strip().str.title()"
     },
     {
-      "id": "4_C1_mega_byte_label_spacing",
+      "id": "4_C1_mega_byte_label",
       "kind": "Row-level concept",
       "node_id": "proj_enrich",
       "op": "project",
       "source_text": "Points that are greater than or equal to 7 categorise them as \"MegaByte\"",
-      "ref": "if x >= 7:\n                return \"Mega Byte\""
+      "ref": "if x >= 7:\n                return \"MegaByte\""
     },
     {
       "id": "5_C2_loyalty_points_fractional_formula",

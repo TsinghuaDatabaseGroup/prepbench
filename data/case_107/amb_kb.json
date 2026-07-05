@@ -33,14 +33,6 @@
       "ref": "matched = pd.merge_asof(\n        sessions,\n        df_cust,\n        left_on=\"session_start\",\n        right_on=\"Entry Time\",\n        direction=\"backward\",\n        tolerance=pd.Timedelta(minutes=10),\n        allow_exact_matches=True,\n    )"
     },
     {
-      "id": "5_O1_customer_id_scientific_notation_rule",
-      "kind": "Operation boundary",
-      "node_id": "project_format",
-      "op": "project",
-      "intent": "Format Customer ID in scientific notation with two decimals and uppercase exponent when it is all digits and length ≥ 7.",
-      "ref": "if s.isdigit() and len(s) >= 7:\n            try:\n                return f\"{int(s):.2E}\""
-    },
-    {
       "id": "6_O1_date_round_then_format",
       "kind": "Operation boundary",
       "node_id": "project_format",

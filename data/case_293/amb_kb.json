@@ -17,28 +17,28 @@
       "ref": "engagements[\"Engagement Start Date\"] = to_date(\"Engagement Start Day\", \"Engagement Start Month\")"
     },
     {
-      "id": "3_inverted_range_strict_lt",
+      "id": "3_drop_inverted_date_ranges",
       "kind": "Operation boundary",
-      "node_id": "drop_invalid_same_day",
+      "node_id": "filter_invalid_ranges",
       "op": "filter",
-      "intent": "When filtering inverted date ranges within duplicated start dates, treat invalid as Engagement End Date strictly earlier than Engagement Start Date (end < start).",
-      "ref": "mask_invalid = (g[\"Engagement End Date\"] < g[\"Engagement Start Date\"]) & dup_start"
+      "intent": "Remove engagement rows where Engagement End Date is earlier than Engagement Start Date before ordering and overlap checks.",
+      "ref": "engagements = engagements[engagements[\"Engagement End Date\"] >= engagements[\"Engagement Start Date\"]].copy()"
     },
     {
-      "id": "4_inverted_range_only_on_duplicated_starts",
-      "kind": "Row-level concept",
-      "node_id": "drop_invalid_same_day",
-      "op": "filter",
-      "intent": "Apply the inverted date-range removal only within (Initials, Engagement Start Date) duplicated-start-date sets; do not apply it when the start date is unique for that person.",
-      "ref": "dup_start = g.duplicated(subset=[\"Engagement Start Date\"], keep=False)\nengagements = engagements.groupby(\"Initials\", group_keys=False).apply(drop_invalid_same_day)"
-    },
-    {
-      "id": "18_sort_ties_by_end_date_ascending",
+      "id": "4_sort_ties_by_end_date_ascending",
       "kind": "Row-level concept",
       "node_id": "sort1",
       "op": "sort",
       "source_text": "Create an 'Engagement Order' based on the Engagement Start Date",
       "ref": "df = df.sort_values([\"Initials\", \"Engagement Start Date\", \"Engagement End Date\"], ascending=[True, True, True]).reset_index(drop=True)"
+    },
+    {
+      "id": "5_overlap_filter_previous_end",
+      "kind": "Operation boundary",
+      "node_id": "filter_overlaps",
+      "op": "filter",
+      "source_text": "For each individual person (identified by unique initials), remove any engagements where the start date occurs before the previous Engagement End Date",
+      "ref": "mask_valid = df[\"prev_end\"].isna() | (df[\"Engagement Start Date\"] >= df[\"prev_end\"])"
     }
   ]
 }

@@ -257,8 +257,6 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
             "Matches_Lost": "Matches Lost",
         }
     )
-    result[["Matches Drawn", "Matches Lost"]] = result[[
-        "Matches Lost", "Matches Drawn"]].to_numpy()
     for col in ["Chelsea Managers", *match_cols]:
         result[col] = result[col].fillna(0).astype(int)
     win_pct = (result["Matches Won"] / result["Matches"]).round(2)

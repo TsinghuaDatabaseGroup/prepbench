@@ -28,8 +28,7 @@ Chin & Beard Suds Co wants a repeatable way to assess whether its website pages 
   - For Origin inputs, treat `Pageviews` as numeric counts only and compute an integer percent-of-total field.
   - Percent calculation rule for Origin (applied separately to “this month” and “all time”):
     - Compute each member’s share as `(member_value / total_value) * 100`.
-    - Take the floor of each share to get a base integer percent.
-    - If the sum of floored percents is less than `94`, allocate +1 to as many rows as needed (until the percent sum reaches exactly `94`), choosing rows in descending order of fractional remainder; break ties by preserving original input order.
+    - Round the share to the nearest whole number.
     - The resulting `Percent` must be an integer for every Origin row.
 
 - Derive the change metrics.

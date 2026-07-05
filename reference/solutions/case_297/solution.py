@@ -88,15 +88,9 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
         has_final = theme_lower == 'final' or (theme_lower.endswith(
             ' final') and 'quarter' not in theme_lower and 'semi' not in theme_lower)
 
-        is_theme_week = re.search(
-            r'\s+Week\s*\(', week_str, re.IGNORECASE) is not None
-
         stage = None
         if has_quarter:
-            if is_theme_week:
-                stage = None
-            else:
-                stage = 'Quarter Final'
+            stage = 'Quarter Final'
         elif has_semi:
             stage = 'Semi Final'
         elif has_final:

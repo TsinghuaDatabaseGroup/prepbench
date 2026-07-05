@@ -32,6 +32,7 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     students_expanded_df = students_expanded_df.dropna(subset=['Age Group'])
     
     students_by_subject_age = students_expanded_df.groupby(['Subject', 'Age Group']).size().reset_index(name='Student Count')
+    subject_needed_ages = students_expanded_df.groupby('Subject')['Age'].apply(lambda s: set(s.astype(int))).to_dict()
     
     room_capacity = rooms_df.groupby('Subjects')['Capacity'].sum().reset_index()
     room_capacity.columns = ['Subject', 'Total Capacity']
@@ -55,17 +56,11 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     )
     
     classes_required = students_by_subject_age.groupby('Subject')['Classes Needed'].sum().reset_index()
-    classes_required['Classes required'] = classes_required.apply(
-        lambda row: row['Classes Needed'] + (2 if row['Subject'] == 'Physics' else 1),
-        axis=1
-    )
+    classes_required['Classes required'] = classes_required['Classes Needed']
     classes_required = classes_required[['Subject', 'Classes required']]
     
     total_hours_needed = students_by_subject_age.groupby('Subject')['Teaching Hours'].sum().reset_index()
-    total_hours_needed['Total Teaching Hours needed'] = total_hours_needed.apply(
-        lambda row: row['Teaching Hours'] + (6 if row['Subject'] == 'Physics' else 1),
-        axis=1
-    )
+    total_hours_needed['Total Teaching Hours needed'] = total_hours_needed['Teaching Hours']
     total_hours_needed = total_hours_needed[['Subject', 'Total Teaching Hours needed']]
     
     
@@ -101,6 +96,10 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
         num_subjects = len(teacher_subjects)
         
         hours_per_subject = weekly_hours / num_subjects if num_subjects > 0 else 0
+        taught_ages = set(teacher_row['Ages List'])
+        needed_ages = subject_needed_ages.get(subject, set())
+        if needed_ages and not (taught_ages & needed_ages):
+            continue
         
         teacher_subject_hours.append({
             'Subject': subject,
@@ -157,4 +156,3 @@ if __name__ == "__main__":
     outputs = solve(inputs_dir)
     for filename, df in outputs.items():
         df.to_csv(cand_dir / filename, index=False, encoding='utf-8')
-

@@ -29,7 +29,7 @@
       "kind": "Group-level concept",
       "node_id": "proj_add_order_gainloss",
       "op": "project",
-      "source_text": "output_01.csv\n  - 10 fields:\n    - Order\n    - Ticket Price Local",
+      "source_text": "Sort the data so that all the AM's clients are grouped together, and the AM with the most clients is first (the order of clients doesn't matter)",
       "ref": "sorted_ams = sorted(unique_ams, key=lambda x: am_client_count.get(x, 0), reverse=True)\nfor idx, am in enumerate(sorted_ams, 1):\n        am_order_map[am] = idx\n\ndf_merged['Order'] = df_merged['Account Manager'].map(am_order_map)"
     },
     {

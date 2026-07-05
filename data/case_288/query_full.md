@@ -37,7 +37,6 @@ You are preparing a schedule to help a school plan when to buy birthday cakes fo
   - “Last distribution date in the previous school term” must be determined as:
     - Find the most recent teaching term whose end date is strictly earlier than the birthday date.
     - Within that previous teaching term, find the last Friday on or before the term end date that is a school day (searching backward from the term end date).
-    - Special case: if the previous term ends on a Monday or Tuesday and that end date is within 4 days after the computed last-Friday date, use the term end date itself as the Cake Day instead of the Friday.
     - If there is no prior teaching term before the birthday date, no Cake Day is produced for that student.
 
 - Count how many cakes are needed for each school day and what day of the week that day is.

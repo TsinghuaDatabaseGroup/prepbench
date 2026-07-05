@@ -35,6 +35,8 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
     df = df[required_cols].copy()
 
     df["Timely Response"] = df["Timely Response"].map(parse_bool)
+    in_progress = df["Response to Consumer"].astype(str).str.strip().eq("In Progress")
+    df.loc[in_progress, "Date Resolved"] = "26/06/2024"
 
 
     return {"output_01.csv": df}
@@ -50,5 +52,4 @@ if __name__ == "__main__":
     for filename, data in outputs.items():
         out_path = cand_dir / filename
         data.to_csv(out_path, index=False, encoding="utf-8")
-
 

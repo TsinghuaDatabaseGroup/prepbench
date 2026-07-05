@@ -48,8 +48,6 @@ def _split_name_and_number(name: str) -> tuple[str, str]:
         jersey = ""
         clean_name = s
     clean_name = clean_name.strip()
-    if clean_name.replace(" ", "") == "C.J.Williams" and jersey == "9":
-        jersey = ".. 9"
     return clean_name, jersey
 
 
@@ -100,7 +98,6 @@ if __name__ == "__main__":
     for filename, df in outputs.items():
         (cand_dir / filename).parent.mkdir(parents=True, exist_ok=True)
         df.to_csv(cand_dir / filename, index=False, encoding="utf-8")
-
 
 
 

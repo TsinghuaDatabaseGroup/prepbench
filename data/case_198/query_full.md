@@ -77,7 +77,6 @@ You have three input datasets: (1) UK Prime Ministers with their time in office,
     - `Chelsea Managers`: count of distinct `Chelsea Managers` appearing on the joined daily records within the Prime Minister term.
     - `Matches`, `Matches Won`, `Matches Drawn`, `Matches Lost`: sums of the corresponding daily fields across the joined daily records within the Prime Minister term.
   - Ensure `Chelsea Managers` and all match count fields are integers.
-  - **Data Correction**: Swap the values of `Matches Drawn` and `Matches Lost` in the final aggregation (i.e., the value calculated for Drawn should be output as Lost, and vice versa).
 
 - Calculate the Win % for each Prime Minister:
   - `Win % = Matches Won / Matches`

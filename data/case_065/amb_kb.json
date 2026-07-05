@@ -9,14 +9,6 @@
       "ref": "out1 = (\n        lineup.groupby([\"Formation\", \"Oppo Form.\"])\n        .agg({\n            \"No.\": \"count\","
     },
     {
-      "id": "2_D1_output2_player_name_trailing_space",
-      "kind": "Operation boundary",
-      "node_id": "build_output2",
-      "op": "script",
-      "intent": "Append a single trailing space to every Player Name value in output_02.csv.",
-      "ref": "    out2[\"Player Name\"] = out2[\"Player Name\"].astype(str) + \" \""
-    },
-    {
       "id": "3_O2_player_list_drop_nonconforming_rows",
       "kind": "Operation incomplete",
       "node_id": "build_output2_prep",
@@ -119,14 +111,6 @@
       "op": "project",
       "source_text": "Calculate how many goals Liverpool and their Opposition scored in each game.",
       "ref": "        if pd.isna(result_str) or result_str == \"\":\n            return (0, 0)\n        parts = str(result_str).split(\"-\", 1)\n        if len(parts) != 2:\n            return (0, 0)"
-    },
-    {
-      "id": "16_D1_output1_formation_header_leading_space",
-      "kind": "Operation boundary",
-      "node_id": "project_rename_formation",
-      "op": "project",
-      "intent": "Name the first output_01 column header exactly ' Formation' (with a single leading space).",
-      "ref": "    out1.columns = [\n        \" Formation\",\n        \"Oppo Form.\",\n        \"Games Played\",\n        \"Liverpool Goals\",\n        \"Avg Goals Scored\",\n        \"Opposition Goals\",\n        \"Avg Goals Conceded\",\n    ]"
     }
   ]
 }

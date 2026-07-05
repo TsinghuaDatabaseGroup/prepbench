@@ -101,20 +101,14 @@ def build_output_03(inputs_dir: Path, output_02: pd.DataFrame) -> pd.DataFrame:
 	edges = edges[edges["RoomA"] != edges["RoomB"]]
 
 	if output_02.empty:
-		schedule = pd.read_csv(inputs_dir / "input_03.csv")
-		long_df = schedule.melt(id_vars=["Room"], var_name="Floor", value_name="Session Detail")
-		long_df = long_df[(long_df["Floor"] == "Floor 2") & (long_df["Session Detail"].notna())].copy()
-		def parse_detail(s: str) -> Tuple[str, str]:
-			after_dash = s.split("-", 1)[1].strip()
-			parts = after_dash.split(" on ")
-			return parts[0].strip(), parts[1].strip() if len(parts) > 1 else ""
-		long_df[["SpeakerInit", "Subject"]] = long_df["Session Detail"].apply(lambda x: pd.Series(parse_detail(x)))
-		row2 = long_df[(long_df["SpeakerInit"] == "TP") & (long_df["Subject"] == "Prep")].head(1)
-		if row2.empty:
-			row2 = long_df[long_df["SpeakerInit"] == "TP"].head(1)
-		target_room = int(200 + pd.to_numeric(row2["Room"].iloc[0], errors="coerce"))
-		target_speaker = "TP"
-		target_subject = "Prep"
+		return pd.DataFrame(columns=[
+			"Room A",
+			"Room B",
+			"Minutes to the next room",
+			"Metres",
+			"Speaker",
+			"Subject",
+		])
 	else:
 		row2 = output_02.iloc[0]
 		target_room = int(row2["Room"])
@@ -165,5 +159,4 @@ if __name__ == "__main__":
 	outputs = solve(inputs_dir)
 	for filename, df in outputs.items():
 		df.to_csv(cand_dir / filename, index=False, encoding="utf-8")
-
 

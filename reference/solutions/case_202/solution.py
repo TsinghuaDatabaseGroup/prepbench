@@ -53,10 +53,11 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     preferred_industry_exp = df['industry_exp'] == 'Yes'
 
     df['is_preferred'] = preferred_work_exp & preferred_supervised & preferred_industry_exp
+    df['preferred_count'] = df['count'].where(df['is_preferred'], 0)
 
     monthly_summary = df.groupby('Application Month').agg(
         total_candidates=('count', 'sum'),
-        preferred_categories=('is_preferred', 'sum')
+        preferred_categories=('preferred_count', 'sum')
     ).reset_index()
 
     monthly_summary['pct_of_candidates'] = (

@@ -30,9 +30,7 @@ We are preparing karaoke activity data into discrete 60-minute sessions, recogni
 
 - Output formatting required for correctness:
   - In the final output, represent an unmatched `Customer ID` as an empty value.
-  - Format `Customer ID` as follows:
-    - If it is entirely numeric and has at least 7 digits, output it in scientific notation with two decimals and an uppercase exponent (e.g., `1.23E+07`-style formatting).
-    - Otherwise, output it as its string value.
+  - Keep matched `Customer ID` values as text exactly as read from the customer input.
   - Format `Date` by rounding to the nearest minute, then outputting as `DD/MM/YYYY HH:MM:SS`.
   - Output rows sorted by `Session #` ascending, then `Song Order` ascending.
 

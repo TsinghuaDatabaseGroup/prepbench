@@ -19,15 +19,7 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
 
     combined["Sales Date"] = pd.to_datetime(combined["Sales Date"], format="%d/%m/%Y %H:%M:%S")
 
-    instore = combined[combined["Store"] != "Online"].copy()
-    online = combined[combined["Store"] == "Online"].copy()
-
-    instore = (
-        instore.sort_values(["Store", "Product Type", "Sales Date"])\
-        .drop_duplicates(subset=["Store", "Product Type", "Sales Date"], keep="first")
-    )
-
-    combined2 = pd.concat([instore, online], ignore_index=True)
+    combined2 = combined.copy()
 
     sort_cols = ["Store", "Product Type", "Sales Date"]
     if "ID" in combined2.columns:

@@ -21,9 +21,9 @@ You are preparing a cleaned, standardized view of consultant engagements. The go
   - Treat each person as identified by `Initials`.
   - For each `Initials`, compute the minimum numeric value of `Grade` across that person’s engagements; use this as the corrected grade identifier for all of that person’s engagements.
 
-- Apply a validation rule for inverted date ranges on duplicated start dates.
-  - Within each person (`Initials`), if there are multiple engagements sharing the same `Engagement Start Date`, remove only those rows among that duplicated-start-date set where `Engagement End Date` is earlier than `Engagement Start Date`.
-  - Do not apply this removal to rows whose start date is unique for that person.
+- Apply a validation rule for inverted date ranges.
+  - Remove any engagement row where `Engagement End Date` is earlier than `Engagement Start Date`.
+  - Apply this before assigning engagement order and before checking overlaps.
 
 - Join on the Grade details and remove the join clause fields.
   - Join the engagements to the grade reference data using the corrected grade identifier (the minimum grade per person) as the key.

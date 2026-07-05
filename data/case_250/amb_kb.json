@@ -65,12 +65,12 @@
       "ref": "all_terms.sort_values(by=[\"id\", \"__term_no\"])"
     },
     {
-      "id": "10_O1_top2pct_fixed_k",
+      "id": "10_O1_top2pct_ceil_count",
       "kind": "Group-level concept",
       "node_id": "sort_top",
       "op": "sort",
       "source_text": "Filter to students in the top 2%",
-      "ref": "k = 11 if term_no == 3 else 13"
+      "ref": "k = max(1, math.ceil(len(group) * 0.02))"
     },
     {
       "id": "11_O3_top_selection_tie_breakers",

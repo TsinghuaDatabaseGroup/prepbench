@@ -17,12 +17,12 @@
       "ref": "df_sorted['Avg student total points per grade'] = df_sorted.groupby('Grade')['Total Points per Student'].transform('mean')\ndf_sorted['Avg student total points per grade'] = df_sorted['Avg student total points per grade'].round(2)"
     },
     {
-      "id": "3_O1_threshold_constant_4115",
+      "id": "3_O1_threshold_from_students_with_a",
       "kind": "Operation boundary",
       "node_id": "filter_rows",
       "op": "filter",
       "source_text": "Take the average total score you get for students who have received at least one A and remove anyone who scored less than this.",
-      "ref": "avg_a_score_threshold = 41.15"
+      "ref": "students_with_A = df_sorted[df_sorted['Grade'] == 'A']['Student ID'].unique()\navg_score_for_A_students = df_sorted[df_sorted['Student ID'].isin(students_with_A)]['Total Points per Student'].mean()"
     },
     {
       "id": "4_O1_threshold_strict_greater",

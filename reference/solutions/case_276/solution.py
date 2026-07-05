@@ -16,7 +16,7 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
             if pd.isna(x):
                 return "No Byte"
             if x >= 7:
-                return "Mega Byte"
+                return "MegaByte"
             if x >= 5:
                 return "Byte"
             return "No Byte"
@@ -64,5 +64,4 @@ if __name__ == "__main__":
         (cand_dir / filename).write_text("") if data is None else None
         out_path = cand_dir / filename
         data.to_csv(out_path, index=False, encoding="utf-8")
-
 

@@ -23,8 +23,8 @@ You are given student assessment scores by subject and need to convert numeric s
   - For each `Grade`, compute `Avg student total points per grade` as the mean of `Total Points per Student` among rows with that grade.
   - Round `Avg student total points per grade` to 2 decimal places and attach it to each row.
 - Take the average total score you get for students who have received at least one A and remove anyone who scored less than this:
-  - Use a fixed threshold value of `41.15` for this “average total points for students with at least one A”.
-  - Keep only rows where `Total Points per Student` is strictly greater than `41.15`.
+  - Compute the threshold as the average `Total Points per Student` among students who received at least one A.
+  - Keep only rows where `Total Points per Student` is strictly greater than that computed threshold.
 - Remove results where students received an A grade (requirement updated2/2/22):
   - After applying the threshold filter, remove any remaining rows where `Grade` is `A`.
 - Output the data.

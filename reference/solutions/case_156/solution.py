@@ -28,12 +28,11 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     
     students_with_A = df_sorted[df_sorted['Grade'] == 'A']['Student ID'].unique()
     avg_score_for_A_students = df_sorted[df_sorted['Student ID'].isin(students_with_A)]['Total Points per Student'].mean()
-    avg_a_score_threshold = 41.15
 
     df_sorted['Avg student total points per grade'] = df_sorted.groupby('Grade')['Total Points per Student'].transform('mean')
     df_sorted['Avg student total points per grade'] = df_sorted['Avg student total points per grade'].round(2)
 
-    df_filtered = df_sorted[df_sorted['Total Points per Student'] > avg_a_score_threshold].copy()
+    df_filtered = df_sorted[df_sorted['Total Points per Student'] > avg_score_for_A_students].copy()
     df_final = df_filtered[df_filtered['Grade'] != 'A'].copy()
 
     output_columns = [

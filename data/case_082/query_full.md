@@ -32,12 +32,8 @@ You are producing a subject-level staffing and capacity summary for a school. Us
     - `Teaching Hours` = `Classes Needed` * `Hours teaching per week`
 
 - Aggregate to subject-level requirements:
-  - `Classes required` (per `Subject`) is based on the sum of `Classes Needed` across all age groups for that subject, plus a subject-specific increment:
-    - If `Subject` is `Physics`: `Classes required` = sum(`Classes Needed`) + 2
-    - Otherwise: `Classes required` = sum(`Classes Needed`) + 1
-  - `Total Teaching Hours needed` (per `Subject`) is based on the sum of `Teaching Hours` across all age groups for that subject, plus a subject-specific increment:
-    - If `Subject` is `Physics`: `Total Teaching Hours needed` = sum(`Teaching Hours`) + 6
-    - Otherwise: `Total Teaching Hours needed` = sum(`Teaching Hours`) + 1
+  - `Classes required` (per `Subject`) = sum of `Classes Needed` across all age groups for that subject.
+  - `Total Teaching Hours needed` (per `Subject`) = sum of `Teaching Hours` across all age groups for that subject.
 
 - By assessing the number of days someone works, how many hours of teaching are potentially available within a week:
   - Each day has 6 hours of potential teaching (9–12 and 1–4), so weekly hours are based on working days.
@@ -47,6 +43,10 @@ You are producing a subject-level staffing and capacity summary for a school. Us
   - Teachers who cover multiple subjects should have an even allocation of their time between those subjects:
     - For each teacher `Name`, compute `Subject Count` = number of distinct subjects they teach (based on distinct `Subject` values across all rows for that `Name`).
     - For each teacher-subject row, allocate `Teacher Hours` = `Weekly Hours` / `Subject Count`.
+  - Use each teacher row's `Ages Taught` range as an eligibility check for that subject:
+    - Parse `Ages Taught` as an inclusive age range.
+    - Count a teacher-subject allocation only if that subject has student demand in at least one age taught by that teacher.
+    - Count each eligible teacher-subject allocation once, even if it covers multiple student ages.
   - `Potential Teachers Hours` (per `Subject`) = sum of `Teacher Hours` across all teacher-subject rows for that subject.
 
 - Using that dataset calculate, at the subject level:

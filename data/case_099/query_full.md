@@ -41,7 +41,6 @@ A revised astrology system introduced a 13th star sign (Ophiuchus), changing the
 - For each 2020 date, determine which star-sign ranges contain that day-of-year in each system:
   - A sign range “contains” a date if the date falls inclusively between the start and end day-of-year.
   - Ranges may wrap across the end of the year (i.e., start day-of-year greater than end day-of-year); treat those as spanning year-end and still inclusive.
-  - **Special case**: Exclude June 21, 2020 from the output entirely (do not generate any change rows for this date).
   - For each system, if multiple signs match a date, order the matches by:
     1) the cyclic distance in days from the sign’s start date to the target date (using modulo 366), then
     2) the sign definition order from the input.
@@ -49,9 +48,7 @@ A revised astrology system introduced a 13th star sign (Ophiuchus), changing the
 - Identify dates whose star sign has changed between the old and new systems, with cusp handling aligned to the following deterministic rule:
 
   - Let `old_set` be the set of matched old-system sign names for the date, and `new_set` the set of matched new-system sign names.
-  - Exclude the date entirely (treat as “not changed”) if **either** of these is true:
-    - the old system yields exactly one unique sign and that sign is included in `new_set`, or
-    - the new system yields exactly one unique sign and that sign is included in `old_set`.
+  - Exclude the date entirely (treat as “not changed”) if `old_set` and `new_set` have any sign name in common.
   - Otherwise, emit change rows using these pairing rules:
     - If one system yields exactly 1 match and the other yields exactly 2 matches, output one row for each pairing where the old and new sign names differ (i.e., pair the single sign with each of the two on the other side, excluding any equal-name pairing).
     - In all other cases, pair matches by their ordered position (first-to-first, second-to-second, etc.) up to `min(number_of_old_matches, number_of_new_matches)`, and output a row for each paired position where the old and new sign names differ.

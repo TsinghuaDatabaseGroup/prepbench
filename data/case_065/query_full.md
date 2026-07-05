@@ -24,7 +24,7 @@ Produce an aggregated table at the grain **(Liverpool Formation, Opposition Form
    - **Opposition Goals** = sum of Opposition Goals across matches in the group.
    - **Avg Goals Scored** = Liverpool Goals / Games Played.
    - **Avg Goals Conceded** = Opposition Goals / Games Played.
-3. Ensure the output columns appear in the exact order specified. Also, the first column header must be exactly ` Formation` (with a single leading space before the word “Formation”).
+3. Ensure the output columns appear in the exact order specified.
 
 ### Output 2: Player position usage, minutes, and out-of-position counts
 Create player-position statistics by combining all three inputs, treating substitutions as direct replacements in the same position (i.e., the formation does not change and the substituted-on player inherits the substituted-off player’s position).
@@ -79,7 +79,7 @@ For each match in `input_03.csv`:
    - A match counts as “out of position” for a player if, in that match record, `Position Type` ≠ `Preferred Position Type`.
    - For each player, compute the number of distinct matches where they were out of position at least once.
    - Assign this same per-player total to **Games OoP** for every row of that player in the final output.
-4. Formatting requirement: append a single trailing space character to every `Player Name` value in `output_02.csv`.
+4. Ensure `Player Name` values are output as clean text without leading/trailing whitespace.
 5. Ensure columns appear exactly in the order specified in the Output section.
 
 ## Output

@@ -70,13 +70,6 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
                     return text
 
                 movie_title = decode_html_entities(movie_title)
-
-                movie_title = movie_title.replace("TrÊs", "Três")
-                movie_title = movie_title.replace(
-                    "Películas para no dormir", "PelÍculas para no dormir")
-                movie_title = movie_title.replace("espíritus", "espÍritus")
-                movie_title = re.sub(r'^Á(?=\s)', 'á', movie_title)
-
                 movie_title = movie_title.strip()
 
                 movies.append({

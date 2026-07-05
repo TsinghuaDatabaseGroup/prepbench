@@ -49,14 +49,6 @@
       "ref": "combined2 = combined2[combined2[\"Time Diff Minutes\"].notna()]"
     },
     {
-      "id": "new_1_instore_dedup_same_store_product_date",
-      "kind": "Operation inconsistent",
-      "node_id": "dedup_instore",
-      "op": "dedup",
-      "intent": "Before calculating next sale, de-duplicate only in-store transactions by Store, Product Type, and Sales Date, keeping the first sorted record.",
-      "ref": "instore = (\n    instore.sort_values([\"Store\", \"Product Type\", \"Sales Date\"])\n    .drop_duplicates(subset=[\"Store\", \"Product Type\", \"Sales Date\"], keep=\"first\")\n)"
-    },
-    {
       "id": "new_2_nonnegative_time_diff_filter",
       "kind": "Operation boundary",
       "node_id": "valid_rows",

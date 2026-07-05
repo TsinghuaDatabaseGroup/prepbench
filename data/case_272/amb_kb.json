@@ -17,14 +17,6 @@
       "ref": "long_actual[\"Actual Spending\"] = long_actual[\"Actual Spending\"].round().astype(int)"
     },
     {
-      "id": "3_O1_month_label_sepetember",
-      "kind": "Operation boundary",
-      "node_id": "compute_fields",
-      "op": "project",
-      "intent": "Use the exact month-name labels in the output, including spelling September as \"Sepetember\".",
-      "ref": "9: \"Sepetember\",  # Intentional typo to match GT"
-    },
-    {
       "id": "4_O1_annual_budget_strict_greater_than",
       "kind": "Operation boundary",
       "node_id": "filter_above",

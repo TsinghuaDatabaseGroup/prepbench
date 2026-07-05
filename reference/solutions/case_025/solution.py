@@ -75,7 +75,6 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     enriched["Longitude"] = pd.to_numeric(
         enriched["Longitude"], errors="coerce")
     enriched["Latitude"] = pd.to_numeric(enriched["Latitude"], errors="coerce")
-    enriched = enriched.dropna(subset=["Longitude", "Latitude"])
     concert_dates = pd.to_datetime(enriched["Concert Date"], errors="coerce")
     enriched["Concert Date"] = concert_dates.dt.strftime("%d/%m/%Y").fillna("")
     enriched["Fellow Artists"] = enriched["Fellow Artists"].fillna("")

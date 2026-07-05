@@ -1,14 +1,14 @@
 Change in % this month,Browser,This Month Pageviews Value,This Month Pageviews %,All Time Pageviews Value,All Time Pageviews %
--1,Chrome,3733,74,27196,75
-1,Safari,521,10,3361,9
--4,Firefox,440,8,4381,12
-4,Internet Explorer,253,5,666,1
-0,CriOS,24,0.5,77,0.5
-0,Mobile,20,0.5,289,0.5
-0,SamsungBrowser,14,0.5,118,0.5
-,Dalvik,4,0.5,,
-,Iridium,2,0.5,,
-,coc_coc_browser,2,0.5,,
-,BingPreview,,,64,0.5
-,Flipboard,,,16,0.5
-,HeadlessChrome,,,61,0.5
+-1.0,Chrome,3733.0,74.0,27196.0,75.0
+1.0,Safari,521.0,10.0,3361.0,9.0
+-4.0,Firefox,440.0,8.0,4381.0,12.0
+4.0,Internet Explorer,253.0,5.0,666.0,1.0
+0.0,CriOS,24.0,0.5,77.0,0.5
+0.0,Mobile,20.0,0.5,289.0,0.5
+0.0,SamsungBrowser,14.0,0.5,118.0,0.5
+,Dalvik,4.0,0.5,,
+,Iridium,2.0,0.5,,
+,coc_coc_browser,2.0,0.5,,
+,BingPreview,,,64.0,0.5
+,HeadlessChrome,,,61.0,0.5
+,Flipboard,,,16.0,0.5

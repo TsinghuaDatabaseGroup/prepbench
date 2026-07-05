@@ -9,14 +9,6 @@
       "ref": "    roi_agg = roi_renamed.groupby(\"Reporting Date\", as_index=False).agg({\n        \"ROI New Customers\": \"sum\",\n        \"ROI Reporting Month\": \"first\"\n    })"
     },
     {
-      "id": "2_O2_drop_specific_reporting_dates",
-      "kind": "Operation incomplete",
-      "node_id": "filter_drop_two",
-      "op": "filter",
-      "intent": "Exclude specific Reporting Date values (2023-12-29 and 2023-12-30) from the combined output.",
-      "ref": "result = result[~result[\"Reporting Date\"].isin([pd.Timestamp(\"2023-12-29\"), pd.Timestamp(\"2023-12-30\")])].copy()"
-    },
-    {
       "id": "3_D1_january_2024_filter_field",
       "kind": "Single-table reference",
       "node_id": "filter_rm",

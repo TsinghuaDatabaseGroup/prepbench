@@ -15,12 +15,12 @@ The Talent Acquisition team needs to analyze applicant qualifications. The raw d
 - Convert `Application Month` to the month-ending date and format as `DD/MM/YYYY`.
 - Determine preferred qualification flags:
   - Work Experience: The lower bound of the range must be >= 4 years.
-  - Number Supervised: The upper bound of the range (or the single value) must be > 10.
+  - Number Supervised: The lower bound of the range (or the single value) must be > 10.
   - Industry Experience: Must be "Yes".
 - Flag rows meeting all three preferred qualifications.
 - Aggregate by `Application Month`:
   - Sum `Candidate Count` as `Total Candidates`.
-  - Count rows meeting preferred qualifications as `Candidates with Preferred Qualifications`.
+  - Sum `Candidate Count` for rows meeting preferred qualifications as `Candidates with Preferred Qualifications`.
 - Calculate `% of Candidates` as `(Candidates with Preferred Qualifications / Total Candidates) * 100`, rounded to 1 decimal place.
 
 ## Output

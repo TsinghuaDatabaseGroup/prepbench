@@ -9,7 +9,7 @@ You are given a customer-level dataset that includes each customer’s sale tota
   - Loyalty Points = (Sale Total) ÷ 50
   - Round Loyalty Points to **1 decimal place**.
 - Create a **Category** field based on Loyalty Points using these rules:
-  - If Loyalty Points are **greater than or equal to 7**, categorise as **"Mega Byte"**.
+  - If Loyalty Points are **greater than or equal to 7**, categorise as **"MegaByte"**.
   - If Loyalty Points are **greater than or equal to 5** (but **less than 7**), categorise as **"Byte"**.
   - Categorise the remaining as **"No Byte"**.
 - Using the categorised records, compute the number of customers (i.e., number of records) in each **Category**, split by **Gender** (Female vs Male).

@@ -121,8 +121,6 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     result["New Customers"] = result["New Customers"].fillna(0).astype(int)
     result["ROI New Customers"] = result["ROI New Customers"].fillna(0).astype(int)
     
-    result = result[~result["Reporting Date"].isin([pd.Timestamp("2023-12-29"), pd.Timestamp("2023-12-30")])].copy()
-    
     def get_misalignment_flag(row):
         if pd.isna(row["ROI Reporting Month"]) or str(row["ROI Reporting Month"]) == "nan":
             return "X"

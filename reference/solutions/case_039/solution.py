@@ -51,8 +51,8 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     browsers_all_time = parse_with_percent(inputs_dir / 'input_01.csv')
     browsers_this_month = parse_with_percent(inputs_dir / 'input_02.csv')
 
-    origin_this_month = parse_values_only(inputs_dir / 'input_03.csv', percent_mode='floor_with_target', target_sum=94)
-    origin_all_time = parse_values_only(inputs_dir / 'input_04.csv', percent_mode='floor_with_target', target_sum=94)
+    origin_this_month = parse_values_only(inputs_dir / 'input_03.csv', percent_mode='round')
+    origin_all_time = parse_values_only(inputs_dir / 'input_04.csv', percent_mode='round')
 
     os_all_time = parse_with_percent(inputs_dir / 'input_05.csv')
     os_this_month = parse_with_percent(inputs_dir / 'input_06.csv')
@@ -126,7 +126,6 @@ if __name__ == "__main__":
     for fname, df in outputs.items():
         (cand_dir / fname).parent.mkdir(parents=True, exist_ok=True)
         df.to_csv(cand_dir / fname, index=False, encoding='utf-8')
-
 
 
 

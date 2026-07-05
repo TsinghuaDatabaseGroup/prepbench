@@ -9,10 +9,9 @@ Chin & Beard Suds Co receives sales data for two South West London stores (Claph
   - Date list file: `input_06.csv`, containing a `Dates` column to be used as full-date labels (keep the date values as provided, as text).
 - Assign store and date to each sales file’s rows:
   - Add a `Store` field with value `Clapham` for all rows from `input_01.csv`–`input_05.csv`, and `Wimbledon` for all rows from `input_07.csv`–`input_11.csv`.
-  - Add a `Dates` field to each file so that each of the five daily sales files per store is paired to one date from `input_06.csv` based on a fixed positional mapping:
-    - Read the five `Dates` values from `input_06.csv` in file order into a list `D1..D5`.
-    - If there are exactly five dates, reorder them to: `[D5, D1, D4, D2, D3]`.
-    - Pair this reordered list in order with each store’s five files in ascending file number (first date to `input_01.csv` / `input_07.csv`, second date to `input_02.csv` / `input_08.csv`, etc.).
+  - Add a `Dates` field to each file so that each of the five daily sales files per store is paired to one date from `input_06.csv` by position:
+    - Read the five `Dates` values from `input_06.csv` in file order.
+    - Pair these dates in order with each store’s five files in ascending file number (first date to `input_01.csv` / `input_07.csv`, second date to `input_02.csv` / `input_08.csv`, etc.).
 - Combine all store-day files into one dataset.
 - Remove duplicates by dropping rows that are identical across all fields (i.e., after `Store` and `Dates` have been attached).
 - Compute each store’s total sales across all dates (after deduplication):

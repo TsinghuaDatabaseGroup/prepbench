@@ -44,18 +44,7 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
         allow_exact_matches=True,
     )
 
-    def fmt_id(x):
-        if pd.isna(x):
-            return ""
-        s = str(x)
-        if s.isdigit() and len(s) >= 7:
-            try:
-                return f"{int(s):.2E}"
-            except Exception:
-                return s
-        return s
-
-    matched["Customer ID"] = matched["Customer ID"].map(fmt_id)
+    matched["Customer ID"] = matched["Customer ID"].fillna("").astype(str)
     matched = matched[["Session #", "Customer ID"]]
 
     out_df = df_songs.merge(matched, on="Session #", how="left")

@@ -6,7 +6,7 @@
       "node_id": "n_filter_year",
       "op": "filter",
       "source_text": "Filter the dataset so that we only have past dates - i.e. 1700 - 2023",
-      "ref": "years = list(range(1700, 2024))"
+      "ref": "values = pd.to_numeric(raw.stack(), errors=\"coerce\").dropna().astype(int)\nyears = sorted(set(values[(values >= 1700) & (values <= 2023)].tolist()))"
     },
     {
       "id": "2_C2_gregorian_easter_algorithm",
@@ -30,7 +30,7 @@
       "node_id": "n_sort_year",
       "op": "sort",
       "intent": "Define the year ordering used to assign Calculation1 (ascending by year).",
-      "ref": "years = list(range(1700, 2024))"
+      "ref": "years = sorted(set(values[(values >= 1700) & (values <= 2023)].tolist()))"
     }
   ]
 }

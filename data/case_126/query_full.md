@@ -2,9 +2,9 @@
 
 Simulate the NBA Draft Lottery to assign draft positions for the 14 non-playoff teams. The lottery determines the first four picks via predefined odds and predetermined winning numbers; picks 5–14 are assigned by original seed order.
 
-You are provided with:
+You are provided with two input datasets and an implied lottery-number scaffold:
 - **Lottery Odds**: odds by seed (1–14) for each of the first four picks, with separate probability columns `1`, `2`, `3`, and `4`.
-- **Lottery Combinations**: a scaffold representing the 1,000 possible lottery outcomes (numbers 1–1000). This can be treated as the ordered integers 1–1000 for mapping purposes.
+- **Lottery Combinations**: use the ordered integers 1–1000 as the scaffold representing the 1,000 possible lottery outcomes. This is not a separate input file.
 - **Team Seeding**: the 14 teams and their original seeds.
 
 ## Requirements

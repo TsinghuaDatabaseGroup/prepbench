@@ -63,14 +63,6 @@
       "op": "project",
       "intent": "For players with no events, fill event-derived metrics with zeros.",
       "ref": "agg[col] = agg[col].fillna(default)"
-    },
-    {
-      "id": "9_O2_rank_na_handling",
-      "kind": "Operation incomplete",
-      "node_id": "rank_script",
-      "op": "script",
-      "intent": "When percent_won is missing, assign it the maximum rank.",
-      "ref": "ranks[s.isna()] = len(s)"
     }
   ]
 }

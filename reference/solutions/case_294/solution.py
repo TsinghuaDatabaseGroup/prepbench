@@ -23,7 +23,7 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
         elif start <= end:
             dates = pd.date_range(start, end, freq="D")
         else:
-            dates = pd.DatetimeIndex([start, end])
+            dates = pd.DatetimeIndex([])
 
         weekday_dates = [d for d in dates if d.weekday() < 5]
         for work_day in weekday_dates:
@@ -86,4 +86,3 @@ if __name__ == "__main__":
 
     for filename, df in solve(inputs_dir).items():
         df.to_csv(cand_dir / filename, index=False, encoding="utf-8")
-

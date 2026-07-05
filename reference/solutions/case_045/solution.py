@@ -5,8 +5,6 @@ from pathlib import Path
 def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     dates_df = pd.read_csv(inputs_dir / "input_06.csv")
     date_strings = dates_df["Dates"].tolist()
-    if len(date_strings) == 5:
-        date_strings = [date_strings[4], date_strings[0], date_strings[3], date_strings[1], date_strings[2]]
 
     clapham_files = [f"input_{i:02d}.csv" for i in range(1, 6)]
     wimbledon_files = [f"input_{i:02d}.csv" for i in range(7, 12)]

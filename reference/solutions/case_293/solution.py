@@ -31,14 +31,9 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
     engagements["Engagement End Date"] = to_date("Engagement End Day", "Engagement End Month")
 
     engagements["Corrected Grade ID"] = engagements.groupby("Initials")["Grade"].transform("min")
-
-    def drop_invalid_same_day(g: pd.DataFrame) -> pd.DataFrame:
-        g = g.copy()
-        dup_start = g.duplicated(subset=["Engagement Start Date"], keep=False)
-        mask_invalid = (g["Engagement End Date"] < g["Engagement Start Date"]) & dup_start
-        return g.loc[~mask_invalid]
-
-    engagements = engagements.groupby("Initials", group_keys=False).apply(drop_invalid_same_day)
+    engagements = engagements[
+        engagements["Engagement End Date"] >= engagements["Engagement Start Date"]
+    ].copy()
 
     df = engagements.merge(
         grades.rename(columns={"Grade ID": "Corrected Grade ID"}),

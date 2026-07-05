@@ -2,11 +2,11 @@
   "files": {
     "output_01.csv": {
       "key": [
-        " Formation",
+        "Formation",
         "Oppo Form."
       ],
       "columns": {
-        " Formation": "text_exact",
+        "Formation": "text_exact",
         "Oppo Form.": "text_exact",
         "Games Played": "number",
         "Liverpool Goals": "number",

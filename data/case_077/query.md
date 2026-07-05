@@ -18,7 +18,7 @@ There are 3 inputs this week: Host Countries, the history of all the medallists 
 - Change the United Kingdom to Great Britain
 - Output Host Cities Dataset
 - Output the data
-  - Note: 去重处理 — `output_03.csv` 中存在完全重复行（例如 "India, IND, Hockey, Gold, hockey, \"SINGH, Singh\", 1980, M, Hockey" 重复出现），已在最终输出中删除重复记录以确保主键唯一性与评估一致。
+  - Remove exact duplicate records from the cleaned Medallists Dataset.
 
 ## Output
 

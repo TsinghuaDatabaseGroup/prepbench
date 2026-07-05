@@ -6,12 +6,11 @@ You are given engagement assignments for consultants, including an engagement id
 
 - Input the data from `input_01.csv`.
 
-- For each input record, compute **Calendar Days** as the difference in whole days between `Engagement End Date` and `Engagement Start Date`, equivalent to `DATEDIFF('day', start_date, end_date)`.  
-  - This value may be negative if the start date is after the end date.
+- For each input record, compute **Calendar Days** as the difference in whole days between `Engagement End Date` and `Engagement Start Date`, equivalent to `DATEDIFF('day', start_date, end_date)`.
 
 - Create a daily row for each day a consultant is on the engagement, then remove weekend days:
-  - If `Engagement Start Date` ≤ `Engagement End Date`, generate the full inclusive daily date sequence from start through end (one row per calendar date).
-  - If `Engagement Start Date` > `Engagement End Date`, do not generate an in-between range; instead, consider only the two dates `{start, end}` as the set of candidate days.
+  - Generate the full inclusive daily date sequence from `Engagement Start Date` through `Engagement End Date` (one row per calendar date).
+  - If a row has no valid date range, it generates no daily rows and therefore does not appear in the aggregated output.
   - Keep only weekdays (Monday–Friday). Discard Saturday and Sunday rows.
 
 - Aggregate the resulting weekday-level rows to the consultant–engagement level using:

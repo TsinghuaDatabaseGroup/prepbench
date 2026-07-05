@@ -18,7 +18,7 @@ You are preparing a structured, analysis-ready dataset of Strictly Come Dancing 
   - If the original `Week` value contains a colon (`:`), treat the text after the first colon as week theme text and initially store it in `Theme`; otherwise set `Theme` to null.
 
 - Derive a `Stage` field from the week theme text and clean `Theme` accordingly:
-  - If the theme text indicates a quarter-final, set `Stage = "Quarter Final"` **except** when the original `Week` string uses a “Theme Week (Quarter-final)” style (i.e., contains the pattern ` Week (`); in that case, leave `Stage` null.
+  - If the theme text indicates a quarter-final, set `Stage = "Quarter Final"`.
   - If the theme text indicates a semi-final, set `Stage = "Semi Final"`.
   - If the theme text indicates a final (and it is not a quarter-final or semi-final), set `Stage = "Final"`.
   - Remove any stage wording (quarter-final, semi-final, final) from the `Theme` text so `Theme` represents only the theme name.

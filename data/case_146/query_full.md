@@ -66,8 +66,7 @@ You are preparing a player-metrics dataset for a Pizza Plot / Coxcomb chart. The
 - Implement the above by producing a long-form dataset with one row per `(name, metric)` containing:
   - `raw_value`: the metric’s raw value for that player.
   - `scaled_value`: the within-metric rank across all players, using average ranking for ties and ascending order (higher raw values receive higher ranks).
-  - Special rule for `percent_won`: if a player’s `raw_value` is missing for this metric, treat it as receiving the maximum (highest) rank for `scaled_value`.
-    - **Clarification on when `percent_won` is considered missing**: If a player has event records (N > 0 events) but never finished 1st (sum of `win` is 0), their `percent_won` should be set to `NaN` (missing), not `0.0`. The formula `0/N = 0.0` is mathematically correct, but semantically this case should be treated as "no meaningful win percentage data" rather than "zero win rate". This ensures such players receive the maximum rank per the special rule above.
+  - If a metric value is missing, leave `raw_value` missing and treat it as receiving the maximum (highest) rank for `scaled_value`.
 - Join the pivots together.
   - The final output must include both `raw_value` and `scaled_value` for each `(name, metric)`.
 - Output the data.

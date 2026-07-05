@@ -14,9 +14,10 @@ You are analyzing the 2018 Tour de France final results to identify the stronges
   - Compute the team’s average gap to the leader in minutes as the arithmetic mean of the riders’ gap minutes.
   - Convert the team average gap in minutes to an integer by taking the floor (rounding down).
 - Have seven or more riders complete the tour: keep only teams with `Number of Riders >= 7`.
-- Determine the best teams by average gap:
+- Keep only teams whose average gap is 100 minutes or less:
+  - `Team Avg Gap in Mins <= 100`.
+- Order the remaining teams by average gap:
   - Sort eligible teams by `Team Avg Gap in Mins` ascending, then by `Team` ascending as a tie-breaker.
-  - Select only the top 2 teams after sorting.
 - Output the data.
 
 ## Output

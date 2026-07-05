@@ -11,8 +11,6 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     
     df['Work Level'] = df['Work Level'].astype(float).astype(int)
     
-    df['Stage'] = df['Stage'].str.replace('Work Anniverary', 'Work Anniversary', regex=False)
-    
     if df['Date'].dtype != 'object':
         df['Date'] = pd.to_datetime(df['Date']).dt.strftime('%d/%m/%Y')
     else:
@@ -33,4 +31,3 @@ if __name__ == "__main__":
     outputs = solve(inputs_dir)
     for filename, df in outputs.items():
         df.to_csv(cand_dir / filename, index=False, encoding='utf-8')
-

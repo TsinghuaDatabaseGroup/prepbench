@@ -71,7 +71,7 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
         ]
     ]
     out1.columns = [
-        " Formation",
+        "Formation",
         "Oppo Form.",
         "Games Played",
         "Liverpool Goals",
@@ -250,7 +250,12 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     out2["Games OoP"] = out2["Total OoP"].fillna(0).astype(int)
     out2 = out2.drop(columns=["Total OoP"])
 
-    out2["Player Name"] = out2["Player Name"].astype(str) + " "
+    out2["Player Name"] = (
+        out2["Player Name"]
+        .astype(str)
+        .str.replace("\u00A0", " ", regex=False)
+        .str.strip()
+    )
 
     out2 = out2[
         [

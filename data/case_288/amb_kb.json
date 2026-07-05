@@ -49,14 +49,6 @@
       "ref": "def last_friday_in_term(term_tuple):\n    while d >= s:\n        if d.weekday() == 4 and is_school_day(d): return d"
     },
     {
-      "id": "7_O1_montue_term_end_override",
-      "kind": "Operation boundary",
-      "node_id": "compute_cake_days",
-      "op": "script",
-      "source_text": "you will receive your cake on the last Friday in the previous school term",
-      "ref": "if e.weekday() in (0, 1) and (e - lf).days <= 4: return e"
-    },
-    {
       "id": "8_O2_exclude_birthdays_before_term",
       "kind": "Operation incomplete",
       "node_id": "compute_cake_days",

@@ -79,14 +79,6 @@
       "op": "project",
       "intent": "When duplicate rows differ only by Concert label (case-insensitively), use a fixed deterministic preference order.",
       "ref": "preference_map = {\"red tour\": [\"RED Tour\", \"Red Tour\"], ...}"
-    },
-    {
-      "id": "new_1_drop_missing_gig_coordinates",
-      "kind": "Operation incomplete",
-      "node_id": "filter_valid_gig_coords",
-      "op": "filter",
-      "intent": "Before final output, exclude gig rows whose gig Longitude or Latitude is missing after coordinate conversion.",
-      "ref": "enriched[\"Longitude\"] = pd.to_numeric(\n        enriched[\"Longitude\"], errors=\"coerce\")\n    enriched[\"Latitude\"] = pd.to_numeric(enriched[\"Latitude\"], errors=\"coerce\")\n    enriched = enriched.dropna(subset=[\"Longitude\", \"Latitude\"])"
     }
   ]
 }

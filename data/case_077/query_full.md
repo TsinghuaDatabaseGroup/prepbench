@@ -74,8 +74,8 @@ You have three input datasets related to the Olympic Games: (1) a host cities/co
   - Write the cleaned/derived hosts table to `output_02.csv` with exactly the specified fields.
   - Sort `output_02.csv` by `Year` ascending.
 
-- Output the data
-  - Note: 去重处理 — `output_03.csv` 中存在完全重复行（例如 "India, IND, Hockey, Gold, hockey, \"SINGH, Singh\", 1980, M, Hockey" 重复出现），已在最终输出中删除重复记录以确保主键唯一性与评估一致。
+- Output the data.
+  - Remove exact duplicate records from the cleaned Medallists Dataset before writing `output_03.csv`.
 
 ## Output
 

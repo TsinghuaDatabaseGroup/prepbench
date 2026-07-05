@@ -87,14 +87,6 @@
       "op": "join",
       "source_text": "For dates on the cusp, if at least one of their new star signs matches",
       "ref": "for idx in range(pair_len): old_sign = old_matches[idx]"
-    },
-    {
-      "id": "new_1_exclude_june_21_cusp_date",
-      "kind": "Operation incomplete",
-      "node_id": "dates_filter_special_case",
-      "op": "filter",
-      "intent": "Exclude June 21, 2020 from the output entirely before old/new star-sign pairing.",
-      "ref": "if current_date.month == 6 and current_date.day == 21:\n    continue"
     }
   ]
 }

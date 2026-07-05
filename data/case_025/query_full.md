@@ -34,9 +34,8 @@ Prepare a combined dataset to analyze the touring histories of two featured UK s
     - Rename the home-locations fields `Longitude` → `Home Longitude` and `Latitude` → `Home Latitude` before output.
     - The join must use exact string matching on the `Artist` field (case-sensitive).
 
-- Validate required geography for the final output:
-  - Convert `Longitude` and `Latitude` (gig coordinates) to numeric.
-  - Exclude rows where either gig `Longitude` or gig `Latitude` is missing after conversion (i.e., only output rows with valid gig coordinates).
+- Convert gig `Longitude` and `Latitude` to numeric where coordinates are available.
+  - Retain gig rows even when the coordinate lookup does not provide a matching longitude/latitude; in those rows, leave the gig coordinate fields missing.
 
 - Standardize date representation:
   - Parse `Concert Date` as a date where possible and output it formatted as `DD/MM/YYYY`.

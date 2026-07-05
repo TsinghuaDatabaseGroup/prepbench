@@ -55,14 +55,6 @@
       "op": "project",
       "source_text": "Split the Week field into a numeric value and extra details into Theme Week",
       "ref": "        if ':' in week_str:\n            theme = week_str.split(':', 1)[1].strip()\n        else:\n            theme = None"
-    },
-    {
-      "id": "8_O1_quarter_final_exception_theme_week_style",
-      "kind": "Operation boundary",
-      "node_id": "week_theme_compute",
-      "op": "project",
-      "source_text": "Final/Semi Final/Quarter Final details go into a Stage field",
-      "ref": "        is_theme_week = re.search(\n            r'\\s+Week\\s*\\(', week_str, re.IGNORECASE) is not None"
     }
   ]
 }

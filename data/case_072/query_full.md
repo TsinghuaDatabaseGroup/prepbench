@@ -16,11 +16,8 @@ You are trying to reconcile product identifiers between an Internal system and a
   - Exclude any 3rd Party rows whose `3rd Party ID` already appears in the exact matches.
   - Create candidate pairs by performing an inner join of the remaining Internal and remaining 3rd Party rows on `Scent` (i.e., all combinations within each Scent).
 
-- For candidate pairs, compute sales difference and filter candidates:
+- For candidate pairs, compute sales difference:
   - Compute `Sales_Diff = abs(Sales - 3rd Party Sales)`.
-  - Keep a candidate pair only if either:
-    - `Sales_Diff <= 12969.60`, OR
-    - `abs(Sales_Diff - 29802.211101587) < 0.01`.
 
 - For each 3rd Party ID, find the Internal ID with the lowest sales difference:
   - Sort the remaining candidate pairs by `Sales_Diff` ascending (stable sort for deterministic tie behavior).

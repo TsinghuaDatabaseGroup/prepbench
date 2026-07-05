@@ -105,14 +105,6 @@
       "ref": "today = max_match_date + pd.Timedelta(days=1)"
     },
     {
-      "id": "new_1_swap_drawn_lost",
-      "kind": "Row-level concept",
-      "node_id": "post_project",
-      "op": "project",
-      "intent": "Swap the final Matches Drawn and Matches Lost values after aggregation.",
-      "ref": "result[[\"Matches Drawn\", \"Matches Lost\"]] = result[[\n        \"Matches Lost\", \"Matches Drawn\"]].to_numpy()"
-    },
-    {
       "id": "new_2_final_sort_start_date_pm",
       "kind": "Operation inconsistent",
       "node_id": "sort_final",

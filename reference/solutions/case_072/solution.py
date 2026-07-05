@@ -33,12 +33,7 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     if len(pairs_join) > 0:
         pairs_join["Sales_Diff"] = abs(pairs_join["Sales"] - pairs_join["3rd Party Sales"])
         
-        pairs_filtered = pairs_join[
-            (pairs_join["Sales_Diff"] <= 12969.60) | 
-            (abs(pairs_join["Sales_Diff"] - 29802.211101587) < 0.01)
-        ].copy()
-        
-        pairs_sorted = pairs_filtered.sort_values("Sales_Diff", kind="stable")
+        pairs_sorted = pairs_join.sort_values("Sales_Diff", kind="stable")
         
         dedup_third = pairs_sorted.drop_duplicates(subset=["3rd Party ID"], keep="first")
         

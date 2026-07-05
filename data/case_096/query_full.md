@@ -6,6 +6,9 @@ You are preparing an automated Secret Santa email list. Each participant (the â€
 
 - Input the data.
 - Treat each row in the input as one Secret Santa participant and their email address.
+- Clean email-address typos before output:
+  - Replace commas used in an email domain with periods.
+  - Replace exclamation marks used in an email domain with periods.
 - Assign Secret Santas to Secret Santees that follow them in the alphabet:
   - Sort all participants by the `Secret Santa` name in ascending alphabetical order.
   - For each participant in this sorted list, assign their Secret Santee as the next participant in the sorted list.

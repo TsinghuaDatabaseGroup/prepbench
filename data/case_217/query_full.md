@@ -4,10 +4,11 @@ You need a table of Gregorian Easter Sunday dates for a fixed historical range o
 
 ## Requirements
 
-- Input the data (read the provided input file as the task’s starting point), but the required output must ultimately be based on the full year range specified below regardless of the input’s layout.
+- Input the data from the provided Easter-date chart.
 - Construct the set of years to cover:
-  - Include every integer year from 1700 through 2023, inclusive.
-  - Ensure there is exactly one output row per year in this range.
+  - Extract numeric year values from the chart.
+  - Keep years from 1700 through 2023, inclusive.
+  - Ensure there is exactly one output row per retained year.
 - Create a sequential row identifier:
   - Add `Calculation1` as a 1-based sequence (1, 2, 3, …) in ascending year order (so 1700 corresponds to 1 and 2023 corresponds to 324).
 - Compute Easter Sunday for each year using the Gregorian (Western) Easter computation (the Anonymous Gregorian algorithm):

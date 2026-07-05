@@ -1,28 +1,28 @@
 {
   "ambiguities": [
     {
-      "id": "1_C1_classes_required_subject_increment",
-      "kind": "Row-level concept",
-      "node_id": "classes_required",
-      "op": "project",
-      "intent": "Compute subject-level Classes required as sum(Classes Needed) plus +2 for Physics, otherwise +1.",
-      "ref": "classes_required['Classes required'] = classes_required.apply(\n        lambda row: row['Classes Needed'] + (2 if row['Subject'] == 'Physics' else 1),\n        axis=1\n    )"
-    },
-    {
-      "id": "2_O1_classes_needed_ceiling",
+      "id": "1_O1_classes_needed_ceiling",
       "kind": "Operation boundary",
       "node_id": "compute_classes_hours",
       "op": "project",
       "intent": "Compute Classes Needed per (Subject, Age Group) as ceil(Student Count / Total Capacity).",
-      "ref": "students_by_subject_age['Classes Needed'] = (\n        students_by_subject_age['Student Count'] / \n        students_by_subject_age['Total Capacity']\n    ).apply(lambda x: math.ceil(x))"
+      "ref": "students_by_subject_age['Classes Needed'] = (students_by_subject_age['Student Count'] / students_by_subject_age['Total Capacity']).apply(lambda x: math.ceil(x))"
     },
     {
-      "id": "3_C2_teaching_hours_from_classes",
+      "id": "2_C2_teaching_hours_from_classes",
       "kind": "Row-level concept",
       "node_id": "compute_classes_hours",
       "op": "project",
       "source_text": "Work out how many hours of teaching is required for the students based on the age of the students",
-      "ref": "students_by_subject_age['Teaching Hours'] = (\n        students_by_subject_age['Classes Needed'] * \n        students_by_subject_age['Hours teaching per week']\n    )"
+      "ref": "students_by_subject_age['Teaching Hours'] = students_by_subject_age['Classes Needed'] * students_by_subject_age['Hours teaching per week']"
+    },
+    {
+      "id": "3_C2_subject_level_requirement_sums",
+      "kind": "Group-level concept",
+      "node_id": "subject_requirements",
+      "op": "aggregate",
+      "source_text": "Using that data set calculate: Potential Teachers Hours, Total Teaching Hours Needed, Classes Required",
+      "ref": "classes_required['Classes required'] = classes_required['Classes Needed']\ntotal_hours_needed['Total Teaching Hours needed'] = total_hours_needed['Teaching Hours']"
     },
     {
       "id": "4_O2_fill_missing_measures_with_zero",
@@ -46,7 +46,7 @@
       "node_id": "join_all_results",
       "op": "join",
       "intent": "Use a full outer join on Subject when combining classes required with the other subject-level results so unmatched subjects are retained.",
-      "ref": "result = total_hours_needed.merge(\n        potential_teachers_hours, on='Subject', how='outer'\n    ).merge(\n        classes_required, on='Subject', how='outer'\n    )"
+      "ref": "result = total_hours_needed.merge(potential_teachers_hours, on='Subject', how='outer').merge(classes_required, on='Subject', how='outer')"
     },
     {
       "id": "7_C2_room_capacity_sum_across_rooms",
@@ -62,7 +62,7 @@
       "node_id": "students_age_group",
       "op": "project",
       "source_text": "based on the age of the students",
-      "ref": "def get_age_group(age):\n        if 13 <= age <= 14:\n            return '13-14'\n        elif 15 <= age <= 16:\n            return '15-16'\n        elif 17 <= age <= 18:\n            return '17-18'\n        else:\n            return None"
+      "ref": "def get_age_group(age): ..."
     },
     {
       "id": "9_O2_drop_students_outside_age_groups",
@@ -78,7 +78,7 @@
       "node_id": "students_explode",
       "op": "script",
       "source_text": "Determine how many students are in each year for each subject",
-      "ref": "subjects = str(row['Subject']).split('/')\n        for subject in subjects:\n            students_expanded.append({...})"
+      "ref": "subjects = str(row['Subject']).split('/')"
     },
     {
       "id": "11_C2_working_days_count_from_comma_tokens",
@@ -86,15 +86,23 @@
       "node_id": "teachers_working_days",
       "op": "script",
       "source_text": "By assessing the number of days someone works",
-      "ref": "def count_working_days(days_str):\n        if pd.isna(days_str):\n            return 0\n        days = str(days_str).split(',')\n        return len([d for d in days if d.strip()])"
+      "ref": "teachers_df['Working Days Count'] = teachers_df['Working Days'].apply(count_working_days)"
     },
     {
-      "id": "12_C1_total_teaching_hours_subject_increment",
+      "id": "12_C1_teacher_age_eligibility",
       "kind": "Row-level concept",
-      "node_id": "total_hours_needed",
+      "node_id": "teacher_subject_hours",
+      "op": "filter",
+      "source_text": "Each teacher can only teach certain subjects and certain ages",
+      "ref": "if needed_ages and not (taught_ages & needed_ages): continue"
+    },
+    {
+      "id": "13_C1_multi_subject_teacher_even_allocation",
+      "kind": "Row-level concept",
+      "node_id": "teacher_subject_hours",
       "op": "project",
-      "intent": "Compute subject-level Total Teaching Hours needed as sum(Teaching Hours) plus +6 for Physics, otherwise +1.",
-      "ref": "total_hours_needed['Total Teaching Hours needed'] = total_hours_needed.apply(\n        lambda row: row['Teaching Hours'] + (6 if row['Subject'] == 'Physics' else 1),\n        axis=1\n    )"
+      "source_text": "Teachers who cover multiple subjects should have an even allocation of their time between those subjects.",
+      "ref": "hours_per_subject = weekly_hours / num_subjects if num_subjects > 0 else 0"
     }
   ]
 }

@@ -34,7 +34,7 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
             6: "June",
             7: "July",
             8: "August",
-            9: "Sepetember",
+            9: "September",
             10: "October",
             11: "November",
             12: "December",
@@ -104,5 +104,4 @@ if __name__ == "__main__":
     for fname, df in outputs.items():
         (cand_dir / fname).parent.mkdir(parents=True, exist_ok=True)
         df.to_csv(cand_dir / fname, index=False)
-
 

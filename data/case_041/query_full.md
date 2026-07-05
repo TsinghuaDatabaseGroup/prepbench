@@ -48,7 +48,6 @@ Chin & Beard Suds Co has received customer complaints about recently shipped ite
     - **Recall Whole Batch** money lost is the sum of recall_loss across all recalled batches, rounded to 2 decimals.
   - If the % of ordered items from a batch is less than 20%, then we will just refund the items which we have received complaints on.
     - **Refund Items Only** money lost is the sum of Price across complaint-matched order lines that are **not** in a recalled batch.
-    - Additionally, if an **Order Number** is associated with more than one distinct Customer ID in the orders data (an “ambiguous” order), then complaint lines from that order are treated as **Refund Items Only** even if their batch is recalled.
     - Round the Refund Items Only total to 2 decimals.
   - Compute **Total Amount Lost** as (Recall Whole Batch + Refund Items Only), rounded to 2 decimals.
   - The refund/loss output must contain exactly three categories with these exact labels:
@@ -61,9 +60,6 @@ Chin & Beard Suds Co has received customer complaints about recently shipped ite
     - stock_remaining = (Size of Order) − sold_qty
     - If the batch is recalled, set stock_remaining to 0 (all stock in the batch is removed from availability).
   - Aggregate stock to the reporting level of **(Product, Scent)** by summing batch-level stock_remaining.
-  - Adjustment for ambiguous-order complaints in recalled batches:
-    - For complaint lines that are both (a) from an ambiguous order and (b) belong to a recalled batch, subtract the count of such complaint lines from Stock Remaining for the corresponding (Product, Scent).
-    - Do not allow Stock Remaining to go below 0 after this adjustment.
   - Output Stock Remaining as an integer.
   - Sort the final stock output by Product ascending, then Scent ascending.
 

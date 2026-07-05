@@ -76,8 +76,6 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
         r = s.rank(method="average", ascending=True)
         return r
 
-    df_long.loc[(df_long['name'] == 'Lika Gerasimova') & (df_long['metric'] == 'percent_won'), 'raw_value'] = np.nan
-
     def compute_scaled(g: pd.DataFrame) -> pd.Series:
         s = g["raw_value"]
         ranks = s.rank(method="average", ascending=True)
@@ -107,4 +105,3 @@ if __name__ == "__main__":
     for fname, df in outputs.items():
         (cand_dir / fname).parent.mkdir(parents=True, exist_ok=True)
         df.to_csv(cand_dir / fname, index=False, encoding="utf-8")
-

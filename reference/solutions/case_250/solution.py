@@ -92,8 +92,7 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
 	top = all_terms[all_terms["__term_no"].isin([3, 6])].copy()
 	top = top[top["3 Term GPA Moving Average"].notna()].copy()
 	def select_by_term_size(group: pd.DataFrame) -> pd.DataFrame:
-		term_no = int(group["__term_no"].iloc[0])
-		k = 11 if term_no == 3 else 13
+		k = max(1, math.ceil(len(group) * 0.02))
 		ordered = group.sort_values(by=["3 Term GPA Moving Average", "GPA", "Student Name"],
 		                            ascending=[False, False, True])
 		return ordered.head(k)
@@ -122,5 +121,3 @@ if __name__ == "__main__":
 	result = solve(inputs_dir)
 	for fname, df in result.items():
 		(df if df is not None else pd.DataFrame()).to_csv(cand_dir / fname, index=False, encoding="utf-8")
-
-

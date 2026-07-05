@@ -75,7 +75,6 @@ Data Source Bank (DSB) must assign each new customer to a UK “reporting day”
 - Combine UK and ROI on aligned `Reporting Date`:
   - Join the UK aggregated table and the ROI aggregated table on `Reporting Date` using a right join that preserves the full set of UK reporting dates after the January-2024 filter.
   - Replace null customer counts with 0 for both `New Customers` and `ROI New Customers`.
-  - Remove rows where `Reporting Date` is 2023-12-29 or 2023-12-30.
   - Create `Misalignment Flag`:
     - Set to `X` if the first three characters of UK `Reporting Month` differ from the first three characters of `ROI Reporting Month`.
     - Otherwise set to an empty string.

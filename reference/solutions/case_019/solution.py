@@ -24,8 +24,9 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
     grp["Team Avg Gap in Mins"] = np.floor(grp["avg_gap_min"]).astype(int)
     grp["Number of Riders"] = grp["riders"].astype(int)
     grp = grp[grp["Number of Riders"] >= 7]
+    grp = grp[grp["Team Avg Gap in Mins"] <= 100]
 
-    out = grp.sort_values(["Team Avg Gap in Mins", "Team"]).head(2)[
+    out = grp.sort_values(["Team Avg Gap in Mins", "Team"])[
         ["Team Avg Gap in Mins", "Team", "Number of Riders"]
     ].reset_index(drop=True)
 

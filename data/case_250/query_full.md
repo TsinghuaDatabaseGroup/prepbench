@@ -34,9 +34,9 @@ The Prep School issues termly grade reports for each student, with one file per 
   - In a separate flow after full name is calculated, filter to keep only terms 3 and 6, then create percentiles for each term based on the moving average of GPA.
     - Filter to `Term 3` and `Term 6` only.
     - Exclude rows where `3 Term GPA Moving Average` is null (since percentile/top selection is based on the moving average).
-    - For each of the two terms independently, identify the top students by `3 Term GPA Moving Average` consistent with a “top 2%” selection implemented as a fixed top-count per term:
-      - For Term 3: keep the top 11 rows.
-      - For Term 6: keep the top 13 rows.
+    - For each of the two terms independently, identify the top students by `3 Term GPA Moving Average`:
+      - Sort the rows within the term using the tie-breakers below.
+      - Keep the top `ceil(number_of_eligible_rows_in_term * 0.02)` rows.
     - Within each term, order rows to determine “top” using these tie-breakers in sequence:
       1) `3 Term GPA Moving Average` descending
       2) `GPA` descending

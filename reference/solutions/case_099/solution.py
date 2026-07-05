@@ -122,8 +122,6 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
 
     for current_date in dates_2020:
         doy = current_date.timetuple().tm_yday
-        if current_date.month == 6 and current_date.day == 21:
-            continue
 
         old_matches = _signs_for_day(old_system, doy)
         new_matches = _signs_for_day(new_system, doy)
@@ -132,7 +130,7 @@ def solve(inputs_dir: Path) -> dict[str, pd.DataFrame]:
             continue
         old_set = {e["name"] for e in old_matches}
         new_set = {e["name"] for e in new_matches}
-        if (len(old_set) == 1 and old_set.issubset(new_set)) or (len(new_set) == 1 and new_set.issubset(old_set)):
+        if old_set & new_set:
             continue
 
         pair_len = min(len(old_matches), len(new_matches))
@@ -202,4 +200,3 @@ if __name__ == "__main__":
     outputs = solve(inputs_dir)
     for filename, df in outputs.items():
         df.to_csv(cand_dir / filename, index=False, encoding="utf-8")
-

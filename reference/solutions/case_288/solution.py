@@ -68,9 +68,6 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
             else:
                 break
         lf = last_friday_in_term(prev)
-        _, s, e = prev
-        if e.weekday() in (0, 1) and (e - lf).days <= 4:
-            return e
         return lf
 
     dob = pd.to_datetime(students["Date of Birth"], dayfirst=False)
