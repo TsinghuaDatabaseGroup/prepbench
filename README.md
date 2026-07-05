@@ -20,6 +20,7 @@
   <a href="docs/DATASET.md">Dataset</a> |
   <a href="docs/EVALUATION.md">Evaluation</a> |
   <a href="docs/USER_SIMULATOR.md">User Simulator</a> |
+  <a href="docs/WORKFLOW_EXECUTION.md">Workflow Execution</a> |
   <a href="docs/RESULTS.md">Results</a> |
   <a href="CITATION.cff">Citation</a>
 </p>
@@ -219,6 +220,13 @@ Paper result figures and benchmark analysis are collected in
 [docs/RESULTS.md](docs/RESULTS.md) as paper context. The open-source benchmark
 surface for leaderboard submissions is the table-output evaluator for the
 settings above.
+
+## Experimental Workflow Execution
+
+The internal e2e path can translate `solution.py` into `flow.json`, execute that
+workflow, and evaluate the generated output CSVs. This path is documented in
+[docs/WORKFLOW_EXECUTION.md](docs/WORKFLOW_EXECUTION.md). It is separate from the
+public leaderboard interface.
 
 ## Reporting Results
 

@@ -1,0 +1,73 @@
+{#- System Prompt -#}
+{{ system_prompt_text }}
+
+{#- Stable Core Guidelines -#}
+{{ core_guidelines_text }}
+
+{#- Operator Definitions (versioned with py2flow) -#}
+{{ operator_definitions_text }}
+
+{#- Operator Cookbook -#}
+{% if operator_reference %}
+{{ operator_reference }}
+{% endif %}
+
+## Task
+
+Convert the following `solution.py` into a `flow.json` DAG that can be executed by py2flow.
+
+- Use `inputs/<file>.csv` for reading input CSVs (the `inputs/` directory is available at runtime).
+- Write outputs to `flow_cand/<filename>.csv` where `<filename>` matches the output filenames produced by the source program.
+- Do not assume any information beyond the code below and the generic operator contract.
+
+## Source Program (solution.py)
+
+```python
+{{ context.solution_text }}
+```
+
+{#- Feedback Block (for retry) -#}
+{% if feedback %}
+---
+
+## Error from Previous Attempt
+
+{% if feedback.type == "json_parse" %}
+### JSON Parse Error
+{{ feedback.message }}
+{% if feedback.details %}
+- Line: {{ feedback.details.line }}
+- Column: {{ feedback.details.column }}
+{% endif %}
+
+{% elif feedback.type == "validation" %}
+### DAG Validation Error
+{{ feedback.message }}
+{% if feedback.details %}
+{% if feedback.details.error_code %}- Error code: {{ feedback.details.error_code }}{% endif %}
+{% if feedback.details.node_id %}- Node: {{ feedback.details.node_id }}{% endif %}
+{% if feedback.details.step_kind %}- Kind: {{ feedback.details.step_kind }}{% endif %}
+{% if feedback.details.field %}- Field: {{ feedback.details.field }}{% endif %}
+{% endif %}
+
+{% elif feedback.type == "execution" %}
+### Execution Error
+{{ feedback.message }}
+{% if feedback.details %}
+{% if feedback.details.node_id %}- Failed node: {{ feedback.details.node_id }}{% endif %}
+{% if feedback.details.error %}- Error: {{ feedback.details.error }}{% endif %}
+{% endif %}
+
+{% else %}
+### Error
+{{ feedback.message }}
+{% endif %}
+
+{% if exec_error_instructions %}
+{{ exec_error_instructions }}
+{% endif %}
+{% endif %}
+
+---
+
+Generate ONLY the flow.json as a valid JSON object. No markdown, no explanation.

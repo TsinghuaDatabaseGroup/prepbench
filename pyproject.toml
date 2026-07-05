@@ -41,6 +41,8 @@ packages = [
   "prepbench",
   "evaluate",
   "evaluate.matchers",
+  "py2flow",
+  "py2flow.operators",
   "simulator",
 ]
 
@@ -49,3 +51,4 @@ packages = [
 
 [tool.setuptools.package-data]
 simulator = ["prompts/*.yaml", "prompts/templates/*.jinja2"]
+py2flow = ["flow.schema.json"]

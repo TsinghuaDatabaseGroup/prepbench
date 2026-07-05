@@ -6,7 +6,8 @@ install:
 	$(PYTHON) -m pip install -r requirements.txt
 
 check:
-	$(PYTHON) -m compileall -q src/prepbench src/evaluate src/simulator/*.py examples scripts/validate_dataset.py scripts/verify_reference_outputs.py
+	$(PYTHON) -m compileall -q src/prepbench src/evaluate src/py2flow src/simulator/*.py examples tests scripts/validate_dataset.py scripts/verify_reference_outputs.py scripts/execute_workflow.py
+	PYTHONPATH=src $(PYTHON) -m unittest discover -s tests
 	$(PYTHON) scripts/validate_dataset.py
 	PYTHONPATH=src $(PYTHON) -m evaluate.batch --help >/dev/null
 

@@ -52,6 +52,9 @@ These figures analyze the paper's workflow-translation setting. They are
 included here for paper context, but workflow translation is not part of the
 public leaderboard interface.
 
+For the restored experimental workflow executor, see
+[WORKFLOW_EXECUTION.md](WORKFLOW_EXECUTION.md).
+
 ![Translation outcome composition across models](assets/result_workflow_translation.png)
 
 ![Translation outcomes by preparation steps](assets/result_workflow_by_steps.png)
