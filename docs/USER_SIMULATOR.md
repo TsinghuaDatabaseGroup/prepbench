@@ -6,25 +6,44 @@ questions before producing prepared tables.
 In prepared workspaces, `interactive` and `workflow` mode include a
 `simulator.md` file with the minimal case-specific API reminder.
 
-The simulator uses an OpenAI-compatible chat-completions endpoint. Configure both
-the model and API key with environment variables or a local `.env` file. Replace
-the model value with an OpenAI-compatible model available from your provider:
+The simulator uses an OpenAI-compatible chat-completions endpoint. Configure the
+model, endpoint, API key, and temperature with environment variables or a local
+`.env` file.
+
+Recommended native DeepSeek setup for comparable runs:
 
 ```bash
-PREPBENCH_SIMULATOR_MODEL=your-model-name
+PREPBENCH_SIMULATOR_BASE_URL=https://api.deepseek.com
+PREPBENCH_SIMULATOR_MODEL=deepseek-v4-flash
+PREPBENCH_SIMULATOR_TEMPERATURE=0
 PREPBENCH_SIMULATOR_API_KEY=your_api_key
-# Optional:
-# OPENROUTER_API_KEY=your_openrouter_api_key
-# OPENAI_API_KEY=your_openai_api_key
-# PREPBENCH_SIMULATOR_BASE_URL=https://openrouter.ai/api/v1
-# PREPBENCH_SIMULATOR_MAX_TOKENS=8192
-# PREPBENCH_SIMULATOR_TIMEOUT=120
+```
+
+OpenRouter alternative:
+
+```bash
+PREPBENCH_SIMULATOR_BASE_URL=https://openrouter.ai/api/v1
+PREPBENCH_SIMULATOR_MODEL=deepseek/deepseek-v4-flash
+PREPBENCH_SIMULATOR_TEMPERATURE=0
+PREPBENCH_SIMULATOR_API_KEY=your_openrouter_api_key
+```
+
+Other optional settings:
+
+```bash
+PREPBENCH_SIMULATOR_MAX_TOKENS=8192
+PREPBENCH_SIMULATOR_TIMEOUT=120
 ```
 
 The simulator checks API keys in this order: `PREPBENCH_SIMULATOR_API_KEY`,
 `OPENROUTER_API_KEY`, then `OPENAI_API_KEY`.
 
+`PREPBENCH_SIMULATOR_TEMPERATURE` defaults to `0` when omitted.
+
 Public import:
+
+Install the repo with `python -m pip install -e .` first, or set
+`PYTHONPATH=/path/to/prepbench/src`, so `simulator` is importable from `@runs/...`.
 
 ```python
 from simulator import LocalUserSimulatorAPI

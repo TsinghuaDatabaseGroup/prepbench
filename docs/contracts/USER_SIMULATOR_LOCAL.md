@@ -42,6 +42,13 @@ Credential lookup order:
 - `OPENROUTER_API_KEY`
 - `OPENAI_API_KEY`
 
+Backend environment:
+- `PREPBENCH_SIMULATOR_BASE_URL`
+- `PREPBENCH_SIMULATOR_MODEL`
+- `PREPBENCH_SIMULATOR_TEMPERATURE` (defaults to `0`)
+- `PREPBENCH_SIMULATOR_MAX_TOKENS` (defaults to `8192`)
+- `PREPBENCH_SIMULATOR_TIMEOUT` (defaults to `120`)
+
 Budget examples (default ratio/cap):
 - if `ambiguity_count=4`: ratio budget = `ceil(2.5*4)=10`, cap=25 -> final `max_questions=10`
 - if `ambiguity_count=20`: ratio budget = `50`, cap=25 -> final `max_questions=25`

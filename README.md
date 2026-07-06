@@ -66,10 +66,13 @@ cd prepbench
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
+python -m pip install -e .
 ```
 
 PrepBench is intended to run from a source checkout because the dataset,
 simulator assets, workflow prompt, and evaluator ground truth live in the repo.
+The editable install makes `simulator` and `py2flow` importable when your agent
+runs from `@runs/...`; alternatively set `PYTHONPATH=/path/to/prepbench/src`.
 
 ## Basic Flow
 
@@ -129,6 +132,10 @@ reply = api.ask(
     questions=["Should the monthly date be the first day of each month?"],
 )
 ```
+
+For comparable interactive runs, keep the simulator backend fixed. A practical
+default is `deepseek-v4-flash` with `PREPBENCH_SIMULATOR_TEMPERATURE=0`; see
+`docs/USER_SIMULATOR.md` for provider-specific settings.
 
 For `workflow`, the agent may read `workflow_prompt.yaml`, generate a py2flow
 JSON DAG at any workspace path, and execute it from the workspace:

@@ -4,6 +4,7 @@ PYTHON ?= python3
 
 install:
 	$(PYTHON) -m pip install -r requirements.txt
+	$(PYTHON) -m pip install -e .
 
 check:
 	$(PYTHON) -m compileall -q src/prepbench src/evaluate src/py2flow src/simulator/*.py examples tests scripts/validate_dataset.py scripts/verify_reference_outputs.py scripts/execute_workflow.py scripts/prepare_run.py scripts/evaluate_submission.py

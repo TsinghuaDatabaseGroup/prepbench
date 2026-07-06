@@ -53,6 +53,9 @@ Runtime path rules:
 
 Run from inside the case workspace:
 
+Install the repo with `python -m pip install -e .` first, or set
+`PYTHONPATH=/path/to/prepbench/src`, so `py2flow` is importable from `@runs/...`.
+
 ```python
 from py2flow.api import execute_flow_file
 
