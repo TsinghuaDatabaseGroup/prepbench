@@ -4,8 +4,9 @@ This page collects figures from the PrepBench paper. They are included as
 context for the benchmark design, not as a required reproduction workflow for
 leaderboard users.
 
-For leaderboard submissions, use the table-output evaluator described in
-[EVALUATION.md](EVALUATION.md) and report the score from `acc.txt`.
+For public evaluation, use the workspace contract and table-output evaluator
+described in [EVALUATION.md](EVALUATION.md). The public modes are `clarified`,
+`interactive`, and `workflow`.
 
 ## Dataset Statistics
 
@@ -48,9 +49,9 @@ Data profiling has uneven effects across agents and irregularity types.
 
 ## Workflow Translation
 
-These figures analyze the paper's workflow-translation setting. They are
-included here for paper context, but workflow translation is not part of the
-public leaderboard interface.
+These figures analyze the paper's historical workflow-translation setting. They
+are included here for paper context. The current public workflow mode uses the
+workspace contract and evaluates only final `result/output_*.csv` tables.
 
 For the restored experimental workflow executor, see
 [WORKFLOW_EXECUTION.md](WORKFLOW_EXECUTION.md).

@@ -4,88 +4,70 @@ PrepBench contains 306 data-preparation cases. Each case pairs public task input
 with benchmark-side assets used for evaluation and user simulation. The current
 public release is `v0.1.0`.
 
-## Public Case Inputs
+## Case Files
 
-For `direct` and `interactive` settings, participant agents should read only:
-
-```text
-data/case_xxx/query.md
-data/case_xxx/inputs/*.csv
-```
-
-`query.md` is the natural-language request available to the model-under-test.
-`inputs/*.csv` are the raw input tables.
-
-For the `oracle` setting, the agent may use:
+Each case has this shape:
 
 ```text
-data/case_xxx/query_full.md
-data/case_xxx/inputs/*.csv
+data/case_001/
+  query.md
+  query_full.md
+  amb_kb.json
+  inputs/
+    input_01.csv
 ```
 
-`query_full.md` is the clarified instruction. It should not be used in `direct`
-or `interactive` runs. It is not an answer file and does not expose GT outputs.
-
-## Additional Case Assets
-
-The following files are included to support benchmark execution, but they must not
-be used as model inputs except where explicitly allowed by the `oracle` setting:
+Ground truth lives separately:
 
 ```text
-data/case_xxx/query_full.md
-data/case_xxx/amb_kb.json
-src/evaluate/gt/case_xxx/config.json
-src/evaluate/gt/case_xxx/output_*.csv
-reference/solutions/case_xxx/solution.py
+src/evaluate/gt/case_001/
+  config.json
+  output_01.csv
 ```
 
-Meanings:
+Reference solutions live under `reference/solutions/` and support reproducibility
+checks and simulator evidence.
 
-- `query_full.md`: clarified specification used by benchmark-side components.
-- `amb_kb.json`: ambiguity slots used by the user simulator and paper-side
-  ambiguity analysis.
-- `config.json`: typed output-comparison rules for the evaluator.
-- `output_*.csv`: ground-truth prepared tables.
-- `reference/solutions/`: reference implementations used for reproducibility
-  checks and simulator evidence.
+## Public Workspaces
 
-## Model-Input Policy
+Participants should run agents from prepared workspaces rather than reading case
+files directly:
 
-These assets are included in the repository so the benchmark is self-contained.
-The table below describes what the model-under-test may read for each setting.
+```bash
+python scripts/prepare_run.py \
+  --mode clarified \
+  --case case_001 \
+  --run-root @runs/my_agent/clarified
+```
 
-| Asset | `oracle` | `direct` | `interactive` | Purpose |
+Workspace contents by mode:
+
+| Mode | `query.md` points to | Other files |
+| --- | --- | --- |
+| `clarified` | `data/case_xxx/query_full.md` | `inputs/`, `result/` |
+| `interactive` | `data/case_xxx/query.md` | `inputs/`, `simulator.md`, `result/` |
+| `workflow` | `data/case_xxx/query.md` | `inputs/`, `simulator.md`, `workflow_prompt.yaml`, `result/` |
+
+`inputs/` is a real workspace directory containing per-file symlinks to the case
+input CSVs. This keeps the agent-facing workspace simple while avoiding a
+directory symlink back to the full case directory.
+
+## Allowed-Input Policy
+
+The benchmark is self-contained, so files used by the simulator and evaluator
+remain in the repository. The model-under-test should only read the assets
+present in its prepared workspace.
+
+| Asset | `clarified` | `interactive` | `workflow` | Purpose |
 | --- | --- | --- | --- | --- |
-| `query.md` | Optional | Allowed | Allowed | Original task instruction |
-| `query_full.md` | Allowed | Not allowed | Not allowed | Clarified task instruction |
-| `inputs/*.csv` | Allowed | Allowed | Allowed | Raw input tables |
-| `amb_kb.json` | Not allowed | Not allowed | Not allowed | Simulator and ambiguity metadata |
+| workspace `query.md` | Allowed | Allowed | Allowed | Task instruction for the selected mode |
+| workspace `inputs/` | Allowed | Allowed | Allowed | Raw input tables |
+| workspace `simulator.md` | Not present | Allowed | Allowed | Local simulator usage note |
+| workspace `workflow_prompt.yaml` | Not present | Not present | Allowed | Workflow/operator contract |
+| `data/case_xxx/query_full.md` outside workspace | Already exposed through workspace | Not allowed | Not allowed | Clarified instruction |
+| `data/case_xxx/amb_kb.json` | Not allowed | Not allowed | Not allowed | Simulator metadata |
 | `src/evaluate/gt/` | Not allowed | Not allowed | Not allowed | Evaluation target |
 | `reference/solutions/` | Not allowed | Not allowed | Not allowed | Reference implementation |
-
-## Expected Layout
-
-```text
-data/
-  case_001/
-    query.md
-    query_full.md
-    amb_kb.json
-    inputs/
-      input_01.csv
-  ...
-
-src/evaluate/gt/
-  case_001/
-    config.json
-    output_01.csv
-  ...
-
-reference/solutions/
-  case_001/
-    solution.py
-  ...
-```
 
 ## Integrity Check
 
@@ -113,8 +95,9 @@ cases=306 input_tables=829 gt_cases=306 solution_cases=306 errors=0
 
 ## Source Links
 
-`data/case_links.txt` records source challenge links used by the benchmark authors.
-It has one link per case and is metadata for traceability, not an execution input.
+`data/case_links.txt` records source challenge links used by the benchmark
+authors. It has one link per case and is metadata for traceability, not an
+execution input.
 
 The benchmark cases are derived from public Preppin' Data challenge materials.
 PrepBench code is MIT-licensed; benchmark data and source-derived assets should

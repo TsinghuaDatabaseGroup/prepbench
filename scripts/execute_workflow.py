@@ -43,14 +43,14 @@ def parse_args() -> argparse.Namespace:
             "write candidate output CSVs, and optionally evaluate them against GT."
         )
     )
-    parser.add_argument("--flow-path", required=True, help="Path to flow.json or flow_compressed.json.")
+    parser.add_argument("--flow-path", required=True, help="Path to a py2flow workflow JSON file.")
     parser.add_argument("--input-root", required=True, help="Directory containing input_*.csv files.")
     parser.add_argument(
         "--output-root",
         default="",
         help=(
             "Directory for generated output_*.csv files. Defaults to "
-            "@output/workflow_execution/<case_id>/workflow/cand when a case id can be inferred."
+            "@runs/workflow_execution/<case_id>/result when a case id can be inferred."
         ),
     )
     parser.add_argument("--case-id", default="", help="Optional case id used for default output and GT paths.")
@@ -73,7 +73,7 @@ def main() -> int:
         output_root = resolve_repo_path(args.output_root)
     else:
         output_case = case_id or "unknown_case"
-        output_root = (REPO_ROOT / "@output" / "workflow_execution" / output_case / "workflow" / "cand").resolve()
+        output_root = (REPO_ROOT / "@runs" / "workflow_execution" / output_case / "result").resolve()
 
     if args.clean_output and output_root.exists():
         shutil.rmtree(output_root)

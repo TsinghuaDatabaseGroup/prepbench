@@ -12,8 +12,8 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from evaluate.core import evaluate
 from prepbench.case_ids import normalize_case_id
+from prepbench.submission_eval import evaluate_submission
 
 
 def parse_args() -> argparse.Namespace:
@@ -26,9 +26,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--case", default="case_001", help="Case id to demo, such as case_001 or 1.")
     parser.add_argument(
         "--output-root",
-        default="@output/evaluate_demo/oracle",
-        help="Demo results root to write under.",
+        default="@runs/evaluate_demo/clarified",
+        help="Demo run root to write under.",
     )
+    parser.add_argument("--mode", default="clarified", choices=["clarified", "interactive", "workflow"])
     return parser.parse_args()
 
 
@@ -39,7 +40,11 @@ def main() -> int:
     if not gt_dir.is_dir():
         raise FileNotFoundError(f"GT directory not found: {gt_dir}")
 
-    cand_dir = REPO_ROOT / args.output_root / case_id / "solution" / "cand"
+    run_root = REPO_ROOT / args.output_root
+    if run_root.name != args.mode:
+        raise ValueError(f"--mode {args.mode!r} does not match output root segment {run_root.name!r}")
+
+    cand_dir = run_root / case_id / "result"
     if cand_dir.exists():
         shutil.rmtree(cand_dir)
     cand_dir.mkdir(parents=True, exist_ok=True)
@@ -51,16 +56,17 @@ def main() -> int:
     if not copied:
         raise FileNotFoundError(f"No output_*.csv files found under: {gt_dir}")
 
-    passed, first_error = evaluate(str(gt_dir), str(cand_dir))
+    summary = evaluate_submission(run_root=run_root, mode=args.mode, case_id=case_id)
+    aggregate = summary["aggregate"]
     result = {
         "case_id": case_id,
         "candidate_dir": str(cand_dir.relative_to(REPO_ROOT)),
         "copied_outputs": copied,
-        "passed": passed,
-        "first_error": first_error,
+        "passed": bool(aggregate["passed"]),
+        "summary_path": str((run_root / "evaluation" / "summary.json").relative_to(REPO_ROOT)),
     }
     print(json.dumps(result, indent=2, ensure_ascii=False))
-    return 0 if passed else 1
+    return 0 if aggregate["passed"] else 1
 
 
 if __name__ == "__main__":

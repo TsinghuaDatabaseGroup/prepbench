@@ -193,7 +193,31 @@ result = execute_flow_dict(
 )
 ```
 
-## Python API (file-based inputs)
+## Python API (workspace flow file)
+
+PrepBench workflow mode uses `execute_flow_file` from inside a prepared case
+workspace. By default it reads inputs from `./inputs` and writes outputs to
+`./result`.
+
+```python
+from py2flow.api import execute_flow_file
+
+execute_flow_file(flow_path="workflow.json")
+```
+
+Use explicit roots when debugging outside a workspace:
+
+```python
+from py2flow.api import execute_flow_file
+
+execute_flow_file(
+    flow_path="tests/fixtures/workflows/case_099_workflow.json",
+    input_root="data/case_099/inputs",
+    output_root="@runs/debug/workflow/case_099/result",
+)
+```
+
+## Python API (file-based flow dict)
 
 ```python
 from py2flow.api import execute_flow_dict
@@ -220,9 +244,9 @@ the workflow JSON directory.
 
 ```bash
 PYTHONPATH=src python -m py2flow.exec_flow \
-  --flow-path data/case_099/flow_compressed.json \
+  --flow-path tests/fixtures/workflows/case_099_workflow.json \
   --input-root data/case_099/inputs \
-  --output-root @output/workflow_execution/case_099/workflow/cand
+  --output-root @runs/workflow_execution/case_099/result
 ```
 
 PrepBench also provides a wrapper that can evaluate generated workflow outputs
@@ -230,7 +254,7 @@ against GT:
 
 ```bash
 PYTHONPATH=src python scripts/execute_workflow.py \
-  --flow-path data/case_099/flow_compressed.json \
+  --flow-path tests/fixtures/workflows/case_099_workflow.json \
   --input-root data/case_099/inputs \
   --case-id case_099 \
   --evaluate \

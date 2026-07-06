@@ -1,89 +1,96 @@
 from __future__ import annotations
 
-import argparse
 import csv
+import json
 from pathlib import Path
-from typing import Optional
+from typing import Callable
 
 from evaluate.core import evaluate
 
 
-def _resolve_repo_root() -> Path:
-    return Path(__file__).resolve().parents[1]
+CandidateDirResolver = Callable[[str], Path | None]
 
 
-def _discover_case_dirs(results_root: Path) -> list[Path]:
-    direct = sorted(
-        [p for p in results_root.glob("case_*") if p.is_dir()],
-        key=lambda p: p.name,
-    )
-    if direct:
-        return direct
-
-    nested = sorted(
-        [p for p in results_root.rglob("case_*") if p.is_dir() and (p / "solution").is_dir()],
-        key=lambda p: str(p),
-    )
-    return nested
+FIELDNAMES = [
+    "case_name",
+    "execution",
+    "evaluation",
+    "candidate_dir",
+    "gt_dir",
+    "error_type",
+    "error_message",
+]
 
 
-def _pick_candidate_dir(case_dir: Path) -> tuple[str, Optional[Path]]:
-    solution_dir = case_dir / "solution"
-    cand = solution_dir / "cand"
-    if cand.is_dir() and any(cand.glob("*.csv")):
-        return "cand", cand
-    return "none", None
+def _case_sort_key(value: str | Path) -> int:
+    name = Path(value).name
+    try:
+        return int(name.split("_", 1)[1])
+    except Exception:
+        return 10**9
 
 
-def run_batch(results_root: Path) -> Path:
-    repo_root = _resolve_repo_root()
-    gt_root = repo_root / "evaluate" / "gt"
+def _row_template(case_name: str, gt_case_dir: Path, cand_dir: Path | None) -> dict[str, str]:
+    return {
+        "case_name": case_name,
+        "execution": "fail",
+        "evaluation": "false",
+        "candidate_dir": str(cand_dir.resolve()) if cand_dir else "",
+        "gt_dir": str(gt_case_dir.resolve()),
+        "error_type": "",
+        "error_message": "",
+    }
+
+
+def _aggregate(rows: list[dict[str, str]]) -> dict[str, object]:
+    total = len(rows)
+    success_count = sum(1 for row in rows if row["execution"] == "success")
+    correct_count = sum(1 for row in rows if row["evaluation"] == "correct")
+    missing_count = sum(1 for row in rows if row["error_type"] == "NOT_FOUND")
+    failed_count = total - correct_count
+    return {
+        "total": total,
+        "success": success_count,
+        "correct": correct_count,
+        "missing": missing_count,
+        "failed": failed_count,
+        "accuracy": (correct_count / total) if total else 0.0,
+        "passed": total > 0 and correct_count == total,
+    }
+
+
+def evaluate_case_outputs(
+    *,
+    gt_root: Path,
+    case_names: list[str],
+    candidate_dir_for_case: CandidateDirResolver,
+    output_dir: Path,
+    summary_csv_name: str = "summary.csv",
+    summary_json_name: str = "summary.json",
+) -> dict[str, object]:
     if not gt_root.is_dir():
         raise FileNotFoundError(f"GT root not found: {gt_root}")
+    if not case_names:
+        raise ValueError("No case ids to evaluate")
 
-    gt_case_dirs = sorted(
-        [p for p in gt_root.glob("case_*") if p.is_dir()],
-        key=lambda p: p.name,
-    )
-    if not gt_case_dirs:
-        raise FileNotFoundError(f"No GT case_* directories found under: {gt_root}")
-
-    discovered_case_dirs = _discover_case_dirs(results_root)
-    case_dir_by_name: dict[str, Path] = {}
-    for case_dir in discovered_case_dirs:
-        case_dir_by_name.setdefault(case_dir.name, case_dir)
-
-    output_csv = results_root / "evaluation_summary.csv"
-    acc_txt = results_root / "acc.txt"
+    output_dir.mkdir(parents=True, exist_ok=True)
     rows: list[dict[str, str]] = []
 
-    for gt_case_dir in gt_case_dirs:
-        case_name = gt_case_dir.name
-        case_dir = case_dir_by_name.get(case_name)
-        cand_kind = "none"
-        cand_dir: Optional[Path] = None
-        if case_dir is not None:
-            cand_kind, cand_dir = _pick_candidate_dir(case_dir)
+    for case_name in sorted(case_names, key=_case_sort_key):
+        gt_case_dir = gt_root / case_name
+        cand_dir = candidate_dir_for_case(case_name)
+        row = _row_template(case_name, gt_case_dir, cand_dir)
 
-        row = {
-            "case_name": case_name,
-            "execution": "fail",
-            "evaluation": "false",
-            "candidate_dir": str(cand_dir.resolve()) if cand_dir else "",
-            "gt_dir": str(gt_case_dir.resolve()),
-            "error_type": "",
-            "error_message": "",
-        }
-
-        if case_dir is None:
-            row["error_type"] = "NOT_FOUND"
-            row["error_message"] = f"Result case directory not found: {results_root / case_name}"
+        if not gt_case_dir.is_dir():
+            row["error_type"] = "GT_NOT_FOUND"
+            row["error_message"] = f"GT case directory not found: {gt_case_dir}"
             rows.append(row)
             continue
 
-        if cand_dir is None:
+        if cand_dir is None or not cand_dir.is_dir() or not any(cand_dir.glob("output_*.csv")):
             row["error_type"] = "NOT_FOUND"
-            row["error_message"] = f"No candidate CSV outputs found under {case_dir / 'solution' / 'cand'}."
+            expected = cand_dir if cand_dir is not None else Path(case_name)
+            row["error_message"] = f"No candidate output_*.csv files found under {expected}."
             rows.append(row)
             continue
 
@@ -95,50 +102,19 @@ def run_batch(results_root: Path) -> Path:
             row["error_message"] = str(first_error.get("message") or "")
         rows.append(row)
 
-    fieldnames = [
-        "case_name",
-        "execution",
-        "evaluation",
-        "candidate_dir",
-        "gt_dir",
-        "error_type",
-        "error_message",
-    ]
-    with output_csv.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+    summary_csv = output_dir / summary_csv_name
+    with summary_csv.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
         writer.writeheader()
         writer.writerows(rows)
 
-    total = len(rows)
-    success_count = sum(1 for r in rows if r["execution"] == "success")
-    correct_count = sum(1 for r in rows if r["evaluation"] == "correct")
-    accuracy = (correct_count / total) if total > 0 else 0.0
-    acc_txt.write_text(f"{accuracy:.6f}\n", encoding="utf-8")
-    print(
-        f"[evaluate.batch] total={total} success={success_count} correct={correct_count} "
-        f"accuracy={accuracy:.6f} candidate_dir=cand output={output_csv} acc={acc_txt}"
-    )
-    return output_csv
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Batch-evaluate PrepBench results under a single results root."
-    )
-    parser.add_argument(
-        "--results-root",
-        required=True,
-        type=str,
-        help="Path like @output/<method>/<setting>, containing case_* directories.",
-    )
-    args = parser.parse_args()
-
-    results_root = Path(args.results_root).resolve()
-    if not results_root.is_dir():
-        raise FileNotFoundError(f"results_root is not a directory: {results_root}")
-
-    run_batch(results_root)
-
-
-if __name__ == "__main__":
-    main()
+    aggregate = _aggregate(rows)
+    summary_json = output_dir / summary_json_name
+    summary = {
+        "aggregate": aggregate,
+        "cases": rows,
+        "summary_csv": str(summary_csv),
+    }
+    summary_json.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    summary["summary_json"] = str(summary_json)
+    return summary

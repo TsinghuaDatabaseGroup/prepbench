@@ -1,22 +1,36 @@
 # Workflow Execution
 
-This page documents the experimental PrepBench workflow-execution path:
+Workflow mode gives the agent a py2flow operator contract and an executor. The
+agent may generate a workflow JSON DAG, execute it, inspect failures, edit the
+workflow, and finally leave scored result tables under `result/output_*.csv`.
 
-```text
-clarify -> generate solution.py -> translate solution.py to flow.json -> execute flow.json -> evaluate output_*.csv
+The workflow JSON itself is a working artifact. PrepBench evaluates only the
+final result CSVs.
+
+## Workspace Files
+
+Prepare a workflow workspace:
+
+```bash
+python scripts/prepare_run.py \
+  --mode workflow \
+  --case case_099 \
+  --run-root @runs/my_agent/workflow
 ```
 
-The public leaderboard interface is still the table-output evaluator described
-in `docs/EVALUATION.md`. Workflow execution is an experimental internal path for
-checking whether an agent-produced workflow can reproduce candidate tables.
+The workspace contains:
 
-## Files
+```text
+@runs/my_agent/workflow/case_099/
+  query.md
+  inputs/
+  simulator.md
+  workflow_prompt.yaml
+  result/
+```
 
-- Workflow-generation prompt: `src/agents/prompts/flow_agent.yaml`
-- Prompt template: `src/agents/prompts/templates/flow_agent.jinja2`
-- Runtime executor package: `src/py2flow/`
-- Wrapper CLI: `scripts/execute_workflow.py`
-- Example workflow fixture: `data/case_099/flow_compressed.json`
+`workflow_prompt.yaml` is a symlink to
+`src/agents/prompts/flow_agent.yaml`, which documents the operator contract.
 
 ## Workflow Contract
 
@@ -30,45 +44,60 @@ input, project, filter, join, union, aggregate, dedup, sort, pivot, output, scri
 
 Runtime path rules:
 
-- Input nodes should read `inputs/<file>.csv`.
-- Output nodes should write `flow_cand/output_*.csv`.
-- The wrapper maps `inputs/...` to the provided `--input-root`.
-- The wrapper maps `flow_cand/...` to the provided `--output-root`.
+- Input nodes read paths such as `inputs/input_01.csv`.
+- Output nodes write filenames such as `output_01.csv`.
+- The executor maps input paths to the workspace `inputs/` directory.
+- The executor maps output filenames to the workspace `result/` directory.
 
-## Execute One Workflow
+## Python API
+
+Run from inside the case workspace:
+
+```python
+from py2flow.api import execute_flow_file
+
+execute_flow_file(flow_path="workflow.json")
+```
+
+Defaults:
+
+```text
+input_root = ./inputs
+output_root = ./result
+```
+
+Both roots can be overridden when debugging outside a workspace:
+
+```python
+execute_flow_file(
+    flow_path="workflow.json",
+    input_root="data/case_099/inputs",
+    output_root="@runs/debug/workflow/case_099/result",
+)
+```
+
+## CLI Debugging
+
+The CLI is kept as a maintenance/debug entry point:
 
 ```bash
 PYTHONPATH=src python scripts/execute_workflow.py \
-  --flow-path data/case_099/flow_compressed.json \
+  --flow-path tests/fixtures/workflows/case_099_workflow.json \
   --input-root data/case_099/inputs \
   --case-id case_099 \
   --evaluate \
   --clean-output
 ```
 
-Default generated outputs go under:
+Default CLI outputs go under:
 
 ```text
-@output/workflow_execution/<case_id>/workflow/cand/output_*.csv
-```
-
-The command prints a JSON summary containing generated output files and, when
-`--evaluate` is set, the evaluator result.
-
-## Direct Executor
-
-Use the lower-level py2flow CLI when evaluation is not needed:
-
-```bash
-PYTHONPATH=src python -m py2flow.exec_flow \
-  --flow-path data/case_099/flow_compressed.json \
-  --input-root data/case_099/inputs \
-  --output-root @output/workflow_execution/case_099/workflow/cand
+@runs/workflow_execution/<case_id>/result/output_*.csv
 ```
 
 ## Limitations
 
-- The restored fixture coverage is one case: `case_099`.
+- The restored workflow fixture coverage is one case:
+  `tests/fixtures/workflows/case_099_workflow.json`.
 - Expressions and `script` nodes restrict imports to trusted data-prep modules,
   but workflow execution is still a trusted-code path, not a sandbox.
-- Workflow execution is separate from the public table-output evaluator.

@@ -25,16 +25,11 @@
   <a href="CITATION.cff">Citation</a>
 </p>
 
-PrepBench does one thing: it evaluates whether an agent prepared the correct
-output tables from natural-language instructions.
-
-Each case gives an agent a task instruction and one or more CSV inputs; the
-agent must produce prepared output tables that pass executable table-level
-evaluation.
-
-PrepBench focuses on three public settings, ordered from easiest to hardest:
-the clarified instruction, the original instruction, and the original
-instruction with clarification through a local user simulator.
+PrepBench evaluates whether an agent can prepare the correct output tables from
+natural-language instructions and CSV inputs. The benchmark supplies case
+workspaces, a local user simulator, a workflow executor, and a table-output
+evaluator. Your agent remains a black box: run it however you like inside the
+case workspace, then evaluate the generated result CSVs.
 
 ## At a Glance
 
@@ -43,55 +38,26 @@ instruction with clarification through a local user simulator.
 | Release version | v0.1.0 |
 | Cases | 306 |
 | Input tables | 829 |
-| Public settings | `oracle`, `direct`, `interactive` |
-| Primary input | `query.md` + `inputs/*.csv` |
-| Candidate output | `solution/cand/output_*.csv` |
+| Public modes | `clarified`, `interactive`, `workflow` |
+| Case workspace | `@runs/<agent>/<mode>/<case_id>/` |
+| Candidate output | `result/output_*.csv` |
 | Ground truth | `src/evaluate/gt/case_xxx/` |
-| Optional interaction | `simulator.LocalUserSimulatorAPI` |
+| Optional tools | `simulator.LocalUserSimulatorAPI`, `py2flow.api.execute_flow_file` |
 
-## Leaderboard
+## Public Modes
 
-A public leaderboard will be announced separately. Official submissions should
-cover all 306 cases in one setting. Submit candidate outputs in the documented
-layout; the evaluator produces the final table-accuracy score in `acc.txt`.
-Subset runs are useful for debugging, but they are not official leaderboard
-scores.
+PrepBench exposes exactly three public modes, ordered from simplest to most
+end-to-end.
 
-## Task Formulation
-
-For each case, an agent receives a natural-language instruction and one or more
-raw CSV tables. It must produce the prepared output CSVs expected by the task.
-
-```text
-query.md + inputs/*.csv  ->  solution/cand/output_*.csv
-```
-
-The evaluator compares candidate outputs with per-case ground truth tables.
-Interactive agents may ask clarification questions through the local user
-simulator before producing outputs.
-
-![PrepBench overview](docs/assets/prepbench_overview.png)
-
-## Evaluation Settings
-
-PrepBench keeps the public evaluation surface small. Use one of three settings,
-ordered from easiest to hardest. All settings are evaluated the same way: the
-candidate CSVs are compared with the expected output tables.
-
-| Setting | Agent input | Interaction | Purpose |
+| Mode | Workspace input | Extra tool | Goal |
 | --- | --- | --- | --- |
-| `oracle` | `query_full.md` + `inputs/*.csv` | No simulator | Easiest setting: solve from the clarified instruction |
-| `direct` | `query.md` + `inputs/*.csv` | No simulator | Solve directly from the original instruction |
-| `interactive` | `query.md` + `inputs/*.csv` | May call `LocalUserSimulatorAPI` | Hardest setting: resolve ambiguity before solving |
+| `clarified` | clarified `query.md` + `inputs/` | none | Prepare tables from a disambiguated request |
+| `interactive` | original `query.md` + `inputs/` | user simulator | Clarify the request, then prepare tables |
+| `workflow` | original `query.md` + `inputs/` | user simulator + workflow executor | Clarify, build/run a workflow, then produce tables |
 
-`oracle` means the instruction is clarified. It does not give the agent access
-to GT outputs or reference solutions.
-
-All settings use the same candidate-output contract:
-
-```text
-@output/<method>/<setting>/case_xxx/solution/cand/output_*.csv
-```
+All modes are evaluated the same way: PrepBench reads
+`@runs/<agent>/<mode>/<case_id>/result/output_*.csv` and compares those files
+with the expected output tables.
 
 ## Install
 
@@ -103,35 +69,108 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-PrepBench is intended to be run from a source checkout. The evaluator, dataset,
-ground truth, and reference solutions use repository-relative paths; an installed
-wheel alone is not a complete benchmark bundle.
+PrepBench is intended to run from a source checkout because the dataset,
+simulator assets, workflow prompt, and evaluator ground truth live in the repo.
 
-## Dataset
+## Prepare a Workspace
 
-Each case has this shape:
+Create one case workspace under a run root:
 
-```text
-data/case_001/
-  query.md
-  query_full.md
-  amb_kb.json
-  inputs/
-    input_01.csv
+```bash
+python scripts/prepare_run.py \
+  --mode clarified \
+  --case case_001 \
+  --run-root @runs/my_agent/clarified
 ```
 
-Model-input policy:
+The workspace layout is:
 
-| Asset | Included in repo? | Allowed as model input? | Purpose |
-| --- | --- | --- | --- |
-| `query.md` | Yes | `direct`, `interactive` | Original task instruction |
-| `inputs/*.csv` | Yes | All settings | Raw input tables |
-| `query_full.md` | Yes | `oracle` only | Clarified task instruction |
-| `amb_kb.json` | Yes | No | Simulator and ambiguity metadata |
-| `src/evaluate/gt/` | Yes | No | Ground-truth outputs and comparison config |
-| `reference/solutions/` | Yes | No | Reference implementations for reproducibility and simulator evidence |
+```text
+@runs/my_agent/clarified/case_001/
+  query.md
+  inputs/
+  result/
+```
 
-Validate the local dataset:
+`interactive` workspaces also contain `simulator.md`. `workflow` workspaces
+contain both `simulator.md` and `workflow_prompt.yaml`.
+
+Workspace initialization uses symlinks for the query and input files. The
+benchmark is still an honor-system benchmark: restricted assets such as
+`data/case_xxx/query_full.md`, `data/case_xxx/amb_kb.json`, and
+`src/evaluate/gt/` remain in the repository for evaluation and simulator use,
+but they must not be read by the model-under-test except where a mode explicitly
+exposes the clarified query through the workspace.
+
+## Run Your Agent
+
+Run your agent inside the case workspace. Give it the workspace path, not copied
+file contents. It can inspect `query.md`, read `inputs/`, write code or other
+working files, and finally write result tables:
+
+```text
+@runs/my_agent/<mode>/<case_id>/result/output_*.csv
+```
+
+For `interactive`, the agent may use `simulator.md` and the Python API:
+
+```python
+from simulator import LocalUserSimulatorAPI
+
+api = LocalUserSimulatorAPI()
+session = api.start_session(case_id="case_001", run_id="my_agent")
+reply = api.ask(
+    session_id=session["session_id"],
+    questions=["Should the monthly date be the first day of each month?"],
+)
+```
+
+For `workflow`, the agent may read `workflow_prompt.yaml`, generate a py2flow
+JSON DAG at any workspace path, and execute it from the workspace:
+
+```python
+from py2flow.api import execute_flow_file
+
+execute_flow_file(flow_path="workflow.json")
+```
+
+The workflow executor defaults to `./inputs` and `./result`, so a workflow run in
+the case workspace writes the same `result/output_*.csv` files that the evaluator
+scores.
+
+## Evaluate
+
+Evaluate a full mode run:
+
+```bash
+python scripts/evaluate_submission.py \
+  --mode clarified \
+  --run-root @runs/my_agent/clarified
+```
+
+For single-case debugging:
+
+```bash
+python scripts/evaluate_submission.py \
+  --mode clarified \
+  --run-root @runs/my_agent/clarified \
+  --case case_001
+```
+
+The evaluator writes:
+
+```text
+@runs/my_agent/clarified/evaluation/summary.json
+@runs/my_agent/clarified/evaluation/summary.csv
+```
+
+When `--case` is omitted, the evaluator checks every GT case. Missing case
+folders or missing result tables are reported as `NOT_FOUND`. The command exits
+with code 0 only when every evaluated case passes.
+
+## Minimal Smoke Tests
+
+Validate the dataset:
 
 ```bash
 python scripts/validate_dataset.py
@@ -143,156 +182,35 @@ Expected summary:
 cases=306 input_tables=829 gt_cases=306 solution_cases=306 errors=0
 ```
 
-More details: [docs/DATASET.md](docs/DATASET.md).
-
-## Evaluate an Agent
-
-Write candidate outputs under a results root:
-
-```text
-@output/my_agent/interactive/
-  case_001/
-    solution/
-      cand/
-        output_01.csv
-```
-
-Run:
-
-```bash
-PYTHONPATH=src python -m evaluate.batch --results-root @output/my_agent/interactive
-```
-
-The evaluator writes:
-
-```text
-@output/my_agent/interactive/evaluation_summary.csv
-@output/my_agent/interactive/acc.txt
-```
-
-More details: [docs/EVALUATION.md](docs/EVALUATION.md).
-
-For a 30-second evaluator smoke test, run:
+Run an evaluator demo that copies known-correct GT output for one case into the
+public result layout:
 
 ```bash
 python examples/evaluate_demo.py
 ```
 
-The demo creates a known-correct `case_001` candidate under
-`@output/evaluate_demo/oracle/` and verifies it with the single-case evaluator
-API.
-
-## Use the Local User Simulator
-
-Set simulator credentials in `.env` or the process environment. Replace the
-model value with an OpenAI-compatible model available from your provider:
+Run the repository checks:
 
 ```bash
-PREPBENCH_SIMULATOR_MODEL=your-model-name
-PREPBENCH_SIMULATOR_API_KEY=your_api_key
-# Also supported: OPENROUTER_API_KEY or OPENAI_API_KEY
+PYTHON=python3 make check
 ```
 
-The local simulator uses the public reference solutions in `reference/solutions/`
-by default. You can override that path with `PREPBENCH_SOLUTIONS_ROOT` when
-testing alternate benchmark-side solutions.
+## More Documentation
 
-Then call the local API:
-
-```python
-from simulator import LocalUserSimulatorAPI
-
-api = LocalUserSimulatorAPI(max_rounds=3, question_ratio=2.5)
-session = api.start_session(case_id="case_001", run_id="demo")
-response = api.ask(
-    session_id=session["session_id"],
-    questions=["Should the monthly date be the first day of each month?"],
-)
-print(response["answers"])
-```
-
-More details: [docs/USER_SIMULATOR.md](docs/USER_SIMULATOR.md) and
-[docs/contracts/USER_SIMULATOR_LOCAL.md](docs/contracts/USER_SIMULATOR_LOCAL.md).
-
-## Results
-
-Paper result figures and benchmark analysis are collected in
-[docs/RESULTS.md](docs/RESULTS.md) as paper context. The open-source benchmark
-surface for leaderboard submissions is the table-output evaluator for the
-settings above.
-
-## Experimental Workflow Execution
-
-The internal e2e path can translate `solution.py` into `flow.json`, execute that
-workflow, and evaluate the generated output CSVs. This path is documented in
-[docs/WORKFLOW_EXECUTION.md](docs/WORKFLOW_EXECUTION.md). It is separate from the
-public leaderboard interface.
-
-## Reporting Results
-
-For leaderboard submission, provide candidate outputs for all 306 cases in one
-setting. The published score is the table accuracy produced by the evaluator.
-For local debugging, subset runs are allowed, but their `acc.txt` denominator
-still covers all GT cases because missing cases are marked `NOT_FOUND`.
-
-## Minimal Example
-
-`examples/evaluate_demo.py` shows the evaluator contract with a known-correct
-single-case candidate. `examples/user_simulator_demo.py` shows the local
-simulator API. For submission layout only, see
-`examples/submission_layout/README.md`.
+- Dataset and allowed-input policy: [docs/DATASET.md](docs/DATASET.md)
+- Evaluation details: [docs/EVALUATION.md](docs/EVALUATION.md)
+- User simulator API: [docs/USER_SIMULATOR.md](docs/USER_SIMULATOR.md)
+- Workflow executor: [docs/WORKFLOW_EXECUTION.md](docs/WORKFLOW_EXECUTION.md)
+- Paper figures and historical analysis: [docs/RESULTS.md](docs/RESULTS.md)
 
 ## FAQ
 
-**Which setting should I use?** Start with `oracle` to test table preparation
-under clarified instructions, then `direct`, then `interactive` for the full
-ambiguous-task setting with clarification.
+**Which mode should I start with?** Use `clarified` first to check basic table
+preparation, then `interactive`, then `workflow` if you want to evaluate an
+agent's workflow-generation path.
 
-**Does `oracle` expose the answers?** No. It exposes only `query_full.md`, the
-clarified instruction. GT outputs and reference solutions remain forbidden as
-model input.
+**What does the evaluator score?** Only final result tables under
+`result/output_*.csv`.
 
-**Why is my case marked `NOT_FOUND`?** The evaluator expects candidate CSVs under
-`case_xxx/solution/cand/`.
-
-**Why did I only get one error?** The programmatic `evaluate(gt_dir, cand_dir)`
-API is fail-fast and returns the first mismatch for a case. For batch debugging,
-inspect `evaluation_summary.csv`, which reports one row per case.
-
-**Why does the simulator fail before answering?** Set both
-`PREPBENCH_SIMULATOR_MODEL` and a simulator API key. If you changed the default
-reference-solution path, make sure `PREPBENCH_SOLUTIONS_ROOT` points to a
-compatible solutions directory.
-
-## Reference Solutions
-
-Reference solutions are included for reproducibility, validator maintenance, and
-benchmark-side user simulation. They are answer artifacts: do not use them as
-model input or submission assistance when evaluating an agent.
-
-Run the supported verifier instead of executing a `solution.py` file directly:
-
-```bash
-make verify-reference-outputs
-```
-
-Supported local layouts:
-
-```text
-case001/solution.py
-case_001/solution.py
-case001.py
-case_001.py
-```
-
-Default local mount point:
-
-```text
-reference/solutions/
-```
-
-## Citation
-
-If you use PrepBench in research, cite the paper and this repository. Citation
-metadata is available in [CITATION.cff](CITATION.cff). Third-party source
-attribution is summarized in [NOTICE.md](NOTICE.md).
+**Where should local runs go?** Use `@runs/<agent>/<mode>/`; this directory is
+ignored by git.

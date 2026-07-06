@@ -136,7 +136,7 @@ def check_case(case_dir: Path, gt_root: Path, solutions_root: Path, output_root:
     started = time.perf_counter()
     gt_dir = gt_root / case_name
     case_output_dir = output_root / case_name
-    cand_dir = case_output_dir / "solution" / "cand"
+    cand_dir = case_output_dir / "result"
 
     row = {
         "case_name": case_name,
@@ -223,7 +223,7 @@ def check_case_in_subprocess(
             "status": "TIMEOUT",
             "passed": "false",
             "solution_path": str(resolve_solution_path(solutions_root, case_dir.name) or ""),
-            "candidate_dir": str(output_root / case_dir.name / "solution" / "cand"),
+            "candidate_dir": str(output_root / case_dir.name / "result"),
             "error_type": "TIMEOUT",
             "error_message": f"Timed out after {timeout_seconds}s",
             "seconds": f"{time.perf_counter() - started:.3f}",
@@ -237,7 +237,7 @@ def check_case_in_subprocess(
             "status": "WORKER_ERROR",
             "passed": "false",
             "solution_path": str(resolve_solution_path(solutions_root, case_dir.name) or ""),
-            "candidate_dir": str(output_root / case_dir.name / "solution" / "cand"),
+            "candidate_dir": str(output_root / case_dir.name / "result"),
             "error_type": "WORKER_ERROR",
             "error_message": _truncate((completed.stdout or "") + "\n" + (completed.stderr or "")),
             "seconds": f"{time.perf_counter() - started:.3f}",
@@ -254,7 +254,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Run PrepBench reference solutions, write their outputs under "
-            "@output/reference_check, and verify them with the public evaluator."
+            "@runs/reference_check, and verify them with the evaluator."
         )
     )
     parser.add_argument("--data-root", default="data", help="Path to data/case_xxx directories.")
@@ -266,7 +266,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output-root",
-        default="@output/reference_check",
+        default="@runs/reference_check",
         help="Where generated reference outputs and the verification report are written.",
     )
     parser.add_argument(

@@ -1,44 +1,72 @@
 # Evaluation
 
-PrepBench evaluates generated output tables against per-case ground truth.
+PrepBench evaluates generated result tables against per-case ground truth.
+Inference and evaluation are separate: run your own agent first, then point the
+evaluator at the mode run root.
 
-## Settings
+## Modes
 
-PrepBench uses three public settings, ordered from easiest to hardest. They
-differ only in what the agent may read and whether it can ask clarification
-questions. Evaluation is identical in all settings: compare candidate output
-tables with the expected output tables.
+All public modes share the same output contract and comparison semantics.
 
-| Setting | Agent input | Interaction | Main question |
-| --- | --- | --- | --- |
-| `oracle` | `query_full.md` + `inputs/*.csv` | No simulator | Can the agent prepare the tables from a clarified instruction? |
-| `direct` | `query.md` + `inputs/*.csv` | No simulator | Can the agent prepare the tables from the original instruction alone? |
-| `interactive` | `query.md` + `inputs/*.csv` | May call `LocalUserSimulatorAPI` | Can the agent resolve ambiguity through clarification and prepare the tables? |
+| Mode | Workspace input | Extra tool |
+| --- | --- | --- |
+| `clarified` | clarified `query.md` + `inputs/` | none |
+| `interactive` | original `query.md` + `inputs/` | user simulator |
+| `workflow` | original `query.md` + `inputs/` | user simulator + workflow executor |
 
-`oracle` means the instruction is clarified. It does not allow access to GT
-outputs, reference solutions, or simulator metadata.
-
-The evaluator itself is setting-agnostic. Put each run under a setting-named
-results root, such as `@output/my_agent/interactive`.
+The evaluator requires `--mode`, and the value must match the last path segment
+of `--run-root`.
 
 ## Candidate Layout
 
-Write outputs under:
+Write result tables under:
 
 ```text
-@output/my_agent/interactive/
+@runs/<agent>/<mode>/
   case_001/
-    solution/
-      cand/
-        output_01.csv
+    result/
+      output_01.csv
+  case_002/
+    result/
+      output_01.csv
 ```
 
 Rules:
 
 - Case folders must use `case_xxx` names.
-- Candidate CSVs must live under `solution/cand/`.
+- Candidate CSVs must live directly under `result/`.
 - Candidate output file names must match the expected GT names, such as
   `output_01.csv`.
+
+## Run Evaluation
+
+Evaluate all GT cases for one mode:
+
+```bash
+python scripts/evaluate_submission.py \
+  --mode interactive \
+  --run-root @runs/my_agent/interactive
+```
+
+Evaluate one case for debugging:
+
+```bash
+python scripts/evaluate_submission.py \
+  --mode interactive \
+  --run-root @runs/my_agent/interactive \
+  --case case_001
+```
+
+Generated files:
+
+```text
+@runs/my_agent/interactive/evaluation/summary.json
+@runs/my_agent/interactive/evaluation/summary.csv
+```
+
+When `--case` is omitted, the evaluator checks every GT case. The command exits
+with code 0 only when every evaluated case passes. Missing case folders or
+missing result files are marked as `NOT_FOUND`.
 
 ## Comparison Semantics
 
@@ -52,57 +80,30 @@ they match when `abs(gt - cand) < 0.02`. The same numeric matcher is used for
 numeric key columns, because many PrepBench configs use all output columns as an
 unordered row signature rather than a separate database-style primary key.
 
-## Batch Evaluation
-
-```bash
-PYTHONPATH=src python -m evaluate.batch --results-root @output/my_agent/interactive
-```
-
-Generated files:
-
-```text
-@output/my_agent/interactive/evaluation_summary.csv
-@output/my_agent/interactive/acc.txt
-```
-
-The batch evaluator iterates every GT case. If your run contains only a subset,
-missing cases are marked as `NOT_FOUND`, and `acc.txt` still uses all GT cases as
-the denominator. Use subset runs for local debugging only; official leaderboard
-submissions should include all 306 cases for one setting.
-
-## Single-Case Debugging
-
-For a known-correct smoke test:
-
-```bash
-python examples/evaluate_demo.py
-```
-
-For your own candidate output:
-
-```bash
-PYTHONPATH=src python -m evaluate.batch --results-root @output/my_agent/interactive
-rg '^case_001,' @output/my_agent/interactive/evaluation_summary.csv
-```
-
 ## Programmatic API
+
+For one candidate directory:
 
 ```python
 from evaluate.core import evaluate
 
 passed, first_error = evaluate(
     gt_dir="src/evaluate/gt/case_001",
-    cand_dir="@output/my_agent/interactive/case_001/solution/cand",
+    cand_dir="@runs/my_agent/clarified/case_001/result",
+)
+```
+
+For the public run-root layout:
+
+```python
+from prepbench.submission_eval import evaluate_submission
+
+summary = evaluate_submission(
+    mode="clarified",
+    run_root="@runs/my_agent/clarified",
 )
 ```
 
 `first_error` is `None` when the candidate passes. Otherwise, it contains the
-first meaningful mismatch. This API is fail-fast within one case; use
-`evaluation_summary.csv` from batch evaluation to inspect one result row per
+first meaningful mismatch. Use `evaluation/summary.csv` to inspect one row per
 case.
-
-## Reporting
-
-For leaderboard submission, provide candidate outputs for all 306 cases in one
-setting. The leaderboard score is the table accuracy written to `acc.txt` by the
-public evaluator; participants do not need to compute additional metrics.

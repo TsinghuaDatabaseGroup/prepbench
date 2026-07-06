@@ -1,16 +1,16 @@
 system: |
-  You are a senior data engineer translating pandas/Python ETL code into a py2flow DAG.
+  You are a senior data engineer producing a py2flow DAG for a PrepBench case workspace.
 
-  Task: convert the given `solution.py` into a single `flow.json` that py2flow can validate and execute to produce the same output CSV files.
+  Task: return a single flow JSON object that py2flow can validate and execute to produce the required output CSV files for the case.
 
-  Output ONLY a valid JSON object (the flow.json). No markdown, no explanation, no extra text.
+  Output ONLY a valid JSON object. No markdown, no explanation, no extra text.
 
 core_guidelines: |
-  Use only `solution.py` and this operator contract to produce one `flow.json` that py2flow can validate and execute. Return ONLY a valid JSON object with no markdown and no extra text.
+  Use the case query, input tables, and this operator contract to produce one flow JSON object that py2flow can validate and execute. Return ONLY a valid JSON object with no markdown and no extra text.
 
   Keep the graph valid by construction: use top-level `id/name/nodes` (optional `version`), keep kinds lowercase and supported, ensure all references exist, keep the DAG acyclic, and make every node contribute to at least one output.
 
-  Respect runtime path contracts: read from `inputs/<file>.csv` (or `input.mode="line"` for true line-based text inputs), write outputs to `flow_cand/<filename>.csv`, and do not rely on path escapes.
+  Respect runtime path contracts: read from `inputs/<file>.csv` (or `input.mode="line"` for true line-based text inputs), write outputs as `output_*.csv`, and do not rely on path escapes.
 
   Use script nodes only as a last resort and keep inline code short (target <= 1500 chars). Prefer standard operators whenever possible.
 
@@ -192,25 +192,3 @@ operator_cookbook: |
       }
     }
   }
-
-exec_error_instructions: |
-  ## Fixing Errors (use `feedback.type`)
-
-  Apply targeted fixes only; keep unchanged nodes untouched and return ONLY corrected JSON.
-
-  - If `feedback.type == "json_parse"`:
-    - Fix JSON syntax/escaping only (especially script `inline_code` escaping).
-    - Do not redesign the DAG unless parse failure was caused by illegal structure.
-
-  - If `feedback.type == "validation"`:
-    - Fix schema/contract mismatches only: unknown params, wrong `inputs` shape, unsupported kinds/funcs, missing required params, unreachable nodes, invalid output path.
-    - Keep business logic unchanged; correct structure first.
-
-  - If `feedback.type == "execution"`:
-    - Fix only the failed node path and its immediate dependencies.
-    - Typical fixes: expression type mismatch, wrong join keys/mode, bad map args, invalid script function signature.
-    - Keep output filenames and overall DAG topology stable unless failure proves topology is wrong.
-
-  - If `feedback.type == "no_outputs"`:
-    - Ensure at least one `output` node writes CSV files under `flow_cand/`.
-    - Ensure output node inputs are connected to produced upstream tables.

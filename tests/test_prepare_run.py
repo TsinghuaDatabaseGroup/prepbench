@@ -1,0 +1,73 @@
+from __future__ import annotations
+
+import tempfile
+import unittest
+from pathlib import Path
+
+from prepbench.workspaces import prepare_case_workspace
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+class PrepareRunTest(unittest.TestCase):
+    def test_clarified_workspace_uses_full_query_and_file_symlinked_inputs(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_root = Path(tmp) / "agent" / "clarified"
+            workspace = prepare_case_workspace(
+                case_id="case_001",
+                mode="clarified",
+                run_root=run_root,
+                force=True,
+            )
+
+            self.assertEqual((workspace / "query.md").resolve(), (REPO_ROOT / "data" / "case_001" / "query_full.md").resolve())
+            self.assertTrue((workspace / "inputs").is_dir())
+            self.assertFalse((workspace / "inputs").is_symlink())
+            input_files = sorted((workspace / "inputs").glob("input_*.csv"))
+            self.assertTrue(input_files)
+            self.assertTrue(all(path.is_symlink() for path in input_files))
+            self.assertTrue((workspace / "result").is_dir())
+            self.assertFalse((workspace / "simulator.md").exists())
+            self.assertFalse((workspace / "workflow_prompt.yaml").exists())
+
+    def test_interactive_workspace_uses_original_query_and_simulator_doc(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_root = Path(tmp) / "agent" / "interactive"
+            workspace = prepare_case_workspace(
+                case_id="1",
+                mode="interactive",
+                run_root=run_root,
+                force=True,
+            )
+
+            self.assertEqual((workspace / "query.md").resolve(), (REPO_ROOT / "data" / "case_001" / "query.md").resolve())
+            simulator_doc = workspace / "simulator.md"
+            self.assertTrue(simulator_doc.is_file())
+            self.assertIn("LocalUserSimulatorAPI", simulator_doc.read_text(encoding="utf-8"))
+            self.assertFalse((workspace / "workflow_prompt.yaml").exists())
+
+    def test_workflow_workspace_adds_operator_prompt(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_root = Path(tmp) / "agent" / "workflow"
+            workspace = prepare_case_workspace(
+                case_id="case_001",
+                mode="workflow",
+                run_root=run_root,
+                force=True,
+            )
+
+            prompt = workspace / "workflow_prompt.yaml"
+            self.assertTrue(prompt.is_symlink())
+            self.assertEqual(prompt.resolve(), (REPO_ROOT / "src" / "agents" / "prompts" / "flow_agent.yaml").resolve())
+
+    def test_refuses_existing_workspace_without_force(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_root = Path(tmp) / "agent" / "clarified"
+            prepare_case_workspace(case_id="case_001", mode="clarified", run_root=run_root)
+            with self.assertRaises(FileExistsError):
+                prepare_case_workspace(case_id="case_001", mode="clarified", run_root=run_root)
+
+
+if __name__ == "__main__":
+    unittest.main()

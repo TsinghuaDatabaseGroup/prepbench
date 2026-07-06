@@ -3,6 +3,9 @@
 PrepBench provides a local user simulator for agents that ask clarification
 questions before producing prepared tables.
 
+In prepared workspaces, `interactive` and `workflow` mode include a
+`simulator.md` file with the minimal case-specific API reminder.
+
 Implementation:
 
 ```text

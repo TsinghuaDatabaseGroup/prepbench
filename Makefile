@@ -6,10 +6,10 @@ install:
 	$(PYTHON) -m pip install -r requirements.txt
 
 check:
-	$(PYTHON) -m compileall -q src/prepbench src/evaluate src/py2flow src/simulator/*.py examples tests scripts/validate_dataset.py scripts/verify_reference_outputs.py scripts/execute_workflow.py
+	$(PYTHON) -m compileall -q src/prepbench src/evaluate src/py2flow src/simulator/*.py examples tests scripts/validate_dataset.py scripts/verify_reference_outputs.py scripts/execute_workflow.py scripts/prepare_run.py scripts/evaluate_submission.py
 	PYTHONPATH=src $(PYTHON) -m unittest discover -s tests
 	$(PYTHON) scripts/validate_dataset.py
-	PYTHONPATH=src $(PYTHON) -m evaluate.batch --help >/dev/null
+	$(PYTHON) scripts/evaluate_submission.py --help >/dev/null
 
 check-all: check
 	$(PYTHON) -m compileall -q reference/solutions
@@ -29,4 +29,4 @@ clean: clean-outputs
 	rm -rf build dist src/prepbench.egg-info .pytest_cache
 
 clean-outputs:
-	rm -rf @output @out-info
+	rm -rf @output @out-info @runs
