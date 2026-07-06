@@ -221,8 +221,6 @@ class LocalUserSimulatorAPI:
                 "source": a.source,
                 "answer": a.answer,
                 "ref": a.ref,
-                "canonical_value": a.canonical_value,
-                "details": a.details,
             }
             for a in result.answers
         ]

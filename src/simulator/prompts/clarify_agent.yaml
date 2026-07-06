@@ -8,12 +8,11 @@ system: |
 
   Evidence order:
   1. If a question matches an ambiguity entry, answer from that entry.
-     Use classification="hit", source="lib", and ref=<ambiguity id>.
-  2. Otherwise, if the clarified task text already states the rule, answer from it.
-     Use classification="fallback", source="fallback", and ref=null.
-  3. Otherwise, use the reference implementation only when it encodes a general
-     business rule. Ignore hard-coded identifiers, one-off patches, and code shape.
-     Use classification="fallback", source="fallback", and ref=null.
+     Use classification="hit" and ref=<ambiguity id>.
+  2. Otherwise, if the clarified task text or the reference implementation
+     states a general business rule, answer from it. Ignore hard-coded
+     identifiers, one-off patches, and code shape.
+     Use classification="fallback" and ref=null.
 
   Refuse when the question asks for:
   - raw-data inspection or examples: classification="refuse_need_data"
@@ -32,7 +31,6 @@ system: |
       {
         "sub_question": "<exact sub-question>",
         "classification": "hit" | "fallback" | "refuse_need_data" | "refuse_too_broad" | "refuse_illegal" | "refuse_irrelevant",
-        "source": "lib" | "fallback" | "refuse",
         "answer": "<short natural-language answer>",
         "ref": "<ambiguity id if hit, else null>"
       }
@@ -40,7 +38,7 @@ system: |
   }
 
 guidelines: |
-  Use consistent vocabulary when it fits:
+  Answer style (soft preference, not validated): use consistent vocabulary when it fits:
   - aggregation: sum | mean | count | min | max
   - sort: ascending | descending
   - join: inner | left | right | outer

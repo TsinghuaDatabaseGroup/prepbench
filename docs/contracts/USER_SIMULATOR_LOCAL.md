@@ -111,12 +111,9 @@ Behavior notes:
 Answer item fields:
 - `sub_question`
 - `classification`
-- `source`
+- `source`: derived from `classification` (`hit`→`lib`, `fallback`→`fallback`, `refuse_*`→`refuse`). The model no longer outputs this directly.
 - `answer`
-- `ref`
-- `canonical_value`: normalized slot identifier for a `hit` answer (defaults to `ref` when omitted).  
-  For non-`hit` answers this should be treated as nullable and ignored.
-- `details`
+- `ref`: ambiguity id for a `hit` answer, otherwise `null`.
 
 ## Classification Enum
 

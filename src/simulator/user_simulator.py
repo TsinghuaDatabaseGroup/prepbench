@@ -23,8 +23,6 @@ class UserSimulatorAnswerItem:
     classification: str
     source: str
     answer: str
-    canonical_value: Optional[str] = None
-    details: Optional[dict[str, Any]] = None
     ref: Optional[str] = None
 
 
@@ -62,17 +60,9 @@ class UserSimulatorResult:
     def ref(self) -> Optional[str]:
         return self.answers[0].ref if self.answers else None
 
-    @property
-    def canonical_value(self) -> Optional[str]:
-        return self.answers[0].canonical_value if self.answers else None
-
-    @property
-    def details(self) -> Optional[dict[str, Any]]:
-        return self.answers[0].details if self.answers else None
-
 
 _JSON_CODE_FENCE_RE = re.compile(r"```(?:json)?\s*([\s\S]*?)```", re.MULTILINE)
-_ANSWER_REQUIRED_FIELDS = ("sub_question", "classification", "source", "answer")
+_ANSWER_REQUIRED_FIELDS = ("sub_question", "classification", "answer")
 _MAX_FEEDBACK_CHARS = 2000
 _ALLOWED_CLASSIFICATIONS = {
     "hit",
@@ -301,12 +291,6 @@ def _sanitize_answer(answer: str) -> str:
 
 def _normalize_classification(classification: str) -> str:
     value = (classification or "").strip()
-    if value == "hit_amb_kb":
-        return "hit"
-    if value in {"fallback_flow", "fallback_solution"}:
-        return "fallback"
-    if value == "illegal":
-        return "refuse_illegal"
     if value in _ALLOWED_CLASSIFICATIONS:
         return value
     return "fallback"
@@ -315,13 +299,10 @@ def _normalize_classification(classification: str) -> str:
 def _normalize_ref_for_classification(
     classification: str,
     ref: Optional[str],
-    canonical_value: Optional[str],
-) -> tuple[Optional[str], Optional[str]]:
+) -> Optional[str]:
     if classification != "hit":
-        if canonical_value == ref:
-            canonical_value = None
-        ref = None
-    return ref, canonical_value
+        return None
+    return ref
 
 
 def _source_for_classification(classification: str) -> str:
@@ -335,27 +316,15 @@ def _source_for_classification(classification: str) -> str:
 
 
 def _parse_single_answer(data: dict[str, Any], sub_question: str = "") -> UserSimulatorAnswerItem:
-    details = data.get("details") if isinstance(data.get("details"), dict) else None
-
     classification = _normalize_classification(str(data.get("classification") or "fallback"))
-    source = data.get("source") or _source_for_classification(classification)
-
-    ref = data.get("ref")
-    if ref is None and isinstance(details, dict):
-        ref = details.get("slot_id")
-
-    canonical_value = data.get("canonical_value")
-    if canonical_value is None:
-        canonical_value = ref
-    ref, canonical_value = _normalize_ref_for_classification(classification, ref, canonical_value)
+    source = _source_for_classification(classification)
+    ref = _normalize_ref_for_classification(classification, data.get("ref"))
 
     return UserSimulatorAnswerItem(
         sub_question=sub_question or str(data.get("sub_question", "")),
         classification=classification,
-        source=str(source),
+        source=source,
         answer=_sanitize_answer(str(data.get("answer") or "")),
-        canonical_value=canonical_value,
-        details=details,
         ref=ref,
     )
 
@@ -383,8 +352,6 @@ def _validate_parsed_answers(
             return f"sub_question_not_string: index={i}"
         if not isinstance(ans.get("classification"), str):
             return f"classification_not_string: index={i}"
-        if not isinstance(ans.get("source"), str):
-            return f"source_not_string: index={i}"
         if not isinstance(ans.get("answer"), str):
             return f"answer_not_string: index={i}"
         ref_val = ans.get("ref")
@@ -551,13 +518,14 @@ class UserSimulator:
                 if isinstance(ans_data, dict):
                     item = _parse_single_answer(ans_data)
                     if not item.answer:
+                        classification = (
+                            "refuse_illegal" if item.classification == "fallback" else item.classification
+                        )
                         item = UserSimulatorAnswerItem(
                             sub_question=item.sub_question,
-                            classification="refuse_illegal" if item.classification == "fallback" else item.classification,
-                            source="refuse" if item.source == "fallback" else item.source,
+                            classification=classification,
+                            source=_source_for_classification(classification),
                             answer="I cannot answer that question.",
-                            canonical_value=item.canonical_value,
-                            details=item.details,
                             ref=item.ref,
                         )
                     items.append(item)
