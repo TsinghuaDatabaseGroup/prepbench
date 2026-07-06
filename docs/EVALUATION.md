@@ -31,6 +31,8 @@ Write result tables under:
       output_01.csv
 ```
 
+This `result/` directory is the only scoring input.
+
 Rules:
 
 - Case folders must use `case_xxx` names.
@@ -67,6 +69,8 @@ Generated files:
 When `--case` is omitted, the evaluator checks every GT case. The command exits
 with code 0 only when every evaluated case passes. Missing case folders or
 missing result files are marked as `NOT_FOUND`.
+
+Use `--case` for single-case debugging. Omit it only for a complete mode run.
 
 ## Comparison Semantics
 

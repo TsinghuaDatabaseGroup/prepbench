@@ -25,11 +25,10 @@
   <a href="CITATION.cff">Citation</a>
 </p>
 
-PrepBench evaluates whether an agent can prepare the correct output tables from
-natural-language instructions and CSV inputs. The benchmark supplies case
-workspaces, a local user simulator, a workflow executor, and a table-output
-evaluator. Your agent remains a black box: run it however you like inside the
-case workspace, then evaluate the generated result CSVs.
+PrepBench evaluates whether an agent can prepare correct output tables from a
+natural-language request and CSV inputs. The benchmark gives each case as a
+workspace. Your agent runs as a black box in that workspace and writes
+`result/output_*.csv`; PrepBench evaluates those files.
 
 ## At a Glance
 
@@ -72,6 +71,12 @@ python -m pip install -r requirements.txt
 PrepBench is intended to run from a source checkout because the dataset,
 simulator assets, workflow prompt, and evaluator ground truth live in the repo.
 
+## Basic Flow
+
+```text
+prepare workspace -> run your agent -> write result/output_*.csv -> evaluate
+```
+
 ## Prepare a Workspace
 
 Create one case workspace under a run root:
@@ -95,12 +100,12 @@ The workspace layout is:
 `interactive` workspaces also contain `simulator.md`. `workflow` workspaces
 contain both `simulator.md` and `workflow_prompt.yaml`.
 
-Workspace initialization uses symlinks for the query and input files. The
-benchmark is still an honor-system benchmark: restricted assets such as
-`data/case_xxx/query_full.md`, `data/case_xxx/amb_kb.json`, and
-`src/evaluate/gt/` remain in the repository for evaluation and simulator use,
-but they must not be read by the model-under-test except where a mode explicitly
-exposes the clarified query through the workspace.
+Repeat this command for each case you want to run. Workspace files are symlinks
+where possible, so setup is cheap.
+
+PrepBench is an honor-system benchmark. The repository still contains evaluator
+and simulator assets, but the model-under-test should only read files exposed in
+its prepared workspace.
 
 ## Run Your Agent
 
@@ -167,6 +172,9 @@ The evaluator writes:
 When `--case` is omitted, the evaluator checks every GT case. Missing case
 folders or missing result tables are reported as `NOT_FOUND`. The command exits
 with code 0 only when every evaluated case passes.
+
+If you prepared only one case, pass `--case`. Omit `--case` only for a complete
+mode run.
 
 ## Minimal Smoke Tests
 

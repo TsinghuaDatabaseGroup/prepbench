@@ -6,13 +6,6 @@ questions before producing prepared tables.
 In prepared workspaces, `interactive` and `workflow` mode include a
 `simulator.md` file with the minimal case-specific API reminder.
 
-Implementation:
-
-```text
-src/simulator/local_api.py
-src/simulator/user_simulator.py
-```
-
 The simulator uses an OpenAI-compatible chat-completions endpoint. Configure both
 the model and API key with environment variables or a local `.env` file. Replace
 the model value with an OpenAI-compatible model available from your provider:
