@@ -41,6 +41,7 @@ The agent may produce one JSON object:
 - Read input tables from `inputs/`.
 - Write final output tables as `output_*.csv`.
 - Prefer standard operators over `script`.
-- Use `script` only as a last resort; it must define
-  `transform(df, pd, np) -> DataFrame`.
+- Use `script` only as a last resort. A workflow may use at most 3 `script`
+  nodes, and each `inline_code` must be at most 1500 characters. Each script
+  must define `transform(df, pd, np) -> DataFrame`.
 - Return only valid JSON.

@@ -171,14 +171,14 @@ class DAGExecutor:
         if self.base_path is None:
             return
         if self._debug.dump_nodes and node.id in self._debug.dump_nodes and isinstance(res, pd.DataFrame):
-            debug_dir = self.base_path / "flow_cand" / "@debug"
+            debug_dir = self.base_path / "flow_debug" / "@debug"
             path = debug_dir / f"{node.id}.csv"
             self._ctx.io.write_df(res, path, "csv", {"index": False})
 
     def _dump_failure(self, node: Node, upstream: List[Any], exc: BaseException) -> None:
         if self.base_path is None:
             return
-        debug_dir = self.base_path / "flow_cand" / "@debug" / "@fail" / node.id
+        debug_dir = self.base_path / "flow_debug" / "@debug" / "@fail" / node.id
         debug_dir.mkdir(parents=True, exist_ok=True)
 
         (debug_dir / "error.txt").write_text(f"{type(exc).__name__}: {exc}\n", encoding="utf-8")

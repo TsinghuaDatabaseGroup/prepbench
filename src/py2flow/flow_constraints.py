@@ -3,6 +3,10 @@ from __future__ import annotations
 from typing import Any, Mapping, Tuple
 
 
+MAX_SCRIPT_NODES = 3
+MAX_SCRIPT_INLINE_CODE_CHARS = 1500
+
+
 def _error(
     message: str,
     *,
@@ -53,6 +57,7 @@ def validate_script_constraints(flow_dict: Mapping[str, Any]) -> Tuple[bool, str
     if not isinstance(nodes, Mapping):
         return _error("DAG.nodes must be a mapping of node_id -> node dict", field="nodes")
 
+    script_count = 0
     for node_id, node_data in nodes.items():
         if not isinstance(node_id, str) or not node_id:
             return _error("node_id must be a non-empty string", field="nodes")
@@ -78,5 +83,24 @@ def validate_script_constraints(flow_dict: Mapping[str, Any]) -> Tuple[bool, str
             ok, message, details = _validate_project_rename(node_id, params)
             if not ok:
                 return ok, message, details
+        elif kind == "script":
+            script_count += 1
+            if script_count > MAX_SCRIPT_NODES:
+                return _error(
+                    f"Workflow uses too many script nodes: {script_count} > {MAX_SCRIPT_NODES}",
+                    node_id=node_id,
+                    step_kind="script",
+                    field="inline_code",
+                    error_code="script_limit",
+                )
+            code = params.get("inline_code")
+            if isinstance(code, str) and len(code) > MAX_SCRIPT_INLINE_CODE_CHARS:
+                return _error(
+                    f"Node {node_id} script.inline_code is too long: {len(code)} > {MAX_SCRIPT_INLINE_CODE_CHARS} chars",
+                    node_id=node_id,
+                    step_kind="script",
+                    field="inline_code",
+                    error_code="script_limit",
+                )
 
     return True, "", {}

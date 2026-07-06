@@ -147,7 +147,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dump-nodes",
         default="",
-        help="Comma-separated node ids to dump to <flow_dir>/flow_cand/@debug/<node>.csv",
+        help="Comma-separated node ids to dump to <flow_dir>/flow_debug/@debug/<node>.csv",
     )
     parser.add_argument(
         "--trace",
@@ -157,7 +157,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--on-fail-dump",
         action="store_true",
-        help="On failure, dump upstream inputs and params to <flow_dir>/flow_cand/@debug/@fail/<node>/",
+        help="On failure, dump upstream inputs and params to <flow_dir>/flow_debug/@debug/@fail/<node>/",
     )
     parser.add_argument(
         "--validate-only",

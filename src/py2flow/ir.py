@@ -5,6 +5,7 @@ from graphlib import CycleError, TopologicalSorter
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Set
 
 from .errors import FlowValidationError
+from .flow_constraints import validate_script_constraints
 
 
 class StepKind(str, Enum):
@@ -59,6 +60,17 @@ class DAG:
         if not isinstance(nodes_raw, Mapping):
             raise FlowValidationError(
                 "DAG.nodes must be a mapping of node_id -> node dict", error_code="node_validation")
+        ok, message, details = validate_script_constraints(data)
+        if not ok:
+            kind_value = details.get("step_kind")
+            step_kind = StepKind(kind_value) if kind_value in _ALLOWED_KINDS else None
+            raise FlowValidationError(
+                message,
+                node_id=details.get("node_id"),
+                step_kind=step_kind,
+                field=details.get("field"),
+                error_code=details.get("error_code") or "node_validation",
+            )
 
         nodes: Dict[str, Node] = {}
         for node_id, node_data in nodes_raw.items():

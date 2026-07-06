@@ -135,7 +135,8 @@ often bites a generated flow.
 
 - **Purpose:** Last-resort trusted Python transform.
 - **When to use:** Only when no combination of the operators above can express the
-  step. Keep `inline_code` short (target <= 1500 chars).
+  step. A workflow may use at most 3 script nodes, and each `inline_code` must be
+  <= 1500 chars.
 - **Key params:** `inline_code`, optional `deterministic`, optional `side_effects`.
 - **Gotcha:** `inline_code` must define `transform(df, pd, np) -> DataFrame`.
   Imports are restricted to the trusted allowlist (same as expressions).
@@ -148,7 +149,7 @@ often bites a generated flow.
 - `project.expand` requires `keys`, `from_col`, `expand_col`, and exactly one of `to_col`, `to_value`, or `to_value_expr`. Prefer it over `script` for calendar/range scaffold generation.
 - `join.fuzzy_match=true` is intentionally narrow: one key per side, `how` in `left|inner`, substring containment only, shortest containing right-side string wins, and right-row order breaks ties.
 - `pivot_longer_from_rows` and `pivot_longer_paired` are layout-repair macros for dirty source tables, not general relational algebra.
-- `script.inline_code` must define `transform(df, pd, np) -> DataFrame`; `deterministic` defaults to `true` and `side_effects` defaults to `false`.
+- `script.inline_code` must define `transform(df, pd, np) -> DataFrame`; `deterministic` defaults to `true` and `side_effects` defaults to `false`; at most 3 script nodes are allowed per workflow.
 
 ### Cross-operator gotchas (most common failures)
 

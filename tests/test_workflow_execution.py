@@ -52,7 +52,7 @@ class WorkflowExecutionTest(unittest.TestCase):
     "out": {
       "kind": "output",
       "inputs": {"in": "final"},
-      "params": {"path": "flow_cand/output_01.csv"}
+      "params": {"path": "output_01.csv"}
     }
   }
 }

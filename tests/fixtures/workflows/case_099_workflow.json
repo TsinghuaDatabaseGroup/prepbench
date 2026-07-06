@@ -1352,7 +1352,7 @@
         "in": "final_cols"
       },
       "params": {
-        "path": "flow_cand/output_01.csv",
+        "path": "output_01.csv",
         "schema_enforce": false
       }
     }

@@ -102,5 +102,7 @@ Default CLI outputs go under:
 
 - The restored workflow fixture coverage is one case:
   `tests/fixtures/workflows/case_099_workflow.json`.
+- Workflows may use at most 3 `script` nodes, and each `script.inline_code`
+  must be at most 1500 characters.
 - Expressions and `script` nodes restrict imports to trusted data-prep modules,
   but workflow execution is still a trusted-code path, not a sandbox.

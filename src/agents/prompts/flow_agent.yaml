@@ -12,7 +12,7 @@ core_guidelines: |
 
   Respect runtime path contracts: read from `inputs/<file>.csv` (or `input.mode="line"` for true line-based text inputs), write outputs as `output_*.csv`, and do not rely on path escapes.
 
-  Use script nodes only as a last resort and keep inline code short (target <= 1500 chars). Prefer standard operators whenever possible.
+  Use script nodes only as a last resort. A workflow may use at most 3 script nodes, and each inline_code must be <=1500 chars. Prefer standard operators whenever possible.
 
   Choosing an operator (prefer the most specific standard operator over script):
   - Per-column value transforms (clean/parse/regex/tokenize): project `compute`/`map`, not script.
@@ -104,7 +104,7 @@ operator_definitions: |
   - If `schema.order` or `schema.columns` is present and `write_order=true` (default), output columns are written in that order. With `schema_enforce=false`, remaining columns are appended after the ordered prefix.
 
   ### script (last resort)
-  Keep inline_code short (target <=1500 chars). Script count is not enforced but should be minimal.
+  Use at most 3 script nodes per workflow. Each inline_code must be <=1500 chars.
   Params: inline_code (string), deterministic (optional bool, default true), side_effects (optional bool, default false).
   - inline_code must define: transform(df, pd, np) -> DataFrame.
   - Allowed import roots: calendar, collections, datetime, decimal, functools, itertools, json, locale, math, numpy, pandas, re, time, _strptime, statistics, string, typing.
