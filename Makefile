@@ -30,4 +30,4 @@ clean: clean-outputs
 	rm -rf build dist src/prepbench.egg-info .pytest_cache
 
 clean-outputs:
-	rm -rf @output @out-info @runs
+	rm -rf @output @runs

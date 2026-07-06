@@ -55,10 +55,10 @@ htmlcov/
 tmp/
 
 @output/
-@output copy/
 @runs/
 
-@output.zip
+# Local implementation plans are not part of the public benchmark surface.
+docs/plans/
 
 # Legacy/local reference-solution override paths.
 data/case_*/solution.py

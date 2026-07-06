@@ -74,6 +74,10 @@ simulator assets, workflow prompt, and evaluator ground truth live in the repo.
 The editable install makes `simulator` and `py2flow` importable when your agent
 runs from `@runs/...`; alternatively set `PYTHONPATH=/path/to/prepbench/src`.
 
+> **Note:** The editable install registers a package named `evaluate`. If you
+> have HuggingFace `evaluate` installed in the same environment, the two will
+> conflict. Use a dedicated virtualenv for PrepBench.
+
 ## Basic Flow
 
 ```text

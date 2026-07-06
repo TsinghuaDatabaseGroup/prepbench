@@ -33,9 +33,6 @@ Homepage = "https://github.com/TsinghuaDatabaseGroup/prepbench"
 Repository = "https://github.com/TsinghuaDatabaseGroup/prepbench"
 Issues = "https://github.com/TsinghuaDatabaseGroup/prepbench/issues"
 
-[project.optional-dependencies]
-dev = []
-
 [tool.setuptools]
 packages = [
   "prepbench",

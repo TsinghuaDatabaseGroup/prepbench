@@ -1,5 +1,4 @@
 Jinja2>=3.1
-certifi>=2024.2
 pandas>=2.1
 PyYAML>=6.0
 requests>=2.31

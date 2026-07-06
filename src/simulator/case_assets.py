@@ -6,10 +6,6 @@ from pathlib import Path
 from prepbench.case_ids import case_index_text
 
 
-def package_root() -> Path:
-    return Path(__file__).resolve().parents[1]
-
-
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
 
@@ -21,9 +17,7 @@ def solution_assets_root(root: Path | None = None) -> Path:
     if env_root:
         return Path(env_root).expanduser().resolve()
     public_root = repo_root() / "reference" / "solutions"
-    if public_root.is_dir():
-        return public_root
-    return package_root() / "simulator" / "assets" / "solutions"
+    return public_root
 
 
 def _candidate_relative_paths(case_name: str) -> list[Path]:
