@@ -48,6 +48,7 @@ Runtime path rules:
 - Output nodes write filenames such as `output_01.csv`.
 - The executor maps input paths to the workspace `inputs/` directory.
 - The executor maps output filenames to the workspace `result/` directory.
+- Absolute paths and `..` path escapes are rejected.
 
 ## Python API
 

@@ -62,7 +62,7 @@ class UserSimulatorResult:
 
 
 _JSON_CODE_FENCE_RE = re.compile(r"```(?:json)?\s*([\s\S]*?)```", re.MULTILINE)
-_ANSWER_REQUIRED_FIELDS = ("sub_question", "classification", "answer")
+_ANSWER_REQUIRED_FIELDS = ("sub_question", "classification", "answer", "ref")
 _MAX_FEEDBACK_CHARS = 2000
 _ALLOWED_CLASSIFICATIONS = {
     "hit",
@@ -352,11 +352,16 @@ def _validate_parsed_answers(
             return f"sub_question_not_string: index={i}"
         if not isinstance(ans.get("classification"), str):
             return f"classification_not_string: index={i}"
+        classification = ans.get("classification", "").strip()
+        if classification not in _ALLOWED_CLASSIFICATIONS:
+            return f"classification_invalid: index={i} got={classification!r}"
         if not isinstance(ans.get("answer"), str):
             return f"answer_not_string: index={i}"
         ref_val = ans.get("ref")
         if ref_val is not None and not isinstance(ref_val, str):
             return f"ref_not_string_or_null: index={i}"
+        if classification == "hit" and not (isinstance(ref_val, str) and ref_val.strip()):
+            return f"hit_ref_missing: index={i}"
         if expected_sub_questions and ans.get("sub_question") != expected_sub_questions[i]:
             return (
                 "sub_question_mismatch: "

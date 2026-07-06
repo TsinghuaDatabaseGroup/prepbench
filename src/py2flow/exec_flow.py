@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 from pathlib import Path
 from typing import Any
 
@@ -10,6 +11,16 @@ from py2flow.errors import FlowError
 from py2flow.executor import DAGExecutor
 from py2flow.executor import DebugConfig
 from py2flow.ir import DAG
+
+
+def _resolve_under_root(root: Path, relative: Path, *, field: str) -> Path:
+    root_resolved = root.resolve()
+    candidate = Path(os.path.abspath(os.path.normpath(str(root_resolved / relative))))
+    try:
+        candidate.relative_to(root_resolved)
+    except ValueError as exc:
+        raise ValueError(f"{field} path escapes configured root: {relative}") from exc
+    return candidate
 
 
 def _map_input_paths_to_input_root(flow_dict: dict[str, Any], input_root: Path) -> None:
@@ -29,7 +40,7 @@ def _map_input_paths_to_input_root(flow_dict: dict[str, Any], input_root: Path) 
 
         path_obj = Path(raw_path)
         if path_obj.is_absolute():
-            continue
+            raise ValueError(f"input path must be relative to input_root: {raw_path}")
 
         # Generated flows normally use "inputs/<file>". The caller already
         # points input_root at the concrete input directory for one case.
@@ -37,7 +48,7 @@ def _map_input_paths_to_input_root(flow_dict: dict[str, Any], input_root: Path) 
             relative = Path(*path_obj.parts[1:]) if len(path_obj.parts) > 1 else Path(".")
         else:
             relative = path_obj
-        params["path"] = str((input_root / relative).resolve())
+        params["path"] = str(_resolve_under_root(input_root, relative, field="input"))
 
 
 def _map_output_paths_to_output_root(flow_dict: dict[str, Any], output_root: Path) -> None:
@@ -57,12 +68,12 @@ def _map_output_paths_to_output_root(flow_dict: dict[str, Any], output_root: Pat
 
         path_obj = Path(raw_path)
         if path_obj.is_absolute():
-            relative = Path(path_obj.name)
+            raise ValueError(f"output path must be relative to output_root: {raw_path}")
         elif path_obj.parts and path_obj.parts[0] == "flow_cand":
             relative = Path(*path_obj.parts[1:]) if len(path_obj.parts) > 1 else Path(path_obj.name)
         else:
             relative = path_obj
-        params["path"] = str((output_root / relative).resolve())
+        params["path"] = str(_resolve_under_root(output_root, relative, field="output"))
 
 
 def exec_flow(

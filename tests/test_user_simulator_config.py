@@ -3,7 +3,7 @@ from __future__ import annotations
 import unittest
 from unittest.mock import patch
 
-from simulator.user_simulator import OpenAICompatibleClient, _default_thinking_type
+from simulator.user_simulator import OpenAICompatibleClient, _default_thinking_type, _validate_parsed_answers
 
 
 class UserSimulatorConfigTest(unittest.TestCase):
@@ -63,6 +63,50 @@ class UserSimulatorConfigTest(unittest.TestCase):
         )
         self.assertEqual(payload["thinking"], {"type": "enabled"})
         self.assertEqual(payload["reasoning_effort"], "high")
+
+    def test_answer_validation_rejects_invalid_classification(self) -> None:
+        payload = {
+            "answers": [
+                {
+                    "sub_question": "q",
+                    "classification": "illegal",
+                    "answer": "No.",
+                    "ref": None,
+                }
+            ]
+        }
+
+        self.assertEqual(
+            _validate_parsed_answers(payload, ["q"]),
+            "classification_invalid: index=0 got='illegal'",
+        )
+
+    def test_answer_validation_requires_ref_field(self) -> None:
+        payload = {
+            "answers": [
+                {
+                    "sub_question": "q",
+                    "classification": "fallback",
+                    "answer": "Use sum.",
+                }
+            ]
+        }
+
+        self.assertEqual(_validate_parsed_answers(payload, ["q"]), "answer_missing_fields: index=0 missing=['ref']")
+
+    def test_answer_validation_requires_hit_ref(self) -> None:
+        payload = {
+            "answers": [
+                {
+                    "sub_question": "q",
+                    "classification": "hit",
+                    "answer": "Use sum.",
+                    "ref": None,
+                }
+            ]
+        }
+
+        self.assertEqual(_validate_parsed_answers(payload, ["q"]), "hit_ref_missing: index=0")
 
 
 if __name__ == "__main__":
