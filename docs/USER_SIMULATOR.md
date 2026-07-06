@@ -7,17 +7,23 @@ In prepared workspaces, `interactive` and `workflow` mode include a
 `simulator.md` file with the minimal case-specific API reminder.
 
 The simulator uses an OpenAI-compatible chat-completions endpoint. Configure the
-model, endpoint, API key, and temperature with environment variables or a local
-`.env` file.
+model, endpoint, API key, thinking mode, and temperature with environment
+variables or a local `.env` file.
 
 Recommended native DeepSeek setup for comparable runs:
 
 ```bash
 PREPBENCH_SIMULATOR_BASE_URL=https://api.deepseek.com
 PREPBENCH_SIMULATOR_MODEL=deepseek-v4-flash
+PREPBENCH_SIMULATOR_THINKING=disabled
 PREPBENCH_SIMULATOR_TEMPERATURE=0
 PREPBENCH_SIMULATOR_API_KEY=your_api_key
 ```
+
+For official DeepSeek V4 endpoints, PrepBench defaults `PREPBENCH_SIMULATOR_THINKING`
+to `disabled` when it is omitted. This keeps `temperature=0` meaningful for
+comparable simulator runs. Set `PREPBENCH_SIMULATOR_THINKING=enabled` only for a
+separate thinking-mode experiment.
 
 OpenRouter alternative:
 
@@ -28,17 +34,24 @@ PREPBENCH_SIMULATOR_TEMPERATURE=0
 PREPBENCH_SIMULATOR_API_KEY=your_openrouter_api_key
 ```
 
+PrepBench does not send a provider-specific `thinking` field by default for
+non-DeepSeek endpoints. If a third-party endpoint documents DeepSeek-style
+thinking controls, set `PREPBENCH_SIMULATOR_THINKING` explicitly.
+
 Other optional settings:
 
 ```bash
 PREPBENCH_SIMULATOR_MAX_TOKENS=8192
 PREPBENCH_SIMULATOR_TIMEOUT=120
+PREPBENCH_SIMULATOR_REASONING_EFFORT=high
 ```
 
 The simulator checks API keys in this order: `PREPBENCH_SIMULATOR_API_KEY`,
 `OPENROUTER_API_KEY`, then `OPENAI_API_KEY`.
 
 `PREPBENCH_SIMULATOR_TEMPERATURE` defaults to `0` when omitted.
+`PREPBENCH_SIMULATOR_REASONING_EFFORT` is sent only when thinking mode is
+enabled.
 
 Public import:
 
@@ -56,6 +69,8 @@ from simulator import LocalUserSimulatorAPI
 
 api = LocalUserSimulatorAPI(
     model_name="your-model-name",
+    temperature=0,
+    thinking_type="disabled",  # use for official DeepSeek V4; omit otherwise
     data_root="data",
     max_rounds=3,
     question_ratio=2.5,

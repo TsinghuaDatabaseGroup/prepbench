@@ -39,6 +39,11 @@ class LocalUserSimulatorAPI:
         self,
         *,
         model_name: Optional[str] = None,
+        api_key: Optional[str] = None,
+        base_url: Optional[str] = None,
+        temperature: Optional[float] = None,
+        thinking_type: Optional[str] = None,
+        reasoning_effort: Optional[str] = None,
         data_root: Optional[str | Path] = None,
         max_rounds: int = 3,
         question_ratio: float = 2.5,
@@ -46,7 +51,14 @@ class LocalUserSimulatorAPI:
         max_questions: Optional[int] = None,
         max_questions_per_ask: int = 10,
     ) -> None:
-        self.user_simulator = UserSimulator(model_name=model_name)
+        self.user_simulator = UserSimulator(
+            model_name=model_name,
+            api_key=api_key,
+            base_url=base_url,
+            temperature=temperature,
+            thinking_type=thinking_type,
+            reasoning_effort=reasoning_effort,
+        )
         if data_root is not None:
             self.data_root = Path(data_root).resolve()
         else:

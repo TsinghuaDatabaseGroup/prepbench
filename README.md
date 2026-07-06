@@ -138,8 +138,9 @@ reply = api.ask(
 ```
 
 For comparable interactive runs, keep the simulator backend fixed. A practical
-default is `deepseek-v4-flash` with `PREPBENCH_SIMULATOR_TEMPERATURE=0`; see
-`docs/USER_SIMULATOR.md` for provider-specific settings.
+default is official `deepseek-v4-flash` in non-thinking mode with
+`PREPBENCH_SIMULATOR_TEMPERATURE=0`; see `docs/USER_SIMULATOR.md` for
+provider-specific settings.
 
 For `workflow`, the agent may read `workflow_prompt.yaml`, generate a py2flow
 JSON DAG at any workspace path, and execute it from the workspace:

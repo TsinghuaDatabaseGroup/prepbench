@@ -10,9 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Optional
 
-import requests
 import yaml
-from jinja2 import Environment, FileSystemLoader
 
 logger = logging.getLogger(__name__)
 PROMPT_DIR = Path(__file__).parent / "prompts"
@@ -86,6 +84,7 @@ _ALLOWED_CLASSIFICATIONS = {
 }
 _RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 _DOTENV_LOADED = False
+_THINKING_TYPES = {"enabled", "disabled"}
 
 
 def _load_dotenv() -> None:
@@ -141,6 +140,8 @@ class OpenAICompatibleClient:
         model_name: str,
         base_url: str,
         timeout: int,
+        thinking_type: str | None = None,
+        reasoning_effort: str | None = None,
         max_retries: int = 2,
     ) -> None:
         if not api_key:
@@ -157,8 +158,10 @@ class OpenAICompatibleClient:
         self.model_name = model_name
         self.url = _chat_completions_url(base_url)
         self.timeout = timeout
+        self.thinking_type = thinking_type
+        self.reasoning_effort = reasoning_effort
         self.max_retries = max_retries
-        self.session = requests.Session()
+        self.session: Any = None
 
     def _backoff(self, attempt: int, retry_after: str | None = None) -> float:
         if retry_after:
@@ -168,6 +171,19 @@ class OpenAICompatibleClient:
                 pass
         return min(1.5 * (2**attempt) * random.uniform(0.8, 1.2), 30.0)
 
+    def _build_payload(self, messages: list[dict[str, str]], *, temperature: float, max_tokens: int) -> dict[str, Any]:
+        payload = {
+            "model": self.model_name,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+        }
+        if self.thinking_type:
+            payload["thinking"] = {"type": self.thinking_type}
+            if self.thinking_type == "enabled" and self.reasoning_effort:
+                payload["reasoning_effort"] = self.reasoning_effort
+        return payload
+
     def generate(
         self,
         messages: list[dict[str, str]],
@@ -175,16 +191,17 @@ class OpenAICompatibleClient:
         temperature: float,
         max_tokens: int,
     ) -> str:
-        payload = {
-            "model": self.model_name,
-            "messages": messages,
-            "temperature": temperature,
-            "max_tokens": max_tokens,
-        }
+        payload = self._build_payload(messages, temperature=temperature, max_tokens=max_tokens)
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
         }
+        try:
+            import requests
+        except ImportError as exc:
+            raise RuntimeError("The simulator backend requires the 'requests' package.") from exc
+        if self.session is None:
+            self.session = requests.Session()
         last_error: Exception | None = None
         for attempt in range(self.max_retries + 1):
             try:
@@ -400,6 +417,30 @@ def _default_base_url() -> str:
     return "https://api.openai.com/v1"
 
 
+def _is_official_deepseek_v4(base_url: str, model_name: str) -> bool:
+    normalized_url = (base_url or "").strip().lower().rstrip("/")
+    normalized_model = (model_name or "").strip().lower()
+    return normalized_url.startswith("https://api.deepseek.com") and normalized_model.startswith("deepseek-v4-")
+
+
+def _normalize_thinking_type(value: str) -> str | None:
+    normalized = (value or "").strip().lower()
+    if not normalized:
+        return None
+    if normalized not in _THINKING_TYPES:
+        raise ValueError("thinking type must be 'enabled' or 'disabled'")
+    return normalized
+
+
+def _default_thinking_type(base_url: str, model_name: str) -> str | None:
+    explicit = _env("PREPBENCH_SIMULATOR_THINKING")
+    if explicit:
+        return _normalize_thinking_type(explicit)
+    if _is_official_deepseek_v4(base_url, model_name):
+        return "disabled"
+    return None
+
+
 class UserSimulator:
     def __init__(
         self,
@@ -410,6 +451,8 @@ class UserSimulator:
         temperature: Optional[float] = None,
         max_tokens: Optional[int] = None,
         timeout: Optional[int] = None,
+        thinking_type: Optional[str] = None,
+        reasoning_effort: Optional[str] = None,
     ) -> None:
         self.model_name = (
             model_name
@@ -436,12 +479,24 @@ class UserSimulator:
             max_tokens if max_tokens is not None else (_env("PREPBENCH_SIMULATOR_MAX_TOKENS") or "8192")
         )
         self.timeout = int(timeout if timeout is not None else (_env("PREPBENCH_SIMULATOR_TIMEOUT") or "120"))
+        self.thinking_type = (
+            _normalize_thinking_type(thinking_type)
+            if thinking_type is not None
+            else _default_thinking_type(self.base_url, self.model_name)
+        )
+        self.reasoning_effort = reasoning_effort or _env("PREPBENCH_SIMULATOR_REASONING_EFFORT")
         self.client = OpenAICompatibleClient(
             api_key=self.api_key,
             model_name=self.model_name,
             base_url=self.base_url,
             timeout=self.timeout,
+            thinking_type=self.thinking_type,
+            reasoning_effort=self.reasoning_effort,
         )
+        try:
+            from jinja2 import Environment, FileSystemLoader
+        except ImportError as exc:
+            raise RuntimeError("The user simulator requires the 'Jinja2' package.") from exc
         template_dir = PROMPT_DIR / "templates"
         self.jinja_env = Environment(loader=FileSystemLoader(template_dir), trim_blocks=True, lstrip_blocks=True)
         self.template = self.jinja_env.get_template("clarify_agent.jinja2")

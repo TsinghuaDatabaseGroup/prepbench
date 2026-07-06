@@ -26,6 +26,8 @@ Constructor options:
 - `model_name`:
   - OpenAI-compatible model name used by the simulator backend
   - required unless provided by `PREPBENCH_SIMULATOR_MODEL` or legacy model envs
+- `api_key`, `base_url`, `temperature`, `thinking_type`, `reasoning_effort`:
+  - optional backend overrides; otherwise environment variables are used
 - `data_root` (default repository `data/`):
   - path to the public `data/case_xxx` directories
 - `question_ratio` (default `2.5`):
@@ -45,9 +47,19 @@ Credential lookup order:
 Backend environment:
 - `PREPBENCH_SIMULATOR_BASE_URL`
 - `PREPBENCH_SIMULATOR_MODEL`
+- `PREPBENCH_SIMULATOR_THINKING` (`enabled` or `disabled`)
 - `PREPBENCH_SIMULATOR_TEMPERATURE` (defaults to `0`)
 - `PREPBENCH_SIMULATOR_MAX_TOKENS` (defaults to `8192`)
 - `PREPBENCH_SIMULATOR_TIMEOUT` (defaults to `120`)
+- `PREPBENCH_SIMULATOR_REASONING_EFFORT` (sent only when thinking is enabled)
+
+Thinking-mode behavior:
+- For official DeepSeek V4 models (`deepseek-v4-*` at `https://api.deepseek.com`),
+  the simulator defaults to `PREPBENCH_SIMULATOR_THINKING=disabled`.
+- Other OpenAI-compatible endpoints do not receive a `thinking` field unless
+  `PREPBENCH_SIMULATOR_THINKING` is set explicitly.
+- Use non-thinking mode for comparable benchmark simulator runs, because DeepSeek
+  thinking mode ignores sampling controls such as temperature.
 
 Budget examples (default ratio/cap):
 - if `ambiguity_count=4`: ratio budget = `ceil(2.5*4)=10`, cap=25 -> final `max_questions=10`
