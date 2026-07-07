@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/assets/prepbench_logo.png" alt="PrepBench logo" width="120">
-</p>
-
 <h1 align="center">PrepBench</h1>
 
 <p align="center">
