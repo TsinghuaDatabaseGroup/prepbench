@@ -16,6 +16,9 @@ from prepbench.case_ids import normalize_case_id
 from prepbench.submission_eval import evaluate_submission
 
 
+EXPECTED_CLI_ERRORS = (FileNotFoundError, RuntimeError, ValueError)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -70,4 +73,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except EXPECTED_CLI_ERRORS as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        raise SystemExit(2)

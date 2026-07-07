@@ -15,7 +15,11 @@ if str(SRC_ROOT) not in sys.path:
 
 from evaluate.core import evaluate
 from prepbench.case_ids import normalize_case_id
+from py2flow.errors import FlowError
 from py2flow.exec_flow import exec_flow
+
+
+EXPECTED_CLI_ERRORS = (FileNotFoundError, FlowError, RuntimeError, ValueError)
 
 
 def infer_case_id(*paths: Path) -> str | None:
@@ -121,4 +125,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except EXPECTED_CLI_ERRORS as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        raise SystemExit(2)

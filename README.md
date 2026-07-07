@@ -69,6 +69,9 @@ python -m pip install -r requirements.txt
 python -m pip install -e .
 ```
 
+Commands below assume this virtualenv is activated; use `python` from the
+activated environment.
+
 PrepBench is intended to run from a source checkout because the dataset,
 simulator assets, workflow prompt, and evaluator ground truth live in the repo.
 The editable install makes `simulator` and `py2flow` importable when your agent
@@ -83,6 +86,15 @@ runs from `@runs/...`; alternatively set `PYTHONPATH=/path/to/prepbench/src`.
 ```text
 prepare workspace -> run your agent -> write result/output_*.csv -> evaluate
 ```
+
+## Agent Integration Contract
+
+- PrepBench does not call your agent.
+- You run your agent once per prepared case workspace.
+- The agent input is the workspace path, not copied file contents.
+- The agent may inspect and write files inside that workspace.
+- The final scored files are `result/output_*.csv`.
+- The evaluator reads only those result CSVs.
 
 ## Prepare a Workspace
 
@@ -109,6 +121,18 @@ contain both `simulator.md` and `workflow_prompt.yaml`.
 
 Repeat this command for each case you want to run. Workspace files are symlinks
 where possible, so setup is cheap.
+
+Prepare every GT case for a complete mode run:
+
+```bash
+python scripts/prepare_run.py \
+  --mode clarified \
+  --all \
+  --run-root @runs/my_agent/clarified
+```
+
+`--all` uses the evaluator GT case set, then requires matching `data/case_xxx`
+directories for workspace setup.
 
 PrepBench is an honor-system benchmark. The repository still contains evaluator
 and simulator assets, but the model-under-test should only read files exposed in

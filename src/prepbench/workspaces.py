@@ -24,6 +24,35 @@ def normalize_mode(mode: str) -> Mode:
     return value  # type: ignore[return-value]
 
 
+def _case_sort_key(value: str | Path) -> int:
+    name = Path(value).name
+    try:
+        return int(name.split("_", 1)[1])
+    except Exception:
+        return 10**9
+
+
+def resolve_repo_path(path: str | Path) -> Path:
+    path_obj = Path(path).expanduser()
+    if not path_obj.is_absolute():
+        path_obj = repo_root() / path_obj
+    return path_obj.resolve()
+
+
+def discover_case_ids(case_root: str | Path) -> list[str]:
+    root = resolve_repo_path(case_root)
+    if not root.is_dir():
+        raise FileNotFoundError(f"case root not found: {root}")
+    return sorted([path.name for path in root.glob("case_*") if path.is_dir()], key=_case_sort_key)
+
+
+def validate_run_root_mode(run_root: Path, mode: str) -> str:
+    normalized_mode = normalize_mode(mode)
+    if run_root.name != normalized_mode:
+        raise ValueError(f"--mode {normalized_mode!r} does not match run-root mode segment {run_root.name!r}")
+    return normalized_mode
+
+
 def _relative_symlink(target: Path, link_path: Path) -> None:
     link_path.parent.mkdir(parents=True, exist_ok=True)
     relative_target = os.path.relpath(target.resolve(), start=link_path.parent.resolve())
@@ -103,6 +132,7 @@ def prepare_case_workspace(
     resolved_run_root = Path(run_root).expanduser()
     if not resolved_run_root.is_absolute():
         resolved_run_root = root / resolved_run_root
+    validate_run_root_mode(resolved_run_root, normalized_mode)
     workspace = (resolved_run_root / normalized_case_id).resolve()
     _reset_workspace(workspace, force=force)
 

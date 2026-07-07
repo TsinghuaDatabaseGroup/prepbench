@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import os
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -9,6 +11,8 @@ import pandas as pd
 
 from py2flow.api import execute_flow_file
 from py2flow.exec_flow import exec_flow
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 class WorkflowExecutionTest(unittest.TestCase):
@@ -202,6 +206,43 @@ class WorkflowExecutionTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "output path escapes configured root"):
                 exec_flow(flow_path=flow_path, input_root=input_root, output_root=output_root)
             self.assertFalse((root / "escaped.csv").exists())
+
+    def test_execute_workflow_cli_reports_flow_errors_without_traceback(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            input_root = root / "inputs"
+            input_root.mkdir()
+            flow_path = root / "bad_flow.json"
+            flow_path.write_text(
+                """
+{
+  "id": "bad",
+  "name": "Bad",
+  "nodes": {
+    "src": {"kind": "input", "params": {"path": "inputs/missing.csv"}}
+  }
+}
+""".strip(),
+                encoding="utf-8",
+            )
+
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    str(REPO_ROOT / "scripts" / "execute_workflow.py"),
+                    "--flow-path",
+                    str(flow_path),
+                    "--input-root",
+                    str(input_root),
+                ],
+                cwd=REPO_ROOT,
+                text=True,
+                capture_output=True,
+            )
+
+            self.assertEqual(completed.returncode, 2)
+            self.assertIn("error:", completed.stderr)
+            self.assertNotIn("Traceback", completed.stderr)
 
 
 if __name__ == "__main__":

@@ -64,6 +64,22 @@ class UserSimulatorConfigTest(unittest.TestCase):
         self.assertEqual(payload["thinking"], {"type": "enabled"})
         self.assertEqual(payload["reasoning_effort"], "high")
 
+    def test_missing_simulator_config_errors_point_to_env_example(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, ".env.example"):
+            OpenAICompatibleClient(
+                api_key="",
+                model_name="deepseek-v4-flash",
+                base_url="https://api.deepseek.com",
+                timeout=120,
+            )
+        with self.assertRaisesRegex(RuntimeError, ".env.example"):
+            OpenAICompatibleClient(
+                api_key="dummy",
+                model_name="",
+                base_url="https://api.deepseek.com",
+                timeout=120,
+            )
+
     def test_answer_validation_rejects_invalid_classification(self) -> None:
         payload = {
             "answers": [

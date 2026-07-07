@@ -14,6 +14,9 @@ if str(SRC_ROOT) not in sys.path:
 from prepbench.submission_eval import evaluate_submission, valid_modes
 
 
+EXPECTED_CLI_ERRORS = (FileNotFoundError, RuntimeError, ValueError)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Evaluate PrepBench result tables under a run root.")
     parser.add_argument("--mode", required=True, choices=valid_modes(), help="Public mode to evaluate.")
@@ -32,10 +35,18 @@ def main() -> int:
         gt_root=args.gt_root,
     )
     print(json.dumps(summary["aggregate"], ensure_ascii=False, indent=2))
+    if summary.get("summary_json"):
+        print(f"summary_json: {summary['summary_json']}")
+    if summary.get("summary_csv"):
+        print(f"summary_csv: {summary['summary_csv']}")
     aggregate = summary.get("aggregate")
     passed = isinstance(aggregate, dict) and bool(aggregate.get("passed"))
     return 0 if passed else 1
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except EXPECTED_CLI_ERRORS as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        raise SystemExit(2)

@@ -42,6 +42,15 @@ Rules:
 
 ## Run Evaluation
 
+Prepare all workspaces before a complete mode run:
+
+```bash
+python scripts/prepare_run.py \
+  --mode interactive \
+  --all \
+  --run-root @runs/my_agent/interactive
+```
+
 Evaluate all GT cases for one mode:
 
 ```bash

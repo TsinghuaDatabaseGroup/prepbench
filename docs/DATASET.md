@@ -40,6 +40,17 @@ python scripts/prepare_run.py \
   --run-root @runs/my_agent/clarified
 ```
 
+For a complete mode run, prepare all evaluator cases:
+
+```bash
+python scripts/prepare_run.py \
+  --mode clarified \
+  --all \
+  --run-root @runs/my_agent/clarified
+```
+
+`--all` uses the GT case set and requires matching `data/case_xxx` directories.
+
 Workspace contents by mode:
 
 | Mode | `query.md` points to | Other files |

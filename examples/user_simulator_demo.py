@@ -14,6 +14,9 @@ if str(SRC_ROOT) not in sys.path:
 from simulator import LocalUserSimulatorAPI
 
 
+EXPECTED_CLI_ERRORS = (FileNotFoundError, RuntimeError, ValueError)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run a local user-simulator demo.")
     parser.add_argument("--case", default="case_001")
@@ -38,4 +41,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except EXPECTED_CLI_ERRORS as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        raise SystemExit(2)

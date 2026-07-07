@@ -137,12 +137,13 @@ class OpenAICompatibleClient:
         if not api_key:
             raise RuntimeError(
                 "Simulator API key is missing. Set PREPBENCH_SIMULATOR_API_KEY, "
-                "OPENROUTER_API_KEY, or OPENAI_API_KEY."
+                "OPENROUTER_API_KEY, or OPENAI_API_KEY. You can copy "
+                ".env.example to .env and fill in the simulator settings."
             )
         if not model_name:
             raise RuntimeError(
-                "Simulator model is missing. Set PREPBENCH_SIMULATOR_MODEL "
-                "to an OpenAI-compatible model name."
+                "Simulator model is missing. Copy .env.example to .env and "
+                "set PREPBENCH_SIMULATOR_MODEL and PREPBENCH_SIMULATOR_API_KEY."
             )
         self.api_key = api_key
         self.model_name = model_name
@@ -434,8 +435,8 @@ class UserSimulator:
         )
         if not self.model_name:
             raise RuntimeError(
-                "Simulator model is missing. Set PREPBENCH_SIMULATOR_MODEL "
-                "to an OpenAI-compatible model name."
+                "Simulator model is missing. Copy .env.example to .env and "
+                "set PREPBENCH_SIMULATOR_MODEL and PREPBENCH_SIMULATOR_API_KEY."
             )
         self.api_key = (
             api_key

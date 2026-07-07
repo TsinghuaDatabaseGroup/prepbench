@@ -5,18 +5,7 @@ from pathlib import Path
 from evaluate.batch import evaluate_case_outputs
 
 from .case_ids import normalize_case_id
-from .workspaces import MODES, normalize_mode, repo_root
-
-
-def discover_gt_cases(gt_root: Path) -> list[str]:
-    return [path.name for path in gt_root.glob("case_*") if path.is_dir()]
-
-
-def validate_run_root_mode(run_root: Path, mode: str) -> str:
-    normalized_mode = normalize_mode(mode)
-    if run_root.name != normalized_mode:
-        raise ValueError(f"--mode {normalized_mode!r} does not match run-root mode segment {run_root.name!r}")
-    return normalized_mode
+from .workspaces import MODES, discover_case_ids, repo_root, validate_run_root_mode
 
 
 def evaluate_submission(
@@ -44,7 +33,7 @@ def evaluate_submission(
     if case_id:
         case_names = [normalize_case_id(case_id)]
     else:
-        case_names = discover_gt_cases(resolved_gt_root)
+        case_names = discover_case_ids(resolved_gt_root)
     if not case_names:
         raise ValueError(f"No GT case_* directories found under {resolved_gt_root}")
 

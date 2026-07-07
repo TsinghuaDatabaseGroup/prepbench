@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -67,6 +70,44 @@ class PrepareRunTest(unittest.TestCase):
             prepare_case_workspace(case_id="case_001", mode="clarified", run_root=run_root)
             with self.assertRaises(FileExistsError):
                 prepare_case_workspace(case_id="case_001", mode="clarified", run_root=run_root)
+
+    def test_refuses_run_root_mode_mismatch(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_root = Path(tmp) / "agent" / "clarified"
+            with self.assertRaisesRegex(ValueError, "does not match run-root mode segment"):
+                prepare_case_workspace(case_id="case_001", mode="workflow", run_root=run_root)
+
+    def test_prepare_run_all_uses_gt_case_set(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            gt_root = tmp_path / "gt"
+            (gt_root / "case_001").mkdir(parents=True)
+            (gt_root / "case_002").mkdir(parents=True)
+            run_root = tmp_path / "agent" / "clarified"
+
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    str(REPO_ROOT / "scripts" / "prepare_run.py"),
+                    "--mode",
+                    "clarified",
+                    "--all",
+                    "--run-root",
+                    str(run_root),
+                    "--gt-root",
+                    str(gt_root),
+                ],
+                cwd=REPO_ROOT,
+                check=True,
+                text=True,
+                capture_output=True,
+            )
+
+            summary = json.loads(completed.stdout)
+            self.assertEqual(summary["total"], 2)
+            self.assertEqual(summary["cases"], ["case_001", "case_002"])
+            self.assertTrue((run_root / "case_001" / "query.md").exists())
+            self.assertTrue((run_root / "case_002" / "query.md").exists())
 
 
 if __name__ == "__main__":
