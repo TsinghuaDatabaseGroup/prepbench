@@ -30,6 +30,10 @@ natural-language request and CSV inputs. The benchmark gives each case as a
 workspace. Your agent runs as a black box in that workspace and writes
 `result/output_*.csv`; PrepBench evaluates those files.
 
+<p align="center">
+  <img src="docs/assets/prepbench_evaluation_settings.png" alt="PrepBench assets, evaluation modes, and metrics" width="900">
+</p>
+
 ## At a Glance
 
 | Item | Value |
