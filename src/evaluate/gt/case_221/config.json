@@ -1,0 +1,34 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Subject", "Speaker", "Session Number", "Deduplication Flag"],
+      "columns": {
+        "Subject": "text_exact",
+        "Speaker": "text_exact",
+        "Session Number": "number",
+        "Deduplication Flag": "boolean"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Speaker", "Subject", "Session Number", "Room"],
+      "columns": {
+        "Speaker": "text_exact",
+        "Subject": "text_exact",
+        "Session Number": "number",
+        "Room": "number"
+      }
+    },
+    "output_03.csv": {
+      "key": ["Room A", "Room B", "Minutes to the next room", "Metres", "Speaker", "Subject"],
+      "columns": {
+        "Room A": "number",
+        "Room B": "number",
+        "Minutes to the next room": "number",
+        "Metres": "number",
+        "Speaker": "text_exact",
+        "Subject": "text_exact"
+      }
+    }
+  }
+}
+

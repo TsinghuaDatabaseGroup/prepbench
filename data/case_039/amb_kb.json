@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_change_pct_formula",
+      "kind": "Group-level concept",
+      "node_id": "change_sort",
+      "op": "project",
+      "source_text": "Change in % this month",
+      "ref": "df['Change in %'] = df['This Month %'] - df['All Time %']"
+    },
+    {
+      "id": "2_O1_row_order_policy",
+      "kind": "Operation incomplete",
+      "node_id": "sort",
+      "op": "sort",
+      "intent": "Preserve deterministic output ordering by this-month input order first, then remaining rows by all-time input order.",
+      "ref": "df.sort_values(['__order_tm', '__order_at'])"
+    },
+    {
+      "id": "3_D2_join_full_outer_on_name",
+      "kind": "Multi-table alignment",
+      "node_id": "join",
+      "op": "join",
+      "source_text": "Create a single table for each of Origin, Operating System and Browser",
+      "ref": "pd.merge(tm, at, on='Name', how='outer')"
+    },
+    {
+      "id": "4_C2_parse_pageviews_with_percent",
+      "kind": "Row-level concept",
+      "node_id": "parse_percent",
+      "op": "project",
+      "source_text": "Clean up values and percentages",
+      "ref": "re.match(r\"\\s*(\\d+)\\s*\\(([^)]+)\\)\\s*\"); pct = 0.5 if '<' else float(pct_str)"
+    },
+    {
+      "id": "5_C2_origin_percent_share_formula",
+      "kind": "Group-level concept",
+      "node_id": "parse_values_origin",
+      "op": "project",
+      "source_text": "If percent of total fields don't exist, create these and make them an integer",
+      "ref": "shares = [v * 100 / total for v in vals]"
+    }
+  ]
+}

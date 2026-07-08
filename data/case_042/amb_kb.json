@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_zip_max_sales_tie_break_first",
+      "kind": "Operation boundary",
+      "node_id": "dedup_zip",
+      "op": "dedup",
+      "source_text": "We only want the store per zip code that could the most sales",
+      "ref": "df[\"_row_id\"] = range(len(df))\ndf = df.sort_values([\"Zip Code\", \"_row_id\"]).drop_duplicates(subset=[\"Zip Code\"], keep=\"first\")"
+    },
+    {
+      "id": "2_O2_drop_rows_without_currency",
+      "kind": "Operation incomplete",
+      "node_id": "filter_currency_notna",
+      "op": "filter",
+      "intent": "Exclude rows where Currency cannot be determined.",
+      "ref": "df = df[df[\"Currency\"].notna()]"
+    },
+    {
+      "id": "3_C1_allowed_city_country_pairs_only",
+      "kind": "Row-level concept",
+      "node_id": "filter_valid_pairs",
+      "op": "filter",
+      "source_text": "Remove the rows of any inaccurate City / Country names",
+      "ref": "valid_pairs = {\n        (\"New York\", \"United States\"),\n        (\"San Francisco\", \"United States\"),\n        (\"Miami\", \"United States\"),\n        (\"Monterrey\", \"Mexico\"),\n    }"
+    },
+    {
+      "id": "4_O2_currency_rates_left_join_keep_unmatched",
+      "kind": "Operation incomplete",
+      "node_id": "join_rates",
+      "op": "join",
+      "source_text": "Add Currency conversion rates (don't change everything to USD)",
+      "ref": "df = df.merge(rates, how=\"left\", on=\"Currency\")"
+    },
+    {
+      "id": "5_O1_location_split_on_first_comma",
+      "kind": "Operation boundary",
+      "node_id": "project_parse",
+      "op": "project",
+      "intent": "Split Location into City (before first comma) and Country (after first comma).",
+      "ref": "parts = [p.strip() for p in str(loc).split(\",\", 1)]"
+    },
+    {
+      "id": "6_O1_parse_amounts_as_whole_numbers",
+      "kind": "Operation boundary",
+      "node_id": "project_parse",
+      "op": "project",
+      "intent": "Parse Store Cost and Store Potential Sales as numeric whole numbers from their source text.",
+      "ref": "m = re.match(r\"^([0-9,]+)\\s+([A-Z]{3})$\", s)\nnum = int(m.group(1).replace(\",\", \"\"))"
+    },
+    {
+      "id": "7_O3_currency_source_preference_sales_over_cost",
+      "kind": "Operation inconsistent",
+      "node_id": "project_parse",
+      "op": "project",
+      "intent": "If a currency code is available in both Store Cost and Store Potential Sales, prefer the one from Store Potential Sales; otherwise use the one from Store Cost.",
+      "ref": "in1[\"Currency\"] = in1[\"Currency\"].fillna(in1[\"Currency_cost\"])"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Comment Split",
+                "Tweet Id",
+                "Category",
+                "Created At"
+            ],
+            "columns": {
+                "Comment Split": "text_exact",
+                "Category": "text_exact",
+                "TempF": "number",
+                "TempC": "number",
+                "Comment": "text_exact",
+                "Tweet Id": "text_exact",
+                "Created At": "text_exact"
+            }
+        }
+    }
+}

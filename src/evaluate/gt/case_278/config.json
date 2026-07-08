@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Name"
+      ],
+      "columns": {
+        "Name": "text_exact",
+        "Salary": "number",
+        "Expected Total Salary": "number",
+        "Amount Paid": "number"
+      }
+    }
+  }
+}
+

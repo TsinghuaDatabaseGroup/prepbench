@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Competition", "Decade", "Segment"],
+      "columns": {
+        "Competition": "text_exact",
+        "Decade": "number",
+        "Segment": "text_exact",
+        "Total Goals": "number",
+        "Matches in a Decade per Competition": "number",
+        "Expected number of Goals": "number"
+      }
+    }
+  }
+}
+
+

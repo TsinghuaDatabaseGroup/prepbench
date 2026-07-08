@@ -1,0 +1,43 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Order",
+        "Ticket Price Local",
+        "First Name",
+        "Last Name",
+        "Email",
+        "Company Name",
+        "Country",
+        "Currency",
+        "Refund Type",
+        "Account Manager"
+      ],
+      "columns": {
+        "Order": "number",
+        "Ticket Price Local": "number",
+        "First Name": "text_exact",
+        "Last Name": "text_exact",
+        "Email": "text_exact",
+        "Company Name": "text_exact",
+        "Country": "text_exact",
+        "Currency": "text_exact",
+        "Refund Type": "text_exact",
+        "Account Manager": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Money Gain/Loss",
+        "Currency",
+        "Country"
+      ],
+      "columns": {
+        "Money Gain/Loss": "number",
+        "Currency": "text_exact",
+        "Country": "text_exact"
+      }
+    }
+  }
+}
+

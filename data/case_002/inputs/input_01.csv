@@ -1,0 +1,36 @@
+City,Metric,Measure,Value,Date
+London,Max Temperature,Celsius,13,2019-02-16 00:00:00
+London,Min Temperature,Celsius,6,2019-02-16 00:00:00
+London,Wind Speed,mph,7,2019-02-16 00:00:00
+London,Max Temperature,Celsius,14,2019-02-17 00:00:00
+London,Min Temperature,Celsius,9,2019-02-17 00:00:00
+London,Max Temperature,Celsius,11,2019-02-18 00:00:00
+London,Wind Speed,mph,10,2019-02-18 00:00:00
+London,Max Temperature,Celsius,12,2019-02-19 00:00:00
+London,Precipitation,mm,2,2019-02-20 00:00:00
+London,Max Temperature,Celsius,15,2019-02-21 00:00:00
+London,Min Temperature,Celsius,8,2019-02-21 00:00:00
+London,Precipitation,mm,2,2019-02-21 00:00:00
+London,Min Temperature,Celsius,9,2019-02-21 00:00:00
+London,Precipitation,mm,0,2019-02-22 00:00:00
+London,Wind Speed,mph,7,2019-02-22 00:00:00
+Edinburgh,Max Temperature,Celsius,11,2019-02-16 00:00:00
+Edinburgh,Min Temperature,Celsius,8,2019-02-16 00:00:00
+Edinburgh,Precipitation,mm,4,2019-02-16 00:00:00
+Edinburgh,Wind Speed,mph,13,2019-02-16 00:00:00
+Edinburgh,Max Temperature,Celsius,12,2019-02-17 00:00:00
+Edinburgh,Wind Speed,mph,17,2019-02-17 00:00:00
+Edinburgh,Max Temperature,Celsius,9,2019-02-18 00:00:00
+Edinburgh,Min Temperature,Celsius,5,2019-02-18 00:00:00
+Edinburgh,Precipitation,mm,11,2019-02-18 00:00:00
+Edinburgh,Max Temperature,Celsius,9,2019-02-19 00:00:00
+Edinburgh,Min Temperature,Celsius,7,2019-02-19 00:00:00
+Edinburgh,Precipitation,mm,14,2019-02-19 00:00:00
+Edinburgh,Wind Speed,mph,13,2019-02-19 00:00:00
+Edinburgh,Min Temperature,Celsius,8,2019-02-20 00:00:00
+Edinburgh,Wind Speed,mph,13,2019-02-20 00:00:00
+Edinburgh,Precipitation,mm,8,2019-02-21 00:00:00
+Edinburgh,Wind Speed,mph,11,2019-02-21 00:00:00
+Edinburgh,Max Temperature,Celsius,13,2019-02-22 00:00:00
+Edinburgh,Min Temperature,Celsius,9,2019-02-22 00:00:00
+Edinburgh,Precipitation,mm,8,2019-02-22 00:00:00

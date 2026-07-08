@@ -1,0 +1,46 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Months before Unsubscribed group",
+                "Status",
+                "Interested in Liquid Soap",
+                "Interested In Soap Bars",
+                "email",
+                "Liquid Sales to Date",
+                "Bar Sales to Date"
+            ],
+            "columns": {
+                "Months before Unsubscribed group": "text_exact",
+                "Status": "text_exact",
+                "Interested in Liquid Soap": "boolean",
+                "Interested In Soap Bars": "boolean",
+                "email": "number",
+                "Liquid Sales to Date": "number",
+                "Bar Sales to Date": "number"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Status",
+                "email",
+                "Interested in Liquid Soap",
+                "Interested In Soap Bars",
+                "Sign-up Date",
+                "Unsubscribe Date",
+                "Liquid Sales to Date",
+                "Bar Sales to Date"
+            ],
+            "columns": {
+                "Status": "text_exact",
+                "email": "text_exact",
+                "Interested in Liquid Soap": "boolean",
+                "Interested In Soap Bars": "boolean",
+                "Sign-up Date": "date",
+                "Unsubscribe Date": "date",
+                "Liquid Sales to Date": "number",
+                "Bar Sales to Date": "number"
+            }
+        }
+    }
+}

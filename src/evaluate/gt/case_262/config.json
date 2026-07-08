@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Couple"],
+      "columns": {
+        "Couple": "text_norm",
+        "Number of Valentine's Days as a Couple": "number",
+        "Gift": "text_norm"
+      }
+    }
+  }
+}
+
+

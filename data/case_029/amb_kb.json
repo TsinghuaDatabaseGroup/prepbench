@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_aggregate_by_name_sum",
+      "kind": "Group-level concept",
+      "node_id": "agg_cost_by_name",
+      "op": "aggregate",
+      "source_text": "Calculate total cost of each customers subscription normalised on an annual basis",
+      "ref": "out01 = (\n        cust_prices.groupby(\"Name\", as_index=False)[\"annual_cost\"].sum()\n        .rename(columns={\"annual_cost\": \"Subscription Cost (Per Annum)\"})\n    )"
+    },
+    {
+      "id": "2_O2_missing_price_as_zero",
+      "kind": "Operation incomplete",
+      "node_id": "cust_cost",
+      "op": "project",
+      "intent": "If a package price is missing after joining prices onto customer-package rows, treat it as 0 for cost calculations.",
+      "ref": "cust_prices[\"Price_per_period\"] = cust_prices[\"Price_per_period\"].fillna(0)"
+    },
+    {
+      "id": "3_C2_annual_cost_multiply",
+      "kind": "Row-level concept",
+      "node_id": "cust_cost",
+      "op": "project",
+      "source_text": "normalised on an annual basis",
+      "ref": "cust_prices[\"annual_cost\"] = cust_prices[\"Price_per_period\"] * cust_prices[\"multiplier\"]"
+    },
+    {
+      "id": "4_C1_freq_label_to_multiplier_map",
+      "kind": "Row-level concept",
+      "node_id": "cust_enrich_freq",
+      "op": "project",
+      "intent": "Map normalized frequency labels (week/month/quarter/year) to annual order multipliers (52/12/4/1).",
+      "ref": "freq_map = {\n        \"week\": 52,\n        \"month\": 12,\n        \"quarter\": 4,\n        \"year\": 1,\n    }"
+    },
+    {
+      "id": "5_O2_unmapped_frequency_multiplier_zero",
+      "kind": "Operation incomplete",
+      "node_id": "cust_enrich_freq",
+      "op": "project",
+      "intent": "For unknown/unmapped frequency labels, set the annual multiplier to 0.",
+      "ref": "tmp[\"multiplier\"] = tmp[\"freq_text\"].map(freq_map).fillna(0).astype(int)"
+    },
+    {
+      "id": "6_D1_packages_delimiter_pipe",
+      "kind": "Operation boundary",
+      "node_id": "cust_explode",
+      "op": "script",
+      "intent": "Split the customer Packages field on the '|' delimiter to create one row per selected package.",
+      "ref": "Subscription_Package=cust_exploded[\"Packages\"].str.split(\"|\")"
+    },
+    {
+      "id": "7_O1_mystery_price_floor",
+      "kind": "Operation boundary",
+      "node_id": "mystery_price",
+      "op": "project",
+      "intent": "When computing the Mystery price as a weighted average, apply flooring (round down) to obtain an integer.",
+      "ref": "math.floor(weighted_sum / total_orders)"
+    },
+    {
+      "id": "8_O2_mystery_price_zero_when_no_weight",
+      "kind": "Operation incomplete",
+      "node_id": "mystery_price",
+      "op": "project",
+      "intent": "If the total weight (sum of annual orders) is 0, set the Mystery price to 0.",
+      "ref": "if total_orders > 0 else 0"
+    },
+    {
+      "id": "9_C2_weights_are_annual_orders_sum_multiplier",
+      "kind": "Group-level concept",
+      "node_id": "orders_by_pkg",
+      "op": "aggregate",
+      "intent": "Define package weights as total annual orders by summing annual frequency multipliers across all customer-package rows per package.",
+      "ref": "annual_orders_by_pkg = (\n        tmp.groupby(\"Subscription_Package\", as_index=False)[\"multiplier\"].sum()\n        .rename(columns={\"Subscription_Package\": \"Subscription Package\", \"multiplier\": \"annual_orders\"})\n    )"
+    },
+    {
+      "id": "10_C1_mystery_package_id_is_7",
+      "kind": "Row-level concept",
+      "node_id": "prod_price_final",
+      "op": "project",
+      "intent": "Treat subscription package identifier 7 as the Mystery package whose price should be replaced by the computed mystery price.",
+      "ref": "out02.loc[out02[\"Subscription Package\"] == 7, \"Price\"] = mystery_price"
+    }
+  ]
+}

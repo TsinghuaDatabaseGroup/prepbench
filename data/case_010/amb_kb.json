@@ -1,0 +1,132 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_sales_join_key_email",
+      "kind": "Multi-table alignment",
+      "node_id": "attach_sales",
+      "op": "join",
+      "source_text": "Add in Customer Lifetime Value to understand our revenue from each customer",
+      "ref": "    ml2 = ml2.merge(sales, on=\"email\", how=\"left\")"
+    },
+    {
+      "id": "2_O2_sales_join_left_keep_all_customers",
+      "kind": "Operation incomplete",
+      "node_id": "attach_sales",
+      "op": "join",
+      "source_text": "Add in Customer Lifetime Value to understand our revenue from each customer",
+      "ref": "    ml2 = ml2.merge(sales, on=\"email\", how=\"left\")"
+    },
+    {
+      "id": "3_O2_unsubscribe_no_match_null_date",
+      "kind": "Operation incomplete",
+      "node_id": "attach_un",
+      "op": "join",
+      "source_text": "Join the Mailing List to the Unsubscribe List to determine who can still receive our marketing messages",
+      "ref": "    ml2 = ml2.merge(cand[[\"email\", \"Unsubscribe Date\"]],\n                    on=\"email\", how=\"left\").drop(columns=[\"_tmp\"])"
+    },
+    {
+      "id": "4_O3_multiple_key_matches_choose_longest",
+      "kind": "Operation inconsistent",
+      "node_id": "cand_best",
+      "op": "dedup",
+      "source_text": "Join the Mailing List to the Unsubscribe List to determine who can still receive our marketing messages",
+      "ref": "    cand[\"un_len\"] = cand[\"un_key\"].str.len()\n    cand = cand.sort_values([\"email\", \"un_len\"], ascending=[\n                            True, False]).drop_duplicates(\"email\", keep=\"first\")"
+    },
+    {
+      "id": "5_D2_name_to_email_prefix_match",
+      "kind": "Multi-table alignment",
+      "node_id": "cand_match",
+      "op": "filter",
+      "source_text": "Join the Mailing List to the Unsubscribe List to determine who can still receive our marketing messages",
+      "ref": "    cand = cand[cand.apply(lambda r: str(\n        r[\"_key\"]).startswith(str(r[\"un_key\"])), axis=1)]"
+    },
+    {
+      "id": "6_D2_name_to_email_case_insensitive",
+      "kind": "Multi-table alignment",
+      "node_id": "cand_match",
+      "op": "filter",
+      "source_text": "Join the Mailing List to the Unsubscribe List to determine who can still receive our marketing messages",
+      "ref": "    un_initial = un[\"first_name\"].str[0].str.lower()\n    un_last = un[\"last_name\"].astype(\n        str).str.lower().str.replace(r\"[^a-z]\", \"\", regex=True)\n    ml_key = ml_base.str.lower().str.replace(r\"[^a-z]\", \"\", regex=True)"
+    },
+    {
+      "id": "7_C1_define_status_rules_from_dates",
+      "kind": "Row-level concept",
+      "node_id": "derive_status",
+      "op": "project",
+      "source_text": "Group the customers in to the following Status groups: Subscribed, Resubscribed and Unsubscribed.",
+      "ref": "    ml2[\"Status\"] = np.where(\n        ml2[\"Unsubscribe Date\"].isna(),\n        \"Subscribed\",\n        np.where(ml2[\"Unsubscribe Date\"] < ml2[\"Sign-up Date\"],\n                 \"Resubscribed\", \"Unsubscribed\")\n    )"
+    },
+    {
+      "id": "8_D2_email_key_from_local_part",
+      "kind": "Row-level concept",
+      "node_id": "ml_build_key",
+      "op": "project",
+      "source_text": "Join the Mailing List to the Unsubscribe List to determine who can still receive our marketing messages",
+      "ref": "    ml_local = ml[\"email\"].str.split(\"@\").str[0]"
+    },
+    {
+      "id": "9_O2_parse_signup_date_yyyy_mm_dd",
+      "kind": "Operation incomplete",
+      "node_id": "ml_in",
+      "op": "input",
+      "intent": "Parse mailing-list Sign-up Date using the YYYY-MM-DD date format.",
+      "ref": "    ml[\"Sign-up Date\"] = pd.to_datetime(ml[\"Sign-up Date\"], format=\"%Y-%m-%d\")"
+    },
+    {
+      "id": "10_O1_months_diff_ignore_day_of_month",
+      "kind": "Operation boundary",
+      "node_id": "months_bin",
+      "op": "project",
+      "source_text": "group the customers in to the following groups of their tenure on the mailing list: 0-3,3-6,6-12,12-24,24+ months",
+      "ref": "    unsub[\"months\"] = (unsub[\"Unsubscribe Date\"].dt.year - unsub[\"Sign-up Date\"].dt.year) * 12 + \\\n                      (unsub[\"Unsubscribe Date\"].dt.month -\n                       unsub[\"Sign-up Date\"].dt.month)"
+    },
+    {
+      "id": "11_O1_tenure_bins_left_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "months_bin",
+      "op": "project",
+      "source_text": "group the customers in to the following groups of their tenure on the mailing list: 0-3,3-6,6-12,12-24,24+ months",
+      "ref": "    unsub[\"Months before Unsubscribed group\"] = pd.cut(\n        unsub[\"months\"],\n        bins=[-np.inf, 3, 6, 12, 24, np.inf],\n        labels=[\"0-3\", \"3-6\", \"6-12\", \"12-24\", \"24+\"],\n        right=False\n    ).astype(str)"
+    },
+    {
+      "id": "12_O2_summary_blank_tenure_for_sr",
+      "kind": "Row-level concept",
+      "node_id": "sr_with_group",
+      "op": "project",
+      "intent": "In output_01, leave 'Months before Unsubscribed group' blank for Subscribed and Resubscribed rows.",
+      "ref": "    t02_sr[\"Months before Unsubscribed group\"] = \"\""
+    },
+    {
+      "id": "13_O2_out02_blank_unsubscribe_date_for_subscribed",
+      "kind": "Operation incomplete",
+      "node_id": "sub_fmt",
+      "op": "project",
+      "intent": "In output_02, set Unsubscribe Date to a blank string for Subscribed customers.",
+      "ref": "    sub[\"Unsubscribe Date\"] = \"\""
+    },
+    {
+      "id": "14_D2_unsubscribe_key_first_initial_plus_last_name",
+      "kind": "Row-level concept",
+      "node_id": "un_build",
+      "op": "project",
+      "source_text": "Join the Mailing List to the Unsubscribe List to determine who can still receive our marketing messages",
+      "ref": "    un_initial = un[\"first_name\"].str[0].str.lower()\n    un_last = un[\"last_name\"].astype(\n        str).str.lower().str.replace(r\"[^a-z]\", \"\", regex=True)\n    un_key = un_initial + un_last"
+    },
+    {
+      "id": "15_O2_parse_unsubscribe_date_dd_mm_yyyy_dots",
+      "kind": "Operation incomplete",
+      "node_id": "un_build",
+      "op": "project",
+      "intent": "Parse unsubscribe list Date using the DD.MM.YYYY date format.",
+      "ref": "    un_date = pd.to_datetime(un[\"Date\"], format=\"%d.%m.%Y\")"
+    },
+    {
+      "id": "16_O3_duplicate_unsubscribe_key_keep_latest_date",
+      "kind": "Operation inconsistent",
+      "node_id": "un_latest",
+      "op": "aggregate",
+      "intent": "When multiple unsubscribe records share the same key, keep only the latest unsubscribe date.",
+      "ref": "    un_df = pd.DataFrame({\n        \"un_key\": un_key,\n        \"Unsubscribe Date\": un_date\n    }).groupby(\"un_key\", as_index=False)[\"Unsubscribe Date\"].max()"
+    }
+  ]
+}

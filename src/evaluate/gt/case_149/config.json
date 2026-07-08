@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Salesperson", "Date", "Bike Type"],
+      "columns": {
+        "Salesperson": "text_exact",
+        "Date": "date",
+        "Bike Type": "text_exact",
+        "Sales": "number",
+        "YTD Total": "number"
+      }
+    }
+  }
+}

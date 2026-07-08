@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "OppID",
+        "Date",
+        "Stage",
+        "SortOrder"
+      ],
+      "columns": {
+        "OppID": "text_exact",
+        "Date": "date",
+        "Stage": "text_exact",
+        "SortOrder": "number"
+      }
+    }
+  }
+}
+

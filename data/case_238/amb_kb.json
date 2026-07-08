@@ -1,0 +1,100 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_tenure_invalid_excluded",
+      "kind": "Operation incomplete",
+      "node_id": "avg_tenure",
+      "op": "aggregate",
+      "source_text": "The average tenure (in months) for employees that transferred.",
+      "ref": "df[\"tenure_months\"] = pd.to_numeric(df[\"tenure_months\"], errors=\"coerce\")\navg_tenure_by_dc = transfers.groupby(\"from_dc\")[\"tenure_months\"].mean()"
+    },
+    {
+      "id": "2_C2_xfer_pct_uses_unique_employees",
+      "kind": "Group-level concept",
+      "node_id": "by_dc_fill",
+      "op": "project",
+      "source_text": "The percentage of employees who transferred.",
+      "ref": "xfer_unique_emp_by_dc = transfers.groupby(\"from_dc\")[\"employee_id\"].nunique()\nresult[\"xfer_pct\"] = (result[\"xfer_unique_ee\"] / result[\"ee_count\"]) * 100"
+    },
+    {
+      "id": "3_O2_no_transfer_defaults_to_zero",
+      "kind": "Operation incomplete",
+      "node_id": "by_dc_fill",
+      "op": "project",
+      "intent": "For DCs with no transfer events, set xfer_count, xfer_pct, and avg_tenure_months to 0.",
+      "ref": "result[\"xfer_count\"] = result[\"xfer_count\"].fillna(0)\nresult[\"avg_tenure_months\"] = result[\"avg_tenure_months\"].fillna(0.0)"
+    },
+    {
+      "id": "4_O2_parse_month_end_date_dayfirst",
+      "kind": "Operation incomplete",
+      "node_id": "parse",
+      "op": "project",
+      "intent": "Parse month_end_date as day-first (DD/MM/YYYY) calendar dates.",
+      "ref": "return pd.to_datetime(series, format=\"%d/%m/%Y\", dayfirst=True, errors=\"coerce\")"
+    },
+    {
+      "id": "5_C2_total_xfer_pct_formula",
+      "kind": "Group-level concept",
+      "node_id": "tot_compute",
+      "op": "project",
+      "intent": "Compute Total xfer_pct as (distinct employees with any transfer) / (total distinct employees) * 100.",
+      "ref": "total_xfer_pct = (total_unique_transfer_employees / total_ee) * 100.0"
+    },
+    {
+      "id": "6_O2_total_row_label",
+      "kind": "Row-level concept",
+      "node_id": "tot_compute",
+      "op": "project",
+      "intent": "Label the total row's dc_nbr as 'Total'.",
+      "ref": "\"dc_nbr\": [\"Total\"]"
+    },
+    {
+      "id": "7_C2_total_avg_tenure_mean",
+      "kind": "Group-level concept",
+      "node_id": "total_avg_tenure",
+      "op": "aggregate",
+      "source_text": "Include a total row, with the totals across all DCs",
+      "ref": "total_avg_tenure = float(transfers[\"tenure_months\"].mean())"
+    },
+    {
+      "id": "8_C2_total_ee_count_distinct",
+      "kind": "Group-level concept",
+      "node_id": "total_ee",
+      "op": "aggregate",
+      "source_text": "Include a total row, with the totals across all DCs",
+      "ref": "total_ee = int(df[\"employee_id\"].nunique())"
+    },
+    {
+      "id": "9_O1_month_gap_calendar_month_diff",
+      "kind": "Operation boundary",
+      "node_id": "with_next",
+      "op": "project",
+      "source_text": "and the difference in months is <= 2.",
+      "ref": "return (b.dt.year - a.dt.year) * 12 + (b.dt.month - a.dt.month)"
+    },
+    {
+      "id": "10_O3_compare_to_next_chronological",
+      "kind": "Row-level concept",
+      "node_id": "with_next",
+      "op": "project",
+      "intent": "Compare each record only to that employee's next chronological record when detecting transfers.",
+      "ref": "g[\"next_dc\"] = g[\"dc_nbr\"].shift(-1)\ng[\"next_date\"] = g[\"month_end_date\"].shift(-1)"
+    },
+    {
+      "id": "11_C2_count_multiple_transfers_as_separate",
+      "kind": "Group-level concept",
+      "node_id": "xfer_count",
+      "op": "aggregate",
+      "source_text": "The total number of transfers. Name this xfer_count",
+      "ref": "xfer_count_by_dc = transfers.groupby(\"from_dc\").size()"
+    },
+    {
+      "id": "12_O1_month_gap_inclusive_1_to_2",
+      "kind": "Operation boundary",
+      "node_id": "xfer_filter",
+      "op": "filter",
+      "source_text": "dc_nbr changes from month to month, and the difference in months is <= 2.",
+      "ref": "mask = (g[\"months_to_next\"] >= 1) & (g[\"months_to_next\"] <= 2)"
+    }
+  ]
+}

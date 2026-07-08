@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_trips_per_day_denominator",
+      "kind": "Group-level concept",
+      "node_id": "agg_day_totals",
+      "op": "aggregate",
+      "source_text": "Work out the % of trips taken by each method of travel each day",
+      "ref": "trips_per_day = len(travel_df)  # Total students = trips per day (each student travels once per day)\n\ngrouped['Trips per day'] = trips_per_day\n\ngrouped['% of trips per day'] = (grouped['Number of Trips'] / trips_per_day).round(2)"
+    },
+    {
+      "id": "2_C1_sustainable_method_set",
+      "kind": "Row-level concept",
+      "node_id": "clean_methods",
+      "op": "project",
+      "source_text": "Create a Sustainable (non-motorised) vs Non-Sustainable (motorised) data field\n  - Scooters are the child type rather than the motorised type",
+      "ref": "sustainable_methods = {\n        'Walk', 'Bicycle', 'Scooter', \"Mum's Shoulders\", \"Dad's Shoulders\",\n        'Hopped', 'Skipped', 'Jumped'\n    }\n\n    def classify_sustainability(method):\n        return 'Sustainable' if method in sustainable_methods else 'Non-Sustainable'\n\n    long_df['Sustainable?'] = long_df['Method of Travel'].apply(classify_sustainability)"
+    },
+    {
+      "id": "3_C1_canonical_method_names",
+      "kind": "Row-level concept",
+      "node_id": "clean_methods_map",
+      "op": "project",
+      "source_text": "Group the travel choices together to remove spelling mistakes",
+      "ref": "spelling_map = {\n        'Bycycle': 'Bicycle',\n        'Bicycle': 'Bicycle',\n        'Carr': 'Car',\n        'Car': 'Car',\n        'Scootr': 'Scooter',\n        'Scoter': 'Scooter',\n        'Scooter': 'Scooter',\n        'Walkk': 'Walk',\n        'Wallk': 'Walk',\n        'Waalk': 'Walk',\n        'WAlk': 'Walk',\n        'Walk': 'Walk',\n        'Van': 'Van',\n        'Aeroplane': 'Aeroplane',\n        'Helicopeter': 'Helicopter',\n        'Helicopter': 'Helicopter',\n        \"Mum's Shoulders\": \"Mum's Shoulders\",\n        \"Dad's Shoulders\": \"Dad's Shoulders\",\n        'Hopped': 'Hopped',\n        'Skipped': 'Skipped',\n        'Jumped': 'Jumped'\n    }"
+    },
+    {
+      "id": "4_D1_weekday_columns_set",
+      "kind": "Single-table reference",
+      "node_id": "pivot_long",
+      "op": "pivot",
+      "source_text": "Change the weekdays from separate columns to one column of weekdays and one of the pupil's travel choice",
+      "ref": "weekday_cols = ['M', 'Tu', 'W', 'Th', 'F']\n\nlong_df = travel_df.melt(\n        id_vars=id_vars,\n        value_vars=weekday_cols,\n        var_name='Weekday',\n        value_name='Method of Travel'\n    )"
+    }
+  ]
+}

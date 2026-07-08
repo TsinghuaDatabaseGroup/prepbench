@@ -1,0 +1,11 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Voting System", "Winner"],
+      "columns": {
+        "Voting System": "text_exact",
+        "Winner": "text_exact"
+      }
+    }
+  }
+}

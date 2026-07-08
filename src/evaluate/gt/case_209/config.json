@@ -1,0 +1,12 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Preference", "% of Total"],
+      "columns": {
+        "Preference": "text_exact",
+        "% of Total": "number"
+      }
+    }
+  }
+}
+

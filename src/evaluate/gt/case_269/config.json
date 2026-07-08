@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Category"],
+      "columns": {
+        "Category": "text_exact",
+        "Total Price Rounded": "number"
+      }
+    },
+    "output_02.csv": {
+      "ignore_order": true,
+      "key": ["Store"],
+      "columns": {
+        "Store": "text_exact",
+        "Total Price Rounded": "number",
+        "Issue Level": "text_exact"
+      }
+    }
+  }
+}
+

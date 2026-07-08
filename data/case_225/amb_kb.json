@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_exclude_missing_class_from_aggregation",
+      "kind": "Operation incomplete",
+      "node_id": "agg_avg",
+      "op": "aggregate",
+      "intent": "Exclude records with missing Class from contributing to the (Subject, Class) average.",
+      "ref": "df_avg = (\n        df_long.groupby([\"Subject\", \"Class\"], as_index=False)[\"Grade\"]\n        .mean()\n    )"
+    },
+    {
+      "id": "2_D2_join_on_student_id_left",
+      "kind": "Multi-table alignment",
+      "node_id": "join_class",
+      "op": "join",
+      "intent": "Join scores to metadata as a left join on Student ID.",
+      "ref": "df_long = df_long.merge(df_meta[[\"Student ID\", \"Class\"]], on=\"Student ID\", how=\"left\")"
+    },
+    {
+      "id": "3_D1_reshape_scores_wide_to_long_subject_grade",
+      "kind": "Single-table reference",
+      "node_id": "pivot_long",
+      "op": "pivot",
+      "source_text": "Pivot the data to get 3 columns and rename - Subject, Grade and Class",
+      "ref": "subject_cols = [c for c in df_scores.columns if c != \"Student ID\"]\ndf_long = df_scores.melt(\n        id_vars=[\"Student ID\"],\n        value_vars=subject_cols,\n        var_name=\"Subject\",\n        value_name=\"Grade\",\n    )"
+    },
+    {
+      "id": "new_1_worst_class_tie_break_class_asc",
+      "kind": "Operation inconsistent",
+      "node_id": "rank_worst",
+      "op": "sort",
+      "intent": "If multiple classes tie for the lowest rounded average grade within a subject, keep the class that comes first in ascending Class order.",
+      "ref": "df_avg = (\n        df_long.groupby([\"Subject\", \"Class\"], as_index=False)[\"Grade\"]\n        .mean()\n    )\ndf_avg[\"Grade\"] = df_avg[\"Grade\"].round(1)\nidx_min = df_avg.groupby(\"Subject\")[\"Grade\"].idxmin()"
+    }
+  ]
+}

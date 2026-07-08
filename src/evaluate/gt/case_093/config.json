@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Airport",
+        "Type",
+        "% Flights Delayed",
+        "Avg Delay (mins)"
+      ],
+      "columns": {
+        "Airport": "text_exact",
+        "Type": "text_exact",
+        "% Flights Delayed": "number",
+        "Avg Delay (mins)": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_only_current_managers_in_exception",
+      "kind": "Operation incomplete",
+      "node_id": "filter_mismatch_current",
+      "op": "filter",
+      "source_text": "Filter the output table to only include managers whose pay received does not match their expected pay",
+      "ref": "mismatch_mask = full[\"Expected Total Salary\"] != full[\"Amount Paid\"]\ncurrent_mask = full[\"Is Current\"]\nresult = full.loc[mismatch_mask & current_mask]"
+    },
+    {
+      "id": "2_D2_join_amount_paid_on_name",
+      "kind": "Multi-table alignment",
+      "node_id": "join_full",
+      "op": "join",
+      "source_text": "Join the data from the Amount Paid sheet",
+      "ref": "full = tenure_salary.merge(amount_paid, on=\"Name\")"
+    },
+    {
+      "id": "3_O2_amount_paid_join_type",
+      "kind": "Operation incomplete",
+      "node_id": "join_full",
+      "op": "join",
+      "source_text": "Join the data from the Amount Paid sheet",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "4_O3_amount_paid_join_duplicate_policy",
+      "kind": "Operation inconsistent",
+      "node_id": "join_full",
+      "op": "join",
+      "intent": "Assume Name is one-to-one in the Amount Paid join.",
+      "ref": "validate=\"one_to_one\""
+    },
+    {
+      "id": "5_D2_join_tenure_salary_on_name",
+      "kind": "Multi-table alignment",
+      "node_id": "join_tenure_salary",
+      "op": "join",
+      "source_text": "Bring together the Salaries and Tenures datasets",
+      "ref": "tenure_salary = tenures.merge(salaries, on=\"Name\")"
+    },
+    {
+      "id": "6_O2_tenure_salary_join_type",
+      "kind": "Operation incomplete",
+      "node_id": "join_tenure_salary",
+      "op": "join",
+      "source_text": "Bring together the Salaries and Tenures datasets",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "7_O3_tenure_salary_join_duplicate_policy",
+      "kind": "Operation inconsistent",
+      "node_id": "join_tenure_salary",
+      "op": "join",
+      "intent": "Assume Name is one-to-one between Tenure and Salaries.",
+      "ref": "validate=\"one_to_one\""
+    },
+    {
+      "id": "8_C2_expected_total_salary_formula",
+      "kind": "Group-level concept",
+      "node_id": "proj_expected",
+      "op": "project",
+      "source_text": "Using salary and tenure, calculate the Expected Total Salary of each manager",
+      "ref": "tenure_salary[\"Expected Total Salary\"] = np.rint((tenure_salary[\"Tenure\"] / 365) * tenure_salary[\"Salary\"])"
+    },
+    {
+      "id": "9_O1_expected_total_salary_rounding",
+      "kind": "Operation boundary",
+      "node_id": "proj_expected",
+      "op": "project",
+      "source_text": "Expected Total Salary of each manager (rounded to the nearest whole number)",
+      "ref": "np.rint(...).astype(int)"
+    },
+    {
+      "id": "10_D2_clean_amount_paid_name",
+      "kind": "Multi-table alignment",
+      "node_id": "proj_paid_clean",
+      "op": "project",
+      "intent": "Apply the same name-cleaning approach to Amount Paid before joining by Name.",
+      "ref": "amount_paid[\"Name\"] = _clean_names(amount_paid[\"Name\"])"
+    },
+    {
+      "id": "11_O2_is_current_detection",
+      "kind": "Operation incomplete",
+      "node_id": "proj_tenures_clean",
+      "op": "project",
+      "source_text": "For current employees, see what happens when you change the datatype of “End Date”",
+      "ref": "tenures[\"Is Current\"] = end_raw.eq(\"current\")"
+    },
+    {
+      "id": "12_O1_current_end_date_substitution",
+      "kind": "Operation boundary",
+      "node_id": "proj_tenures_clean",
+      "op": "project",
+      "source_text": "For the output, the End Date for current employees is set to 5th June 2024",
+      "ref": "CURRENT_END_DATE = pd.Timestamp(\"2024-06-05\")"
+    },
+    {
+      "id": "13_O1_tenure_days_calculation",
+      "kind": "Operation boundary",
+      "node_id": "proj_tenures_clean",
+      "op": "project",
+      "source_text": "Calculate the tenure (number of days) of each manager’s employment",
+      "ref": "tenures[\"Tenure\"] = (tenures[\"End Date\"] - tenures[\"Start Date\"]).dt.days"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Travel Mins",
+        "Home Team",
+        "Home Conference",
+        "Home Division"
+      ],
+      "columns": {
+        "Travel Mins": "number",
+        "Home Team": "text_exact",
+        "Home Conference": "text_exact",
+        "Home Division": "text_exact"
+      }
+    }
+  }
+}
+

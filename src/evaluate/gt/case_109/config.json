@@ -1,0 +1,42 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Evolution Group",
+        "#",
+        "Name",
+        "Total",
+        "HP",
+        "Attack",
+        "Defense",
+        "Special Attack",
+        "Special Defense",
+        "Speed",
+        "Evolving from",
+        "Evolving to",
+        "Level",
+        "Condition",
+        "Evolution Type",
+        "First Evolution"
+      ],
+      "columns": {
+        "Evolution Group": "text_exact",
+        "#": "number",
+        "Name": "text_exact",
+        "Total": "number",
+        "HP": "number",
+        "Attack": "number",
+        "Defense": "number",
+        "Special Attack": "number",
+        "Special Defense": "number",
+        "Speed": "number",
+        "Evolving from": "text_exact",
+        "Evolving to": "text_exact",
+        "Level": "number",
+        "Condition": "text_exact",
+        "Evolution Type": "text_exact",
+        "First Evolution": "text_exact"
+      }
+    }
+  }
+}

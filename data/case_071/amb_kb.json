@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_sum_adjusted_values",
+      "kind": "Group-level concept",
+      "node_id": "agg_sum",
+      "op": "aggregate",
+      "source_text": "Aggregate the values to complete the translation from Roman Numeral to number",
+      "ref": "numeric_equivalent = result_df[\"Adjusted Value\"].sum()"
+    },
+    {
+      "id": "2_D2_join_character_to_mapping_key",
+      "kind": "Multi-table alignment",
+      "node_id": "join_map",
+      "op": "join",
+      "source_text": "Join the information relating to Roman Numeral values",
+      "ref": "        left_on=\"Character\", \n        right_on=\"Roman Numeral\","
+    },
+    {
+      "id": "3_O2_unmapped_characters_kept_via_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_map",
+      "op": "join",
+      "source_text": "Join the information relating to Roman Numeral values",
+      "ref": "        how=\"left\""
+    },
+    {
+      "id": "4_D1_roman_numeral_column_name",
+      "kind": "Single-table reference",
+      "node_id": "p1_addkey",
+      "op": "project",
+      "intent": "Read the Roman numeral string from the `Number` field.",
+      "ref": "roman_numeral = input_01[\"Number\"].iloc[0]"
+    },
+    {
+      "id": "5_O1_subtract_when_strictly_less_than_next",
+      "kind": "Operation boundary",
+      "node_id": "script_adjust",
+      "op": "script",
+      "source_text": "Depending on the ordering of characters in the Roman Numeral, some of these values will need a negative multiplier",
+      "ref": "        lambda row: -row[\"Value\"] if row[\"Value\"] < row[\"Next Value\"] else row[\"Value\"],"
+    },
+    {
+      "id": "6_O2_last_character_next_value_defaults_to_zero",
+      "kind": "Operation incomplete",
+      "node_id": "script_adjust",
+      "op": "script",
+      "source_text": "Depending on the ordering of characters in the Roman Numeral, some of these values will need a negative multiplier",
+      "ref": "        else:\n            next_values.append(0)"
+    },
+    {
+      "id": "7_O1_preserve_left_to_right_character_order",
+      "kind": "Row-level concept",
+      "node_id": "sort_pos",
+      "op": "sort",
+      "source_text": "Remember that ordering is very important when reading Roman Numerals",
+      "ref": "chars = list(roman_numeral)\n    scaffold_df[\"Character\"] = chars\n    scaffold_df[\"Position\"] = scaffold_df[\"Scaffold\"] - 1  # 0-based position"
+    }
+  ]
+}

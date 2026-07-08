@@ -1,0 +1,20 @@
+Store,Product,Scent,Supplier,Quantity Requested,Date Required,Stock Ready?,Date Fulfilled,Days Request Delayed
+York,Liquid Soap,Lemon,Bonsu's Bars,17,29/10/2019,True,29/10/2019,0
+Sheffield,Soap Bar,Lime,Premium Parry Products,23,25/11/2019,True,25/11/2019,0
+Leeds,Soap Bar,Chocolate,Premium Parry Products,14,18/11/2019,True,18/11/2019,0
+Wimbledon,Soap Bar,Mint,Scally's Soaps,9,06/11/2019,True,06/11/2019,0
+York,Liquid Soap,Mint,Bonsu's Bars,21,29/12/2019,True,29/12/2019,0
+York,Soap Bar,Lemon,Scally's Soaps,22,01/12/2019,True,01/12/2019,0
+Wimbledon,Liquid Soap,Heather,Scally's Soaps,7,06/10/2019,True,06/10/2019,0
+Leeds,Liquid Soap,Mint,Bonsu's Bars,28,18/10/2019,True,18/10/2019,0
+Sheffield,Liquid Soap,Heather,Scally's Soaps,20,30/10/2019,True,30/10/2019,0
+Sheffield,Soap Bar,Green Tea,Scally's Soaps,22,25/10/2019,False,13/11/2019,19
+Wimbledon,Soap Bar,Lemon,Scally's Soaps,13,06/12/2019,True,06/12/2019,0
+Greenwich,Soap Bar,Lavender,Scally's Soaps,7,01/12/2019,True,01/12/2019,0
+Greenwich,Liquid Soap,Lavender,Premium Parry Products,23,11/10/2019,False,19/10/2019,8
+Greenwich,Liquid Soap,Lime,Premium Parry Products,29,11/11/2019,True,11/11/2019,0
+Leeds,Soap Bar,Mint,Scally's Soaps,13,01/11/2019,True,01/11/2019,0
+Sheffield,Liquid Soap,Lime,Premium Parry Products,25,27/12/2019,True,27/12/2019,0
+Leeds,Soap Bar,Heather,Bonsu's Bars,12,18/12/2019,True,18/12/2019,0
+Greenwich,Liquid Soap,Green Tea,Scally's Soaps,14,11/12/2019,True,11/12/2019,0
+York,Liquid Soap,Lavender,Premium Parry Products,12,29/11/2019,True,29/11/2019,0

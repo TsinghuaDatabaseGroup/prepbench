@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Company",
+        "First Name",
+        "Last Name",
+        "Email",
+        "Online/In Person",
+        "Session not attended",
+        "Not Attended %"
+      ],
+      "columns": {
+        "Company": "text_exact",
+        "First Name": "text_exact",
+        "Last Name": "text_exact",
+        "Email": "text_exact",
+        "Online/In Person": "text_exact",
+        "Session not attended": "text_exact",
+        "Not Attended %": "number"
+      }
+    }
+  }
+}
+

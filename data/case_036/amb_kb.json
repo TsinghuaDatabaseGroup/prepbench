@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "2_O1_height_round_2dp",
+      "kind": "Operation boundary",
+      "node_id": "compute",
+      "op": "project",
+      "source_text": "Convert the HT (Height) field from Feet and Inches to Meters and Centimeters",
+      "ref": "return round(meters, 2)"
+    },
+    {
+      "id": "3_O1_weight_round_2dp",
+      "kind": "Operation boundary",
+      "node_id": "compute",
+      "op": "project",
+      "source_text": "Convert WT (Weight) from pounds (lbs) to kilograms (kgs)",
+      "ref": "return round(kgs, 2)"
+    },
+    {
+      "id": "4_C1_jersey_trailing_digits",
+      "kind": "Row-level concept",
+      "node_id": "extract",
+      "op": "project",
+      "source_text": "Clean up Name field and create Jersey Number field",
+      "ref": "m = re.search(r\"(\\d+)$\", s); jersey = m.group(1)"
+    },
+    {
+      "id": "5_O2_jersey_no_digits_empty_string",
+      "kind": "Operation incomplete",
+      "node_id": "extract",
+      "op": "project",
+      "source_text": "Clean up Name field and create Jersey Number field",
+      "ref": "else: jersey = \"\""
+    },
+    {
+      "id": "new_1_input_output_mapping",
+      "kind": "Single-table reference",
+      "node_id": "solve_outputs",
+      "op": "input",
+      "intent": "Create output_01.csv from input_02.csv and output_02.csv from input_01.csv.",
+      "ref": "if input_02.exists():\n        df2 = pd.read_csv(input_02)\n        dfs[\"output_01.csv\"] = _transform(df2)\n    if input_01.exists():\n        df1 = pd.read_csv(input_01)\n        dfs[\"output_02.csv\"] = _transform(df1)"
+    }
+  ]
+}

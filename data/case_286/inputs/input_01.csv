@@ -1,0 +1,8 @@
+Event,Event Name,Event No.,Event Type
+100H,100m Hurdles,1,Track
+HJ,High Jump,2,Field
+SP,Shot Put,3,Field
+200,200m Sprint,4,Track
+LJ,Long Jump,5,Field
+JT,Javelin Throw,6,Field
+800,800m Run,7,Track

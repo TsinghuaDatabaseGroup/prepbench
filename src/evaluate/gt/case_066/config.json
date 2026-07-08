@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Decoded Message"
+      ],
+      "columns": {
+        "Decoded Message": "text_exact"
+      }
+    }
+  }
+}
+

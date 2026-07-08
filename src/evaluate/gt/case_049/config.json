@@ -1,0 +1,35 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Rank", "Team", "W", "L", "Pct", "Conf", "Home", "Away", "L10", "Strk"],
+      "columns": {
+        "Rank": "number",
+        "Team": "text_exact",
+        "W": "number",
+        "L": "number",
+        "Pct": "number",
+        "Conf": "text_exact",
+        "Home": "text_exact",
+        "Away": "text_exact",
+        "L10": "text_exact",
+        "Strk": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Rank", "Team", "W", "L", "Pct", "Conf", "Home", "Away", "L10", "Strk"],
+      "columns": {
+        "Rank": "number",
+        "Team": "text_exact",
+        "W": "number",
+        "L": "number",
+        "Pct": "number",
+        "Conf": "text_exact",
+        "Home": "text_exact",
+        "Away": "text_exact",
+        "L10": "text_exact",
+        "Strk": "text_exact"
+      }
+    }
+  }
+}
+

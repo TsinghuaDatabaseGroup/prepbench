@@ -1,0 +1,391 @@
+Evolving from,Evolving to,Level,Condition,Evolution Type
+Bulbasaur,Ivysaur,16.0,,Level
+Ivysaur,Venusaur,32.0,,Level
+Charmander,Charmeleon,16.0,,Level
+Charmeleon,Charizard,36.0,,Level
+Squirtle,Wartortle,16.0,,Level
+Wartortle,Blastoise,36.0,,Level
+Caterpie,Metapod,7.0,,Level
+Metapod,Butterfree,10.0,,Level
+Weedle,Kakuna,7.0,,Level
+Kakuna,Beedrill,10.0,,Level
+Pidgey,Pidgeotto,18.0,,Level
+Pidgeotto,Pidgeot,36.0,,Level
+Rattata,Raticate,20.0,,Level
+Spearow,Fearow,20.0,,Level
+Ekans,Arbok,22.0,,Level
+Sandshrew,Sandslash,22.0,,Level
+Nidoran♀,Nidorina,16.0,,Level
+Nidoran♂,Nidorino,16.0,,Level
+Zubat,Golbat,22.0,,Level
+Oddish,Gloom,21.0,,Level
+Paras,Parasect,24.0,,Level
+Venonat,Venomoth,31.0,,Level
+Diglett,Dugtrio,26.0,,Level
+Meowth,Persian,28.0,,Level
+Psyduck,Golduck,33.0,,Level
+Mankey,Primeape,28.0,,Level
+Poliwag,Poliwhirl,25.0,,Level
+Abra,Kadabra,16.0,,Level
+Machop,Machoke,28.0,,Level
+Bellsprout,Weepinbell,21.0,,Level
+Tentacool,Tentacruel,30.0,,Level
+Geodude,Graveler,25.0,,Level
+Ponyta,Rapidash,40.0,,Level
+Slowpoke,Slowbro,37.0,,Level
+Magnemite,Magneton,30.0,,Level
+Doduo,Dodrio,31.0,,Level
+Seel,Dewgong,34.0,,Level
+Grimer,Muk,38.0,,Level
+Gastly,Haunter,25.0,,Level
+Drowzee,Hypno,26.0,,Level
+Krabby,Kingler,28.0,,Level
+Voltorb,Electrode,30.0,,Level
+Cubone,Marowak,28.0,,Level
+Tyrogue,Hitmonlee,20.0,Attack > Defense,Level
+Tyrogue,Hitmonchan,20.0,Attack < Defense,Level
+Tyrogue,Hitmontop,20.0,Attack = Defense,Level
+Koffing,Weezing,35.0,,Level
+Rhyhorn,Rhydon,42.0,,Level
+Horsea,Seadra,32.0,,Level
+Goldeen,Seaking,33.0,,Level
+Smoochum,Jynx,30.0,,Level
+Elekid,Electabuzz,30.0,,Level
+Magby,Magmar,30.0,,Level
+Magikarp,Gyarados,20.0,,Level
+Omanyte,Omastar,40.0,,Level
+Kabuto,Kabutops,40.0,,Level
+Dratini,Dragonair,30.0,,Level
+Dragonair,Dragonite,55.0,,Level
+Chikorita,Bayleef,16.0,,Level
+Bayleef,Meganium,32.0,,Level
+Cyndaquil,Quilava,14.0,,Level
+Quilava,Typhlosion,36.0,,Level
+Totodile,Croconaw,18.0,,Level
+Croconaw,Feraligatr,30.0,,Level
+Sentret,Furret,15.0,,Level
+Hoothoot,Noctowl,20.0,,Level
+Ledyba,Ledian,18.0,,Level
+Spinarak,Ariados,22.0,,Level
+Chinchou,Lanturn,27.0,,Level
+Natu,Xatu,25.0,,Level
+Mareep,Flaaffy,15.0,,Level
+Flaaffy,Ampharos,30.0,,Level
+Marill,Azumarill,18.0,,Level
+Hoppip,Skiploom,18.0,,Level
+Skiploom,Jumpluff,27.0,,Level
+Wooper,Quagsire,20.0,,Level
+Wynaut,Wobbuffet,15.0,,Level
+Pineco,Forretress,31.0,,Level
+Snubbull,Granbull,23.0,,Level
+Teddiursa,Ursaring,30.0,,Level
+Slugma,Magcargo,38.0,,Level
+Swinub,Piloswine,33.0,,Level
+Remoraid,Octillery,25.0,,Level
+Houndour,Houndoom,24.0,,Level
+Phanpy,Donphan,25.0,,Level
+Larvitar,Pupitar,30.0,,Level
+Pupitar,Tyranitar,55.0,,Level
+Treecko,Grovyle,16.0,,Level
+Grovyle,Sceptile,36.0,,Level
+Torchic,Combusken,16.0,,Level
+Combusken,Blaziken,36.0,,Level
+Mudkip,Marshtomp,16.0,,Level
+Marshtomp,Swampert,36.0,,Level
+Poochyena,Mightyena,18.0,,Level
+Zigzagoon,Linoone,20.0,,Level
+Wurmple,Silcoon,7.0,"Random, based on personality",Level
+Silcoon,Beautifly,10.0,,Level
+Wurmple,Cascoon,7.0,"Random, based on personality",Level
+Cascoon,Dustox,10.0,,Level
+Lotad,Lombre,14.0,,Level
+Seedot,Nuzleaf,14.0,,Level
+Taillow,Swellow,22.0,,Level
+Wingull,Pelipper,25.0,,Level
+Ralts,Kirlia,20.0,,Level
+Kirlia,Gardevoir,30.0,,Level
+Surskit,Masquerain,22.0,,Level
+Shroomish,Breloom,23.0,,Level
+Slakoth,Vigoroth,18.0,,Level
+Vigoroth,Slaking,36.0,,Level
+Nincada,Ninjask,20.0,,Level
+Nincada,Shedinja,20.0,with empty spot in party,Level
+Whismur,Loudred,20.0,,Level
+Loudred,Exploud,40.0,,Level
+Makuhita,Hariyama,24.0,,Level
+Aron,Lairon,32.0,,Level
+Lairon,Aggron,42.0,,Level
+Meditite,Medicham,37.0,,Level
+Electrike,Manectric,26.0,,Level
+Gulpin,Swalot,26.0,,Level
+Carvanha,Sharpedo,30.0,,Level
+Wailmer,Wailord,40.0,,Level
+Numel,Camerupt,33.0,,Level
+Spoink,Grumpig,32.0,,Level
+Trapinch,Vibrava,35.0,,Level
+Vibrava,Flygon,45.0,,Level
+Cacnea,Cacturne,32.0,,Level
+Swablu,Altaria,35.0,,Level
+Barboach,Whiscash,30.0,,Level
+Corphish,Crawdaunt,30.0,,Level
+Baltoy,Claydol,36.0,,Level
+Lileep,Cradily,40.0,,Level
+Anorith,Armaldo,40.0,,Level
+Shuppet,Banette,37.0,,Level
+Duskull,Dusclops,37.0,,Level
+Snorunt,Glalie,42.0,,Level
+Spheal,Sealeo,32.0,,Level
+Sealeo,Walrein,44.0,,Level
+Bagon,Shelgon,30.0,,Level
+Shelgon,Salamence,50.0,,Level
+Beldum,Metang,20.0,,Level
+Metang,Metagross,45.0,,Level
+Turtwig,Grotle,18.0,,Level
+Grotle,Torterra,32.0,,Level
+Chimchar,Monferno,14.0,,Level
+Monferno,Infernape,36.0,,Level
+Piplup,Prinplup,16.0,,Level
+Prinplup,Empoleon,36.0,,Level
+Starly,Staravia,14.0,,Level
+Staravia,Staraptor,34.0,,Level
+Bidoof,Bibarel,15.0,,Level
+Kricketot,Kricketune,10.0,,Level
+Shinx,Luxio,15.0,,Level
+Luxio,Luxray,30.0,,Level
+Cranidos,Rampardos,30.0,,Level
+Shieldon,Bastiodon,30.0,,Level
+Burmy,Mothim,20.0,Male,Level
+Burmy,Wormadam,20.0,"Female, outside",Level
+,Plant Cloak,,,Level
+Burmy,Wormadam,20.0,"Female, in caves",Level
+,Sandy Cloak,,,Level
+Burmy,Wormadam,20.0,"Female, in buildings",Level
+,Trash Cloak,,,Level
+Combee,Vespiquen,21.0,Female,Level
+Buizel,Floatzel,26.0,,Level
+Cherubi,Cherrim,25.0,,Level
+Shellos,Gastrodon,30.0,,Level
+Drifloon,Drifblim,28.0,,Level
+Glameow,Purugly,38.0,,Level
+Stunky,Skuntank,34.0,,Level
+Bronzor,Bronzong,33.0,,Level
+Gible,Gabite,24.0,,Level
+Gabite,Garchomp,48.0,,Level
+Hippopotas,Hippowdon,34.0,,Level
+Skorupi,Drapion,40.0,,Level
+Croagunk,Toxicroak,37.0,,Level
+Finneon,Lumineon,31.0,,Level
+Snover,Abomasnow,40.0,,Level
+Snivy,Servine,17.0,,Level
+Servine,Serperior,36.0,,Level
+Tepig,Pignite,17.0,,Level
+Pignite,Emboar,36.0,,Level
+Oshawott,Dewott,17.0,,Level
+Dewott,Samurott,36.0,,Level
+Patrat,Watchog,20.0,,Level
+Lillipup,Herdier,16.0,,Level
+Herdier,Stoutland,32.0,,Level
+Purrloin,Liepard,20.0,,Level
+Pidove,Tranquill,21.0,,Level
+Tranquill,Unfezant,32.0,,Level
+Blitzle,Zebstrika,27.0,,Level
+Roggenrola,Boldore,25.0,,Level
+Drilbur,Excadrill,31.0,,Level
+Timburr,Gurdurr,25.0,,Level
+Tympole,Palpitoad,25.0,,Level
+Palpitoad,Seismitoad,36.0,,Level
+Sewaddle,Swadloon,20.0,,Level
+Venipede,Whirlipede,22.0,,Level
+Whirlipede,Scolipede,30.0,,Level
+Sandile,Krokorok,29.0,,Level
+Krokorok,Krookodile,40.0,,Level
+Darumaka,Darmanitan,35.0,,Level
+,Standard Mode,,,Level
+Dwebble,Crustle,34.0,,Level
+Scraggy,Scrafty,39.0,,Level
+Yamask,Cofagrigus,34.0,,Level
+Tirtouga,Carracosta,37.0,,Level
+Archen,Archeops,37.0,,Level
+Trubbish,Garbodor,36.0,,Level
+Zorua,Zoroark,30.0,,Level
+Gothita,Gothorita,32.0,,Level
+Gothorita,Gothitelle,41.0,,Level
+Solosis,Duosion,32.0,,Level
+Duosion,Reuniclus,41.0,,Level
+Ducklett,Swanna,35.0,,Level
+Vanillite,Vanillish,35.0,,Level
+Vanillish,Vanilluxe,47.0,,Level
+Deerling,Sawsbuck,34.0,,Level
+Foongus,Amoonguss,39.0,,Level
+Frillish,Jellicent,40.0,,Level
+Joltik,Galvantula,36.0,,Level
+Ferroseed,Ferrothorn,40.0,,Level
+Klink,Klang,38.0,,Level
+Klang,Klinklang,49.0,,Level
+Tynamo,Eelektrik,39.0,,Level
+Elgyem,Beheeyem,42.0,,Level
+Litwick,Lampent,41.0,,Level
+Axew,Fraxure,38.0,,Level
+Fraxure,Haxorus,48.0,,Level
+Cubchoo,Beartic,37.0,,Level
+Mienfoo,Mienshao,50.0,,Level
+Golett,Golurk,43.0,,Level
+Pawniard,Bisharp,52.0,,Level
+Rufflet,Braviary,54.0,,Level
+Vullaby,Mandibuzz,54.0,,Level
+Deino,Zweilous,50.0,,Level
+Zweilous,Hydreigon,64.0,,Level
+Larvesta,Volcarona,59.0,,Level
+Chespin,Quilladin,16.0,,Level
+Quilladin,Chesnaught,36.0,,Level
+Fennekin,Braixen,16.0,,Level
+Braixen,Delphox,36.0,,Level
+Froakie,Frogadier,16.0,,Level
+Frogadier,Greninja,36.0,,Level
+Bunnelby,Diggersby,20.0,,Level
+Fletchling,Fletchinder,17.0,,Level
+Fletchinder,Talonflame,35.0,,Level
+Scatterbug,Spewpa,9.0,,Level
+Spewpa,Vivillon,12.0,,Level
+Litleo,Pyroar,35.0,,Level
+Flabébé,Floette,19.0,,Level
+Skiddo,Gogoat,32.0,,Level
+Pancham,Pangoro,32.0,with a Dark type Pokémon in party,Level
+Espurr,Meowstic,25.0,,Level
+,Male,,,Level
+Honedge,Doublade,35.0,,Level
+Inkay,Malamar,30.0,holding 3DS upside down,Level
+Binacle,Barbaracle,39.0,,Level
+Skrelp,Dragalge,48.0,,Level
+Clauncher,Clawitzer,37.0,,Level
+Tyrunt,Tyrantrum,39.0,Daytime,Level
+Amaura,Aurorus,39.0,Nighttime,Level
+Goomy,Sliggoo,40.0,,Level
+Sliggoo,Goodra,55.0,during rain,Level
+Bergmite,Avalugg,37.0,,Level
+Noibat,Noivern,48.0,,Level
+Kirlia,Gallade,,Dawn Stone (Male),Stone
+Snorunt,Froslass,,Dawn Stone (Female),Stone
+,Blade Forme,,,Stone
+,Shield Forme,,,Stone
+Kadabra,Alakazam,,,Trade
+Machoke,Machamp,,,Trade
+Graveler,Golem,,,Trade
+Haunter,Gengar,,,Trade
+Boldore,Gigalith,,,Trade
+Gurdurr,Conkeldurr,,,Trade
+Karrablast,Escavalier,,Trade with Shelmet,Trade
+Shelmet,Accelgor,,Trade with Karrablast,Trade
+Phantump,Trevenant,,,Trade
+Pumpkaboo,Gourgeist,,,Trade
+Average Size,Average Size,,,Trade
+Lickitung,Lickilicky,,after Rollout learned,Other
+Tangela,Tangrowth,,after AncientPower learned,Other
+Mime Jr.,Mr. Mime,,after Mimic learned,Other
+Bonsly,Sudowoodo,,after Mimic learned,Other
+Aipom,Ambipom,,after Double Hit learned,Other
+Yanma,Yanmega,,after AncientPower learned,Other
+Piloswine,Mamoswine,,after AncientPower learned,Other
+Mantyke,Mantine,,with Remoraid in party,Other
+Feebas,Milotic,,Beauty,Other
+Burmy,Mothim,20.0,Male,Other
+Burmy,Wormadam,20.0,"Female, outside",Other
+,Plant Cloak,,,Other
+Burmy,Wormadam,20.0,"Female, in caves",Other
+,Sandy Cloak,,,Other
+Burmy,Wormadam,20.0,"Female, in buildings",Other
+,Trash Cloak,,,Other
+Combee,Vespiquen,21.0,Female,Other
+Karrablast,Escavalier,,Trade with Shelmet,Other
+Shelmet,Accelgor,,Trade with Karrablast,Other
+Pancham,Pangoro,32.0,with a Dark type Pokémon in party,Other
+Pichu,Pikachu,,,Happiness
+Cleffa,Clefairy,,,Happiness
+Igglybuff,Jigglypuff,,,Happiness
+Golbat,Crobat,,,Happiness
+Chansey,Blissey,,,Happiness
+Eevee,Espeon,,Daytime,Happiness
+Eevee,Umbreon,,Nighttime,Happiness
+Munchlax,Snorlax,,,Happiness
+Togepi,Togetic,,,Happiness
+Azurill,Marill,,,Happiness
+Budew,Roselia,,Daytime,Happiness
+Chingling,Chimecho,,Nighttime,Happiness
+Buneary,Lopunny,,,Happiness
+Riolu,Lucario,,Daytime,Happiness
+Woobat,Swoobat,,,Happiness
+Swadloon,Leavanny,,,Happiness
+Pansear,Simisear,,Fire Stone,Stone
+Eevee,Flareon,,Fire Stone,Stone
+Growlithe,Arcanine,,Fire Stone,Stone
+Vulpix,Ninetales,,Fire Stone,Stone
+Pansage,Simisage,,Leaf Stone,Stone
+Nuzleaf,Shiftry,,Leaf Stone,Stone
+Exeggcute,Exeggutor,,Leaf Stone,Stone
+Weepinbell,Victreebel,,Leaf Stone,Stone
+Gloom,Vileplume,,Leaf Stone,Stone
+Munna,Musharna,,Moon Stone,Stone
+Skitty,Delcatty,,Moon Stone,Stone
+Jigglypuff,Wigglytuff,,Moon Stone,Stone
+Clefairy,Clefable,,Moon Stone,Stone
+Nidorino,Nidoking,,Moon Stone,Stone
+Nidorina,Nidoqueen,,Moon Stone,Stone
+Panpour,Simipour,,Water Stone,Stone
+Lombre,Ludicolo,,Water Stone,Stone
+Eevee,Vaporeon,,Water Stone,Stone
+Staryu,Starmie,,Water Stone,Stone
+Shellder,Cloyster,,Water Stone,Stone
+Poliwhirl,Poliwrath,,Water Stone,Stone
+Seadra,Kingdra,,Dragon Scale,Trade
+Pansear,Simisear,,Fire Stone,Stone
+Eevee,Flareon,,Fire Stone,Stone
+Growlithe,Arcanine,,Fire Stone,Stone
+Vulpix,Ninetales,,Fire Stone,Stone
+Slowpoke,Slowking,,King's Rock,Trade
+Poliwhirl,Politoed,,King's Rock,Trade
+Pansage,Simisage,,Leaf Stone,Stone
+Nuzleaf,Shiftry,,Leaf Stone,Stone
+Exeggcute,Exeggutor,,Leaf Stone,Stone
+Weepinbell,Victreebel,,Leaf Stone,Stone
+Gloom,Vileplume,,Leaf Stone,Stone
+Scyther,Scizor,,Metal Coat,Trade
+Onix,Steelix,,Metal Coat,Trade
+Munna,Musharna,,Moon Stone,Stone
+Skitty,Delcatty,,Moon Stone,Stone
+Jigglypuff,Wigglytuff,,Moon Stone,Stone
+Clefairy,Clefable,,Moon Stone,Stone
+Nidorino,Nidoking,,Moon Stone,Stone
+Nidorina,Nidoqueen,,Moon Stone,Stone
+Helioptile,Heliolisk,,Sun Stone,Stone
+Petilil,Lilligant,,Sun Stone,Stone
+Cottonee,Whimsicott,,Sun Stone,Stone
+Sunkern,Sunflora,,Sun Stone,Stone
+Gloom,Bellossom,,Sun Stone,Stone
+Eelektrik,Eelektross,,Thunderstone,Stone
+Eevee,Jolteon,,Thunderstone,Stone
+Pikachu,Raichu,,Thunderstone,Stone
+Porygon,Porygon2,,Up-Grade,Trade
+Panpour,Simipour,,Water Stone,Stone
+Lombre,Ludicolo,,Water Stone,Stone
+Eevee,Vaporeon,,Water Stone,Stone
+Staryu,Starmie,,Water Stone,Stone
+Shellder,Cloyster,,Water Stone,Stone
+Poliwhirl,Poliwrath,,Water Stone,Stone
+Amaura,Aurorus,39.0,Nighttime,Other
+Sliggoo,Goodra,55.0,during rain,Other
+Pichu,Pikachu,,,Happiness
+Cleffa,Clefairy,,,Happiness
+Igglybuff,Jigglypuff,,,Happiness
+Golbat,Crobat,,,Happiness
+Chansey,Blissey,,,Happiness
+Eevee,Espeon,,Daytime,Happiness
+Eevee,Umbreon,,Nighttime,Happiness
+Munchlax,Snorlax,,,Happiness
+Togepi,Togetic,,,Happiness
+Azurill,Marill,,,Happiness
+Budew,Roselia,,Daytime,Happiness
+Chingling,Chimecho,,Nighttime,Happiness
+Buneary,Lopunny,,,Happiness
+Riolu,Lucario,,Daytime,Happiness
+Woobat,Swoobat,,,Happiness
+Swadloon,Leavanny,,,Happiness

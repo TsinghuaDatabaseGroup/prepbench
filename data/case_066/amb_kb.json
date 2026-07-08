@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_o2_cipher_rows_require_both_fields",
+      "kind": "Operation incomplete",
+      "node_id": "cipher_clean",
+      "op": "filter",
+      "intent": "Treat only cipher rows with both Cipher and Alphabet present as valid for decoding.",
+      "ref": "cipher_df = cipher_df.dropna(subset=['Alphabet', 'Cipher'])"
+    },
+    {
+      "id": "2_d2_match_encrypted_to_cipher_column",
+      "kind": "Multi-table alignment",
+      "node_id": "decode_join",
+      "op": "join",
+      "intent": "Match each encrypted character to the cipher table using Cipher as the lookup key (Cipher -> Alphabet).",
+      "ref": "cipher_map = dict(zip(cipher_df['Cipher'], cipher_df['Alphabet']))"
+    },
+    {
+      "id": "3_o2_retain_all_characters_on_decode",
+      "kind": "Operation boundary",
+      "node_id": "decode_join",
+      "op": "join",
+      "intent": "Retain all character rows even when there is no matching cipher entry (left-join semantics).",
+      "ref": "chars_df = pd.DataFrame({\n        'position': positions,\n        'encrypted_char': characters\n    })\nchars_df['decoded_char'] = chars_df['encrypted_char'].apply(decode_char)"
+    },
+    {
+      "id": "4_o2_space_character_kept_as_space",
+      "kind": "Operation boundary",
+      "node_id": "decoded_compute",
+      "op": "project",
+      "source_text": "Make sure those spaces haven't become nulls!",
+      "ref": "        if char == ' ':\n            return ' '"
+    },
+    {
+      "id": "5_o2_unmatched_cipher_keeps_original_char",
+      "kind": "Operation incomplete",
+      "node_id": "decoded_compute",
+      "op": "project",
+      "intent": "If an encrypted character has no matching cipher mapping, keep the original character unchanged.",
+      "ref": "        elif char in cipher_map:\n            return cipher_map[char]\n        else:\n            return char"
+    },
+    {
+      "id": "6_o2_split_message_including_spaces",
+      "kind": "Operation boundary",
+      "node_id": "msg_chars",
+      "op": "project",
+      "intent": "When splitting the encrypted message into characters, include spaces as characters (do not drop them).",
+      "ref": "    \n    for pos, char in enumerate(encrypted_message):\n        characters.append(char)\n        positions.append(pos)"
+    },
+    {
+      "id": "7_o3_select_first_nonnull_message",
+      "kind": "Operation inconsistent",
+      "node_id": "msg_first",
+      "op": "sort",
+      "intent": "If multiple non-null encrypted messages exist, decode only the first non-null value.",
+      "ref": "encrypted_df[\"Encrypted Message\"].dropna().iloc[0]"
+    },
+    {
+      "id": "8_o2_ignore_null_message_rows",
+      "kind": "Operation incomplete",
+      "node_id": "msg_nonnull",
+      "op": "filter",
+      "intent": "Exclude null values in Encrypted Message when selecting the message to decode.",
+      "ref": "encrypted_df[\"Encrypted Message\"].dropna()"
+    },
+    {
+      "id": "9_d1_message_column_name",
+      "kind": "Single-table reference",
+      "node_id": "msg_select",
+      "op": "project",
+      "intent": "Use the Encrypted Message field from input_01.csv as the encrypted text to decode.",
+      "ref": "encrypted_df[\"Encrypted Message\"]"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+Country,2023 SDG Index Score,2023 SDG Index Rank,Regions used for the SDR,SDG1: No Poverty,Unnamed: 5,SDG2: No Hunger,Unnamed: 7,SDG3: Good Health and Well-Being,Unnamed: 9,SDG4: Quality Education,Unnamed: 11,SDG5: Gender Equality,Unnamed: 13,SDG6: Clean Water and Sanitation,Unnamed: 15,SDG7: Affordable and Clean Energy,Unnamed: 17,SDG8: Decent Work and Economic Growth,Unnamed: 19,"SDG9: Industry, Innovation and Infrastructure",Unnamed: 21,SDG10: Reduced Inequalities,Unnamed: 23,SDG11: Sustainable Cities and Communities,Unnamed: 25,SDG12: Responsible Consumption and Production,Unnamed: 27,SDG13: Climate Action,Unnamed: 29,SDG14: Life Below Water,Unnamed: 31,SDG15: Life on Land,Unnamed: 33,"SDG16: Peace, Justice and Strong Institutions",Unnamed: 35,SDG17: Partnerships for the Goals,Unnamed: 37
+Finland,86.76059477875066,1.0,OECD,green,↑,red,→,yellow,➚,green,→,yellow,➚,yellow,➚,green,↑,yellow,➚,yellow,➚,yellow,↓,yellow,➚,red,→,red,↓,yellow,➚,orange,➚,yellow,➚,orange,➚
+Sweden,85.98139697606315,2.0,OECD,green,↑,red,→,yellow,➚,yellow,➚,green,↑,yellow,↑,green,➚,yellow,→,yellow,➚,yellow,➚,yellow,➚,red,→,red,→,orange,➚,red,→,yellow,➚,yellow,➚
+Denmark,85.68363680926916,3.0,OECD,green,➚,orange,→,yellow,➚,yellow,→,yellow,↑,yellow,➚,green,↑,yellow,➚,yellow,➚,green,→,orange,➚,red,→,red,➚,orange,→,yellow,➚,yellow,➚,yellow,➚
+Germany,83.3584465113318,4.0,OECD,yellow,↓,orange,→,orange,➚,orange,→,yellow,➚,yellow,↑,yellow,➚,yellow,→,yellow,➚,yellow,↓,yellow,➚,red,➚,red,➚,orange,➚,orange,➚,yellow,➚,yellow,➚
+Austria,82.28018933425642,5.0,OECD,green,➚,orange,→,yellow,➚,yellow,➚,yellow,↑,yellow,➚,green,➚,yellow,→,yellow,➚,yellow,➚,yellow,➚,red,→,red,➚,grey,,orange,→,yellow,➚,orange,➚
+France,82.04834271072065,6.0,OECD,green,➚,orange,→,orange,➚,orange,➚,yellow,↑,orange,→,yellow,➚,orange,➚,yellow,➚,yellow,→,yellow,➚,red,→,red,➚,orange,➚,orange,➚,orange,➚,orange,↑
+Norway,82.00448914565825,7.0,OECD,green,→,red,→,green,➚,yellow,→,green,↑,orange,→,green,➚,yellow,➚,yellow,➚,green,➚,yellow,➚,red,↓,red,➚,orange,→,red,→,yellow,➚,yellow,➚
+Czechia,81.87455223312226,8.0,OECD,green,↑,red,→,orange,➚,yellow,➚,orange,➚,yellow,➚,orange,➚,yellow,➚,orange,➚,yellow,➚,yellow,↑,red,→,red,→,grey,,yellow,➚,yellow,→,orange,↑
+Poland,81.80017555777559,9.0,OECD,green,↑,red,→,orange,➚,yellow,➚,yellow,➚,yellow,↑,orange,➚,yellow,➚,orange,↑,yellow,↑,yellow,→,orange,→,orange,→,red,➚,green,➚,orange,→,yellow,↑
+Estonia,81.68334647313472,10.0,OECD,yellow,➚,red,→,orange,➚,green,↑,orange,➚,yellow,➚,orange,➚,yellow,→,orange,➚,orange,➚,yellow,→,red,→,red,➚,yellow,➚,green,➚,yellow,➚,orange,↑
+United Kingdom,81.65314271708682,11.0,OECD,yellow,↓,red,→,yellow,➚,yellow,➚,yellow,➚,yellow,➚,orange,➚,yellow,↑,green,➚,orange,→,yellow,→,red,➚,red,➚,orange,➚,orange,➚,orange,→,red,→
+Croatia,81.49550882352939,12.0,E. Europe & C. Asia,green,↑,orange,➚,yellow,➚,green,→,orange,➚,yellow,↑,yellow,➚,yellow,➚,yellow,↑,yellow,↑,orange,➚,red,↓,orange,↓,yellow,➚,yellow,➚,orange,➚,orange,➚
+Slovenia,81.00665366055512,13.0,OECD,green,↑,red,→,yellow,➚,yellow,➚,yellow,➚,orange,↑,yellow,➚,yellow,➚,orange,➚,yellow,➚,yellow,➚,red,→,red,→,orange,➚,orange,→,yellow,→,yellow,➚
+Latvia,80.6816428762414,14.0,OECD,yellow,➚,red,→,orange,➚,yellow,➚,orange,➚,orange,↑,yellow,↑,orange,→,red,➚,red,↓,yellow,➚,red,↓,red,→,orange,➚,green,➚,orange,➚,red,➚
+Switzerland,80.53738906687673,15.0,OECD,green,→,red,→,yellow,➚,yellow,➚,yellow,➚,yellow,↑,yellow,➚,yellow,↑,orange,➚,orange,↓,yellow,➚,red,↑,red,→,grey,,red,→,orange,→,red,➚
+Spain,80.42509148841357,16.0,OECD,yellow,→,red,➚,yellow,➚,yellow,→,yellow,↑,yellow,➚,yellow,➚,red,➚,orange,➚,orange,➚,yellow,➚,red,➚,red,➚,orange,➚,red,→,yellow,➚,red,➚
+Ireland,80.14793834988541,17.0,OECD,green,↑,red,→,green,➚,yellow,➚,yellow,➚,orange,➚,orange,➚,yellow,➚,yellow,➚,yellow,↑,yellow,➚,red,↓,red,→,orange,➚,yellow,➚,yellow,➚,red,➚
+Portugal,80.01748717850778,18.0,OECD,yellow,↑,red,→,yellow,➚,yellow,➚,yellow,↑,orange,↑,yellow,➚,orange,➚,orange,➚,yellow,➚,yellow,➚,red,→,orange,➚,red,→,orange,↓,orange,➚,red,➚
+Belgium,79.45505844155844,19.0,OECD,green,→,orange,➚,yellow,➚,orange,→,green,↑,orange,↑,orange,➚,yellow,➚,yellow,➚,yellow,↑,yellow,➚,red,↓,red,→,red,➚,orange,➚,yellow,➚,red,→
+Netherlands,79.42118915202445,20.0,OECD,green,→,red,→,yellow,➚,yellow,→,yellow,➚,yellow,➚,orange,➚,yellow,➚,yellow,➚,yellow,↓,yellow,➚,red,→,red,➚,red,→,orange,→,orange,→,red,➚
+Japan,79.41412774235567,21.0,OECD,yellow,↑,orange,→,yellow,➚,green,➚,red,➚,yellow,➚,orange,➚,orange,➚,green,➚,orange,,yellow,➚,red,➚,red,→,red,→,red,→,yellow,→,orange,➚
+Hungary,79.39344533854626,22.0,OECD,green,➚,red,→,orange,➚,orange,→,orange,➚,yellow,➚,orange,➚,yellow,➚,orange,↑,yellow,→,yellow,➚,orange,→,red,→,grey,,yellow,➚,orange,→,red,➚
+Slovak Republic,79.12032611806087,23.0,OECD,green,↑,red,→,yellow,➚,orange,➚,orange,➚,yellow,➚,yellow,➚,orange,➚,red,➚,yellow,➚,orange,➚,red,➚,red,→,grey,,yellow,↑,orange,→,orange,➚
+Italy,78.78683607079195,24.0,OECD,yellow,↑,red,→,yellow,➚,orange,→,yellow,➚,yellow,↑,orange,➚,orange,➚,red,➚,orange,→,orange,➚,red,→,orange,➚,red,→,orange,→,orange,➚,orange,➚
+Moldova,78.63437561751974,25.0,E. Europe & C. Asia,green,↑,orange,➚,orange,➚,green,➚,orange,➚,orange,➚,yellow,→,orange,➚,orange,→,green,↑,yellow,↑,orange,↓,yellow,↓,grey,,yellow,➚,red,➚,yellow,↑
+Canada,78.49677968208262,26.0,OECD,green,↑,red,→,orange,➚,green,➚,orange,➚,yellow,→,yellow,→,orange,➚,yellow,➚,yellow,➚,yellow,→,red,→,red,➚,orange,➚,red,→,orange,→,orange,➚
+New Zealand,78.43333065471889,27.0,OECD,grey,,red,→,yellow,➚,yellow,→,green,↑,orange,➚,yellow,→,yellow,➚,orange,➚,orange,→,yellow,➚,red,→,red,➚,red,→,red,→,orange,→,red,➚
+Greece,78.3688344601477,28.0,OECD,yellow,➚,orange,→,yellow,➚,orange,→,orange,→,yellow,↑,orange,➚,orange,➚,orange,➚,yellow,↑,orange,➚,red,↓,orange,➚,red,➚,orange,➚,orange,→,orange,➚
+Iceland,78.26644180672268,29.0,OECD,green,↑,red,→,yellow,➚,yellow,→,yellow,➚,red,➚,green,↑,orange,→,orange,➚,green,,orange,➚,red,→,red,→,orange,➚,red,→,green,➚,yellow,↑
+Chile,78.2237712184874,30.0,OECD,orange,→,red,→,yellow,➚,orange,➚,yellow,↑,yellow,↑,yellow,➚,orange,→,red,➚,red,↓,orange,➚,orange,→,red,→,orange,→,red,→,orange,↓,yellow,➚
+"Korea, Rep.",78.06195027472528,31.0,OECD,yellow,➚,orange,→,yellow,➚,yellow,➚,red,➚,orange,➚,orange,➚,yellow,→,yellow,➚,orange,➚,yellow,➚,red,➚,orange,➚,red,→,red,↓,yellow,➚,red,➚
+Uruguay,77.73837360580595,32.0,LAC,green,↑,orange,→,orange,➚,yellow,→,yellow,➚,orange,↑,green,➚,orange,➚,orange,➚,red,↓,yellow,↑,red,→,yellow,→,red,→,red,→,red,➚,yellow,↑
+Luxembourg,77.64534955197988,33.0,OECD,yellow,↑,red,→,yellow,➚,orange,→,yellow,↑,orange,→,orange,➚,yellow,➚,orange,→,yellow,→,yellow,↑,red,→,red,➚,grey,,red,➚,yellow,→,red,➚
+Belarus,77.49529139928697,34.0,E. Europe & C. Asia,green,↑,orange,→,orange,➚,yellow,↓,yellow,➚,yellow,➚,red,➚,red,→,orange,➚,green,↑,orange,➚,orange,→,red,→,grey,,green,➚,red,→,yellow,➚
+Romania,77.4605263305322,35.0,E. Europe & C. Asia,green,↑,orange,➚,orange,➚,yellow,→,red,➚,orange,↑,yellow,→,yellow,➚,orange,➚,orange,➚,yellow,➚,orange,→,orange,↓,yellow,➚,orange,→,orange,→,orange,➚
+Serbia,77.33697174688058,36.0,E. Europe & C. Asia,green,→,orange,➚,orange,➚,yellow,→,orange,➚,orange,↑,orange,➚,orange,➚,orange,➚,orange,↑,orange,➚,orange,➚,orange,→,grey,,red,➚,red,→,yellow,➚
+Lithuania,76.80511203208556,37.0,OECD,yellow,➚,red,→,orange,➚,yellow,➚,yellow,➚,orange,↑,orange,➚,orange,➚,orange,➚,red,→,orange,➚,red,→,red,↓,orange,→,green,↑,orange,➚,orange,➚
+Ukraine,76.51769790552585,38.0,E. Europe & C. Asia,grey,,orange,➚,red,➚,yellow,,orange,➚,orange,➚,orange,➚,orange,→,orange,➚,green,↑,orange,→,orange,→,yellow,→,orange,→,red,➚,red,➚,yellow,→
+United States,75.91439705245736,39.0,OECD,yellow,➚,red,→,orange,→,yellow,➚,orange,➚,yellow,➚,orange,➚,orange,→,yellow,➚,red,→,orange,➚,red,➚,red,→,orange,➚,red,↓,red,→,red,➚
+Australia,75.9041185128597,40.0,OECD,yellow,↓,red,→,orange,➚,yellow,→,orange,➚,orange,➚,orange,➚,yellow,➚,yellow,➚,orange,↓,yellow,➚,red,➚,red,→,orange,→,red,↓,yellow,→,red,➚
+Malta,75.52944579293255,41.0,E. Europe & C. Asia,green,→,red,→,yellow,➚,green,➚,orange,➚,red,➚,orange,➚,yellow,➚,orange,➚,yellow,↓,yellow,➚,red,➚,orange,➚,red,→,yellow,➚,orange,→,red,➚
+Georgia,75.01713789152024,42.0,E. Europe & C. Asia,yellow,➚,orange,➚,orange,➚,green,→,red,➚,yellow,→,yellow,➚,orange,→,orange,➚,orange,➚,orange,➚,orange,→,yellow,↓,red,↓,red,→,orange,→,orange,→
+Thailand,74.73862913165266,43.0,East & South Asia,green,↑,red,→,red,➚,green,➚,orange,➚,orange,↑,orange,↑,orange,→,orange,➚,orange,→,orange,➚,orange,➚,orange,→,red,→,red,↓,red,→,orange,→
+Bulgaria,74.6200475490196,44.0,E. Europe & C. Asia,green,↑,orange,➚,orange,➚,orange,↓,orange,➚,orange,→,yellow,→,yellow,➚,orange,➚,red,↓,orange,→,orange,→,orange,→,red,→,yellow,➚,orange,→,yellow,➚
+Kyrgyz Republic,74.40543430099314,45.0,E. Europe & C. Asia,yellow,➚,orange,→,orange,➚,yellow,➚,orange,→,orange,↑,yellow,➚,red,→,orange,➚,yellow,↑,yellow,➚,yellow,➚,yellow,➚,grey,,red,→,red,→,yellow,→
+Cuba,74.13561626216276,46.0,LAC,grey,,orange,→,orange,→,yellow,→,yellow,→,orange,➚,orange,➚,green,➚,red,➚,grey,,orange,→,yellow,➚,green,↑,red,→,red,→,red,→,green,→
+Bosnia and Herzegovina,74.0198609566904,47.0,E. Europe & C. Asia,green,↑,orange,➚,orange,➚,orange,,orange,➚,orange,→,orange,➚,orange,➚,orange,➚,orange,,red,→,orange,→,orange,→,yellow,➚,orange,➚,orange,→,yellow,➚
+Israel,73.97033907563025,48.0,OECD,orange,➚,red,→,green,➚,orange,→,orange,→,red,➚,orange,➚,orange,→,yellow,↑,orange,➚,orange,➚,red,→,red,➚,red,→,red,→,orange,➚,red,➚
+Russian Federation,73.78628001508297,49.0,E. Europe & C. Asia,green,↑,orange,→,orange,➚,green,↑,orange,→,orange,➚,red,→,yellow,→,orange,➚,orange,➚,yellow,➚,orange,→,red,↓,red,→,red,→,red,→,yellow,↑
+Brazil,73.68939303539598,50.0,LAC,yellow,↑,orange,↓,orange,➚,orange,➚,orange,➚,yellow,↑,green,↑,orange,→,yellow,→,red,→,orange,➚,orange,→,yellow,↑,red,→,red,→,red,→,yellow,➚
+Argentina,73.685218767507,51.0,LAC,yellow,↓,red,→,orange,→,green,➚,green,↑,orange,,orange,➚,orange,➚,orange,→,red,↓,orange,➚,red,➚,orange,➚,red,→,red,→,red,→,orange,→
+Costa Rica,73.55689325821238,52.0,OECD,orange,↓,red,→,orange,➚,orange,→,yellow,➚,red,→,green,➚,orange,↓,red,➚,red,→,yellow,➚,red,→,yellow,➚,red,→,red,↓,red,→,orange,➚
+Azerbaijan,73.52747281639927,53.0,E. Europe & C. Asia,green,↑,orange,→,orange,➚,yellow,➚,red,→,orange,↑,orange,→,orange,→,red,➚,green,,orange,➚,yellow,➚,orange,➚,grey,,red,➚,red,→,orange,↑
+Albania,73.50609736440029,54.0,E. Europe & C. Asia,green,↑,orange,➚,orange,➚,yellow,↓,orange,➚,orange,↑,yellow,➚,red,→,orange,➚,yellow,↑,orange,→,orange,→,green,➚,red,→,orange,→,red,→,orange,→
+Vietnam,73.32232265087856,55.0,East & South Asia,yellow,↑,orange,➚,red,➚,green,→,yellow,➚,orange,↑,orange,→,orange,➚,orange,➚,orange,↓,orange,➚,yellow,➚,yellow,→,red,→,red,↓,red,➚,orange,→
+Armenia,73.25805222277721,56.0,E. Europe & C. Asia,yellow,↑,orange,→,orange,➚,orange,→,orange,➚,orange,↑,yellow,→,orange,→,orange,➚,green,↑,orange,→,yellow,→,yellow,↓,grey,,red,→,orange,→,orange,➚
+Fiji,72.87704415535443,57.0,Oceania,yellow,↓,red,➚,red,→,yellow,➚,orange,→,orange,➚,orange,→,grey,,yellow,➚,yellow,,yellow,→,grey,,green,→,orange,➚,red,↓,orange,↓,orange,➚
+Tunisia,72.50349745352686,58.0,MENA,green,↑,red,→,orange,➚,yellow,↑,orange,→,orange,↑,orange,➚,red,→,orange,➚,orange,,red,→,yellow,➚,yellow,➚,red,→,red,→,red,→,yellow,↑
+Cyprus,72.49166358543415,59.0,E. Europe & C. Asia,green,→,orange,→,yellow,➚,yellow,➚,yellow,→,orange,→,orange,➚,yellow,➚,orange,➚,yellow,↑,orange,→,red,➚,red,↓,red,➚,orange,→,yellow,↓,red,➚
+North Macedonia,72.46901727096434,60.0,E. Europe & C. Asia,yellow,↑,orange,➚,orange,➚,orange,→,orange,➚,orange,↑,orange,→,orange,➚,orange,→,orange,↑,red,→,orange,→,yellow,→,grey,,orange,➚,orange,➚,yellow,➚
+Bhutan,72.3390757796452,61.0,East & South Asia,yellow,➚,red,→,orange,➚,yellow,↑,orange,➚,orange,➚,orange,➚,red,→,orange,➚,orange,,yellow,➚,orange,↑,green,➚,grey,,red,↓,yellow,→,orange,➚
+Dominican Republic,72.1351931436211,62.0,LAC,yellow,↑,orange,→,red,→,orange,→,yellow,➚,orange,➚,orange,➚,orange,↓,orange,➚,orange,↑,yellow,→,yellow,➚,yellow,➚,orange,→,orange,→,red,→,orange,➚
+China,72.0081674854557,63.0,East & South Asia,green,↑,yellow,➚,orange,➚,green,,yellow,→,orange,↑,orange,➚,orange,➚,yellow,↑,orange,→,orange,➚,yellow,→,yellow,→,red,→,red,↓,red,→,orange,→
+Singapore,71.77703382352942,64.0,East & South Asia,grey,,orange,→,yellow,➚,green,➚,yellow,➚,red,↑,orange,➚,orange,➚,green,➚,grey,,yellow,➚,red,↑,red,↑,red,→,red,↓,orange,→,orange,➚
+Peru,71.65907643239113,65.0,LAC,orange,➚,orange,→,red,➚,green,➚,orange,➚,orange,➚,yellow,➚,orange,➚,orange,➚,red,↓,orange,➚,yellow,➚,yellow,➚,red,➚,red,→,red,→,orange,➚
+Kazakhstan,71.64826315253374,66.0,E. Europe & C. Asia,green,↑,red,→,orange,➚,orange,→,yellow,→,orange,➚,red,→,orange,➚,orange,➚,yellow,→,yellow,→,orange,→,red,➚,grey,,red,→,red,➚,orange,➚
+Montenegro,71.40438382352943,67.0,E. Europe & C. Asia,green,↑,red,→,orange,➚,yellow,➚,orange,→,orange,↑,yellow,→,orange,→,orange,➚,orange,↑,orange,→,grey,,yellow,↑,red,➚,red,→,orange,➚,yellow,↑
+Maldives,71.27199736048266,68.0,East & South Asia,green,↑,red,➚,orange,➚,green,↑,red,→,orange,↑,red,➚,grey,,orange,➚,yellow,↑,orange,➚,grey,,yellow,→,red,➚,orange,↓,orange,→,orange,➚
+Uzbekistan,71.14824662592311,69.0,E. Europe & C. Asia,orange,➚,orange,→,red,➚,orange,➚,yellow,↑,red,↑,red,→,orange,→,orange,➚,orange,,orange,➚,yellow,→,yellow,➚,grey,,red,→,red,➚,orange,➚
+Morocco,70.8694556722689,70.0,MENA,yellow,→,orange,→,red,➚,orange,➚,red,→,orange,↑,red,➚,red,↓,orange,↑,orange,,orange,→,green,➚,green,→,red,→,orange,➚,red,→,yellow,↑
+Algeria,70.83361591545709,71.0,MENA,green,↑,red,➚,orange,➚,red,↑,red,→,orange,→,red,➚,red,→,orange,➚,green,,red,→,yellow,↑,orange,➚,orange,→,red,↓,red,↓,yellow,➚
+Türkiye,70.77861136314665,72.0,OECD,yellow,↑,orange,→,orange,➚,orange,↑,red,→,orange,➚,yellow,➚,red,→,red,➚,red,→,orange,→,orange,➚,red,→,red,➚,red,→,red,→,orange,→
+El Salvador,70.6589655080214,73.0,LAC,yellow,↑,red,➚,red,➚,orange,→,orange,→,orange,→,orange,➚,orange,→,red,→,orange,➚,orange,→,yellow,↑,green,➚,red,→,orange,→,red,→,yellow,↑
+Ecuador,70.43423837535013,74.0,LAC,orange,↓,red,→,red,➚,yellow,→,yellow,➚,orange,↑,orange,➚,orange,→,orange,↑,red,↓,orange,↑,yellow,→,yellow,↑,orange,→,red,→,red,→,orange,→
+Indonesia,70.16289733893555,75.0,East & South Asia,orange,↑,red,→,red,➚,yellow,↑,orange,➚,orange,↑,red,→,orange,➚,orange,➚,orange,➚,orange,→,yellow,➚,yellow,→,red,→,red,→,red,→,orange,→
+Colombia,70.05009086452763,76.0,OECD,orange,↓,orange,→,red,➚,orange,➚,orange,➚,red,➚,yellow,➚,red,→,red,➚,red,↓,yellow,→,yellow,➚,orange,↑,red,↓,red,→,red,→,orange,➚
+Jordan,69.87478579263873,77.0,MENA,green,↑,red,➚,red,→,red,→,red,→,red,→,orange,➚,red,➚,orange,➚,orange,,orange,→,yellow,➚,yellow,↑,yellow,↑,red,→,orange,→,orange,→
+Malaysia,69.84974570494865,78.0,East & South Asia,green,↑,red,→,red,→,yellow,→,red,➚,orange,→,red,→,orange,→,yellow,➚,red,,yellow,➚,orange,➚,orange,→,orange,➚,red,→,orange,➚,orange,→
+United Arab Emirates,69.71476572936868,79.0,MENA,green,↑,red,➚,yellow,➚,green,→,orange,➚,red,➚,orange,➚,orange,→,yellow,↑,green,,yellow,➚,red,→,red,→,red,➚,red,→,orange,➚,red,➚
+Mexico,69.70547768016297,80.0,OECD,orange,→,red,→,red,➚,orange,→,yellow,➚,red,➚,orange,➚,red,→,red,→,red,➚,orange,➚,orange,→,orange,➚,red,→,red,↓,red,↓,orange,→
+"Egypt, Arab Rep.",69.6184890320464,81.0,MENA,yellow,↓,red,→,red,➚,orange,↑,orange,➚,orange,↑,orange,➚,red,➚,orange,➚,yellow,,orange,➚,yellow,↑,yellow,➚,red,→,red,→,red,→,orange,→
+Jamaica,69.59087410873441,82.0,LAC,yellow,→,red,→,orange,→,orange,↓,yellow,↑,orange,→,red,→,orange,→,orange,➚,red,,yellow,→,orange,→,yellow,➚,red,→,red,→,red,→,yellow,➚
+Sri Lanka,69.40149898777692,83.0,East & South Asia,orange,↓,red,➚,red,➚,green,↑,red,→,red,➚,orange,→,orange,→,orange,↑,orange,,orange,→,yellow,➚,green,➚,red,→,red,↓,red,→,red,→
+Barbados,69.35155722675371,84.0,LAC,grey,,orange,➚,orange,➚,yellow,↓,orange,➚,red,↑,orange,➚,orange,→,orange,↑,grey,,yellow,➚,grey,,orange,➚,red,➚,orange,↓,red,→,yellow,↑
+Tajikistan,69.18514074357016,85.0,E. Europe & C. Asia,orange,↑,orange,➚,red,➚,orange,,orange,→,orange,➚,yellow,➚,orange,→,red,→,orange,,orange,➚,green,➚,green,➚,grey,,red,→,red,→,orange,➚
+"Iran, Islamic Rep.",69.09183116246498,86.0,MENA,yellow,→,red,→,orange,➚,orange,↑,red,→,red,➚,red,→,red,→,orange,↑,red,↓,orange,→,orange,➚,orange,➚,orange,➚,red,→,red,→,orange,→
+Bolivia,68.85065457091927,87.0,LAC,yellow,➚,orange,→,red,→,yellow,➚,orange,→,red,➚,red,➚,orange,→,red,➚,red,➚,orange,➚,yellow,➚,yellow,➚,grey,,red,↓,red,→,yellow,↑
+Paraguay,68.84061334351924,88.0,LAC,yellow,↑,yellow,→,red,➚,orange,→,orange,➚,orange,↑,yellow,→,orange,↓,orange,➚,red,➚,orange,➚,orange,→,green,→,grey,,red,→,red,→,orange,➚
+Cabo Verde,68.83571070889894,89.0,Sub-Saharan Africa,orange,➚,red,→,red,➚,orange,→,yellow,➚,orange,➚,red,➚,grey,,orange,➚,red,,orange,➚,grey,,green,→,red,→,orange,➚,orange,➚,yellow,↑
+Oman,68.5883507384772,90.0,MENA,grey,,red,→,orange,➚,yellow,➚,red,→,red,➚,red,➚,yellow,↑,orange,➚,grey,,orange,➚,orange,↑,red,→,orange,→,orange,→,grey,,yellow,↑
+Turkmenistan,68.46722124346242,91.0,E. Europe & C. Asia,green,→,orange,→,red,→,grey,,yellow,➚,red,↑,red,➚,red,↓,red,→,grey,,orange,→,orange,➚,orange,→,grey,,red,→,red,→,red,→
+Suriname,68.2453368631304,92.0,LAC,grey,,orange,➚,red,→,orange,↓,orange,➚,orange,↑,orange,➚,red,↓,orange,➚,grey,,orange,→,grey,,yellow,→,yellow,→,red,→,red,→,yellow,↑
+Mauritius,67.9773422035481,93.0,Sub-Saharan Africa,green,↑,orange,→,orange,→,orange,→,orange,➚,orange,↑,red,→,orange,➚,orange,↑,orange,,yellow,→,grey,,yellow,→,red,→,red,→,orange,→,orange,↑
+Saudi Arabia,67.69215148723825,94.0,MENA,green,↑,red,→,orange,➚,yellow,→,red,→,orange,↑,orange,➚,yellow,➚,orange,➚,grey,,orange,➚,red,➚,red,➚,red,→,red,↓,orange,↓,green,↑
+Lebanon,67.52014467787114,95.0,MENA,green,→,red,→,red,→,grey,,red,→,orange,➚,orange,➚,red,↓,yellow,↑,yellow,,red,↓,orange,↓,orange,➚,red,➚,red,↓,red,→,red,→
+Guyana,67.39975115387062,96.0,LAC,green,↑,orange,➚,red,➚,yellow,↑,orange,➚,orange,→,red,→,orange,➚,orange,➚,grey,,orange,➚,grey,,orange,→,red,➚,orange,➚,red,→,orange,↑
+Panama,67.32492940588823,97.0,LAC,yellow,➚,red,➚,red,➚,orange,➚,orange,➚,orange,➚,orange,→,red,→,orange,➚,red,→,yellow,↑,orange,➚,orange,↓,red,→,red,→,red,→,orange,↑
+Philippines,67.14368186274511,98.0,East & South Asia,orange,➚,orange,➚,red,➚,orange,→,orange,→,orange,↑,orange,→,red,➚,orange,➚,red,➚,orange,→,green,➚,yellow,→,red,➚,red,→,red,→,orange,➚
+Nepal,66.46962887165121,99.0,East & South Asia,orange,➚,orange,→,red,➚,orange,→,orange,➚,orange,↑,red,→,red,→,orange,➚,orange,,red,→,green,→,green,→,grey,,red,→,red,→,orange,➚
+Qatar,66.23854149477972,100.0,MENA,grey,,red,→,orange,➚,yellow,➚,orange,➚,red,➚,red,➚,orange,↑,orange,➚,grey,,orange,➚,red,↑,red,→,orange,➚,orange,↓,orange,↓,orange,➚
+Bangladesh,65.91095145148968,101.0,East & South Asia,orange,➚,orange,➚,red,➚,yellow,↑,orange,→,red,➚,red,➚,orange,→,orange,➚,orange,,red,→,green,↑,green,→,red,↓,red,↓,red,↓,red,→
+Brunei Darussalam,65.70781890756304,102.0,East & South Asia,grey,,red,➚,orange,→,green,→,orange,→,red,↑,red,➚,orange,→,orange,↑,grey,,green,↑,red,→,red,↓,red,→,red,→,red,↓,orange,➚
+Cambodia,64.83623969951617,103.0,East & South Asia,grey,,orange,➚,red,→,orange,➚,red,➚,red,➚,red,➚,red,→,red,➚,grey,,orange,➚,yellow,→,green,→,red,→,red,→,red,→,orange,➚
+Nicaragua,64.79990658263306,104.0,LAC,orange,→,red,→,red,➚,orange,,yellow,➚,red,→,orange,→,red,→,red,➚,red,,orange,➚,yellow,➚,green,↑,red,→,red,↓,red,↓,orange,➚
+Iraq,64.79264473173885,105.0,MENA,grey,,red,→,red,➚,orange,,red,→,red,↑,red,➚,red,→,red,➚,yellow,,red,→,yellow,↑,yellow,➚,orange,→,red,↓,red,→,orange,↑
+Mongolia,64.69436642135642,106.0,East & South Asia,yellow,→,red,→,red,➚,green,↑,orange,→,red,➚,red,→,red,→,orange,➚,orange,↓,red,→,red,→,red,↓,grey,,red,→,red,→,yellow,↑
+Belize,64.5999831757703,107.0,LAC,red,↓,orange,➚,red,→,orange,→,orange,➚,red,➚,yellow,➚,red,↓,orange,➚,grey,,orange,➚,orange,↑,yellow,↑,red,→,red,↓,red,→,orange,↑
+Kuwait,64.433992776831,108.0,MENA,grey,,red,→,orange,➚,orange,→,orange,→,red,↑,orange,➚,orange,➚,orange,➚,grey,,yellow,➚,red,➚,red,→,red,➚,red,→,grey,,orange,➚
+Namibia,64.28167338935575,109.0,Sub-Saharan Africa,red,↓,red,→,red,➚,yellow,➚,green,↑,red,→,red,→,red,→,orange,➚,red,,red,↓,orange,➚,yellow,↑,yellow,→,yellow,↑,red,↓,yellow,→
+South Africa,64.00319789915966,110.0,Sub-Saharan Africa,red,→,red,→,red,➚,orange,↓,yellow,➚,orange,➚,red,→,red,➚,orange,➚,red,,orange,→,orange,➚,orange,➚,red,➚,red,→,red,→,yellow,➚
+Bahrain,63.741239393939395,111.0,MENA,grey,,red,→,yellow,➚,yellow,→,red,→,red,↑,orange,➚,yellow,→,orange,➚,grey,,orange,→,red,➚,red,↓,red,→,red,↓,orange,→,orange,→
+India,63.449214005602244,112.0,East & South Asia,orange,↑,red,→,red,➚,yellow,➚,red,➚,red,➚,orange,➚,orange,➚,red,➚,orange,↓,red,→,green,↑,green,→,red,➚,red,↓,red,→,orange,➚
+Gabon,63.092157002801116,113.0,Sub-Saharan Africa,yellow,→,red,→,red,→,red,,red,→,red,→,orange,↑,red,➚,red,➚,orange,,red,→,yellow,↑,yellow,↑,red,→,orange,➚,red,→,orange,→
+Trinidad and Tobago,62.981997614272984,114.0,LAC,green,→,orange,→,yellow,➚,orange,,orange,➚,orange,➚,red,➚,orange,➚,orange,➚,grey,,orange,➚,grey,,red,➚,red,→,red,→,red,→,orange,➚
+Lao PDR,62.9637958776844,115.0,East & South Asia,orange,→,red,→,red,➚,orange,→,orange,➚,orange,↑,orange,→,orange,→,red,➚,orange,,orange,➚,yellow,→,yellow,→,grey,,red,→,red,→,red,→
+Honduras,62.94584397122486,116.0,LAC,orange,→,red,→,red,➚,orange,→,yellow,➚,orange,➚,orange,➚,red,→,red,➚,red,→,orange,➚,yellow,→,green,➚,red,→,red,→,red,→,orange,→
+"Venezuela, RB",62.882696692523176,117.0,LAC,red,↓,red,→,red,→,orange,→,orange,➚,orange,➚,orange,➚,orange,➚,orange,→,red,,orange,↑,orange,➚,yellow,↑,red,➚,orange,→,red,→,orange,→
+Botswana,62.737625982806925,118.0,Sub-Saharan Africa,red,→,red,→,red,→,orange,,orange,➚,orange,➚,red,→,orange,→,orange,↑,red,,orange,→,orange,→,yellow,➚,grey,,red,➚,red,→,yellow,➚
+Sao Tome and Principe,62.732946670976084,119.0,Sub-Saharan Africa,red,→,orange,→,red,→,red,,orange,→,red,→,red,➚,grey,,orange,➚,red,,red,→,grey,,green,↑,orange,→,yellow,➚,orange,→,orange,➚
+Cote d'Ivoire,62.259287535013996,120.0,Sub-Saharan Africa,orange,↑,red,→,red,→,red,↑,red,➚,red,→,red,→,orange,➚,red,➚,orange,↑,red,→,green,↑,yellow,➚,orange,➚,orange,→,red,→,red,→
+Senegal,61.82940280112046,121.0,Sub-Saharan Africa,orange,➚,red,→,red,➚,red,→,red,→,red,➚,red,→,orange,➚,orange,➚,orange,,red,→,green,➚,green,→,red,➚,red,→,orange,→,orange,➚
+Ghana,61.798690889992365,122.0,Sub-Saharan Africa,red,→,orange,➚,red,➚,yellow,➚,red,➚,red,➚,orange,➚,orange,➚,orange,➚,red,,red,↓,green,→,yellow,→,red,→,orange,↓,red,→,orange,→
+Kenya,60.91303634453782,123.0,Sub-Saharan Africa,red,→,red,→,red,→,orange,➚,orange,➚,red,→,red,➚,orange,→,red,➚,red,,red,↓,green,↑,green,➚,red,→,red,↓,red,→,orange,→
+"Bahamas, The",60.86056040135689,124.0,LAC,grey,,red,→,orange,➚,orange,,orange,➚,red,➚,orange,➚,orange,➚,orange,➚,grey,,yellow,↑,red,↓,red,➚,red,→,red,↓,red,→,orange,➚
+Myanmar,60.44313050674817,125.0,East & South Asia,orange,→,orange,→,red,→,red,↑,orange,→,red,➚,red,→,red,➚,red,➚,yellow,,red,→,yellow,→,yellow,➚,red,↓,red,↓,red,↓,red,→
+Rwanda,60.19805602482372,126.0,Sub-Saharan Africa,red,→,red,→,red,→,red,→,orange,➚,red,→,red,➚,red,↓,red,➚,red,,red,→,yellow,→,green,➚,grey,,red,→,red,→,orange,➚
+Guatemala,59.38309831932772,127.0,LAC,orange,→,red,→,red,➚,orange,➚,red,→,red,➚,orange,➚,red,↓,red,→,red,,orange,→,yellow,➚,green,➚,red,→,red,↓,red,→,orange,→
+Pakistan,58.967641745509404,128.0,East & South Asia,orange,➚,red,→,red,→,red,→,red,→,red,➚,red,→,red,→,red,→,yellow,↑,red,→,yellow,➚,green,➚,red,➚,red,→,red,→,red,➚
+"Gambia, The",58.30157717086835,129.0,Sub-Saharan Africa,orange,➚,red,→,red,→,red,→,red,➚,red,→,red,→,red,➚,red,→,orange,,red,→,green,↑,green,↑,red,↓,orange,➚,red,➚,red,➚
+Syrian Arab Republic,58.1809209114415,130.0,MENA,grey,,red,→,red,➚,red,,red,→,orange,→,red,→,orange,→,red,→,orange,,red,↓,yellow,↑,green,↑,red,→,red,→,red,↓,orange,→
+Mali,57.98284701455294,131.0,Sub-Saharan Africa,red,→,red,→,red,→,red,↓,orange,➚,red,➚,red,→,red,→,red,→,orange,,red,➚,yellow,→,green,➚,grey,,orange,➚,red,→,orange,→
+Eswatini,57.85070875591616,132.0,Sub-Saharan Africa,red,→,red,→,red,➚,orange,↑,orange,➚,red,→,orange,➚,grey,,orange,➚,red,,yellow,→,grey,,yellow,→,grey,,red,→,red,↓,orange,→
+Mauritania,57.23236890756302,133.0,Sub-Saharan Africa,orange,→,red,→,red,→,red,➚,red,→,red,→,red,→,red,→,red,➚,orange,,red,→,yellow,➚,green,➚,red,➚,red,→,red,→,orange,→
+Tanzania,56.83294185765215,134.0,Sub-Saharan Africa,red,→,red,→,red,➚,red,➚,orange,➚,red,→,red,→,orange,➚,red,→,red,,red,→,green,↑,green,➚,red,↓,red,→,red,→,red,→
+Malawi,56.29572535892102,135.0,Sub-Saharan Africa,red,↓,red,→,red,➚,red,→,orange,➚,red,→,red,→,red,→,red,→,orange,↑,red,→,green,➚,green,➚,grey,,red,→,red,→,red,→
+Togo,56.264875560224084,136.0,Sub-Saharan Africa,red,➚,red,→,red,➚,orange,➚,red,→,red,→,red,➚,red,➚,red,➚,red,→,red,→,green,➚,green,➚,orange,→,orange,↓,red,↓,orange,→
+Sierra Leone,55.669402030812336,137.0,Sub-Saharan Africa,red,➚,red,→,red,→,red,→,red,→,red,→,red,→,red,➚,red,→,orange,,red,↓,green,↑,green,➚,red,→,orange,→,red,→,orange,↑
+Zimbabwe,55.60229221657315,138.0,Sub-Saharan Africa,red,↓,red,→,red,→,red,→,yellow,➚,red,↓,red,→,red,→,red,→,red,,orange,↓,green,➚,yellow,➚,grey,,orange,↓,red,↓,red,→
+Cameroon,55.149658874458886,139.0,Sub-Saharan Africa,red,→,red,→,red,→,red,→,red,➚,red,→,red,→,red,→,red,➚,red,,red,→,green,➚,yellow,➚,orange,➚,red,↓,red,→,red,→
+Benin,55.11762850140057,140.0,Sub-Saharan Africa,red,↑,red,→,red,→,red,→,red,→,red,→,red,↓,orange,➚,red,➚,orange,↑,red,→,green,➚,green,→,red,→,orange,→,red,→,orange,➚
+Uganda,55.024064778325126,141.0,Sub-Saharan Africa,red,→,red,➚,red,➚,red,,orange,➚,red,→,red,➚,red,➚,red,→,red,→,red,→,green,↑,green,➚,grey,,red,↓,red,→,red,→
+Guinea,54.88727619047619,142.0,Sub-Saharan Africa,orange,➚,red,→,red,→,red,➚,red,→,red,→,red,→,orange,→,red,→,yellow,,red,→,green,➚,green,→,red,↓,orange,→,red,→,orange,➚
+Lesotho,54.86989376992176,143.0,Sub-Saharan Africa,red,→,red,→,red,→,red,→,yellow,➚,red,→,red,→,red,↓,red,→,red,,red,➚,grey,,green,↑,grey,,orange,➚,red,↓,orange,→
+Ethiopia,54.54639699121028,144.0,Sub-Saharan Africa,red,➚,red,→,red,➚,red,→,orange,➚,red,→,red,➚,red,→,red,→,orange,,red,→,green,→,green,→,grey,,red,→,red,→,orange,→
+Zambia,54.28413606684053,145.0,Sub-Saharan Africa,red,↓,red,→,red,➚,orange,,orange,➚,red,→,red,→,red,➚,red,→,red,,red,→,green,➚,green,➚,grey,,red,→,red,↓,orange,→
+Nigeria,54.27087045454545,146.0,Sub-Saharan Africa,red,→,red,→,red,→,red,,red,→,red,➚,red,→,red,→,red,➚,orange,➚,red,→,green,→,yellow,→,red,➚,orange,↓,red,→,red,→
+Burundi,53.911466529025404,147.0,Sub-Saharan Africa,red,↓,red,→,red,→,red,➚,red,➚,red,→,red,→,red,↑,red,↓,orange,,red,➚,green,→,green,➚,grey,,red,→,red,↓,orange,→
+Papua New Guinea,53.60445303813833,148.0,Oceania,red,→,red,↓,red,→,red,,red,→,red,→,red,→,red,→,red,→,red,,orange,→,green,→,green,→,red,→,orange,→,red,→,red,→
+Mozambique,52.68726507218272,149.0,Sub-Saharan Africa,red,→,red,→,red,→,red,➚,red,➚,red,➚,red,→,red,➚,red,↓,red,,orange,→,green,➚,yellow,↑,red,➚,red,↓,red,↓,orange,→
+Djibouti,52.67871036414566,150.0,Sub-Saharan Africa,orange,➚,red,→,red,→,red,→,red,➚,red,→,red,→,red,↓,orange,↑,red,,orange,➚,yellow,↑,yellow,➚,red,↓,red,↓,red,→,red,→
+"Congo, Rep.",52.63154388422035,151.0,Sub-Saharan Africa,red,↓,red,→,red,→,red,,red,→,red,→,red,➚,red,➚,red,→,red,,red,↓,green,➚,yellow,➚,orange,➚,orange,➚,red,↓,orange,→
+Haiti,52.576514215686274,152.0,LAC,red,→,red,→,red,→,grey,,red,➚,red,→,red,→,red,↓,red,→,red,,red,→,green,➚,green,➚,red,↓,red,→,red,↓,red,→
+Burkina Faso,52.44550392398338,153.0,Sub-Saharan Africa,red,→,red,→,red,→,red,➚,red,→,red,↓,red,→,red,→,red,→,red,↓,red,➚,green,➚,green,→,grey,,orange,➚,red,→,orange,➚
+Comoros,51.73064215686275,154.0,Sub-Saharan Africa,red,→,red,→,red,→,red,,red,→,red,→,red,➚,grey,,red,→,red,,red,→,grey,,green,→,red,↓,red,➚,red,↓,yellow,→
+Angola,50.817984574738986,155.0,Sub-Saharan Africa,red,↓,red,→,red,→,red,➚,red,→,red,→,red,➚,red,→,red,→,red,,red,↓,green,↑,green,↑,orange,→,red,→,red,→,orange,→
+Madagascar,50.25456036414566,156.0,Sub-Saharan Africa,red,→,red,→,red,→,red,↓,orange,➚,red,→,red,→,red,↓,red,→,red,,red,→,green,↑,green,→,red,→,red,→,red,→,red,→
+Liberia,49.88381024171907,157.0,Sub-Saharan Africa,red,↓,red,→,red,→,red,↓,red,→,red,→,red,→,red,→,red,→,orange,,red,→,green,↑,green,↑,orange,➚,red,→,red,→,orange,➚
+Afghanistan,49.005601438757324,158.0,E. Europe & C. Asia,red,↓,red,→,red,→,red,→,red,➚,red,➚,red,→,red,→,red,→,grey,,red,→,green,↑,green,→,grey,,red,➚,red,→,red,➚
+"Congo, Dem. Rep.",48.581700676937444,159.0,Sub-Saharan Africa,red,→,red,→,red,→,red,➚,red,➚,red,↓,red,→,red,→,red,➚,red,,red,→,green,↑,green,↑,yellow,→,red,→,red,→,red,→
+Sudan,48.55259439775911,160.0,Sub-Saharan Africa,red,↓,red,→,red,→,red,,red,→,red,→,orange,➚,red,→,red,➚,orange,,red,→,green,,green,↑,red,→,red,→,red,➚,red,→
+Niger,48.30976092041832,161.0,Sub-Saharan Africa,red,→,red,→,red,→,red,↓,red,➚,red,→,red,→,red,➚,red,→,orange,↓,red,➚,yellow,↑,green,↑,grey,,red,➚,red,→,orange,➚
+Somalia,48.02723118939884,162.0,Sub-Saharan Africa,red,↓,red,→,red,→,grey,,red,→,red,→,red,→,red,→,red,→,orange,,orange,➚,green,➚,green,↑,red,→,red,↓,grey,,red,↑
+"Yemen, Rep.",46.84698025210084,163.0,MENA,red,↓,red,→,red,→,red,,red,→,red,→,red,→,red,➚,red,→,orange,,red,➚,green,➚,green,↑,red,↓,red,↓,red,↓,orange,↓
+Chad,45.34232094079011,164.0,Sub-Saharan Africa,red,↓,red,→,red,→,red,→,red,→,red,→,red,→,red,→,red,→,orange,,red,→,yellow,➚,green,↑,grey,,orange,→,red,↓,red,➚
+Central African Republic,40.39583942818507,165.0,Sub-Saharan Africa,red,→,red,→,red,→,red,,red,→,red,↓,red,→,red,→,red,→,red,,red,↓,green,➚,green,→,grey,,yellow,→,red,↓,red,→
+South Sudan,38.676086066840526,166.0,Sub-Saharan Africa,red,↓,red,→,red,→,red,,orange,➚,red,→,red,→,red,→,red,→,red,,red,→,yellow,➚,green,↑,grey,,red,→,red,↓,red,→
+Andorra,,,E. Europe & C. Asia,grey,,yellow,↓,grey,,grey,,green,➚,green,↑,yellow,➚,grey,,orange,➚,grey,,yellow,↑,grey,,yellow,→,grey,,orange,→,grey,,yellow,↑
+Antigua and Barbuda,,,LAC,grey,,red,→,yellow,➚,green,↑,orange,→,orange,,red,➚,grey,,orange,➚,grey,,yellow,➚,grey,,yellow,→,red,→,orange,→,orange,➚,orange,➚
+Dominica,,,LAC,grey,,red,→,grey,,orange,→,yellow,↑,orange,,red,→,grey,,orange,➚,grey,,grey,,grey,,yellow,↑,red,➚,red,↓,red,→,orange,↑
+Eritrea,,,Sub-Saharan Africa,red,→,red,→,red,➚,red,↓,orange,➚,red,,red,→,red,→,red,→,grey,,red,↓,green,↑,green,➚,red,↓,red,↓,grey,,yellow,→
+"Micronesia, Fed. Sts.",,,Oceania,grey,,grey,,red,→,red,↓,orange,→,grey,,red,→,grey,,red,→,red,,grey,,grey,,green,→,red,→,red,→,grey,,orange,→
+Guinea-Bissau,,,Sub-Saharan Africa,red,→,red,→,red,→,red,→,red,→,red,→,red,→,grey,,red,→,orange,,red,→,grey,,green,→,red,→,red,↓,red,→,red,→
+Equatorial Guinea,,,Sub-Saharan Africa,grey,,red,→,red,→,red,,red,→,red,,red,→,orange,↓,red,→,grey,,red,↓,yellow,↑,yellow,↑,orange,→,orange,➚,grey,,red,↓
+Grenada,,,LAC,grey,,orange,→,orange,➚,yellow,➚,yellow,➚,orange,,orange,→,grey,,orange,↑,grey,,grey,,grey,,yellow,→,red,→,red,→,red,→,orange,↓
+Kiribati,,,Oceania,grey,,red,→,red,➚,yellow,↓,red,→,red,→,red,→,grey,,orange,➚,green,,orange,➚,grey,,green,→,orange,→,grey,,grey,,yellow,➚
+St. Kitts and Nevis,,,LAC,grey,,orange,→,grey,,green,➚,yellow,➚,orange,,orange,➚,grey,,orange,↑,grey,,yellow,↑,grey,,yellow,→,red,→,red,→,red,→,orange,→
+Libya,,,MENA,grey,,red,↓,red,➚,grey,,red,→,red,➚,red,↓,red,↓,red,→,grey,,orange,↓,red,→,red,↓,red,→,orange,➚,grey,,orange,→
+St. Lucia,,,LAC,orange,→,orange,→,red,→,yellow,→,orange,➚,orange,➚,orange,→,grey,,orange,➚,red,,yellow,➚,grey,,yellow,→,red,→,orange,↓,red,→,orange,➚
+Liechtenstein,,,E. Europe & C. Asia,grey,,grey,,grey,,green,➚,grey,,grey,,green,↑,grey,,yellow,➚,grey,,grey,,grey,,grey,,grey,,yellow,➚,grey,,grey,
+Monaco,,,E. Europe & C. Asia,grey,,grey,,grey,,green,,grey,,green,↑,green,↑,grey,,orange,➚,grey,,yellow,↑,grey,,grey,,grey,,grey,,grey,,orange,↓
+Marshall Islands,,,Oceania,grey,,red,→,grey,,red,↓,orange,→,grey,,orange,→,grey,,red,→,orange,,grey,,grey,,grey,,red,→,grey,,grey,,orange,➚
+Nauru,,,Oceania,grey,,red,→,grey,,yellow,↓,red,→,red,↑,red,➚,grey,,red,↓,orange,,orange,➚,grey,,yellow,→,red,↓,grey,,grey,,yellow,↑
+Palau,,,Oceania,grey,,grey,,grey,,yellow,➚,orange,→,yellow,↑,yellow,➚,grey,,red,↑,grey,,yellow,↑,grey,,grey,,orange,→,red,→,grey,,orange,➚
+"Korea, Dem. Rep.",,,East & South Asia,grey,,red,→,red,→,green,,yellow,➚,orange,→,red,→,orange,➚,red,→,grey,,red,→,green,➚,yellow,→,red,→,red,→,grey,,grey,
+Solomon Islands,,,Oceania,red,↓,red,→,red,→,red,↓,red,➚,red,↓,red,→,grey,,red,→,orange,,orange,→,grey,,green,↑,red,↓,red,↓,orange,→,orange,➚
+San Marino,,,E. Europe & C. Asia,grey,,orange,,grey,,yellow,,yellow,↑,grey,,green,↑,grey,,orange,↑,grey,,yellow,↑,grey,,grey,,grey,,grey,,grey,,green,↑
+Seychelles,,,Sub-Saharan Africa,grey,,red,→,orange,➚,green,➚,yellow,→,orange,↑,orange,➚,grey,,orange,↑,yellow,,yellow,➚,grey,,yellow,→,yellow,→,red,➚,grey,,orange,↑
+Timor-Leste,,,East & South Asia,orange,↓,red,→,red,➚,orange,➚,orange,→,red,➚,red,➚,grey,,red,→,yellow,,orange,➚,grey,,grey,,red,↓,grey,,red,➚,yellow,➚
+Tonga,,,Oceania,yellow,↑,orange,→,red,→,yellow,↑,red,→,grey,,red,➚,grey,,orange,➚,orange,,yellow,↑,grey,,green,→,red,→,grey,,orange,→,orange,↑
+Tuvalu,,,Oceania,grey,,red,→,grey,,orange,↓,red,→,orange,↑,orange,➚,grey,,orange,➚,orange,,yellow,↑,grey,,green,→,orange,→,grey,,grey,,yellow,↑
+St. Vincent and the Grenadines,,,LAC,grey,,orange,→,orange,➚,yellow,↑,orange,➚,orange,,red,→,grey,,orange,↑,grey,,grey,,grey,,yellow,↑,red,→,red,→,red,➚,orange,↑
+Vanuatu,,,Oceania,red,↓,red,→,red,→,orange,➚,red,→,red,→,red,→,grey,,orange,➚,orange,,yellow,→,grey,,green,→,red,→,red,→,red,,orange,➚
+Samoa,,,Oceania,yellow,➚,red,→,red,→,orange,→,red,→,orange,➚,red,→,grey,,orange,➚,orange,,yellow,→,grey,,green,→,orange,↓,red,↓,red,↑,yellow,➚
+Eastern Europe and Central Asia,71.7611005952381,,,orange,↓,orange,→,orange,➚,yellow,➚,orange,➚,orange,➚,red,→,orange,→,orange,➚,yellow,→,orange,→,orange,→,orange,→,grey,,red,→,red,→,yellow,➚
+East and South Asia,67.20143681563535,,,yellow,↑,red,→,red,➚,yellow,→,orange,➚,orange,↑,orange,➚,orange,→,orange,↑,orange,,red,→,yellow,➚,orange,→,red,→,red,→,red,→,orange,→
+Latin America and the Caribbean,70.18926922587218,,,orange,↓,orange,↓,red,→,yellow,➚,yellow,➚,orange,➚,yellow,↑,orange,→,orange,➚,red,,orange,→,orange,➚,yellow,↑,red,→,red,→,red,→,yellow,↑
+Middle East and North Africa,67.08202107843137,,,orange,↓,red,→,red,➚,orange,➚,red,→,orange,↑,red,→,red,→,orange,➚,orange,,orange,→,yellow,↑,orange,➚,red,→,red,→,red,→,orange,➚
+Oceania,52.71815196078431,,,red,→,red,↓,red,→,red,➚,red,→,red,→,red,→,grey,,red,➚,red,,orange,→,grey,,green,→,red,→,orange,→,grey,,red,→
+OECD members,77.81406527247265,,,yellow,→,red,→,yellow,➚,green,➚,yellow,➚,yellow,↑,orange,➚,yellow,➚,green,➚,orange,→,yellow,➚,red,→,red,→,orange,→,red,→,orange,→,yellow,➚
+Small Island Developing States,63.853546832579184,,,red,→,red,→,red,→,orange,↓,orange,→,red,→,red,→,grey,,orange,→,orange,→,orange,→,grey,,yellow,➚,red,→,red,→,red,→,orange,→
+Sub-Saharan Africa,53.02827606951871,,,red,→,red,→,red,→,red,→,red,→,red,→,red,→,red,→,red,→,red,,red,→,green,↑,yellow,↑,red,→,red,→,red,↓,red,→
+Low-income Countries,50.70398255029285,,,red,→,red,→,red,→,red,,red,➚,red,→,red,→,red,→,red,→,orange,,red,→,green,↑,green,➚,red,↓,red,→,red,↓,orange,→
+Lower-middle-income Countries,63.405224847211606,,,orange,➚,red,→,red,→,orange,→,red,→,red,➚,orange,➚,orange,→,orange,➚,orange,,red,→,green,↑,yellow,→,red,➚,red,→,red,→,orange,→
+Upper-middle-income Countries,71.73151073338425,,,yellow,➚,orange,→,orange,➚,yellow,➚,yellow,➚,orange,↑,orange,➚,orange,➚,yellow,↑,red,,orange,➚,orange,➚,orange,➚,red,→,red,↓,red,→,orange,→
+High-income Countries,78.16982332569393,,,green,↑,red,→,yellow,➚,green,➚,yellow,➚,orange,↑,orange,➚,yellow,➚,green,↑,orange,→,yellow,➚,red,→,red,→,orange,→,red,→,yellow,→,yellow,➚
+World,66.68975474280622,,,orange,→,red,→,red,➚,yellow,→,orange,➚,orange,➚,orange,➚,orange,→,orange,➚,orange,→,red,→,yellow,➚,orange,→,red,→,red,→,red,→,orange,→

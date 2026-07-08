@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_keys_year_weeku",
+      "kind": "Multi-table alignment",
+      "node_id": "join_sales_rates",
+      "op": "join",
+      "intent": "Join sales weeks to exchange-rate weeks by matching Sales (Year, Week_U) to Rates (Year, Week).",
+      "ref": "        left_on=['Year', 'Week_U'],\n        right_on=['Year', 'Week'],"
+    },
+    {
+      "id": "2_O2_unmatched_sales_weeks_excluded",
+      "kind": "Operation incomplete",
+      "node_id": "join_sales_rates",
+      "op": "join",
+      "intent": "Exclude sales weeks that have no matching weekly exchange rate.",
+      "ref": "    merged = sales_df.merge(\n        weekly_rates,\n        left_on=['Year', 'Week_U'],\n        right_on=['Year', 'Week'],\n        suffixes=('', '_rate')\n    )"
+    },
+    {
+      "id": "3_C2_variance_best_minus_worst",
+      "kind": "Row-level concept",
+      "node_id": "post_join_compute",
+      "op": "project",
+      "source_text": "What's the weekly variance could be",
+      "ref": "    merged['US Sales Potential Variance'] = (\n        merged['US Sales (USD) Best Case'] - merged['US Sales (USD) Worst Case']\n    )"
+    },
+    {
+      "id": "4_D1_extract_rate_from_text_field",
+      "kind": "Single-table reference",
+      "node_id": "rates_project",
+      "op": "project",
+      "intent": "Obtain the numeric GBP→USD rate by extracting it from the \"British Pound to US Dollar\" text field.",
+      "ref": "        match = re.search(r'= ([\\d.]+) USD', rate_str)"
+    },
+    {
+      "id": "5_O1_sunday_start_week_numbering_U",
+      "kind": "Operation boundary",
+      "node_id": "rates_project",
+      "op": "project",
+      "source_text": "Determine the best and worst GBP to USD exchange rates on a calendar week basis",
+      "ref": "    rates_df['Week'] = rates_df['Date'].dt.strftime('%U').astype(int)"
+    },
+    {
+      "id": "6_C2_best_rate_max_worst_rate_min",
+      "kind": "Group-level concept",
+      "node_id": "rates_weekly",
+      "op": "aggregate",
+      "source_text": "Determine the best and worst GBP to USD exchange rates on a calendar week basis",
+      "ref": "    weekly_rates = rates_df.groupby(['Year', 'Week']).agg({\n        'Rate': ['max', 'min']\n    }).reset_index()"
+    },
+    {
+      "id": "7_C2_us_percent_divide_by_100",
+      "kind": "Row-level concept",
+      "node_id": "sales_project",
+      "op": "project",
+      "source_text": "recorded what % of sales split is between the US and UK",
+      "ref": "    sales_df['US_Percent'] = sales_df['US Stock sold (%)'] / 100"
+    },
+    {
+      "id": "8_D2_week_u_is_week_minus_1",
+      "kind": "Multi-table alignment",
+      "node_id": "sales_project",
+      "op": "project",
+      "intent": "Match sales to the prior Sunday-start exchange-rate week by defining Week_U = Week - 1.",
+      "ref": "    sales_df['Week_U'] = sales_df['Week'] - 1"
+    }
+  ]
+}

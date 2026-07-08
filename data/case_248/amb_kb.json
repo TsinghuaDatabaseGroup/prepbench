@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_drop_rows_both_missing",
+      "kind": "Operation incomplete",
+      "node_id": "n_filter_tx",
+      "op": "filter",
+      "source_text": "Remove any Project Name rows that don't contain any Cost or Invoiced Amounts",
+      "ref": "df_tx = df[~(df[\"Cost\"].isna() & df[\"Invoiced Amount\"].isna())].copy()"
+    },
+    {
+      "id": "2_O2_fill_down_project_name",
+      "kind": "Row-level concept",
+      "node_id": "n_project_prepare",
+      "op": "project",
+      "source_text": "Fill in the field if there are any nulls",
+      "ref": "df[\"Project Name\"] = project_headers.ffill()"
+    },
+    {
+      "id": "3_C1_tx_label_match_startswith",
+      "kind": "Single-table reference",
+      "node_id": "n_project_prepare",
+      "op": "project",
+      "source_text": "Financial Transactions have either *Invoice* or *Expense* in the name",
+      "ref": "if not v.lower().startswith(\"expense\") and not v.lower().startswith(\"invoice\"):"
+    },
+    {
+      "id": "4_O2_non_numeric_as_missing",
+      "kind": "Operation incomplete",
+      "node_id": "n_project_prepare",
+      "op": "project",
+      "intent": "Treat non-numeric Cost and Invoiced Amount values as missing for filtering and aggregation.",
+      "ref": "df[\"Cost\"] = pd.to_numeric(df[\"Cost\"], errors=\"coerce\")\ndf[\"Invoiced Amount\"] = pd.to_numeric(df[\"Invoiced Amount\"], errors=\"coerce\")"
+    }
+  ]
+}

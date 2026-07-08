@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_year_2021_sum_scope",
+      "kind": "Group-level concept",
+      "node_id": "agg_eoy_current",
+      "op": "aggregate",
+      "source_text": "Create a table that details total rent paid for completed years across all contracts",
+      "ref": "y2021_sum = out1_with_dt.loc[out1_with_dt[\"Month_dt\"].dt.year == 2021, \"Rent per Month\"].sum()"
+    },
+    {
+      "id": "2_O1_ytd_month_cutoff_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "agg_eoy_current",
+      "op": "aggregate",
+      "source_text": "year to date figures for the current year, which would update as time goes on",
+      "ref": "y2022_mask = (out1_with_dt[\"Month_dt\"].dt.year == 2022) & (out1_with_dt[\"Month_dt\"].dt.month <= 4)"
+    },
+    {
+      "id": "3_O1_month_divider_month_start",
+      "kind": "Row-level concept",
+      "node_id": "expand_months",
+      "op": "script",
+      "source_text": "Create a row for each month that a rental contract will be live",
+      "ref": "def generate_month_series(start_dt: pd.Timestamp, n_months: int) -> pd.Series:\n    start_month = month_floor(start_dt)\n    return pd.date_range(start=start_month, periods=n_months, freq=\"MS\")"
+    },
+    {
+      "id": "4_C2_cumulative_cost_running_total",
+      "kind": "Group-level concept",
+      "node_id": "expand_months",
+      "op": "script",
+      "source_text": "Calculate the cumulative monthly cost of each office space contract",
+      "ref": "        cum = 0.0\n        for dt in month_series:\n            cum += rent\n            rows.append({\n                \"Cumulative Monthly Cost\": cum,"
+    },
+    {
+      "id": "5_D2_join_keys_city_office_size",
+      "kind": "Multi-table alignment",
+      "node_id": "join_prices",
+      "op": "join",
+      "source_text": "Input the Office Space Prices data and join it to the contracts table",
+      "ref": "    contracts = contracts.merge(\n        prices,\n        on=[\"City\", \"Office Size\"],"
+    },
+    {
+      "id": "6_O2_unmatched_prices_keep_contracts",
+      "kind": "Operation boundary",
+      "node_id": "join_prices",
+      "op": "join",
+      "source_text": "Input the Office Space Prices data and join it to the contracts table",
+      "ref": "    contracts = contracts.merge(\n        prices,\n        on=[\"City\", \"Office Size\"],\n        how=\"left\","
+    },
+    {
+      "id": "7_O1_contract_length_whole_months_ignore_days",
+      "kind": "Row-level concept",
+      "node_id": "project_contract_metrics",
+      "op": "project",
+      "source_text": "Work out the length of each contract in months",
+      "ref": "def months_between_inclusive(start_dt: pd.Timestamp, end_dt: pd.Timestamp) -> int:\n    return (end_dt.year - start_dt.year) * 12 + (end_dt.month - start_dt.month)"
+    },
+    {
+      "id": "8_O1_months_until_expiry_whole_months_from_apr_2022",
+      "kind": "Row-level concept",
+      "node_id": "project_contract_metrics",
+      "op": "project",
+      "source_text": "Work out the number of months until each contract expires",
+      "ref": "def months_diff_from_apr_2022(end_dt: pd.Timestamp) -> int:\n    return (end_dt.year - 2022) * 12 + (end_dt.month - 4)"
+    },
+    {
+      "id": "11_O2_out2_non_2021_2022_blank",
+      "kind": "Operation incomplete",
+      "node_id": "project_out2_adjust",
+      "op": "project",
+      "source_text": "Create a table that details total rent paid for completed years across all contracts",
+      "ref": "    data = {\"Year\": years, \"EoY and Current\": [pd.NA] * len(years)}"
+    }
+  ]
+}

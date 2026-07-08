@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Category"
+      ],
+      "columns": {
+        "Category": "text_exact",
+        "Female": "number",
+        "Male": "number"
+      }
+    }
+  }
+}
+

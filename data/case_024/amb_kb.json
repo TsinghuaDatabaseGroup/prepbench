@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_word_tokenization",
+      "kind": "Row-level concept",
+      "node_id": "chat_compute",
+      "op": "project",
+      "source_text": "Who has the highest amount of words per message",
+      "ref": "\"Number of Words\": parsed[\"Message\"].str.findall(r\"[A-Za-z']+\").str.len()"
+    },
+    {
+      "id": "2_D2_calendar_key_format",
+      "kind": "Multi-table alignment",
+      "node_id": "chat_compute",
+      "op": "project",
+      "source_text": "additional data source that let's you know whether the day was a weekday / weekend day or public holiday",
+      "ref": "cal_key = dt.dt.day.astype(str) + \" \" + dt.dt.month_name()"
+    },
+    {
+      "id": "3_O2_chat_record_parse_format",
+      "kind": "Operation boundary",
+      "node_id": "chat_parse",
+      "op": "project",
+      "source_text": "The real data is who sent the message and when",
+      "ref": "parsed = df_chat[\"Field_1\"].str.extract(r\"\\[(\\d{2})/(\\d{2})/(\\d{4}), (\\d{2}):(\\d{2}):(\\d{2})\\] (.*?): (.*)\")"
+    },
+    {
+      "id": "4_O2_unmatched_calendar_keeps_messages",
+      "kind": "Operation incomplete",
+      "node_id": "join_cal",
+      "op": "join",
+      "intent": "If a message date has no matching calendar row, keep the message in the analysis with a missing day-type.",
+      "ref": "day_type = cal_key.map(day_type_map)"
+    },
+    {
+      "id": "5_C1_at_work_requires_weekday",
+      "kind": "Row-level concept",
+      "node_id": "mark_work",
+      "op": "project",
+      "source_text": "weekday / weekend day or public holiday (what us Brits call a Bank Holiday)",
+      "ref": "work_window = ((day_type == \"Weekday\") &"
+    },
+    {
+      "id": "6_O1_at_work_time_windows",
+      "kind": "Operation boundary",
+      "node_id": "mark_work",
+      "op": "project",
+      "source_text": "Working hours are 9a to 5pm with a lunch break 12-1",
+      "ref": "seconds.between(9 * 3600, 11 * 3600 + 59 * 60 + 59) | seconds.between(13 * 3600, 17 * 3600)"
+    },
+    {
+      "id": "7_C2_avg_words_ratio",
+      "kind": "Group-level concept",
+      "node_id": "post_compute",
+      "op": "project",
+      "source_text": "Who has the highest amount of words per message",
+      "ref": "num = Decimal(int(row[\"Number of Words\"]))\nden = Decimal(int(row[\"Text\"]))"
+    },
+    {
+      "id": "8_C2_percent_from_work_ratio",
+      "kind": "Group-level concept",
+      "node_id": "post_compute",
+      "op": "project",
+      "source_text": "Who sent the highest percentage of messages whilst at work?",
+      "ref": "num = Decimal(int(row[\"Text while at work\"])) * Decimal(100)\nden = Decimal(int(row[\"Text\"]))"
+    },
+    {
+      "id": "9_O1_round_half_up_to_1_decimal",
+      "kind": "Operation boundary",
+      "node_id": "post_compute",
+      "op": "project",
+      "intent": "Round Avg Words/Sentence and % sent from work to 1 decimal place using half-up rounding.",
+      "ref": "from decimal import Decimal, ROUND_HALF_UP\nreturn float((num / den).quantize(Decimal(\"0.1\"), rounding=ROUND_HALF_UP))"
+    }
+  ]
+}

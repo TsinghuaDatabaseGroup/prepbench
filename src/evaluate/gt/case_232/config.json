@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Store",
+        "Quarter",
+        "Sales",
+        "% Difference Q on Q",
+        "Store Evaluation"
+      ],
+      "columns": {
+        "Store": "text_exact",
+        "Quarter": "number",
+        "Sales": "number",
+        "% Difference Q on Q": "number",
+        "Store Evaluation": "text_exact"
+      }
+    }
+  }
+}
+

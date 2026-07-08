@@ -1,0 +1,20 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Ingredient Position",
+                "Ingredients Split",
+                "Cocktail Price",
+                "Cocktails",
+                "Avg Ingredient Price"
+            ],
+            "columns": {
+                "Ingredient Position": "number",
+                "Ingredients Split": "text_exact",
+                "Cocktail Price": "number",
+                "Cocktails": "text_exact",
+                "Avg Ingredient Price": "number"
+            }
+        }
+    }
+}

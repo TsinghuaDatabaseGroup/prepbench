@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_left_join_attach_bike_type",
+      "kind": "Operation incomplete",
+      "node_id": "attach_bike",
+      "op": "join",
+      "intent": "Keep process update rows even when Bike Type is missing for a batch (left-join behavior).",
+      "ref": "proc_params[\"Bike Type\"] = proc_params[\"Batch No.\"].map(bike_type_map)"
+    },
+    {
+      "id": "2_O2_left_join_attach_batch_status",
+      "kind": "Operation incomplete",
+      "node_id": "attach_status",
+      "op": "join",
+      "intent": "Keep process update rows even when Batch Status is missing for a batch (left-join behavior).",
+      "ref": "bs = proc_params[\"Batch No.\"].map(batch_status_map)"
+    },
+    {
+      "id": "3_O2_datetime_dayfirst_parse",
+      "kind": "Operation incomplete",
+      "node_id": "build_dt",
+      "op": "project",
+      "source_text": "Create a Datetime field",
+      "ref": "dt = pd.to_datetime(src[\"Date\"].str.strip(\n    ) + \" \" + src[\"Time\"].str.strip(), dayfirst=True, errors=\"coerce\")"
+    },
+    {
+      "id": "5_C1_process_updates_only_process_data",
+      "kind": "Row-level concept",
+      "node_id": "proc_only",
+      "op": "filter",
+      "source_text": "Keep one record per update per parameter (long format), preserving the stage where the update occurred",
+      "ref": "proc = src[src[\"Data Type\"].eq(\"Process Data\")].copy()"
+    },
+    {
+      "id": "6_C1_drop_stage_definition_rows",
+      "kind": "Row-level concept",
+      "node_id": "proc_params_only",
+      "op": "filter",
+      "source_text": "Keep one record per update per parameter (long format), preserving the stage where the update occurred",
+      "ref": "proc_params = proc.loc[~is_stage].copy()"
+    },
+    {
+      "id": "7_C1_target_actual_from_parameter_prefix",
+      "kind": "Row-level concept",
+      "node_id": "proc_regex",
+      "op": "project",
+      "source_text": "Split out the value field into two fields: Target and Actual",
+      "ref": "    def parse_param(s: str) -> tuple[str | None, str | None]:\n        if not isinstance(s, str):\n            return None, None\n        s = s.strip()\n        if s.startswith(\"Target \"):\n            return \"Target\", s[len(\"Target \"):]\n        if s.startswith(\"Actual \"):\n            return \"Actual\", s[len(\"Actual \"):]\n        return None, None"
+    },
+    {
+      "id": "8_O1_within_batch_order_by_datetime_for_stage",
+      "kind": "Operation incomplete",
+      "node_id": "proc_sorted",
+      "op": "sort",
+      "source_text": "Keep one record per update per parameter (long format), preserving the stage where the update occurred",
+      "ref": "proc.sort_values([\"Batch No.\", \"Datetime\"], inplace=True)"
+    },
+    {
+      "id": "9_C1_identify_stage_definition_events",
+      "kind": "Row-level concept",
+      "node_id": "proc_stage",
+      "op": "project",
+      "source_text": "Keep one record per update per parameter (long format), preserving the stage where the update occurred",
+      "ref": "is_stage = proc[\"Data Parameter\"].eq(\"Name of Process Stage\")"
+    },
+    {
+      "id": "10_O1_forward_fill_stage_within_batch",
+      "kind": "Operation incomplete",
+      "node_id": "proc_stage",
+      "op": "project",
+      "source_text": "Keep one record per update per parameter (long format), preserving the stage where the update occurred",
+      "ref": "proc[\"Name of Process Step\"] = proc.groupby(\n        \"Batch No.\")[\"Name of Process Step\"].ffill()"
+    },
+    {
+      "id": "11_O3_last_result_value_wins_by_datetime",
+      "kind": "Operation inconsistent",
+      "node_id": "results_last_per_param",
+      "op": "dedup",
+      "source_text": "Parse the Bike Type and Batch Status for each batch",
+      "ref": "results.sort_values([\"Batch No.\", \"Datetime\"], inplace=True)\nbike_type_map = (results[results[\"Data Parameter\"].eq(\"Bike Type\")]\n                 .dropna(subset=[\"Data Value\"])\n                 .groupby(\"Batch No.\")\n                 [\"Data Value\"].last())\nbatch_status_map = (results[results[\"Data Parameter\"].eq(\"Batch Status\")]\n                    .dropna(subset=[\"Data Value\"])\n                    .groupby(\"Batch No.\")\n                    [\"Data Value\"].last())"
+    },
+    {
+      "id": "12_C1_bike_type_status_from_result_data_rows",
+      "kind": "Row-level concept",
+      "node_id": "results_only",
+      "op": "filter",
+      "source_text": "Parse the Bike Type and Batch Status for each batch",
+      "ref": "result_mask = src[\"Data Type\"].eq(\"Result Data\")\nresults = src.loc[result_mask, [\"Batch No.\",\n                                    \"Data Parameter\", \"Data Value\", \"Datetime\"]].copy()"
+    },
+    {
+      "id": "13_C2_put_value_in_target_or_actual_only",
+      "kind": "Row-level concept",
+      "node_id": "target_actual",
+      "op": "project",
+      "source_text": "Split out the value field into two fields: Target and Actual",
+      "ref": "proc_params[\"Target\"] = np.where(proc_params[\"kind\"].eq(\n        \"Target\"), proc_params[\"Data Value\"], np.nan)\nproc_params[\"Actual\"] = np.where(proc_params[\"kind\"].eq(\n        \"Actual\"), proc_params[\"Data Value\"], np.nan)"
+    },
+    {
+      "id": "14_O2_non_numeric_target_actual_to_null",
+      "kind": "Operation incomplete",
+      "node_id": "target_actual",
+      "op": "project",
+      "source_text": "Split out the value field into two fields: Target and Actual",
+      "ref": "proc_params[\"Target\"] = pd.to_numeric(\n        proc_params[\"Target\"], errors=\"coerce\")\nproc_params[\"Actual\"] = pd.to_numeric(\n        proc_params[\"Actual\"], errors=\"coerce\")"
+    }
+  ]
+}

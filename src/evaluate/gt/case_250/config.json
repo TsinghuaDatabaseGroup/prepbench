@@ -1,0 +1,28 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Rank", "id", "Student Name", "Term", "Term Date", "GPA", "3 Term GPA Moving Average"],
+      "columns": {
+        "Rank": "number",
+        "id": "number",
+        "Student Name": "text_exact",
+        "Term": "text_exact",
+        "Term Date": "date",
+        "GPA": "number",
+        "3 Term GPA Moving Average": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["id", "Student Name", "Term", "Term Date", "GPA", "3 Term GPA Moving Average"],
+      "columns": {
+        "id": "number",
+        "Student Name": "text_exact",
+        "Term": "text_exact",
+        "Term Date": "date",
+        "GPA": "number",
+        "3 Term GPA Moving Average": "number"
+      }
+    }
+  }
+}
+

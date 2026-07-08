@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Project Name", "Invoiced Amount", "Cost", "Profit"],
+      "columns": {
+        "Project Name": "text_exact",
+        "Invoiced Amount": "number",
+        "Cost": "number",
+        "Profit": "number"
+      }
+    }
+  }
+}
+

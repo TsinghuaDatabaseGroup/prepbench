@@ -1,0 +1,31 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Player of Interest",
+        "Tournament",
+        "Round",
+        "Date",
+        "Win/Loss",
+        "Win Number",
+        "Days Since Last Win",
+        "Winner",
+        "Loser",
+        "Comment"
+      ],
+      "columns": {
+        "Player of Interest": "text_exact",
+        "Tournament": "text_exact",
+        "Round": "text_exact",
+        "Date": "date",
+        "Win/Loss": "text_exact",
+        "Win Number": "number",
+        "Days Since Last Win": "number",
+        "Winner": "text_exact",
+        "Loser": "text_exact",
+        "Comment": "text_exact"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,20 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_combine_year_tables_by_append",
+      "kind": "Row-level concept",
+      "node_id": "union_all",
+      "op": "union",
+      "source_text": "Bring all the year tables together into a single table",
+      "ref": "out = pd.concat(frames, ignore_index=True)"
+    },
+    {
+      "id": "2_D2_broadcast_source_to_rows",
+      "kind": "Multi-table alignment",
+      "node_id": "y_join_src",
+      "op": "join",
+      "source_text": "Bring in the source information so that it is associated with each row",
+      "ref": "df[\"Source\"] = source_url"
+    }
+  ]
+}

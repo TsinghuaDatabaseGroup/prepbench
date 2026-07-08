@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Year Week Number",
+        "Secnt",
+        "Size",
+        "Product Type",
+        "Sales"
+      ],  
+      "columns": {
+        "Year Week Number": "number",
+        "Secnt": "text_exact",
+        "Size": "text_exact",
+        "Product Type": "text_exact",
+        "Sales": "number"
+      }
+    }
+  }
+}
+

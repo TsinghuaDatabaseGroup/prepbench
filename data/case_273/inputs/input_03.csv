@@ -1,0 +1,13 @@
+Habitat,Min Temp,Max Temp,Elevation,Min Rainfall,Max Rainfall
+Desert,–4 degrees Fahrenheit (–20 degrees Celsius),120 degrees Fahrenheit (50 degrees Celsius),,,
+Island,69 degrees Fahrenheit (21 degrees Celsius),84 degrees Fahrenheit (30 degrees Celsius),,,
+Mountains,23 degrees Fahrenheit (-5 degrees Celsius),75 degrees Fahrenheit (24 degrees Celsius),"over 1,900 feet",,
+Oceans and Coastline,28 degrees Fahrenheit (-2 degrees Celsius),86 degrees Fahrenheit (30 degrees Celsius),,,
+Prairie and Steppes,-4 degrees Fahrenheit (-20 degrees Celsius),86 degrees Fahrenheit (30 degrees Celsius),,,
+Rivers and Lakes,35 degrees Fahrenheit (2 degrees Celsius),75 degrees Fahrenheit (24 degrees Celsius),,,
+Savanna,50 degrees Fahrenheit (10 degrees Celsius),86 degrees Fahrenheit (30 degrees Celsius),,,
+Scrubland,30 degrees Fahrenheit (-1 degrees Celsius),100 degrees Fahrenheit (38 degrees Celsius),,,
+Temperate Forest and Taiga,-4 degrees Fahrenheit (-20 degrees Celsius),64 degrees Fahrenheit (18 degrees Celsius),,,
+Tropical Rainforest,68 degrees Fahrenheit (20 degrees Celsius),82 degrees Fahrenheit (28 degrees Celsius),,60 inches (1.5 meters) per year,200 inches (5 meters) per year
+Tundra,–76 degree Fahrenheit (–60 degrees Celsius),77 degrees Fahrenheit (25 degrees Celsius),,,
+Wetlands,39 degrees Fahrenheit (4 degrees Celsius),70 degrees Fahrenheit (21 degrees Celsius),,,

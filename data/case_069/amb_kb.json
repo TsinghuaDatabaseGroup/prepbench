@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_correct_answers_table_shape_long",
+      "kind": "Single-table reference",
+      "node_id": "ans_r1_filter",
+      "op": "filter",
+      "source_text": "Correct Answers contains the correct answers for each of the rounds.",
+      "ref": "round_name = row['Round']\nanswers_str = row['Answers']"
+    },
+    {
+      "id": "2_correct_answers_lookup_keyed_by_round",
+      "kind": "Multi-table alignment",
+      "node_id": "ans_r1_filter",
+      "op": "filter",
+      "source_text": "Combine the two input tables",
+      "ref": "correct_answers_dict[round_name] = answers_list\ncorrect_answers = correct_answers_dict[round_name]"
+    },
+    {
+      "id": "3_position_ties_dense_ranking",
+      "kind": "Operation boundary",
+      "node_id": "project_scores_rank",
+      "op": "project",
+      "source_text": "Position",
+      "ref": "for score in output_df['Total Score']:\n        if prev_score is None or score != prev_score:\n            \n            if prev_score is not None:\n                position += 1\n        positions.append(position)\n        prev_score = score"
+    },
+    {
+      "id": "4_compare_only_positions_with_correct_answer",
+      "kind": "Operation boundary",
+      "node_id": "script_count_rounds",
+      "op": "script",
+      "source_text": "Calculate how many correct answers per round and in total for each pair of participants.",
+      "ref": "for i in range(len(participant_answers)):\n                if i < len(correct_answers) and participant_answers[i] == correct_answers[i]:\n                    correct_count += 1"
+    }
+  ]
+}

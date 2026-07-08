@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Store",
+        "Category",
+        "Scent",
+        "Date"
+      ],
+      "columns": {
+        "Store": "text_exact",
+        "Category": "text_exact",
+        "Scent": "text_exact",
+        "Date": "date",
+        "Sales": "number",
+        "Profit": "number",
+        "Staff days worked": "number"
+      }
+    }
+  }
+}
+

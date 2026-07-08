@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Complaint", "Complaints per Person", "Complaint causes", "Department", "Name"],
+      "columns": {
+        "Complaint": "text_exact",
+        "Complaints per Person": "number",
+        "Complaint causes": "text_exact",
+        "Department": "text_exact",
+        "Name": "text_exact"
+      }
+    }
+  }
+}

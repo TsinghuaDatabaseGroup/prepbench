@@ -1,0 +1,30 @@
+From    To,Atlanta,Boston,Brooklyn,Charlotte,Chicago,Cleveland,Dallas,Denver,Detroit,Golden State,Houston,Indiana,Los Angeles,Memphis,Miami,Milwaukee,Minnesota,New Orleans,New York,Oklahoma,Orlando,Philadelphia,Phoenix,Portland,Sacramento,San Antonio,Toronto,Utah,Washington
+Atlanta,0,2h 15m,2h,55m,1h 45m,1h 30m,2h 5m,3h 5m,1h 45m,5h 5m,1h 55m,1h 15m,4h 35m,1h 10m,1h 40m,1h 45m,2h 25m,1h 20m,1h 50m,2h 10m,1h 15m,1h 40m,3h 55m,5h 10m,4h 55m,2h 20m,3h 40m,4h,1h 25m
+Boston,2h 40m,0,1h 5m,2h 20m,2h 40m,1h 55m,4h 20m,4h 35m,2h 5m,6h 25m,4h 15m,3h 50m,6h 15m,4h 40m,3h 15m,4h 5m,4h 40m,3h 45m,1h 5m,5h 35m,3h 5m,1h 30m,5h 40m,7h 30m,7h 40m,6h 5m,1h 55m,5h 15m,1h 30m
+Brooklyn,2h 10m,55m,0,2h,2h 20m,1h 30m,3h 45m,4h 15m,1h 45m,6h 5m,3h 40m,2h 10m,5h 45m,4h,2h 45m,3h 45m,4h 20m,3h 10m,0,5h 15m,2h 30m,1h 10m,5h 25m,6h 10m,6h 5m,5h 30m,1h 30m,5h 5m,1h 10m
+Charlotte,1h 5m,1h 55m,1h 45m,0,2h,1h 30m,2h 55m,3h 30m,1h 35m,5h 40m,2h 35m,1h 35m,5h 20m,1h 50m,1h 55m,2h 5m,4h 45m,2h 5m,1h 45m,2h 50m,1h 35m,1h 35m,4h 35m,5h 35m,5h 35m,2h 55m,1h 55m,4h 30m,1h 15m
+Chicago,1h 40m,2h 5m,2h,1h 50m,0,1h 10m,2h 25m,2h 25m,1h 5m,4h 25m,2h 40m,1h 5m,4h,1h 40m,2h 50m,50m,1h 20m,2h 10m,1h 50m,2h 10m,2h 30m,1h 50m,3h 45m,4h 25m,4h 30m,3h,1h 30m,3h 20m,1h 45m
+Cleveland,1h 35m,1h 30m,1h 30m,1h 35m,1h 20m,0,3h 5m,3h 15m,55m,6h 50m,3h 10m,2h 45m,5h 10m,3h 30m,2h 45m,2h 55m,2h 5m,3h 45m,1h 20m,4h 35m,2h 15m,1h 20m,4h 35m,6h 30m,6h 35m,4h 40m,1h 10m,5h 15m,1h 10m
+Dallas,1h 45m,3h 25m,3h 5m,2h 20m,2h 10m,2h 30m,0,2h,2h 20m,3h 50m,1h 5m,2h 5m,3h 10m,1h 20m,2h 35m,2h 15m,2h 20m,1h 20m,3h 5m,55m,2h 20m,3h 5m,2h 35m,4h 10m,3h 45m,1h 5m,2h 50m,2h 40m,2h 40m
+Denver,2h 30m,3h 45m,3h 30m,2h 55m,2h 5m,2h 35m,1h 45m,0,2h 30m,2h 45m,2h 10m,2h 10m,2h 20m,2h 5m,3h 25m,2h 15m,1h 45m,2h 15m,3h 30m,1h 25m,3h 15m,3h 20m,1h 50m,2h 40m,2h 25m,2h 5m,3h 15m,1h 20m,3h 5m
+Detroit,1h 45m,1h 40m,1h 25m,1h 40m,1h 10m,55m,2h 45m,3h,0,5h,3h,1h 5m,4h 40m,2h,2h 45m,1h 15m,1h 40m,2h 30m,1h 25m,4h 40m,2h 25m,1h 25m,4h 5m,4h 50m,6h 25m,3h 25m,1h 10m,3h 45m,1h 20m
+Golden State,4h 15m,5h 20m,5h 10m,4h 55m,4h,5h 40m,3h 25m,2h 25m,4h 15m,0,3h 35m,5h 50m,1h 20m,5h 10m,5h 10m,5h 45m,3h 25m,5h 45m,5h,4h 45m,4h 55m,5h 20m,2h,1h 35m,1h,5h,6h 25m,1h 35m,4h 40m
+Houston,1h 45m,3h 30m,3h 20m,2h 15m,2h 10m,2h 40m,1h 5m,2h 25m,2h 30m,4h 15m,0,2h 5m,3h 25m,1h 30m,2h 15m,2h 35m,2h 45m,1h,3h 10m,1h 20m,2h 5m,3h 5m,2h 20m,4h 35m,4h 10m,1h,3h 5m,3h 5m,2h 40m
+Indiana,1h 20m,3h 40m,2h 10m,1h 35m,1h,2h 30m,2h 30m,2h 50m,1h 5m,6h 20m,2h 40m,0,6h 20m,3h 15m,2h 35m,2h 45m,1h 40m,3h 30m,1h 55m,4h 10m,2h 5m,1h 45m,3h 15m,6h 25m,6h 25m,4h 35m,3h 25m,3h 35m,1h 30m
+Los Angeles,3h 50m,5h 5m,4h 55m,4h 20m,3h 40m,4h 15m,2h 45m,2h 5m,4h,1h 15m,3h,5h 45m,0,3h 20m,4h 35m,5h 30m,3h 15m,3h 20m,4h 35m,4h 25m,4h 25m,5h,1h 25m,2h 10m,1h 25m,4h 20m,4h 20m,1h 35m,4h 40m
+Memphis,1h 5m,4h 10m,3h 40m,1h 40m,1h 35m,3h 30m,1h 35m,2h 35m,1h 50m,6h 30m,1h 50m,3h 20m,4h 5m,0,2h 15m,3h 30m,2h,3h 10m,3h 40m,3h 40m,1h 50m,3h 30m,3h 5m,6h 35m,5h 55m,3h 35m,4h 5m,3h 25m,2h
+Miami,1h 45m,2h 55m,2h 35m,1h 55m,3h,2h 40m,3h 10m,4h 15m,2h 45m,6h 15m,2h 40m,2h 35m,5h 35m,2h 30m,0,3h 25m,3h 40m,2h,2h 35m,4h 35m,55m,2h 30m,4h,6h 35m,7h 35m,4h 35m,3h,5h 5m,2h 10m
+Milwaukee,1h 50m,3h 40m,3h 55m,1h 55m,50m,3h,2h 45m,2h 40m,1h 5m,6h 15m,2h 50m,2h 55m,6h 10m,3h 35m,3h 20m,0,1h 20m,3h 50m,3h 30m,3h 40m,2h 35m,1h 55m,3h 15m,6h,5h 35m,4h 50m,1h 20m,3h 30m,1h 45m
+Minnesota,2h 10m ,4h 25m,4h 25m,4h 35m,1h 25m,1h 45m,2h 30m,2h,1h 20m,3h 55m,2h 55m,1h 20m,3h 50m,2h,3h 25m,1h 15m,0,2h 25m,2h 25m,2h 5m,3h,2h 10m,2h 50m,3h 40m,3h 45m,2h 55m,2h 15m,4h 35m,4h
+New Orleans,1h 15m,3h,2h 40m,1h 50m,2h 15m,3h 45m,1h 30m,2h 55m,2h 15m,6h 25m,1h 10m,3h 20m,4h 10m,3h 55m,1h 45m,3h 50m,2h 40m,0,2h 40m,3h 20m,1h 35m,2h 40m,2h 50m,6h 50m,6h 5m,3h 5m,4h 30m,3h 30m,2h 20m
+New York,2h 10m ,55m,0,2h,2h 20m,1h 30m,3h 45m,4h 20m,1h 45m,6h 10m,3h 50m,2h 10m,5h 45m,4h,2h 45m,3h 50m,2h 50m,3h 15m,0,5h 30m,2h 30m,50m,4h 10m,6h 10m,6h 5m,5h 30m,1h 35m,5h 5m,1h 10m
+Oklahoma,1h 50m,4h 40m,4h 35m,2h 20m,1h 55m,3h 40m,1h 5m,1h 40m,4h 15m,5h 25m,1h 30m,4h 5m,4h 50m,3h 45m,4h 20m,3h 45m,2h 5m,3h 35m,4h 35m,0,4h,4h 35m,2h,5h 30m,5h 20m,3h 5m,4h 55m,2h 30m,3h 35m
+Orlando,1h 20m,2h 35m,2h 15m,1h 30m,2h 45m,2h 15m,2h 50m,3h 55m,2h 25m,5h 50m,2h 20m,2h 15m,5h 15m,2h 10m,1h,2h 55m,3h 15m,1h 45m,2h 15m,4h 25m,0,2h 15m,4h,6h 15m,7h 10m,2h 50m,2h 40m,4h 45m,1h 55m
+Philadelphia,1h 55m,1h 20m,1h 10m,1h 45m,2h 10m,1h 40m,3h 55m,4h 10m,1h 35m,6h 30m,3h 50m,2h 5m,6h 5m,4h 15m,2h 45m,2h 25m,2h 50m,3h 20m,50m,5h 15m,2h 20m,0,4h 20m,7h 30m,7h 40m,5h 15m,1h 45m,4h 55m,35m
+Phoenix,3h 10m,4h 35m,4h 20m,3h 45m,3h 5m,3h 45m,2h 5m,1h 35m,3h 25m,2h,2h 50m,4h,1h 20m,3h 40m,4h 55m,3h 50m,3h 5m,3h 35m,5h 25m,2h 30m,4h 45m,5h 20m,0,2h 45m,2h,2h,5h 45m,1h 30m,3h 50m
+Portland,4h 15m,6h 35m,4h 55m,4h 40m,3h 40m,5h 45m,3h 35m,2h 15m,3h 50m,1h 45m,3h 55m,5h 35m,2h 15m,4h 55m,5h 20m,5h 20m,2h 55m,5h 50m,4h 55m,4h 50m,5h 15m,6h 30m,2h 25m,0,1h 30m,5h 10m,6h 45m,1h 35m,6h 5m
+Sacramento,4h,6h 35m,5h 5m,4h 30m,3h 55m,5h 50m,3h 15m,2h 10m,5h 30m,1h,3h 30m,5h 30m,1h 25m,5h,6h 30m,5h 25m,3h 10m,5h 30m,5h 5m,4h 45m,6h,6h 30m,1h 45m,1h 25m,0,4h 40m,8h 5m,1h 25m,6h
+San Antonio,2h,5h 5m,4h 45m,2h 35m,2h 35m,4h 30m,1h 5m,2h 15m,2h 55m,5h 30m,55m,4h 15m,4h 55m,3h 25m,4h 5m,4h 30m,2h 35m,3h,4h 40m,3h 10m,2h 20m,4h 40m,2h 30m,5h 45m,5h 20m,0,5h 10m,2h 55m,3h
+Toronto,4h,1h 35m,1h 30m,2h 10m,1h 40m,1h 10m,3h 40m,3h 15m,1h 10m,7h 30m,3h 45m,3h 55m,5h 10m,4h 15m,3h 5m,1h 20m,2h 15m,5h 10m,1h 30m,5h 40m,2h 50m,1h 30m,6h 30m,7h 5m,8h 25m,5h 55m,0,6h,1h 25m
+Utah,3h 15m,4h 10m,4h 5m,3h 35m,2h 50m,4h 40m,2h 20m,1h 15m,3h 10m,1h 45m,2h 40m,2h 55m,1h 50m,2h 45m,4h 15m,2h 55m,4h 20m,3h 10m,4h ,2h 10m,3h 55m,4h,1h 25m,1h 50m,1h 35m,2h 40m,5h,0,3h 40m
+Washington,1h 40m,1h 15m,1h 10m,1h 25m,1h 55m,1h 15m,3h 15m,3h 50m,1h 25m,5h 55m,3h 15m,1h 45m,5h 40m,2h 25m,2h 10m,2h 5m,4h,2h 50m,1h 10m,4h 35m,2h 10m,35m,5h 5m,7h 10m,6h 55m,3h 45m,1h 25m,4h 35m,0

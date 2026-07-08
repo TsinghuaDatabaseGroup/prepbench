@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_sort_order_one_based",
+      "kind": "Operation boundary",
+      "node_id": "add_sort_order",
+      "op": "project",
+      "intent": "Define whether Sort Order is 0-based or 1-based when generated after sorting.",
+      "ref": "sorted_df['Sort Order'] = sorted_df.index + 1"
+    },
+    {
+      "id": "2_O2_pokedex_join_unmatched_policy",
+      "kind": "Operation incomplete",
+      "node_id": "poke_join_pokedex",
+      "op": "join",
+      "intent": "Choose whether Pokémon cards without a Pokédex lookup match are kept (left join) or dropped (inner join).",
+      "ref": "how='left'"
+    },
+    {
+      "id": "3_O2_pokedex_missing_default_zero",
+      "kind": "Operation incomplete",
+      "node_id": "poke_set_keys",
+      "op": "project",
+      "intent": "Set the sorting fallback value for missing Pokédex numbers when no match exists (e.g., 0 vs null).",
+      "ref": ".fillna(0).astype(int)"
+    },
+    {
+      "id": "4_O2_pokedex_number_parse_fail_default",
+      "kind": "Operation incomplete",
+      "node_id": "pokedex_cast_num",
+      "op": "project",
+      "intent": "Decide how to handle non-numeric/unparseable Pokédex numbers (e.g., set to 0 vs null vs drop).",
+      "ref": "pd.to_numeric(..., errors='coerce').fillna(0).astype(int)"
+    },
+    {
+      "id": "5_O3_pokedex_duplicate_name_resolution",
+      "kind": "Operation inconsistent",
+      "node_id": "pokedex_dedup",
+      "op": "dedup",
+      "source_text": "Use the Pokémon Input to bring in information about the Pokédex Number (make sure not to duplicate any rows)",
+      "ref": "df_pokedex = df_pokedex.drop_duplicates(subset=[\"Pokemon Name\"])"
+    },
+    {
+      "id": "6_O2_missing_leader_order_default_999",
+      "kind": "Operation incomplete",
+      "node_id": "prepare_sort_keys",
+      "op": "project",
+      "intent": "Choose the sorting fallback for leaders missing a gym Order (e.g., 999 vs null vs drop).",
+      "ref": ".fillna(999).astype(int)"
+    },
+    {
+      "id": "7_O1_pokemon_tiebreaker_after_level",
+      "kind": "Operation boundary",
+      "node_id": "sort_rows",
+      "op": "sort",
+      "source_text": "Using the Pokémon level in the bottom left corner of the card, where a leader has multiple of the same Pokémon",
+      "ref": "sorted_df = combined_df.sort_values(\n        by=['Order', 'SortKey1', 'Trainer_Sort_Num',\n            'Set_Order', 'Pokedex_Sort_Num', 'level', 'Number'],..."
+    },
+    {
+      "id": "8_C1_gym_leader_card_identification",
+      "kind": "Row-level concept",
+      "node_id": "trainer_keys",
+      "op": "project",
+      "source_text": "With the Gym Leader card first",
+      "ref": "(df_trainer['Leader'] != 'Leftover Trainers') & (\n                df_trainer['Card'] == df_trainer['Leader']),"
+    },
+    {
+      "id": "9_C1_gym_card_identification",
+      "kind": "Row-level concept",
+      "node_id": "trainer_keys",
+      "op": "project",
+      "source_text": "Followed by their Gym card",
+      "ref": "(df_trainer['Leader'] != 'Leftover Trainers') & (\n                df_trainer['Card'].str.contains(' Gym', na=False))"
+    }
+  ]
+}

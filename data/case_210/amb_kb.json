@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_missing_account_holder_id",
+      "kind": "Operation incomplete",
+      "node_id": "accinfo_expand",
+      "op": "project",
+      "source_text": "Make sure there are no null values in the Account Holder ID",
+      "ref": "if pd.notna(account_holder_ids) and account_holder_ids != \"nan\":"
+    },
+    {
+      "id": "2_O2_split_account_holder_id_by_comma",
+      "kind": "Row-level concept",
+      "node_id": "accinfo_expand",
+      "op": "project",
+      "source_text": "Joint accounts will have 2 Account Holders, we want a row for each of them",
+      "ref": "ids = [id.strip() for id in account_holder_ids.split(\",\")]"
+    },
+    {
+      "id": "3_D1_platinum_accounts_by_type",
+      "kind": "Row-level concept",
+      "node_id": "filter_non_platinum",
+      "op": "filter",
+      "source_text": "Filter out Platinum accounts",
+      "ref": "transactions[transactions[\"Account Type\"] != \"Platinum\"]"
+    },
+    {
+      "id": "4_D2_join_accinfo_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_accinfo",
+      "op": "join",
+      "source_text": "Bring the tables together",
+      "ref": "left_on=\"Account From\", right_on=\"Account Number\""
+    },
+    {
+      "id": "5_O2_join_use_inner",
+      "kind": "Operation incomplete",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "Bring the tables together",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "6_D2_join_holders_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_holders",
+      "op": "join",
+      "source_text": "Bring the tables together",
+      "ref": "on=\"Account Holder ID\""
+    },
+    {
+      "id": "7_C1_cancelled_flag",
+      "kind": "Row-level concept",
+      "node_id": "txn_filter_cancel",
+      "op": "filter",
+      "source_text": "Filter out cancelled transactions",
+      "ref": "transactions[transactions[\"Cancelled?\"] == \"N\"]"
+    },
+    {
+      "id": "8_O1_value_threshold",
+      "kind": "Operation boundary",
+      "node_id": "txn_filter_value",
+      "op": "filter",
+      "source_text": "Filter to transactions greater than £1,000 in value",
+      "ref": "transactions[transactions[\"Value\"] > 1000]"
+    },
+    {
+      "id": "9_D2_join_txn_path_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "txn_join_path",
+      "op": "join",
+      "source_text": "Bring the tables together",
+      "ref": "on=\"Transaction ID\""
+    },
+    {
+      "id": "10_D1_rename_account_fields",
+      "kind": "Single-table reference",
+      "node_id": "txn_path_ren",
+      "op": "project",
+      "source_text": "i.e. instead of *Account_From* it should be *Account From*",
+      "ref": ".rename(columns={\"Account_From\": \"Account From\", \"Account_To\": \"Account To\"})"
+    }
+  ]
+}

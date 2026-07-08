@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Bike Type",
+        "Region",
+        "Month",
+        "Sales",
+        "Profit"
+      ],
+      "columns": {
+        "Bike Type": "text_exact",
+        "Region": "text_exact",
+        "Month": "date",
+        "Sales": "number",
+        "Profit": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,31 @@
+ProductName,Metric,Time Period,This Year,Last Year,Target,% Difference to Last Year,% Difference to Target
+Candle,Quantity,YTD,14662,14239,21473,0.03,-0.32
+Bar Soap,Quantity,MTD,272,757,917,-0.64,-0.7
+Bar Soap,Income,WTD,294,574,917,-0.49,-0.68
+Candle,Income,WTD,3690,2540,4500,0.45,-0.18
+Hand Wash,Quantity,WTD,257,326,338,-0.21,-0.24
+Candle,Quantity,WTD,369,254,450,0.45,-0.18
+Liquid Soap,Quantity,MTD,498,507,984,-0.02,-0.49
+Liquid Soap,Quantity,WTD,368,329,656,0.12,-0.44
+Diffuser,Quantity,YTD,14598,14610,14183,0,0.03
+Diffuser,Quantity,MTD,383,514,289,-0.25,0.33
+Diffuser,Income,WTD,4290,3060,2893,0.4,0.48
+Candle,Income,MTD,5470,4660,6750,0.17,-0.19
+Hand Wash,Quantity,YTD,14671,14009,13976,0.05,0.05
+Diffuser,Income,MTD,5745,7710,4339,-0.25,0.32
+Bar Soap,Quantity,WTD,195,382,611,-0.49,-0.68
+Liquid Soap,Quantity,YTD,14038,13390,26458,0.05,-0.47
+Liquid Soap,Income,YTD,14038,13390,26458,0.05,-0.47
+Liquid Soap,Income,MTD,498,507,984,-0.02,-0.49
+Bar Soap,Quantity,YTD,14481,15642,28345,-0.07,-0.49
+Hand Wash,Income,YTD,73355,70045,69881,0.05,0.05
+Candle,Income,YTD,146620,142390,214726,0.03,-0.32
+Hand Wash,Income,MTD,2115,2605,2492,-0.19,-0.15
+Bar Soap,Income,MTD,410,1138,1375,-0.64,-0.7
+Bar Soap,Income,YTD,21789,23533,42517,-0.07,-0.49
+Diffuser,Quantity,WTD,286,204,193,0.4,0.48
+Candle,Quantity,MTD,547,466,675,0.17,-0.19
+Diffuser,Income,YTD,218970,219150,212745,0,0.03
+Liquid Soap,Income,WTD,368,329,656,0.12,-0.44
+Hand Wash,Income,WTD,1285,1630,1689,-0.21,-0.24
+Hand Wash,Quantity,MTD,423,521,498,-0.19,-0.15

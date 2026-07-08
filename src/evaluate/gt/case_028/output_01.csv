@@ -1,0 +1,91 @@
+Task Engagement,Manager Proximity,Interaction,Employee,Observation Start Time,Observation Length (mins),Observation Interval
+On Task,Further(>5m),No One,B,16/08/2019 10:29:00,1,7
+On Task,Next to (<2m),Manager,B,16/08/2019 10:32:00,1,9
+Off Task,NA,No One,B,16/08/2019 11:08:00,3,29
+On Task,Further(>5m),No One,A,16/08/2019 09:04:00,1,3
+On Task,Further(>5m),Coworker,C,16/08/2019 14:01:00,1,28
+Off Task,Next to (<2m),Manager,B,16/08/2019 10:41:00,3,14
+Off Task,Next to (<2m),No One,C,16/08/2019 13:01:00,2,2
+On Task,Further(>5m),No One,C,16/08/2019 13:30:00,2,14
+On Task,Further(>5m),No One,B,16/08/2019 11:06:00,2,28
+Off Task,NA,No One,A,16/08/2019 09:11:00,3,7
+On Task,Further(>5m),Manager,C,16/08/2019 13:03:00,3,3
+On Task,Further(>5m),Coworker,C,16/08/2019 13:46:00,2,21
+On Task,Further(>5m),No One,B,16/08/2019 10:25:00,2,5
+On Task,Next to (<2m),No One,C,16/08/2019 13:15:00,2,7
+On Task,Next to (<2m),Manager,B,16/08/2019 10:30:00,2,8
+Off Task,NA,Customer,A,16/08/2019 09:28:00,2,15
+Off Task,Next to (<2m),Coworker,A,16/08/2019 09:40:00,1,22
+On Task,Next to (<2m),Manager,B,16/08/2019 10:50:00,2,19
+Off Task,Close to (<5m),No One,A,16/08/2019 09:38:00,2,21
+Off Task,Close to (<5m),Coworker,A,16/08/2019 09:51:00,2,29
+Off Task,Close to (<5m),No One,A,16/08/2019 09:14:00,3,8
+On Task,Close to (<5m),Customer,C,16/08/2019 13:26:00,2,11
+Off Task,NA,No One,B,16/08/2019 10:44:00,3,15
+On Task,Further(>5m),Customer,A,16/08/2019 09:53:00,3,30
+On Task,Further(>5m),Manager,B,16/08/2019 10:47:00,1,16
+On Task,Close to (<5m),Coworker,C,16/08/2019 13:12:00,3,6
+Off Task,NA,No One,C,16/08/2019 13:23:00,3,10
+Off Task,Further(>5m),Manager,C,16/08/2019 13:20:00,3,9
+On Task,Further(>5m),No One,A,16/08/2019 09:44:00,1,24
+Off Task,NA,Customer,A,16/08/2019 09:19:00,2,10
+On Task,Next to (<2m),No One,C,16/08/2019 13:38:00,3,18
+On Task,Further(>5m),Customer,B,16/08/2019 10:33:00,2,10
+Off Task,Next to (<2m),Manager,B,16/08/2019 10:48:00,1,17
+Off Task,NA,No One,A,16/08/2019 09:46:00,1,26
+On Task,NA,No One,A,16/08/2019 09:17:00,2,9
+On Task,Next to (<2m),Coworker,C,16/08/2019 13:35:00,3,17
+Off Task,NA,Customer,B,16/08/2019 11:04:00,2,27
+On Task,NA,Customer,A,16/08/2019 09:30:00,1,16
+On Task,Next to (<2m),No One,C,16/08/2019 13:57:00,3,26
+Off Task,Next to (<2m),No One,C,16/08/2019 13:28:00,1,12
+On Task,NA,No One,A,16/08/2019 09:45:00,1,25
+On Task,Further(>5m),Customer,C,16/08/2019 13:17:00,3,8
+Off Task,Further(>5m),Customer,A,16/08/2019 09:05:00,1,4
+Off Task,Further(>5m),Customer,C,16/08/2019 13:06:00,3,4
+Off Task,Close to (<5m),Manager,A,16/08/2019 09:00:00,3,1
+Off Task,Further(>5m),No One,B,16/08/2019 10:40:00,1,13
+Off Task,NA,No One,A,16/08/2019 09:37:00,1,20
+On Task,NA,Coworker,B,16/08/2019 10:55:00,1,21
+On Task,Close to (<5m),Coworker,A,16/08/2019 09:21:00,1,11
+On Task,Close to (<5m),Customer,C,16/08/2019 13:09:00,3,5
+On Task,Further(>5m),No One,C,16/08/2019 13:51:00,2,23
+Off Task,Further(>5m),No One,C,16/08/2019 13:29:00,1,13
+On Task,Close to (<5m),No One,A,16/08/2019 09:27:00,1,14
+On Task,Next to (<2m),Manager,A,16/08/2019 09:03:00,1,2
+Off Task,NA,Customer,A,16/08/2019 09:06:00,2,5
+On Task,Close to (<5m),Manager,B,16/08/2019 11:03:00,1,26
+Off Task,Next to (<2m),Manager,C,16/08/2019 13:32:00,1,15
+On Task,Further(>5m),Customer,A,16/08/2019 09:47:00,1,27
+On Task,Next to (<2m),Manager,C,16/08/2019 14:00:00,1,27
+Off Task,Close to (<5m),No One,C,16/08/2019 13:53:00,2,24
+On Task,NA,No One,B,16/08/2019 10:52:00,3,20
+Off Task,Next to (<2m),Manager,B,16/08/2019 10:56:00,3,22
+Off Task,Close to (<5m),No One,C,16/08/2019 13:44:00,2,20
+On Task,NA,Coworker,C,16/08/2019 13:00:00,1,1
+Off Task,Further(>5m),Coworker,A,16/08/2019 09:08:00,3,6
+On Task,Further(>5m),Manager,C,16/08/2019 13:41:00,3,19
+Off Task,Further(>5m),No One,B,16/08/2019 11:11:00,3,30
+On Task,Next to (<2m),Manager,A,16/08/2019 09:48:00,3,28
+Off Task,Next to (<2m),No One,B,16/08/2019 10:15:00,1,1
+Off Task,Next to (<2m),Manager,B,16/08/2019 11:01:00,2,25
+On Task,Further(>5m),Manager,A,16/08/2019 09:41:00,3,23
+On Task,Next to (<2m),Manager,B,16/08/2019 10:27:00,2,6
+Off Task,Close to (<5m),Customer,B,16/08/2019 10:35:00,3,11
+On Task,Close to (<5m),Coworker,B,16/08/2019 10:19:00,3,3
+Off Task,Close to (<5m),Coworker,A,16/08/2019 09:34:00,3,19
+On Task,Close to (<5m),Manager,B,16/08/2019 10:16:00,3,2
+Off Task,Close to (<5m),Manager,A,16/08/2019 09:31:00,1,17
+Off Task,Close to (<5m),No One,A,16/08/2019 09:24:00,3,13
+On Task,NA,No One,C,16/08/2019 14:02:00,2,29
+On Task,Further(>5m),No One,C,16/08/2019 13:33:00,2,16
+On Task,Next to (<2m),No One,A,16/08/2019 09:22:00,2,12
+On Task,Further(>5m),No One,C,16/08/2019 13:48:00,3,22
+On Task,Further(>5m),Coworker,B,16/08/2019 11:00:00,1,24
+Off Task,NA,No One,B,16/08/2019 10:38:00,2,12
+Off Task,Close to (<5m),Manager,A,16/08/2019 09:32:00,2,18
+Off Task,Close to (<5m),Coworker,C,16/08/2019 13:55:00,2,25
+On Task,NA,No One,B,16/08/2019 10:49:00,1,18
+On Task,Further(>5m),No One,B,16/08/2019 10:22:00,3,4
+Off Task,Next to (<2m),Coworker,C,16/08/2019 14:04:00,1,30
+Off Task,Next to (<2m),Manager,B,16/08/2019 10:59:00,1,23

@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_initials_second_token_rule",
+      "kind": "Operation boundary",
+      "node_id": "addl_prep",
+      "op": "project",
+      "source_text": "Create a new column in the applicants table for each student's initials.",
+      "ref": "def compute_initials(full_name: str) -> str:\n        if not isinstance(full_name, str):\n            return \"\"\n        parts = [p for p in full_name.strip().split() if p]\n        if not parts:\n            return \"\"\n        first = parts[0][0]\n        second = \"\"\n        if len(parts) >= 2:\n            second_token = parts[1]\n            second = second_token.split(\"-\")[0][0]\n        return (first + second).upper()"
+    },
+    {
+      "id": "2_C2_acceptance_percent_denominator",
+      "kind": "Group-level concept",
+      "node_id": "compute_accept",
+      "op": "project",
+      "source_text": "represent this as a percentage of the total spaces that were available for that region.",
+      "ref": "region_total = pd.DataFrame({\"Region\": [\"EAST\", \"WEST\"], \"Total Seats\": [75, 25]})\ncounts = counts.merge(region_total, on=\"Region\", how=\"left\")\ncounts[\"Acceptance %\"] = (counts[\"Accepted Count\"] / counts[\"Total Seats\"]) * 100"
+    },
+    {
+      "id": "3_O3_join_multimatch_keep_closest",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_key2",
+      "op": "dedup",
+      "source_text": "Find a way to join this table to the Additional Information table. We should maintain exactly 4,000 unique records.",
+      "ref": "part1_dedup = (\n        part1.sort_values(\"Distance From School (Miles)\", ascending=True)\n        .drop_duplicates(subset=[\"_key2\"], keep=\"first\")\n    )"
+    },
+    {
+      "id": "4_O2_join_fallback_without_initials",
+      "kind": "Operation incomplete",
+      "node_id": "fill_from_fallback",
+      "op": "project",
+      "intent": "If join on key including initials leaves unmatched rows, fallback join using key excluding initials and fill missing fields.",
+      "ref": "if merged[\"Subject Selection\"].isna().any():\n        part1_dedup_key = (\n            part1.sort_values(\"Distance From School (Miles)\", ascending=True)\n            .drop_duplicates(subset=[\"_key\"], keep=\"first\")\n        )[[\"_key\", \"Subject Selection\", \"Distance From School (Miles)\"]]\n        fallback = addl.merge(\n            part1_dedup_key,\n            left_on=\"_key\",\n            right_on=\"_key\",\n            how=\"left\",\n            validate=\"many_to_one\",\n            suffixes=(\"\", \"_fb\"),\n        )[[\"Subject Selection\", \"Distance From School (Miles)\"]].rename(\n            columns={\n                \"Subject Selection\": \"Subject Selection_fb\",\n                \"Distance From School (Miles)\": \"Distance From School (Miles)_fb\",\n            }\n        )\n        merged = pd.concat([merged, fallback], axis=1)\n        merged[\"Subject Selection\"] = merged[\"Subject Selection\"].fillna(merged[\"Subject Selection_fb\"])\n        merged[\"Distance From School (Miles)\"] = merged[\"Distance From School (Miles)\"].fillna(\n            merged[\"Distance From School (Miles)_fb\"]\n        )"
+    },
+    {
+      "id": "6_D2_join_base_table_left_additional_info",
+      "kind": "Multi-table alignment",
+      "node_id": "join_primary",
+      "op": "join",
+      "source_text": "Find a way to join this table to the Additional Information table. We should maintain exactly 4,000 unique records.",
+      "ref": "merged = addl.merge(\n        part1_dedup[\n            [\n                \"_key2\",\n                \"Subject Selection\",\n                \"Distance From School (Miles)\",\n            ]\n        ],\n        left_on=\"_key2\",\n        right_on=\"_key2\",\n        how=\"left\",\n        validate=\"many_to_one\",\n    )\nassert len(merged) == len(addl)"
+    },
+    {
+      "id": "7_O3_school_status_ties_high_low",
+      "kind": "Operation inconsistent",
+      "node_id": "label_status",
+      "op": "project",
+      "source_text": "For each region, label their highest performing school as \"High Performing\" and the lowest performing school as \"Low Performing\"",
+      "ref": "max_val = region_df[\"Acceptance %\"].max()\n        min_val = region_df[\"Acceptance %\"].min()\n        region_df[\"School Status\"] = \"Average Performing\"\n        region_df.loc[region_df[\"Acceptance %\"] == max_val, \"School Status\"] = \"High Performing\"\n        region_df.loc[region_df[\"Acceptance %\"] == min_val, \"School Status\"] = \"Low Performing\""
+    },
+    {
+      "id": "8_D2_join_key_fields_and_initials_disambiguator",
+      "kind": "Multi-table alignment",
+      "node_id": "part1_prep",
+      "op": "project",
+      "source_text": "Find a way to join this table to the Additional Information table. We should maintain exactly 4,000 unique records.",
+      "ref": "part1[\"_key\"] = (\n        part1[\"_dob\"].astype(\"int64\").astype(str)\n        + \"||\" + part1[\"School Name\"]\n        + \"||\" + part1[\"English\"]\n        + \"||\" + part1[\"Maths\"]\n        + \"||\" + part1[\"Science\"]\n    )\naddl[\"_key\"] = (\n        addl[\"_dob\"].astype(\"int64\").astype(str)\n        + \"||\" + addl[\"School Name\"]\n        + \"||\" + addl[\"English\"]\n        + \"||\" + addl[\"Maths\"]\n        + \"||\" + addl[\"Science\"]\n    )\npart1[\"_key2\"] = part1[\"_key\"] + \"||\" + part1[\"Initials\"]\naddl[\"_key2\"] = addl[\"_key\"] + \"||\" + addl[\"Initials_calc\"]"
+    },
+    {
+      "id": "9_O1_final_row_ordering",
+      "kind": "Row-level concept",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Deterministically sort final rows by Subject Selection, Region, Grade Score desc, Distance asc.",
+      "ref": ").sort_values(\n        by=[\"Subject Selection\", \"Region\", \"Grade Score\", \"Distance From School (Miles)\"],\n        ascending=[True, True, False, True],\n    ).drop(columns=[\"Distance From School (Miles)\"]).reset_index(drop=True)"
+    }
+  ]
+}

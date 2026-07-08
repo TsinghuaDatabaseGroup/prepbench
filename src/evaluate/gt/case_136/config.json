@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Name",
+        "Payment Date",
+        "Monthly Cost",
+        "Cumulative Monthly Cost"
+      ],
+      "columns": {
+        "Name": "text_exact",
+        "Payment Date": "date",
+        "Monthly Cost": "number",
+        "Cumulative Monthly Cost": "number"
+      }
+    }
+  }
+}
+

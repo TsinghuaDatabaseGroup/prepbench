@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Sustainable?",
+        "% of trips per day",
+        "Trips per day",
+        "Number of Trips",
+        "Weekday",
+        "Method of Travel"
+      ],
+      "columns": {
+        "Sustainable?": "text_exact",
+        "% of trips per day": "number",
+        "Trips per day": "number",
+        "Number of Trips": "number",
+        "Weekday": "text_exact",
+        "Method of Travel": "text_exact"
+      }
+    }
+  }
+}
+

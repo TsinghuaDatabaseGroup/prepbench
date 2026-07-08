@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_product_to_code_mapping",
+      "kind": "Single-table reference",
+      "node_id": "create_product_mapping",
+      "op": "project",
+      "source_text": "Link the Product Code to the Sales Table to provide the Scent information",
+      "ref": "Map Product (B1, L1) to Product Code (SB01, LS01)"
+    },
+    {
+      "id": "2_O3_output1_dedup_exact_rows",
+      "kind": "Operation inconsistent",
+      "node_id": "output_01_dedup",
+      "op": "dedup",
+      "intent": "In output_01, de-duplicate by all columns (keep first occurrence).",
+      "ref": "out1 = out1.drop_duplicates()"
+    },
+    {
+      "id": "3_C1_correct_sale_definition_size_match",
+      "kind": "Row-level concept",
+      "node_id": "filter_correct",
+      "op": "filter",
+      "source_text": "products sold that have the sizes recorded correctly",
+      "ref": "Correct = (Recorded Size == Correct Size)"
+    },
+    {
+      "id": "4_D2_size_id_lookup_keying",
+      "kind": "Multi-table alignment",
+      "node_id": "join_size_lookup",
+      "op": "join",
+      "source_text": "Look up the correct size",
+      "ref": "Join on Size ID to get Correct Size"
+    },
+    {
+      "id": "5_C1_output2_product_size_should_be_correct",
+      "kind": "Row-level concept",
+      "node_id": "output_02_prep",
+      "op": "project",
+      "source_text": "contains all the Products sold with the incorrect sizes and what the sizes should have been",
+      "ref": "Product Size in output = Correct Size (not Recorded Size)"
+    }
+  ]
+}

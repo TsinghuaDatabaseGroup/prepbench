@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Forecast Type",
+        "Date or Time",
+        "Temperature",
+        "Max Temp",
+        "Min Temp",
+        "Precipitation Chance"
+      ],
+      "columns": {
+        "Forecast Type": "text_exact",
+        "Date or Time": "text_exact",
+        "Temperature": "number",
+        "Max Temp": "number",
+        "Min Temp": "number",
+        "Precipitation Chance": "number"
+      }
+    }
+  }
+}
+

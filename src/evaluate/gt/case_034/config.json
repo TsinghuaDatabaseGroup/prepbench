@@ -1,0 +1,24 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Month Name",
+                "Weekday",
+                "Date",
+                "Product",
+                "Scent",
+                "Supplier",
+                "Quantity"
+            ],
+            "columns": {
+                "Month Name": "text_exact",
+                "Weekday": "text_exact",
+                "Date": "date",
+                "Product": "text_exact",
+                "Scent": "text_exact",
+                "Supplier": "text_exact",
+                "Quantity": "number"
+            }
+        }
+    }
+}

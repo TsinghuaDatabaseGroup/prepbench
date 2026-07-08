@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_drop_exact_duplicates",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_keys_only",
+      "op": "dedup",
+      "intent": "When duplicate output rows occur, remove exact duplicates (keep only one copy).",
+      "ref": "output_df = output_df.drop_duplicates()"
+    },
+    {
+      "id": "2_O2_drop_rows_missing_percentage",
+      "kind": "Operation incomplete",
+      "node_id": "filter_has_percentage",
+      "op": "filter",
+      "intent": "After joining percentages, drop rows with missing Percentage (no matching percentage record).",
+      "ref": "df = df.dropna(subset=['Percentage'])"
+    },
+    {
+      "id": "3_O1_percentage_strictly_positive",
+      "kind": "Operation boundary",
+      "node_id": "filter_percent_pos",
+      "op": "filter",
+      "source_text": "We don't care about any product sizes that make up 0% of sales.",
+      "ref": "percentages = percentages[percentages['Percentage of Sales'] > 0]"
+    },
+    {
+      "id": "4_D2_join_total_to_lookup_on_scent",
+      "kind": "Multi-table alignment",
+      "node_id": "join_total_lookup",
+      "op": "join",
+      "source_text": "do some cleaning of the Scent fields to join together the Total Sales and the Lookup Table.",
+      "ref": "df = pd.merge(total_sales, lookup, on='Scent', how='left')"
+    },
+    {
+      "id": "5_D2_join_to_percent_on_product_week_size",
+      "kind": "Multi-table alignment",
+      "node_id": "join_with_percent",
+      "op": "join",
+      "source_text": "we know what percentage of sales each product size makes up for each product in each week.",
+      "ref": "df = pd.merge(df, percentages, on=['Product_ID', 'Year_Week', 'Size'], how='left')"
+    },
+    {
+      "id": "6_O2_split_product_field_by_known_size_suffix",
+      "kind": "Operation incomplete",
+      "node_id": "project_lookup",
+      "op": "project",
+      "source_text": "In the Lookup Table, it seems the Product ID and Size have been erroneously concatenated. These need to be separated.",
+      "ref": "# The sizes are: 50g, 100g, 250ml, 0.5l\nlookup['Size'] = lookup['Product'].str.extract(r'(50g|100g|250ml|0\\.5l)$')[0]\nlookup['Product_ID'] = lookup['Product'].str.replace(r'(50g|100g|250ml|0\\.5l)$', '', regex=True)"
+    },
+    {
+      "id": "7_O1_iso_year_week_from_week_commencing",
+      "kind": "Operation boundary",
+      "node_id": "project_percent_compute",
+      "op": "project",
+      "source_text": "Our final output requires the Date to be in in the Year Week Number format.",
+      "ref": "# Use isocalendar to get the correct week number\npercentages['Year_Week'] = percentages['Week Commencing'].apply(\n    lambda x: int(f\"{x.isocalendar().year}{x.isocalendar().week:02d}\")\n)"
+    },
+    {
+      "id": "8_C2_sales_equals_total_times_percentage",
+      "kind": "Row-level concept",
+      "node_id": "project_sales_and_fmt",
+      "op": "project",
+      "source_text": "Calculate the sales per week for each scent and product size.",
+      "ref": "df['Sales'] = df['Total_Sales'] * df['Percentage']"
+    },
+    {
+      "id": "9_O1_round_sales_to_2_decimals",
+      "kind": "Operation boundary",
+      "node_id": "project_sales_and_fmt",
+      "op": "project",
+      "intent": "Round Sales to 2 decimal places.",
+      "ref": "output_df['Sales'] = output_df['Sales'].apply(lambda x: round(float(x), 2))"
+    }
+  ]
+}

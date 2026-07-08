@@ -1,0 +1,1001 @@
+Date of Servce,VisitID,PatientID,Visit Type,Doctor,Patient visit number,First visit date,Total Patient visits,New Patient Flag
+08/10/2017,685,94,Acupuncture,Clooney,5,06/10/2015,7,Returning patient
+26/10/2017,847,142,Minor surgery,Hathaway,9,02/07/2015,10,Returning patient
+06/04/2019,93,98,Acupuncture,Ridley,7,22/05/2015,7,Returning patient
+06/02/2016,646,106,Major surgery,Ridley,1,06/02/2016,5,New patient
+10/02/2019,774,196,Acupuncture,Smith,6,12/08/2015,7,Returning patient
+02/05/2016,363,92,GP checkup,Ridley,2,14/01/2016,7,Returning patient
+21/06/2018,401,12,Minor surgery,Hathaway,4,13/07/2016,7,Returning patient
+29/01/2019,879,51,Acupuncture,Clooney,9,05/01/2015,10,Returning patient
+12/04/2018,998,9,Major surgery,Frances,5,09/03/2015,6,Returning patient
+03/12/2017,476,24,GP checkup,Clooney,2,06/11/2015,2,Returning patient
+27/10/2018,400,12,Acupuncture,Frances,5,13/07/2016,7,Returning patient
+30/09/2016,92,55,Physiotherapy,Frances,2,14/07/2016,5,Returning patient
+04/05/2018,490,154,Acupuncture,Frances,5,28/12/2016,5,Returning patient
+20/12/2015,544,173,Major surgery,Frances,4,19/07/2015,8,Returning patient
+25/12/2016,311,142,Minor surgery,Ridley,7,02/07/2015,10,Returning patient
+23/05/2015,320,32,Major surgery,Smith,1,23/05/2015,7,New patient
+27/04/2015,202,97,Physiotherapy,Frances,1,27/04/2015,3,New patient
+03/11/2016,260,44,GP checkup,Smith,3,10/08/2015,4,Returning patient
+27/12/2017,383,132,Major surgery,Frances,3,25/10/2015,7,Returning patient
+04/08/2016,723,111,Physiotherapy,Ridley,2,18/09/2015,6,Returning patient
+18/06/2016,317,142,GP checkup,Smith,5,02/07/2015,10,Returning patient
+13/03/2019,493,171,Major surgery,Smith,3,24/04/2017,3,Returning patient
+09/05/2019,634,88,Physiotherapy,Smith,10,21/04/2015,10,Returning patient
+27/10/2018,120,19,GP checkup,Hathaway,6,30/04/2015,6,Returning patient
+16/04/2015,567,64,Physiotherapy,Ridley,1,16/04/2015,7,New patient
+09/09/2015,244,116,Major surgery,Ridley,3,29/03/2015,5,Returning patient
+03/02/2015,358,127,Major surgery,Frances,1,03/02/2015,8,New patient
+08/12/2017,853,177,GP checkup,Hathaway,3,14/08/2016,3,Returning patient
+18/01/2015,798,52,GP checkup,Ridley,1,18/01/2015,7,New patient
+18/06/2019,9,35,GP checkup,Hathaway,3,27/03/2017,3,Returning patient
+16/09/2017,455,192,Major surgery,Frances,2,13/06/2016,4,Returning patient
+19/07/2018,342,147,Physiotherapy,Hathaway,6,10/08/2015,9,Returning patient
+12/07/2016,539,178,Acupuncture,Frances,2,15/07/2015,5,Returning patient
+22/01/2019,399,17,Minor surgery,Ridley,3,04/02/2016,4,Returning patient
+04/06/2019,472,192,Major surgery,Hathaway,3,13/06/2016,4,Returning patient
+21/12/2015,631,130,Physiotherapy,Frances,2,04/07/2015,8,Returning patient
+31/03/2017,512,139,Acupuncture,Clooney,2,30/09/2016,3,Returning patient
+20/06/2017,453,15,GP checkup,Clooney,4,20/03/2015,7,Returning patient
+01/11/2016,680,150,Minor surgery,Ridley,3,10/03/2015,4,Returning patient
+18/11/2017,209,28,Acupuncture,Frances,6,16/11/2015,7,Returning patient
+04/03/2016,412,142,GP checkup,Smith,4,02/07/2015,10,Returning patient
+26/04/2015,738,134,Minor surgery,Smith,1,26/04/2015,4,New patient
+12/08/2015,348,196,Minor surgery,Frances,1,12/08/2015,7,New patient
+19/01/2019,394,189,Acupuncture,Hathaway,4,30/12/2015,4,Returning patient
+09/08/2016,505,136,GP checkup,Smith,3,19/07/2015,5,Returning patient
+28/04/2019,849,35,Minor surgery,Frances,2,27/03/2017,3,Returning patient
+31/07/2017,863,131,GP checkup,Smith,2,23/05/2015,6,Returning patient
+22/06/2016,309,11,Physiotherapy,Ridley,2,21/10/2015,5,Returning patient
+08/01/2019,408,52,Physiotherapy,Hathaway,7,18/01/2015,7,Returning patient
+21/09/2016,21,29,Major surgery,Ridley,1,21/09/2016,4,New patient
+16/12/2016,608,74,Physiotherapy,Hathaway,3,04/01/2015,5,Returning patient
+21/03/2017,271,45,Minor surgery,Smith,5,28/01/2015,9,Returning patient
+16/11/2018,704,127,Major surgery,Hathaway,7,03/02/2015,8,Returning patient
+02/08/2019,947,193,Minor surgery,Ridley,7,01/05/2015,7,Returning patient
+13/06/2016,760,192,Minor surgery,Frances,1,13/06/2016,4,New patient
+28/09/2017,728,177,Minor surgery,Hathaway,2,14/08/2016,3,Returning patient
+27/09/2019,114,17,Minor surgery,Frances,4,04/02/2016,4,Returning patient
+26/06/2019,807,58,Physiotherapy,Frances,3,31/03/2017,3,Returning patient
+11/07/2016,821,153,Major surgery,Frances,3,20/08/2015,7,Returning patient
+16/07/2015,908,128,GP checkup,Smith,4,06/01/2015,7,Returning patient
+31/08/2017,745,4,Physiotherapy,Smith,1,31/08/2017,2,New patient
+24/04/2017,24,186,Major surgery,Clooney,2,08/02/2015,5,Returning patient
+06/08/2016,99,125,Minor surgery,Frances,3,02/02/2015,7,Returning patient
+08/11/2018,482,46,Acupuncture,Hathaway,8,08/03/2016,8,Returning patient
+16/01/2018,878,180,Minor surgery,Smith,5,11/07/2016,7,Returning patient
+22/10/2016,982,12,Minor surgery,Frances,2,13/07/2016,7,Returning patient
+23/09/2019,500,181,Minor surgery,Frances,6,31/10/2015,6,Returning patient
+29/06/2017,650,145,Major surgery,Frances,6,02/02/2015,8,Returning patient
+18/04/2018,824,130,GP checkup,Hathaway,7,04/07/2015,8,Returning patient
+18/07/2017,226,71,Minor surgery,Ridley,2,27/12/2016,6,Returning patient
+14/02/2015,562,137,Major surgery,Ridley,1,14/02/2015,8,New patient
+05/07/2018,767,132,GP checkup,Ridley,5,25/10/2015,7,Returning patient
+02/04/2015,333,127,Acupuncture,Frances,2,03/02/2015,8,Returning patient
+17/08/2016,603,106,Physiotherapy,Clooney,2,06/02/2016,5,Returning patient
+05/03/2017,102,138,Acupuncture,Clooney,1,05/03/2017,2,New patient
+06/07/2019,977,37,Physiotherapy,Clooney,6,03/07/2016,6,Returning patient
+29/08/2016,79,18,Major surgery,Ridley,3,09/05/2015,10,Returning patient
+08/05/2015,290,22,GP checkup,Ridley,1,08/05/2015,6,New patient
+08/11/2017,684,159,Major surgery,Clooney,3,24/05/2015,7,Returning patient
+20/02/2019,825,59,GP checkup,Clooney,4,11/10/2015,5,Returning patient
+24/01/2018,677,159,Physiotherapy,Clooney,5,24/05/2015,7,Returning patient
+24/01/2019,818,37,GP checkup,Smith,4,03/07/2016,6,Returning patient
+15/05/2017,132,79,Minor surgery,Smith,4,20/03/2015,5,Returning patient
+18/05/2018,326,45,Physiotherapy,Hathaway,7,28/01/2015,9,Returning patient
+21/08/2017,995,147,Physiotherapy,Frances,4,10/08/2015,9,Returning patient
+15/07/2016,153,34,Major surgery,Clooney,1,15/07/2016,5,New patient
+18/12/2017,480,81,Minor surgery,Frances,2,05/05/2015,6,Returning patient
+03/12/2017,801,127,Acupuncture,Frances,5,03/02/2015,8,Returning patient
+17/10/2016,168,187,Minor surgery,Hathaway,2,14/03/2016,5,Returning patient
+20/07/2017,261,64,Physiotherapy,Clooney,3,16/04/2015,7,Returning patient
+30/09/2016,718,139,GP checkup,Clooney,1,30/09/2016,3,New patient
+13/06/2016,494,183,GP checkup,Ridley,1,13/06/2016,2,New patient
+05/02/2017,424,86,GP checkup,Clooney,4,31/05/2015,7,Returning patient
+09/04/2019,679,76,GP checkup,Hathaway,9,12/01/2015,10,Returning patient
+04/08/2017,242,21,Acupuncture,Frances,4,20/12/2015,7,Returning patient
+26/03/2019,232,103,GP checkup,Frances,4,03/01/2015,4,Returning patient
+14/07/2016,764,55,Minor surgery,Hathaway,1,14/07/2016,5,New patient
+21/08/2015,346,42,Minor surgery,Clooney,1,21/08/2015,2,New patient
+08/11/2015,162,165,Physiotherapy,Hathaway,2,23/09/2015,4,Returning patient
+10/10/2019,876,70,Major surgery,Clooney,7,10/01/2015,7,Returning patient
+21/09/2017,797,121,GP checkup,Frances,2,08/12/2015,5,Returning patient
+21/11/2018,95,95,GP checkup,Ridley,3,04/08/2016,4,Returning patient
+26/07/2017,483,184,GP checkup,Frances,4,27/12/2015,6,Returning patient
+01/05/2015,506,193,Minor surgery,Clooney,1,01/05/2015,7,New patient
+17/04/2019,922,102,Minor surgery,Clooney,4,13/12/2016,5,Returning patient
+16/11/2018,915,134,Minor surgery,Ridley,3,26/04/2015,4,Returning patient
+02/12/2015,870,20,Major surgery,Smith,1,02/12/2015,4,New patient
+21/02/2019,611,96,Minor surgery,Ridley,5,29/08/2015,6,Returning patient
+15/09/2017,378,128,Major surgery,Frances,6,06/01/2015,7,Returning patient
+09/12/2015,565,194,Minor surgery,Hathaway,1,09/12/2015,2,New patient
+18/02/2018,623,46,Minor surgery,Smith,6,08/03/2016,8,Returning patient
+21/06/2018,247,96,Physiotherapy,Smith,4,29/08/2015,6,Returning patient
+28/03/2015,166,78,Major surgery,Ridley,1,28/03/2015,5,New patient
+08/08/2019,586,29,Major surgery,Frances,4,21/09/2016,4,Returning patient
+11/04/2019,155,133,Acupuncture,Hathaway,4,07/04/2016,5,Returning patient
+14/06/2017,758,31,Minor surgery,Hathaway,3,01/07/2015,4,Returning patient
+25/09/2015,644,51,Acupuncture,Hathaway,3,05/01/2015,10,Returning patient
+08/08/2017,291,169,Minor surgery,Clooney,3,29/05/2016,5,Returning patient
+07/03/2018,417,100,Physiotherapy,Hathaway,2,09/07/2017,4,Returning patient
+12/04/2017,229,70,Physiotherapy,Clooney,3,10/01/2015,7,Returning patient
+27/09/2016,731,198,Physiotherapy,Smith,4,03/03/2015,7,Returning patient
+19/07/2015,122,136,Major surgery,Frances,1,19/07/2015,5,New patient
+01/04/2016,137,94,Minor surgery,Smith,2,06/10/2015,7,Returning patient
+29/04/2017,4,137,GP checkup,Ridley,6,14/02/2015,8,Returning patient
+06/09/2017,513,135,Minor surgery,Clooney,3,11/06/2015,3,Returning patient
+26/04/2015,831,161,Major surgery,Ridley,1,26/04/2015,9,New patient
+01/04/2016,553,73,GP checkup,Smith,2,01/01/2015,8,Returning patient
+22/08/2019,420,121,Minor surgery,Ridley,4,08/12/2015,5,Returning patient
+24/12/2016,433,146,GP checkup,Frances,2,31/08/2016,3,Returning patient
+23/08/2016,919,45,GP checkup,Clooney,4,28/01/2015,9,Returning patient
+22/05/2016,877,53,Major surgery,Ridley,3,03/08/2015,5,Returning patient
+07/06/2018,763,43,Physiotherapy,Ridley,4,15/08/2015,6,Returning patient
+19/05/2017,570,110,Physiotherapy,Smith,3,03/05/2016,5,Returning patient
+04/07/2016,671,18,Acupuncture,Smith,2,09/05/2015,10,Returning patient
+03/03/2019,735,9,GP checkup,Hathaway,6,09/03/2015,6,Returning patient
+13/12/2017,823,28,GP checkup,Smith,7,16/11/2015,7,Returning patient
+29/05/2017,50,114,Major surgery,Frances,4,23/02/2015,4,Returning patient
+27/05/2017,287,199,Acupuncture,Frances,4,29/08/2015,7,Returning patient
+01/04/2019,186,159,GP checkup,Hathaway,7,24/05/2015,7,Returning patient
+10/08/2015,169,44,Physiotherapy,Clooney,1,10/08/2015,4,New patient
+27/09/2016,467,143,Major surgery,Clooney,3,29/12/2015,9,Returning patient
+01/10/2017,578,18,Minor surgery,Hathaway,9,09/05/2015,10,Returning patient
+26/03/2016,719,137,Physiotherapy,Ridley,3,14/02/2015,8,Returning patient
+20/05/2019,163,124,Major surgery,Smith,4,20/02/2016,4,Returning patient
+30/09/2015,509,153,Minor surgery,Frances,2,20/08/2015,7,Returning patient
+04/08/2019,107,132,Minor surgery,Smith,6,25/10/2015,7,Returning patient
+07/06/2015,697,30,Physiotherapy,Clooney,1,07/06/2015,5,New patient
+24/01/2017,620,20,Major surgery,Smith,2,02/12/2015,4,Returning patient
+14/09/2018,906,183,Acupuncture,Hathaway,2,13/06/2016,2,Returning patient
+21/09/2018,542,19,Acupuncture,Smith,5,30/04/2015,6,Returning patient
+02/10/2017,962,152,Minor surgery,Clooney,5,30/10/2015,6,Returning patient
+09/12/2015,57,179,Acupuncture,Hathaway,2,25/04/2015,5,Returning patient
+07/07/2017,481,33,Physiotherapy,Smith,6,02/02/2015,8,Returning patient
+28/07/2017,518,64,GP checkup,Ridley,4,16/04/2015,7,Returning patient
+26/10/2018,283,137,Physiotherapy,Hathaway,7,14/02/2015,8,Returning patient
+02/08/2018,262,21,GP checkup,Ridley,7,20/12/2015,7,Returning patient
+24/08/2019,784,95,Physiotherapy,Clooney,4,04/08/2016,4,Returning patient
+02/02/2015,796,125,GP checkup,Frances,1,02/02/2015,7,New patient
+18/08/2019,70,112,Major surgery,Clooney,7,28/01/2015,7,Returning patient
+27/09/2018,663,8,Major surgery,Frances,4,28/10/2015,6,Returning patient
+23/03/2016,1000,197,Acupuncture,Frances,4,06/08/2015,6,Returning patient
+10/09/2017,82,89,Physiotherapy,Frances,4,06/10/2015,6,Returning patient
+12/07/2018,547,127,GP checkup,Clooney,6,03/02/2015,8,Returning patient
+08/03/2015,643,68,Acupuncture,Frances,1,08/03/2015,2,New patient
+01/09/2015,733,191,Physiotherapy,Smith,1,01/09/2015,6,New patient
+27/12/2018,339,106,Minor surgery,Smith,4,06/02/2016,5,Returning patient
+21/11/2017,175,41,GP checkup,Clooney,3,20/05/2015,5,Returning patient
+11/09/2018,990,162,Physiotherapy,Clooney,6,22/05/2015,6,Returning patient
+14/12/2016,173,14,Major surgery,Clooney,5,14/02/2015,5,Returning patient
+11/09/2017,80,172,Acupuncture,Smith,1,11/09/2017,2,New patient
+18/01/2017,669,182,GP checkup,Smith,1,18/01/2017,3,New patient
+15/07/2015,392,178,GP checkup,Clooney,1,15/07/2015,5,New patient
+09/02/2018,246,131,Major surgery,Clooney,3,23/05/2015,6,Returning patient
+04/08/2016,580,95,GP checkup,Smith,1,04/08/2016,4,New patient
+07/02/2015,900,90,Major surgery,Frances,1,07/02/2015,4,New patient
+16/11/2016,211,180,Major surgery,Clooney,3,11/07/2016,7,Returning patient
+13/07/2018,25,49,Major surgery,Clooney,4,19/11/2015,7,Returning patient
+25/06/2017,696,51,Major surgery,Frances,6,05/01/2015,10,Returning patient
+18/06/2018,386,15,Minor surgery,Ridley,6,20/03/2015,7,Returning patient
+31/05/2015,130,57,Minor surgery,Ridley,1,31/05/2015,6,New patient
+09/08/2015,960,39,Minor surgery,Ridley,1,09/08/2015,3,New patient
+03/03/2015,100,198,GP checkup,Frances,1,03/03/2015,7,New patient
+06/07/2018,859,85,Acupuncture,Smith,3,02/03/2016,4,Returning patient
+18/09/2017,514,18,Major surgery,Hathaway,8,09/05/2015,10,Returning patient
+16/09/2018,89,158,Acupuncture,Smith,6,03/12/2015,7,Returning patient
+28/05/2015,871,193,Physiotherapy,Frances,2,01/05/2015,7,Returning patient
+20/02/2016,101,124,Acupuncture,Smith,1,20/02/2016,4,New patient
+20/03/2018,582,157,Minor surgery,Ridley,2,11/08/2015,4,Returning patient
+29/12/2016,94,168,Minor surgery,Smith,2,23/09/2015,3,Returning patient
+29/11/2016,941,195,GP checkup,Smith,4,10/02/2015,5,Returning patient
+13/02/2019,462,182,Major surgery,Smith,2,18/01/2017,3,Returning patient
+15/03/2019,199,159,GP checkup,Ridley,6,24/05/2015,7,Returning patient
+11/06/2019,599,87,GP checkup,Hathaway,5,20/04/2015,5,Returning patient
+03/05/2015,331,33,Physiotherapy,Smith,3,02/02/2015,8,Returning patient
+27/03/2018,329,145,GP checkup,Smith,8,02/02/2015,8,Returning patient
+01/01/2017,303,29,Major surgery,Clooney,3,21/09/2016,4,Returning patient
+04/06/2017,235,57,Minor surgery,Smith,4,31/05/2015,6,Returning patient
+29/09/2015,809,5,Minor surgery,Ridley,1,29/09/2015,8,New patient
+06/06/2016,591,60,Major surgery,Hathaway,2,08/05/2016,4,Returning patient
+19/01/2019,610,126,Physiotherapy,Smith,4,23/01/2015,5,Returning patient
+04/03/2018,468,113,Minor surgery,Frances,3,04/01/2015,4,Returning patient
+20/01/2019,561,12,Major surgery,Hathaway,6,13/07/2016,7,Returning patient
+27/07/2018,76,26,Major surgery,Smith,4,01/05/2015,4,Returning patient
+28/08/2018,220,88,Minor surgery,Ridley,7,21/04/2015,10,Returning patient
+12/03/2015,123,156,Physiotherapy,Smith,2,14/01/2015,4,Returning patient
+31/08/2019,664,66,GP checkup,Ridley,6,10/06/2016,6,Returning patient
+18/10/2016,638,54,Acupuncture,Ridley,3,17/12/2015,7,Returning patient
+28/04/2019,666,55,Minor surgery,Ridley,4,14/07/2016,5,Returning patient
+21/07/2016,909,130,Physiotherapy,Clooney,3,04/07/2015,8,Returning patient
+24/12/2015,106,197,Major surgery,Clooney,2,06/08/2015,6,Returning patient
+05/12/2017,140,191,Minor surgery,Frances,4,01/09/2015,6,Returning patient
+30/06/2019,388,126,GP checkup,Frances,5,23/01/2015,5,Returning patient
+09/08/2017,929,28,Minor surgery,Ridley,5,16/11/2015,7,Returning patient
+18/12/2017,980,62,GP checkup,Hathaway,1,18/12/2017,3,New patient
+04/03/2017,357,149,GP checkup,Hathaway,5,22/04/2015,5,Returning patient
+02/05/2015,294,198,GP checkup,Ridley,2,03/03/2015,7,Returning patient
+15/04/2019,428,84,Physiotherapy,Hathaway,6,28/08/2015,7,Returning patient
+28/05/2016,820,9,Minor surgery,Clooney,3,09/03/2015,6,Returning patient
+06/06/2017,51,105,GP checkup,Smith,1,06/06/2017,4,New patient
+12/03/2016,690,57,Acupuncture,Hathaway,3,31/05/2015,6,Returning patient
+21/08/2015,640,67,Physiotherapy,Ridley,3,01/07/2015,8,Returning patient
+27/12/2015,174,184,Major surgery,Hathaway,1,27/12/2015,6,New patient
+20/11/2018,277,58,Physiotherapy,Frances,2,31/03/2017,3,Returning patient
+26/06/2015,14,116,GP checkup,Hathaway,2,29/03/2015,5,Returning patient
+12/05/2017,665,197,GP checkup,Ridley,5,06/08/2015,6,Returning patient
+22/10/2017,457,41,Minor surgery,Smith,2,20/05/2015,5,Returning patient
+02/03/2018,756,142,Acupuncture,Ridley,10,02/07/2015,10,Returning patient
+13/10/2015,157,190,Physiotherapy,Hathaway,3,14/04/2015,5,Returning patient
+26/08/2019,191,5,Physiotherapy,Hathaway,8,29/09/2015,8,Returning patient
+21/02/2019,558,182,Physiotherapy,Hathaway,3,18/01/2017,3,Returning patient
+22/09/2019,161,93,GP checkup,Smith,7,07/11/2015,7,Returning patient
+08/12/2015,48,121,Major surgery,Smith,1,08/12/2015,5,New patient
+17/03/2019,647,163,Physiotherapy,Hathaway,5,06/12/2015,5,Returning patient
+20/03/2017,268,130,Physiotherapy,Smith,4,04/07/2015,8,Returning patient
+11/02/2017,395,19,Major surgery,Ridley,3,30/04/2015,6,Returning patient
+09/12/2016,841,128,Physiotherapy,Hathaway,5,06/01/2015,7,Returning patient
+04/04/2017,744,161,Acupuncture,Frances,7,26/04/2015,9,Returning patient
+06/08/2015,154,197,GP checkup,Hathaway,1,06/08/2015,6,New patient
+27/05/2016,754,93,Acupuncture,Ridley,2,07/11/2015,7,Returning patient
+18/12/2017,734,34,Minor surgery,Hathaway,2,15/07/2016,5,Returning patient
+08/03/2016,783,40,GP checkup,Clooney,2,04/03/2015,3,Returning patient
+08/03/2016,464,46,Physiotherapy,Smith,1,08/03/2016,8,New patient
+04/01/2015,337,113,Minor surgery,Clooney,1,04/01/2015,4,New patient
+30/07/2019,660,92,Acupuncture,Ridley,7,14/01/2016,7,Returning patient
+06/02/2018,364,23,GP checkup,Frances,2,09/05/2017,2,Returning patient
+12/05/2016,526,164,Major surgery,Ridley,1,12/05/2016,5,New patient
+30/04/2019,34,92,GP checkup,Frances,5,14/01/2016,7,Returning patient
+20/03/2016,49,137,Major surgery,Clooney,2,14/02/2015,8,Returning patient
+30/04/2016,590,132,Acupuncture,Hathaway,2,25/10/2015,7,Returning patient
+07/07/2016,312,145,Physiotherapy,Hathaway,4,02/02/2015,8,Returning patient
+24/11/2018,605,57,GP checkup,Clooney,6,31/05/2015,6,Returning patient
+09/04/2018,755,111,Acupuncture,Ridley,6,18/09/2015,6,Returning patient
+29/10/2018,691,112,GP checkup,Hathaway,5,28/01/2015,7,Returning patient
+31/08/2016,933,180,GP checkup,Hathaway,2,11/07/2016,7,Returning patient
+24/03/2019,861,147,Acupuncture,Hathaway,7,10/08/2015,9,Returning patient
+23/01/2015,659,126,Minor surgery,Clooney,1,23/01/2015,5,New patient
+31/08/2015,698,190,Major surgery,Ridley,2,14/04/2015,5,Returning patient
+21/03/2015,405,107,Acupuncture,Hathaway,1,21/03/2015,4,New patient
+10/02/2015,125,195,Minor surgery,Smith,1,10/02/2015,5,New patient
+20/05/2015,302,74,GP checkup,Hathaway,2,04/01/2015,5,Returning patient
+02/01/2018,789,126,Major surgery,Clooney,3,23/01/2015,5,Returning patient
+12/03/2017,836,19,Major surgery,Ridley,4,30/04/2015,6,Returning patient
+30/01/2018,772,118,Acupuncture,Ridley,1,30/01/2018,3,New patient
+20/09/2019,805,34,Acupuncture,Ridley,5,15/07/2016,5,Returning patient
+08/11/2018,652,158,GP checkup,Frances,7,03/12/2015,7,Returning patient
+03/01/2017,579,89,Physiotherapy,Ridley,3,06/10/2015,6,Returning patient
+30/04/2015,238,19,Major surgery,Clooney,1,30/04/2015,6,New patient
+23/07/2018,158,88,GP checkup,Smith,6,21/04/2015,10,Returning patient
+17/03/2017,282,184,Minor surgery,Ridley,3,27/12/2015,6,Returning patient
+18/09/2015,171,111,Minor surgery,Frances,1,18/09/2015,6,New patient
+15/02/2015,938,14,Minor surgery,Frances,2,14/02/2015,5,Returning patient
+20/07/2015,557,13,Acupuncture,Hathaway,1,20/07/2015,2,New patient
+18/04/2018,882,48,Physiotherapy,Smith,3,27/11/2015,5,Returning patient
+22/05/2017,883,6,Major surgery,Hathaway,1,22/05/2017,1,New patient
+24/03/2019,625,63,Physiotherapy,Smith,5,08/09/2015,7,Returning patient
+20/11/2017,347,32,Minor surgery,Clooney,4,23/05/2015,7,Returning patient
+09/03/2016,496,49,Acupuncture,Clooney,2,19/11/2015,7,Returning patient
+04/01/2015,110,74,GP checkup,Smith,1,04/01/2015,5,New patient
+19/10/2017,510,189,Acupuncture,Hathaway,2,30/12/2015,4,Returning patient
+10/01/2015,470,70,Major surgery,Hathaway,1,10/01/2015,7,New patient
+02/10/2016,556,26,Major surgery,Frances,3,01/05/2015,4,Returning patient
+27/12/2016,465,71,Minor surgery,Hathaway,1,27/12/2016,6,New patient
+01/01/2015,546,73,GP checkup,Hathaway,1,01/01/2015,8,New patient
+26/09/2016,787,72,GP checkup,Frances,3,04/02/2015,6,Returning patient
+05/12/2017,35,130,Acupuncture,Clooney,6,04/07/2015,8,Returning patient
+21/11/2017,804,126,Physiotherapy,Smith,2,23/01/2015,5,Returning patient
+12/01/2015,612,76,GP checkup,Hathaway,1,12/01/2015,10,New patient
+06/05/2017,205,15,Minor surgery,Ridley,3,20/03/2015,7,Returning patient
+10/08/2015,702,147,Physiotherapy,Hathaway,1,10/08/2015,9,New patient
+23/08/2015,127,101,GP checkup,Hathaway,2,03/03/2015,10,Returning patient
+16/08/2016,292,98,Physiotherapy,Hathaway,3,22/05/2015,7,Returning patient
+26/07/2019,916,102,GP checkup,Hathaway,5,13/12/2016,5,Returning patient
+31/05/2015,252,86,Minor surgery,Frances,1,31/05/2015,7,New patient
+25/04/2019,693,94,GP checkup,Hathaway,7,06/10/2015,7,Returning patient
+09/04/2019,617,49,Acupuncture,Ridley,6,19/11/2015,7,Returning patient
+19/08/2018,61,140,Minor surgery,Ridley,7,18/04/2015,8,Returning patient
+11/10/2018,592,118,Major surgery,Hathaway,3,30/01/2018,3,Returning patient
+08/09/2019,75,121,Minor surgery,Frances,5,08/12/2015,5,Returning patient
+02/08/2016,656,21,Acupuncture,Hathaway,3,20/12/2015,7,Returning patient
+06/12/2015,253,161,Minor surgery,Clooney,4,26/04/2015,9,Returning patient
+12/12/2016,52,48,Major surgery,Smith,2,27/11/2015,5,Returning patient
+20/06/2017,74,39,GP checkup,Hathaway,2,09/08/2015,3,Returning patient
+27/06/2015,844,149,Minor surgery,Hathaway,3,22/04/2015,5,Returning patient
+13/06/2016,778,2,GP checkup,Clooney,4,05/06/2015,8,Returning patient
+18/12/2017,880,21,Acupuncture,Ridley,5,20/12/2015,7,Returning patient
+16/01/2018,874,7,Physiotherapy,Clooney,2,09/05/2017,4,Returning patient
+13/10/2018,42,144,Physiotherapy,Clooney,1,13/10/2018,1,New patient
+21/05/2016,397,16,Major surgery,Frances,1,21/05/2016,3,New patient
+12/01/2016,872,5,Physiotherapy,Frances,2,29/09/2015,8,Returning patient
+20/08/2015,832,153,GP checkup,Clooney,1,20/08/2015,7,New patient
+15/12/2017,431,73,Minor surgery,Clooney,7,01/01/2015,8,Returning patient
+01/02/2018,649,101,GP checkup,Hathaway,7,03/03/2015,10,Returning patient
+06/08/2018,183,115,GP checkup,Smith,7,09/03/2015,7,Returning patient
+07/03/2017,116,80,Acupuncture,Smith,4,26/07/2015,6,Returning patient
+30/06/2016,288,61,Minor surgery,Ridley,2,05/09/2015,5,Returning patient
+23/04/2018,626,164,Physiotherapy,Ridley,3,12/05/2016,5,Returning patient
+12/04/2015,495,79,Minor surgery,Frances,2,20/03/2015,5,Returning patient
+18/04/2015,43,140,Physiotherapy,Hathaway,1,18/04/2015,8,New patient
+11/05/2015,534,75,Acupuncture,Clooney,1,11/05/2015,6,New patient
+29/03/2015,645,116,Major surgery,Clooney,1,29/03/2015,5,New patient
+28/05/2017,293,106,Acupuncture,Smith,3,06/02/2016,5,Returning patient
+22/05/2016,676,25,Acupuncture,Hathaway,1,22/05/2016,5,New patient
+09/06/2017,373,73,Acupuncture,Clooney,5,01/01/2015,8,Returning patient
+02/09/2018,950,38,Physiotherapy,Ridley,5,07/05/2015,6,Returning patient
+06/10/2015,416,94,Physiotherapy,Ridley,1,06/10/2015,7,New patient
+30/12/2016,439,166,Minor surgery,Frances,2,08/08/2016,4,Returning patient
+26/03/2018,966,111,Acupuncture,Hathaway,5,18/09/2015,6,Returning patient
+11/02/2018,284,186,Acupuncture,Smith,4,08/02/2015,5,Returning patient
+31/01/2016,353,2,Physiotherapy,Ridley,3,05/06/2015,8,Returning patient
+26/05/2018,636,62,GP checkup,Hathaway,2,18/12/2017,3,Returning patient
+05/01/2016,461,176,Acupuncture,Frances,1,05/01/2016,5,New patient
+28/11/2017,484,11,Major surgery,Ridley,3,21/10/2015,5,Returning patient
+15/04/2015,458,27,Major surgery,Frances,2,16/01/2015,2,Returning patient
+21/09/2017,299,110,Minor surgery,Ridley,5,03/05/2016,5,Returning patient
+14/04/2017,352,152,Minor surgery,Ridley,3,30/10/2015,6,Returning patient
+31/08/2016,72,146,Acupuncture,Smith,1,31/08/2016,3,New patient
+31/01/2019,533,143,Physiotherapy,Frances,6,29/12/2015,9,Returning patient
+27/12/2018,375,191,Acupuncture,Hathaway,5,01/09/2015,6,Returning patient
+14/08/2019,250,38,GP checkup,Hathaway,6,07/05/2015,6,Returning patient
+24/07/2019,344,198,Physiotherapy,Hathaway,7,03/03/2015,7,Returning patient
+27/08/2018,245,158,Major surgery,Frances,5,03/12/2015,7,Returning patient
+17/07/2017,795,142,GP checkup,Clooney,8,02/07/2015,10,Returning patient
+03/09/2019,722,180,GP checkup,Hathaway,7,11/07/2016,7,Returning patient
+01/07/2015,572,31,GP checkup,Frances,1,01/07/2015,4,New patient
+17/05/2018,197,105,GP checkup,Hathaway,3,06/06/2017,4,Returning patient
+08/03/2016,658,147,GP checkup,Hathaway,2,10/08/2015,9,Returning patient
+21/05/2019,451,37,Acupuncture,Clooney,5,03/07/2016,6,Returning patient
+01/11/2017,77,197,Minor surgery,Smith,6,06/08/2015,6,Returning patient
+02/12/2016,934,142,GP checkup,Ridley,6,02/07/2015,10,Returning patient
+16/07/2017,182,73,Physiotherapy,Smith,6,01/01/2015,8,Returning patient
+19/06/2019,974,55,Major surgery,Frances,5,14/07/2016,5,Returning patient
+28/01/2015,894,45,Major surgery,Frances,1,28/01/2015,9,New patient
+09/10/2018,714,48,Physiotherapy,Hathaway,4,27/11/2015,5,Returning patient
+16/01/2017,39,125,Major surgery,Ridley,4,02/02/2015,7,Returning patient
+05/11/2016,732,178,Major surgery,Frances,3,15/07/2015,5,Returning patient
+19/02/2018,627,4,Minor surgery,Frances,2,31/08/2017,2,Returning patient
+24/09/2015,445,67,Major surgery,Clooney,4,01/07/2015,8,Returning patient
+10/02/2018,761,187,Major surgery,Hathaway,3,14/03/2016,5,Returning patient
+16/02/2019,551,74,Physiotherapy,Smith,4,04/01/2015,5,Returning patient
+12/02/2018,59,181,Major surgery,Smith,5,31/10/2015,6,Returning patient
+02/10/2015,341,199,Major surgery,Ridley,2,29/08/2015,7,Returning patient
+24/11/2016,487,82,Major surgery,Hathaway,1,24/11/2016,2,New patient
+23/09/2015,532,168,Acupuncture,Clooney,1,23/09/2015,3,New patient
+13/08/2015,858,26,Physiotherapy,Frances,2,01/05/2015,4,Returning patient
+20/07/2017,958,117,Minor surgery,Smith,1,20/07/2017,2,New patient
+12/10/2015,10,173,Major surgery,Hathaway,3,19/07/2015,8,Returning patient
+20/03/2018,936,160,Acupuncture,Smith,1,20/03/2018,3,New patient
+02/08/2019,790,2,Physiotherapy,Clooney,6,05/06/2015,8,Returning patient
+09/03/2016,890,51,Acupuncture,Ridley,4,05/01/2015,10,Returning patient
+07/10/2016,581,14,Acupuncture,Clooney,4,14/02/2015,5,Returning patient
+16/02/2016,5,198,Physiotherapy,Clooney,3,03/03/2015,7,Returning patient
+23/01/2016,117,191,Minor surgery,Ridley,3,01/09/2015,6,Returning patient
+24/04/2017,999,171,Minor surgery,Smith,1,24/04/2017,3,New patient
+07/03/2017,668,87,Minor surgery,Hathaway,2,20/04/2015,5,Returning patient
+18/10/2016,715,46,Minor surgery,Ridley,2,08/03/2016,8,Returning patient
+09/07/2019,997,152,Physiotherapy,Frances,6,30/10/2015,6,Returning patient
+27/05/2019,83,107,Major surgery,Hathaway,4,21/03/2015,4,Returning patient
+17/12/2017,917,159,Acupuncture,Frances,4,24/05/2015,7,Returning patient
+17/04/2018,113,125,Major surgery,Clooney,5,02/02/2015,7,Returning patient
+19/09/2019,683,137,Acupuncture,Hathaway,8,14/02/2015,8,Returning patient
+24/08/2016,502,122,Major surgery,Frances,2,02/06/2016,3,Returning patient
+23/11/2016,688,185,GP checkup,Smith,3,28/06/2015,5,Returning patient
+21/03/2018,264,174,Physiotherapy,Smith,2,29/04/2016,4,Returning patient
+22/04/2019,104,71,GP checkup,Frances,5,27/12/2016,6,Returning patient
+27/11/2015,499,48,Physiotherapy,Smith,1,27/11/2015,5,New patient
+21/02/2019,545,22,Major surgery,Hathaway,5,08/05/2015,6,Returning patient
+29/12/2017,41,132,Physiotherapy,Frances,4,25/10/2015,7,Returning patient
+08/02/2015,937,186,Minor surgery,Smith,1,08/02/2015,5,New patient
+15/08/2015,195,43,Acupuncture,Ridley,1,15/08/2015,6,New patient
+11/05/2018,181,89,GP checkup,Clooney,5,06/10/2015,6,Returning patient
+13/01/2019,928,88,Acupuncture,Hathaway,8,21/04/2015,10,Returning patient
+13/04/2017,687,96,Major surgery,Smith,3,29/08/2015,6,Returning patient
+01/01/2017,159,9,Acupuncture,Frances,4,09/03/2015,6,Returning patient
+23/05/2019,201,90,GP checkup,Smith,4,07/02/2015,4,Returning patient
+06/08/2015,830,67,Physiotherapy,Frances,2,01/07/2015,8,Returning patient
+06/08/2019,892,132,Major surgery,Clooney,7,25/10/2015,7,Returning patient
+25/11/2017,986,107,Minor surgery,Smith,3,21/03/2015,4,Returning patient
+19/07/2018,752,81,Major surgery,Smith,4,05/05/2015,6,Returning patient
+30/12/2015,29,189,GP checkup,Frances,1,30/12/2015,4,New patient
+02/06/2018,225,87,GP checkup,Clooney,3,20/04/2015,5,Returning patient
+02/06/2019,703,50,Major surgery,Frances,2,20/07/2015,3,Returning patient
+22/07/2019,700,187,Physiotherapy,Clooney,5,14/03/2016,5,Returning patient
+25/02/2019,575,161,Major surgery,Ridley,9,26/04/2015,9,Returning patient
+24/07/2015,323,142,Minor surgery,Clooney,2,02/07/2015,10,Returning patient
+01/11/2017,519,145,Acupuncture,Frances,7,02/02/2015,8,Returning patient
+28/08/2016,956,164,Minor surgery,Clooney,2,12/05/2016,5,Returning patient
+10/04/2015,165,128,Physiotherapy,Clooney,3,06/01/2015,7,Returning patient
+06/12/2018,374,79,Major surgery,Ridley,5,20/03/2015,5,Returning patient
+12/03/2015,45,10,Major surgery,Ridley,1,12/03/2015,2,New patient
+19/07/2015,228,173,Major surgery,Ridley,1,19/07/2015,8,New patient
+20/04/2015,529,87,Minor surgery,Frances,1,20/04/2015,5,New patient
+03/07/2017,215,22,Acupuncture,Smith,3,08/05/2015,6,Returning patient
+20/11/2015,865,129,Minor surgery,Smith,1,20/11/2015,4,New patient
+11/07/2016,144,180,Acupuncture,Smith,1,11/07/2016,7,New patient
+08/05/2018,8,34,Physiotherapy,Clooney,3,15/07/2016,5,Returning patient
+20/01/2017,241,137,Minor surgery,Ridley,4,14/02/2015,8,Returning patient
+21/04/2018,727,94,Acupuncture,Smith,6,06/10/2015,7,Returning patient
+13/02/2015,217,52,Physiotherapy,Clooney,2,18/01/2015,7,Returning patient
+21/01/2018,300,45,GP checkup,Smith,6,28/01/2015,9,Returning patient
+20/02/2018,411,180,Acupuncture,Clooney,6,11/07/2016,7,Returning patient
+30/04/2018,564,153,Major surgery,Hathaway,6,20/08/2015,7,Returning patient
+28/08/2015,200,84,GP checkup,Clooney,1,28/08/2015,7,New patient
+21/05/2018,777,98,Minor surgery,Frances,5,22/05/2015,7,Returning patient
+23/11/2017,365,15,Minor surgery,Hathaway,5,20/03/2015,7,Returning patient
+30/09/2015,30,83,Minor surgery,Hathaway,3,31/03/2015,4,Returning patient
+27/04/2016,7,59,Major surgery,Ridley,2,11/10/2015,5,Returning patient
+07/08/2018,278,101,Acupuncture,Smith,10,03/03/2015,10,Returning patient
+15/05/2017,376,114,Major surgery,Smith,3,23/02/2015,4,Returning patient
+23/08/2017,134,80,Major surgery,Clooney,5,26/07/2015,6,Returning patient
+10/06/2018,996,120,Major surgery,Frances,2,08/01/2016,2,Returning patient
+19/02/2016,133,119,GP checkup,Ridley,1,19/02/2016,2,New patient
+28/03/2018,313,46,Minor surgery,Clooney,7,08/03/2016,8,Returning patient
+28/07/2015,13,173,Acupuncture,Frances,2,19/07/2015,8,Returning patient
+05/03/2017,773,158,Acupuncture,Hathaway,2,03/12/2015,7,Returning patient
+03/04/2019,750,143,Major surgery,Smith,8,29/12/2015,9,Returning patient
+23/11/2017,571,22,GP checkup,Hathaway,4,08/05/2015,6,Returning patient
+27/06/2018,588,175,Major surgery,Frances,3,16/01/2016,6,Returning patient
+08/06/2018,315,45,GP checkup,Frances,8,28/01/2015,9,Returning patient
+10/04/2016,446,196,Minor surgery,Frances,2,12/08/2015,7,Returning patient
+12/02/2016,147,162,Minor surgery,Ridley,2,22/05/2015,6,Returning patient
+30/11/2017,349,65,Major surgery,Hathaway,6,19/06/2015,7,Returning patient
+23/04/2016,616,88,Physiotherapy,Clooney,5,21/04/2015,10,Returning patient
+12/07/2018,771,43,Acupuncture,Frances,5,15/08/2015,6,Returning patient
+25/02/2017,527,83,Major surgery,Frances,4,31/03/2015,4,Returning patient
+20/03/2017,257,110,Minor surgery,Smith,2,03/05/2016,5,Returning patient
+31/07/2016,73,60,Physiotherapy,Ridley,4,08/05/2016,4,Returning patient
+12/11/2015,478,161,Acupuncture,Frances,3,26/04/2015,9,Returning patient
+13/01/2018,961,140,Major surgery,Ridley,6,18/04/2015,8,Returning patient
+31/10/2016,338,170,Minor surgery,Frances,3,30/03/2016,5,Returning patient
+13/07/2016,550,12,Acupuncture,Hathaway,1,13/07/2016,7,New patient
+22/12/2017,737,148,GP checkup,Ridley,3,02/09/2017,6,Returning patient
+27/04/2016,975,112,GP checkup,Hathaway,3,28/01/2015,7,Returning patient
+08/05/2016,233,60,Physiotherapy,Frances,1,08/05/2016,4,New patient
+10/11/2016,224,129,Major surgery,Smith,3,20/11/2015,4,Returning patient
+06/10/2015,1,89,GP checkup,Smith,1,06/10/2015,6,New patient
+12/02/2017,176,54,Major surgery,Smith,5,17/12/2015,7,Returning patient
+19/08/2017,452,199,Major surgery,Frances,6,29/08/2015,7,Returning patient
+09/09/2018,987,118,Major surgery,Frances,2,30/01/2018,3,Returning patient
+10/01/2019,816,112,Physiotherapy,Smith,6,28/01/2015,7,Returning patient
+10/10/2018,393,8,GP checkup,Frances,5,28/10/2015,6,Returning patient
+07/03/2016,456,181,Acupuncture,Clooney,2,31/10/2015,6,Returning patient
+22/04/2019,993,116,GP checkup,Frances,5,29/03/2015,5,Returning patient
+02/07/2015,520,142,Physiotherapy,Frances,1,02/07/2015,10,New patient
+13/10/2017,899,130,Acupuncture,Smith,5,04/07/2015,8,Returning patient
+19/03/2018,435,67,Major surgery,Frances,8,01/07/2015,8,Returning patient
+03/03/2016,845,197,Major surgery,Clooney,3,06/08/2015,6,Returning patient
+19/07/2017,336,170,GP checkup,Smith,4,30/03/2016,5,Returning patient
+26/07/2015,965,45,Physiotherapy,Hathaway,2,28/01/2015,9,Returning patient
+07/11/2015,227,93,Acupuncture,Frances,1,07/11/2015,7,New patient
+15/10/2018,471,40,Major surgery,Clooney,3,04/03/2015,3,Returning patient
+23/10/2017,172,105,Physiotherapy,Hathaway,2,06/06/2017,4,Returning patient
+24/06/2015,708,149,Minor surgery,Smith,2,22/04/2015,5,Returning patient
+20/11/2018,379,131,Acupuncture,Clooney,5,23/05/2015,6,Returning patient
+20/05/2017,67,90,GP checkup,Frances,3,07/02/2015,4,Returning patient
+17/05/2019,747,45,GP checkup,Hathaway,9,28/01/2015,9,Returning patient
+31/08/2018,69,175,Physiotherapy,Ridley,4,16/01/2016,6,Returning patient
+05/04/2017,619,173,Acupuncture,Ridley,7,19/07/2015,8,Returning patient
+13/04/2017,717,55,Acupuncture,Ridley,3,14/07/2016,5,Returning patient
+18/01/2017,654,16,Major surgery,Ridley,2,21/05/2016,3,Returning patient
+08/01/2016,18,120,Acupuncture,Ridley,1,08/01/2016,2,New patient
+18/07/2018,251,32,Acupuncture,Frances,5,23/05/2015,7,Returning patient
+23/10/2017,131,148,Acupuncture,Frances,2,02/09/2017,6,Returning patient
+30/07/2019,657,73,Acupuncture,Hathaway,8,01/01/2015,8,Returning patient
+28/12/2015,280,86,Acupuncture,Hathaway,2,31/05/2015,7,Returning patient
+11/05/2016,421,69,GP checkup,Frances,1,11/05/2016,2,New patient
+19/04/2019,921,69,GP checkup,Hathaway,2,11/05/2016,2,Returning patient
+06/11/2015,276,9,Physiotherapy,Smith,2,09/03/2015,6,Returning patient
+28/03/2017,895,65,Major surgery,Frances,5,19/06/2015,7,Returning patient
+22/05/2018,843,53,Physiotherapy,Smith,5,03/08/2015,5,Returning patient
+07/09/2016,289,152,Acupuncture,Ridley,2,30/10/2015,6,Returning patient
+22/04/2015,955,149,Minor surgery,Hathaway,1,22/04/2015,5,New patient
+29/06/2016,637,33,Minor surgery,Hathaway,4,02/02/2015,8,Returning patient
+20/02/2017,566,178,Minor surgery,Ridley,4,15/07/2015,5,Returning patient
+29/06/2016,164,25,GP checkup,Smith,2,22/05/2016,5,Returning patient
+04/06/2016,343,145,Minor surgery,Frances,3,02/02/2015,8,Returning patient
+05/12/2017,443,20,Acupuncture,Clooney,3,02/12/2015,4,Returning patient
+28/03/2019,829,96,GP checkup,Ridley,6,29/08/2015,6,Returning patient
+06/04/2019,930,88,GP checkup,Smith,9,21/04/2015,10,Returning patient
+04/01/2019,141,30,Minor surgery,Clooney,5,07/06/2015,5,Returning patient
+19/06/2016,68,101,GP checkup,Ridley,3,03/03/2015,10,Returning patient
+18/10/2015,762,78,Minor surgery,Ridley,2,28/03/2015,5,Returning patient
+26/06/2016,949,38,Acupuncture,Clooney,3,07/05/2015,6,Returning patient
+06/03/2018,926,76,Minor surgery,Smith,7,12/01/2015,10,Returning patient
+06/07/2015,838,97,Acupuncture,Hathaway,2,27/04/2015,3,Returning patient
+14/09/2019,964,157,GP checkup,Hathaway,4,11/08/2015,4,Returning patient
+18/06/2019,942,63,Minor surgery,Hathaway,6,08/09/2015,7,Returning patient
+16/11/2015,212,28,GP checkup,Frances,1,16/11/2015,7,New patient
+20/09/2019,931,2,Physiotherapy,Ridley,8,05/06/2015,8,Returning patient
+17/05/2018,976,84,Major surgery,Smith,5,28/08/2015,7,Returning patient
+25/05/2017,15,153,Major surgery,Clooney,4,20/08/2015,7,Returning patient
+02/12/2017,984,84,GP checkup,Clooney,4,28/08/2015,7,Returning patient
+03/02/2016,6,90,GP checkup,Ridley,2,07/02/2015,4,Returning patient
+23/06/2019,806,196,Physiotherapy,Clooney,7,12/08/2015,7,Returning patient
+04/11/2015,304,77,Major surgery,Ridley,3,12/02/2015,3,Returning patient
+31/05/2019,817,133,Acupuncture,Ridley,5,07/04/2016,5,Returning patient
+26/11/2018,444,71,Minor surgery,Clooney,4,27/12/2016,6,Returning patient
+07/07/2016,971,93,Minor surgery,Frances,3,07/11/2015,7,Returning patient
+22/01/2018,367,8,Major surgery,Smith,2,28/10/2015,6,Returning patient
+18/03/2018,63,33,GP checkup,Hathaway,7,02/02/2015,8,Returning patient
+21/02/2017,632,73,Major surgery,Smith,4,01/01/2015,8,Returning patient
+17/03/2018,139,72,Major surgery,Frances,5,04/02/2015,6,Returning patient
+23/03/2019,881,123,Minor surgery,Hathaway,3,29/05/2015,4,Returning patient
+23/07/2018,983,92,GP checkup,Smith,4,14/01/2016,7,Returning patient
+08/05/2015,530,127,Minor surgery,Frances,3,03/02/2015,8,Returning patient
+23/10/2017,827,189,Physiotherapy,Clooney,3,30/12/2015,4,Returning patient
+09/03/2015,574,115,Physiotherapy,Frances,1,09/03/2015,7,New patient
+08/08/2016,560,166,Minor surgery,Smith,1,08/08/2016,4,New patient
+31/10/2015,218,181,Major surgery,Ridley,1,31/10/2015,6,New patient
+09/11/2018,459,123,GP checkup,Hathaway,2,29/05/2015,4,Returning patient
+30/01/2018,751,93,Major surgery,Smith,5,07/11/2015,7,Returning patient
+31/03/2017,675,58,Minor surgery,Frances,1,31/03/2017,3,New patient
+07/10/2018,753,63,Acupuncture,Ridley,4,08/09/2015,7,Returning patient
+24/04/2019,651,80,Major surgery,Clooney,6,26/07/2015,6,Returning patient
+28/09/2018,142,163,Minor surgery,Smith,4,06/12/2015,5,Returning patient
+04/08/2016,473,114,Major surgery,Frances,2,23/02/2015,4,Returning patient
+08/05/2018,275,61,Minor surgery,Ridley,3,05/09/2015,5,Returning patient
+14/02/2015,328,14,Acupuncture,Hathaway,1,14/02/2015,5,New patient
+08/07/2016,180,28,Acupuncture,Clooney,2,16/11/2015,7,Returning patient
+10/08/2016,584,94,Physiotherapy,Frances,3,06/10/2015,7,Returning patient
+02/02/2015,943,33,Minor surgery,Ridley,1,02/02/2015,8,New patient
+26/03/2017,891,188,Acupuncture,Hathaway,2,22/01/2016,2,Returning patient
+05/02/2016,819,142,Major surgery,Clooney,3,02/07/2015,10,Returning patient
+08/05/2018,973,121,Acupuncture,Ridley,3,08/12/2015,5,Returning patient
+05/02/2018,259,3,Minor surgery,Ridley,2,03/12/2015,3,Returning patient
+16/10/2015,648,185,GP checkup,Ridley,2,28/06/2015,5,Returning patient
+05/05/2019,988,92,Minor surgery,Clooney,6,14/01/2016,7,Returning patient
+13/10/2019,710,84,Acupuncture,Frances,7,28/08/2015,7,Returning patient
+21/12/2017,746,12,Physiotherapy,Smith,3,13/07/2016,7,Returning patient
+09/07/2017,857,100,GP checkup,Ridley,1,09/07/2017,4,New patient
+25/08/2016,402,54,Minor surgery,Frances,2,17/12/2015,7,Returning patient
+15/09/2017,151,67,Major surgery,Clooney,7,01/07/2015,8,Returning patient
+27/11/2015,447,53,Physiotherapy,Smith,2,03/08/2015,5,Returning patient
+22/01/2018,297,59,Acupuncture,Hathaway,3,11/10/2015,5,Returning patient
+29/04/2019,729,49,Major surgery,Smith,7,19/11/2015,7,Returning patient
+11/09/2016,345,145,Major surgery,Smith,5,02/02/2015,8,Returning patient
+04/04/2018,203,169,GP checkup,Hathaway,4,29/05/2016,5,Returning patient
+13/01/2016,951,65,Physiotherapy,Hathaway,2,19/06/2015,7,Returning patient
+27/12/2015,749,135,Minor surgery,Frances,2,11/06/2015,3,Returning patient
+14/08/2016,332,177,Minor surgery,Hathaway,1,14/08/2016,3,New patient
+05/03/2015,925,51,Minor surgery,Smith,2,05/01/2015,10,Returning patient
+06/11/2015,28,24,Acupuncture,Ridley,1,06/11/2015,2,New patient
+22/06/2015,682,38,Physiotherapy,Smith,2,07/05/2015,6,Returning patient
+20/02/2019,266,130,Acupuncture,Clooney,8,04/07/2015,8,Returning patient
+01/07/2016,479,109,GP checkup,Clooney,1,01/07/2016,2,New patient
+08/09/2015,249,80,Acupuncture,Frances,2,26/07/2015,6,Returning patient
+29/05/2016,448,169,Minor surgery,Smith,1,29/05/2016,5,New patient
+23/01/2017,531,109,Major surgery,Clooney,2,01/07/2016,2,Returning patient
+18/12/2018,607,193,Minor surgery,Ridley,5,01/05/2015,7,Returning patient
+26/06/2016,460,66,Acupuncture,Clooney,2,10/06/2016,6,Returning patient
+03/12/2015,243,3,GP checkup,Hathaway,1,03/12/2015,3,New patient
+02/03/2016,537,85,Acupuncture,Clooney,1,02/03/2016,4,New patient
+15/09/2018,298,47,Physiotherapy,Smith,1,15/09/2018,2,New patient
+02/06/2016,248,122,Minor surgery,Ridley,1,02/06/2016,3,New patient
+28/06/2018,129,11,GP checkup,Clooney,4,21/10/2015,5,Returning patient
+25/09/2018,898,70,Minor surgery,Smith,5,10/01/2015,7,Returning patient
+19/03/2019,366,64,Physiotherapy,Smith,5,16/04/2015,7,Returning patient
+13/06/2018,524,108,Physiotherapy,Clooney,2,03/11/2017,3,Returning patient
+18/04/2018,71,160,GP checkup,Frances,2,20/03/2018,3,Returning patient
+31/05/2017,371,169,GP checkup,Smith,2,29/05/2016,5,Returning patient
+23/03/2019,319,76,Minor surgery,Smith,8,12/01/2015,10,Returning patient
+29/04/2016,434,64,Physiotherapy,Ridley,2,16/04/2015,7,Returning patient
+05/06/2015,855,2,GP checkup,Smith,1,05/06/2015,8,New patient
+07/09/2015,78,83,Physiotherapy,Clooney,2,31/03/2015,4,Returning patient
+02/10/2018,430,164,Acupuncture,Hathaway,4,12/05/2016,5,Returning patient
+13/03/2015,913,128,GP checkup,Ridley,2,06/01/2015,7,Returning patient
+09/08/2016,896,170,GP checkup,Frances,2,30/03/2016,5,Returning patient
+03/01/2016,136,76,Physiotherapy,Smith,3,12/01/2015,10,Returning patient
+20/05/2019,602,169,Minor surgery,Smith,5,29/05/2016,5,Returning patient
+08/05/2018,138,7,Major surgery,Ridley,3,09/05/2017,4,Returning patient
+04/09/2018,360,78,Major surgery,Smith,5,28/03/2015,5,Returning patient
+29/04/2017,377,162,Minor surgery,Frances,3,22/05/2015,6,Returning patient
+03/11/2017,555,108,Physiotherapy,Ridley,1,03/11/2017,3,New patient
+12/07/2017,160,93,Major surgery,Hathaway,4,07/11/2015,7,Returning patient
+06/10/2018,803,18,Physiotherapy,Frances,10,09/05/2015,10,Returning patient
+19/08/2019,992,131,GP checkup,Ridley,6,23/05/2015,6,Returning patient
+29/03/2016,765,78,Minor surgery,Clooney,3,28/03/2015,5,Returning patient
+22/08/2017,54,155,Acupuncture,Hathaway,4,09/01/2016,5,Returning patient
+12/10/2018,497,139,Physiotherapy,Smith,3,30/09/2016,3,Returning patient
+21/08/2015,609,115,Minor surgery,Ridley,3,09/03/2015,7,Returning patient
+06/11/2015,187,195,Minor surgery,Frances,3,10/02/2015,5,Returning patient
+18/07/2019,32,62,Physiotherapy,Clooney,3,18/12/2017,3,Returning patient
+26/03/2018,939,166,Minor surgery,Hathaway,3,08/08/2016,4,Returning patient
+22/01/2016,822,188,Acupuncture,Smith,1,22/01/2016,2,New patient
+29/10/2016,595,76,Acupuncture,Smith,5,12/01/2015,10,Returning patient
+13/09/2016,770,181,Physiotherapy,Hathaway,3,31/10/2015,6,Returning patient
+12/05/2017,742,18,Acupuncture,Ridley,6,09/05/2015,10,Returning patient
+29/05/2019,237,164,Major surgery,Hathaway,5,12/05/2016,5,Returning patient
+22/08/2019,31,25,GP checkup,Ridley,5,22/05/2016,5,Returning patient
+19/06/2018,372,49,Physiotherapy,Frances,3,19/11/2015,7,Returning patient
+13/06/2018,86,162,Minor surgery,Ridley,5,22/05/2015,6,Returning patient
+13/03/2019,972,199,Acupuncture,Hathaway,7,29/08/2015,7,Returning patient
+10/11/2018,148,104,Acupuncture,Clooney,2,09/01/2016,2,Returning patient
+09/01/2016,121,104,Acupuncture,Frances,1,09/01/2016,2,New patient
+26/03/2018,630,154,Acupuncture,Clooney,4,28/12/2016,5,Returning patient
+26/05/2017,115,110,Major surgery,Smith,4,03/05/2016,5,Returning patient
+14/08/2017,985,75,Physiotherapy,Clooney,3,11/05/2015,6,Returning patient
+23/08/2019,210,65,GP checkup,Frances,7,19/06/2015,7,Returning patient
+06/01/2015,118,128,Acupuncture,Frances,1,06/01/2015,7,New patient
+03/12/2015,851,158,GP checkup,Smith,1,03/12/2015,7,New patient
+20/05/2017,103,155,Acupuncture,Hathaway,3,09/01/2016,5,Returning patient
+14/03/2017,615,67,Physiotherapy,Ridley,6,01/07/2015,8,Returning patient
+04/04/2019,720,113,Physiotherapy,Smith,4,04/01/2015,4,Returning patient
+25/07/2015,600,88,Acupuncture,Smith,3,21/04/2015,10,Returning patient
+18/05/2018,387,153,Major surgery,Hathaway,7,20/08/2015,7,Returning patient
+10/03/2015,36,150,Minor surgery,Frances,1,10/03/2015,4,New patient
+20/07/2019,835,41,Minor surgery,Hathaway,4,20/05/2015,5,Returning patient
+17/05/2015,554,14,Minor surgery,Smith,3,14/02/2015,5,Returning patient
+01/11/2015,689,19,GP checkup,Smith,2,30/04/2015,6,Returning patient
+29/08/2015,414,96,Physiotherapy,Clooney,1,29/08/2015,6,New patient
+22/05/2015,62,134,Minor surgery,Clooney,2,26/04/2015,4,Returning patient
+08/04/2015,780,70,Acupuncture,Ridley,2,10/01/2015,7,Returning patient
+02/02/2015,413,145,Major surgery,Frances,1,02/02/2015,8,New patient
+15/08/2018,17,51,Acupuncture,Smith,8,05/01/2015,10,Returning patient
+26/07/2016,466,127,Minor surgery,Smith,4,03/02/2015,8,Returning patient
+07/01/2017,642,92,Physiotherapy,Smith,3,14/01/2016,7,Returning patient
+31/03/2016,274,156,GP checkup,Clooney,3,14/01/2015,4,Returning patient
+28/01/2019,981,184,Physiotherapy,Ridley,6,27/12/2015,6,Returning patient
+18/01/2016,85,150,Physiotherapy,Hathaway,2,10/03/2015,4,Returning patient
+18/02/2019,585,125,Physiotherapy,Frances,6,02/02/2015,7,Returning patient
+27/04/2017,335,51,Major surgery,Smith,5,05/01/2015,10,Returning patient
+23/06/2017,907,158,Major surgery,Clooney,3,03/12/2015,7,Returning patient
+11/05/2017,273,136,Major surgery,Ridley,4,19/07/2015,5,Returning patient
+20/08/2016,263,30,Acupuncture,Frances,2,07/06/2015,5,Returning patient
+18/03/2017,398,101,GP checkup,Ridley,6,03/03/2015,10,Returning patient
+25/05/2017,868,141,Major surgery,Frances,2,16/02/2015,2,Returning patient
+19/11/2015,489,49,Acupuncture,Hathaway,1,19/11/2015,7,New patient
+07/09/2018,914,98,Physiotherapy,Hathaway,6,22/05/2015,7,Returning patient
+17/05/2016,124,113,Physiotherapy,Smith,2,04/01/2015,4,Returning patient
+30/12/2017,256,63,Major surgery,Hathaway,3,08/09/2015,7,Returning patient
+24/07/2017,839,199,Physiotherapy,Clooney,5,29/08/2015,7,Returning patient
+09/01/2019,98,179,Physiotherapy,Ridley,5,25/04/2015,5,Returning patient
+11/08/2016,725,101,Physiotherapy,Smith,4,03/03/2015,10,Returning patient
+21/08/2019,528,59,Acupuncture,Smith,5,11/10/2015,5,Returning patient
+10/10/2019,449,123,Major surgery,Ridley,4,29/05/2015,4,Returning patient
+01/02/2018,912,162,Major surgery,Ridley,4,22/05/2015,6,Returning patient
+25/04/2015,597,151,Acupuncture,Hathaway,1,25/04/2015,3,New patient
+25/09/2016,944,193,Minor surgery,Clooney,3,01/05/2015,7,Returning patient
+28/08/2018,711,166,GP checkup,Hathaway,4,08/08/2016,4,Returning patient
+11/06/2015,3,135,Physiotherapy,Smith,1,11/06/2015,3,New patient
+29/05/2015,577,123,Acupuncture,Smith,1,29/05/2015,4,New patient
+02/09/2017,848,148,Minor surgery,Ridley,1,02/09/2017,6,New patient
+15/10/2019,709,50,Major surgery,Frances,3,20/07/2015,3,Returning patient
+10/03/2018,221,196,Physiotherapy,Clooney,5,12/08/2015,7,Returning patient
+18/05/2018,598,194,Acupuncture,Frances,2,09/12/2015,2,Returning patient
+11/07/2017,213,102,Minor surgery,Clooney,2,13/12/2016,5,Returning patient
+03/06/2018,407,71,Acupuncture,Frances,3,27/12/2016,6,Returning patient
+03/06/2016,511,125,Minor surgery,Hathaway,2,02/02/2015,7,Returning patient
+12/07/2018,768,101,GP checkup,Ridley,9,03/03/2015,10,Returning patient
+29/12/2015,541,143,Acupuncture,Clooney,1,29/12/2015,9,New patient
+03/10/2017,705,186,Physiotherapy,Smith,3,08/02/2015,5,Returning patient
+29/08/2015,143,199,Physiotherapy,Frances,1,29/08/2015,7,New patient
+21/04/2015,884,88,GP checkup,Ridley,1,21/04/2015,10,New patient
+03/03/2015,724,101,Acupuncture,Hathaway,1,03/03/2015,10,New patient
+04/03/2015,978,40,Physiotherapy,Ridley,1,04/03/2015,3,New patient
+03/10/2018,548,95,Major surgery,Frances,2,04/08/2016,4,Returning patient
+31/03/2016,91,22,Minor surgery,Hathaway,2,08/05/2015,6,Returning patient
+21/01/2019,391,49,GP checkup,Clooney,5,19/11/2015,7,Returning patient
+26/09/2015,438,161,Minor surgery,Frances,2,26/04/2015,9,Returning patient
+04/09/2016,633,111,Major surgery,Clooney,4,18/09/2015,6,Returning patient
+25/06/2017,463,153,Major surgery,Smith,5,20/08/2015,7,Returning patient
+11/05/2019,686,32,Physiotherapy,Ridley,7,23/05/2015,7,Returning patient
+05/09/2015,322,61,GP checkup,Hathaway,1,05/09/2015,5,New patient
+04/02/2016,410,173,Physiotherapy,Ridley,5,19/07/2015,8,Returning patient
+03/07/2016,2,37,Acupuncture,Frances,1,03/07/2016,6,New patient
+14/06/2015,946,52,Minor surgery,Smith,3,18/01/2015,7,Returning patient
+11/02/2019,743,193,Minor surgery,Frances,6,01/05/2015,7,Returning patient
+01/07/2015,748,195,Acupuncture,Frances,2,10/02/2015,5,Returning patient
+08/03/2019,629,75,Major surgery,Ridley,6,11/05/2015,6,Returning patient
+27/01/2016,815,31,Minor surgery,Hathaway,2,01/07/2015,4,Returning patient
+25/10/2015,269,132,Acupuncture,Smith,1,25/10/2015,7,New patient
+01/08/2017,11,146,Major surgery,Hathaway,3,31/08/2016,3,Returning patient
+11/10/2015,503,59,GP checkup,Ridley,1,11/10/2015,5,New patient
+29/02/2016,22,42,Minor surgery,Frances,2,21/08/2015,2,Returning patient
+01/09/2016,362,111,GP checkup,Smith,3,18/09/2015,6,Returning patient
+19/03/2019,295,190,Acupuncture,Clooney,5,14/04/2015,5,Returning patient
+09/05/2016,477,86,GP checkup,Smith,3,31/05/2015,7,Returning patient
+26/03/2017,350,98,Physiotherapy,Ridley,4,22/05/2015,7,Returning patient
+25/03/2017,146,129,GP checkup,Clooney,4,20/11/2015,4,Returning patient
+20/06/2019,587,76,Major surgery,Frances,10,12/01/2015,10,Returning patient
+03/03/2017,583,18,Major surgery,Ridley,5,09/05/2015,10,Returning patient
+02/10/2019,788,200,Major surgery,Hathaway,2,02/02/2017,2,Returning patient
+09/07/2015,802,149,Minor surgery,Clooney,4,22/04/2015,5,Returning patient
+18/07/2016,369,167,Major surgery,Clooney,2,20/02/2015,4,Returning patient
+24/06/2016,888,199,Minor surgery,Hathaway,3,29/08/2015,7,Returning patient
+24/02/2019,84,87,Minor surgery,Smith,4,20/04/2015,5,Returning patient
+09/05/2015,40,18,Major surgery,Ridley,1,09/05/2015,10,New patient
+03/08/2015,184,2,GP checkup,Ridley,2,05/06/2015,8,Returning patient
+02/02/2017,695,200,Major surgery,Clooney,1,02/02/2017,2,New patient
+17/09/2018,53,85,Acupuncture,Ridley,4,02/03/2016,4,Returning patient
+12/02/2017,535,101,GP checkup,Smith,5,03/03/2015,10,Returning patient
+20/12/2015,177,21,Minor surgery,Ridley,1,20/12/2015,7,New patient
+08/07/2017,382,54,Acupuncture,Ridley,6,17/12/2015,7,Returning patient
+08/02/2019,190,68,Major surgery,Smith,2,08/03/2015,2,Returning patient
+30/10/2015,340,152,Major surgery,Hathaway,1,30/10/2015,6,New patient
+20/03/2015,87,72,Minor surgery,Frances,2,04/02/2015,6,Returning patient
+13/04/2017,437,44,Major surgery,Frances,4,10/08/2015,4,Returning patient
+18/12/2016,757,54,Acupuncture,Ridley,4,17/12/2015,7,Returning patient
+02/03/2018,109,101,Acupuncture,Smith,8,03/03/2015,10,Returning patient
+03/02/2019,240,51,Major surgery,Frances,10,05/01/2015,10,Returning patient
+28/08/2016,285,165,GP checkup,Ridley,3,23/09/2015,4,Returning patient
+12/02/2016,488,43,Major surgery,Frances,2,15/08/2015,6,Returning patient
+20/01/2016,543,52,Physiotherapy,Frances,4,18/01/2015,7,Returning patient
+16/02/2015,156,141,Minor surgery,Clooney,1,16/02/2015,2,New patient
+31/07/2019,800,176,Physiotherapy,Smith,5,05/01/2016,5,Returning patient
+11/11/2015,20,112,Physiotherapy,Frances,2,28/01/2015,7,Returning patient
+23/04/2019,969,119,Physiotherapy,Smith,2,19/02/2016,2,Returning patient
+13/07/2016,516,159,Minor surgery,Smith,2,24/05/2015,7,Returning patient
+16/06/2019,255,174,Physiotherapy,Ridley,4,29/04/2016,4,Returning patient
+02/03/2018,779,147,Physiotherapy,Ridley,5,10/08/2015,9,Returning patient
+04/07/2017,563,185,Physiotherapy,Frances,5,28/06/2015,5,Returning patient
+14/03/2016,952,187,Major surgery,Ridley,1,14/03/2016,5,New patient
+22/05/2015,507,162,Major surgery,Smith,1,22/05/2015,6,New patient
+27/08/2018,37,176,Physiotherapy,Frances,4,05/01/2016,5,Returning patient
+14/01/2016,404,92,Minor surgery,Ridley,1,14/01/2016,7,New patient
+20/02/2015,785,167,Physiotherapy,Smith,1,20/02/2015,4,New patient
+02/06/2018,940,21,Acupuncture,Hathaway,6,20/12/2015,7,Returning patient
+14/08/2015,808,45,Physiotherapy,Ridley,3,28/01/2015,9,Returning patient
+12/01/2017,330,65,GP checkup,Frances,4,19/06/2015,7,Returning patient
+19/05/2019,886,81,Minor surgery,Smith,6,05/05/2015,6,Returning patient
+21/05/2019,231,20,Major surgery,Frances,4,02/12/2015,4,Returning patient
+05/01/2015,875,51,GP checkup,Smith,1,05/01/2015,10,New patient
+12/07/2018,769,51,Major surgery,Ridley,7,05/01/2015,10,Returning patient
+01/07/2015,318,67,Major surgery,Smith,1,01/07/2015,8,New patient
+23/07/2017,267,107,Acupuncture,Smith,2,21/03/2015,4,Returning patient
+26/02/2018,606,131,Acupuncture,Hathaway,4,23/05/2015,6,Returning patient
+28/01/2015,963,112,Acupuncture,Ridley,1,28/01/2015,7,New patient
+29/01/2016,135,161,Minor surgery,Frances,5,26/04/2015,9,Returning patient
+27/03/2017,576,35,Acupuncture,Smith,1,27/03/2017,3,New patient
+02/01/2016,538,80,Acupuncture,Clooney,3,26/07/2015,6,Returning patient
+09/12/2017,613,133,Physiotherapy,Frances,3,07/04/2016,5,Returning patient
+27/04/2016,856,163,Minor surgery,Ridley,2,06/12/2015,5,Returning patient
+08/05/2017,196,185,Minor surgery,Ridley,4,28/06/2015,5,Returning patient
+22/06/2019,419,157,Minor surgery,Ridley,3,11/08/2015,4,Returning patient
+10/06/2019,206,66,GP checkup,Clooney,4,10/06/2016,6,Returning patient
+20/04/2016,65,1,Acupuncture,Frances,1,20/04/2016,2,New patient
+31/03/2015,112,83,Major surgery,Hathaway,1,31/03/2015,4,New patient
+07/01/2016,384,191,Acupuncture,Ridley,2,01/09/2015,6,Returning patient
+20/01/2017,850,84,Physiotherapy,Hathaway,3,28/08/2015,7,Returning patient
+30/03/2018,409,86,Minor surgery,Hathaway,6,31/05/2015,7,Returning patient
+03/01/2017,536,133,Physiotherapy,Clooney,2,07/04/2016,5,Returning patient
+09/01/2016,27,155,Minor surgery,Clooney,1,09/01/2016,5,New patient
+11/03/2019,920,156,Minor surgery,Ridley,4,14/01/2015,4,Returning patient
+30/05/2019,222,147,Minor surgery,Hathaway,8,10/08/2015,9,Returning patient
+05/11/2017,549,115,Major surgery,Clooney,4,09/03/2015,7,Returning patient
+01/09/2016,828,184,Major surgery,Ridley,2,27/12/2015,6,Returning patient
+27/06/2017,254,154,Major surgery,Clooney,3,28/12/2016,5,Returning patient
+30/03/2016,97,170,GP checkup,Clooney,1,30/03/2016,5,New patient
+11/02/2016,791,76,GP checkup,Clooney,4,12/01/2015,10,Returning patient
+15/02/2019,792,2,GP checkup,Hathaway,5,05/06/2015,8,Returning patient
+06/03/2019,759,148,Acupuncture,Clooney,5,02/09/2017,6,Returning patient
+04/04/2018,23,115,GP checkup,Hathaway,5,09/03/2015,7,Returning patient
+01/06/2018,308,186,Physiotherapy,Smith,5,08/02/2015,5,Returning patient
+30/04/2019,589,173,Minor surgery,Frances,8,19/07/2015,8,Returning patient
+29/07/2018,918,100,Major surgery,Clooney,3,09/07/2017,4,Returning patient
+28/12/2017,814,82,GP checkup,Clooney,2,24/11/2016,2,Returning patient
+06/12/2016,552,193,Major surgery,Clooney,4,01/05/2015,7,Returning patient
+05/09/2017,901,31,GP checkup,Smith,4,01/07/2015,4,Returning patient
+06/12/2015,904,163,Physiotherapy,Clooney,1,06/12/2015,5,New patient
+14/01/2019,442,100,Major surgery,Frances,4,09/07/2017,4,Returning patient
+17/02/2017,60,179,Minor surgery,Ridley,4,25/04/2015,5,Returning patient
+08/10/2016,385,67,GP checkup,Smith,5,01/07/2015,8,Returning patient
+28/06/2015,811,185,Minor surgery,Clooney,1,28/06/2015,5,New patient
+01/05/2015,474,26,Acupuncture,Hathaway,1,01/05/2015,4,New patient
+07/05/2015,559,38,Physiotherapy,Hathaway,1,07/05/2015,6,New patient
+20/11/2018,699,148,GP checkup,Ridley,4,02/09/2017,6,Returning patient
+22/03/2019,672,32,GP checkup,Ridley,6,23/05/2015,7,Returning patient
+23/09/2015,991,165,Physiotherapy,Clooney,1,23/09/2015,4,New patient
+04/07/2018,639,124,Physiotherapy,Hathaway,2,20/02/2016,4,Returning patient
+05/05/2015,207,81,Minor surgery,Frances,1,05/05/2015,6,New patient
+17/10/2018,812,13,Physiotherapy,Clooney,2,20/07/2015,2,Returning patient
+29/10/2017,860,161,GP checkup,Clooney,8,26/04/2015,9,Returning patient
+21/07/2017,726,54,Physiotherapy,Frances,7,17/12/2015,7,Returning patient
+01/11/2017,485,168,GP checkup,Smith,3,23/09/2015,3,Returning patient
+01/10/2016,515,33,GP checkup,Ridley,5,02/02/2015,8,Returning patient
+07/07/2018,869,160,GP checkup,Ridley,3,20/03/2018,3,Returning patient
+29/12/2018,706,86,Minor surgery,Clooney,7,31/05/2015,7,Returning patient
+29/04/2015,810,33,Minor surgery,Smith,2,02/02/2015,8,Returning patient
+21/01/2016,426,75,Major surgery,Clooney,2,11/05/2015,6,Returning patient
+29/08/2017,270,36,GP checkup,Ridley,1,29/08/2017,1,New patient
+02/12/2016,441,65,Acupuncture,Ridley,3,19/06/2015,7,Returning patient
+22/05/2015,621,98,Physiotherapy,Smith,1,22/05/2015,7,New patient
+14/10/2016,66,91,Physiotherapy,Hathaway,1,14/10/2016,1,New patient
+21/05/2017,740,152,Physiotherapy,Smith,4,30/10/2015,6,Returning patient
+19/09/2017,310,76,Major surgery,Smith,6,12/01/2015,10,Returning patient
+25/04/2016,837,89,Major surgery,Smith,2,06/10/2015,6,Returning patient
+24/06/2019,707,175,Minor surgery,Frances,6,16/01/2016,6,Returning patient
+14/03/2019,58,143,Major surgery,Clooney,7,29/12/2015,9,Returning patient
+01/11/2016,436,179,Minor surgery,Clooney,3,25/04/2015,5,Returning patient
+10/05/2018,105,158,Major surgery,Hathaway,4,03/12/2015,7,Returning patient
+12/09/2015,46,136,Acupuncture,Ridley,2,19/07/2015,5,Returning patient
+25/10/2018,422,81,Acupuncture,Ridley,5,05/05/2015,6,Returning patient
+16/05/2019,185,34,Physiotherapy,Frances,4,15/07/2016,5,Returning patient
+20/05/2015,178,41,Acupuncture,Ridley,1,20/05/2015,5,New patient
+14/04/2015,953,190,Physiotherapy,Hathaway,1,14/04/2015,5,New patient
+06/03/2019,661,74,Acupuncture,Smith,5,04/01/2015,5,Returning patient
+25/07/2018,296,117,Major surgery,Smith,2,20/07/2017,2,Returning patient
+19/04/2017,840,137,Physiotherapy,Ridley,5,14/02/2015,8,Returning patient
+19/06/2015,230,65,Acupuncture,Frances,1,19/06/2015,7,New patient
+01/01/2018,305,163,Physiotherapy,Clooney,3,06/12/2015,5,Returning patient
+12/02/2015,618,77,Physiotherapy,Frances,1,12/02/2015,3,New patient
+07/04/2016,286,133,Minor surgery,Clooney,1,07/04/2016,5,New patient
+20/03/2016,622,145,Acupuncture,Frances,2,02/02/2015,8,Returning patient
+02/03/2016,150,176,Acupuncture,Smith,2,05/01/2016,5,Returning patient
+03/08/2017,521,122,GP checkup,Clooney,3,02/06/2016,3,Returning patient
+06/10/2018,864,66,Major surgery,Smith,3,10/06/2016,6,Returning patient
+26/07/2016,970,25,Physiotherapy,Frances,3,22/05/2016,5,Returning patient
+06/05/2018,504,143,Minor surgery,Frances,4,29/12/2015,9,Returning patient
+11/08/2015,119,157,Acupuncture,Smith,1,11/08/2015,4,New patient
+20/06/2019,935,127,GP checkup,Clooney,8,03/02/2015,8,Returning patient
+26/09/2018,234,75,Minor surgery,Ridley,5,11/05/2015,6,Returning patient
+07/08/2019,327,41,Minor surgery,Clooney,5,20/05/2015,5,Returning patient
+23/02/2019,911,93,Minor surgery,Ridley,6,07/11/2015,7,Returning patient
+07/02/2018,149,181,Major surgery,Smith,4,31/10/2015,6,Returning patient
+03/12/2018,279,172,Acupuncture,Frances,2,11/09/2017,2,Returning patient
+17/08/2017,923,151,Physiotherapy,Frances,3,25/04/2015,3,Returning patient
+22/03/2019,959,64,Physiotherapy,Ridley,6,16/04/2015,7,Returning patient
+02/08/2019,126,143,Minor surgery,Clooney,9,29/12/2015,9,Returning patient
+03/04/2019,569,8,Major surgery,Hathaway,6,28/10/2015,6,Returning patient
+08/09/2015,776,63,GP checkup,Hathaway,1,08/09/2015,7,New patient
+01/10/2018,662,195,Major surgery,Ridley,5,10/02/2015,5,Returning patient
+21/06/2019,867,71,GP checkup,Frances,6,27/12/2016,6,Returning patient
+01/09/2017,799,75,Physiotherapy,Hathaway,4,11/05/2015,6,Returning patient
+29/04/2019,450,61,Major surgery,Clooney,5,05/09/2015,5,Returning patient
+08/01/2018,258,39,Minor surgery,Hathaway,3,09/08/2015,3,Returning patient
+19/04/2017,354,25,Major surgery,Clooney,4,22/05/2016,5,Returning patient
+05/11/2018,281,5,Minor surgery,Smith,7,29/09/2015,8,Returning patient
+04/08/2018,216,72,Major surgery,Ridley,6,04/02/2015,6,Returning patient
+29/05/2016,325,97,Acupuncture,Ridley,3,27/04/2015,3,Returning patient
+23/05/2018,359,167,GP checkup,Smith,4,20/02/2015,4,Returning patient
+30/07/2017,265,18,Physiotherapy,Ridley,7,09/05/2015,10,Returning patient
+06/08/2018,568,5,GP checkup,Smith,6,29/09/2015,8,Returning patient
+02/09/2019,885,63,GP checkup,Ridley,7,08/09/2015,7,Returning patient
+01/10/2017,26,86,Major surgery,Smith,5,31/05/2015,7,Returning patient
+18/01/2017,834,196,Physiotherapy,Clooney,3,12/08/2015,7,Returning patient
+25/03/2016,314,155,GP checkup,Frances,2,09/01/2016,5,Returning patient
+21/07/2016,208,60,GP checkup,Hathaway,3,08/05/2016,4,Returning patient
+11/12/2015,272,44,Acupuncture,Clooney,2,10/08/2015,4,Returning patient
+30/10/2016,989,161,Major surgery,Smith,6,26/04/2015,9,Returning patient
+17/12/2015,152,54,Acupuncture,Clooney,1,17/12/2015,7,New patient
+21/05/2018,316,171,Major surgery,Smith,2,24/04/2017,3,Returning patient
+23/02/2015,501,114,Minor surgery,Frances,1,23/02/2015,4,New patient
+16/07/2018,301,184,GP checkup,Ridley,5,27/12/2015,6,Returning patient
+21/04/2018,38,8,Major surgery,Ridley,3,28/10/2015,6,Returning patient
+08/09/2019,522,2,Major surgery,Ridley,7,05/06/2015,8,Returning patient
+29/03/2017,128,38,Major surgery,Smith,4,07/05/2015,6,Returning patient
+16/05/2016,44,32,Acupuncture,Ridley,3,23/05/2015,7,Returning patient
+15/06/2015,967,115,Major surgery,Hathaway,2,09/03/2015,7,Returning patient
+29/03/2019,525,155,Major surgery,Ridley,5,09/01/2016,5,Returning patient
+24/07/2019,170,12,Major surgery,Smith,7,13/07/2016,7,Returning patient
+12/04/2019,681,22,Minor surgery,Clooney,6,08/05/2015,6,Returning patient
+28/10/2015,355,32,GP checkup,Frances,2,23/05/2015,7,Returning patient
+16/05/2019,927,89,Acupuncture,Frances,6,06/10/2015,6,Returning patient
+07/06/2018,852,170,Major surgery,Clooney,5,30/03/2016,5,Returning patient
+23/03/2019,390,48,Major surgery,Ridley,5,27/11/2015,5,Returning patient
+14/08/2017,108,37,Major surgery,Ridley,2,03/07/2016,6,Returning patient
+03/12/2018,614,30,Minor surgery,Hathaway,4,07/06/2015,5,Returning patient
+30/01/2017,389,154,Minor surgery,Hathaway,2,28/12/2016,5,Returning patient
+01/01/2017,712,180,Minor surgery,Smith,4,11/07/2016,7,Returning patient
+27/02/2017,910,72,GP checkup,Smith,4,04/02/2015,6,Returning patient
+10/10/2019,889,148,Major surgery,Clooney,6,02/09/2017,6,Returning patient
+20/03/2015,47,79,Physiotherapy,Frances,1,20/03/2015,5,New patient
+16/01/2015,736,76,Physiotherapy,Ridley,2,12/01/2015,10,Returning patient
+07/09/2018,604,30,Minor surgery,Ridley,3,07/06/2015,5,Returning patient
+16/01/2017,239,5,Acupuncture,Smith,5,29/09/2015,8,Returning patient
+25/04/2015,793,179,Physiotherapy,Clooney,1,25/04/2015,5,New patient
+13/08/2019,628,66,GP checkup,Hathaway,5,10/06/2016,6,Returning patient
+13/06/2017,924,116,GP checkup,Clooney,4,29/03/2015,5,Returning patient
+05/06/2017,701,52,Physiotherapy,Smith,6,18/01/2015,7,Returning patient
+18/01/2017,145,28,Physiotherapy,Hathaway,3,16/11/2015,7,Returning patient
+22/02/2019,334,140,Minor surgery,Ridley,8,18/04/2015,8,Returning patient
+26/06/2017,781,46,GP checkup,Smith,4,08/03/2016,8,Returning patient
+23/02/2018,730,81,Minor surgery,Ridley,3,05/05/2015,6,Returning patient
+20/07/2017,111,57,GP checkup,Ridley,5,31/05/2015,6,Returning patient
+15/06/2019,427,147,Major surgery,Frances,9,10/08/2015,9,Returning patient
+16/01/2016,854,175,GP checkup,Ridley,1,16/01/2016,6,New patient
+24/05/2018,641,175,Acupuncture,Smith,2,16/01/2016,6,Returning patient
+25/10/2016,945,73,Minor surgery,Clooney,3,01/01/2015,8,Returning patient
+29/04/2016,694,174,Minor surgery,Clooney,1,29/04/2016,4,New patient
+02/07/2016,16,78,GP checkup,Ridley,4,28/03/2015,5,Returning patient
+06/05/2016,491,147,Minor surgery,Smith,3,10/08/2015,9,Returning patient
+25/03/2019,635,124,Acupuncture,Smith,3,20/02/2016,4,Returning patient
+23/09/2017,440,128,Acupuncture,Ridley,7,06/01/2015,7,Returning patient
+25/06/2019,498,150,GP checkup,Ridley,4,10/03/2015,4,Returning patient
+04/02/2018,948,136,Major surgery,Ridley,5,19/07/2015,5,Returning patient
+10/09/2017,716,43,Major surgery,Smith,3,15/08/2015,6,Returning patient
+11/04/2017,968,190,Acupuncture,Frances,4,14/04/2015,5,Returning patient
+13/03/2015,721,10,Minor surgery,Smith,2,12/03/2015,2,Returning patient
+06/10/2015,842,77,Major surgery,Ridley,2,12/02/2015,3,Returning patient
+09/05/2017,90,7,Minor surgery,Clooney,1,09/05/2017,4,New patient
+14/06/2017,670,103,Acupuncture,Clooney,2,03/01/2015,4,Returning patient
+03/08/2015,794,53,GP checkup,Smith,1,03/08/2015,5,New patient
+13/03/2018,862,70,Minor surgery,Ridley,4,10/01/2015,7,Returning patient
+27/01/2017,573,46,Minor surgery,Hathaway,3,08/03/2016,8,Returning patient
+10/02/2017,361,79,Major surgery,Frances,3,20/03/2015,5,Returning patient
+17/08/2016,902,63,Major surgery,Frances,2,08/09/2015,7,Returning patient
+09/02/2016,540,96,Minor surgery,Clooney,2,29/08/2015,6,Returning patient
+05/01/2018,55,140,Acupuncture,Smith,5,18/04/2015,8,Returning patient
+31/08/2016,219,84,Minor surgery,Clooney,2,28/08/2015,7,Returning patient
+13/06/2018,653,198,GP checkup,Clooney,6,03/03/2015,7,Returning patient
+16/08/2019,508,191,GP checkup,Hathaway,6,01/09/2015,6,Returning patient
+07/07/2017,321,176,Acupuncture,Clooney,3,05/01/2016,5,Returning patient
+01/08/2019,786,138,GP checkup,Frances,2,05/03/2017,2,Returning patient
+22/04/2016,887,143,Minor surgery,Smith,2,29/12/2015,9,Returning patient
+26/12/2015,979,57,Physiotherapy,Hathaway,2,31/05/2015,6,Returning patient
+08/05/2015,429,56,Major surgery,Frances,1,08/05/2015,1,New patient
+10/06/2016,846,66,Acupuncture,Frances,1,10/06/2016,6,New patient
+18/10/2017,782,85,GP checkup,Ridley,2,02/03/2016,4,Returning patient
+24/05/2015,370,159,Acupuncture,Ridley,1,24/05/2015,7,New patient
+20/03/2019,624,61,Major surgery,Frances,4,05/09/2015,5,Returning patient
+16/10/2017,813,167,Minor surgery,Clooney,3,20/02/2015,4,Returning patient
+07/03/2019,833,103,Acupuncture,Smith,3,03/01/2015,4,Returning patient
+20/01/2018,775,112,Major surgery,Frances,4,28/01/2015,7,Returning patient
+04/10/2019,396,106,Major surgery,Hathaway,5,06/02/2016,5,Returning patient
+03/06/2019,655,64,Minor surgery,Frances,7,16/04/2015,7,Returning patient
+24/05/2017,223,140,Physiotherapy,Smith,3,18/04/2015,8,Returning patient
+04/09/2018,826,102,Minor surgery,Smith,3,13/12/2016,5,Returning patient
+28/09/2016,418,29,Major surgery,Hathaway,2,21/09/2016,4,Returning patient
+05/03/2019,198,175,Minor surgery,Ridley,5,16/01/2016,6,Returning patient
+05/06/2017,678,140,GP checkup,Ridley,4,18/04/2015,8,Returning patient
+08/09/2016,307,52,Acupuncture,Frances,5,18/01/2015,7,Returning patient
+14/04/2019,594,43,GP checkup,Hathaway,6,15/08/2015,6,Returning patient
+03/05/2016,905,110,Physiotherapy,Smith,1,03/05/2016,5,New patient
+04/07/2015,194,130,Major surgery,Clooney,1,04/07/2015,8,New patient
+29/01/2017,381,18,Acupuncture,Smith,4,09/05/2015,10,Returning patient
+15/05/2016,193,151,Acupuncture,Smith,2,25/04/2015,3,Returning patient
+20/07/2015,167,50,Minor surgery,Hathaway,1,20/07/2015,3,New patient
+05/11/2018,432,174,Acupuncture,Hathaway,3,29/04/2016,4,Returning patient
+17/07/2018,903,187,Major surgery,Hathaway,4,14/03/2016,5,Returning patient
+13/06/2018,692,33,Major surgery,Hathaway,8,02/02/2015,8,Returning patient
+03/01/2018,523,53,GP checkup,Hathaway,4,03/08/2015,5,Returning patient
+12/04/2019,415,125,Physiotherapy,Clooney,7,02/02/2015,7,Returning patient
+23/05/2015,957,131,Acupuncture,Hathaway,1,23/05/2015,6,New patient
+21/03/2017,897,28,Minor surgery,Clooney,4,16/11/2015,7,Returning patient
+20/07/2018,19,143,GP checkup,Frances,5,29/12/2015,9,Returning patient
+15/06/2015,403,98,Acupuncture,Ridley,2,22/05/2015,7,Returning patient
+09/03/2015,351,9,Acupuncture,Clooney,1,09/03/2015,6,New patient
+04/02/2015,454,72,GP checkup,Hathaway,1,04/02/2015,6,New patient
+14/01/2015,188,156,Major surgery,Clooney,1,14/01/2015,4,New patient
+02/08/2016,932,129,Major surgery,Ridley,2,20/11/2015,4,Returning patient
+10/09/2019,674,70,Acupuncture,Frances,6,10/01/2015,7,Returning patient
+03/01/2015,179,103,GP checkup,Smith,1,03/01/2015,4,New patient
+04/02/2016,324,17,GP checkup,Clooney,1,04/02/2016,4,New patient
+31/01/2016,192,15,Minor surgery,Ridley,2,20/03/2015,7,Returning patient
+26/12/2016,593,99,Physiotherapy,Clooney,1,26/12/2016,2,New patient
+07/05/2016,204,5,Acupuncture,Ridley,4,29/09/2015,8,Returning patient
+07/06/2018,673,115,Major surgery,Hathaway,6,09/03/2015,7,Returning patient
+06/11/2018,601,16,Minor surgery,Hathaway,3,21/05/2016,3,Returning patient
+06/10/2019,425,134,GP checkup,Frances,4,26/04/2015,4,Returning patient
+09/06/2018,667,198,Minor surgery,Hathaway,5,03/03/2015,7,Returning patient
+20/03/2015,517,15,GP checkup,Hathaway,1,20/03/2015,7,New patient
+03/07/2019,423,1,Minor surgery,Smith,2,20/04/2016,2,Returning patient
+12/08/2017,56,94,Physiotherapy,Ridley,4,06/10/2015,7,Returning patient
+09/09/2019,596,15,Physiotherapy,Ridley,7,20/03/2015,7,Returning patient
+06/03/2017,81,196,Major surgery,Ridley,4,12/08/2015,7,Returning patient
+26/07/2015,766,80,Minor surgery,Smith,1,26/07/2015,6,New patient
+28/01/2016,739,21,Acupuncture,Frances,2,20/12/2015,7,Returning patient
+10/06/2015,12,88,Acupuncture,Smith,2,21/04/2015,10,Returning patient
+22/10/2018,64,7,GP checkup,Smith,4,09/05/2017,4,Returning patient
+09/05/2017,406,23,Minor surgery,Smith,1,09/05/2017,2,New patient
+16/03/2016,866,17,Acupuncture,Clooney,2,04/02/2016,4,Returning patient
+03/10/2019,96,105,Acupuncture,Ridley,4,06/06/2017,4,Returning patient
+25/04/2019,469,47,Major surgery,Clooney,2,15/09/2018,2,Returning patient
+08/12/2016,492,165,Acupuncture,Hathaway,4,23/09/2015,4,Returning patient
+18/07/2016,475,140,GP checkup,Smith,2,18/04/2015,8,Returning patient
+26/03/2016,356,88,Physiotherapy,Hathaway,4,21/04/2015,10,Returning patient
+10/06/2019,893,108,Physiotherapy,Smith,3,03/11/2017,3,Returning patient
+16/03/2016,741,5,Major surgery,Ridley,3,29/09/2015,8,Returning patient
+23/01/2018,214,46,GP checkup,Hathaway,5,08/03/2016,8,Returning patient
+13/12/2016,88,102,Acupuncture,Frances,1,13/12/2016,5,New patient
+28/12/2016,954,154,Physiotherapy,Ridley,1,28/12/2016,5,New patient
+05/04/2016,189,173,GP checkup,Ridley,6,19/07/2015,8,Returning patient
+10/06/2018,873,37,Physiotherapy,Clooney,3,03/07/2016,6,Returning patient
+16/01/2015,380,27,GP checkup,Hathaway,1,16/01/2015,2,New patient
+21/10/2015,713,11,Acupuncture,Hathaway,1,21/10/2015,5,New patient
+05/08/2019,368,3,Physiotherapy,Smith,3,03/12/2015,3,Returning patient
+28/07/2018,306,99,Major surgery,Hathaway,2,26/12/2016,2,Returning patient
+16/11/2018,486,11,Major surgery,Hathaway,5,21/10/2015,5,Returning patient
+08/05/2019,236,178,GP checkup,Smith,5,15/07/2015,5,Returning patient
+08/10/2019,33,192,GP checkup,Hathaway,4,13/06/2016,4,Returning patient
+28/10/2015,994,8,Physiotherapy,Ridley,1,28/10/2015,6,New patient

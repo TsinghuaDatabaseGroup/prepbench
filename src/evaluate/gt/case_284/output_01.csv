@@ -1,0 +1,21 @@
+Position,driver_number,driver_code,driver_name,constructor_sponsor_name,lap_duration
+1,1,VER,Max Verstappen,Oracle Red Bull Racing,64.314
+2,4,NOR,Lando Norris,McLaren Formula 1 Team,64.718
+3,63,RUS,George Russell,Mercedes-AMG Petronas F1 Team,64.84
+4,55,SAI,Carlos Sainz,Scuderia Ferrari,64.851
+5,44,HAM,Lewis Hamilton,Mercedes-AMG Petronas F1 Team,64.903
+6,16,LEC,Charles Leclerc,Scuderia Ferrari,65.044
+7,81,PIA,Oscar Piastri,McLaren Formula 1 Team,65.048
+8,11,PER,Sergio Perez,Oracle Red Bull Racing,65.202
+9,27,HUL,Nico Hulkenberg,MoneyGram Haas F1 Team,65.385
+10,31,OCO,Esteban Ocon,BWT Alpine F1 Team,65.883
+11,3,RIC,Daniel Ricciardo,Visa Cash App RB F1 Team,65.289
+12,20,MAG,Kevin Magnussen,MoneyGram Haas F1 Team,65.347
+13,10,GAS,Pierre Gasly,BWT Alpine F1 Team,65.359
+14,22,TSU,Yuki Tsunoda,Visa Cash App RB F1 Team,65.412
+15,14,ALO,Fernando Alonso,Aston Martin Aramco F1 Team,65.639
+16,23,ALB,Alex Albon,Williams Racing,65.736
+17,18,STR,Lance Stroll,Aston Martin Aramco F1 Team,65.819
+18,77,BOT,Valtteri Bottas,Stake F1 Team Kick Sauber,65.847
+19,2,SAR,Logan Sargeant,Williams Racing,65.856
+20,24,ZHO,Zhou Guanyu,Stake F1 Team Kick Sauber,66.061

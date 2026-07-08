@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_distinct_student_count",
+      "kind": "Group-level concept",
+      "node_id": "agg_counts",
+      "op": "aggregate",
+      "source_text": "Aggregate the dataset to get a count of students within each Nationality and classroom",
+      "ref": "grp = (\n        df_nat.groupby([\"Classroom\", \"Nationality\"], as_index=False)\n        .agg(Name=(\"Student ID\", \"nunique\"))\n    )"
+    },
+    {
+      "id": "2_D1_name_is_count_not_person_name",
+      "kind": "Single-table reference",
+      "node_id": "agg_counts",
+      "op": "aggregate",
+      "source_text": "output_01.csv\n  - 3 fields:\n    - Nationality\n    - Classroom\n    - Name",
+      "ref": ".agg(Name=(\"Student ID\", \"nunique\"))"
+    },
+    {
+      "id": "3_C1_nationality_spelling_standardization_map",
+      "kind": "Single-table reference",
+      "node_id": "clean_and_fix",
+      "op": "project",
+      "source_text": "Group Values by Spelling to get rid of spelling mistakes in the Nationality field",
+      "ref": "replacements = {\n        \"Meksiko\": \"Mexico\",\n        \"Frans\": \"France\",\n        \"Egipt\": \"Egypt\",\n    }\n    df_nat[\"Nationality\"] = df_nat[\"Nationality\"].replace(replacements)"
+    },
+    {
+      "id": "4_O3_tie_break_by_nationality_ascending",
+      "kind": "Operation incomplete",
+      "node_id": "sort_rank",
+      "op": "sort",
+      "source_text": "Create a calculated field to output the Rank of each Nationality by classroom in descending order",
+      "ref": "grp = grp.sort_values([\"Classroom\", \"Name\", \"Nationality\"], ascending=[True, False, True])"
+    }
+  ]
+}

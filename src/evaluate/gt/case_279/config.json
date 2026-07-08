@@ -1,0 +1,25 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Week"
+      ],
+      "columns": {
+        "Week": "date",
+        "Salary Payments": "number"
+      }
+    },
+    "output_02.csv": {
+      "ignore_order": true,
+      "key": [
+        "Year"
+      ],
+      "columns": {
+        "Year": "number",
+        "% Spent on Manager Salaries": "number"
+      }
+    }
+  }
+}
+

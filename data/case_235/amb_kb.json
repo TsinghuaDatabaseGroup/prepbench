@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_generation_name_format",
+      "kind": "Row-level concept",
+      "node_id": "gens_prepared",
+      "op": "project",
+      "source_text": "Add a new column, generation_name, which includes the generation name and the start/end years",
+      "ref": "return f\"{gen} ({int(start)}-{int(end)})\""
+    },
+    {
+      "id": "2_generation_missing_start",
+      "kind": "Row-level concept",
+      "node_id": "gens_prepared",
+      "op": "project",
+      "source_text": "If the generation doesn't have a start year, the text should be \"(born in or before XXXX)\"",
+      "ref": "if pd.isna(start) and not pd.isna(end):\n    return f\"{gen} (born in or before {int(end)})\""
+    },
+    {
+      "id": "3_generation_missing_end",
+      "kind": "Row-level concept",
+      "node_id": "gens_prepared",
+      "op": "project",
+      "source_text": "If the generation doesn't have an end year, the text should be \"(born in or after XXXX)\"",
+      "ref": "if not pd.isna(start) and pd.isna(end):\n    return f\"{gen} (born in or after {int(start)})\""
+    },
+    {
+      "id": "4_age_full_years",
+      "kind": "Operation boundary",
+      "node_id": "monthly_age",
+      "op": "project",
+      "source_text": "Calculate the employee's age (in full years) as of the month_end_date",
+      "ref": "years = as_of.year - birth_date.year\nif (as_of.month, as_of.day) < (birth_date.month, birth_date.day):\n    years -= 1"
+    },
+    {
+      "id": "5_age_range_buckets",
+      "kind": "Row-level concept",
+      "node_id": "monthly_age",
+      "op": "project",
+      "source_text": "Employees between 20 and 69 should be grouped into 5-year increments",
+      "ref": "start = (age // 5) * 5\nif start < 20:\n    start = 20\nend = start + 4\nreturn f\"{start}-{end} years\""
+    },
+    {
+      "id": "6_missing_dob_handling",
+      "kind": "Operation incomplete",
+      "node_id": "ee_missing_gen",
+      "op": "project",
+      "source_text": "If the employee's birth date is missing, the generation_name should be \"Not Provided\"",
+      "ref": "if pd.isna(birth_year):\n    return \"Not Provided\""
+    }
+  ]
+}

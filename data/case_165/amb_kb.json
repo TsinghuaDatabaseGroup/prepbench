@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_filter_series_n_prefix",
+      "kind": "Operation boundary",
+      "node_id": "n2_filter_valid_series",
+      "op": "filter",
+      "source_text": "Filter the data to remove Series that have a null value, or are preceded by an 'N'",
+      "ref": "ser_vals = df['Ser.'].replace('', np.nan)\nser_vals = ser_vals.where(~ser_vals.str.startswith('N', na=False), other=np.nan)\nser_num = pd.to_numeric(ser_vals, errors='coerce')\nmask_valid = ser_num.notna()\ndf = df.loc[mask_valid].copy()"
+    },
+    {
+      "id": "2_D1_daily_place_cols_after_rate",
+      "kind": "Single-table reference",
+      "node_id": "n3_compute_core",
+      "op": "project",
+      "intent": "Select Monday–Friday placement columns as the five columns immediately following the 'Rate*' column.",
+      "ref": "rate_idx = col_idx('Rate*')\ndaily_place_cols = df.columns[rate_idx+1:rate_idx+6]"
+    },
+    {
+      "id": "3_D1_daily_score_cols_before_total",
+      "kind": "Single-table reference",
+      "node_id": "n3_compute_core",
+      "op": "project",
+      "intent": "Select Monday–Friday daily score columns as the five columns immediately preceding the 'Total' column (Friday is the last of these).",
+      "ref": "total_idx = col_idx('Total')\ndaily_score_cols = df.columns[total_idx-5:total_idx]\ndaily_scores = df[daily_score_cols].apply(pd.to_numeric, errors='coerce').fillna(0).astype(int)\nfriday_score = daily_scores.iloc[:, -1]"
+    },
+    {
+      "id": "4_D1_recompute_points_from_places",
+      "kind": "Row-level concept",
+      "node_id": "n3_compute_core",
+      "op": "project",
+      "intent": "Recompute weekly points for scenarios from the daily placement fields rather than using the input’s precomputed weekly points field.",
+      "ref": "place_to_pts = {'1st': 4, '2nd': 3, '3rd': 2, '4th': 1}\ndaily_points = daily_places.map(lambda x: place_to_pts.get(x.strip(), 0))\npoints_wo_double = daily_points.sum(axis=1).astype(int)\nfriday_points = daily_places.iloc[:, -1].map(lambda x: place_to_pts.get(str(x).strip(), 0)).astype(int)\npoints_with_double = (points_wo_double + friday_points).astype(int)"
+    },
+    {
+      "id": "5_O2_series_as_int",
+      "kind": "Operation boundary",
+      "node_id": "n3_compute_core",
+      "op": "project",
+      "intent": "After filtering, treat Series as an integer series number.",
+      "ref": "df['Series'] = ser_num.astype(int)"
+    },
+    {
+      "id": "6_O2_parse_original_rank_digits",
+      "kind": "Operation boundary",
+      "node_id": "n3_compute_core",
+      "op": "project",
+      "source_text": "Week 1 becomes Rank",
+      "ref": "def rank_str_to_num(x: str) -> int:\n        x = str(x).strip()\n        num = ''.join(ch for ch in x if ch.isdigit())\n        try:\n            return int(num) if num else int(x)\n        except Exception:\n            return 0\noriginal_rank = df[rank_week_col].map(rank_str_to_num).astype(int)"
+    },
+    {
+      "id": "7_O1_rank_descending",
+      "kind": "Group-level concept",
+      "node_id": "n4_ranks",
+      "op": "project",
+      "source_text": "Rank the players based on their Score instead",
+      "ref": "def rank_desc(s: pd.Series) -> pd.Series:\n        return s.rank(ascending=False, method='min').astype(int)"
+    },
+    {
+      "id": "8_O3_rank_ties_min",
+      "kind": "Operation inconsistent",
+      "node_id": "n4_ranks",
+      "op": "project",
+      "source_text": "Rank the players based on their Score instead",
+      "ref": "def rank_desc(s: pd.Series) -> pd.Series:\n        return s.rank(ascending=False, method='min').astype(int)"
+    },
+    {
+      "id": "9_O3_winner_change_subset_rule",
+      "kind": "Operation boundary",
+      "node_id": "n5_changes_agg",
+      "op": "aggregate",
+      "source_text": "Create a field to determine if there has been a change in winner for that particular Series and Week",
+      "ref": "orig_set = set(g.loc[g['Original Rank'] == 1, 'Player'].astype(str))\nnew_set = set(g.loc[g[rank_col] == 1, 'Player'].astype(str))\nchanged = not orig_set.issubset(new_set)"
+    }
+  ]
+}

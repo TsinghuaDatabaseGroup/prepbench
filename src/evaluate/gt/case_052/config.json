@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Week", "UK Sales Value (GBP)", "US Sales (USD) Best Case", "US Sales (USD) Worst Case", "US Sales Potential Variance"],
+      "columns": {
+        "Week": "text_exact",
+        "UK Sales Value (GBP)": "number",
+        "US Sales (USD) Best Case": "number",
+        "US Sales (USD) Worst Case": "number",
+        "US Sales Potential Variance": "number"
+      }
+    }
+  }
+}
+

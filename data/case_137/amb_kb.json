@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_number_in_series_delimiter",
+      "kind": "Operation incomplete",
+      "node_id": "films_proj",
+      "op": "project",
+      "source_text": "Split out the Number in Series field into Film Order and Total Films in Series",
+      "ref": "order_split = df_films[\"Number in Series\"].str.split(\"/\", expand=True)"
+    },
+    {
+      "id": "2_O1_number_in_series_cast_to_int",
+      "kind": "Operation incomplete",
+      "node_id": "films_proj",
+      "op": "project",
+      "source_text": "Split out the Number in Series field into Film Order and Total Films in Series",
+      "ref": "df_films[\"Film Order\"] = order_split[0].astype(int)\ndf_films[\"Total Films in Series\"] = order_split[1].astype(int)"
+    },
+    {
+      "id": "3_C2_grouping_is_trilogy_unit",
+      "kind": "Group-level concept",
+      "node_id": "group_stats",
+      "op": "aggregate",
+      "source_text": "Work out the average rating for each trilogy",
+      "ref": "df_films.groupby(\"Trilogy Grouping\", as_index=False).agg(Trilogy_Average_Raw=(\"Rating\", \"mean\"), Highest_Rating=(\"Rating\", \"max\"))"
+    },
+    {
+      "id": "4_O1_rank_by_average_then_highest_rating",
+      "kind": "Operation boundary",
+      "node_id": "rank_groupings",
+      "op": "sort",
+      "source_text": "Rank the trilogies based on the average rating and use the highest ranking metric to break ties",
+      "ref": "group_stats.sort_values([\"Trilogy_Average_Raw\", \"Highest_Rating\", \"Trilogy Grouping\"], ascending=[False, False, True])"
+    },
+    {
+      "id": "5_O1_trilogy_average_rounding_1dp",
+      "kind": "Operation boundary",
+      "node_id": "round_avg",
+      "op": "project",
+      "source_text": "Work out the average rating for each trilogy",
+      "ref": "group_stats[\"Trilogy Average\"] = group_stats[\"Trilogy_Average_Raw\"].round(1)"
+    },
+    {
+      "id": "6_O1_remove_trailing_trilogy_word",
+      "kind": "Row-level concept",
+      "node_id": "trilogies_proj",
+      "op": "project",
+      "source_text": "Remove the word trilogy from the Trilogy field",
+      "ref": "df_trilogies[\"Trilogy\"].str.replace(r\"\\s*trilogy$\", \"\", regex=True, case=False).str.strip()"
+    },
+    {
+      "id": "7_D2_join_by_ranking_fields",
+      "kind": "Multi-table alignment",
+      "node_id": "join_rankings",
+      "op": "join",
+      "source_text": "Bring the 2 datasets together by the ranking fields",
+      "ref": "out_df = films_ranked.merge(df_trilogies[[\"Trilogy Ranking\", \"Trilogy\"]], on=\"Trilogy Ranking\", how=\"inner\", validate=\"many_to_one\")"
+    }
+  ]
+}

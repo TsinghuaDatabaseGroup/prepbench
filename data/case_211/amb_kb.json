@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_file_date_2023_first_day",
+      "kind": "Operation incomplete",
+      "node_id": "clean_01",
+      "op": "project",
+      "source_text": "Create a 'file date' using the month found in the file name",
+      "ref": "file_date = f\"2023-{month:02d}-01\""
+    },
+    {
+      "id": "3_O2_drop_unparseable_market_cap",
+      "kind": "Operation incomplete",
+      "node_id": "filter_valid_mc",
+      "op": "filter",
+      "source_text": "Remove any rows with 'n/a'",
+      "ref": "df = df[df[\"Market Capitalisation\"].notna()].copy()"
+    },
+    {
+      "id": "4_C2_rank_by_purchase_price_desc",
+      "kind": "Row-level concept",
+      "node_id": "sort_for_rank",
+      "op": "sort",
+      "source_text": "Rank the highest5 purchases per combination of: file date, Purchase Price Categorisation and Market Capitalisation Categorisation.",
+      "ref": "            df = df.sort_values(\n                by=group_keys + [\"Purchase Price\", \"Ticker\"], ascending=[True, True, True, False, True])"
+    },
+    {
+      "id": "5_O3_tie_break_ticker_asc",
+      "kind": "Operation boundary",
+      "node_id": "sort_for_rank",
+      "op": "sort",
+      "source_text": "Rank the highest5 purchases per combination of: file date, Purchase Price Categorisation and Market Capitalisation Categorisation.",
+      "ref": "                by=group_keys + [\"Purchase Price\", \"Ticker\"], ascending=[True, True, True, False, True])"
+    }
+  ]
+}

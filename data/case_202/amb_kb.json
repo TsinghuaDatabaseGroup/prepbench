@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_work_exp_threshold",
+      "kind": "Operation boundary",
+      "node_id": "to_month_end",
+      "op": "project",
+      "source_text": "Work Experience: at least4 years",
+      "ref": "preferred_work_exp = df['work_exp_lower'] >= 4"
+    },
+    {
+      "id": "2_supervised_threshold",
+      "kind": "Operation boundary",
+      "node_id": "to_month_end",
+      "op": "project",
+      "source_text": "Number Supervised: more than10",
+      "ref": "preferred_supervised = df['supervised_lower'] > 10"
+    },
+    {
+      "id": "3_range_interpretation",
+      "kind": "Row-level concept",
+      "node_id": "parse_cols",
+      "op": "project",
+      "intent": "How to interpret experience ranges (e.g., '4-6 years') for threshold comparison",
+      "ref": "def get_lower_bound(s: str) -> int:\n        s = str(s).strip()\n        if 'years' in s:\n            s = s.replace(' years', '')\n        if s == 'None':\n            return 0\n        if s.endswith('+'):\n            try:\n                return int(s[:-1])\n            except (ValueError, IndexError):\n                return 0\n        if '-' in s:\n            try:\n                return int(s.split('-')[0])\n            except (ValueError, IndexError):\n                return 0"
+    },
+    {
+      "id": "4_month_end_date",
+      "kind": "Row-level concept",
+      "node_id": "to_month_end",
+      "op": "project",
+      "source_text": "Convert the application month to the month-ending date",
+      "ref": "df['Application Month'] = pd.to_datetime(df['month'], format='%B %Y') + pd.offsets.MonthEnd(1)"
+    },
+    {
+      "id": "5_pct_aggregation",
+      "kind": "Group-level concept",
+      "node_id": "calc_pct",
+      "op": "project",
+      "source_text": "Calculate the % who met the preferred qualifications",
+      "ref": "( (df['Candidates with Preferred Qualifications'] / df['Total Candidates']) * 100 ).round(1)"
+    }
+  ]
+}

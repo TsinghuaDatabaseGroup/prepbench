@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Subject", "Attendee", "Contact Type", "Contact"],
+      "columns": {
+        "Subject": "text_exact",
+        "Attendee": "text_exact",
+        "Contact Type": "text_exact",
+        "Contact": "text_exact"
+      }
+    }
+  }
+}

@@ -1,0 +1,437 @@
+Team,Player ID,Total Matches,Tournament Date,Matches Played in Tournament
+Chelsea,1,77,2023-01-15,4
+Chelsea,1,77,2023-02-12,4
+Chelsea,1,77,2023-03-26,1
+Chelsea,1,77,2023-04-09,2
+Chelsea,1,77,2023-05-21,4
+Chelsea,1,77,2023-04-23,1
+Chelsea,2,76,2023-01-15,3
+Chelsea,2,76,2023-01-29,5
+Chelsea,2,76,2023-02-12,3
+Chelsea,2,76,2023-02-26,3
+Chelsea,2,76,2023-03-26,3
+Chelsea,2,76,2023-04-09,2
+Chelsea,2,76,2023-05-21,1
+Chelsea,2,76,2023-04-23,4
+Chelsea,3,86,2023-01-15,2
+Chelsea,3,86,2023-01-29,3
+Chelsea,3,86,2023-02-26,1
+Chelsea,3,86,2023-03-12,2
+Chelsea,3,86,2023-03-26,5
+Chelsea,3,86,2023-05-21,1
+Chelsea,3,86,2023-04-23,1
+Chelsea,3,86,2023-05-07,5
+Chelsea,4,121,2023-01-29,3
+Chelsea,4,121,2023-02-12,3
+Chelsea,4,121,2023-02-26,3
+Chelsea,4,121,2023-03-12,5
+Chelsea,4,121,2023-03-26,3
+Chelsea,4,121,2023-04-09,3
+Chelsea,4,121,2023-04-23,4
+Chelsea,4,121,2023-05-07,5
+Chelsea,5,84,2023-02-12,1
+Chelsea,5,84,2023-02-26,2
+Chelsea,5,84,2023-03-12,2
+Chelsea,5,84,2023-04-09,4
+Chelsea,5,84,2023-05-21,2
+Chelsea,5,84,2023-04-23,4
+Chelsea,6,148,2023-01-29,3
+Chelsea,6,148,2023-02-26,3
+Chelsea,6,148,2023-03-26,4
+Chelsea,6,148,2023-04-09,3
+Chelsea,6,148,2023-04-23,5
+Chelsea,7,36,2023-01-29,1
+Chelsea,7,36,2023-02-12,3
+Chelsea,7,36,2023-03-12,4
+Chelsea,7,36,2023-04-09,4
+Chelsea,7,36,2023-05-21,5
+Chelsea,7,36,2023-04-23,1
+Chelsea,7,36,2023-05-07,5
+Chelsea,8,20,2023-01-15,1
+Chelsea,8,20,2023-02-12,4
+Chelsea,8,20,2023-04-09,5
+Chelsea,8,20,2023-05-21,1
+Chelsea,8,20,2023-05-07,3
+Chelsea,9,39,2023-01-29,1
+Chelsea,9,39,2023-02-12,3
+Chelsea,9,39,2023-02-26,1
+Chelsea,9,39,2023-03-12,4
+Chelsea,9,39,2023-03-26,4
+Chelsea,9,39,2023-04-09,3
+Chelsea,9,39,2023-05-21,2
+Chelsea,9,39,2023-05-07,1
+Chelsea,10,50,2023-01-15,5
+Chelsea,10,50,2023-01-29,5
+Chelsea,10,50,2023-02-26,4
+Chelsea,10,50,2023-03-12,4
+Chelsea,10,50,2023-05-21,4
+Chelsea,10,50,2023-04-23,1
+Chelsea,10,50,2023-05-07,3
+Chelsea,11,49,2023-01-15,5
+Chelsea,11,49,2023-02-12,3
+Chelsea,11,49,2023-02-26,3
+Chelsea,11,49,2023-03-26,2
+Chelsea,11,49,2023-04-23,3
+Chelsea,11,49,2023-05-07,3
+Dulwich,1,123,2023-01-29,3
+Dulwich,1,123,2023-02-12,4
+Dulwich,1,123,2023-02-26,5
+Dulwich,1,123,2023-03-12,5
+Dulwich,1,123,2023-03-26,3
+Dulwich,1,123,2023-04-09,1
+Dulwich,1,123,2023-04-23,4
+Dulwich,1,123,2023-05-07,1
+Dulwich,2,145,2023-01-15,2
+Dulwich,2,145,2023-01-29,3
+Dulwich,2,145,2023-02-12,4
+Dulwich,2,145,2023-03-12,3
+Dulwich,2,145,2023-03-26,2
+Dulwich,2,145,2023-04-09,5
+Dulwich,2,145,2023-04-23,3
+Dulwich,2,145,2023-05-07,2
+Dulwich,3,28,2023-01-15,3
+Dulwich,3,28,2023-01-29,2
+Dulwich,3,28,2023-02-12,1
+Dulwich,3,28,2023-02-26,1
+Dulwich,3,28,2023-05-21,4
+Dulwich,3,28,2023-04-23,1
+Dulwich,4,53,2023-01-15,3
+Dulwich,4,53,2023-02-26,5
+Dulwich,4,53,2023-03-12,5
+Dulwich,4,53,2023-03-26,4
+Dulwich,4,53,2023-05-21,3
+Dulwich,4,53,2023-04-23,5
+Dulwich,4,53,2023-05-07,2
+Dulwich,5,31,2023-01-15,4
+Dulwich,5,31,2023-01-29,2
+Dulwich,5,31,2023-02-12,2
+Dulwich,5,31,2023-03-12,4
+Dulwich,5,31,2023-03-26,4
+Dulwich,5,31,2023-05-07,4
+Dulwich,6,54,2023-01-15,4
+Dulwich,6,54,2023-01-29,4
+Dulwich,6,54,2023-02-26,5
+Dulwich,6,54,2023-03-26,5
+Dulwich,6,54,2023-04-09,1
+Dulwich,6,54,2023-05-21,4
+Dulwich,6,54,2023-04-23,2
+Dulwich,6,54,2023-05-07,4
+Dulwich,7,25,2023-01-15,2
+Dulwich,7,25,2023-01-29,1
+Dulwich,7,25,2023-03-26,2
+Dulwich,7,25,2023-04-09,5
+Dulwich,7,25,2023-04-23,4
+Dulwich,7,25,2023-05-07,4
+Dulwich,8,66,2023-01-29,5
+Dulwich,8,66,2023-02-26,2
+Dulwich,8,66,2023-03-12,2
+Dulwich,8,66,2023-03-26,3
+Dulwich,8,66,2023-04-09,5
+Dulwich,8,66,2023-05-21,3
+Dulwich,8,66,2023-05-07,1
+Dulwich,9,70,2023-01-15,3
+Dulwich,9,70,2023-02-12,3
+Dulwich,9,70,2023-02-26,3
+Dulwich,9,70,2023-03-12,5
+Dulwich,9,70,2023-03-26,3
+Dulwich,9,70,2023-05-21,4
+Dulwich,9,70,2023-05-07,3
+Dulwich,10,136,2023-03-12,2
+Dulwich,10,136,2023-03-26,3
+Dulwich,10,136,2023-04-23,4
+Dulwich,10,136,2023-05-07,3
+Dulwich,11,130,2023-02-26,5
+Dulwich,11,130,2023-03-12,1
+Dulwich,11,130,2023-04-09,1
+Dulwich,11,130,2023-05-21,1
+Dulwich,11,130,2023-05-07,1
+Lewisham,1,84,2023-01-15,5
+Lewisham,1,84,2023-02-12,3
+Lewisham,1,84,2023-03-12,3
+Lewisham,1,84,2023-03-26,3
+Lewisham,1,84,2023-05-21,1
+Lewisham,1,84,2023-04-23,3
+Lewisham,1,84,2023-05-07,1
+Lewisham,2,66,2023-01-15,5
+Lewisham,2,66,2023-01-29,2
+Lewisham,2,66,2023-02-26,3
+Lewisham,2,66,2023-03-26,3
+Lewisham,2,66,2023-04-09,5
+Lewisham,2,66,2023-05-07,5
+Lewisham,3,62,2023-01-29,3
+Lewisham,3,62,2023-02-12,3
+Lewisham,3,62,2023-02-26,5
+Lewisham,3,62,2023-03-12,5
+Lewisham,3,62,2023-03-26,5
+Lewisham,3,62,2023-04-09,2
+Lewisham,3,62,2023-05-21,4
+Lewisham,4,61,2023-01-15,4
+Lewisham,4,61,2023-02-12,2
+Lewisham,4,61,2023-02-26,5
+Lewisham,4,61,2023-03-12,2
+Lewisham,4,61,2023-03-26,2
+Lewisham,4,61,2023-04-09,3
+Lewisham,4,61,2023-05-21,4
+Lewisham,4,61,2023-04-23,2
+Lewisham,4,61,2023-05-07,1
+Lewisham,5,73,2023-01-15,4
+Lewisham,5,73,2023-01-29,5
+Lewisham,5,73,2023-02-12,5
+Lewisham,5,73,2023-02-26,5
+Lewisham,5,73,2023-03-12,4
+Lewisham,5,73,2023-03-26,2
+Lewisham,5,73,2023-05-21,5
+Lewisham,5,73,2023-05-07,5
+Lewisham,6,80,2023-02-12,5
+Lewisham,6,80,2023-03-12,4
+Lewisham,6,80,2023-03-26,4
+Lewisham,6,80,2023-04-09,2
+Lewisham,6,80,2023-05-21,4
+Lewisham,6,80,2023-04-23,5
+Lewisham,6,80,2023-05-07,3
+Lewisham,7,70,2023-01-29,3
+Lewisham,7,70,2023-02-12,1
+Lewisham,7,70,2023-05-21,4
+Lewisham,7,70,2023-04-23,3
+Lewisham,7,70,2023-05-07,1
+Lewisham,8,70,2023-01-15,5
+Lewisham,8,70,2023-01-29,4
+Lewisham,8,70,2023-02-12,1
+Lewisham,8,70,2023-03-12,2
+Lewisham,8,70,2023-03-26,2
+Lewisham,8,70,2023-05-21,1
+Lewisham,8,70,2023-04-23,1
+Lewisham,8,70,2023-05-07,5
+Lewisham,9,95,2023-01-29,2
+Lewisham,9,95,2023-02-12,2
+Lewisham,9,95,2023-03-26,5
+Lewisham,9,95,2023-04-09,4
+Lewisham,9,95,2023-05-21,1
+Lewisham,9,95,2023-04-23,1
+Lewisham,10,30,2023-01-29,4
+Lewisham,10,30,2023-02-12,5
+Lewisham,10,30,2023-02-26,5
+Lewisham,10,30,2023-04-09,3
+Lewisham,11,51,2023-01-15,4
+Lewisham,11,51,2023-01-29,1
+Lewisham,11,51,2023-03-12,1
+Lewisham,11,51,2023-04-09,4
+Lewisham,11,51,2023-05-21,3
+Lewisham,11,51,2023-05-07,5
+Notting Hill,1,34,2023-01-15,3
+Notting Hill,1,34,2023-01-29,1
+Notting Hill,1,34,2023-02-26,1
+Notting Hill,1,34,2023-03-12,1
+Notting Hill,1,34,2023-04-23,2
+Notting Hill,2,43,2023-01-15,2
+Notting Hill,2,43,2023-01-29,4
+Notting Hill,2,43,2023-02-12,3
+Notting Hill,2,43,2023-02-26,5
+Notting Hill,2,43,2023-03-26,1
+Notting Hill,2,43,2023-05-21,1
+Notting Hill,2,43,2023-04-23,5
+Notting Hill,2,43,2023-05-07,1
+Notting Hill,3,120,2023-01-15,2
+Notting Hill,3,120,2023-01-29,3
+Notting Hill,3,120,2023-04-09,3
+Notting Hill,4,105,2023-01-15,1
+Notting Hill,4,105,2023-02-26,4
+Notting Hill,4,105,2023-03-12,2
+Notting Hill,4,105,2023-03-26,1
+Notting Hill,4,105,2023-04-09,4
+Notting Hill,4,105,2023-05-21,5
+Notting Hill,5,130,2023-01-15,4
+Notting Hill,5,130,2023-01-29,4
+Notting Hill,5,130,2023-03-12,2
+Notting Hill,5,130,2023-03-26,4
+Notting Hill,5,130,2023-04-09,5
+Notting Hill,5,130,2023-05-21,5
+Notting Hill,5,130,2023-04-23,2
+Notting Hill,5,130,2023-05-07,2
+Notting Hill,6,142,2023-01-29,3
+Notting Hill,6,142,2023-02-12,2
+Notting Hill,6,142,2023-03-12,1
+Notting Hill,6,142,2023-05-21,3
+Notting Hill,6,142,2023-04-23,1
+Notting Hill,6,142,2023-05-07,4
+Notting Hill,7,114,2023-01-29,1
+Notting Hill,7,114,2023-02-12,2
+Notting Hill,7,114,2023-03-26,4
+Notting Hill,8,149,2023-01-15,3
+Notting Hill,8,149,2023-02-12,5
+Notting Hill,8,149,2023-02-26,4
+Notting Hill,8,149,2023-03-26,5
+Notting Hill,8,149,2023-05-21,4
+Notting Hill,8,149,2023-04-23,1
+Notting Hill,9,39,2023-02-12,1
+Notting Hill,9,39,2023-02-26,2
+Notting Hill,9,39,2023-03-26,1
+Notting Hill,9,39,2023-04-09,1
+Notting Hill,9,39,2023-05-07,2
+Notting Hill,10,42,2023-01-29,5
+Notting Hill,10,42,2023-03-12,3
+Notting Hill,10,42,2023-03-26,3
+Notting Hill,10,42,2023-04-23,5
+Notting Hill,10,42,2023-05-07,2
+Notting Hill,11,91,2023-01-29,5
+Notting Hill,11,91,2023-02-12,1
+Notting Hill,11,91,2023-02-26,5
+Notting Hill,11,91,2023-03-12,3
+Notting Hill,11,91,2023-03-26,4
+Notting Hill,11,91,2023-04-09,1
+Notting Hill,11,91,2023-04-23,3
+Notting Hill,11,91,2023-05-07,1
+Shoreditch,1,69,2023-01-15,1
+Shoreditch,1,69,2023-01-29,5
+Shoreditch,1,69,2023-02-12,3
+Shoreditch,1,69,2023-02-26,4
+Shoreditch,1,69,2023-03-26,3
+Shoreditch,1,69,2023-04-09,2
+Shoreditch,1,69,2023-04-23,2
+Shoreditch,1,69,2023-05-07,5
+Shoreditch,2,147,2023-01-29,2
+Shoreditch,2,147,2023-02-12,2
+Shoreditch,2,147,2023-02-26,5
+Shoreditch,2,147,2023-03-26,2
+Shoreditch,2,147,2023-04-09,4
+Shoreditch,2,147,2023-05-21,1
+Shoreditch,2,147,2023-04-23,5
+Shoreditch,2,147,2023-05-07,1
+Shoreditch,3,132,2023-01-15,5
+Shoreditch,3,132,2023-03-12,5
+Shoreditch,3,132,2023-03-26,3
+Shoreditch,3,132,2023-04-09,5
+Shoreditch,3,132,2023-05-07,3
+Shoreditch,4,125,2023-01-15,5
+Shoreditch,4,125,2023-01-29,4
+Shoreditch,4,125,2023-02-12,2
+Shoreditch,4,125,2023-02-26,4
+Shoreditch,4,125,2023-03-12,1
+Shoreditch,4,125,2023-04-09,1
+Shoreditch,4,125,2023-05-21,4
+Shoreditch,4,125,2023-04-23,4
+Shoreditch,5,15,2023-01-15,3
+Shoreditch,5,15,2023-02-12,1
+Shoreditch,5,15,2023-03-12,1
+Shoreditch,5,15,2023-03-26,2
+Shoreditch,5,15,2023-04-09,3
+Shoreditch,5,15,2023-04-23,2
+Shoreditch,6,147,2023-01-15,4
+Shoreditch,6,147,2023-01-29,1
+Shoreditch,6,147,2023-02-12,4
+Shoreditch,6,147,2023-02-26,4
+Shoreditch,6,147,2023-03-12,4
+Shoreditch,6,147,2023-03-26,2
+Shoreditch,6,147,2023-04-09,4
+Shoreditch,6,147,2023-05-21,2
+Shoreditch,6,147,2023-04-23,4
+Shoreditch,6,147,2023-05-07,2
+Shoreditch,7,155,2023-01-15,4
+Shoreditch,7,155,2023-01-29,4
+Shoreditch,7,155,2023-02-12,2
+Shoreditch,7,155,2023-02-26,5
+Shoreditch,7,155,2023-03-26,3
+Shoreditch,7,155,2023-04-09,1
+Shoreditch,7,155,2023-05-21,4
+Shoreditch,7,155,2023-04-23,3
+Shoreditch,7,155,2023-05-07,2
+Shoreditch,8,83,2023-01-15,1
+Shoreditch,8,83,2023-01-29,4
+Shoreditch,8,83,2023-02-12,5
+Shoreditch,8,83,2023-03-12,5
+Shoreditch,8,83,2023-05-21,3
+Shoreditch,8,83,2023-05-07,3
+Shoreditch,9,65,2023-03-12,2
+Shoreditch,9,65,2023-05-21,4
+Shoreditch,9,65,2023-05-07,5
+Shoreditch,10,43,2023-01-29,1
+Shoreditch,10,43,2023-02-12,2
+Shoreditch,10,43,2023-02-26,1
+Shoreditch,10,43,2023-03-26,4
+Shoreditch,10,43,2023-04-09,3
+Shoreditch,10,43,2023-05-21,1
+Shoreditch,10,43,2023-04-23,4
+Shoreditch,11,82,2023-01-15,3
+Shoreditch,11,82,2023-01-29,3
+Shoreditch,11,82,2023-02-12,4
+Shoreditch,11,82,2023-02-26,2
+Shoreditch,11,82,2023-03-26,5
+Shoreditch,11,82,2023-04-09,3
+Shoreditch,11,82,2023-05-21,3
+Shoreditch,11,82,2023-04-23,1
+Wimbledon,1,76,2023-01-15,5
+Wimbledon,1,76,2023-01-29,4
+Wimbledon,1,76,2023-02-12,5
+Wimbledon,1,76,2023-02-26,5
+Wimbledon,1,76,2023-03-12,3
+Wimbledon,1,76,2023-03-26,2
+Wimbledon,1,76,2023-05-21,1
+Wimbledon,1,76,2023-04-23,2
+Wimbledon,1,76,2023-05-07,2
+Wimbledon,2,111,2023-01-15,3
+Wimbledon,2,111,2023-01-29,3
+Wimbledon,2,111,2023-02-26,5
+Wimbledon,2,111,2023-03-12,1
+Wimbledon,2,111,2023-03-26,4
+Wimbledon,2,111,2023-04-09,1
+Wimbledon,2,111,2023-04-23,4
+Wimbledon,2,111,2023-05-07,1
+Wimbledon,3,68,2023-01-29,4
+Wimbledon,3,68,2023-03-12,5
+Wimbledon,3,68,2023-03-26,3
+Wimbledon,3,68,2023-04-09,3
+Wimbledon,3,68,2023-04-23,2
+Wimbledon,3,68,2023-05-07,4
+Wimbledon,4,122,2023-01-29,3
+Wimbledon,4,122,2023-02-12,1
+Wimbledon,4,122,2023-02-26,5
+Wimbledon,4,122,2023-03-12,5
+Wimbledon,4,122,2023-03-26,2
+Wimbledon,4,122,2023-04-23,3
+Wimbledon,4,122,2023-05-07,5
+Wimbledon,5,132,2023-01-15,3
+Wimbledon,5,132,2023-01-29,3
+Wimbledon,5,132,2023-02-12,3
+Wimbledon,5,132,2023-02-26,4
+Wimbledon,5,132,2023-03-12,4
+Wimbledon,5,132,2023-04-09,4
+Wimbledon,5,132,2023-05-21,5
+Wimbledon,5,132,2023-04-23,2
+Wimbledon,5,132,2023-05-07,4
+Wimbledon,6,21,2023-01-15,4
+Wimbledon,6,21,2023-02-12,3
+Wimbledon,6,21,2023-02-26,1
+Wimbledon,6,21,2023-03-12,2
+Wimbledon,6,21,2023-03-26,5
+Wimbledon,6,21,2023-04-23,3
+Wimbledon,6,21,2023-05-07,3
+Wimbledon,7,37,2023-01-29,4
+Wimbledon,7,37,2023-02-26,1
+Wimbledon,7,37,2023-03-12,1
+Wimbledon,7,37,2023-04-09,2
+Wimbledon,7,37,2023-05-21,1
+Wimbledon,7,37,2023-04-23,5
+Wimbledon,7,37,2023-05-07,5
+Wimbledon,8,34,2023-01-29,5
+Wimbledon,8,34,2023-02-12,2
+Wimbledon,8,34,2023-02-26,2
+Wimbledon,8,34,2023-03-12,2
+Wimbledon,8,34,2023-04-09,2
+Wimbledon,8,34,2023-05-21,2
+Wimbledon,8,34,2023-05-07,2
+Wimbledon,9,71,2023-01-15,5
+Wimbledon,9,71,2023-01-29,2
+Wimbledon,9,71,2023-02-26,2
+Wimbledon,9,71,2023-04-09,2
+Wimbledon,9,71,2023-04-23,2
+Wimbledon,9,71,2023-05-07,3
+Wimbledon,10,60,2023-02-26,2
+Wimbledon,10,60,2023-03-26,5
+Wimbledon,10,60,2023-05-21,5
+Wimbledon,10,60,2023-05-07,2
+Wimbledon,11,28,2023-01-15,2
+Wimbledon,11,28,2023-01-29,5
+Wimbledon,11,28,2023-03-12,2
+Wimbledon,11,28,2023-05-21,4
+Wimbledon,11,28,2023-04-23,2
+Wimbledon,11,28,2023-05-07,1

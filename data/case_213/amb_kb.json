@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_sum_daily_transaction_value",
+      "kind": "Group-level concept",
+      "node_id": "agg_total_tx",
+      "op": "aggregate",
+      "source_text": "Aggregate the data so we have a single balance for each day already in the dataset, for each account",
+      "ref": "total_tx_value = df.groupby(['Account Number', 'Balance Date'])[\n        'Transaction Value'].sum().reset_index()"
+    },
+    {
+      "id": "2_O2_parse_balance_date_dd_mm_yyyy",
+      "kind": "Row-level concept",
+      "node_id": "cast",
+      "op": "project",
+      "intent": "Parse Balance Date using the DD/MM/YYYY date format.",
+      "ref": "df['Balance Date'] = pd.to_datetime(df['Balance Date'], format='%d/%m/%Y')"
+    },
+    {
+      "id": "3_O1_scaffold_date_range_fixed_to_2023_01_31_2023_02_14",
+      "kind": "Row-level concept",
+      "node_id": "compute_date",
+      "op": "project",
+      "source_text": "Scaffold the data so each account has a row between 31st Jan and 14th Feb",
+      "ref": "        start_date = datetime(2023, 1, 31)\n        end_date = datetime(2023, 2, 14)"
+    },
+    {
+      "id": "4_O1_scaffold_date_range_inclusive_endpoints",
+      "kind": "Operation boundary",
+      "node_id": "compute_date",
+      "op": "project",
+      "intent": "Include both the start date and end date in the scaffolded daily date series.",
+      "ref": "        all_dates = pd.date_range(start=start_date, end=end_date, freq='D')"
+    },
+    {
+      "id": "5_O2_balance_forward_fill_missing_dates",
+      "kind": "Operation incomplete",
+      "node_id": "ffill_balance",
+      "op": "script",
+      "intent": "For scaffolded dates with no Balance, set Balance to the most recent prior date's Balance for the same account.",
+      "ref": "        filled_balance = result['Balance'].ffill()\n        mask = result['Balance'].isna()\n        result.loc[mask, 'Balance'] = filled_balance[mask]"
+    },
+    {
+      "id": "6_O2_initialize_first_balance_from_earliest_available",
+      "kind": "Operation incomplete",
+      "node_id": "ffill_balance",
+      "op": "script",
+      "intent": "If the earliest scaffolded date for an account has no Balance, initialize it from that account’s earliest available Balance before forward-filling.",
+      "ref": "        if pd.isna(result.iloc[0]['Balance']):\n            if len(account_data) > 0:\n                earliest = account_data.iloc[0]\n                if earliest['Date'] <= result.iloc[0]['Date']:\n                    result.iloc[0, result.columns.get_loc(\n                        'Balance')] = earliest['Balance']"
+    },
+    {
+      "id": "7_O1_default_selected_date_2023_02_01",
+      "kind": "Row-level concept",
+      "node_id": "filter_target_date",
+      "op": "filter",
+      "intent": "Default the selected (parameter) date to 2023-02-01 when filtering the scaffolded rows.",
+      "ref": "    filter_date = datetime(2023, 2, 1)\n    final_df = final_df[final_df['Date'] == filter_date].copy()"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_publish_ts_parse_format",
+      "kind": "Operation boundary",
+      "node_id": "parse_publish",
+      "op": "project",
+      "source_text": "Find the time between when a vehicle is first advertised on the site to when the vehicle was sold",
+      "ref": "ads[\"publish_ts\"] = pd.to_datetime(\n        ads[\"publish_ts\"], format=\"%d/%m/%Y %H:%M:%S\", errors=\"coerce\")"
+    },
+    {
+      "id": "2_O2_sold_definition_sale_date_present",
+      "kind": "Row-level concept",
+      "node_id": "filter_sold",
+      "op": "filter",
+      "source_text": "Find the time between when a vehicle is first advertised on the site to when the vehicle was sold",
+      "ref": "ads = ads[ads[\"sale_date\"].notna() & (\n        ads[\"sale_date\"].astype(str).str.strip() != \"\")].copy()"
+    },
+    {
+      "id": "3_O1_round_dealership_avg_up",
+      "kind": "Operation boundary",
+      "node_id": "ceil_avg",
+      "op": "project",
+      "source_text": "group up to the nearest whole day",
+      "ref": "Dealership Avg Days = ceil(avg(Days to Sell))"
+    },
+    {
+      "id": "4_C2_days_to_sell_ceiling",
+      "kind": "Operation boundary",
+      "node_id": "compute_days",
+      "op": "project",
+      "source_text": "Find the time between when a vehicle is first advertised on the site to when the vehicle was sold",
+      "ref": "delta_days = (ads[\"sale_date_dt\"] - ads[\"first_publish\"]\n                  ).dt.total_seconds() / (24 * 3600)\nads[\"Days to Sell\"] = delta_days.apply(\n        lambda x: math.ceil(x) if pd.notna(x) else pd.NA)"
+    },
+    {
+      "id": "5_D2_join_on_user_id",
+      "kind": "Multi-table alignment",
+      "node_id": "join_ads_users",
+      "op": "join",
+      "source_text": "Join the data sets together",
+      "ref": "ads = ads.merge(df_users, how=\"left\", on=\"user_id\")"
+    },
+    {
+      "id": "6_O2_join_type_left",
+      "kind": "Operation incomplete",
+      "node_id": "join_ads_users",
+      "op": "join",
+      "source_text": "Join the data sets together",
+      "ref": "ads = ads.merge(df_users, how=\"left\", on=\"user_id\")"
+    },
+    {
+      "id": "7_O2_keep_only_dealership_listings",
+      "kind": "Row-level concept",
+      "node_id": "filter_type",
+      "op": "filter",
+      "source_text": "Find the average days for each sale a dealership has listed",
+      "ref": "ads = ads[ads[\"user_type\"] == \"D\"].copy()"
+    },
+    {
+      "id": "8_O3_first_post_ties_keep_all",
+      "kind": "Operation boundary",
+      "node_id": "dedup_first",
+      "op": "dedup",
+      "intent": "When multiple ads have the same first_published timestamp, keep all of them.",
+      "ref": "ads = ads[ads[\"publish_ts\"] == ads[\"first_publish\"]].copy()"
+    },
+    {
+      "id": "9_O2_users_token_delimiter_commas",
+      "kind": "Single-table reference",
+      "node_id": "parse_users",
+      "op": "project",
+      "source_text": "Break the Users data set into individual records",
+      "ref": "user_tokens = [tok.strip() for tok in str(\n        users_line).split(\",\") if tok.strip()]"
+    }
+  ]
+}

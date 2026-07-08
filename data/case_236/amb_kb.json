@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_age_range_details_exclude_missing",
+      "kind": "Operation incomplete",
+      "node_id": "age_details_nonnull",
+      "op": "filter",
+      "source_text": "Only include relevant details for each demographic.",
+      "ref": "age_range_all = (\n        monthly_enriched[\"age_range\"].dropna().astype(str).sort_values().drop_duplicates().tolist()\n    )"
+    },
+    {
+      "id": "2_O2_relevant_dc_month_pairs_source",
+      "kind": "Operation incomplete",
+      "node_id": "dc_month_keys",
+      "op": "project",
+      "source_text": "Only include the relevant months for each DC",
+      "ref": "dc_month = monthly_enriched[base_keys].copy()\n    dc_month[\"dc_nbr\"] = dc_month[\"dc_nbr\"].astype(int)\n    dc_month = dc_month.drop_duplicates().reset_index(drop=True)"
+    },
+    {
+      "id": "3_O2_gender_details_exclude_missing",
+      "kind": "Operation incomplete",
+      "node_id": "gender_details_nonnull",
+      "op": "filter",
+      "source_text": "Only include relevant details for each demographic.",
+      "ref": "gender_all = (\n        monthly_enriched[\"gender\"].dropna().astype(str).sort_values().drop_duplicates().tolist()\n    )"
+    },
+    {
+      "id": "4_O2_generation_details_exclude_missing",
+      "kind": "Operation incomplete",
+      "node_id": "gen_details_nonnull",
+      "op": "filter",
+      "source_text": "Only include relevant details for each demographic.",
+      "ref": "gen_all = (\n        monthly_enriched[\"generation_name\"].dropna().astype(str).sort_values().drop_duplicates().tolist()\n    )"
+    },
+    {
+      "id": "5_D2_join_keys_and_type",
+      "kind": "Multi-table alignment",
+      "node_id": "join_enrich",
+      "op": "join",
+      "source_text": "Join the ee_dim table to the monthly data on employee_id",
+      "ref": "monthly_enriched = monthly_dt.merge(dim_keep, on=[\"employee_id\", \"guid\"], how=\"left\")"
+    },
+    {
+      "id": "6_O2_date_parse_format_and_blank_handling",
+      "kind": "Operation incomplete",
+      "node_id": "monthly_parse",
+      "op": "project",
+      "intent": "Parse month_end_date/hire_date/leave_date as DD/MM/YYYY dates, treating blank strings as missing and coercing invalid parses to missing.",
+      "ref": "return pd.to_datetime(date_s.replace({\"\": pd.NA}), format=\"%d/%m/%Y\", errors=\"coerce\", dayfirst=True)"
+    },
+    {
+      "id": "7_O1_full_months_day_rule_with_month_end_exception",
+      "kind": "Operation boundary",
+      "node_id": "monthly_parse",
+      "op": "project",
+      "source_text": "For the tenure_months, we want to know the number of full months between the employee's hire_date and either the month_end_date or leave_date - whichever is soonest",
+      "ref": "is_month_end = end.dt.is_month_end\n    needs_subtract = (end.dt.day < start.dt.day) & (~is_month_end)"
+    },
+    {
+      "id": "8_O2_missing_dates_default_tenure_months_zero",
+      "kind": "Operation incomplete",
+      "node_id": "monthly_parse",
+      "op": "project",
+      "intent": "If required dates are missing such that tenure cannot be computed, set tenure_months to 0.",
+      "ref": "months_full = (months_diff - needs_subtract.astype(\"Int64\")).fillna(0).astype(int)"
+    },
+    {
+      "id": "9_O1_tenure_months_non_negative_floor",
+      "kind": "Operation boundary",
+      "node_id": "monthly_parse",
+      "op": "project",
+      "intent": "Ensure tenure_months is not negative (minimum 0).",
+      "ref": "months_full = months_full.clip(lower=0)"
+    },
+    {
+      "id": "10_O2_nationality_details_exclude_missing",
+      "kind": "Operation incomplete",
+      "node_id": "nat_details_nonnull",
+      "op": "filter",
+      "source_text": "Only include relevant details for each demographic.",
+      "ref": "nationality_all = (\n        monthly_enriched[\"nationality\"].dropna().astype(str).sort_values().drop_duplicates().tolist()\n    )"
+    },
+    {
+      "id": "12_O2_tenure_details_exclude_missing",
+      "kind": "Operation incomplete",
+      "node_id": "tenure_details_nonnull",
+      "op": "filter",
+      "source_text": "Only include relevant details for each demographic.",
+      "ref": "tenure_years_all = (\n        monthly_enriched[\"tenure_years\"].dropna().astype(int).sort_values().drop_duplicates().astype(str).tolist()\n    )"
+    }
+  ]
+}

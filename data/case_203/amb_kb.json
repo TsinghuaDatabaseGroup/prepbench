@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_hierarchy_level_calc",
+      "kind": "Row-level concept",
+      "node_id": "emp_level",
+      "op": "project",
+      "source_text": "To calculate the hierarchy level, count the number of pipes (|) in the employee_id_hierarchy and subtract 1",
+      "ref": "employees_df['hierarchy_level'] = employees_df['employee_id_hierarchy'].str.count('\\|') - 1"
+    },
+    {
+      "id": "2_subdept_head_level",
+      "kind": "Group-level concept",
+      "node_id": "pick_subdept",
+      "op": "script",
+      "source_text": "Find the person with the 2nd-lowest hierarchy_level within each department",
+      "ref": "filtered_employees['level_rank'] = filtered_employees.groupby('department')['hierarchy_level'].rank(method='dense', ascending=True)\nsub_dept_heads = filtered_employees[filtered_employees['level_rank'] == 2].copy()"
+    },
+    {
+      "id": "3_subdept_team_id_parse",
+      "kind": "Row-level concept",
+      "node_id": "pick_subdept",
+      "op": "script",
+      "source_text": "Parse out the dependent_team_ids for the sub-department heads",
+      "ref": "sub_dept_heads['subdept_team_id'] = sub_dept_heads['dependent_team_ids'].str.split('|').str[1]"
+    },
+    {
+      "id": "4_subdept_match_condition",
+      "kind": "Row-level concept",
+      "node_id": "pick_subdept",
+      "op": "script",
+      "source_text": "An employee is in the sub-department if the employee's team hierarchy string contains the subdept_team_id OR the employee's dependent_team_ids contains the subdept_team_id",
+      "ref": "if sub_id and (sub_id in team_hierarchy or sub_id in dependent_teams):\n    return sub_id"
+    },
+    {
+      "id": "5_multi_subdept_conflict",
+      "kind": "Operation inconsistent",
+      "node_id": "pick_subdept",
+      "op": "script",
+      "intent": "When multiple sub-department IDs exist for a department, which one to assign if employee matches multiple",
+      "ref": "for sub_id in subdept_ids:\n    if sub_id and (sub_id in team_hierarchy or sub_id in dependent_teams):\n        return sub_id"
+    }
+  ]
+}

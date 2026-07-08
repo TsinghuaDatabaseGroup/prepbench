@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_inclusive_on_or_before_easter",
+      "kind": "Operation boundary",
+      "node_id": "cand_filter",
+      "op": "filter",
+      "source_text": "Make sure we only include the Full Moon just before Easter Sunday",
+      "ref": "(df_moon[\"Full Moon Date\"] <= easter_date) &"
+    },
+    {
+      "id": "2_O1_lower_bound_prev_year_jan1",
+      "kind": "Operation boundary",
+      "node_id": "cand_filter",
+      "op": "filter",
+      "intent": "Limit full moon candidates to those on/after Jan 1 of the previous calendar year.",
+      "ref": "(df_moon[\"Full Moon Date\"] >= pd.Timestamp(easter_year - 1, 1, 1))"
+    },
+    {
+      "id": "3_O1_year_range_inclusive_easter",
+      "kind": "Operation boundary",
+      "node_id": "easter_filter",
+      "op": "filter",
+      "source_text": "Our analysis for this challenge will be between 1900 and 2023.",
+      "ref": "df_easter = df_easter[(df_easter[\"Year\"] >= 1900) & (df_easter[\"Year\"] <= 2023)].copy()"
+    },
+    {
+      "id": "4_O2_easter_date_parse_format",
+      "kind": "Operation incomplete",
+      "node_id": "easter_project",
+      "op": "project",
+      "intent": "Parse the Easter Sunday date using day/month/year format.",
+      "ref": "df_easter[\"Easter Sunday\"] = pd.to_datetime(df_easter[\"Easter Sunday\"], format=\"%d/%m/%Y\")"
+    },
+    {
+      "id": "5_O1_year_range_inclusive_moon",
+      "kind": "Operation boundary",
+      "node_id": "moon_filter",
+      "op": "filter",
+      "source_text": "Our analysis for this challenge will be between 1900 and 2023.",
+      "ref": "df_moon = df_moon[(df_moon[\"Year\"] >= 1900) & (df_moon[\"Year\"] <= 2023)].copy()"
+    },
+    {
+      "id": "6_C1_time_marker_to_event_mapping",
+      "kind": "Row-level concept",
+      "node_id": "moon_project",
+      "op": "project",
+      "source_text": "From the Time field, parse out the interesting info the full moons",
+      "ref": "if \"[+]\" in time_str:\n            return \"Blue moon\"\n        elif \"[*]\" in time_str and \"[**]\" not in time_str:\n            return \"Partial Lunar Eclipse\"\n        elif \"[**]\" in time_str:\n            return \"Total Lunar Eclipse\""
+    },
+    {
+      "id": "7_O2_full_moon_date_parse_format_and_failures",
+      "kind": "Operation incomplete",
+      "node_id": "moon_project",
+      "op": "project",
+      "intent": "Parse the full moon Date using day number + full month name + year, coercing unparseable dates.",
+      "ref": "df_moon[\"Full Moon Date\"] = pd.to_datetime(df_moon[\"Date\"], format=\"%d %B %Y\", errors=\"coerce\")"
+    },
+    {
+      "id": "8_O3_time_marker_precedence",
+      "kind": "Operation inconsistent",
+      "node_id": "moon_project",
+      "op": "project",
+      "intent": "When multiple Time markers exist, use a fixed precedence to choose a single Interesting Event.",
+      "ref": "        if \"[+]\" in time_str:\n            return \"Blue moon\"\n        elif \"[*]\" in time_str and \"[**]\" not in time_str:\n            return \"Partial Lunar Eclipse\"\n        elif \"[**]\" in time_str:\n            return \"Total Lunar Eclipse\""
+    },
+    {
+      "id": "9_O3_pick_closest_full_moon",
+      "kind": "Operation inconsistent",
+      "node_id": "pick_per_year",
+      "op": "dedup",
+      "source_text": "Make sure we only include the Full Moon just before Easter Sunday",
+      "ref": "moon_candidates = moon_candidates[moon_candidates[\"Days Before\"] >= 0]\nclosest_moon = moon_candidates.loc[moon_candidates[\"Days Before\"].idxmin()]"
+    },
+    {
+      "id": "10_O1_days_between_whole_days",
+      "kind": "Operation boundary",
+      "node_id": "with_bounds_and_days",
+      "op": "project",
+      "source_text": "Calculate the number of days between then Full Moon and Easter Sunday",
+      "ref": "moon_candidates[\"Days Before\"] = (easter_date - moon_candidates[\"Full Moon Date\"]).dt.days"
+    }
+  ]
+}

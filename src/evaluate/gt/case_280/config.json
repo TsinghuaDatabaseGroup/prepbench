@@ -1,0 +1,24 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Complaint ID"
+      ],
+      "columns": {
+        "Complaint ID": "text_exact",
+        "Receipt Number": "text_exact",
+        "Customer ID": "text_exact",
+        "Date Received": "date",
+        "Date Resolved": "date",
+        "Timely Response": "boolean",
+        "Response to Consumer": "text_norm",
+        "Issue Type": "text_norm",
+        "Product Category": "text_norm",
+        "Product ID": "text_exact",
+        "Complaint Description": "text_norm"
+      }
+    }
+  }
+}
+

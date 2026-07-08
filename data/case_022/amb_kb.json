@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_incomplete_window_null",
+      "kind": "Operation incomplete",
+      "node_id": "proj_compute_ma",
+      "op": "project",
+      "source_text": "Don't create a moving average if it isn't the average of seven days sales.",
+      "ref": "    df[\"Moving Avg Sales\"] = df[\"Sales\"].rolling(window=7, min_periods=7).mean().round(2)"
+    },
+    {
+      "id": "2_C2_window_is_7_rows_not_calendar_gap_days",
+      "kind": "Group-level concept",
+      "node_id": "proj_compute_ma",
+      "op": "project",
+      "source_text": "Determine the weekly average sales for the current day and the previous six",
+      "ref": "    df[\"Moving Avg Sales\"] = df[\"Sales\"].rolling(window=7, min_periods=7).mean().round(2)"
+    },
+    {
+      "id": "3_O2_parse_date_ddmmyyyy_coerce",
+      "kind": "Operation boundary",
+      "node_id": "proj_parse_date",
+      "op": "project",
+      "intent": "Parse Date as a calendar date using DD/MM/YYYY (coercing parse errors).",
+      "ref": "    df[\"Date_dt\"] = pd.to_datetime(df[\"Date\"], format=\"%d/%m/%Y\", dayfirst=True, errors=\"coerce\")"
+    },
+    {
+      "id": "4_O1_sort_chronological_before_window",
+      "kind": "Operation boundary",
+      "node_id": "sort_by_date",
+      "op": "sort",
+      "intent": "Sort by the parsed Date in ascending chronological order before computing the moving average.",
+      "ref": "    df = df.sort_values(\"Date_dt\").reset_index(drop=True)"
+    }
+  ]
+}

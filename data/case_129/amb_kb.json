@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_avg_default_over_all_trips",
+      "kind": "Group-level concept",
+      "node_id": "aggregate_01",
+      "op": "aggregate",
+      "source_text": "How does the average floors travelled between trips compare to the average travel from the default position?",
+      "ref": "avg_travel_from_default = df[\"Travel_from_default\"].mean()"
+    },
+    {
+      "id": "2_O1_tripid_uses_input_order",
+      "kind": "Operation boundary",
+      "node_id": "project_01",
+      "op": "project",
+      "source_text": "Create a TripID field based on the time of day",
+      "ref": "df = df.reset_index(drop=True)\ndf[\"TripID\"] = df.index + 1"
+    },
+    {
+      "id": "3_O3_default_position_tie_break_smallest_numeric",
+      "kind": "Operation boundary",
+      "node_id": "project_01",
+      "op": "project",
+      "source_text": "Calculate which floor the majority of trips begin at - call this the Default Position",
+      "ref": "counts = df[\"From_numeric\"].value_counts()\ndefault_numeric = counts[counts == counts.max()].index.min()"
+    },
+    {
+      "id": "4_C2_difference_direction_default_minus_current",
+      "kind": "Group-level concept",
+      "node_id": "project_02",
+      "op": "project",
+      "source_text": "How does the average floors travelled between trips compare to the average travel from the default position?",
+      "ref": "difference = round(avg_travel_from_default - avg_travel_between_trips, 2)"
+    },
+    {
+      "id": "5_O1_rounding_2_decimal_places",
+      "kind": "Operation boundary",
+      "node_id": "project_02",
+      "op": "project",
+      "intent": "Round the reported averages and the difference to 2 decimal places.",
+      "ref": "avg_travel_from_default = round(float(avg_travel_from_default), 2)\navg_travel_between_trips = round(float(avg_travel_between_trips), 2)\ndifference = round(avg_travel_from_default - avg_travel_between_trips, 2)"
+    },
+    {
+      "id": "6_O2_between_trips_exclude_first_trip_from_average",
+      "kind": "Operation incomplete",
+      "node_id": "script_between",
+      "op": "script",
+      "intent": "Exclude the first trip (which has no prior trip) from the between-trips average.",
+      "ref": "avg_travel_between_trips = seq[\"Travel_between_trips\"].iloc[1:].mean()"
+    },
+    {
+      "id": "7_O3_collapse_same_minute_keep_last_row",
+      "kind": "Operation boundary",
+      "node_id": "script_between",
+      "op": "script",
+      "intent": "When multiple trips share the same (Hour, Minute), keep only the last such row for between-trips calculations.",
+      "ref": "seq = df.groupby([\"Hour\", \"Minute\"], sort=False, as_index=False).last()"
+    }
+  ]
+}

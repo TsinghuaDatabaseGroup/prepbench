@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_avg_on_scaled_five_years",
+      "kind": "Group-level concept",
+      "node_id": "ff_avg",
+      "op": "aggregate",
+      "source_text": "Calculate the average footfall for each attraction, whilst keeping all the detail of individual years.",
+      "ref": "df_melted['Attraction Footfall'] = df_melted['Attraction Footfall'] * 1000\navg_footfall = df_melted.groupby(\n            'Attraction')['Attraction Footfall'].mean().reset_index()"
+    },
+    {
+      "id": "2_O2_drop_rows_with_any_null",
+      "kind": "Operation incomplete",
+      "node_id": "ff_dropna",
+      "op": "filter",
+      "source_text": "Filter out attractions with missing data",
+      "ref": "df.dropna(inplace=True)"
+    },
+    {
+      "id": "3_O2_ingest_dash_as_null",
+      "kind": "Single-table reference",
+      "node_id": "ff_input",
+      "op": "input",
+      "intent": "Interpret the file-level missing-value marker \"-\" as null during ingestion for the Attraction Footfall table.",
+      "ref": "df_footfall = pd.read_csv(inputs_dir / \"input_01.csv\", na_values='-')"
+    },
+    {
+      "id": "4_O1_year_columns_2019_2023",
+      "kind": "Single-table reference",
+      "node_id": "ff_melt",
+      "op": "pivot",
+      "source_text": "Reshape the data so there is a row for each year, for each attraction",
+      "ref": "value_vars = ['2019', '2020', '2021',\n                      '2022', '2023']  # Corrected years"
+    },
+    {
+      "id": "5_O1_rank_descending",
+      "kind": "Group-level concept",
+      "node_id": "ff_rank",
+      "op": "project",
+      "source_text": "Rank the attractions based on this 5 Year Avg Footfall",
+      "ref": "df_merged['Attraction Rank'] = df_merged['5 Year Avg Footfall'].rank(\n            method='dense', ascending=False).astype(int)"
+    },
+    {
+      "id": "6_O3_rank_dense_ties",
+      "kind": "Operation boundary",
+      "node_id": "ff_rank",
+      "op": "project",
+      "source_text": "Rank the attractions based on this 5 Year Avg Footfall",
+      "ref": "df_merged['Attraction Rank'] = df_merged['5 Year Avg Footfall'].rank(\n            method='dense', ascending=False).astype(int)"
+    },
+    {
+      "id": "7_D1_rename_characteristic_to_attraction",
+      "kind": "Single-table reference",
+      "node_id": "ff_rename",
+      "op": "project",
+      "intent": "Use the original column header \"Characteristic\" as the identifier column to rename to \"Attraction\".",
+      "ref": "df.rename(columns={'Characteristic': 'Attraction'}, inplace=True)"
+    },
+    {
+      "id": "8_O1_cast_coords_to_numeric",
+      "kind": "Row-level concept",
+      "node_id": "loc_split",
+      "op": "project",
+      "intent": "Convert the parsed Attraction Latitude and Attraction Longitude fields to numeric values.",
+      "ref": "output_df['Attraction Latitude'] = pd.to_numeric(\n            output_df['Attraction Latitude'])\n        output_df['Attraction Longitude'] = pd.to_numeric(\n            output_df['Attraction Longitude'])"
+    },
+    {
+      "id": "9_O1_coords_lat_then_long",
+      "kind": "Single-table reference",
+      "node_id": "loc_split",
+      "op": "project",
+      "source_text": "split these values into 2 separate fields",
+      "ref": "df[['Attraction Latitude', 'Attraction Longitude']\n           ] = df['Lat, Longs'].str.split(', ', expand=True)"
+    },
+    {
+      "id": "10_O3_remove_exact_duplicate_rows",
+      "kind": "Operation inconsistent",
+      "node_id": "st_dedup",
+      "op": "dedup",
+      "source_text": "There are a lot of duplicate rows. Make sure each row is unique",
+      "ref": "df_selected.drop_duplicates(inplace=True)"
+    },
+    {
+      "id": "11_D1_use_right_lat_long_fields",
+      "kind": "Single-table reference",
+      "node_id": "st_select",
+      "op": "project",
+      "source_text": "only keep information about the station name and location",
+      "ref": "df_selected = df[['Station', 'Right_Latitude',\n                          'Right_Longitude']].copy()"
+    }
+  ]
+}

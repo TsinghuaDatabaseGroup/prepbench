@@ -1,0 +1,12 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Calculation1", "Easter Sunday"],
+      "columns": {
+        "Calculation1": "number",
+        "Easter Sunday": "date"
+      }
+    }
+  }
+}
+

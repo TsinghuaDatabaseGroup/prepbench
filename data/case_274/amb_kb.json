@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_round_to_nearest_int",
+      "kind": "Operation boundary",
+      "node_id": "prep_01",
+      "op": "project",
+      "source_text": "Remove the units from the sales field to convert the data type to the whole number",
+      "ref": "        return int(round(number * multiplier))"
+    },
+    {
+      "id": "2_O2_remove_thousands_separators",
+      "kind": "Operation incomplete",
+      "node_id": "prep_01",
+      "op": "project",
+      "source_text": "Remove the units from the sales field to convert the data type to the whole number",
+      "ref": "        s_clean = s.replace(\",\", \"\")"
+    },
+    {
+      "id": "3_O2_missing_values_as_zero",
+      "kind": "Operation incomplete",
+      "node_id": "prep_01",
+      "op": "project",
+      "source_text": "Remove the units from the sales field to convert the data type to the whole number",
+      "ref": "        if pd.isna(value):\n            return 0"
+    },
+    {
+      "id": "4_O2_km_suffix_multiplier",
+      "kind": "Operation incomplete",
+      "node_id": "prep_01",
+      "op": "project",
+      "source_text": "Remove the units from the sales field to convert the data type to the whole number",
+      "ref": "        if s_clean.endswith(\"K\") or s_clean.endswith(\"k\"):\n            multiplier = 1_000.0\n            s_clean = s_clean[:-1]\n        elif s_clean.endswith(\"M\") or s_clean.endswith(\"m\"):\n            multiplier = 1_000_000.0\n            s_clean = s_clean[:-1]"
+    },
+    {
+      "id": "5_O2_union_keep_duplicates",
+      "kind": "Operation incomplete",
+      "node_id": "union",
+      "op": "union",
+      "source_text": "Union tables together",
+      "ref": "        records.append({\"Year\": year, \"Sales\": total_sales, \"Profits\": total_profits})\n\n    out = pd.DataFrame(records, columns=[\"Year\", \"Sales\", \"Profits\"])"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_keep_first_duplicate_record",
+      "kind": "Operation inconsistent",
+      "node_id": "d_first",
+      "op": "dedup",
+      "intent": "When multiple records exist for the same City, Date, and metric, keep the first available record.",
+      "ref": "grp = (\n        df.sort_values([\"Date_dt\"])\n        .groupby([\"City_clean\", \"Date_dt\", \"Metric_clean\"], as_index=False)[\"Value\"].first()\n    )"
+    },
+    {
+      "id": "2_O2_drop_fully_empty_rows",
+      "kind": "Row-level concept",
+      "node_id": "f_valid",
+      "op": "filter",
+      "source_text": "Get rid of those nicely formatted titles - no-one is viewing this in Excel!",
+      "ref": "df = df.replace({\"\": np.nan})\ndf = df.dropna(how=\"all\")"
+    },
+    {
+      "id": "3_O2_require_parseable_value_and_date",
+      "kind": "Row-level concept",
+      "node_id": "f_valid",
+      "op": "filter",
+      "intent": "Keep only rows where City/Metric/Measure are present and Date and Value can be parsed (drop parse failures).",
+      "ref": "df[\"Value\"] = pd.to_numeric(df[\"Value\"], errors=\"coerce\")\ndf[\"Date_dt\"] = pd.to_datetime(df[\"Date\"], errors=\"coerce\")\ndf = df.dropna(subset=[\"Value\", \"Date_dt\", \"City\", \"Metric\", \"Measure\"])"
+    },
+    {
+      "id": "4_C1_restrict_to_exact_city_names",
+      "kind": "Row-level concept",
+      "node_id": "f_window_city",
+      "op": "filter",
+      "source_text": "Clean up the City names to create two cities in one column (London and Edinburgh)",
+      "ref": "mask_cities = wide[\"City\"].isin([\"London\", \"Edinburgh\"])"
+    },
+    {
+      "id": "5_O1_inclusive_date_window",
+      "kind": "Operation boundary",
+      "node_id": "f_window_city",
+      "op": "filter",
+      "intent": "Filter the output to the inclusive date window 2019-02-16 through 2019-02-22 based on the parsed date.",
+      "ref": "mask_dates = (wide[\"Date\"] >= pd.Timestamp(2019, 2, 16)) & (\n        wide[\"Date\"] <= pd.Timestamp(2019, 2, 22))"
+    },
+    {
+      "id": "6_O1_cast_metrics_to_integer",
+      "kind": "Row-level concept",
+      "node_id": "p_cast_int",
+      "op": "project",
+      "intent": "Ensure the four metric columns are integers in the output.",
+      "ref": "for col in required_metrics:\n        wide[col] = wide[col].astype(\"Int64\").astype(int)"
+    },
+    {
+      "id": "7_O2_add_missing_metric_columns_as_null",
+      "kind": "Operation incomplete",
+      "node_id": "p_fill_missing_metric_cols",
+      "op": "project",
+      "intent": "If any required metric columns are missing after pivoting, add them as empty (null) columns.",
+      "ref": "for col in required_metrics:\n        if col not in wide.columns:\n            wide[col] = np.nan"
+    },
+    {
+      "id": "9_C2_metric_label_concatenation",
+      "kind": "Row-level concept",
+      "node_id": "p_metric_clean",
+      "op": "project",
+      "intent": "Create the metric label as Metric + \" - \" + Measure.",
+      "ref": "df[\"Metric_clean\"] = df[\"Metric\"].str.strip() + \" - \" + \\\n        df[\"Measure\"].str.strip()"
+    },
+    {
+      "id": "10_O2_create_missing_expected_fields_blank",
+      "kind": "Multi-table alignment",
+      "node_id": "p_prepare",
+      "op": "project",
+      "intent": "If City, Metric, Measure, Value, or Date are absent in an input file, create them as blank for those rows before proceeding.",
+      "ref": "expected_cols = [\"City\", \"Metric\", \"Measure\", \"Value\", \"Date\"]\nfor c in expected_cols:\n    if c not in raw.columns:\n        raw[c] = \"\""
+    },
+    {
+      "id": "11_O2_union_all_input_csv_files",
+      "kind": "Multi-table alignment",
+      "node_id": "u01",
+      "op": "union",
+      "source_text": "Make sure you get all the data in the Excel sheet loaded in to Prep",
+      "ref": "for p in sorted(inputs_dir.glob(\"*.csv\")):\n        df = pd.read_csv(p, dtype=str, keep_default_na=False)\n        frames.append(df)\n\n    raw = pd.concat(frames, ignore_index=True, sort=False)"
+    }
+  ]
+}

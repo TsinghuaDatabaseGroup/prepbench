@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Rank", "Area", "Product Name", "Revenue", "% of Total - Product"],
+      "columns": {
+        "Rank": "number",
+        "Area": "text_exact",
+        "Product Name": "text_exact",
+        "Revenue": "number",
+        "% of Total - Product": "number"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_inperson_join_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "inperson_not",
+      "op": "join",
+      "source_text": "Join the In Person Attendees dataset to the cleaned Registrations",
+      "ref": "inperson_merged = inperson_reg.merge(\n        inperson_attendees,\n        on=['Session', 'First Name', 'Last Name'],\n        how='left',\n        indicator=True\n    )"
+    },
+    {
+      "id": "2_C2_not_attended_grouping_keys",
+      "kind": "Group-level concept",
+      "node_id": "not_count",
+      "op": "aggregate",
+      "source_text": "Count the number of sessions each person was unable to attend",
+      "ref": "combined['Sessions Not Attended'] = combined.groupby(['First Name', 'Last Name', 'Email', 'Online/In Person'])['Session not attended'].transform('count')"
+    },
+    {
+      "id": "3_D2_online_join_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "online_not",
+      "op": "join",
+      "source_text": "Join the Online Attendees dataset to the cleaned Registrations",
+      "ref": "online_merged = online_reg.merge(\n        online_attendees,\n        on=['Session', 'Email'],\n        how='left',\n        indicator=True\n    )"
+    },
+    {
+      "id": "4_C2_registered_sessions_grouping_keys",
+      "kind": "Group-level concept",
+      "node_id": "reg_count",
+      "op": "aggregate",
+      "source_text": "Count the number of sessions each registered person is planning to attend",
+      "ref": "registrations['Sessions Registered'] = registrations.groupby(['First Name', 'Last Name', 'Email', 'Online/In Person'])['Session ID'].transform('count')"
+    },
+    {
+      "id": "5_O2_session_lookup_join_coverage",
+      "kind": "Operation incomplete",
+      "node_id": "reg_with_session",
+      "op": "join",
+      "source_text": "Join on the Session Lookup table to replace the Session ID with the Session name",
+      "ref": "registrations = registrations.merge(sessions_lookup, on='Session ID', how='left')"
+    }
+  ]
+}

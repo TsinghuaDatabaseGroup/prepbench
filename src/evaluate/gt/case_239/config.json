@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Team",
+        "Player ID",
+        "Total Matches",
+        "Tournament Date",
+        "Experience at beginning of Tournament",
+        "Matches Played in Tournament"
+      ],
+      "columns": {
+        "Team": "text_exact",
+        "Player ID": "number",
+        "Total Matches": "number",
+        "Tournament Date": "date",
+        "Experience at beginning of Tournament": "number",
+        "Matches Played in Tournament": "number"
+      }
+    }
+  }
+}
+

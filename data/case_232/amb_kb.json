@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_strict_sign_for_classification",
+      "kind": "Operation boundary",
+      "node_id": "classify",
+      "op": "project",
+      "intent": "Treat % Difference values as positive only if >0, negative only if <0, and 0 as neither when classifying stores.",
+      "ref": "signs = [1 if v > 0 else (-1 if v < 0 else 0) for v in vals]"
+    },
+    {
+      "id": "2_O2_default_classification_fallback",
+      "kind": "Operation incomplete",
+      "node_id": "classify",
+      "op": "project",
+      "intent": "If a store does not match any specified pattern (including 0/missing), assign the fallback evaluation text.",
+      "ref": "return \"Concerning performance in last half\""
+    },
+    {
+      "id": "3_O2_drop_unassigned_quarters",
+      "kind": "Operation incomplete",
+      "node_id": "f_drop_na_quarter",
+      "op": "filter",
+      "intent": "Exclude records from downstream steps if they cannot be assigned to a fiscal quarter.",
+      "ref": "combined = combined.dropna(subset=[\"Quarter\"])"
+    },
+    {
+      "id": "4_O2_lookup_scope_q2_q4_only",
+      "kind": "Row-level concept",
+      "node_id": "pivot_diffs",
+      "op": "pivot",
+      "source_text": "Use the lookup function so that we can compare the % Difference for all Quarters in a single row",
+      "ref": "\t\treturn (\n\t\t\tdmap.get(2, pd.NA),\n\t\t\tdmap.get(3, pd.NA),\n\t\t\tdmap.get(4, pd.NA),\n\t\t)"
+    },
+    {
+      "id": "5_D1_core_field_standardisation",
+      "kind": "Multi-table alignment",
+      "node_id": "proj_core",
+      "op": "project",
+      "source_text": "Merge together misaligned fields",
+      "ref": "\tcol_store = pick(\"store\")\n\tcol_sales = pick(\"sales\")\n\tcol_order_date = pick(\"orderdate\", \"orderdate1\", \"orderdate2\", \"orderdate3\", \"orderdate4\", \"orderdate5\", \"orderdate6\", \"orderdate7\", \"orderdate8\", \"orderdate9\", \"orderdate0\", \"orderdate_\", \"orderdate__\")\n\tout = pd.DataFrame(\n\t\t{\n\t\t\t\"Store\": df[col_store].astype(str),\n\t\t\t\"Sales\": pd.to_numeric(df[col_sales], errors=\"coerce\").fillna(0).astype(float),\n\t\t\t\"Year\": df[col_order_date].map(extract_year),\n\t\t}\n\t)"
+    },
+    {
+      "id": "6_O2_qoq_null_when_no_prev_or_q1",
+      "kind": "Operation incomplete",
+      "node_id": "proj_diff",
+      "op": "project",
+      "intent": "Set % Difference Q on Q to null for Quarter 1 and whenever previous-quarter Sales is missing or 0.",
+      "ref": "\t\t\tif q == 1 or prev_sales is None or prev_sales == 0:\n\t\t\t\tquarterly.at[idx, \"% Difference Q on Q\"] = pd.NA\n\t\t\telse:\n\t\t\t\tdiff = (sales - prev_sales) / prev_sales * 100.0\n\t\t\t\tquarterly.at[idx, \"% Difference Q on Q\"] = round(diff + 1e-9, 1)"
+    },
+    {
+      "id": "7_C1_fiscal_quarter_mapping_by_year_and_file",
+      "kind": "Row-level concept",
+      "node_id": "proj_quarter",
+      "op": "project",
+      "source_text": "The financial year for Allchains starts in July. Convert the dates to Fiscal Quarters",
+      "ref": "\tif year == 2022:\n\t\tif file_index in (2, 6, 12):\n\t\t\treturn 1\n\t\tif file_index in (3, 10, 11):\n\t\t\treturn 2\n\tif year == 2023:\n\t\tif file_index in (4, 5, 8):\n\t\t\treturn 3\n\t\tif file_index in (1, 7, 9):\n\t\t\treturn 4"
+    },
+    {
+      "id": "8_D1_use_all_12_monthly_inputs",
+      "kind": "Multi-table alignment",
+      "node_id": "u_all",
+      "op": "union",
+      "source_text": "Input the data",
+      "ref": "for i in range(1, 13):\n\t\tfp = inputs_dir / f\"input_{i:02d}.csv\""
+    },
+    {
+      "id": "9_O3_union_keep_duplicates",
+      "kind": "Operation inconsistent",
+      "node_id": "u_all",
+      "op": "union",
+      "source_text": "Bring all the Months together into a single table",
+      "ref": "combined = pd.concat(all_rows, ignore_index=True)"
+    }
+  ]
+}

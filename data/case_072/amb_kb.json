@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_internal_tie_break_first",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_internal",
+      "op": "dedup",
+      "source_text": "For each Internal ID, find the 3rd Party ID with the lowest sales difference.",
+      "ref": "pairs_sorted = pairs_filtered.sort_values(\"Sales_Diff\", kind=\"stable\")\ndedup_internal = dedup_third.drop_duplicates(subset=[\"ID\"], keep=\"first\")"
+    },
+    {
+      "id": "2_O3_third_tie_break_first",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_third",
+      "op": "dedup",
+      "source_text": "For each 3rd Party ID, find the Internal ID with the lowest sales difference.",
+      "ref": "pairs_sorted = pairs_filtered.sort_values(\"Sales_Diff\", kind=\"stable\")\ndedup_third = pairs_sorted.drop_duplicates(subset=[\"3rd Party ID\"], keep=\"first\")"
+    },
+    {
+      "id": "3_C1_exact_status_label",
+      "kind": "Row-level concept",
+      "node_id": "exact_add_status",
+      "op": "project",
+      "source_text": "Find the IDs that match perfectly and label them as such.",
+      "ref": "exact_join[\"Status\"] = \"Matched\""
+    },
+    {
+      "id": "4_D2_exact_id_equals_third_id",
+      "kind": "Multi-table alignment",
+      "node_id": "exact_join",
+      "op": "join",
+      "source_text": "Find the IDs that match perfectly and label them as such.",
+      "ref": "exact_join = pd.merge(\n        internal_df,\n        third_party_for_exact,\n        left_on=\"ID\",\n        right_on=\"3rd Party ID\",\n        how=\"inner\"\n    )"
+    },
+    {
+      "id": "5_O2_write_missing_as_empty_string",
+      "kind": "Operation incomplete",
+      "node_id": "final_format",
+      "op": "project",
+      "intent": "Write missing values as empty strings in the final output.",
+      "ref": "df = df.fillna(\"\")"
+    },
+    {
+      "id": "6_C1_unmatched_internal_status_label",
+      "kind": "Row-level concept",
+      "node_id": "unmatched_internal_add_cols",
+      "op": "project",
+      "source_text": "Classify IDs from Internal and 3rd Party Data which have not been matched",
+      "ref": "unmatched_internal_final[\"Status\"] = \"Unmatched - Internal\""
+    },
+    {
+      "id": "7_O2_unmatched_internal_blank_third_fields",
+      "kind": "Operation incomplete",
+      "node_id": "unmatched_internal_add_cols",
+      "op": "project",
+      "source_text": "Classify IDs from Internal and 3rd Party Data which have not been matched",
+      "ref": "unmatched_internal_final[\"3rd Party ID\"] = \"\"\nunmatched_internal_final[\"3rd Party Sales\"] = \"\""
+    },
+    {
+      "id": "8_C1_unmatched_third_status_label",
+      "kind": "Row-level concept",
+      "node_id": "unmatched_third_add_cols",
+      "op": "project",
+      "source_text": "Classify IDs from Internal and 3rd Party Data which have not been matched",
+      "ref": "unmatched_third_final[\"Status\"] = \"Unmatched - 3rd Party\""
+    },
+    {
+      "id": "9_O2_unmatched_third_blank_internal_fields",
+      "kind": "Operation incomplete",
+      "node_id": "unmatched_third_add_cols",
+      "op": "project",
+      "source_text": "Classify IDs from Internal and 3rd Party Data which have not been matched",
+      "ref": "unmatched_third_final[\"ID\"] = \"\"\nunmatched_third_final[\"Sales\"] = \"\""
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Rank", "Day of the Week", "Minutes Late", "Seconds Late"],
+      "columns": {
+        "Rank": "number",
+        "Day of the Week": "text_exact",
+        "Minutes Late": "number",
+        "Seconds Late": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Rank", "Student ID", "% Days Very Late"],
+      "columns": {
+        "Rank": "number",
+        "Student ID": "number",
+        "% Days Very Late": "number"
+      }
+    }
+  }
+}
+

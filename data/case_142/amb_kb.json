@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_quarter_start_date_interpretation",
+      "kind": "Operation boundary",
+      "node_id": "agg_opening_filter",
+      "op": "filter",
+      "source_text": "beginning of the quarter (01/10/21)",
+      "ref": "QUARTER_START = pd.Timestamp(2021, 10, 1)"
+    },
+    {
+      "id": "2_D1_carryover_label_continuing",
+      "kind": "Single-table reference",
+      "node_id": "compute_continuing",
+      "op": "project",
+      "intent": "Name the carry-over classification/status as \"Continuing\".",
+      "ref": "status_order = [\"Completed\", \"Deferred\", \"New cases\", \"Opening cases\", \"Continuing\"]"
+    },
+    {
+      "id": "3_C1_completed_count_not_date_scoped",
+      "kind": "Row-level concept",
+      "node_id": "filter_completed",
+      "op": "filter",
+      "source_text": "count cases closed/deferred within the quarter",
+      "ref": "df[df[\"Status\"].str.strip().eq(\"Completed\")]"
+    },
+    {
+      "id": "4_C1_deferred_count_not_date_scoped",
+      "kind": "Row-level concept",
+      "node_id": "filter_deferred",
+      "op": "filter",
+      "source_text": "count cases closed/deferred within the quarter",
+      "ref": "df[df[\"Status\"].str.strip().eq(\"Deferred\")]"
+    },
+    {
+      "id": "5_O1_quarter_boundary_inclusive_new",
+      "kind": "Operation boundary",
+      "node_id": "filter_new",
+      "op": "filter",
+      "source_text": "New cases = if the case was lodged after the beginning of the quarter",
+      "ref": "df[df[\"Date Lodged\"] >= QUARTER_START]"
+    },
+    {
+      "id": "6_D2_lookup_mapping_key_risk_level_to_rating",
+      "kind": "Multi-table alignment",
+      "node_id": "join_a_lookup",
+      "op": "join",
+      "source_text": "Use the lookup table to update the risk rating",
+      "ref": "level_to_rating = dict(zip(df_lookup[\"Risk level\"], df_lookup[\"Risk rating\"]))"
+    },
+    {
+      "id": "7_O2_lookup_applies_to_a_only",
+      "kind": "Row-level concept",
+      "node_id": "join_a_lookup",
+      "op": "join",
+      "source_text": "Use the lookup table to update the risk rating",
+      "ref": "df_a[\"Rating\"] = pd.to_numeric(df_a[\"Rating\"], errors=\"coerce\").map(level_to_rating)"
+    },
+    {
+      "id": "8_O2_missing_counts_treated_as_zero_for_continuing",
+      "kind": "Operation incomplete",
+      "node_id": "pivot_wide",
+      "op": "pivot",
+      "source_text": "Opening Cases + New Cases - Completed Cases - Deferred Cases",
+      "ref": "base = idx_values[\"Cases\"].reindex(ratings).fillna(0).astype(int)"
+    },
+    {
+      "id": "9_C2_date_lodged_from_year_month_day_a",
+      "kind": "Row-level concept",
+      "node_id": "proj_a1",
+      "op": "project",
+      "source_text": "From the Business Unit A Input, create a Date Lodged field",
+      "ref": "df_a[\"Date Lodged\"] = pd.to_datetime(\n        dict(year=df_a[\"Year\"], month=df_a[\"Month\"], day=df_a[\"Date\"]), errors=\"coerce\"\n    )"
+    },
+    {
+      "id": "10_O2_date_lodged_parse_dayfirst_b",
+      "kind": "Operation boundary",
+      "node_id": "proj_b",
+      "op": "project",
+      "intent": "Parse Business Unit B \"Date lodged\" as day/month/year (dayfirst).",
+      "ref": "df_b[\"Date Lodged\"] = pd.to_datetime(df_b[\"Date lodged\"], dayfirst=True, errors=\"coerce\")"
+    },
+    {
+      "id": "11_D2_combine_units_by_union",
+      "kind": "Multi-table alignment",
+      "node_id": "union_ab",
+      "op": "union",
+      "source_text": "Bring Business Unit A & B together",
+      "ref": "df = pd.concat([df_a, df_b], ignore_index=True)"
+    }
+  ]
+}

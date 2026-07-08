@@ -1,0 +1,27 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Customer ID",
+                "First Name",
+                "Last Name"
+            ],
+            "columns": {
+                "Customer ID": "number",
+                "First Name": "text_exact",
+                "Last Name": "text_exact",
+                "Sales": "number",
+                "% of Total": "number",
+                "Running % of Total Sales": "number"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Result"
+            ],
+            "columns": {
+                "Result": "text_exact"
+            }
+        }
+    }
+}

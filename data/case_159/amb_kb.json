@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_o2_define_doesnt_evolve_by_missing_stage2",
+      "kind": "Operation incomplete",
+      "node_id": "filter_evo_stage2",
+      "op": "filter",
+      "source_text": "If a Pokémon doesn't evolve remove it from the dataset",
+      "ref": "evolutions_df = evolutions_df[\n        (evolutions_df['Stage_2'].notna()) &\n        (evolutions_df['Stage_2'] != '')\n    ].copy()"
+    },
+    {
+      "id": "2_d2_join_stage1_on_stage1_equals_name",
+      "kind": "Multi-table alignment",
+      "node_id": "join_stage1",
+      "op": "join",
+      "source_text": "Using the evolutions data look up the combat_factors for each Pokémon at each stage",
+      "ref": "stage_1_join = evolutions_df.merge(\n        stats_melted,\n        left_on='Stage_1',\n        right_on='name',\n        how='inner'\n    )"
+    },
+    {
+      "id": "3_o2_join_stage1_inner_drops_unmatched",
+      "kind": "Operation incomplete",
+      "node_id": "join_stage1",
+      "op": "join",
+      "source_text": "Using the evolutions data look up the combat_factors for each Pokémon at each stage",
+      "ref": "stage_1_join = evolutions_df.merge(\n        stats_melted,\n        left_on='Stage_1',\n        right_on='name',\n        how='inner'\n    )"
+    },
+    {
+      "id": "4_d2_join_stage2_on_name_and_combat_factor",
+      "kind": "Multi-table alignment",
+      "node_id": "join_stage2",
+      "op": "join",
+      "source_text": "making sure that the combat_factors match across the row",
+      "ref": "stage_2_join = stage_1_join.merge(\n        stats_melted[['name', 'combat_factors', 'Values']],\n        left_on=['Stage_2', 'combat_factors'],\n        right_on=['name', 'combat_factors'],\n        how='inner',\n        suffixes=('', '_stage2')\n    )"
+    },
+    {
+      "id": "5_o2_join_stage2_inner_requires_stage2_match",
+      "kind": "Operation incomplete",
+      "node_id": "join_stage2",
+      "op": "join",
+      "source_text": "Using the evolutions data look up the combat_factors for each Pokémon at each stage",
+      "ref": "stage_2_join = stage_1_join.merge(\n        stats_melted[['name', 'combat_factors', 'Values']],\n        left_on=['Stage_2', 'combat_factors'],\n        right_on=['name', 'combat_factors'],\n        how='inner',\n        suffixes=('', '_stage2')\n    )"
+    },
+    {
+      "id": "6_d2_join_stage3_on_name_and_combat_factor",
+      "kind": "Multi-table alignment",
+      "node_id": "join_stage3_nonempty",
+      "op": "join",
+      "intent": "Join Stage_3 stats by matching Stage_3 name together with combat_factors alignment.",
+      "ref": "stage_3_notna_joined = stage_3_notna.merge(\n            stats_melted[['name', 'combat_factors', 'Values']],\n            left_on=['Stage_3_filled', 'combat_factors'],\n            right_on=['name', 'combat_factors'],\n            how='left',\n            suffixes=('', '_stage3')\n        )"
+    },
+    {
+      "id": "7_o2_join_stage3_left_keeps_rows_when_unmatched",
+      "kind": "Operation incomplete",
+      "node_id": "join_stage3_nonempty",
+      "op": "join",
+      "intent": "When Stage_3 is present, keep the evolution line even if Stage_3 has no matched stats row.",
+      "ref": "stage_3_notna_joined = stage_3_notna.merge(\n            stats_melted[['name', 'combat_factors', 'Values']],\n            left_on=['Stage_3_filled', 'combat_factors'],\n            right_on=['name', 'combat_factors'],\n            how='left',\n            suffixes=('', '_stage3')\n        )"
+    },
+    {
+      "id": "8_o2_output_stage2_stage3_as_empty_strings",
+      "kind": "Operation incomplete",
+      "node_id": "project_cast_and_fill",
+      "op": "project",
+      "intent": "Ensure missing Stage_2 and Stage_3 are output as empty strings rather than nulls.",
+      "ref": "aggregated['Stage_3'] = aggregated['Stage_3'].fillna('')\n    aggregated['Stage_2'] = aggregated['Stage_2'].fillna('')"
+    },
+    {
+      "id": "9_c1_final_stage_value_stage3_else_stage2",
+      "kind": "Row-level concept",
+      "node_id": "project_compute_final",
+      "op": "project",
+      "source_text": "Find the combat power values relating to the Pokémon's last evolution stage",
+      "ref": "stage_3_join['final_combat_power_temp'] = stage_3_join.apply(\n        lambda row: row['stage_3_Values'] if (\n            pd.notna(row['stage_3_Values']) and\n            pd.notna(row['Stage_3']) and\n            row['Stage_3'] != ''\n        ) else row['stage_2_Values'],\n        axis=1\n    )"
+    },
+    {
+      "id": "10_c2_combat_power_increase_formula",
+      "kind": "Row-level concept",
+      "node_id": "project_rename_and_compute_increase",
+      "op": "project",
+      "source_text": "Find the percentage increase in combat power from the first & last evolution stage",
+      "ref": "result = (row['final_combat_power'] -\n                  row['initial_combat_power']) / row['initial_combat_power']"
+    },
+    {
+      "id": "11_o3_use_stage1_pokedex_and_gen_as_authoritative",
+      "kind": "Single-table reference",
+      "node_id": "project_rename_and_compute_increase",
+      "op": "project",
+      "source_text": "Remove any columns for 'pokedex_number' and 'gen_introduced' that were from joins at Stage 2 & 3",
+      "ref": "aggregated = aggregated.rename(columns={\n        'stage_1_pokedex_number': 'pokedex_number',\n        'stage_1_gen_introduced': 'gen_introduced',\n        'initial_combat_power_temp': 'initial_combat_power',\n        'final_combat_power_temp': 'final_combat_power'\n    })"
+    },
+    {
+      "id": "12_o1_deterministic_precision_no_fixed_rounding",
+      "kind": "Operation boundary",
+      "node_id": "script_format_increase",
+      "op": "script",
+      "intent": "Represent combat_power_increase deterministically without rounding to a fixed number of decimals.",
+      "ref": "formatted = f'{result:.15g}'\n        return float(formatted)"
+    },
+    {
+      "id": "13_o2_keep_evolution_lines_with_blank_stage3",
+      "kind": "Operation incomplete",
+      "node_id": "union_after_stage3",
+      "op": "union",
+      "intent": "Keep evolution lines with blank Stage_3 in the results (do not drop them during Stage_3 lookup).",
+      "ref": "stage_3_na = stage_2_join[stage_2_join['Stage_3_filled'] == ''].copy()\n\n    if len(stage_3_na) > 0:\n        stage_3_na['stage_3_Values'] = pd.NA\n        stage_3_na = stage_3_na.drop(columns=['Stage_3_filled'])\n        stage_3_join = pd.concat(\n            [stage_3_notna_joined, stage_3_na], ignore_index=True)"
+    }
+  ]
+}

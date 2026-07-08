@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_direct_contact_accumulate",
+      "kind": "Row-level concept",
+      "node_id": "agg_direct_min",
+      "op": "aggregate",
+      "source_text": "These are people they directly meet in the brain dates they attend",
+      "ref": "final_direct.setdefault(a, set()).update(ds)"
+    },
+    {
+      "id": "2_C1_contact_type_labels",
+      "kind": "Row-level concept",
+      "node_id": "contact_rows",
+      "op": "project",
+      "source_text": "either Directly or Indirectly",
+      "ref": "results_rows.append((subject, a, \"Direct Contact\", b))\nresults_rows.append((subject, a, \"Indirect Contact\", b))"
+    },
+    {
+      "id": "3_O1_indirect_strictly_prior",
+      "kind": "Operation boundary",
+      "node_id": "filter_time",
+      "op": "filter",
+      "source_text": "for sessions that have happened prior to the session where they meet",
+      "ref": "prior_direct.setdefault(a, set()).update(ds)"
+    },
+    {
+      "id": "4_D2_isolate_by_subject",
+      "kind": "Row-level concept",
+      "node_id": "pairs_join",
+      "op": "join",
+      "source_text": "for each subject matter",
+      "ref": "for subject, sub_df in sessions_df.groupby(\"Subject\", sort=False):"
+    },
+    {
+      "id": "5_C1_input_file_to_day_mapping",
+      "kind": "Multi-table alignment",
+      "node_id": "proj_day",
+      "op": "project",
+      "intent": "Map input files to days: input_01→Day 1, input_02→Day 2, input_03→Day 3.",
+      "ref": "for day_idx, f in enumerate(input_files, start=1): df[\"Day\"] = day_idx"
+    },
+    {
+      "id": "6_O1_session_order_tiebreak",
+      "kind": "Operation boundary",
+      "node_id": "proj_day",
+      "op": "project",
+      "intent": "When day and time are equal, order sessions by SessionID numerically ascending as a tie-breaker.",
+      "ref": "sessions_df = sessions_df.sort_values([\"Day\", \"TimeMinutes\", \"SessionID\"])"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Current Status"
+      ],
+      "columns": {
+        "Current Status": "text_exact",
+        "Ticket Count": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Metric"
+      ],
+      "columns": {
+        "Metric": "text_exact",
+        "Total": "number"
+      }
+    },
+    "output_03.csv": {
+      "key": [
+        "Department Rank",
+        "Department"
+      ],
+      "columns": {
+        "Department Rank": "number",
+        "Department": "text_exact",
+        "Achieved %": "number"
+      }
+    }
+  }
+}
+

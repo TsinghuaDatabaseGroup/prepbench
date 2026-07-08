@@ -1,0 +1,211 @@
+Timestamp,Ticket,Severity,Status No.,Assigned To,Status Name
+2020-03-01 03:11:26,C001756 / Wimbledon Store / Thornie Elves,2,3,Customer,Customer Response
+2020-03-04 14:33:26,C001756 / Wimbledon Store / Thornie Elves,2,4,Sarah Burleton,Assigned
+2020-03-09 10:20:26,C001756 / Wimbledon Store / Thornie Elves,2,5,Customer,UAT
+2020-03-10 03:58:26,C001756 / Wimbledon Store / Thornie Elves,2,6,Closed,Closed
+2020-03-05 02:24:39,C010136 / Birmingham Store / Krystyna Quinnelly,4,3,Customer,Customer Response
+2020-03-10 01:14:39,C010136 / Birmingham Store / Krystyna Quinnelly,4,4,Alexis Saw,Assigned
+2020-03-03 21:40:19,C012494 / Wimbledon Store / Arleen Perkinson,5,6,Closed,Closed
+2020-03-01 06:01:32,C015839 / Sales / Josephine Dorkens,4,4,Alexis Saw,Assigned
+2020-03-03 05:16:50,C031259 / Sales / Karol Fleury,1,3,Customer,Customer Response
+2020-03-03 12:48:50,C031259 / Sales / Karol Fleury,1,4,Daron Creffeild,Assigned
+2020-03-06 18:56:50,C031259 / Sales / Karol Fleury,1,5,Customer,Customer Response
+2020-03-09 11:21:50,C031259 / Sales / Karol Fleury,1,6,Lee Low,Assigned
+2020-03-02 06:34:58,C034288 / Operations / Reider Birch,1,4,Alexis Saw,Assigned
+2020-03-05 08:45:58,C034288 / Operations / Reider Birch,1,5,Customer,UAT
+2020-03-06 06:03:58,C034288 / Operations / Reider Birch,1,6,Closed,Closed
+2020-03-01 02:28:38,C040333 / Project Management / Felipa Vlahos,5,3,Customer,Customer Response
+2020-03-02 23:06:38,C040333 / Project Management / Felipa Vlahos,5,4,Daron Creffeild,Assigned
+2020-03-06 03:55:38,C040333 / Project Management / Felipa Vlahos,5,5,Customer,UAT
+2020-03-07 13:05:38,C040333 / Project Management / Felipa Vlahos,5,6,Closed,Closed
+2020-03-01 14:44:07,C061703 / Project Management / Garvin MacArdle,4,3,Customer,Customer Response
+2020-03-03 04:23:07,C061703 / Project Management / Garvin MacArdle,4,4,Alexis Saw,Assigned
+2020-03-03 00:05:54,C063463 / Finance / Thornie Elves,2,2,Alexis Saw,Assigned
+2020-03-03 19:32:54,C063463 / Finance / Thornie Elves,2,3,Customer,Customer Response
+2020-03-04 12:03:08,C066529 / Milton Keynes Warehouse / Aeriell Waplinton,1,2,Ralina Haugg,Assigned
+2020-03-08 10:08:08,C066529 / Milton Keynes Warehouse / Aeriell Waplinton,1,3,Customer,Customer Response
+2020-03-13 00:15:08,C066529 / Milton Keynes Warehouse / Aeriell Waplinton,1,4,Alexis Saw,Assigned
+2020-03-15 06:53:08,C066529 / Milton Keynes Warehouse / Aeriell Waplinton,1,5,Customer,UAT
+2020-03-01 19:20:34,C076064 / Manchester Store / Adriane Lound,1,4,Alexis Saw,Assigned
+2020-03-06 03:59:12,C087506 / Marketing / Jehanna Bartlomiejczyk,2,9,Customer,UAT
+2020-03-01 13:05:37,C097796 / Marketing / Jolene Champneys,1,2,Lee Low,Assigned
+2020-03-05 23:03:37,C097796 / Marketing / Jolene Champneys,1,3,Customer,Customer Response
+2020-03-08 08:25:37,C097796 / Marketing / Jolene Champneys,1,4,Lee Low,Assigned
+2020-03-01 23:49:01,C099740 / Wimbledon Store / Arleen Perkinson,3,3,Customer,Customer Response
+2020-03-06 07:24:01,C099740 / Wimbledon Store / Arleen Perkinson,3,4,Ralina Haugg,Assigned
+2020-03-03 13:00:30,C104003 / Wimbledon Store / Raviv Ager,2,5,Customer,UAT
+2020-03-07 21:41:30,C104003 / Wimbledon Store / Raviv Ager,2,6,Closed,Closed
+2020-03-01 11:28:40,C105570 / Project Management / Thornie Elves,3,2,Daron Creffeild,Assigned
+2020-03-02 19:28:40,C105570 / Project Management / Thornie Elves,3,3,Customer,Customer Response
+2020-03-07 10:00:40,C105570 / Project Management / Thornie Elves,3,4,Alexis Saw,Assigned
+2020-03-11 13:58:40,C105570 / Project Management / Thornie Elves,3,5,Customer,UAT
+2020-03-01 22:10:59,C117337 / Finance / Caty Mathiasen,4,5,Customer,Customer Response
+2020-03-02 05:13:59,C117337 / Finance / Caty Mathiasen,4,6,Lee Low,Assigned
+2020-03-02 07:43:59,C117337 / Finance / Caty Mathiasen,4,7,Customer,Customer Response
+2020-03-04 14:58:59,C117337 / Finance / Caty Mathiasen,4,8,Ralina Haugg,Assigned
+2020-03-04 19:15:59,C117337 / Finance / Caty Mathiasen,4,9,Customer,UAT
+2020-03-02 20:49:34,C136177 / Finance / Krystyna Quinnelly,2,3,Customer,Customer Response
+2020-03-06 21:07:34,C136177 / Finance / Krystyna Quinnelly,2,4,Daron Creffeild,Assigned
+2020-03-09 09:55:34,C136177 / Finance / Krystyna Quinnelly,2,5,Customer,UAT
+2020-03-11 05:22:34,C136177 / Finance / Krystyna Quinnelly,2,6,Closed,Closed
+2020-03-04 21:36:20,C136293 / Birmingham Store / Carrissa Cunradi,1,3,Customer,Customer Response
+2020-03-06 11:22:20,C136293 / Birmingham Store / Carrissa Cunradi,1,4,Daron Creffeild,Assigned
+2020-03-11 03:19:20,C136293 / Birmingham Store / Carrissa Cunradi,1,5,Customer,UAT
+2020-03-01 01:06:19,C156808 / HR / Felipa Vlahos,5,7,Customer,Customer Response
+2020-03-02 00:39:19,C156808 / HR / Felipa Vlahos,5,8,Daron Creffeild,Assigned
+2020-03-05 20:06:19,C156808 / HR / Felipa Vlahos,5,9,Customer,UAT
+2020-03-06 11:51:19,C156808 / HR / Felipa Vlahos,5,10,Closed,Closed
+2020-03-02 00:05:31,C159523 / Birmingham Store / Korrie Dresse,3,5,Customer,Customer Response
+2020-03-02 22:12:31,C159523 / Birmingham Store / Korrie Dresse,3,6,Daron Creffeild,Assigned
+2020-03-05 16:09:31,C159523 / Birmingham Store / Korrie Dresse,3,7,Customer,Customer Response
+2020-03-11 00:05:31,C159523 / Birmingham Store / Korrie Dresse,3,8,Daron Creffeild,Assigned
+2020-03-01 04:33:08,C159648 / Birmingham Store / Maximo Cowsby,3,4,Daron Creffeild,Assigned
+2020-03-04 11:05:08,C159648 / Birmingham Store / Maximo Cowsby,3,5,Customer,UAT
+2020-03-07 05:56:08,C159648 / Birmingham Store / Maximo Cowsby,3,6,Closed,Closed
+2020-03-03 07:38:32,C167771 / Operations / Krystyna Quinnelly,5,4,Ralina Haugg,Assigned
+2020-03-05 16:36:32,C167771 / Operations / Krystyna Quinnelly,5,5,Customer,UAT
+2020-03-01 01:04:29,C171582 / Sales / Raviv Ager,1,3,Customer,Customer Response
+2020-03-03 23:07:29,C171582 / Sales / Raviv Ager,1,4,Sarah Burleton,Assigned
+2020-03-07 16:34:29,C171582 / Sales / Raviv Ager,1,5,Customer,UAT
+2020-03-02 02:05:08,C182996 / Marketing / Maximo Cowsby,4,4,Lee Low,Assigned
+2020-03-04 02:52:08,C182996 / Marketing / Maximo Cowsby,4,5,Customer,UAT
+2020-03-02 04:42:44,C205569 / Manchester Store / Maximo Cowsby,5,2,Ralina Haugg,Assigned
+2020-03-03 23:22:44,C205569 / Manchester Store / Maximo Cowsby,5,3,Customer,Customer Response
+2020-03-06 14:10:44,C205569 / Manchester Store / Maximo Cowsby,5,4,Alexis Saw,Assigned
+2020-03-07 07:23:44,C205569 / Manchester Store / Maximo Cowsby,5,5,Customer,UAT
+2020-03-01 22:48:14,C208699 / Finance / Aeriell Waplinton,2,3,Customer,Customer Response
+2020-03-07 00:46:14,C208699 / Finance / Aeriell Waplinton,2,4,Daron Creffeild,Assigned
+2020-03-02 16:45:47,C222337 / Project Management / Jacobo Whimp,2,3,Customer,Customer Response
+2020-03-05 22:36:47,C222337 / Project Management / Jacobo Whimp,2,4,Alexis Saw,Assigned
+2020-03-06 23:07:47,C222337 / Project Management / Jacobo Whimp,2,5,Customer,UAT
+2020-03-11 18:58:47,C222337 / Project Management / Jacobo Whimp,2,6,Closed,Closed
+2020-03-05 06:28:06,C262082 / Project Management / Karol Fleury,1,2,Alexis Saw,Assigned
+2020-03-05 15:59:06,C262082 / Project Management / Karol Fleury,1,3,Customer,Customer Response
+2020-03-10 09:06:06,C262082 / Project Management / Karol Fleury,1,4,Ralina Haugg,Assigned
+2020-03-03 14:15:49,C262185 / Operations / Garvin MacArdle,2,6,Closed,Closed
+2020-03-02 07:00:30,C262506 / York Store / Karol Fleury,1,4,Alexis Saw,Assigned
+2020-03-06 01:29:30,C262506 / York Store / Karol Fleury,1,5,Customer,UAT
+2020-03-02 08:16:07,C277880 / HR / Garvin MacArdle,2,2,Lee Low,Assigned
+2020-03-07 15:41:07,C277880 / HR / Garvin MacArdle,2,3,Customer,Customer Response
+2020-03-12 20:25:07,C277880 / HR / Garvin MacArdle,2,4,Sarah Burleton,Assigned
+2020-03-02 09:23:29,C289428 / Birmingham Store / Jehanna Bartlomiejczyk,1,4,Sarah Burleton,Assigned
+2020-03-04 00:32:29,C289428 / Birmingham Store / Jehanna Bartlomiejczyk,1,5,Customer,UAT
+2020-03-08 02:22:29,C289428 / Birmingham Store / Jehanna Bartlomiejczyk,1,6,Closed,Closed
+2020-03-02 08:02:00,C290612 / Milton Keynes Warehouse / Carrissa Cunradi,5,3,Customer,Customer Response
+2020-03-06 23:49:00,C290612 / Milton Keynes Warehouse / Carrissa Cunradi,5,4,Lee Low,Assigned
+2020-03-10 07:28:00,C290612 / Milton Keynes Warehouse / Carrissa Cunradi,5,5,Customer,Customer Response
+2020-03-14 11:12:00,C290612 / Milton Keynes Warehouse / Carrissa Cunradi,5,6,Ralina Haugg,Assigned
+2020-03-14 13:48:00,C290612 / Milton Keynes Warehouse / Carrissa Cunradi,5,7,Customer,Customer Response
+2020-03-03 17:17:14,C298972 / Product Design / Jehanna Bartlomiejczyk,2,2,Sarah Burleton,Assigned
+2020-03-07 15:22:14,C298972 / Product Design / Jehanna Bartlomiejczyk,2,3,Customer,Customer Response
+2020-03-13 04:13:14,C298972 / Product Design / Jehanna Bartlomiejczyk,2,4,Lee Low,Assigned
+2020-03-14 17:33:14,C298972 / Product Design / Jehanna Bartlomiejczyk,2,5,Customer,UAT
+2020-03-15 22:02:14,C298972 / Product Design / Jehanna Bartlomiejczyk,2,6,Closed,Closed
+2020-03-01 13:41:49,C303039 / Birmingham Store / Felipa Vlahos,3,2,Alexis Saw,Assigned
+2020-03-04 16:40:49,C303039 / Birmingham Store / Felipa Vlahos,3,3,Customer,Customer Response
+2020-03-02 01:03:43,C305904 / York Store / Krystyna Quinnelly,1,5,Customer,UAT
+2020-03-03 19:45:43,C305904 / York Store / Krystyna Quinnelly,1,6,Closed,Closed
+2020-03-01 04:00:10,C308726 / Milton Keynes Warehouse / Reider Birch,1,5,Customer,UAT
+2020-03-04 10:01:44,C324311 / Birmingham Store / Bo Dionisetti,1,5,Customer,UAT
+2020-03-02 15:30:23,C324325 / Project Management / Maximo Cowsby,2,3,Customer,Customer Response
+2020-03-05 21:52:23,C324325 / Project Management / Maximo Cowsby,2,4,Alexis Saw,Assigned
+2020-03-09 14:33:23,C324325 / Project Management / Maximo Cowsby,2,5,Customer,Customer Response
+2020-03-12 15:25:23,C324325 / Project Management / Maximo Cowsby,2,6,Alexis Saw,Assigned
+2020-03-02 20:13:36,C327207 / Manchester Store / Bo Dionisetti,3,4,Alexis Saw,Assigned
+2020-03-07 15:15:36,C327207 / Manchester Store / Bo Dionisetti,3,5,Customer,UAT
+2020-03-09 22:54:36,C327207 / Manchester Store / Bo Dionisetti,3,6,Closed,Closed
+2020-03-03 07:53:04,C337718 / Marketing / Josephine Dorkens,1,2,Lee Low,Assigned
+2020-03-05 10:30:04,C337718 / Marketing / Josephine Dorkens,1,3,Customer,Customer Response
+2020-03-10 01:28:04,C337718 / Marketing / Josephine Dorkens,1,4,Sarah Burleton,Assigned
+2020-03-11 23:58:04,C337718 / Marketing / Josephine Dorkens,1,5,Customer,UAT
+2020-03-01 11:00:13,C341265 / Manchester Store / Carrissa Cunradi,5,7,Customer,Customer Response
+2020-03-02 07:21:13,C341265 / Manchester Store / Carrissa Cunradi,5,8,Daron Creffeild,Assigned
+2020-03-07 13:28:13,C341265 / Manchester Store / Carrissa Cunradi,5,9,Customer,UAT
+2020-03-03 23:22:17,C343989 / Product Design / Krystyna Quinnelly,3,6,Closed,Closed
+2020-03-01 03:50:33,C347491 / Project Management / Bo Dionisetti,5,3,Customer,Customer Response
+2020-03-05 15:57:09,C352248 / Finance / Karol Fleury,2,7,Customer,Customer Response
+2020-03-03 06:25:32,C353847 / York Store / Raviv Ager,1,2,Sarah Burleton,Assigned
+2020-03-03 19:26:32,C353847 / York Store / Raviv Ager,1,3,Customer,Customer Response
+2020-03-05 06:52:32,C353847 / York Store / Raviv Ager,1,4,Sarah Burleton,Assigned
+2020-03-06 15:03:32,C353847 / York Store / Raviv Ager,1,5,Customer,UAT
+2020-03-10 11:14:32,C353847 / York Store / Raviv Ager,1,6,Closed,Closed
+2020-03-02 11:46:19,C354117 / York Store / Garvin MacArdle,4,2,Alexis Saw,Assigned
+2020-03-02 05:56:33,C365306 / Finance / Felipa Vlahos,2,2,Alexis Saw,Assigned
+2020-03-06 20:05:33,C365306 / Finance / Felipa Vlahos,2,3,Customer,Customer Response
+2020-03-06 20:48:33,C365306 / Finance / Felipa Vlahos,2,4,Lee Low,Assigned
+2020-03-07 18:06:33,C365306 / Finance / Felipa Vlahos,2,5,Customer,UAT
+2020-03-12 13:29:33,C365306 / Finance / Felipa Vlahos,2,6,Closed,Closed
+2020-03-01 23:50:07,C369208 / Wimbledon Store / Adriane Lound,3,2,Ralina Haugg,Assigned
+2020-03-01 09:06:43,C377509 / HR / Garvin MacArdle,5,2,Alexis Saw,Assigned
+2020-03-02 00:18:43,C377509 / HR / Garvin MacArdle,5,3,Customer,Customer Response
+2020-03-03 22:03:29,C388165 / Finance / Karol Fleury,3,3,Customer,Customer Response
+2020-03-02 01:13:27,C394351 / York Store / Caty Mathiasen,2,2,Sarah Burleton,Assigned
+2020-03-06 17:56:27,C394351 / York Store / Caty Mathiasen,2,3,Customer,Customer Response
+2020-03-01 18:26:49,C399055 / Birmingham Store / Felipa Vlahos,2,5,Customer,UAT
+2020-03-02 17:20:49,C399055 / Birmingham Store / Felipa Vlahos,2,6,Closed,Closed
+2020-03-04 12:54:32,C436145 / Milton Keynes Warehouse / Karol Fleury,5,3,Customer,Customer Response
+2020-03-02 08:42:57,C444166 / Birmingham Store / Thornie Elves,4,10,Closed,Closed
+2020-03-01 17:18:15,C444780 / Project Management / Maureene Soppett,3,2,Alexis Saw,Assigned
+2020-03-03 19:45:46,C446157 / Marketing / Raviv Ager,5,3,Customer,Customer Response
+2020-03-07 21:06:46,C446157 / Marketing / Raviv Ager,5,4,Alexis Saw,Assigned
+2020-03-01 00:28:56,C453904 / Manchester Store / Arleen Perkinson,1,3,Customer,Customer Response
+2020-03-02 00:49:56,C453904 / Manchester Store / Arleen Perkinson,1,4,Daron Creffeild,Assigned
+2020-03-06 04:09:56,C453904 / Manchester Store / Arleen Perkinson,1,5,Customer,UAT
+2020-03-03 02:39:17,C469009 / Milton Keynes Warehouse / Korrie Dresse,4,4,Sarah Burleton,Assigned
+2020-03-06 12:27:17,C469009 / Milton Keynes Warehouse / Korrie Dresse,4,5,Customer,Customer Response
+2020-03-10 12:06:17,C469009 / Milton Keynes Warehouse / Korrie Dresse,4,6,Sarah Burleton,Assigned
+2020-03-15 21:20:17,C469009 / Milton Keynes Warehouse / Korrie Dresse,4,7,Customer,Customer Response
+2020-03-15 23:09:17,C469009 / Milton Keynes Warehouse / Korrie Dresse,4,8,Ralina Haugg,Assigned
+2020-03-04 09:29:10,C483667 / Milton Keynes Warehouse / Jacobo Whimp,2,5,Customer,UAT
+2020-03-03 12:34:10,C485674 / Operations / Reider Birch,2,4,Daron Creffeild,Assigned
+2020-03-03 23:37:10,C485674 / Operations / Reider Birch,2,5,Customer,UAT
+2020-03-05 19:30:10,C485674 / Operations / Reider Birch,2,6,Closed,Closed
+2020-03-02 07:26:43,C490018 / York Store / Josephine Dorkens,3,5,Customer,UAT
+2020-03-02 22:22:21,C505743 / Operations / Jacobo Whimp,1,6,Alexis Saw,Assigned
+2020-03-07 18:43:21,C505743 / Operations / Jacobo Whimp,1,7,Customer,Customer Response
+2020-03-02 16:48:15,C567107 / Finance / Jolene Champneys,5,4,Sarah Burleton,Assigned
+2020-03-08 04:05:15,C567107 / Finance / Jolene Champneys,5,5,Customer,UAT
+2020-03-02 13:13:18,C597233 / HR / Aeriell Waplinton,4,3,Customer,Customer Response
+2020-03-02 13:17:18,C597233 / HR / Aeriell Waplinton,4,4,Daron Creffeild,Assigned
+2020-03-02 01:40:05,C597515 / Operations / Josephine Dorkens,5,5,Customer,UAT
+2020-03-06 08:30:05,C597515 / Operations / Josephine Dorkens,5,6,Closed,Closed
+2020-03-04 20:02:33,C659485 / York Store / Garvin MacArdle,3,2,Alexis Saw,Assigned
+2020-03-06 18:42:33,C659485 / York Store / Garvin MacArdle,3,3,Customer,Customer Response
+2020-03-08 05:41:33,C659485 / York Store / Garvin MacArdle,3,4,Daron Creffeild,Assigned
+2020-03-03 08:49:07,C666300 / Product Design / Maximo Cowsby,5,6,Alexis Saw,Assigned
+2020-03-05 12:44:07,C666300 / Product Design / Maximo Cowsby,5,7,Customer,Customer Response
+2020-03-09 21:19:07,C666300 / Product Design / Maximo Cowsby,5,8,Lee Low,Assigned
+2020-03-13 15:50:07,C666300 / Product Design / Maximo Cowsby,5,9,Customer,UAT
+2020-03-05 10:45:52,C666872 / Finance / Maureene Soppett,3,5,Customer,Customer Response
+2020-03-06 13:14:52,C666872 / Finance / Maureene Soppett,3,6,Sarah Burleton,Assigned
+2020-03-08 20:01:52,C666872 / Finance / Maureene Soppett,3,7,Customer,Customer Response
+2020-03-12 02:48:52,C666872 / Finance / Maureene Soppett,3,8,Alexis Saw,Assigned
+2020-03-01 14:53:19,C671321 / Marketing / Korrie Dresse,3,4,Sarah Burleton,Assigned
+2020-03-03 04:13:19,C671321 / Marketing / Korrie Dresse,3,5,Customer,UAT
+2020-03-04 05:29:08,C696134 / York Store / Jehanna Bartlomiejczyk,1,6,Closed,Closed
+2020-03-03 01:19:52,C696878 / Project Management / Carrissa Cunradi,4,3,Customer,Customer Response
+2020-03-02 09:02:39,C712170 / York Store / Maximo Cowsby,3,3,Customer,Customer Response
+2020-03-01 08:43:51,C739484 / Sales / Jacobo Whimp,1,2,Lee Low,Assigned
+2020-03-06 06:18:51,C739484 / Sales / Jacobo Whimp,1,3,Customer,Customer Response
+2020-03-09 01:50:51,C739484 / Sales / Jacobo Whimp,1,4,Sarah Burleton,Assigned
+2020-03-03 13:03:47,C745979 / Birmingham Store / Arleen Perkinson,4,9,Customer,UAT
+2020-03-07 09:57:47,C745979 / Birmingham Store / Arleen Perkinson,4,10,Closed,Closed
+2020-03-01 16:17:59,C749704 / Product Design / Reider Birch,2,3,Customer,Customer Response
+2020-03-01 11:54:56,C783263 / Operations / Reider Birch,3,2,Lee Low,Assigned
+2020-03-05 08:31:56,C783263 / Operations / Reider Birch,3,3,Customer,Customer Response
+2020-03-02 03:54:07,C784253 / Birmingham Store / Arleen Perkinson,1,2,Alexis Saw,Assigned
+2020-03-02 15:29:07,C784253 / Birmingham Store / Arleen Perkinson,1,3,Customer,Customer Response
+2020-03-03 07:51:07,C784253 / Birmingham Store / Arleen Perkinson,1,4,Ralina Haugg,Assigned
+2020-03-06 00:38:07,C784253 / Birmingham Store / Arleen Perkinson,1,5,Customer,UAT
+2020-03-11 01:11:07,C784253 / Birmingham Store / Arleen Perkinson,1,6,Closed,Closed
+2020-03-01 03:57:39,C842037 / Operations / Caty Mathiasen,2,4,Sarah Burleton,Assigned
+2020-03-03 12:45:39,C842037 / Operations / Caty Mathiasen,2,5,Customer,UAT
+2020-03-03 15:22:34,C852059 / HR / Carrissa Cunradi,3,2,Lee Low,Assigned
+2020-03-07 00:09:34,C852059 / HR / Carrissa Cunradi,3,3,Customer,Customer Response
+2020-03-01 21:01:54,C896139 / Sales / Aeriell Waplinton,1,4,Ralina Haugg,Assigned
+2020-03-02 04:47:54,C896139 / Sales / Aeriell Waplinton,1,5,Customer,UAT
+2020-03-03 19:04:54,C896139 / Sales / Aeriell Waplinton,1,6,Closed,Closed
+2020-03-04 06:02:02,C922569 / Project Management / Jehanna Bartlomiejczyk,2,6,Alexis Saw,Assigned
+2020-03-09 03:59:02,C922569 / Project Management / Jehanna Bartlomiejczyk,2,7,Customer,Customer Response
+2020-03-13 14:52:02,C922569 / Project Management / Jehanna Bartlomiejczyk,2,8,Sarah Burleton,Assigned
+2020-03-04 21:15:38,C940375 / York Store / Adriane Lound,1,6,Closed,Closed

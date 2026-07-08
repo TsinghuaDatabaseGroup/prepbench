@@ -1,0 +1,327 @@
+Sales Date,Product,Price,Quantity Sold
+2022-01-24,Blossom Breeze Bath Fizzies,7.0,21
+2022-01-24,Bunny Hop Bubble Bar,4.0,15
+2022-01-24,Bunny Kisses Shea Butter Bar,6.0,38
+2022-01-24,Chocolate Bunny Exfoliating Scrub,10.0,17
+2022-01-24,Eggcellent Citrus Splash Soap,1.25,3
+2022-01-24,Spring Meadow Goat Milk Soap,3.75,29
+2022-01-24,Springtime Blossom Handmade Soap,3.0,6
+2022-01-24,Sunshine Bunny Honey Soap,4.0,12
+2022-01-25,Blossom Breeze Bath Fizzies,7.0,34
+2022-01-25,Chocolate Bunny Exfoliating Scrub,10.0,14
+2022-01-25,Easter Eggstravaganza Soap Set,35.0,11
+2022-01-25,Lavender Fields Bunny Soap,2.5,21
+2022-01-25,Springtime Blossom Handmade Soap,3.0,15
+2022-01-26,Blossom Breeze Bath Fizzies,7.0,18
+2022-01-26,Bunny Hop Bubble Bar,4.0,18
+2022-01-26,Bunny Kisses Shea Butter Bar,6.0,9
+2022-01-26,Chocolate Bunny Exfoliating Scrub,10.0,32
+2022-01-26,Eggcellent Citrus Splash Soap,1.25,17
+2022-01-26,Springtime Blossom Handmade Soap,3.0,14
+2022-01-26,Sunshine Bunny Honey Soap,4.0,23
+2022-01-26,Tulip Temptation Bath Bomb,7.0,38
+2022-01-27,Blossom Breeze Bath Fizzies,7.0,16
+2022-01-27,Bunny Hop Bubble Bar,4.0,29
+2022-01-27,Chocolate Bunny Exfoliating Scrub,10.0,17
+2022-01-27,Eggcellent Citrus Splash Soap,1.25,36
+2022-01-27,Lavender Fields Bunny Soap,2.5,6
+2022-01-27,Spring Meadow Goat Milk Soap,3.75,33
+2022-01-27,Springtime Blossom Handmade Soap,3.0,27
+2022-01-28,Bunny Kisses Shea Butter Bar,6.0,9
+2022-01-28,Chocolate Bunny Exfoliating Scrub,10.0,3
+2022-01-28,Eggcellent Citrus Splash Soap,1.25,13
+2022-01-28,Lavender Fields Bunny Soap,2.5,30
+2022-01-28,Springtime Blossom Handmade Soap,3.0,22
+2022-01-28,Tulip Temptation Bath Bomb,7.0,19
+2022-01-29,Bunny Hop Bubble Bar,4.0,23
+2022-01-29,Bunny Kisses Shea Butter Bar,6.0,26
+2022-01-29,Easter Eggstravaganza Soap Set,35.0,38
+2022-01-29,Eggcellent Citrus Splash Soap,1.25,23
+2022-01-29,Lavender Fields Bunny Soap,2.5,12
+2022-01-29,Spring Meadow Goat Milk Soap,3.75,4
+2022-01-29,Tulip Temptation Bath Bomb,7.0,14
+2022-01-30,Bunny Hop Bubble Bar,4.0,12
+2022-01-30,Bunny Kisses Shea Butter Bar,6.0,27
+2022-01-30,Chocolate Bunny Exfoliating Scrub,10.0,21
+2022-01-30,Sunshine Bunny Honey Soap,4.0,7
+2022-01-30,Tulip Temptation Bath Bomb,7.0,18
+2022-01-31,Blossom Breeze Bath Fizzies,7.0,14
+2022-01-31,Bunny Kisses Shea Butter Bar,6.0,27
+2022-01-31,Chocolate Bunny Exfoliating Scrub,10.0,13
+2022-01-31,Eggcellent Citrus Splash Soap,1.25,26
+2022-01-31,Springtime Blossom Handmade Soap,3.0,18
+2022-02-01,Blossom Breeze Bath Fizzies,7.0,4
+2022-02-01,Bunny Hop Bubble Bar,4.0,37
+2022-02-01,Bunny Kisses Shea Butter Bar,6.0,34
+2022-02-01,Easter Eggstravaganza Soap Set,35.0,6
+2022-02-01,Eggcellent Citrus Splash Soap,1.25,5
+2022-02-01,Spring Meadow Goat Milk Soap,3.75,36
+2022-02-01,Springtime Blossom Handmade Soap,3.0,34
+2022-02-01,Sunshine Bunny Honey Soap,4.0,15
+2022-02-02,Bunny Hop Bubble Bar,4.0,31
+2022-02-02,Bunny Kisses Shea Butter Bar,6.0,3
+2022-02-02,Springtime Blossom Handmade Soap,3.0,22
+2022-02-02,Tulip Temptation Bath Bomb,7.0,16
+2022-02-03,Blossom Breeze Bath Fizzies,7.0,4
+2022-02-03,Easter Eggstravaganza Soap Set,35.0,26
+2022-02-03,Eggcellent Citrus Splash Soap,1.25,30
+2022-02-03,Springtime Blossom Handmade Soap,3.0,26
+2022-02-03,Sunshine Bunny Honey Soap,4.0,12
+2022-02-04,Bunny Hop Bubble Bar,4.0,34
+2022-02-04,Chocolate Bunny Exfoliating Scrub,10.0,36
+2022-02-04,Spring Meadow Goat Milk Soap,3.75,36
+2022-02-04,Springtime Blossom Handmade Soap,3.0,14
+2022-02-04,Sunshine Bunny Honey Soap,4.0,29
+2022-02-05,Blossom Breeze Bath Fizzies,7.0,5
+2022-02-05,Bunny Hop Bubble Bar,4.0,33
+2022-02-05,Easter Eggstravaganza Soap Set,35.0,37
+2022-02-05,Eggcellent Citrus Splash Soap,1.25,7
+2022-02-05,Spring Meadow Goat Milk Soap,3.75,17
+2022-02-05,Springtime Blossom Handmade Soap,3.0,25
+2022-02-06,Bunny Hop Bubble Bar,4.0,11
+2022-02-06,Eggcellent Citrus Splash Soap,1.25,22
+2022-02-06,Spring Meadow Goat Milk Soap,3.75,27
+2022-02-06,Sunshine Bunny Honey Soap,4.0,11
+2022-02-06,Tulip Temptation Bath Bomb,7.0,19
+2022-02-07,Bunny Hop Bubble Bar,4.0,24
+2022-02-07,Easter Eggstravaganza Soap Set,35.0,17
+2022-02-07,Eggcellent Citrus Splash Soap,1.25,21
+2022-02-07,Tulip Temptation Bath Bomb,7.0,3
+2022-02-08,Bunny Hop Bubble Bar,4.0,34
+2022-02-08,Easter Eggstravaganza Soap Set,35.0,7
+2022-02-08,Tulip Temptation Bath Bomb,7.0,15
+2022-02-09,Easter Eggstravaganza Soap Set,35.0,31
+2022-02-09,Spring Meadow Goat Milk Soap,3.75,34
+2022-02-09,Springtime Blossom Handmade Soap,3.0,37
+2022-02-09,Sunshine Bunny Honey Soap,4.0,6
+2022-02-09,Tulip Temptation Bath Bomb,7.0,5
+2022-02-10,Easter Eggstravaganza Soap Set,35.0,15
+2022-02-10,Eggcellent Citrus Splash Soap,1.25,6
+2022-02-10,Spring Meadow Goat Milk Soap,3.75,15
+2022-02-10,Sunshine Bunny Honey Soap,4.0,32
+2022-02-11,Bunny Hop Bubble Bar,4.0,26
+2022-02-11,Easter Eggstravaganza Soap Set,35.0,26
+2022-02-11,Eggcellent Citrus Splash Soap,1.25,11
+2022-02-11,Spring Meadow Goat Milk Soap,3.75,15
+2022-02-12,Bunny Hop Bubble Bar,4.0,37
+2022-02-12,Easter Eggstravaganza Soap Set,35.0,19
+2022-02-12,Eggcellent Citrus Splash Soap,1.25,7
+2022-02-12,Spring Meadow Goat Milk Soap,3.75,38
+2022-02-12,Sunshine Bunny Honey Soap,4.0,14
+2022-02-12,Tulip Temptation Bath Bomb,7.0,6
+2022-02-13,Bunny Hop Bubble Bar,4.0,38
+2022-02-13,Sunshine Bunny Honey Soap,4.0,29
+2022-02-14,Bunny Hop Bubble Bar,4.0,15
+2022-02-14,Easter Eggstravaganza Soap Set,35.0,13
+2022-02-14,Eggcellent Citrus Splash Soap,1.25,30
+2022-02-14,Sunshine Bunny Honey Soap,4.0,3
+2022-02-14,Tulip Temptation Bath Bomb,7.0,24
+2022-02-15,Easter Eggstravaganza Soap Set,35.0,19
+2022-02-15,Spring Meadow Goat Milk Soap,3.75,14
+2022-02-15,Sunshine Bunny Honey Soap,4.0,3
+2022-02-15,Tulip Temptation Bath Bomb,7.0,22
+2022-02-16,Bunny Hop Bubble Bar,4.0,9
+2022-02-16,Easter Eggstravaganza Soap Set,35.0,17
+2022-02-16,Eggcellent Citrus Splash Soap,1.25,31
+2022-02-16,Sunshine Bunny Honey Soap,4.0,17
+2022-02-17,Bunny Hop Bubble Bar,4.0,7
+2022-02-17,Easter Eggstravaganza Soap Set,35.0,18
+2022-02-17,Eggcellent Citrus Splash Soap,1.25,15
+2022-02-17,Spring Meadow Goat Milk Soap,3.75,15
+2022-02-17,Tulip Temptation Bath Bomb,7.0,31
+2022-02-18,Bunny Hop Bubble Bar,4.0,36
+2022-02-18,Eggcellent Citrus Splash Soap,1.25,38
+2022-02-18,Spring Meadow Goat Milk Soap,3.75,36
+2022-02-18,Sunshine Bunny Honey Soap,4.0,20
+2022-02-18,Tulip Temptation Bath Bomb,7.0,33
+2022-02-19,Easter Eggstravaganza Soap Set,35.0,12
+2022-02-19,Spring Meadow Goat Milk Soap,3.75,15
+2022-02-19,Sunshine Bunny Honey Soap,4.0,3
+2022-02-19,Tulip Temptation Bath Bomb,7.0,29
+2022-02-20,Bunny Hop Bubble Bar,4.0,38
+2022-02-20,Easter Eggstravaganza Soap Set,35.0,27
+2022-02-20,Sunshine Bunny Honey Soap,4.0,34
+2022-02-21,Easter Eggstravaganza Soap Set,35.0,38
+2022-02-21,Tulip Temptation Bath Bomb,7.0,7
+2022-02-22,Bunny Hop Bubble Bar,4.0,9
+2022-02-22,Easter Eggstravaganza Soap Set,35.0,12
+2022-02-22,Spring Meadow Goat Milk Soap,3.75,20
+2022-02-22,Tulip Temptation Bath Bomb,7.0,32
+2022-02-23,Bunny Hop Bubble Bar,4.0,8
+2022-02-23,Eggcellent Citrus Splash Soap,1.25,38
+2022-02-23,Spring Meadow Goat Milk Soap,3.75,34
+2022-02-23,Tulip Temptation Bath Bomb,7.0,10
+2022-02-24,Easter Eggstravaganza Soap Set,35.0,15
+2022-02-24,Spring Meadow Goat Milk Soap,3.75,6
+2022-02-25,Eggcellent Citrus Splash Soap,1.25,24
+2022-02-25,Tulip Temptation Bath Bomb,7.0,37
+2022-02-26,Bunny Hop Bubble Bar,4.0,4
+2022-02-26,Spring Meadow Goat Milk Soap,3.75,11
+2022-02-26,Tulip Temptation Bath Bomb,7.0,25
+2022-02-27,Spring Meadow Goat Milk Soap,3.75,26
+2022-02-28,Spring Meadow Goat Milk Soap,3.75,11
+2022-02-28,Tulip Temptation Bath Bomb,7.0,28
+2022-03-01,Spring Meadow Goat Milk Soap,3.75,20
+2022-03-02,Spring Meadow Goat Milk Soap,3.75,8
+2022-03-02,Tulip Temptation Bath Bomb,7.0,5
+2022-03-04,Spring Meadow Goat Milk Soap,3.75,21
+2022-03-05,Spring Meadow Goat Milk Soap,3.75,14
+2022-03-05,Tulip Temptation Bath Bomb,7.0,34
+2022-03-06,Spring Meadow Goat Milk Soap,3.75,3
+2022-03-06,Tulip Temptation Bath Bomb,7.0,29
+2022-03-07,Spring Meadow Goat Milk Soap,3.75,38
+2022-03-07,Tulip Temptation Bath Bomb,7.0,3
+2022-03-08,Spring Meadow Goat Milk Soap,3.75,26
+2022-03-08,Tulip Temptation Bath Bomb,7.0,4
+2022-03-09,Spring Meadow Goat Milk Soap,3.75,5
+2022-03-10,Spring Meadow Goat Milk Soap,3.75,3
+2022-03-10,Tulip Temptation Bath Bomb,7.0,36
+2022-03-11,Spring Meadow Goat Milk Soap,3.75,35
+2022-03-12,Spring Meadow Goat Milk Soap,3.75,5
+2022-03-12,Tulip Temptation Bath Bomb,7.0,26
+2022-03-13,Spring Meadow Goat Milk Soap,3.75,21
+2022-03-13,Tulip Temptation Bath Bomb,7.0,22
+2022-03-14,Spring Meadow Goat Milk Soap,3.75,3
+2022-03-14,Tulip Temptation Bath Bomb,7.0,8
+2022-03-15,Spring Meadow Goat Milk Soap,3.75,14
+2022-03-15,Tulip Temptation Bath Bomb,7.0,7
+2022-03-16,Tulip Temptation Bath Bomb,7.0,13
+2022-03-17,Spring Meadow Goat Milk Soap,3.75,28
+2022-03-17,Tulip Temptation Bath Bomb,7.0,4
+2022-03-18,Spring Meadow Goat Milk Soap,3.75,14
+2022-03-18,Tulip Temptation Bath Bomb,7.0,16
+2022-03-19,Tulip Temptation Bath Bomb,7.0,10
+2022-03-20,Spring Meadow Goat Milk Soap,3.75,14
+2022-03-20,Tulip Temptation Bath Bomb,7.0,18
+2022-03-21,Spring Meadow Goat Milk Soap,3.75,13
+2022-03-22,Tulip Temptation Bath Bomb,7.0,4
+2022-03-23,Spring Meadow Goat Milk Soap,3.75,3
+2022-03-23,Tulip Temptation Bath Bomb,7.0,10
+2022-03-24,Tulip Temptation Bath Bomb,7.0,35
+2022-03-25,Spring Meadow Goat Milk Soap,3.75,14
+2022-03-26,Spring Meadow Goat Milk Soap,3.75,36
+2022-03-27,Spring Meadow Goat Milk Soap,3.75,5
+2022-03-27,Tulip Temptation Bath Bomb,7.0,9
+2022-03-29,Tulip Temptation Bath Bomb,7.0,30
+2022-03-30,Spring Meadow Goat Milk Soap,3.75,37
+2022-03-30,Tulip Temptation Bath Bomb,7.0,26
+2022-03-31,Spring Meadow Goat Milk Soap,3.75,13
+2022-04-01,Spring Meadow Goat Milk Soap,3.75,35
+2022-04-01,Tulip Temptation Bath Bomb,7.0,7
+2022-04-03,Tulip Temptation Bath Bomb,7.0,21
+2022-04-04,Tulip Temptation Bath Bomb,7.0,4
+2022-04-05,Tulip Temptation Bath Bomb,7.0,11
+2022-04-06,Tulip Temptation Bath Bomb,7.0,9
+2022-04-10,Tulip Temptation Bath Bomb,7.0,20
+2022-04-12,Tulip Temptation Bath Bomb,7.0,22
+2022-04-13,Tulip Temptation Bath Bomb,7.0,28
+2022-03-03,Blossom Breeze Bath Fizzies,7.0,33
+2022-03-03,Bunny Hop Bubble Bar,4.0,21
+2022-03-03,Bunny Kisses Shea Butter Bar,6.0,11
+2022-03-03,Chocolate Bunny Exfoliating Scrub,10.0,13
+2022-03-03,Easter Eggstravaganza Soap Set,35.0,28
+2022-03-03,Eggcellent Citrus Splash Soap,1.25,31
+2022-03-03,Lavender Fields Bunny Soap,2.5,35
+2022-03-03,Spring Meadow Goat Milk Soap,3.75,5
+2022-03-03,Springtime Blossom Handmade Soap,3.0,12
+2022-03-03,Sunshine Bunny Honey Soap,4.0,29
+2022-03-03,Tulip Temptation Bath Bomb,7.0,32
+2022-03-28,Blossom Breeze Bath Fizzies,7.0,6
+2022-03-28,Bunny Hop Bubble Bar,4.0,3
+2022-03-28,Bunny Kisses Shea Butter Bar,6.0,3
+2022-03-28,Chocolate Bunny Exfoliating Scrub,10.0,8
+2022-03-28,Easter Eggstravaganza Soap Set,35.0,15
+2022-03-28,Eggcellent Citrus Splash Soap,1.25,23
+2022-03-28,Lavender Fields Bunny Soap,2.5,10
+2022-03-28,Spring Meadow Goat Milk Soap,3.75,3
+2022-03-28,Springtime Blossom Handmade Soap,3.0,30
+2022-03-28,Sunshine Bunny Honey Soap,4.0,30
+2022-03-28,Tulip Temptation Bath Bomb,7.0,9
+2022-04-02,Blossom Breeze Bath Fizzies,7.0,22
+2022-04-02,Bunny Hop Bubble Bar,4.0,12
+2022-04-02,Bunny Kisses Shea Butter Bar,6.0,9
+2022-04-02,Chocolate Bunny Exfoliating Scrub,10.0,26
+2022-04-02,Easter Eggstravaganza Soap Set,35.0,6
+2022-04-02,Eggcellent Citrus Splash Soap,1.25,23
+2022-04-02,Lavender Fields Bunny Soap,2.5,3
+2022-04-02,Spring Meadow Goat Milk Soap,3.75,33
+2022-04-02,Springtime Blossom Handmade Soap,3.0,37
+2022-04-02,Sunshine Bunny Honey Soap,4.0,4
+2022-04-02,Tulip Temptation Bath Bomb,7.0,4
+2022-04-07,Blossom Breeze Bath Fizzies,7.0,27
+2022-04-07,Bunny Hop Bubble Bar,4.0,23
+2022-04-07,Bunny Kisses Shea Butter Bar,6.0,7
+2022-04-07,Chocolate Bunny Exfoliating Scrub,10.0,38
+2022-04-07,Easter Eggstravaganza Soap Set,35.0,27
+2022-04-07,Eggcellent Citrus Splash Soap,1.25,13
+2022-04-07,Lavender Fields Bunny Soap,2.5,21
+2022-04-07,Spring Meadow Goat Milk Soap,3.75,4
+2022-04-07,Springtime Blossom Handmade Soap,3.0,6
+2022-04-07,Sunshine Bunny Honey Soap,4.0,5
+2022-04-07,Tulip Temptation Bath Bomb,7.0,7
+2022-04-08,Blossom Breeze Bath Fizzies,7.0,17
+2022-04-08,Bunny Hop Bubble Bar,4.0,33
+2022-04-08,Bunny Kisses Shea Butter Bar,6.0,12
+2022-04-08,Chocolate Bunny Exfoliating Scrub,10.0,37
+2022-04-08,Easter Eggstravaganza Soap Set,35.0,35
+2022-04-08,Eggcellent Citrus Splash Soap,1.25,4
+2022-04-08,Lavender Fields Bunny Soap,2.5,11
+2022-04-08,Spring Meadow Goat Milk Soap,3.75,22
+2022-04-08,Springtime Blossom Handmade Soap,3.0,37
+2022-04-08,Sunshine Bunny Honey Soap,4.0,27
+2022-04-08,Tulip Temptation Bath Bomb,7.0,18
+2022-04-09,Blossom Breeze Bath Fizzies,7.0,20
+2022-04-09,Bunny Hop Bubble Bar,4.0,22
+2022-04-09,Bunny Kisses Shea Butter Bar,6.0,7
+2022-04-09,Chocolate Bunny Exfoliating Scrub,10.0,17
+2022-04-09,Easter Eggstravaganza Soap Set,35.0,3
+2022-04-09,Eggcellent Citrus Splash Soap,1.25,12
+2022-04-09,Lavender Fields Bunny Soap,2.5,31
+2022-04-09,Spring Meadow Goat Milk Soap,3.75,8
+2022-04-09,Springtime Blossom Handmade Soap,3.0,23
+2022-04-09,Sunshine Bunny Honey Soap,4.0,27
+2022-04-09,Tulip Temptation Bath Bomb,7.0,7
+2022-04-11,Blossom Breeze Bath Fizzies,7.0,16
+2022-04-11,Bunny Hop Bubble Bar,4.0,18
+2022-04-11,Bunny Kisses Shea Butter Bar,6.0,17
+2022-04-11,Chocolate Bunny Exfoliating Scrub,10.0,16
+2022-04-11,Easter Eggstravaganza Soap Set,35.0,22
+2022-04-11,Eggcellent Citrus Splash Soap,1.25,19
+2022-04-11,Lavender Fields Bunny Soap,2.5,35
+2022-04-11,Spring Meadow Goat Milk Soap,3.75,10
+2022-04-11,Springtime Blossom Handmade Soap,3.0,14
+2022-04-11,Sunshine Bunny Honey Soap,4.0,9
+2022-04-11,Tulip Temptation Bath Bomb,7.0,17
+2022-04-14,Blossom Breeze Bath Fizzies,7.0,14
+2022-04-14,Bunny Hop Bubble Bar,4.0,19
+2022-04-14,Bunny Kisses Shea Butter Bar,6.0,19
+2022-04-14,Chocolate Bunny Exfoliating Scrub,10.0,22
+2022-04-14,Easter Eggstravaganza Soap Set,35.0,15
+2022-04-14,Eggcellent Citrus Splash Soap,1.25,36
+2022-04-14,Lavender Fields Bunny Soap,2.5,23
+2022-04-14,Spring Meadow Goat Milk Soap,3.75,32
+2022-04-14,Springtime Blossom Handmade Soap,3.0,21
+2022-04-14,Sunshine Bunny Honey Soap,4.0,13
+2022-04-14,Tulip Temptation Bath Bomb,7.0,9
+2022-04-15,Blossom Breeze Bath Fizzies,7.0,22
+2022-04-15,Bunny Hop Bubble Bar,4.0,35
+2022-04-15,Bunny Kisses Shea Butter Bar,6.0,25
+2022-04-15,Chocolate Bunny Exfoliating Scrub,10.0,4
+2022-04-15,Easter Eggstravaganza Soap Set,35.0,12
+2022-04-15,Eggcellent Citrus Splash Soap,1.25,27
+2022-04-15,Lavender Fields Bunny Soap,2.5,19
+2022-04-15,Spring Meadow Goat Milk Soap,3.75,27
+2022-04-15,Springtime Blossom Handmade Soap,3.0,12
+2022-04-15,Sunshine Bunny Honey Soap,4.0,20
+2022-04-15,Tulip Temptation Bath Bomb,7.0,38
+2022-04-16,Blossom Breeze Bath Fizzies,7.0,32
+2022-04-16,Bunny Hop Bubble Bar,4.0,13
+2022-04-16,Bunny Kisses Shea Butter Bar,6.0,36
+2022-04-16,Chocolate Bunny Exfoliating Scrub,10.0,30
+2022-04-16,Easter Eggstravaganza Soap Set,35.0,22
+2022-04-16,Eggcellent Citrus Splash Soap,1.25,4
+2022-04-16,Lavender Fields Bunny Soap,2.5,20
+2022-04-16,Spring Meadow Goat Milk Soap,3.75,15
+2022-04-16,Springtime Blossom Handmade Soap,3.0,24
+2022-04-16,Sunshine Bunny Honey Soap,4.0,6
+2022-04-16,Tulip Temptation Bath Bomb,7.0,36

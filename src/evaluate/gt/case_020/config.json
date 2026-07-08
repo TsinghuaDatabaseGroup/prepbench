@@ -1,0 +1,29 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Cost",
+        "Name"
+      ],
+      "columns": {
+        "Cost": "number",
+        "Name": "text_exact",
+        "Avg Cost per Day per person": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Avg Cost per Day",
+        "Date",
+        "Cost per Day",
+        "Number of Patients"
+      ],
+      "columns": {
+        "Avg Cost per Day": "number",
+        "Date": "date",
+        "Cost per Day": "number",
+        "Number of Patients": "number"
+      }
+    }
+  }
+}

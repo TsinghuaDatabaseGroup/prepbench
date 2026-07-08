@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Measure", "PGA", "LPGA", "Difference between tours"],
+      "columns": {
+        "Measure": "text_exact",
+        "PGA": "number",
+        "LPGA": "number",
+        "Difference between tours": "number"
+      }
+    }
+  }
+}

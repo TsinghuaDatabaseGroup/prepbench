@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_append_stack_years",
+      "kind": "Multi-table alignment",
+      "node_id": "all_in",
+      "op": "union",
+      "source_text": "Bring all the years together in a single table",
+      "ref": "data = pd.concat(frames, ignore_index=True)"
+    },
+    {
+      "id": "2_O3_no_dedup_on_append",
+      "kind": "Operation inconsistent",
+      "node_id": "all_in",
+      "op": "union",
+      "intent": "When combining yearly files, keep all rows and do not deduplicate duplicates.",
+      "ref": "data = pd.concat(frames, ignore_index=True)"
+    },
+    {
+      "id": "3_C2_easter_week_formula",
+      "kind": "Row-level concept",
+      "node_id": "easter_week",
+      "op": "project",
+      "source_text": "Work out the Easter Week Number, as per the first line chart",
+      "ref": "easter_monday = compute Easter Monday for year\nweek1_monday = easter_monday - 11 weeks\nweek_num = ((dates - week1_monday) // 7) + 1"
+    },
+    {
+      "id": "4_O1_ignore_time_in_week_calc",
+      "kind": "Operation boundary",
+      "node_id": "easter_week",
+      "op": "project",
+      "intent": "For Easter Week Number, treat Sales Date as a calendar date by ignoring any time-of-day component.",
+      "ref": "week_num = ((dates.dt.normalize() - week1_monday) // pd.Timedelta(days=7)) + 1"
+    },
+    {
+      "id": "5_C2_sales_formula",
+      "kind": "Row-level concept",
+      "node_id": "sales",
+      "op": "project",
+      "source_text": "Calculate the Sales per Product per Sales Date",
+      "ref": "data[\"Sales\"] = data[\"Price\"] * data[\"Quantity Sold\"]"
+    },
+    {
+      "id": "6_C1_weekday_abbreviation_mapping",
+      "kind": "Row-level concept",
+      "node_id": "weekday",
+      "op": "project",
+      "source_text": "Abbreviate these weekday names as: Monday = M, Tuesday = Tu, etc.",
+      "ref": "WEEKDAY_ABBR = {0: \"M\", 1: \"Tu\", 2: \"W\", 3: \"Th\", 4: \"F\", 5: \"Sa\", 6: \"Su\"}"
+    }
+  ]
+}

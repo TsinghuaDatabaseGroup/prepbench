@@ -1,0 +1,30 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Avg Cost per Day",
+                "Total Cost per Day",
+                "Date in Hospital",
+                "Number of Patients"
+            ],
+            "columns": {
+                "Avg Cost per Day": "number",
+                "Total Cost per Day": "number",
+                "Date in Hospital": "date",
+                "Number of Patients": "number"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Avg Cost per Day",
+                "Total Cost per Day",
+                "Patient Name"
+            ],
+            "columns": {
+                "Avg Cost per Day": "number",
+                "Total Cost per Day": "number",
+                "Patient Name": "text_exact"
+            }
+        }
+    }
+}

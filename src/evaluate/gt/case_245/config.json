@@ -1,0 +1,12 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Number of Votes", "Year Group", "Song Recommendation"],
+      "columns": {
+        "Number of Votes": "number",
+        "Year Group": "number",
+        "Song Recommendation": "text_exact"
+      }
+    }
+  }
+}

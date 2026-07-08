@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_account_uniqueness_keys",
+      "kind": "Group-level concept",
+      "node_id": "expand_months",
+      "op": "project",
+      "source_text": "Ensure we have a row for each month for each account i.e. 12 rows for each account",
+      "ref": "months_list.append({\n                \"Provider\": row[\"Provider\"],\n                \"Interest\": row[\"Interest\"],\n                \"Max Monthly Deposit\": row[\"Max Monthly Deposit\"],\n                \"Month\": month\n            })"
+    },
+    {
+      "id": "2_O1_month_range_1_12",
+      "kind": "Operation boundary",
+      "node_id": "expand_months",
+      "op": "project",
+      "intent": "Use Month values 1 through 12 (inclusive) for the 12-month term.",
+      "ref": "for month in range(1, 13):"
+    },
+    {
+      "id": "3_C1_provider_conditions_suffix",
+      "kind": "Row-level concept",
+      "node_id": "proj_clean",
+      "op": "project",
+      "source_text": "Update the Provider field so it is easy for customers to see in 1 field which accounts have additional conditions",
+      "ref": "df[\"Provider\"] = df.apply(\n        lambda row: row[\"Provider\"] + \" (Conditions Apply)\" \n        if pd.notna(row[\"Has Additional Conditions\"]) and row[\"Has Additional Conditions\"] == \"Y\"\n        else row[\"Provider\"],\n        axis=1\n    )"
+    },
+    {
+      "id": "4_O2_interest_percent_to_decimal",
+      "kind": "Operation incomplete",
+      "node_id": "proj_clean",
+      "op": "project",
+      "intent": "Convert Interest from a percentage string to a decimal annual rate (e.g., 8% to 0.08).",
+      "ref": "df[\"Interest\"] = df[\"Interest\"].str.rstrip(\"%\").astype(float) / 100"
+    },
+    {
+      "id": "5_C2_monthly_compounding_frequency",
+      "kind": "Group-level concept",
+      "node_id": "proj_metrics",
+      "op": "project",
+      "intent": "Use monthly compounding by applying the annual rate divided by 12.",
+      "ref": "(1 + df_expanded[\"Interest\"] / 12) ** df_expanded[\"Month\"]"
+    },
+    {
+      "id": "6_C2_savings_series_accumulation",
+      "kind": "Group-level concept",
+      "node_id": "proj_metrics",
+      "op": "project",
+      "source_text": "Calculate the savings value in each account, each month after interest has been applied",
+      "ref": "for i in range(1, month + 1):\n                \n                \n                months_interest = month - i + 1\n                deposit_value = group.iloc[0][\"Max Monthly Deposit\"] * (1 + group.iloc[0][\"Interest\"] / 12) ** months_interest\n                total += deposit_value"
+    },
+    {
+      "id": "7_C2_max_possible_savings_peak_over_months",
+      "kind": "Group-level concept",
+      "node_id": "proj_metrics",
+      "op": "project",
+      "source_text": "Create a field for the maximum possible savings a customer could get from each account",
+      "ref": "df_expanded[\"Max Possible Savings\"] = df_expanded.groupby(\"Provider\")[\"Savings each month\"].transform(\"max\")"
+    },
+    {
+      "id": "8_C2_total_interest_principal_minus",
+      "kind": "Group-level concept",
+      "node_id": "proj_metrics",
+      "op": "project",
+      "source_text": "Calculate the maximum total interest a customer could get from each account",
+      "ref": "df_expanded[\"Total Interest\"] = (\n        df_expanded[\"Max Possible Savings\"] - \n        (df_expanded[\"Max Monthly Deposit\"] * 12)\n    )"
+    },
+    {
+      "id": "9_O3_dense_ranking_ties_no_gaps",
+      "kind": "Operation inconsistent",
+      "node_id": "proj_metrics",
+      "op": "project",
+      "source_text": "Rank the accounts by the maximum possible savings",
+      "ref": "provider_summary[\"Providers Ranked by Max Savings\"] = (\n        provider_summary[\"Max Possible Savings\"]\n        .rank(method=\"dense\", ascending=False)\n        .astype(int)\n    )"
+    },
+    {
+      "id": "10_O1_sort_index_1_based",
+      "kind": "Operation boundary",
+      "node_id": "proj_rank",
+      "op": "project",
+      "intent": "Assign Sort as a 1-based sequential index after applying the final sort order.",
+      "ref": "df_expanded[\"Sort\"] = range(1, len(df_expanded) + 1)"
+    },
+    {
+      "id": "11_O1_sort_order_by_rank_then_month",
+      "kind": "Operation boundary",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort rows by Providers Ranked by Total Interest ascending, then by Month ascending, to define final ordering.",
+      "ref": "df_expanded = df_expanded.sort_values(\n        by=[\"Providers Ranked by Total Interest\", \"Month\"],\n        ascending=[True, True]\n    )"
+    }
+  ]
+}

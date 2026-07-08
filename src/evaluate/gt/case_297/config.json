@@ -1,0 +1,24 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Year", "Series", "Week", "Couple", "Judges Scores", "Dance", "Song", "Artist"],
+      "columns": {
+        "Year": "number",
+        "Series": "number",
+        "Week": "number",
+        "Stage": "text_exact",
+        "Theme": "text_exact",
+        "Theme Detail": "text_exact",
+        "Couple": "text_exact",
+        "Total Score": "number",
+        "Judges Scores": "text_exact",
+        "Dance": "text_exact",
+        "Song": "text_exact",
+        "Artist": "text_exact",
+        "Result": "text_exact"
+      }
+    }
+  }
+}
+

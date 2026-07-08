@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_date_field_priority",
+      "kind": "Single-table reference",
+      "node_id": "project_dates",
+      "op": "project",
+      "source_text": "we have 3 fields for Order Dates. Bring these together into a single field",
+      "ref": "date_value = Date of Order ?? Purchase Date ?? Order Date"
+    },
+    {
+      "id": "2_O2_date_format_parsing",
+      "kind": "Row-level concept",
+      "node_id": "project_dates",
+      "op": "project",
+      "source_text": "we have 3 fields for Order Dates. Bring these together into a single field",
+      "ref": "datetime.strptime(date_value, \"%a %d %b %Y\")"
+    },
+    {
+      "id": "3_C1_initials_from_customer_name",
+      "kind": "Row-level concept",
+      "node_id": "project_id",
+      "op": "project",
+      "source_text": "The first 2 characters should be the Customers initials",
+      "ref": "parts = customer.split()\ninitials = parts[0][0] + parts[-1][0]"
+    },
+    {
+      "id": "4_O1_order_number_left_pad",
+      "kind": "Operation boundary",
+      "node_id": "project_id",
+      "op": "project",
+      "source_text": "If necessary, there should be 0's in between to create 8 characters for the Order ID length",
+      "ref": "order_str_padded = order_str.zfill(6)"
+    }
+  ]
+}

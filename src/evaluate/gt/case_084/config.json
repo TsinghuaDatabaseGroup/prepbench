@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Word 1", "Word 2", "Anagram?"],
+      "columns": {
+        "Word 1": "text_exact",
+        "Word 2": "text_exact",
+        "Anagram?": "boolean"
+      }
+    }
+  }
+}
+

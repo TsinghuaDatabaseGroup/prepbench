@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_rename_columns",
+      "kind": "Single-table reference",
+      "node_id": "n2_project_rename_cast_order",
+      "op": "project",
+      "source_text": "Name the columns 'Cocktails', 'Ingredient' and 'Price respectively",
+      "ref": "df = pd.read_csv(inp_path).rename(columns={\"COCKTAILS\": \"Cocktails\", \"Unnamed: 1\": \"Ingredients\", \"Unnamed: 2\": \"Cocktail Price\"})"
+    },
+    {
+      "id": "2_O1_split_delimiter_comma",
+      "kind": "Operation boundary",
+      "node_id": "n3_script_explode",
+      "op": "script",
+      "source_text": "Seperate the ingredients and create a single column of them",
+      "ref": "df.assign(Ingredients=lambda d: d[\"Ingredients\"].str.split(\",\"))"
+    },
+    {
+      "id": "3_O1_position_one_based",
+      "kind": "Operation boundary",
+      "node_id": "n4_project_trim_and_position",
+      "op": "project",
+      "source_text": "Work out the position of the ingredients within the list of ingredients in each cocktail",
+      "ref": ".cumcount().add(1)"
+    },
+    {
+      "id": "4_C2_avg_price_mean",
+      "kind": "Group-level concept",
+      "node_id": "n5_agg_avg_price_per_ingredient",
+      "op": "aggregate",
+      "source_text": "Work out the 'average price of the cocktails that ingredient is used in'",
+      "ref": "out.groupby(\"Ingredients\")[\"Cocktail Price\"].transform(\"mean\")"
+    },
+    {
+      "id": "5_O1_round_avg_9dp",
+      "kind": "Operation boundary",
+      "node_id": "n7_project_round_avg",
+      "op": "project",
+      "intent": "How many decimal places to round Avg Ingredient Price to.",
+      "ref": ".round(9)"
+    }
+  ]
+}

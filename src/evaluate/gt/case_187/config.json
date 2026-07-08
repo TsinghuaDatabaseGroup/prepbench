@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "scheduled_date",
+        "emp_id",
+        "full_name",
+        "first_name",
+        "last_name",
+        "scheduled"
+      ],
+      "columns": {
+        "scheduled_date": "date",
+        "emp_id": "number",
+        "full_name": "text_exact",
+        "first_name": "text_exact",
+        "last_name": "text_exact",
+        "scheduled": "boolean"
+      }
+    }
+  }
+}

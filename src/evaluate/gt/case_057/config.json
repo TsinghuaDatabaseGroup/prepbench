@@ -1,0 +1,39 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Order Number",
+        "Order Size",
+        "Boxes of 120",
+        "Boxes of 24",
+        "Boxes of 6"
+      ],
+      "columns": {
+        "Order Number": "number",
+        "Order Size": "number",
+        "Boxes of 120": "number",
+        "Boxes of 24": "number",
+        "Boxes of 6": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Order Number",
+        "Order Size",
+        "Box Number",
+        "Box Size",
+        "Soaps in Box",
+        "Last Box Per Box Size"
+      ],
+      "columns": {
+        "Order Number": "number",
+        "Order Size": "number",
+        "Box Number": "number",
+        "Box Size": "number",
+        "Soaps in Box": "number",
+        "Last Box Per Box Size": "number"
+      }
+    }
+  }
+}
+

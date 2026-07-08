@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Month",
+        "Store",
+        "Bike Type",
+        "Sales",
+        "Profit",
+        "3 Month Moving Average Profit"
+      ],
+      "columns": {
+        "Month": "date",
+        "Store": "text_exact",
+        "Bike Type": "text_exact",
+        "Sales": "number",
+        "Profit": "number",
+        "3 Month Moving Average Profit": "number"
+      }
+    }
+  }
+}
+

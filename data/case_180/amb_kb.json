@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_region_aggregation",
+      "kind": "Group-level concept",
+      "node_id": "agg_region",
+      "op": "aggregate",
+      "source_text": "Total Sales for each Store and Product Type",
+      "ref": "sales_summary = sales_df.groupby(['Store Name', 'Product Type']).agg({\n    'Sale Value': 'sum',\n    'Region': 'first'\n}).reset_index()"
+    },
+    {
+      "id": "2_D2_targets_key_casing_title",
+      "kind": "Single-table reference",
+      "node_id": "clean_targets_step2",
+      "op": "project",
+      "source_text": "Prepare your data sets for joining together by choosing your next step",
+      "ref": "Standardize casing (title case) for Store and Product before join"
+    },
+    {
+      "id": "3_C2_beats_target_ge",
+      "kind": "Row-level concept",
+      "node_id": "derive_beats",
+      "op": "project",
+      "source_text": "Calculate whether each product in each store beats the target",
+      "ref": "Beats Target = Sale Value >= Target"
+    },
+    {
+      "id": "4_O2_missing_target_false",
+      "kind": "Operation incomplete",
+      "node_id": "derive_beats",
+      "op": "project",
+      "intent": "If no target exists for a store-product combination, Beats Target = False.",
+      "ref": "result['Beats Target?'] = result['Sale Value'] >= result['Target']"
+    },
+    {
+      "id": "5_C1_product_type_delimiter_split",
+      "kind": "Row-level concept",
+      "node_id": "derive_product_type",
+      "op": "project",
+      "source_text": "Remove unnecessary values from the Product Name field to just leave the Product Type",
+      "ref": "Product Type = split on ' - ', take first part"
+    },
+    {
+      "id": "6_O2_join_left_keep_sales",
+      "kind": "Operation incomplete",
+      "node_id": "join_sales_targets",
+      "op": "join",
+      "source_text": "Join the data sets together and remove any duplicated fields",
+      "ref": "result = sales_summary.merge(\n    targets_long[['STORE', 'PRODUCT', 'Target']],\n    left_on=['Store Name', 'Product Type'],\n    right_on=['STORE', 'PRODUCT'],\n    how='left'\n)"
+    },
+    {
+      "id": "7_D1_targets_wide_to_long_mapping",
+      "kind": "Single-table reference",
+      "node_id": "targets_long",
+      "op": "pivot",
+      "source_text": "Change the Targets data set into three columns",
+      "ref": "Unpivot store columns to rows"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Average mins to next sale",
+        "Product Type",
+        "Store"
+      ],
+      "columns": {
+        "Average mins to next sale": "number",
+        "Product Type": "text_exact",
+        "Store": "text_exact"
+      }
+    }
+  }
+}

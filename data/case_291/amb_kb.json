@@ -1,0 +1,12 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_home_away_record_column_mapping",
+      "kind": "Single-table reference",
+      "node_id": "side",
+      "op": "project",
+      "source_text": "Create a record for each game, for each team containing",
+      "ref": "home.rename(columns={\"Home Team\": \"Team\", \"Home Score\": \"GF\", \"Away Score\": \"GA\"}); away.rename(columns={\"Away Team\": \"Team\", \"Away Score\": \"GF\", \"Home Score\": \"GA\"})"
+    }
+  ]
+}

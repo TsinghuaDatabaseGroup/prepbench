@@ -1,0 +1,20 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Providers Ranked by Max Savings", "Providers Ranked by Total Interest", "Provider", "Interest", "Max Monthly Deposit", "Month", "Savings each month", "Max Possible Savings", "Total Interest", "Sort"],
+      "columns": {
+        "Providers Ranked by Max Savings": "number",
+        "Providers Ranked by Total Interest": "number",
+        "Provider": "text_exact",
+        "Interest": "number",
+        "Max Monthly Deposit": "number",
+        "Month": "number",
+        "Savings each month": "number",
+        "Max Possible Savings": "number",
+        "Total Interest": "number",
+        "Sort": "number"
+      }
+    }
+  }
+}
+

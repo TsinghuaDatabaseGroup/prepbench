@@ -1,0 +1,12 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Actual Pick", "Original", "Team"],
+      "columns": {
+        "Actual Pick": "number",
+        "Original": "number",
+        "Team": "text_exact"
+      }
+    }
+  }
+}

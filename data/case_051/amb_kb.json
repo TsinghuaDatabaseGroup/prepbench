@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_halftime_null_filter",
+      "kind": "Operation incomplete",
+      "node_id": "n1_filter_ht_notnull",
+      "op": "filter",
+      "source_text": "Remove the games that have null scores at halftime",
+      "ref": "df.dropna(subset=['HTf', 'HTa'], inplace=True)"
+    },
+    {
+      "id": "2_O2_cast_diff_numeric",
+      "kind": "Operation incomplete",
+      "node_id": "n2_cast_diff_numeric",
+      "op": "project",
+      "intent": "Cast Diff to a numeric type before ranking.",
+      "ref": "df['Diff'] = pd.to_numeric(df['Diff'])"
+    },
+    {
+      "id": "3_C2_rank_global",
+      "kind": "Group-level concept",
+      "node_id": "n3_compute_rank",
+      "op": "project",
+      "intent": "Compute the Standard Competition rank across all games (not within each venue).",
+      "ref": "df['Rank'] = df['Diff'].rank(method='min', ascending=False)"
+    },
+    {
+      "id": "4_C2_avg_rank_mean_of_ranks",
+      "kind": "Group-level concept",
+      "node_id": "n4_agg_by_venue",
+      "op": "aggregate",
+      "source_text": "average rank based on the margin of victory / defeat.",
+      "ref": "venue_stats = df.groupby('Venue').agg(\n        Number_of_Games=('Venue', 'size'),\n        Best_Rank=('Rank', 'min'),\n        Worst_Rank=('Rank', 'max'),\n        Avg_Rank=('Rank', 'mean')\n    ).reset_index()"
+    }
+  ]
+}

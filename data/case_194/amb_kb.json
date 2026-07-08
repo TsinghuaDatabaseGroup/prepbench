@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_pre_first_session_score",
+      "kind": "Row-level concept",
+      "node_id": "pre_ranges",
+      "op": "project",
+      "source_text": "Assign these generated dates a Score of 0",
+      "ref": "'Score': 0"
+    },
+    {
+      "id": "2_date_range_scope",
+      "kind": "Operation boundary",
+      "node_id": "pre_ranges",
+      "op": "project",
+      "source_text": "Add in the dates between the minimum date and first session",
+      "ref": "date_range = pd.date_range(start=min_date, end=first_date - pd.Timedelta(days=1), freq='D')"
+    },
+    {
+      "id": "3_weekend_exclusion",
+      "kind": "Row-level concept",
+      "node_id": "filter_weekdays_main",
+      "op": "filter",
+      "source_text": "Ensure no weekends exist in your dataset",
+      "ref": "weekdays = date_range[date_range.weekday < 5]"
+    },
+    {
+      "id": "4_dedup_strategy",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup",
+      "op": "dedup",
+      "source_text": "Be careful of duplication",
+      "ref": "combined_df = combined_df.drop_duplicates(subset=['Player', 'Session', 'Date_dt'], keep='first')"
+    },
+    {
+      "id": "5_carry_over_flag",
+      "kind": "Row-level concept",
+      "node_id": "finalize_main",
+      "op": "project",
+      "intent": "Flag naming convention for carried-forward scores vs actual scores",
+      "ref": "np.where(day_ord == from_ord, 'Actual', 'Carried over')"
+    }
+  ]
+}

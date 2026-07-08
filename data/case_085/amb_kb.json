@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_potential_savings_sign",
+      "kind": "Row-level concept",
+      "node_id": "final_metrics",
+      "op": "project",
+      "source_text": "Calculate the potential savings for each person and advise whether or not they should take advantage of the deal",
+      "ref": "spend_df['Potential Savings'] = spend_df['Monthly Spend'] - 20"
+    },
+    {
+      "id": "2_O1_worthwhile_threshold_strict",
+      "kind": "Operation boundary",
+      "node_id": "final_metrics",
+      "op": "project",
+      "source_text": "advise whether or not they should take advantage of the deal",
+      "ref": "spend_df['Worthwhile?'] = spend_df['Potential Savings'] > 0"
+    },
+    {
+      "id": "3_O1_round_money_2dp",
+      "kind": "Operation boundary",
+      "node_id": "final_metrics",
+      "op": "project",
+      "intent": "Round Monthly Spend and Potential Savings to 2 decimal places.",
+      "ref": "output_df['Monthly Spend'] = output_df['Monthly Spend'].round(2)\noutput_df['Potential Savings'] = output_df['Potential Savings'].round(2)"
+    },
+    {
+      "id": "4_O2_unmatched_items_zero_cost",
+      "kind": "Operation incomplete",
+      "node_id": "join_prices",
+      "op": "join",
+      "source_text": "Join the ordered drinks to their prices\n  - Beware ordered drinks not having the exact same name as on the menu",
+      "ref": "total_spend = 0\n        # Iterate through each item from the sorted price list\n        for item, price in sorted_price_items:\n            item_lower = item.lower()\n            # Count occurrences of the item\n            count = temp_orders_str.count(item_lower)\n            if count > 0:\n                # Add to total spend\n                total_spend += count * price"
+    }
+  ]
+}

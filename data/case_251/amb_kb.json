@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "2_C2_reporting_month_formula",
+      "kind": "Row-level concept",
+      "node_id": "proj_fields",
+      "op": "project",
+      "source_text": "Create a field for the Reporting Month\n  - Each month contains exactly 4 weeks",
+      "ref": "reporting_month = math.ceil(reporting_week / 4)"
+    },
+    {
+      "id": "3_C2_reporting_week_formula",
+      "kind": "Row-level concept",
+      "node_id": "proj_fields",
+      "op": "project",
+      "source_text": "Create a field for the Reporting Week",
+      "ref": "reporting_week = math.ceil(reporting_day / 7)"
+    },
+    {
+      "id": "4_O1_feb1_monday_strictly_before",
+      "kind": "Operation boundary",
+      "node_id": "proj_fields",
+      "op": "project",
+      "source_text": "Their reporting year begins on the Monday before 1st February",
+      "ref": "# If Feb1 is Monday (0), we need previous Monday -> 7 days before\ndays_back = wd + 7 if wd == 0 else wd\nreturn feb1 - timedelta(days=days_back)"
+    },
+    {
+      "id": "5_O2_reporting_day_from_assigned_year_start",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fields",
+      "op": "project",
+      "source_text": "Create a field for the Reporting Day\n  - Day 1 will be the Monday before the 1st Feb",
+      "ref": "start_ry = monday_before_feb_1(reporting_year)\n    reporting_day = (d - start_ry).days + 1"
+    },
+    {
+      "id": "6_O2_reporting_year_for_dates_before_year_start",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fields",
+      "op": "project",
+      "source_text": "Create a field for the Reporting Year (based off the above logic)",
+      "ref": "if d >= start_selected:\n        reporting_year = selected_year\n    else:\n        reporting_year = selected_year - 1"
+    },
+    {
+      "id": "7_D1_selected_year_from_input_first_row",
+      "kind": "Single-table reference",
+      "node_id": "proj_prepare",
+      "op": "project",
+      "intent": "Use the value in the input file's Year field (first row) as the selected calendar year.",
+      "ref": "inp = pd.read_csv(inputs_dir / \"input_01.csv\", dtype=str)\n    year = int(inp.loc[0, \"Year\"])  # e.g., 2023"
+    }
+  ]
+}

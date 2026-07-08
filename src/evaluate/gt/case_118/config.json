@@ -1,0 +1,24 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Week",
+        "Project",
+        "Sub-Project",
+        "Task",
+        "Name",
+        "Days Noted",
+        "Detail"
+      ],
+      "columns": {
+        "Week": "text_exact",
+        "Project": "text_exact",
+        "Sub-Project": "text_exact",
+        "Task": "text_exact",
+        "Name": "text_exact",
+        "Days Noted": "number",
+        "Detail": "text_exact"
+      }
+    }
+  }
+}

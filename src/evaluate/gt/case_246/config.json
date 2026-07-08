@@ -1,0 +1,28 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Full Name",
+        "Year Attendance Rate",
+        "Rank"
+      ],
+      "columns": {
+        "Full Name": "text_exact",
+        "Year Attendance Rate": "number",
+        "Rank": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Year Group",
+        "Full Name",
+        "Year Attendance Rate"
+      ],
+      "columns": {
+        "Year Group": "number",
+        "Full Name": "text_exact",
+        "Year Attendance Rate": "number"
+      }
+    }
+  }
+}

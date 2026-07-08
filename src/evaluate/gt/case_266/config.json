@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Date"],
+      "columns": {
+        "Date": "date",
+        "New Date": "date"
+      }
+    }
+  }
+}
+

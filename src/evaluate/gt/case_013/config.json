@@ -1,0 +1,70 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Days Beyond Max Credit",
+        "Days Below Zero balance?",
+        "Monthly Avg Transactions",
+        "Monthly Avg Balances",
+        "Month",
+        "Account",
+        "Name",
+        "Date"
+      ],
+      "columns": {
+        "Days Beyond Max Credit": "number",
+        "Days Below Zero balance?": "number",
+        "Monthly Avg Transactions": "number",
+        "Monthly Avg Balances": "number",
+        "Month": "number",
+        "Account": "number",
+        "Name": "text_exact",
+        "Date": "date"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Beyond Max Credit",
+        "Below Zero balance?",
+        "Quarter",
+        "Account",
+        "Name",
+        "Quartlery Avg Transaction",
+        "Quarterly Avg Balance",
+        "Date"
+      ],
+      "columns": {
+        "Beyond Max Credit": "number",
+        "Below Zero balance?": "number",
+        "Quarter": "number",
+        "Account": "number",
+        "Name": "text_exact",
+        "Quartlery Avg Transaction": "number",
+        "Quarterly Avg Balance": "number",
+        "Date": "date"
+      }
+    },
+    "output_03.csv": {
+      "key": [
+        "Weekly Avg Transactions",
+        "Weekly Avg Balances",
+        "Days Below Zero balance?",
+        "Days Beyond Max Credit",
+        "Week",
+        "Account",
+        "Name",
+        "Date"
+      ],
+      "columns": {
+        "Weekly Avg Transactions": "number",
+        "Weekly Avg Balances": "number",
+        "Days Below Zero balance?": "number",
+        "Days Beyond Max Credit": "number",
+        "Week": "number",
+        "Account": "number",
+        "Name": "text_exact",
+        "Date": "date"
+      }
+    }
+  }
+}

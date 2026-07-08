@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Guest",
+        "Course",
+        "Recipe ID",
+        "Dish"
+      ],
+      "columns": {
+        "Guest": "text_exact",
+        "Course": "text_exact",
+        "Recipe ID": "number",
+        "Dish": "text_exact"
+      }
+    }
+  }
+}
+

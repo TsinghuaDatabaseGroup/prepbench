@@ -1,0 +1,28 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Rank", "Depart Time of Day", "Avg per Flight"],
+      "columns": {
+        "Rank": "number",
+        "Depart Time of Day": "text_exact",
+        "Avg per Flight": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Rank", "Seat Position", "Purchase Amount"],
+      "columns": {
+        "Rank": "number",
+        "Seat Position": "text_exact",
+        "Purchase Amount": "number"
+      }
+    },
+    "output_03.csv": {
+      "key": ["Rank", "Business Class", "Purchase Amount"],
+      "columns": {
+        "Rank": "number",
+        "Business Class": "text_exact",
+        "Purchase Amount": "number"
+      }
+    }
+  }
+}

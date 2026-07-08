@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_parse_date_fields",
+      "kind": "Operation incomplete",
+      "node_id": "inputs",
+      "op": "input",
+      "intent": "Parse Date fields as date type when loading daily sales and orders.",
+      "ref": "daily_sales['Date'] = pd.to_datetime(daily_sales['Date'])"
+    },
+    {
+      "id": "2_D2_join_daily_to_scent_on_scent_code",
+      "kind": "Multi-table alignment",
+      "node_id": "n4_join_daily_scent",
+      "op": "join",
+      "intent": "Join daily sales rows to scent attributes by matching on Scent Code.",
+      "ref": "daily_sales.merge(scent_info, on='Scent Code', how='left')"
+    },
+    {
+      "id": "3_O2_keep_all_daily_sales_rows_in_join",
+      "kind": "Operation incomplete",
+      "node_id": "n4_join_daily_scent",
+      "op": "join",
+      "intent": "Keep daily sales rows even if no matching scent record exists.",
+      "ref": "how='left'"
+    },
+    {
+      "id": "4_O1_week_start_is_wednesday",
+      "kind": "Row-level concept",
+      "node_id": "n5_project_units_weekstart",
+      "op": "project",
+      "source_text": "For each week (Wednesday-Tuesday), calculate the Weekly Units Sold.",
+      "ref": "get_week_start(date)"
+    },
+    {
+      "id": "5_C2_weekly_aggregation_grain",
+      "kind": "Group-level concept",
+      "node_id": "n6_weekly_agg",
+      "op": "aggregate",
+      "source_text": "For each week, calculate the Weekly Units Sold and Weekly Sales.",
+      "ref": "weekly_summary = df.groupby(['Week Start', 'Scent Code', 'Scent', 'Price', 'Cost']).agg({...})"
+    },
+    {
+      "id": "6_D2_join_weekly_to_orders_on_week_start",
+      "kind": "Multi-table alignment",
+      "node_id": "n8_join_weekly_orders",
+      "op": "join",
+      "intent": "Join weekly totals to orders using Week Start only.",
+      "ref": "weekly_summary.merge(orders[['Week Start', 'Units Ordered']], on='Week Start', how='left')"
+    },
+    {
+      "id": "7_O2_keep_weekly_totals_when_no_order",
+      "kind": "Operation incomplete",
+      "node_id": "n8_join_weekly_orders",
+      "op": "join",
+      "intent": "If a week has no matching order record, keep the weekly totals.",
+      "ref": "how='left'"
+    },
+    {
+      "id": "8_C2_waste_formula",
+      "kind": "Row-level concept",
+      "node_id": "n9_profit_compute",
+      "op": "project",
+      "source_text": "Calculate the Waste (=Units Ordered - Units Sold)",
+      "ref": "weekly_summary['Waste'] = weekly_summary['Units Ordered'] - weekly_summary['Weekly Units Sold']"
+    },
+    {
+      "id": "9_C2_total_profit_aggregation",
+      "kind": "Group-level concept",
+      "node_id": "n10_total_profit",
+      "op": "aggregate",
+      "source_text": "Rank each Scent from most profitable overall to least profitable overall",
+      "ref": "total_profit = weekly_summary.groupby('Scent').agg({'Profit': 'sum'})"
+    },
+    {
+      "id": "10_O1_rank_is_sequential_starting_at_1",
+      "kind": "Operation boundary",
+      "node_id": "n12_rank",
+      "op": "project",
+      "source_text": "Rank each Scent from most profitable to least profitable",
+      "ref": "total_profit['Profitability Rank'] = range(1, len(total_profit) + 1)"
+    }
+  ]
+}

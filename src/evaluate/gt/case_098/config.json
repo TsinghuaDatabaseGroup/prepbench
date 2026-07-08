@@ -1,0 +1,61 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Column",
+        "Row",
+        "Decade",
+        "Round to Par",
+        "Y Coordinate Polygon",
+        "X Coordinate Polygon",
+        "Round Colors",
+        "Point",
+        "Round Score",
+        "Round Num",
+        "Player",
+        "Country",
+        "Venue",
+        "Location",
+        "Round Par",
+        "Total",
+        "Year"
+      ],
+      "columns": {
+        "Column": "number",
+        "Row": "number",
+        "Decade": "number",
+        "Round to Par": "number",
+        "Y Coordinate Polygon": "number",
+        "X Coordinate Polygon": "number",
+        "Round Colors": "text_exact",
+        "Point": "text_exact",
+        "Round Score": "number",
+        "Round Num": "text_exact",
+        "Player": "text_exact",
+        "Country": "text_exact",
+        "Venue": "text_exact",
+        "Location": "text_exact",
+        "Round Par": "number",
+        "Total": "number",
+        "Year": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Decade",
+        "Min Round Score",
+        "Max Round Score",
+        "Min Total Score",
+        "Max Total Score"
+      ],
+      "columns": {
+        "Decade": "number",
+        "Min Round Score": "number",
+        "Max Round Score": "number",
+        "Min Total Score": "number",
+        "Max Total Score": "number"
+      }
+    }
+  }
+}
+

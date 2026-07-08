@@ -1,0 +1,67 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Outlier? (1SD)",
+                "Date",
+                "Week",
+                "Complaints",
+                "Department"
+            ],
+            "columns": {
+                "Variation (1SD)": "number",
+                "Outlier? (1SD)": "text_exact",
+                "Lower Control Limit": "number",
+                "Upper Control Limit": "number",
+                "Standard Deviation": "number",
+                "Mean": "number",
+                "Date": "date",
+                "Week": "number",
+                "Complaints": "number",
+                "Department": "text_exact"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Outlier (2SD)",
+                "Date",
+                "Week",
+                "Complaints",
+                "Department"
+            ],
+            "columns": {
+                "Outlier (2SD)": "text_exact",
+                "Variation (2SD)": "number",
+                "Lower Control Limit (2SD)": "number",
+                "Upper Control Limit (2SD)": "number",
+                "Standard Deviation": "number",
+                "Mean": "number",
+                "Date": "date",
+                "Week": "number",
+                "Complaints": "number",
+                "Department": "text_exact"
+            }
+        },
+        "output_03.csv": {
+            "key": [
+                "Outlier (3SD)",
+                "Date",
+                "Week",
+                "Complaints",
+                "Department"
+            ],
+            "columns": {
+                "Outlier (3SD)": "text_exact",
+                "Variation (3SD)": "number",
+                "Lower Control Limit (3SD)": "number",
+                "Upper Control Limit (3SD)": "number",
+                "Standard Deviation": "number",
+                "Mean": "number",
+                "Date": "date",
+                "Week": "number",
+                "Complaints": "number",
+                "Department": "text_exact"
+            }
+        }
+    }
+}

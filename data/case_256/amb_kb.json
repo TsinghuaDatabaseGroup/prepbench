@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_bags_checked_to_int",
+      "kind": "Operation incomplete",
+      "node_id": "n_clean",
+      "op": "project",
+      "intent": "Convert Bags Checked to an integer.",
+      "ref": "\"Bags Checked\": df[\"Bags Checked\"].astype(int),"
+    },
+    {
+      "id": "2_O2_flow_card_any_other_no",
+      "kind": "Operation incomplete",
+      "node_id": "n_clean",
+      "op": "project",
+      "source_text": "Change the Flow Card field to Yes / No values instead of 1 / 0",
+      "ref": "\"Flow Card?\": df[\"Flow Card?\"].str.strip().map(lambda v: \"Yes\" if v == \"1\" else \"No\"),"
+    },
+    {
+      "id": "3_O2_price_nonnumeric_null",
+      "kind": "Operation incomplete",
+      "node_id": "n_clean",
+      "op": "project",
+      "source_text": "Price to a decimal value",
+      "ref": "except (InvalidOperation, TypeError):\n            return pd.NA"
+    },
+    {
+      "id": "4_O1_flight_details_split_delimiter",
+      "kind": "Operation boundary",
+      "node_id": "n_extract",
+      "op": "project",
+      "source_text": "Split the Flight Details field to form:",
+      "ref": "parts = df[\"Flight Details\"].str.split(\"//\", n=4, expand=True)"
+    },
+    {
+      "id": "5_O1_route_split_first_dash",
+      "kind": "Operation boundary",
+      "node_id": "n_extract",
+      "op": "project",
+      "source_text": "Split the Flight Details field to form:",
+      "ref": "route = parts[\"Route\"].str.split(\"-\", n=1, expand=True)"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": [
+        "Year",
+        "Stage Number"
+      ],
+      "columns": {
+        "Stage Won?": "boolean",
+        "Stage Number": "number",
+        "Origin - Destination": "text_norm",
+        "Time Trial?": "text_norm",
+        "General Classification Finishing Position": "text_exact",
+        "Points Finishing Position": "number",
+        "Year": "number",
+        "KM": "number",
+        "Stage Type": "text_norm"
+      }
+    }
+  }
+}
+

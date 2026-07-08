@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_activity_count_km_requires_detail",
+      "kind": "Row-level concept",
+      "node_id": "prep_project",
+      "op": "project",
+      "source_text": "Count the number of activities per day and work out the total distance cycled Outdoors or on the Turbo Trainer",
+      "ref": "def is_activity(row):\n    m = str(row[\"Measure\"]).strip().lower()\n    if m == \"min\":\n        return 1\n    detail = row.get(\"Detail\")\n    return 1 if (pd.notna(detail) and str(detail).strip() != \"\") else 0"
+    },
+    {
+      "id": "2_C1_km_distance_zero_when_detail_missing",
+      "kind": "Operation incomplete",
+      "node_id": "prep_project",
+      "op": "project",
+      "intent": "For km-measured rows, set kilometres to 0 when Detail is missing/blank (invalid activity).",
+      "ref": "def to_km(row):\n    if str(row[\"Measure\"]).strip().lower() == \"min\":\n        return float(row[\"Value\"]) * 0.5\n    else:\n        detail = row.get(\"Detail\")\n        if pd.isna(detail) or str(detail).strip() == \"\":\n            return 0.0\n        return float(row[\"Value\"]) if pd.notna(row[\"Value\"]) else 0.0"
+    },
+    {
+      "id": "3_O2_measure_to_category_mapping",
+      "kind": "Single-table reference",
+      "node_id": "prep_project",
+      "op": "project",
+      "source_text": "Create a field called measure to convert KM measurements into 'Outdoors' and any measurement in 'mins' as 'Turbo Trainer'.",
+      "ref": "df[\"category\"] = df[\"Measure\"].astype(str).str.strip().str.lower().map({\n    \"min\": \"Turbo Trainer\",\n    \"km\": \"Outdoors\"\n})"
+    }
+  ]
+}

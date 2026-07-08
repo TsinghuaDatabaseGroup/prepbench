@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Store",
+        "Date",
+        "Sales",
+        "Profit"
+      ],
+      "columns": {
+        "Store": "text_exact",
+        "Date": "date",
+        "Sales": "number",
+        "Profit": "number"
+      }
+    }
+  }
+}

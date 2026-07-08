@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_remaining_pick_offset",
+      "kind": "Row-level concept",
+      "node_id": "proj_remaining_picks",
+      "op": "project",
+      "source_text": "Allocate the remaining picks (5–14) by original seed order (1 through 14)",
+      "ref": "actual_pick = 5\nfor seed in teams[\"Seed\"].tolist():\n        team_name = teams.loc[teams[\"Seed\"] == seed, \"Team\"].iloc[0]\n        remaining_rows.append((actual_pick, int(seed), str(team_name)))\n        actual_pick += 1"
+    },
+    {
+      "id": "2_O1_largest_remainder_rounding",
+      "kind": "Operation boundary",
+      "node_id": "script_top4",
+      "op": "script",
+      "source_text": "based on cumulative probability (e.g., 14% → 140 numbers)",
+      "ref": "    raw = perc * total_slots / 100.0\n    floors = np.floor(raw).astype(int)\n    remainder = raw - floors\n\n    current_sum = int(floors.sum())\n    need = total_slots - current_sum\n    counts = floors.tolist()\n\n    if need > 0:\n        order = np.argsort(-remainder.values)\n        for idx in order[:need]:\n            counts[int(idx)] += 1"
+    },
+    {
+      "id": "3_O2_overallocation_adjustment",
+      "kind": "Operation boundary",
+      "node_id": "script_top4",
+      "op": "script",
+      "intent": "If floored allocations exceed 1,000, remove slots from seeds with the smallest fractional remainders.",
+      "ref": "    elif need < 0:\n        order = np.argsort(remainder.values)\n        for idx in order[: -need]:\n            take = min(counts[int(idx)], 1)\n            counts[int(idx)] -= take"
+    },
+    {
+      "id": "4_O3_remainder_tie_break_by_seed",
+      "kind": "Operation boundary",
+      "node_id": "script_top4",
+      "op": "script",
+      "source_text": "based on cumulative probability (e.g., 14% → 140 numbers)",
+      "ref": "order = np.argsort(-remainder.values)"
+    },
+    {
+      "id": "5_O1_seed_order_for_cumulative_blocks",
+      "kind": "Operation boundary",
+      "node_id": "sort_odds",
+      "op": "sort",
+      "source_text": "percentage chance for each team (seeds 1–14) to win each of the first four picks",
+      "ref": "odds = odds.sort_values(\"Seed\").reset_index(drop=True)"
+    }
+  ]
+}

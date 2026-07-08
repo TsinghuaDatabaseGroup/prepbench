@@ -1,0 +1,35 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Win % Rank", "Shootout Win %", "Total Shootouts", "Shootouts", "Team"],
+      "columns": {
+        "Win % Rank": "number",
+        "Shootout Win %": "number",
+        "Total Shootouts": "number",
+        "Shootouts": "number",
+        "Team": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Rank", "Penalty Scored %", "Penalties Scored", "Penalties Missed", "Total Penalties", "Penalty Number"],
+      "columns": {
+        "Rank": "number",
+        "Penalty Scored %": "number",
+        "Penalties Scored": "number",
+        "Penalties Missed": "number",
+        "Total Penalties": "number",
+        "Penalty Number": "number"
+      }
+    },
+    "output_03.csv": {
+      "key": ["Penalties Scored %Rank", "% Total Penalties Scored", "Penalties Missed", "Penalties Scored", "Team"],
+      "columns": {
+        "Penalties Scored %Rank": "number",
+        "% Total Penalties Scored": "number",
+        "Penalties Missed": "number",
+        "Penalties Scored": "number",
+        "Team": "text_exact"
+      }
+    }
+  }
+}

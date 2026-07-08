@@ -1,0 +1,58 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Change in % this month",
+        "Browser",
+        "This Month Pageviews Value",
+        "This Month Pageviews %",
+        "All Time Pageviews Value",
+        "All Time Pageviews %"
+      ],
+      "columns": {
+        "Change in % this month": "number",
+        "Browser": "text_exact",
+        "This Month Pageviews Value": "number",
+        "This Month Pageviews %": "number",
+        "All Time Pageviews Value": "number",
+        "All Time Pageviews %": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Change in % this month",
+        "Operating System",
+        "This Month Pageviews Value",
+        "This Month Pageviews %",
+        "All Time Pageviews Value",
+        "All Time Pageviews %"
+      ],
+      "columns": {
+        "Change in % this month": "number",
+        "Operating System": "text_exact",
+        "This Month Pageviews Value": "number",
+        "This Month Pageviews %": "number",
+        "All Time Pageviews Value": "number",
+        "All Time Pageviews %": "number"
+      }
+    },
+    "output_03.csv": {
+      "key": [
+        "Change in % pageviews",
+        "This Month Pageviews %",
+        "All Time Views %",
+        "Origin",
+        "All Time Pageviews",
+        "This Month Pageviews"
+      ],
+      "columns": {
+        "Change in % pageviews": "number",
+        "This Month Pageviews %": "number",
+        "All Time Views %": "number",
+        "Origin": "text_exact",
+        "All Time Pageviews": "number",
+        "This Month Pageviews": "number"
+      }
+    }
+  }
+}

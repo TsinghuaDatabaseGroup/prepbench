@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Category"],
+      "columns": {
+        "Category": "text_exact",
+        "Forecasted Spending": "number",
+        "Actual Spending": "number",
+        "Difference": "number"
+      }
+    }
+  }
+}
+

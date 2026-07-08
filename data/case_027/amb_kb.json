@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_date_parse_format",
+      "kind": "Operation boundary",
+      "node_id": "input_01",
+      "op": "input",
+      "intent": "Parse Date as YYYY-MM-DD and fail on any parse errors.",
+      "ref": "pd.to_datetime(df[\"Date\"], format=\"%Y-%m-%d\", errors=\"raise\")"
+    },
+    {
+      "id": "2_C2_running_total_partition_keys",
+      "kind": "Group-level concept",
+      "node_id": "project_finalize",
+      "op": "project",
+      "source_text": "Work out the running total of sales for each store, restarting after Valentine's day to allow us to compare the two 14 day periods",
+      "ref": "df.groupby([\"Store\", \"Pre / Post Valentines Day\"])['Daily Store Sales'].cumsum()"
+    },
+    {
+      "id": "3_O1_valentines_reference_date",
+      "kind": "Operation boundary",
+      "node_id": "project_prepare",
+      "op": "project",
+      "source_text": "Determine if the sales date is pre- or post- Valentine's day",
+      "ref": "valentines = pd.Timestamp(\"2019-02-14\")"
+    },
+    {
+      "id": "4_O1_valentines_inclusive_cutoff",
+      "kind": "Operation boundary",
+      "node_id": "project_prepare",
+      "op": "project",
+      "source_text": "Determine if the sales date is pre- or post- Valentine's day",
+      "ref": "\"Pre\" if d <= valentines else \"Post\""
+    },
+    {
+      "id": "5_D1_daily_store_sales_source",
+      "kind": "Single-table reference",
+      "node_id": "project_prepare",
+      "op": "project",
+      "source_text": "Running Total Sales - Daily Store Sales",
+      "ref": "df[\"Daily Store Sales\"] = df[\"Value\"].astype(int)"
+    },
+    {
+      "id": "6_O1_running_total_sort_order",
+      "kind": "Operation boundary",
+      "node_id": "sort_main",
+      "op": "sort",
+      "source_text": "Work out the running total of sales for each store, restarting after Valentine's day",
+      "ref": "df.sort_values([\"Store\", \"Pre / Post Valentines Day\", \"Date\"])"
+    }
+  ]
+}

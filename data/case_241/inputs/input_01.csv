@@ -1,0 +1,37 @@
+Online database for the Sustainable Development Report 2023,Unnamed: 1,Unnamed: 2
+,,
+This database contains the following information:,,
+Overview,"Overall results for all countries, including index score, goal dashboard, and trend dashboard for all indicators and goals",
+Codebook,"List of indicators, bounds and thresholds",
+SDR2023 Data,"The SDR 2023 data for all countries; includes spillover score, raw values, normalized scores, dashboard ratings, trends & goal scores.",
+Raw Data,"Raw data, including time series, for all countries by indicator",
+Backdated SDG Index,"The SDG Index Score, and all goal and indicator scores, retroactively calculated across time using time series data that was carried forward in years with missing data.",
+,,
+Legend,,
+Dashboard : ,,
+,green,Goal Achievement
+,yellow,Challenges remain
+,orange,Significant challenges
+,red,Major challenges
+,grey,Insufficient data
+Time Series :,,
+,↑,On track or maintaining achievement
+,➚,Moderately Increasing
+,→,Stagnating
+,↓,Decreasing
+,,
+,,"This data should be cited as:   Sachs, J.D., Lafortune, G., Fuller, G., Drumm, E. (2023). Implementing the SDG Stimulus. Sustainable Development Report 2023. Paris: SDSN, Dublin: Dublin University Press, 2023. 10.25546/102924"
+,,
+,,LICENSE
+,This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. ,
+,"To view a copy of this license, please visit https://creativecommons.org/licenses/by-sa/4.0/",
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,"Reference and Citation :   Sachs, J.D., Lafortune, G., Fuller, G., Drumm, E. (2023). Implementing the SDG Stimulus. Sustainable Development Report 2023. Paris: SDSN, Dublin: Dublin University Press, 2023. 10.25546/102924",

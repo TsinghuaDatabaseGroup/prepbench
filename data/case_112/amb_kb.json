@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_agg_grain_name_position",
+      "kind": "Group-level concept",
+      "node_id": "agg_player_pos",
+      "op": "aggregate",
+      "source_text": "Calculate the totals for each of the key metrics across the whole time period for each player",
+      "ref": "agg = (\n        raw.groupby([\"Name\", \"Position\"], as_index=False)\n        .agg({...})\n    )"
+    },
+    {
+      "id": "2_C2_open_play_goals_formula",
+      "kind": "Row-level concept",
+      "node_id": "compute_opg",
+      "op": "project",
+      "source_text": "the goals scored from open play is the number of goals scored that weren't penalties or freekicks",
+      "ref": "agg[\"Open Play Goals\"] = (\n        agg[\"Goals\"].fillna(0) - agg[\"Penalties scored\"].fillna(0) -\n        agg[\"Freekicks scored\"].fillna(0)\n    )"
+    },
+    {
+      "id": "3_O2_null_metrics_as_zero",
+      "kind": "Operation incomplete",
+      "node_id": "fill_metrics",
+      "op": "project",
+      "source_text": "Be careful how Prep handles null fields!",
+      "ref": "for c in [...metric columns...]:\n        raw[c] = raw[c].fillna(0)"
+    },
+    {
+      "id": "4_O2_appearances_invalid_treated_not_gt0",
+      "kind": "Operation incomplete",
+      "node_id": "filter_app_gt0",
+      "op": "filter",
+      "source_text": "Remove all records where appearances =0",
+      "ref": "raw[c] = pd.to_numeric(raw[c], errors=\"coerce\")\n\n    # Remove records where appearances = 0 or NaN\n    raw = raw[raw[\"Appearances\"].fillna(0) > 0].copy()"
+    },
+    {
+      "id": "5_O3_rank_ties_competition_min",
+      "kind": "Operation boundary",
+      "node_id": "rank_cols",
+      "op": "project",
+      "source_text": "top 20 (including those that are tied for position)",
+      "ref": "base[\"Rank\"] = base[\"Open Play Goals\"].rank(\n        method=\"min\", ascending=False).astype(int)"
+    },
+    {
+      "id": "6_D1_rename_goals_column_total_goals",
+      "kind": "Row-level concept",
+      "node_id": "rename_goals",
+      "op": "project",
+      "source_text": "Rename the original Goals scored field to Total Goals Scored",
+      "ref": "agg = agg.rename(columns={\"Goals\": \"Total Goals\"})"
+    },
+    {
+      "id": "7_O2_union_all_append_no_dedup",
+      "kind": "Multi-table alignment",
+      "node_id": "union_all",
+      "op": "union",
+      "intent": "When combining multiple input files, append/union all rows without deduplicating.",
+      "ref": "input_files = sorted([p for p in inputs_dir.glob(\"*.csv\")])\nraw = pd.concat(frames, ignore_index=True)"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_winner_from_scores",
+      "kind": "Row-level concept",
+      "node_id": "compute_flags",
+      "op": "project",
+      "intent": "Determine winner by comparing home vs visitor final points.",
+      "ref": "row['Home/Neutral'] if row['PTS.1'] > row['PTS'] else row['Visitor/Neutral']"
+    },
+    {
+      "id": "2_O1_pct_round_3dp",
+      "kind": "Operation boundary",
+      "node_id": "compute_pct",
+      "op": "project",
+      "source_text": "**Pct**: Win percentage for each team.",
+      "ref": "standings['Pct'] = (standings['W'] / (standings['W'] + standings['L'])).round(3)"
+    },
+    {
+      "id": "3_O2_default_missing_split_records_0_0",
+      "kind": "Operation incomplete",
+      "node_id": "fill_missing_records",
+      "op": "project",
+      "intent": "If a team has no games in a split subset, set record string to '0-0'.",
+      "ref": "standings.fillna('0-0', inplace=True)"
+    },
+    {
+      "id": "4_O1_cutoff_strictly_before_utc",
+      "kind": "Operation boundary",
+      "node_id": "filter_before_cutoff",
+      "op": "filter",
+      "source_text": "as of Jan 6th, 2020 at 11:00AM GMT+0",
+      "ref": "all_games = all_games[all_games['DateTimeUTC'] < cutoff_utc]"
+    },
+    {
+      "id": "5_O2_exclude_games_missing_final_scores",
+      "kind": "Operation incomplete",
+      "node_id": "filter_has_scores",
+      "op": "filter",
+      "source_text": "January's sheet has some empty results as those games have not yet been played.",
+      "ref": "all_games = all_games[all_games['PTS'].notna() & all_games['PTS.1'].notna()]"
+    },
+    {
+      "id": "6_O2_l10_use_up_to_10_if_fewer",
+      "kind": "Operation incomplete",
+      "node_id": "filter_last10",
+      "op": "filter",
+      "source_text": "**L10**: The wins and losses for the last 10 games for each team.",
+      "ref": "last_10_games = team_games.groupby('Team').tail(10)"
+    },
+    {
+      "id": "7_C2_rank_by_pct_desc",
+      "kind": "Group-level concept",
+      "node_id": "filter_rank_pairs",
+      "op": "filter",
+      "source_text": "**Rank**: Rank for each team within their conference.",
+      "ref": "eastern_df['Pct'].rank(method='max', ascending=False)"
+    },
+    {
+      "id": "8_O3_rank_ties_use_max_method",
+      "kind": "Operation boundary",
+      "node_id": "filter_rank_pairs",
+      "op": "filter",
+      "source_text": "**Rank**: Rank for each team within their conference.",
+      "ref": "method='max'"
+    },
+    {
+      "id": "9_C2_streak_define_as_trailing_run",
+      "kind": "Group-level concept",
+      "node_id": "project_strk",
+      "op": "project",
+      "source_text": "**Strk**: The current winning or losing streak.",
+      "ref": "prefix = 'W' if last_result == 1 else 'L'; return f\"{prefix}{streak}\""
+    },
+    {
+      "id": "new_1_conference_output_file_mapping",
+      "kind": "Operation incomplete",
+      "node_id": "split_conference_outputs",
+      "op": "project",
+      "source_text": "split the teams into two separate outputs - one for each conference.",
+      "ref": "return {\n        'output_01.csv': western_df,\n        'output_02.csv': eastern_df\n    }"
+    }
+  ]
+}

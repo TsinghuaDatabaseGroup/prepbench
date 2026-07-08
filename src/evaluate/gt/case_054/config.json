@@ -1,0 +1,27 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Type", "Week", "Sales Volume", "Budget Volume", "Sales Value", "Budget Value"],
+      "columns": {
+        "Type": "text_exact",
+        "Week": "number",
+        "Sales Volume": "number",
+        "Budget Volume": "number",
+        "Sales Value": "number",
+        "Budget Value": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Type", "Week", "Sales Volume", "Sales Value", "Profit Min Sales Volume", "Profit Min Sales Value"],
+      "columns": {
+        "Type": "text_exact",
+        "Week": "number",
+        "Sales Volume": "number",
+        "Sales Value": "number",
+        "Profit Min Sales Volume": "number",
+        "Profit Min Sales Value": "number"
+      }
+    }
+  }
+}
+

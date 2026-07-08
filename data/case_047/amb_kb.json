@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_lvl_children_match_prefix",
+      "kind": "Single-table reference",
+      "node_id": "n_agg",
+      "op": "aggregate",
+      "source_text": "Find the profit totals for X items and sub-totals for X.X items",
+      "ref": "match = re.match(r'^(\\d+(?:\\.\\d+)*)', item); children = df[df['Item'].str.startswith(prefix + '.')]"
+    },
+    {
+      "id": "2_O1_profit_integer_cast",
+      "kind": "Operation boundary",
+      "node_id": "n_proj_indent_cast",
+      "op": "project",
+      "intent": "Output Profit as an integer.",
+      "ref": "output['Profit'] = output['Profit'].astype(int)"
+    },
+    {
+      "id": "3_O2_profit_unparseable_to_null",
+      "kind": "Operation incomplete",
+      "node_id": "n_proj_init",
+      "op": "project",
+      "intent": "Treat blank/unparseable Profit values as null for calculation.",
+      "ref": "df['Profit'] = pd.to_numeric(df['Profit'], errors='coerce')"
+    },
+    {
+      "id": "4_O2_level_from_numeric_prefix",
+      "kind": "Operation boundary",
+      "node_id": "n_proj_init",
+      "op": "project",
+      "source_text": "Add the leading spaces: 5 spaces for X.X items, 10 spaces for X.X.X items",
+      "ref": "return num_part.count('.') + 1"
+    },
+    {
+      "id": "5_O2_no_children_keep_existing",
+      "kind": "Operation incomplete",
+      "node_id": "n_proj_profit",
+      "op": "project",
+      "source_text": "Add the relevant values to the relevant items by replacing the nulls",
+      "ref": "if len(children) > 0: df.loc[idx, 'Profit'] = children['Profit'].sum()"
+    }
+  ]
+}

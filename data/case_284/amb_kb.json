@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_missing_driver_number",
+      "kind": "Operation incomplete",
+      "node_id": "flt_laps_valid",
+      "op": "filter",
+      "intent": "Whether to exclude lap rows where driver_number is missing before computing per-driver results.",
+      "ref": "df_valid = df_laps.dropna(subset=[\"lap_duration\", \"driver_number\"]).copy()"
+    },
+    {
+      "id": "2_O2_drop_invalid_lap_duration",
+      "kind": "Operation incomplete",
+      "node_id": "flt_laps_valid",
+      "op": "filter",
+      "intent": "Whether to exclude lap rows where lap_duration is missing or non-numeric/invalid.",
+      "ref": "df_laps[\"lap_duration\"] = pd.to_numeric(df_laps[\"lap_duration\"], errors=\"coerce\")\ndf_valid = df_laps.dropna(subset=[\"lap_duration\", \"driver_number\"]).copy()"
+    },
+    {
+      "id": "3_O2_left_join_keep_unmatched_drivers",
+      "kind": "Operation incomplete",
+      "node_id": "join_best_drivers",
+      "op": "join",
+      "source_text": "Join to your driver data",
+      "ref": "df_out = df_best.merge(df_drivers, on=\"driver_number\", how=\"left\")"
+    },
+    {
+      "id": "4_O2_coerce_non_numeric_lap_duration_to_null",
+      "kind": "Operation incomplete",
+      "node_id": "proj_laps_cast",
+      "op": "project",
+      "intent": "How to handle non-numeric lap_duration values when converting to numeric (e.g., coerce to null vs error).",
+      "ref": "df_laps[\"lap_duration\"] = pd.to_numeric(df_laps[\"lap_duration\"], errors=\"coerce\")"
+    },
+    {
+      "id": "5_O3_rank_tie_break_first_occurrence",
+      "kind": "Operation boundary",
+      "node_id": "proj_rank",
+      "op": "project",
+      "source_text": "Rank the drivers",
+      "ref": "df_out[\"Position\"] = df_out[\"lap_duration\"].rank(method=\"first\", ascending=True).astype(int)"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Latitude",
+        "Longitude",
+        "Medal Ceremony?",
+        "Sport Group",
+        "Events Split",
+        "UK Date Time",
+        "Date",
+        "Sport",
+        "Venue"
+      ],
+      "columns": {
+        "Latitude": "number",
+        "Longitude": "number",
+        "Medal Ceremony?": "boolean",
+        "Sport Group": "text_exact",
+        "Events Split": "text_exact",
+        "UK Date Time": "text_exact",
+        "Date": "date",
+        "Sport": "text_exact",
+        "Venue": "text_exact"
+      }
+    }
+  }
+}

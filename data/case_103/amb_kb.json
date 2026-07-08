@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_input_file_to_store_mapping",
+      "kind": "Multi-table alignment",
+      "node_id": "add_store",
+      "op": "project",
+      "source_text": "rename the 'Table Names' as 'Store'",
+      "ref": "# input_01 → Manchester\n# input_02 → London\n# input_03 → Leeds\n# input_04 → York\n# input_05 → Birmingham"
+    },
+    {
+      "id": "2_C2_variance_direction",
+      "kind": "Row-level concept",
+      "node_id": "compute_metrics",
+      "op": "project",
+      "source_text": "Calculate the Variance between each Store's Quarterly actual sales and the target.",
+      "ref": "result_df[\"Variance to Target\"] = result_df[\"Products Sold\"] - result_df[\"Target\"]"
+    },
+    {
+      "id": "3_O3_rank_tie_method",
+      "kind": "Operation boundary",
+      "node_id": "compute_metrics",
+      "op": "project",
+      "source_text": "Rank the Store's based on the Variance to Target in each quarter",
+      "ref": "method=\"dense\""
+    },
+    {
+      "id": "4_D2_join_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_targets",
+      "op": "join",
+      "source_text": "Join the Targets data with the aggregated Stores data",
+      "ref": "on=[\"Store\", \"Quarter\"]"
+    },
+    {
+      "id": "5_O2_join_unmatched_policy",
+      "kind": "Operation incomplete",
+      "node_id": "join_targets",
+      "op": "join",
+      "source_text": "Join the Targets data with the aggregated Stores data",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "6_D1_pivot_columns_selection",
+      "kind": "Single-table reference",
+      "node_id": "pivot_longer",
+      "op": "pivot",
+      "source_text": "Pivot the product columns",
+      "ref": "id_vars = [\"Date\", \"Store\"]\nvalue_vars = [col for col in union_df.columns if col not in id_vars]"
+    }
+  ]
+}

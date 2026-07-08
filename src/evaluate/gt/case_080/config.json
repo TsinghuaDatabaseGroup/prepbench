@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Scent", "Total Profit", "New Profit", "Difference"],
+      "columns": {
+        "Scent": "text_exact",
+        "Total Profit": "number",
+        "New Profit": "number",
+        "Difference": "number"
+      }
+    }
+  }
+}
+

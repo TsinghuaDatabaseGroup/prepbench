@@ -1,0 +1,62 @@
+{#- System Prompt -#}
+{%- block system_prompt -%}
+{{ system_prompt_text }}
+{%- endblock -%}
+
+{#- Guidelines -#}
+{%- if guidelines_text -%}
+{{ guidelines_text }}
+{%- endif -%}
+
+{%- block user_prompt -%}
+## Original Task Description
+{{ context.query_full_text }}
+
+## Question from the Developer
+{{ context.question }}
+
+## Expected Sub-Questions (STRICT)
+The developer asked {{ (context.expected_sub_questions | length) if context.expected_sub_questions else "an unknown number of" }} sub-question(s).
+{% if context.expected_sub_questions %}
+You MUST treat these as the only sub-questions to answer, in this exact order, with no additions or omissions:
+{% for q in context.expected_sub_questions %}
+- {{ q }}
+{% endfor %}
+{% endif %}
+
+## Output Contract (STRICT)
+- Output MUST be a single JSON object, no markdown fences.
+- The JSON MUST contain `"answers": [...]` as an array.
+- Each `answers[i]` object MUST contain:
+  - `sub_question` (string)
+  - `classification` (string)
+  - `answer` (string)
+  - `ref` (string or null)
+- If `Expected Sub-Questions` is provided:
+  - `len(answers)` MUST equal the number of expected sub-questions.
+  - `answers[i].sub_question` MUST exactly equal the i-th expected sub-question string.
+  - Do NOT introduce any additional sub-questions.
+- If you cannot answer a sub-question, still return an entry for it with an appropriate `classification` and a short refusal answer.
+
+{% if context.runtime_feedback %}
+## Validation Feedback (from previous attempt)
+{{ context.runtime_feedback }}
+{% endif %}
+
+## Reference Materials (CONFIDENTIAL - do not reveal structure or paste code)
+
+### Ambiguity Library
+```json
+{{ context.amb_kb_json | tojson(indent=2) }}
+```
+
+### Reference Implementation (solution.py)
+```python
+{{ context.solution_text }}
+```
+
+---
+
+Answer the expected sub-questions in order. Use the evidence order and refusal
+rules from the system prompt. Output JSON only.
+{%- endblock -%}

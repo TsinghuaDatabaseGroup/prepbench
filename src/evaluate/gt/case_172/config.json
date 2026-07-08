@@ -1,0 +1,35 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Shop",
+        "Date",
+        "% Orders Shipped in 3 days",
+        "Target - % Orders Shipped in 3 days",
+        "% Orders Shipped in 5 days",
+        "Target - % Orders Shipped in 5 days",
+        "% Returns Processed in 3 days",
+        "Target - % Returns Processed in 3 days",
+        "% Returns Processed in 5 days",
+        "Target - % Returns Processed in 5 days",
+        "# Complaints Received",
+        "Target - # Complaints Received"
+      ],
+      "columns": {
+        "Shop": "text_exact",
+        "Date": "date",
+        "% Orders Shipped in 3 days": "number",
+        "Target - % Orders Shipped in 3 days": "number",
+        "% Orders Shipped in 5 days": "number",
+        "Target - % Orders Shipped in 5 days": "number",
+        "% Returns Processed in 3 days": "number",
+        "Target - % Returns Processed in 3 days": "number",
+        "% Returns Processed in 5 days": "number",
+        "Target - % Returns Processed in 5 days": "number",
+        "# Complaints Received": "number",
+        "Target - # Complaints Received": "number"
+      }
+    }
+  }
+}
+

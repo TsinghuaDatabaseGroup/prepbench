@@ -1,0 +1,101 @@
+Store,Category,Product,Total Quantity Sold,Avg Quantity Sold per Week,Avg Order Frequency
+Richmond,Groceries,Blueberries,162,11.6,2
+Wembley,Beauty,Foundation,93,6.6,3.5
+Wembley,Groceries,Blueberries,97,6.9,2.8
+Stratford,Beauty,Moisturiser,204,14.6,1.6
+Stratford,Home,Wine glass,242,17.3,1.3
+Richmond,Groceries,Eggs,115,8.2,2.8
+Oxford Street,Clothes,Grey trousers,108,7.7,2.8
+Stratford,Groceries,Milk,142,10.1,2.3
+Stratford,Electronics,Andriod charger,198,14.1,1.4
+Richmond,Groceries,Milk,181,12.9,1.8
+Richmond,Home,Yellow mug,181,12.9,1.8
+Oxford Street,Groceries,Bagels,125,8.9,2.3
+Richmond,Groceries,Bagels,136,9.7,2.3
+Wembley,Home,Striped tea towels,81,5.8,4.7
+Oxford Street,Beauty,Moisturiser,142,10.1,2
+Richmond,Clothes,Red skirt,95,6.8,3.5
+Oxford Street,Beauty,Foundation,155,11.1,2.3
+Wembley,Clothes,Red skirt,85,6.1,4.7
+Oxford Street,Clothes,White top,149,10.6,2.3
+Stratford,Electronics,TV,165,11.8,2
+Richmond,Beauty,Moisturiser,111,7.9,2.8
+Richmond,Groceries,Apples,142,10.1,2
+Stratford,Groceries,Blueberries,209,14.9,1.6
+Wembley,Groceries,Apples,130,9.3,2.8
+Stratford,Electronics,iPhone charger,222,15.9,1.6
+Oxford Street,Home,Strawberry candle,110,7.9,2.8
+Stratford,Beauty,Shower gel,212,15.1,1.6
+Wembley,Home,Yellow mug,115,8.2,2.8
+Oxford Street,Electronics,Andriod charger,131,9.4,2.3
+Stratford,Electronics,SIM card,204,14.6,1.6
+Stratford,Clothes,Red skirt,226,16.1,1.4
+Wembley,Groceries,Milk,114,8.1,2.8
+Wembley,Clothes,Grey trousers,159,11.4,2
+Richmond,Home,Striped tea towels,148,10.6,2
+Wembley,Beauty,Hairbrush,107,7.6,2.8
+Richmond,Beauty,Hairbrush,165,11.8,1.8
+Stratford,Electronics,Batteries,214,15.3,1.4
+Wembley,Electronics,iPhone charger,137,9.8,2.3
+Richmond,Electronics,Batteries,169,12.1,1.8
+Oxford Street,Electronics,SIM card,131,9.4,2.3
+Oxford Street,Home,Yellow mug,124,8.9,2.3
+Richmond,Clothes,Black shoes,122,8.7,2.3
+Wembley,Electronics,Andriod charger,155,11.1,1.8
+Stratford,Groceries,Eggs,217,15.5,1.4
+Stratford,Clothes,Black shoes,226,16.1,1.4
+Richmond,Clothes,Grey trousers,163,11.6,2
+Oxford Street,Clothes,Red skirt,200,14.3,1.8
+Richmond,Home,Strawberry candle,178,12.7,2
+Oxford Street,Clothes,Black shoes,124,8.9,2.8
+Wembley,Groceries,Eggs,103,7.4,2.8
+Richmond,Clothes,White top,118,8.4,2.3
+Stratford,Beauty,Foundation,117,8.4,2.8
+Stratford,Home,Vase,141,10.1,2
+Wembley,Beauty,Shower gel,101,7.2,2.8
+Oxford Street,Home,Wine glass,88,6.3,3.5
+Wembley,Electronics,Batteries,96,6.9,2.8
+Oxford Street,Beauty,Shower gel,100,7.1,2.8
+Wembley,Clothes,Black top,70,5,3.5
+Oxford Street,Clothes,Black top,146,10.4,2
+Stratford,Clothes,Grey trousers,199,14.2,1.6
+Stratford,Beauty,Mascara,135,9.6,2.8
+Oxford Street,Electronics,Batteries,105,7.5,3.5
+Oxford Street,Groceries,Apples,152,10.9,2.3
+Richmond,Electronics,SIM card,106,7.6,2.8
+Oxford Street,Groceries,Eggs,99,7.1,2.8
+Stratford,Clothes,Black top,191,13.6,1.6
+Richmond,Beauty,Shower gel,152,10.9,2
+Richmond,Beauty,Mascara,153,10.9,2
+Richmond,Electronics,iPhone charger,137,9.8,2.3
+Oxford Street,Groceries,Milk,184,13.1,1.8
+Stratford,Home,Strawberry candle,183,13.1,1.6
+Oxford Street,Beauty,Mascara,124,8.9,2.3
+Oxford Street,Home,Vase,114,8.1,2.8
+Wembley,Home,Strawberry candle,108,7.7,2.8
+Stratford,Home,Yellow mug,163,11.6,1.8
+Stratford,Groceries,Bagels,148,10.6,2
+Wembley,Clothes,Black shoes,146,10.4,2.3
+Richmond,Home,Wine glass,119,8.5,2.8
+Oxford Street,Beauty,Hairbrush,133,9.5,2.3
+Richmond,Beauty,Foundation,173,12.4,1.6
+Oxford Street,Groceries,Blueberries,113,8.1,2.3
+Wembley,Beauty,Mascara,117,8.4,2.8
+Wembley,Beauty,Moisturiser,125,8.9,2.3
+Richmond,Clothes,Black top,137,9.8,2.8
+Oxford Street,Electronics,iPhone charger,87,6.2,3.5
+Wembley,Groceries,Bagels,124,8.9,2.3
+Stratford,Groceries,Apples,189,13.5,1.8
+Oxford Street,Electronics,TV,141,10.1,2.3
+Wembley,Electronics,TV,160,11.4,1.8
+Richmond,Electronics,TV,139,9.9,2.3
+Richmond,Electronics,Andriod charger,87,6.2,2.8
+Wembley,Home,Vase,94,6.7,2.8
+Wembley,Clothes,White top,110,7.9,2.8
+Oxford Street,Home,Striped tea towels,157,11.2,2
+Wembley,Electronics,SIM card,114,8.1,3.5
+Stratford,Home,Striped tea towels,209,14.9,1.4
+Richmond,Home,Vase,189,13.5,1.8
+Stratford,Clothes,White top,143,10.2,2
+Stratford,Beauty,Hairbrush,150,10.7,2
+Wembley,Home,Wine glass,62,4.4,4.7

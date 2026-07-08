@@ -1,0 +1,1511 @@
+Order Number,Batch Number,Customer ID,Item Number,Product,Price,Scent
+41,5357,2376,1,Razor,8.5,
+652,3717,8064,1,Liquid Soap,5.99,Raspberry
+652,5864,8064,2,Razor,8.5,
+652,9637,8064,3,Liquid Soap,5.99,Lemon
+673,3513,1491,3,Bar Soap,4.49,Coconut
+673,8486,1491,1,Liquid Soap,5.99,Coconut
+673,7659,1491,2,Razor,8.5,
+774,5864,1131,1,Razor,8.5,
+774,6326,1131,2,Liquid Soap,5.99,Mint
+815,6902,8309,3,Bar Soap,4.49,Mint
+815,9696,8309,1,Liquid Soap,5.99,Coconut
+815,7659,8309,2,Razor,8.5,
+1256,8781,9477,1,Bar Soap,4.49,Jasmine
+1256,9483,9477,3,Liquid Soap,5.99,Lemon
+1256,6302,9477,2,Razor,8.5,
+1287,1073,8718,3,Liquid Soap,5.99,Chocolate
+1287,8486,8718,1,Liquid Soap,5.99,Coconut
+1287,5864,8718,2,Razor,8.5,
+1348,5357,1489,1,Razor,8.5,
+1348,7659,1489,2,Razor,8.5,
+1439,6855,1658,1,Liquid Soap,5.99,Caramel
+1541,8743,9643,2,Shower Gel,2.29,Coconut
+1541,7659,9643,1,Razor,8.5,
+1902,1984,95,2,Shower Gel,2.29,Chocolate
+1902,2364,95,1,Shower Gel,2.29,Lemon
+1902,7659,95,3,Razor,8.5,
+1963,6302,4859,1,Razor,8.5,
+1994,7265,9672,1,Shower Gel,2.29,Chocolate
+2085,7766,1967,2,Bar Soap,4.49,Lavender
+2085,3717,1967,1,Liquid Soap,5.99,Raspberry
+2085,3232,1967,3,Shower Gel,2.29,Raspberry
+2096,5357,4736,1,Razor,8.5,
+2096,1325,4736,3,Shower Gel,2.29,Coconut
+2096,2572,4736,2,Liquid Soap,5.99,Lavender
+2307,8949,5200,2,Shower Gel,2.29,Caramel
+2307,1984,9879,2,Shower Gel,2.29,Chocolate
+2307,9907,9879,1,Bar Soap,4.49,Jasmine
+2307,5952,9879,3,Liquid Soap,5.99,Jasmine
+2307,7659,5200,1,Razor,8.5,
+2328,2364,8655,2,Shower Gel,2.29,Lemon
+2328,1073,8655,3,Liquid Soap,5.99,Chocolate
+2328,5864,8655,1,Razor,8.5,
+2779,5357,256,2,Razor,8.5,
+2779,8739,256,1,Shower Gel,2.29,Jasmine
+2961,4627,5557,2,Bar Soap,4.49,Chocolate
+2961,5864,5557,1,Razor,8.5,
+3002,3717,1553,2,Liquid Soap,5.99,Raspberry
+3002,1984,1553,3,Shower Gel,2.29,Chocolate
+3002,4728,1553,1,Shower Gel,2.29,Lemon
+3213,3717,891,1,Liquid Soap,5.99,Raspberry
+3213,5864,891,2,Razor,8.5,
+3213,7659,891,3,Razor,8.5,
+3264,2364,7112,1,Shower Gel,2.29,Lemon
+3264,2051,7112,3,Liquid Soap,5.99,Lemon
+3264,9637,7112,2,Liquid Soap,5.99,Lemon
+3285,1402,7423,1,Liquid Soap,5.99,Raspberry
+3285,3127,7423,3,Shower Gel,2.29,Raspberry
+3285,6302,7423,2,Razor,8.5,
+3326,4627,3828,3,Bar Soap,4.49,Chocolate
+3326,1325,3828,1,Shower Gel,2.29,Coconut
+3326,6302,3828,2,Razor,8.5,
+3417,5357,2610,3,Razor,8.5,
+3417,5357,2610,2,Razor,8.5,
+3417,7265,2610,1,Shower Gel,2.29,Chocolate
+3508,5072,9738,1,Liquid Soap,5.99,Mint
+3508,9342,9738,2,Shower Gel,2.29,Lavender
+3508,7659,9738,3,Razor,8.5,
+3529,9483,4949,1,Liquid Soap,5.99,Lemon
+3541,1402,6298,2,Liquid Soap,5.99,Raspberry
+3541,5864,6298,3,Razor,8.5,
+3541,7659,6298,1,Razor,8.5,
+4122,6749,450,3,Liquid Soap,5.99,Chocolate
+4122,8486,450,2,Liquid Soap,5.99,Coconut
+4122,6302,450,1,Razor,8.5,
+4143,4140,2707,1,Bar Soap,4.49,Lemon
+4143,6749,2707,2,Liquid Soap,5.99,Chocolate
+4143,4696,2707,3,Liquid Soap,5.99,Jasmine
+4284,5357,6811,1,Razor,8.5,
+4284,6302,6811,2,Razor,8.5,
+4305,7472,9450,1,Bar Soap,4.49,Lemon
+4305,7659,9450,2,Razor,8.5,
+4746,1073,9531,1,Liquid Soap,5.99,Chocolate
+4746,6302,9531,2,Razor,8.5,
+4847,9483,5579,1,Liquid Soap,5.99,Lemon
+4847,1325,5579,2,Shower Gel,2.29,Coconut
+4847,2364,5579,3,Shower Gel,2.29,Lemon
+4978,7265,4027,2,Shower Gel,2.29,Chocolate
+4978,6174,4027,1,Liquid Soap,5.99,Lavender
+5029,6749,8202,1,Liquid Soap,5.99,Chocolate
+5029,3289,8202,3,Shower Gel,2.29,Lavender
+5029,7865,8202,2,Shower Gel,2.29,Caramel
+5081,3513,9317,3,Bar Soap,4.49,Coconut
+5081,1984,9317,2,Shower Gel,2.29,Chocolate
+5081,9637,9317,1,Liquid Soap,5.99,Lemon
+5292,5357,4238,2,Razor,8.5,
+5292,1984,4238,1,Shower Gel,2.29,Chocolate
+5292,1984,4238,3,Shower Gel,2.29,Chocolate
+5292,2364,1893,3,Shower Gel,2.29,Lemon
+5292,4728,1893,1,Shower Gel,2.29,Lemon
+5292,6302,1893,2,Razor,8.5,
+5513,7659,2389,1,Razor,8.5,
+5513,6302,2389,2,Razor,8.5,
+5544,8437,6471,1,Liquid Soap,5.99,Lavender
+5544,8486,6471,2,Liquid Soap,5.99,Coconut
+5645,4140,7858,2,Bar Soap,4.49,Lemon
+5645,7659,7858,1,Razor,8.5,
+6256,1984,5278,1,Shower Gel,2.29,Chocolate
+6256,7555,5278,3,Liquid Soap,5.99,Jasmine
+6256,8743,5278,2,Shower Gel,2.29,Coconut
+6307,8486,6441,1,Liquid Soap,5.99,Coconut
+6307,4378,6441,3,Shower Gel,2.29,Mint
+6307,3127,6441,2,Shower Gel,2.29,Raspberry
+6818,1325,7678,1,Shower Gel,2.29,Coconut
+6818,8486,7678,3,Liquid Soap,5.99,Coconut
+7459,8437,5691,1,Liquid Soap,5.99,Lavender
+7459,3232,5691,2,Shower Gel,2.29,Raspberry
+7459,4378,5691,3,Shower Gel,2.29,Mint
+7541,8949,9818,2,Shower Gel,2.29,Caramel
+7541,4808,9818,3,Liquid Soap,5.99,Chocolate
+7541,6302,9818,1,Razor,8.5,
+7632,5823,6255,3,Liquid Soap,5.99,Caramel
+7632,1325,6255,1,Shower Gel,2.29,Coconut
+7632,5347,6255,2,Shower Gel,2.29,Mint
+7673,2971,9367,3,Bar Soap,4.49,Chocolate
+7673,1402,9367,2,Liquid Soap,5.99,Raspberry
+7673,6302,9367,1,Razor,8.5,
+7974,6749,6790,1,Liquid Soap,5.99,Chocolate
+7974,5357,6790,3,Razor,8.5,
+7974,7659,6790,2,Razor,8.5,
+8695,8437,9545,1,Liquid Soap,5.99,Lavender
+8695,4728,9545,2,Shower Gel,2.29,Lemon
+8695,6302,9545,3,Razor,8.5,
+8776,3457,1195,3,Bar Soap,4.49,Raspberry
+8776,2971,6560,2,Bar Soap,4.49,Chocolate
+8776,7865,6560,1,Shower Gel,2.29,Caramel
+8776,9342,1195,2,Shower Gel,2.29,Lavender
+8776,4378,1195,1,Shower Gel,2.29,Mint
+8997,4728,4470,2,Shower Gel,2.29,Lemon
+8997,6326,4470,1,Liquid Soap,5.99,Mint
+9108,6302,5648,1,Razor,8.5,
+9169,2095,1826,1,Bar Soap,4.49,Raspberry
+9391,5357,9974,3,Razor,8.5,
+9391,1325,9974,1,Shower Gel,2.29,Coconut
+9391,6302,9974,2,Razor,8.5,
+9412,5357,4802,1,Razor,8.5,
+9412,2364,4802,2,Shower Gel,2.29,Lemon
+9412,7265,4802,3,Shower Gel,2.29,Chocolate
+9473,6749,5223,3,Liquid Soap,5.99,Chocolate
+9473,2051,5223,2,Liquid Soap,5.99,Lemon
+9473,6302,5223,1,Razor,8.5,
+9504,8437,1910,1,Liquid Soap,5.99,Lavender
+9504,5864,1910,2,Razor,8.5,
+9685,4728,6590,1,Shower Gel,2.29,Lemon
+9816,34,6331,2,Bar Soap,4.49,Lavender
+9816,9637,6331,1,Liquid Soap,5.99,Lemon
+9897,3457,6693,2,Bar Soap,4.49,Raspberry
+9897,2242,6693,3,Liquid Soap,5.99,Heather
+9897,8743,6693,1,Shower Gel,2.29,Coconut
+10078,5864,9677,3,Razor,8.5,
+10078,4808,9677,1,Liquid Soap,5.99,Chocolate
+10239,627,3642,2,Liquid Soap,5.99,Coconut
+10239,7265,3642,1,Shower Gel,2.29,Chocolate
+10331,7265,8103,2,Shower Gel,2.29,Chocolate
+10331,4378,8103,3,Shower Gel,2.29,Mint
+10331,6302,8103,1,Razor,8.5,
+10802,4627,507,2,Bar Soap,4.49,Chocolate
+10802,6302,507,1,Razor,8.5,
+10813,3513,9103,3,Bar Soap,4.49,Coconut
+10813,1325,9103,2,Shower Gel,2.29,Coconut
+10813,8743,9103,1,Shower Gel,2.29,Coconut
+10854,8949,5613,2,Shower Gel,2.29,Caramel
+10854,9732,5613,3,Bar Soap,4.49,Mint
+10854,5864,5613,1,Razor,8.5,
+10905,7472,9270,1,Bar Soap,4.49,Lemon
+10905,9637,1163,2,Liquid Soap,5.99,Lemon
+10905,7659,1163,1,Razor,8.5,
+10966,627,5769,1,Liquid Soap,5.99,Coconut
+10966,1325,5769,2,Shower Gel,2.29,Coconut
+11047,6902,819,1,Bar Soap,4.49,Mint
+11047,4378,819,3,Shower Gel,2.29,Mint
+11047,7659,819,2,Razor,8.5,
+11078,3717,2360,1,Liquid Soap,5.99,Raspberry
+11229,9483,2108,1,Liquid Soap,5.99,Lemon
+11229,6855,2108,2,Liquid Soap,5.99,Caramel
+11229,6302,2108,3,Razor,8.5,
+11291,1402,7956,2,Liquid Soap,5.99,Raspberry
+11291,1278,7956,1,Shower Gel,2.29,Jasmine
+11291,6174,7956,3,Liquid Soap,5.99,Lavender
+11412,1984,5489,1,Shower Gel,2.29,Chocolate
+11412,4728,5489,3,Shower Gel,2.29,Lemon
+11412,7659,5489,2,Razor,8.5,
+11443,2051,284,1,Liquid Soap,5.99,Lemon
+11544,5347,2779,2,Shower Gel,2.29,Mint
+11544,3232,2779,3,Shower Gel,2.29,Raspberry
+11544,6302,2779,1,Razor,8.5,
+11775,3127,8794,2,Shower Gel,2.29,Raspberry
+11775,6302,8794,1,Razor,8.5,
+11796,5823,8441,3,Liquid Soap,5.99,Caramel
+11796,1984,8441,2,Shower Gel,2.29,Chocolate
+11796,6302,8441,1,Razor,8.5,
+11907,3232,3723,2,Shower Gel,2.29,Raspberry
+11907,7659,3723,3,Razor,8.5,
+11907,7659,3723,1,Razor,8.5,
+12058,7472,5857,1,Bar Soap,4.49,Lemon
+12058,5864,5857,2,Razor,8.5,
+12058,7659,5857,3,Razor,8.5,
+12099,5864,5490,1,Razor,8.5,
+12311,6749,5490,1,Liquid Soap,5.99,Chocolate
+12311,6749,5490,3,Liquid Soap,5.99,Chocolate
+12311,3289,5490,2,Shower Gel,2.29,Lavender
+13022,4696,4177,2,Liquid Soap,5.99,Jasmine
+13022,2051,4177,1,Liquid Soap,5.99,Lemon
+13022,7265,4177,3,Shower Gel,2.29,Chocolate
+13043,9696,5099,1,Liquid Soap,5.99,Coconut
+13054,3513,2167,3,Bar Soap,4.49,Coconut
+13054,5072,2167,1,Liquid Soap,5.99,Mint
+13054,4728,2167,2,Shower Gel,2.29,Lemon
+13135,6749,7034,1,Liquid Soap,5.99,Chocolate
+13135,6302,7034,3,Razor,8.5,
+13135,6302,7034,2,Razor,8.5,
+13316,2971,8281,2,Bar Soap,4.49,Chocolate
+13316,4808,8281,1,Liquid Soap,5.99,Chocolate
+13417,4627,2880,1,Bar Soap,4.49,Chocolate
+13417,8437,2880,2,Liquid Soap,5.99,Lavender
+13538,9342,7603,1,Shower Gel,2.29,Lavender
+13769,7472,7130,3,Bar Soap,4.49,Lemon
+13769,9732,7130,1,Bar Soap,4.49,Mint
+13769,5864,7130,2,Razor,8.5,
+14021,1984,963,1,Shower Gel,2.29,Chocolate
+14021,5864,963,3,Razor,8.5,
+14021,6326,963,2,Liquid Soap,5.99,Mint
+14152,6902,9371,2,Bar Soap,4.49,Mint
+14152,6855,9371,3,Liquid Soap,5.99,Caramel
+14152,4378,9371,1,Shower Gel,2.29,Mint
+14323,6902,6762,1,Bar Soap,4.49,Mint
+14323,6302,6762,3,Razor,8.5,
+14394,9483,3068,2,Liquid Soap,5.99,Lemon
+14394,9996,3068,1,Liquid Soap,5.99,Caramel
+14435,3289,8354,1,Shower Gel,2.29,Lavender
+14435,9732,8354,2,Bar Soap,4.49,Mint
+14506,1325,4939,3,Shower Gel,2.29,Coconut
+14506,9907,4939,2,Bar Soap,4.49,Jasmine
+14506,6302,4939,1,Razor,8.5,
+15017,3717,3682,1,Liquid Soap,5.99,Raspberry
+15017,6302,3682,2,Razor,8.5,
+15238,4627,6142,2,Bar Soap,4.49,Chocolate
+15238,3717,6142,3,Liquid Soap,5.99,Raspberry
+15238,7659,6142,1,Razor,8.5,
+15349,5357,5888,2,Razor,8.5,
+15349,3850,5888,1,Liquid Soap,5.99,Raspberry
+15349,7659,5888,3,Razor,8.5,
+15601,6902,7468,2,Bar Soap,4.49,Mint
+15601,8743,7468,3,Shower Gel,2.29,Coconut
+15601,6302,7468,1,Razor,8.5,
+15832,5357,191,3,Razor,8.5,
+15832,4378,191,2,Shower Gel,2.29,Mint
+15832,9696,191,1,Liquid Soap,5.99,Coconut
+15923,8266,5975,2,Bar Soap,4.49,Heather
+15923,5864,5975,1,Razor,8.5,
+16074,34,1610,1,Bar Soap,4.49,Lavender
+16074,9696,1610,2,Liquid Soap,5.99,Coconut
+16074,6302,1610,3,Razor,8.5,
+16185,3717,7987,1,Liquid Soap,5.99,Raspberry
+16185,3717,7987,2,Liquid Soap,5.99,Raspberry
+16185,3127,7987,3,Shower Gel,2.29,Raspberry
+16256,5823,7900,1,Liquid Soap,5.99,Caramel
+16256,627,7900,2,Liquid Soap,5.99,Coconut
+16497,2364,733,2,Shower Gel,2.29,Lemon
+16497,7659,733,3,Razor,8.5,
+16497,6302,733,1,Razor,8.5,
+16568,1984,7636,2,Shower Gel,2.29,Chocolate
+16568,9342,7636,1,Shower Gel,2.29,Lavender
+16568,9696,7636,3,Liquid Soap,5.99,Coconut
+16579,5357,8803,2,Razor,8.5,
+16579,1402,8803,1,Liquid Soap,5.99,Raspberry
+16579,5864,8803,3,Razor,8.5,
+16741,1984,7892,3,Shower Gel,2.29,Chocolate
+16741,5952,7892,2,Liquid Soap,5.99,Jasmine
+16741,6302,7892,1,Razor,8.5,
+16842,4140,2180,1,Bar Soap,4.49,Lemon
+16842,1325,2180,2,Shower Gel,2.29,Coconut
+16873,3850,9306,1,Liquid Soap,5.99,Raspberry
+16954,3232,2378,3,Shower Gel,2.29,Raspberry
+16954,8743,2378,1,Shower Gel,2.29,Coconut
+16954,6302,2378,2,Razor,8.5,
+17185,9112,8282,3,Shower Gel,2.29,Heather
+17185,3850,8282,2,Liquid Soap,5.99,Raspberry
+17185,6302,8282,1,Razor,8.5,
+17306,5347,4889,1,Shower Gel,2.29,Mint
+17306,4808,4889,2,Liquid Soap,5.99,Chocolate
+17306,7659,4889,3,Razor,8.5,
+17317,5357,9142,2,Razor,8.5,
+17317,4728,9142,1,Shower Gel,2.29,Lemon
+17317,6302,9142,3,Razor,8.5,
+17558,5357,5097,3,Razor,8.5,
+17558,4378,5097,2,Shower Gel,2.29,Mint
+17558,3850,5097,1,Liquid Soap,5.99,Raspberry
+17759,3513,4479,1,Bar Soap,4.49,Coconut
+17759,2051,4479,2,Liquid Soap,5.99,Lemon
+17759,7659,4479,3,Razor,8.5,
+18211,2971,7721,3,Bar Soap,4.49,Chocolate
+18211,7472,7721,1,Bar Soap,4.49,Lemon
+18211,7659,7721,2,Razor,8.5,
+18512,9732,4945,1,Bar Soap,4.49,Mint
+18512,9342,4945,3,Shower Gel,2.29,Lavender
+18512,4808,4945,2,Liquid Soap,5.99,Chocolate
+18613,2095,8513,1,Bar Soap,4.49,Raspberry
+18804,6749,7524,2,Liquid Soap,5.99,Chocolate
+18804,6326,7524,3,Liquid Soap,5.99,Mint
+18804,6302,7524,1,Razor,8.5,
+18825,627,9234,2,Liquid Soap,5.99,Coconut
+18825,9483,9234,1,Liquid Soap,5.99,Lemon
+18825,3127,9234,3,Shower Gel,2.29,Raspberry
+18926,7766,7863,1,Bar Soap,4.49,Lavender
+19017,627,2156,1,Liquid Soap,5.99,Coconut
+19017,8437,2156,2,Liquid Soap,5.99,Lavender
+19418,4627,9742,3,Bar Soap,4.49,Chocolate
+19418,9483,9742,2,Liquid Soap,5.99,Lemon
+19418,8486,9742,1,Liquid Soap,5.99,Coconut
+19639,2364,7357,2,Shower Gel,2.29,Lemon
+19639,7659,7357,3,Razor,8.5,
+19639,7659,7357,1,Razor,8.5,
+19681,7472,4336,1,Bar Soap,4.49,Lemon
+19681,7555,4336,3,Liquid Soap,5.99,Jasmine
+19681,6302,4336,2,Razor,8.5,
+20052,9483,3320,1,Liquid Soap,5.99,Lemon
+20052,9696,3320,2,Liquid Soap,5.99,Coconut
+20203,7472,3348,2,Bar Soap,4.49,Lemon
+20203,7555,3348,3,Liquid Soap,5.99,Jasmine
+20203,2051,3348,1,Liquid Soap,5.99,Lemon
+20484,2364,4438,3,Shower Gel,2.29,Lemon
+20484,9732,4438,1,Bar Soap,4.49,Mint
+20484,4728,4438,2,Shower Gel,2.29,Lemon
+20565,6302,7135,1,Razor,8.5,
+20565,6302,7135,2,Razor,8.5,
+20586,3457,1392,1,Bar Soap,4.49,Raspberry
+20586,3289,7818,3,Shower Gel,2.29,Lavender
+20586,2364,1392,3,Shower Gel,2.29,Lemon
+20586,4378,1392,2,Shower Gel,2.29,Mint
+20586,7659,7818,1,Razor,8.5,
+20677,3717,3531,3,Liquid Soap,5.99,Raspberry
+20677,1325,3531,1,Shower Gel,2.29,Coconut
+20677,6302,3531,2,Razor,8.5,
+21118,3289,5634,2,Shower Gel,2.29,Lavender
+21118,7265,5634,3,Shower Gel,2.29,Chocolate
+21118,9696,5634,1,Liquid Soap,5.99,Coconut
+21379,6302,2357,1,Razor,8.5,
+21901,4728,4425,1,Shower Gel,2.29,Lemon
+21901,6302,4425,2,Razor,8.5,
+21952,8781,164,1,Bar Soap,4.49,Jasmine
+21952,9483,164,3,Liquid Soap,5.99,Lemon
+21952,7659,164,2,Razor,8.5,
+22023,5357,1973,3,Razor,8.5,
+22023,1402,1973,1,Liquid Soap,5.99,Raspberry
+22023,4728,1973,2,Shower Gel,2.29,Lemon
+22044,2364,6288,3,Shower Gel,2.29,Lemon
+22044,4378,6288,2,Shower Gel,2.29,Mint
+22044,9996,6288,1,Liquid Soap,5.99,Caramel
+22125,9483,3757,1,Liquid Soap,5.99,Lemon
+22125,2971,3757,2,Bar Soap,4.49,Chocolate
+22125,7865,3757,3,Shower Gel,2.29,Caramel
+22316,6302,3401,1,Razor,8.5,
+22667,2364,4767,3,Shower Gel,2.29,Lemon
+22667,2971,4767,2,Bar Soap,4.49,Chocolate
+22667,7659,4767,1,Razor,8.5,
+22688,4862,450,2,Bar Soap,4.49,Coconut
+22688,9696,450,3,Liquid Soap,5.99,Coconut
+22688,3850,450,1,Liquid Soap,5.99,Raspberry
+22749,9342,9309,1,Shower Gel,2.29,Lavender
+22749,7659,9309,2,Razor,8.5,
+22841,9996,2588,1,Liquid Soap,5.99,Caramel
+22942,1073,1541,1,Liquid Soap,5.99,Chocolate
+22942,5864,1541,2,Razor,8.5,
+22942,4728,1541,3,Shower Gel,2.29,Lemon
+23003,6749,3925,1,Liquid Soap,5.99,Chocolate
+23003,431,3925,3,Liquid Soap,5.99,Mint
+23003,34,3925,2,Bar Soap,4.49,Lavender
+23044,627,3679,3,Liquid Soap,5.99,Coconut
+23044,2364,3679,2,Shower Gel,2.29,Lemon
+23044,2572,3679,1,Liquid Soap,5.99,Lavender
+23255,9483,4079,3,Liquid Soap,5.99,Lemon
+23255,431,2232,1,Liquid Soap,5.99,Mint
+23255,5357,2232,3,Razor,8.5,
+23255,5357,4079,1,Razor,8.5,
+23255,5347,2232,2,Shower Gel,2.29,Mint
+23255,6302,4079,2,Razor,8.5,
+23696,4140,2296,1,Bar Soap,4.49,Lemon
+23696,9483,2296,3,Liquid Soap,5.99,Lemon
+23696,2971,4319,2,Bar Soap,4.49,Chocolate
+23696,5864,4319,3,Razor,8.5,
+23696,7865,4319,1,Shower Gel,2.29,Caramel
+23696,6302,2296,2,Razor,8.5,
+23787,627,9970,3,Liquid Soap,5.99,Coconut
+23787,1402,9970,2,Liquid Soap,5.99,Raspberry
+23787,6302,9970,1,Razor,8.5,
+24028,1325,2113,1,Shower Gel,2.29,Coconut
+24028,2971,2113,3,Bar Soap,4.49,Chocolate
+24028,4808,2113,2,Liquid Soap,5.99,Chocolate
+24089,2364,5309,2,Shower Gel,2.29,Lemon
+24089,7865,5309,3,Shower Gel,2.29,Caramel
+24089,4808,5309,1,Liquid Soap,5.99,Chocolate
+24321,7472,4094,3,Bar Soap,4.49,Lemon
+24321,7265,4094,2,Shower Gel,2.29,Chocolate
+24321,6302,4094,1,Razor,8.5,
+24542,6749,2961,1,Liquid Soap,5.99,Chocolate
+24542,5864,2961,3,Razor,8.5,
+24542,7659,2961,2,Razor,8.5,
+24573,3289,4927,3,Shower Gel,2.29,Lavender
+24573,2051,4927,1,Liquid Soap,5.99,Lemon
+24573,9996,4927,2,Liquid Soap,5.99,Caramel
+24924,3232,3710,2,Shower Gel,2.29,Raspberry
+24924,6174,3710,1,Liquid Soap,5.99,Lavender
+25015,4696,4797,2,Liquid Soap,5.99,Jasmine
+25015,5085,4797,3,Bar Soap,4.49,Caramel
+25015,6302,4797,1,Razor,8.5,
+25056,4627,9543,1,Bar Soap,4.49,Chocolate
+25056,7265,9543,2,Shower Gel,2.29,Chocolate
+25087,3289,7471,3,Shower Gel,2.29,Lavender
+25087,5347,7471,2,Shower Gel,2.29,Mint
+25087,3850,7471,1,Liquid Soap,5.99,Raspberry
+25118,3127,167,3,Shower Gel,2.29,Raspberry
+25118,6174,167,2,Liquid Soap,5.99,Lavender
+25118,6302,167,1,Razor,8.5,
+25129,7766,1930,1,Bar Soap,4.49,Lavender
+25129,6302,1930,2,Razor,8.5,
+25291,5357,419,1,Razor,8.5,
+25291,4728,419,3,Shower Gel,2.29,Lemon
+25291,7659,419,2,Razor,8.5,
+25442,5357,7428,1,Razor,8.5,
+25442,2364,7428,2,Shower Gel,2.29,Lemon
+25442,4728,7428,3,Shower Gel,2.29,Lemon
+25453,431,8095,3,Liquid Soap,5.99,Mint
+25453,3717,8095,1,Liquid Soap,5.99,Raspberry
+25453,8949,8095,2,Shower Gel,2.29,Caramel
+25584,1984,7439,3,Shower Gel,2.29,Chocolate
+25584,9696,7439,1,Liquid Soap,5.99,Coconut
+25584,9696,7439,2,Liquid Soap,5.99,Coconut
+25755,9483,8914,2,Liquid Soap,5.99,Lemon
+25755,3850,8914,1,Liquid Soap,5.99,Raspberry
+25755,6302,8914,3,Razor,8.5,
+25766,4862,8019,3,Bar Soap,4.49,Coconut
+25766,4808,8019,2,Liquid Soap,5.99,Chocolate
+25766,6302,8019,1,Razor,8.5,
+25827,8949,3535,1,Shower Gel,2.29,Caramel
+25827,2971,3535,2,Bar Soap,4.49,Chocolate
+25908,5357,2868,2,Razor,8.5,
+25908,6302,2868,1,Razor,8.5,
+25979,1984,1737,3,Shower Gel,2.29,Chocolate
+25979,2572,5706,1,Liquid Soap,5.99,Lavender
+25979,2051,1737,1,Liquid Soap,5.99,Lemon
+25979,4728,1737,2,Shower Gel,2.29,Lemon
+26091,2095,8338,1,Bar Soap,4.49,Raspberry
+26091,6302,8338,2,Razor,8.5,
+26142,3717,8293,1,Liquid Soap,5.99,Raspberry
+26142,5864,8293,3,Razor,8.5,
+26142,5864,8293,2,Razor,8.5,
+26203,1984,3425,3,Shower Gel,2.29,Chocolate
+26203,1073,3425,2,Liquid Soap,5.99,Chocolate
+26203,9342,3425,1,Shower Gel,2.29,Lavender
+26214,2364,5560,2,Shower Gel,2.29,Lemon
+26214,8743,5560,1,Shower Gel,2.29,Coconut
+26225,5357,2757,3,Razor,8.5,
+26225,4862,2757,2,Bar Soap,4.49,Coconut
+26225,9637,2757,1,Liquid Soap,5.99,Lemon
+26286,8437,1223,1,Liquid Soap,5.99,Lavender
+26286,5357,1223,2,Razor,8.5,
+26607,4728,7323,3,Shower Gel,2.29,Lemon
+26607,9637,7323,2,Liquid Soap,5.99,Lemon
+26607,7659,7323,1,Razor,8.5,
+26988,6302,3227,1,Razor,8.5,
+27619,9684,7872,3,Bar Soap,4.49,Caramel
+27619,2095,7872,2,Bar Soap,4.49,Raspberry
+27619,2051,7872,1,Liquid Soap,5.99,Lemon
+27921,627,9666,1,Liquid Soap,5.99,Coconut
+27921,5347,9666,3,Shower Gel,2.29,Mint
+27921,5864,9666,2,Razor,8.5,
+27982,4140,8099,3,Bar Soap,4.49,Lemon
+27982,2051,8099,1,Liquid Soap,5.99,Lemon
+27982,6302,8099,2,Razor,8.5,
+28073,5357,9101,3,Razor,8.5,
+28073,1984,9101,2,Shower Gel,2.29,Chocolate
+28073,6302,9101,1,Razor,8.5,
+28184,3717,5078,2,Liquid Soap,5.99,Raspberry
+28184,1073,5078,1,Liquid Soap,5.99,Chocolate
+28985,9684,1004,3,Bar Soap,4.49,Caramel
+28985,1984,1004,2,Shower Gel,2.29,Chocolate
+28985,3127,1004,1,Shower Gel,2.29,Raspberry
+29486,5357,3938,2,Razor,8.5,
+29486,4808,3938,1,Liquid Soap,5.99,Chocolate
+29486,9637,3938,3,Liquid Soap,5.99,Lemon
+29687,7865,7995,1,Shower Gel,2.29,Caramel
+29768,5357,4810,3,Razor,8.5,
+29768,2364,4810,1,Shower Gel,2.29,Lemon
+29768,7659,4810,2,Razor,8.5,
+30419,6302,3697,1,Razor,8.5,
+30481,5072,4211,3,Liquid Soap,5.99,Mint
+30481,3127,4211,1,Shower Gel,2.29,Raspberry
+30481,9637,4211,2,Liquid Soap,5.99,Lemon
+30692,4728,3584,1,Shower Gel,2.29,Lemon
+30692,9637,3584,2,Liquid Soap,5.99,Lemon
+30703,9483,7816,3,Liquid Soap,5.99,Lemon
+30703,5072,7816,1,Liquid Soap,5.99,Mint
+30703,4728,7816,2,Shower Gel,2.29,Lemon
+30944,5864,6106,1,Razor,8.5,
+31095,6902,9881,3,Bar Soap,4.49,Mint
+31095,431,9881,1,Liquid Soap,5.99,Mint
+31095,6302,9881,2,Razor,8.5,
+31156,5357,7556,1,Razor,8.5,
+31156,7865,7556,2,Shower Gel,2.29,Caramel
+31156,4728,7556,3,Shower Gel,2.29,Lemon
+31447,9907,5494,3,Bar Soap,4.49,Jasmine
+31447,2572,5494,1,Liquid Soap,5.99,Lavender
+31447,6302,5494,2,Razor,8.5,
+31498,8266,6826,3,Bar Soap,4.49,Heather
+31498,431,6826,1,Liquid Soap,5.99,Mint
+31498,8743,6826,2,Shower Gel,2.29,Coconut
+31659,1402,5405,1,Liquid Soap,5.99,Raspberry
+31659,6302,5405,2,Razor,8.5,
+31841,5357,4204,2,Razor,8.5,
+31841,5357,4204,3,Razor,8.5,
+31841,3232,4204,1,Shower Gel,2.29,Raspberry
+31872,5072,4139,2,Liquid Soap,5.99,Mint
+31872,7265,4139,1,Shower Gel,2.29,Chocolate
+32043,3513,450,3,Bar Soap,4.49,Coconut
+32043,1073,450,2,Liquid Soap,5.99,Chocolate
+32043,7659,450,1,Razor,8.5,
+32314,627,3471,1,Liquid Soap,5.99,Coconut
+32314,3232,3471,2,Shower Gel,2.29,Raspberry
+32335,7265,5772,1,Shower Gel,2.29,Chocolate
+32436,4378,8954,1,Shower Gel,2.29,Mint
+32436,9996,8954,2,Liquid Soap,5.99,Caramel
+32467,5357,7891,3,Razor,8.5,
+32467,1984,7891,2,Shower Gel,2.29,Chocolate
+32467,6302,7891,1,Razor,8.5,
+32558,9483,4246,1,Liquid Soap,5.99,Lemon
+32558,5952,4246,3,Liquid Soap,5.99,Jasmine
+32558,6302,4246,2,Razor,8.5,
+32569,7659,4275,1,Razor,8.5,
+32611,2364,5154,3,Shower Gel,2.29,Lemon
+32611,6855,5154,2,Liquid Soap,5.99,Caramel
+32611,9696,5154,1,Liquid Soap,5.99,Coconut
+32792,627,3923,1,Liquid Soap,5.99,Coconut
+32792,4696,3923,2,Liquid Soap,5.99,Jasmine
+32903,4140,2315,3,Bar Soap,4.49,Lemon
+32903,1325,2315,1,Shower Gel,2.29,Coconut
+32903,6326,2315,2,Liquid Soap,5.99,Mint
+33014,5357,7109,1,Razor,8.5,
+33014,9996,7109,3,Liquid Soap,5.99,Caramel
+33014,6302,7109,2,Razor,8.5,
+33065,7472,3874,1,Bar Soap,4.49,Lemon
+33065,9637,3874,2,Liquid Soap,5.99,Lemon
+33136,2364,6476,1,Shower Gel,2.29,Lemon
+33136,7659,6476,3,Razor,8.5,
+33197,7265,7825,2,Shower Gel,2.29,Chocolate
+33197,6302,7825,1,Razor,8.5,
+33398,6326,582,2,Liquid Soap,5.99,Mint
+33398,6302,582,1,Razor,8.5,
+33619,5357,4693,3,Razor,8.5,
+33619,3289,4693,2,Shower Gel,2.29,Lavender
+33619,3127,4693,1,Shower Gel,2.29,Raspberry
+33671,6855,9179,3,Liquid Soap,5.99,Caramel
+33671,1402,9179,2,Liquid Soap,5.99,Raspberry
+33671,7659,9179,1,Razor,8.5,
+34282,6749,403,3,Liquid Soap,5.99,Chocolate
+34282,627,403,2,Liquid Soap,5.99,Coconut
+34282,7265,403,1,Shower Gel,2.29,Chocolate
+34463,3232,1798,1,Shower Gel,2.29,Raspberry
+34463,3850,1798,2,Liquid Soap,5.99,Raspberry
+34574,6302,2102,1,Razor,8.5,
+34775,8739,6727,1,Shower Gel,2.29,Jasmine
+34986,5357,6863,1,Razor,8.5,
+34986,4808,6863,2,Liquid Soap,5.99,Chocolate
+35247,4862,1640,2,Bar Soap,4.49,Coconut
+35247,9732,1640,1,Bar Soap,4.49,Mint
+35247,3127,1640,3,Shower Gel,2.29,Raspberry
+35268,6902,6602,1,Bar Soap,4.49,Mint
+35268,8949,6602,2,Shower Gel,2.29,Caramel
+35268,9637,6602,3,Liquid Soap,5.99,Lemon
+35279,627,8926,2,Liquid Soap,5.99,Coconut
+35279,4696,8926,3,Liquid Soap,5.99,Jasmine
+35279,5357,8926,1,Razor,8.5,
+35391,6302,7433,1,Razor,8.5,
+35642,6749,3955,1,Liquid Soap,5.99,Chocolate
+35642,5952,3955,2,Liquid Soap,5.99,Jasmine
+35642,7659,3955,3,Razor,8.5,
+35763,5347,4219,2,Shower Gel,2.29,Mint
+35763,4728,4219,3,Shower Gel,2.29,Lemon
+35763,7659,4219,1,Razor,8.5,
+36124,4627,8413,2,Bar Soap,4.49,Chocolate
+36124,3232,8413,3,Shower Gel,2.29,Raspberry
+36124,6302,8413,1,Razor,8.5,
+36155,8266,8624,2,Bar Soap,4.49,Heather
+36155,7865,8624,3,Shower Gel,2.29,Caramel
+36155,7659,8624,1,Razor,8.5,
+36476,5347,9968,2,Shower Gel,2.29,Mint
+36476,4862,9968,3,Bar Soap,4.49,Coconut
+36476,6174,9968,1,Liquid Soap,5.99,Lavender
+37207,3717,229,3,Liquid Soap,5.99,Raspberry
+37207,3289,229,1,Shower Gel,2.29,Lavender
+37207,5864,229,2,Razor,8.5,
+37448,1325,8538,1,Shower Gel,2.29,Coconut
+37448,4728,8538,2,Shower Gel,2.29,Lemon
+37448,9696,8538,3,Liquid Soap,5.99,Coconut
+38129,6749,7783,2,Liquid Soap,5.99,Chocolate
+38129,2971,7783,1,Bar Soap,4.49,Chocolate
+38129,3127,7783,3,Shower Gel,2.29,Raspberry
+38181,5823,3394,1,Liquid Soap,5.99,Caramel
+38181,9637,3394,3,Liquid Soap,5.99,Lemon
+38181,6302,3394,2,Razor,8.5,
+38192,8437,6968,1,Liquid Soap,5.99,Lavender
+38192,8437,6968,3,Liquid Soap,5.99,Lavender
+38192,3127,6968,2,Shower Gel,2.29,Raspberry
+38363,5072,2153,3,Liquid Soap,5.99,Mint
+38363,6302,2153,2,Razor,8.5,
+38363,6302,2153,1,Razor,8.5,
+38464,7265,6352,2,Shower Gel,2.29,Chocolate
+38464,6326,6352,1,Liquid Soap,5.99,Mint
+38464,6302,6352,3,Razor,8.5,
+38505,4808,5633,1,Liquid Soap,5.99,Chocolate
+38846,5357,8885,1,Razor,8.5,
+38846,9342,8885,2,Shower Gel,2.29,Lavender
+38846,6302,8885,3,Razor,8.5,
+39057,6302,1731,1,Razor,8.5,
+39148,8486,3874,3,Liquid Soap,5.99,Coconut
+39148,7659,3874,2,Razor,8.5,
+39148,6302,3874,1,Razor,8.5,
+39169,1984,3342,1,Shower Gel,2.29,Chocolate
+39169,4808,3342,3,Liquid Soap,5.99,Chocolate
+39169,6302,3342,2,Razor,8.5,
+39341,3850,5433,1,Liquid Soap,5.99,Raspberry
+39522,4808,1289,2,Liquid Soap,5.99,Chocolate
+39522,9637,1289,1,Liquid Soap,5.99,Lemon
+39522,3850,1289,3,Liquid Soap,5.99,Raspberry
+39583,4140,5223,1,Bar Soap,4.49,Lemon
+39583,6749,5223,2,Liquid Soap,5.99,Chocolate
+39583,7865,5223,3,Shower Gel,2.29,Caramel
+39654,5347,6311,3,Shower Gel,2.29,Mint
+39654,6302,6311,1,Razor,8.5,
+39654,6302,6311,2,Razor,8.5,
+39705,2364,7733,3,Shower Gel,2.29,Lemon
+39705,9637,7733,1,Liquid Soap,5.99,Lemon
+39705,7659,7733,2,Razor,8.5,
+39936,3289,1171,1,Shower Gel,2.29,Lavender
+39936,1073,1171,3,Liquid Soap,5.99,Chocolate
+39936,8486,1171,2,Liquid Soap,5.99,Coconut
+40277,3717,6499,2,Liquid Soap,5.99,Raspberry
+40277,5357,6499,1,Razor,8.5,
+40358,2971,4561,3,Bar Soap,4.49,Chocolate
+40358,8486,4561,2,Liquid Soap,5.99,Coconut
+40358,4728,4561,1,Shower Gel,2.29,Lemon
+40529,4627,9934,1,Bar Soap,4.49,Chocolate
+40529,3513,9934,2,Bar Soap,4.49,Coconut
+40529,7659,9934,3,Razor,8.5,
+40751,8739,28,3,Shower Gel,2.29,Jasmine
+40751,2572,28,2,Liquid Soap,5.99,Lavender
+40751,7265,28,1,Shower Gel,2.29,Chocolate
+40812,4627,8782,3,Bar Soap,4.49,Chocolate
+40812,1325,8782,1,Shower Gel,2.29,Coconut
+40812,9637,8782,2,Liquid Soap,5.99,Lemon
+41013,627,6949,3,Liquid Soap,5.99,Coconut
+41013,3289,6949,2,Shower Gel,2.29,Lavender
+41013,6302,6949,1,Razor,8.5,
+41194,1402,2444,1,Liquid Soap,5.99,Raspberry
+41194,7265,2444,2,Shower Gel,2.29,Chocolate
+41194,6302,2444,3,Razor,8.5,
+41415,6749,7549,1,Liquid Soap,5.99,Chocolate
+41415,2364,7549,2,Shower Gel,2.29,Lemon
+41516,2364,5143,3,Shower Gel,2.29,Lemon
+41516,4378,5143,2,Shower Gel,2.29,Mint
+41516,6302,5143,1,Razor,8.5,
+41567,5347,6619,2,Shower Gel,2.29,Mint
+41567,9696,6619,1,Liquid Soap,5.99,Coconut
+41567,6302,6619,3,Razor,8.5,
+41668,627,1169,1,Liquid Soap,5.99,Coconut
+41668,5357,1169,2,Razor,8.5,
+41679,5823,8002,1,Liquid Soap,5.99,Caramel
+41679,6749,8002,2,Liquid Soap,5.99,Chocolate
+41679,1325,8002,3,Shower Gel,2.29,Coconut
+41841,3457,6608,2,Bar Soap,4.49,Raspberry
+41841,7265,6608,1,Shower Gel,2.29,Chocolate
+42002,7659,8636,2,Razor,8.5,
+42002,6302,8636,1,Razor,8.5,
+42123,5864,8771,2,Razor,8.5,
+42123,7265,8771,1,Shower Gel,2.29,Chocolate
+42224,9696,95,2,Liquid Soap,5.99,Coconut
+42224,6174,95,1,Liquid Soap,5.99,Lavender
+42224,6302,95,3,Razor,8.5,
+42535,6302,2039,1,Razor,8.5,
+42666,5357,7608,2,Razor,8.5,
+42666,2095,7608,1,Bar Soap,4.49,Raspberry
+42666,7659,7608,3,Razor,8.5,
+42767,5357,6307,1,Razor,8.5,
+42767,5357,6307,3,Razor,8.5,
+42767,6302,6307,2,Razor,8.5,
+42798,9483,2528,2,Liquid Soap,5.99,Lemon
+42798,2364,2528,3,Shower Gel,2.29,Lemon
+42798,7659,2528,1,Razor,8.5,
+42819,5347,2332,1,Shower Gel,2.29,Mint
+42819,8743,2332,2,Shower Gel,2.29,Coconut
+43081,4696,3328,2,Liquid Soap,5.99,Jasmine
+43081,2051,3328,1,Liquid Soap,5.99,Lemon
+43092,6749,1887,3,Liquid Soap,5.99,Chocolate
+43092,5864,1887,1,Razor,8.5,
+43092,4728,1887,2,Shower Gel,2.29,Lemon
+43353,5864,6745,2,Razor,8.5,
+43353,4378,6745,1,Shower Gel,2.29,Mint
+43434,9483,7119,1,Liquid Soap,5.99,Lemon
+43434,5357,7119,2,Razor,8.5,
+43434,2971,7119,3,Bar Soap,4.49,Chocolate
+43525,2971,7238,3,Bar Soap,4.49,Chocolate
+43525,9342,7238,2,Shower Gel,2.29,Lavender
+43525,7659,7238,1,Razor,8.5,
+43566,431,6392,1,Liquid Soap,5.99,Mint
+43566,5357,6392,2,Razor,8.5,
+43566,7659,6392,3,Razor,8.5,
+43697,431,2184,2,Liquid Soap,5.99,Mint
+43697,3850,2184,1,Liquid Soap,5.99,Raspberry
+43697,3850,2184,3,Liquid Soap,5.99,Raspberry
+43748,4140,9755,2,Bar Soap,4.49,Lemon
+43748,5357,9755,1,Razor,8.5,
+43748,9342,9755,3,Shower Gel,2.29,Lavender
+43789,8486,8833,1,Liquid Soap,5.99,Coconut
+43789,4808,8833,3,Liquid Soap,5.99,Chocolate
+43789,6302,8833,2,Razor,8.5,
+44111,627,4436,1,Liquid Soap,5.99,Coconut
+44111,4378,4436,3,Shower Gel,2.29,Mint
+44111,6302,4436,2,Razor,8.5,
+44252,5357,8920,2,Razor,8.5,
+44252,3232,8920,1,Shower Gel,2.29,Raspberry
+44252,9637,8920,3,Liquid Soap,5.99,Lemon
+44333,5357,4114,1,Razor,8.5,
+44333,5347,4114,2,Shower Gel,2.29,Mint
+44333,9907,4114,3,Bar Soap,4.49,Jasmine
+44704,2095,9934,3,Bar Soap,4.49,Raspberry
+44704,1073,9934,1,Liquid Soap,5.99,Chocolate
+44704,5072,9934,2,Liquid Soap,5.99,Mint
+44955,8739,7687,2,Shower Gel,2.29,Jasmine
+44955,2971,7687,3,Bar Soap,4.49,Chocolate
+44955,6302,7687,1,Razor,8.5,
+45006,4627,618,3,Bar Soap,4.49,Chocolate
+45006,2051,618,2,Liquid Soap,5.99,Lemon
+45006,6302,618,1,Razor,8.5,
+45497,3513,4641,2,Bar Soap,4.49,Coconut
+45497,1073,4641,3,Liquid Soap,5.99,Chocolate
+45497,7265,4641,1,Shower Gel,2.29,Chocolate
+45748,7472,4606,1,Bar Soap,4.49,Lemon
+45748,1073,4606,2,Liquid Soap,5.99,Chocolate
+45748,7659,4606,3,Razor,8.5,
+45759,5357,5779,2,Razor,8.5,
+45759,3289,5779,3,Shower Gel,2.29,Lavender
+45759,6174,5779,1,Liquid Soap,5.99,Lavender
+45961,2364,7102,2,Shower Gel,2.29,Lemon
+45961,9732,7102,1,Bar Soap,4.49,Mint
+45961,1073,6641,1,Liquid Soap,5.99,Chocolate
+45961,5864,7102,3,Razor,8.5,
+45961,6302,6641,2,Razor,8.5,
+46542,7472,8968,1,Bar Soap,4.49,Lemon
+46542,8743,8968,2,Shower Gel,2.29,Coconut
+46542,3850,8968,3,Liquid Soap,5.99,Raspberry
+46913,2971,9528,2,Bar Soap,4.49,Chocolate
+46913,2051,9528,3,Liquid Soap,5.99,Lemon
+46913,5864,9528,1,Razor,8.5,
+46924,1073,4277,3,Liquid Soap,5.99,Chocolate
+46924,9342,4277,2,Shower Gel,2.29,Lavender
+46924,7659,4277,1,Razor,8.5,
+46935,5357,6094,2,Razor,8.5,
+46935,7472,6094,1,Bar Soap,4.49,Lemon
+46935,1402,6094,3,Liquid Soap,5.99,Raspberry
+46946,9483,627,1,Liquid Soap,5.99,Lemon
+46946,3127,5597,3,Shower Gel,2.29,Raspberry
+46946,9637,627,3,Liquid Soap,5.99,Lemon
+46946,7659,627,2,Razor,8.5,
+46946,6302,5597,1,Razor,8.5,
+47427,2051,2002,3,Liquid Soap,5.99,Lemon
+47427,5864,2002,2,Razor,8.5,
+47427,4378,2002,1,Shower Gel,2.29,Mint
+47828,3717,3208,2,Liquid Soap,5.99,Raspberry
+47828,7265,3208,1,Shower Gel,2.29,Chocolate
+47839,5357,5481,3,Razor,8.5,
+47839,4808,5481,1,Liquid Soap,5.99,Chocolate
+47839,7659,5481,2,Razor,8.5,
+48001,9684,9397,2,Bar Soap,4.49,Caramel
+48001,8437,9397,3,Liquid Soap,5.99,Lavender
+48001,5357,9397,1,Razor,8.5,
+48212,5347,1557,3,Shower Gel,2.29,Mint
+48212,2971,1557,2,Bar Soap,4.49,Chocolate
+48212,7865,1557,1,Shower Gel,2.29,Caramel
+48243,9483,8859,1,Liquid Soap,5.99,Lemon
+48243,4808,8859,2,Liquid Soap,5.99,Chocolate
+48243,6302,8859,3,Razor,8.5,
+48284,2971,8895,3,Bar Soap,4.49,Chocolate
+48284,9637,8895,1,Liquid Soap,5.99,Lemon
+48284,9637,8895,2,Liquid Soap,5.99,Lemon
+48595,6749,3026,2,Liquid Soap,5.99,Chocolate
+48595,2364,3026,1,Shower Gel,2.29,Lemon
+48595,6302,3026,3,Razor,8.5,
+48776,431,8515,3,Liquid Soap,5.99,Mint
+48776,7865,8515,1,Shower Gel,2.29,Caramel
+48776,6302,8515,2,Razor,8.5,
+49057,431,3818,3,Liquid Soap,5.99,Mint
+49057,1073,3818,1,Liquid Soap,5.99,Chocolate
+49057,6302,3818,2,Razor,8.5,
+49128,5357,8926,2,Razor,8.5,
+49128,6174,8926,1,Liquid Soap,5.99,Lavender
+49128,6302,8926,3,Razor,8.5,
+49559,7472,7983,1,Bar Soap,4.49,Lemon
+49559,9342,7983,2,Shower Gel,2.29,Lavender
+49559,4808,7983,3,Liquid Soap,5.99,Chocolate
+49931,8743,7820,1,Shower Gel,2.29,Coconut
+50082,5357,841,1,Razor,8.5,
+50082,2971,841,2,Bar Soap,4.49,Chocolate
+50082,4862,4550,3,Bar Soap,4.49,Coconut
+50082,8743,841,3,Shower Gel,2.29,Coconut
+50082,4378,4550,2,Shower Gel,2.29,Mint
+50082,6302,4550,1,Razor,8.5,
+50373,8437,7335,1,Liquid Soap,5.99,Lavender
+50554,9483,1317,2,Liquid Soap,5.99,Lemon
+50554,5357,1317,1,Razor,8.5,
+50554,8743,1317,3,Shower Gel,2.29,Coconut
+50865,2095,1931,2,Bar Soap,4.49,Raspberry
+50865,4728,1931,1,Shower Gel,2.29,Lemon
+50906,1984,3481,1,Shower Gel,2.29,Chocolate
+50997,5347,774,2,Shower Gel,2.29,Mint
+50997,5347,774,3,Shower Gel,2.29,Mint
+50997,5864,774,1,Razor,8.5,
+51178,2242,9145,2,Liquid Soap,5.99,Heather
+51178,1073,9145,3,Liquid Soap,5.99,Chocolate
+51178,7265,9145,1,Shower Gel,2.29,Chocolate
+51259,7865,7670,2,Shower Gel,2.29,Caramel
+51259,3850,7670,1,Liquid Soap,5.99,Raspberry
+51531,1402,8002,2,Liquid Soap,5.99,Raspberry
+51531,7659,8002,1,Razor,8.5,
+51622,4862,5963,3,Bar Soap,4.49,Coconut
+51622,7472,5963,2,Bar Soap,4.49,Lemon
+51622,7659,5963,1,Razor,8.5,
+51803,9483,4604,2,Liquid Soap,5.99,Lemon
+51803,5357,4604,1,Razor,8.5,
+52184,4862,8662,3,Bar Soap,4.49,Coconut
+52184,1073,8662,2,Liquid Soap,5.99,Chocolate
+52184,7659,8662,1,Razor,8.5,
+52815,627,4448,1,Liquid Soap,5.99,Coconut
+52886,8486,1419,2,Liquid Soap,5.99,Coconut
+52886,7659,1419,1,Razor,8.5,
+52886,6302,1419,3,Razor,8.5,
+53057,8949,3179,1,Shower Gel,2.29,Caramel
+53057,1278,3179,2,Shower Gel,2.29,Jasmine
+53208,5823,6131,1,Liquid Soap,5.99,Caramel
+53208,2095,6131,3,Bar Soap,4.49,Raspberry
+53208,5072,6131,2,Liquid Soap,5.99,Mint
+53269,9483,9634,2,Liquid Soap,5.99,Lemon
+53269,3289,9634,3,Shower Gel,2.29,Lavender
+53269,6302,9634,1,Razor,8.5,
+53271,3289,448,2,Shower Gel,2.29,Lavender
+53271,5864,448,3,Razor,8.5,
+53271,4378,448,1,Shower Gel,2.29,Mint
+53422,2572,931,1,Liquid Soap,5.99,Lavender
+53573,4140,3853,2,Bar Soap,4.49,Lemon
+53573,8949,3853,3,Shower Gel,2.29,Caramel
+53573,3289,3853,1,Shower Gel,2.29,Lavender
+53754,5357,6529,1,Razor,8.5,
+53754,5347,6529,2,Shower Gel,2.29,Mint
+54175,4378,4468,3,Shower Gel,2.29,Mint
+54175,6302,4468,1,Razor,8.5,
+54175,6302,4468,2,Razor,8.5,
+54246,4862,1834,1,Bar Soap,4.49,Coconut
+54246,3850,1834,3,Liquid Soap,5.99,Raspberry
+54246,6302,1834,2,Razor,8.5,
+54327,1325,9020,1,Shower Gel,2.29,Coconut
+54327,7659,9020,2,Razor,8.5,
+54418,4862,2013,1,Bar Soap,4.49,Coconut
+54418,7659,2013,3,Razor,8.5,
+54418,7659,2013,2,Razor,8.5,
+54809,5357,3327,2,Razor,8.5,
+54809,5347,3327,3,Shower Gel,2.29,Mint
+54809,9696,3327,1,Liquid Soap,5.99,Coconut
+54831,4728,9433,1,Shower Gel,2.29,Lemon
+54831,6302,9433,2,Razor,8.5,
+54922,5357,2802,1,Razor,8.5,
+54922,4862,2802,2,Bar Soap,4.49,Coconut
+54922,6174,2802,3,Liquid Soap,5.99,Lavender
+54943,5357,9499,2,Razor,8.5,
+54943,34,9499,3,Bar Soap,4.49,Lavender
+54943,7865,9499,1,Shower Gel,2.29,Caramel
+55024,6749,5915,3,Liquid Soap,5.99,Chocolate
+55024,7472,5915,1,Bar Soap,4.49,Lemon
+55024,7659,5915,2,Razor,8.5,
+55505,6749,7235,1,Liquid Soap,5.99,Chocolate
+55505,2572,7235,2,Liquid Soap,5.99,Lavender
+55505,4378,7235,3,Shower Gel,2.29,Mint
+55656,7265,9207,1,Shower Gel,2.29,Chocolate
+56087,5357,203,1,Razor,8.5,
+56087,3289,203,2,Shower Gel,2.29,Lavender
+56087,9342,203,3,Shower Gel,2.29,Lavender
+56278,4696,6385,1,Liquid Soap,5.99,Jasmine
+56389,627,9689,1,Liquid Soap,5.99,Coconut
+56521,9696,7012,2,Liquid Soap,5.99,Coconut
+56521,6302,7012,1,Razor,8.5,
+56542,7472,7042,1,Bar Soap,4.49,Lemon
+56542,5864,7042,2,Razor,8.5,
+56723,5864,214,1,Razor,8.5,
+56994,5864,5737,2,Razor,8.5,
+56994,7265,5737,1,Shower Gel,2.29,Chocolate
+57315,6749,7006,1,Liquid Soap,5.99,Chocolate
+57386,6302,5479,1,Razor,8.5,
+57537,627,853,2,Liquid Soap,5.99,Coconut
+57537,2364,853,3,Shower Gel,2.29,Lemon
+57537,1073,853,1,Liquid Soap,5.99,Chocolate
+57878,2971,437,2,Bar Soap,4.49,Chocolate
+57878,1073,437,1,Liquid Soap,5.99,Chocolate
+57878,9696,437,3,Liquid Soap,5.99,Coconut
+58009,6302,1918,1,Razor,8.5,
+58111,4140,4687,1,Bar Soap,4.49,Lemon
+58111,3717,4687,2,Liquid Soap,5.99,Raspberry
+58111,8743,4687,3,Shower Gel,2.29,Coconut
+58212,6855,3882,3,Liquid Soap,5.99,Caramel
+58212,7265,3882,1,Shower Gel,2.29,Chocolate
+58212,7659,3882,2,Razor,8.5,
+58303,34,7226,2,Bar Soap,4.49,Lavender
+58303,6302,7226,1,Razor,8.5,
+58464,9483,6806,3,Liquid Soap,5.99,Lemon
+58464,9696,6806,2,Liquid Soap,5.99,Coconut
+58464,7659,6806,1,Razor,8.5,
+58795,4140,6028,3,Bar Soap,4.49,Lemon
+58795,6855,6028,2,Liquid Soap,5.99,Caramel
+58795,7659,6028,1,Razor,8.5,
+58806,4627,6579,1,Bar Soap,4.49,Chocolate
+58806,2364,6579,3,Shower Gel,2.29,Lemon
+58806,6302,6579,2,Razor,8.5,
+58937,3717,8364,1,Liquid Soap,5.99,Raspberry
+58937,4378,8364,2,Shower Gel,2.29,Mint
+58937,7659,8364,3,Razor,8.5,
+59168,6902,5854,2,Bar Soap,4.49,Mint
+59168,7472,5854,3,Bar Soap,4.49,Lemon
+59168,6302,5854,1,Razor,8.5,
+59559,9483,6378,2,Liquid Soap,5.99,Lemon
+59559,8486,6378,3,Liquid Soap,5.99,Coconut
+59559,3127,6378,1,Shower Gel,2.29,Raspberry
+59721,7265,5813,1,Shower Gel,2.29,Chocolate
+59852,5864,8902,3,Razor,8.5,
+59852,4808,8902,2,Liquid Soap,5.99,Chocolate
+59852,9696,8902,1,Liquid Soap,5.99,Coconut
+60203,9637,8588,1,Liquid Soap,5.99,Lemon
+60224,9483,8705,1,Liquid Soap,5.99,Lemon
+60224,5864,8705,2,Razor,8.5,
+60224,6302,8705,3,Razor,8.5,
+60365,6749,9723,1,Liquid Soap,5.99,Chocolate
+60365,1402,9723,3,Liquid Soap,5.99,Raspberry
+60365,4728,9723,2,Shower Gel,2.29,Lemon
+60396,6902,1540,1,Bar Soap,4.49,Mint
+60396,7265,1540,2,Shower Gel,2.29,Chocolate
+60457,9483,3309,1,Liquid Soap,5.99,Lemon
+60457,34,3309,3,Bar Soap,4.49,Lavender
+60457,8486,3309,2,Liquid Soap,5.99,Coconut
+60668,9483,8380,1,Liquid Soap,5.99,Lemon
+60668,4728,8380,3,Shower Gel,2.29,Lemon
+61149,3717,3603,1,Liquid Soap,5.99,Raspberry
+61351,627,4016,2,Liquid Soap,5.99,Coconut
+61351,5864,4016,1,Razor,8.5,
+61351,6302,4016,3,Razor,8.5,
+61372,4627,1251,2,Bar Soap,4.49,Chocolate
+61372,5823,1251,1,Liquid Soap,5.99,Caramel
+61372,431,1251,3,Liquid Soap,5.99,Mint
+61603,5072,6031,1,Liquid Soap,5.99,Mint
+61603,8743,6031,3,Shower Gel,2.29,Coconut
+61603,7659,6031,2,Razor,8.5,
+61744,6749,3022,1,Liquid Soap,5.99,Chocolate
+61744,5864,3022,2,Razor,8.5,
+62035,3513,4692,1,Bar Soap,4.49,Coconut
+62035,5823,4692,2,Liquid Soap,5.99,Caramel
+62035,7434,4692,3,Shower Gel,2.29,Heather
+62056,4627,4734,2,Bar Soap,4.49,Chocolate
+62056,2051,4734,1,Liquid Soap,5.99,Lemon
+62056,2051,4734,3,Liquid Soap,5.99,Lemon
+62187,1325,9878,1,Shower Gel,2.29,Coconut
+62187,6302,9878,2,Razor,8.5,
+62878,9732,8505,1,Bar Soap,4.49,Mint
+62878,1073,8505,2,Liquid Soap,5.99,Chocolate
+62878,4728,8505,3,Shower Gel,2.29,Lemon
+62979,5072,3467,2,Liquid Soap,5.99,Mint
+62979,5864,3467,1,Razor,8.5,
+62979,9637,3467,3,Liquid Soap,5.99,Lemon
+62981,6855,2467,3,Liquid Soap,5.99,Caramel
+62981,7659,2467,1,Razor,8.5,
+63122,1073,73,1,Liquid Soap,5.99,Chocolate
+63122,6326,73,3,Liquid Soap,5.99,Mint
+63122,6302,73,2,Razor,8.5,
+63243,8949,5264,1,Shower Gel,2.29,Caramel
+63243,9637,5264,2,Liquid Soap,5.99,Lemon
+63494,6902,5506,3,Bar Soap,4.49,Mint
+63494,6749,5506,1,Liquid Soap,5.99,Chocolate
+63494,3717,5506,2,Liquid Soap,5.99,Raspberry
+63545,2242,8860,3,Liquid Soap,5.99,Heather
+63545,8743,8860,1,Shower Gel,2.29,Coconut
+63545,6302,8860,2,Razor,8.5,
+63886,8949,3345,2,Shower Gel,2.29,Caramel
+63886,6302,3345,1,Razor,8.5,
+64117,1325,5708,1,Shower Gel,2.29,Coconut
+64117,9732,9774,1,Bar Soap,4.49,Mint
+64117,1278,9774,3,Shower Gel,2.29,Jasmine
+64117,4808,5708,3,Liquid Soap,5.99,Chocolate
+64117,6302,9774,2,Razor,8.5,
+64117,6302,5708,2,Razor,8.5,
+64608,627,2151,2,Liquid Soap,5.99,Coconut
+64608,1073,2151,3,Liquid Soap,5.99,Chocolate
+64608,9696,2151,1,Liquid Soap,5.99,Coconut
+64759,5823,2125,1,Liquid Soap,5.99,Caramel
+64759,6302,2125,2,Razor,8.5,
+64891,7472,271,1,Bar Soap,4.49,Lemon
+64891,9637,271,2,Liquid Soap,5.99,Lemon
+64891,6302,271,3,Razor,8.5,
+64972,8949,9438,2,Shower Gel,2.29,Caramel
+64972,3127,9438,1,Shower Gel,2.29,Raspberry
+64972,4808,9438,3,Liquid Soap,5.99,Chocolate
+65263,7766,7915,3,Bar Soap,4.49,Lavender
+65263,2364,7915,2,Shower Gel,2.29,Lemon
+65263,6326,7915,1,Liquid Soap,5.99,Mint
+65414,6902,8778,1,Bar Soap,4.49,Mint
+65414,6749,8778,2,Liquid Soap,5.99,Chocolate
+66035,3717,8114,2,Liquid Soap,5.99,Raspberry
+66035,1984,8114,1,Shower Gel,2.29,Chocolate
+66035,3289,8114,3,Shower Gel,2.29,Lavender
+66106,627,7939,3,Liquid Soap,5.99,Coconut
+66106,2364,7939,2,Shower Gel,2.29,Lemon
+66106,5347,7939,1,Shower Gel,2.29,Mint
+66407,9483,3053,2,Liquid Soap,5.99,Lemon
+66407,3232,3053,3,Shower Gel,2.29,Raspberry
+66407,5864,3053,1,Razor,8.5,
+66448,5357,6936,1,Razor,8.5,
+66448,1325,6936,2,Shower Gel,2.29,Coconut
+66599,5357,2180,2,Razor,8.5,
+66599,9637,2180,1,Liquid Soap,5.99,Lemon
+66841,3289,9283,3,Shower Gel,2.29,Lavender
+66841,4808,9283,2,Liquid Soap,5.99,Chocolate
+66841,9637,9283,1,Liquid Soap,5.99,Lemon
+67192,5357,2082,2,Razor,8.5,
+67192,2971,2082,3,Bar Soap,4.49,Chocolate
+67192,6302,2082,1,Razor,8.5,
+67213,1402,4331,3,Liquid Soap,5.99,Raspberry
+67213,3127,4331,1,Shower Gel,2.29,Raspberry
+67213,6326,4331,2,Liquid Soap,5.99,Mint
+67224,2364,1652,3,Shower Gel,2.29,Lemon
+67224,5347,1652,2,Shower Gel,2.29,Mint
+67224,7659,1652,1,Razor,8.5,
+67235,4627,4866,3,Bar Soap,4.49,Chocolate
+67235,5823,4866,2,Liquid Soap,5.99,Caramel
+67235,2364,4866,1,Shower Gel,2.29,Lemon
+67406,4728,9920,1,Shower Gel,2.29,Lemon
+67406,6302,9920,3,Razor,8.5,
+67406,6302,9920,2,Razor,8.5,
+67647,9483,2452,3,Liquid Soap,5.99,Lemon
+67647,4728,2452,2,Shower Gel,2.29,Lemon
+67647,6302,2452,1,Razor,8.5,
+67688,2051,2056,1,Liquid Soap,5.99,Lemon
+68219,4862,5397,2,Bar Soap,4.49,Coconut
+68219,3850,5397,3,Liquid Soap,5.99,Raspberry
+68219,7659,5397,1,Razor,8.5,
+68291,431,5057,1,Liquid Soap,5.99,Mint
+68291,5347,5057,2,Shower Gel,2.29,Mint
+69352,5347,3565,2,Shower Gel,2.29,Mint
+69352,2971,3565,3,Bar Soap,4.49,Chocolate
+69352,6302,3565,1,Razor,8.5,
+69533,1984,40,2,Shower Gel,2.29,Chocolate
+69533,2971,40,3,Bar Soap,4.49,Chocolate
+69533,1278,40,1,Shower Gel,2.29,Jasmine
+69794,3289,2640,1,Shower Gel,2.29,Lavender
+69845,1402,5038,1,Liquid Soap,5.99,Raspberry
+69845,5864,5038,2,Razor,8.5,
+69986,7265,97,1,Shower Gel,2.29,Chocolate
+70197,6902,7634,3,Bar Soap,4.49,Mint
+70197,8949,7634,1,Shower Gel,2.29,Caramel
+70197,6302,7634,2,Razor,8.5,
+70208,2051,5874,3,Liquid Soap,5.99,Lemon
+70208,6174,5874,1,Liquid Soap,5.99,Lavender
+70208,6302,5874,2,Razor,8.5,
+70339,5357,6723,2,Razor,8.5,
+70339,3127,6723,1,Shower Gel,2.29,Raspberry
+70521,4728,4433,1,Shower Gel,2.29,Lemon
+70722,431,7979,3,Liquid Soap,5.99,Mint
+70722,5357,7979,1,Razor,8.5,
+70722,9342,7979,2,Shower Gel,2.29,Lavender
+70833,1984,5574,3,Shower Gel,2.29,Chocolate
+70833,1073,5574,1,Liquid Soap,5.99,Chocolate
+70833,6302,5574,2,Razor,8.5,
+70874,3457,8599,2,Bar Soap,4.49,Raspberry
+70874,6302,8599,3,Razor,8.5,
+70874,6302,8599,1,Razor,8.5,
+71325,3457,1884,1,Bar Soap,4.49,Raspberry
+71325,7659,1884,2,Razor,8.5,
+71325,6302,1884,3,Razor,8.5,
+71406,8781,1174,2,Bar Soap,4.49,Jasmine
+71406,7659,1174,1,Razor,8.5,
+71406,7659,1174,3,Razor,8.5,
+71567,5823,5854,2,Liquid Soap,5.99,Caramel
+71567,1073,5215,2,Liquid Soap,5.99,Chocolate
+71567,3850,5215,1,Liquid Soap,5.99,Raspberry
+71567,7659,5854,1,Razor,8.5,
+71598,9483,3075,3,Liquid Soap,5.99,Lemon
+71598,1325,3075,2,Shower Gel,2.29,Coconut
+71598,7659,3075,1,Razor,8.5,
+71639,6749,7121,3,Liquid Soap,5.99,Chocolate
+71639,7265,7121,1,Shower Gel,2.29,Chocolate
+71639,3127,7121,2,Shower Gel,2.29,Raspberry
+72051,4696,9877,2,Liquid Soap,5.99,Jasmine
+72051,9696,9877,1,Liquid Soap,5.99,Coconut
+72092,2971,9172,1,Bar Soap,4.49,Chocolate
+72092,2051,9172,2,Liquid Soap,5.99,Lemon
+72092,6174,9172,3,Liquid Soap,5.99,Lavender
+72163,3457,1053,3,Bar Soap,4.49,Raspberry
+72163,5864,1053,2,Razor,8.5,
+72163,4728,1053,1,Shower Gel,2.29,Lemon
+72214,7265,7755,1,Shower Gel,2.29,Chocolate
+72275,7659,8379,1,Razor,8.5,
+72326,3457,1283,2,Bar Soap,4.49,Raspberry
+72326,1073,1283,3,Liquid Soap,5.99,Chocolate
+72326,5864,1283,1,Razor,8.5,
+72527,9483,6082,1,Liquid Soap,5.99,Lemon
+72527,9732,6082,2,Bar Soap,4.49,Mint
+72538,1984,466,1,Shower Gel,2.29,Chocolate
+73039,9483,9520,1,Liquid Soap,5.99,Lemon
+73039,5357,9520,2,Razor,8.5,
+73039,8739,9520,3,Shower Gel,2.29,Jasmine
+73039,7265,843,1,Shower Gel,2.29,Chocolate
+73039,3850,843,3,Liquid Soap,5.99,Raspberry
+73039,6302,843,2,Razor,8.5,
+73101,5952,7623,2,Liquid Soap,5.99,Jasmine
+73101,6302,7623,1,Razor,8.5,
+73212,3513,5689,2,Bar Soap,4.49,Coconut
+73212,1984,5689,3,Shower Gel,2.29,Chocolate
+73212,3232,5689,1,Shower Gel,2.29,Raspberry
+73303,4627,1293,2,Bar Soap,4.49,Chocolate
+73303,7265,1293,3,Shower Gel,2.29,Chocolate
+73303,7659,1293,1,Razor,8.5,
+73484,6749,2861,1,Liquid Soap,5.99,Chocolate
+73484,3127,2861,2,Shower Gel,2.29,Raspberry
+73484,7659,2861,3,Razor,8.5,
+74065,7659,2736,1,Razor,8.5,
+74246,3717,7073,1,Liquid Soap,5.99,Raspberry
+74357,8739,6943,3,Shower Gel,2.29,Jasmine
+74357,2051,6943,1,Liquid Soap,5.99,Lemon
+74357,8743,6943,2,Shower Gel,2.29,Coconut
+74438,3717,7631,3,Liquid Soap,5.99,Raspberry
+74438,3127,7631,2,Shower Gel,2.29,Raspberry
+74438,6326,7631,1,Liquid Soap,5.99,Mint
+74579,3717,9414,1,Liquid Soap,5.99,Raspberry
+74579,6302,9414,2,Razor,8.5,
+74751,6749,9123,2,Liquid Soap,5.99,Chocolate
+74751,5357,9123,3,Razor,8.5,
+74751,6302,9123,1,Razor,8.5,
+75032,4728,815,1,Shower Gel,2.29,Lemon
+75032,9637,815,3,Liquid Soap,5.99,Lemon
+75032,6302,815,2,Razor,8.5,
+75643,2364,2001,1,Shower Gel,2.29,Lemon
+75643,6531,2001,3,Bar Soap,4.49,Heather
+75643,9732,2001,2,Bar Soap,4.49,Mint
+75784,2364,8164,2,Shower Gel,2.29,Lemon
+75784,7265,8164,1,Shower Gel,2.29,Chocolate
+75784,9637,8164,3,Liquid Soap,5.99,Lemon
+75885,7659,8260,1,Razor,8.5,
+76016,8437,8981,1,Liquid Soap,5.99,Lavender
+76237,2971,6810,1,Bar Soap,4.49,Chocolate
+76237,2095,6810,2,Bar Soap,4.49,Raspberry
+76237,7865,6810,3,Shower Gel,2.29,Caramel
+76428,5357,2805,1,Razor,8.5,
+76428,2971,2805,2,Bar Soap,4.49,Chocolate
+76428,7555,2805,3,Liquid Soap,5.99,Jasmine
+76669,4862,6006,2,Bar Soap,4.49,Coconut
+76669,1073,6006,3,Liquid Soap,5.99,Chocolate
+76669,6302,6006,1,Razor,8.5,
+76751,5357,5180,3,Razor,8.5,
+76751,2051,5180,1,Liquid Soap,5.99,Lemon
+76751,5864,8358,1,Razor,8.5,
+76751,9342,8358,2,Shower Gel,2.29,Lavender
+76751,9696,5180,2,Liquid Soap,5.99,Coconut
+76932,3717,7577,1,Liquid Soap,5.99,Raspberry
+76932,9996,7577,2,Liquid Soap,5.99,Caramel
+76932,9696,7577,3,Liquid Soap,5.99,Coconut
+76993,4627,1435,2,Bar Soap,4.49,Chocolate
+76993,5347,1435,1,Shower Gel,2.29,Mint
+76993,9907,1435,3,Bar Soap,4.49,Jasmine
+77214,8949,6844,3,Shower Gel,2.29,Caramel
+77214,4378,6844,2,Shower Gel,2.29,Mint
+77214,6326,6844,1,Liquid Soap,5.99,Mint
+77325,431,2017,1,Liquid Soap,5.99,Mint
+77325,4728,2017,2,Shower Gel,2.29,Lemon
+77616,6749,4559,2,Liquid Soap,5.99,Chocolate
+77616,8437,4559,1,Liquid Soap,5.99,Lavender
+77616,9732,4559,3,Bar Soap,4.49,Mint
+77767,6749,5415,2,Liquid Soap,5.99,Chocolate
+77767,3717,5415,3,Liquid Soap,5.99,Raspberry
+77767,9342,5415,1,Shower Gel,2.29,Lavender
+78018,6749,6240,1,Liquid Soap,5.99,Chocolate
+78018,627,6240,3,Liquid Soap,5.99,Coconut
+78018,7659,6240,2,Razor,8.5,
+78289,3850,9948,2,Liquid Soap,5.99,Raspberry
+78289,6302,9948,1,Razor,8.5,
+78341,9342,6721,1,Shower Gel,2.29,Lavender
+78372,6855,8851,1,Liquid Soap,5.99,Caramel
+78372,7659,8851,3,Razor,8.5,
+78372,6302,8851,2,Razor,8.5,
+78403,3457,4968,2,Bar Soap,4.49,Raspberry
+78403,8739,4968,1,Shower Gel,2.29,Jasmine
+78403,8743,4968,3,Shower Gel,2.29,Coconut
+78464,3457,5587,1,Bar Soap,4.49,Raspberry
+78464,2051,5587,2,Liquid Soap,5.99,Lemon
+78625,8743,9051,1,Shower Gel,2.29,Coconut
+78625,9637,9051,2,Liquid Soap,5.99,Lemon
+78625,3850,9051,3,Liquid Soap,5.99,Raspberry
+78846,1073,122,3,Liquid Soap,5.99,Chocolate
+78846,5072,122,1,Liquid Soap,5.99,Mint
+78846,4728,122,2,Shower Gel,2.29,Lemon
+79127,8486,9820,1,Liquid Soap,5.99,Coconut
+79658,1984,6301,3,Shower Gel,2.29,Chocolate
+79658,2051,6301,1,Liquid Soap,5.99,Lemon
+79658,3127,6301,2,Shower Gel,2.29,Raspberry
+79949,5357,3810,1,Razor,8.5,
+79949,9342,3810,2,Shower Gel,2.29,Lavender
+80061,8266,544,3,Bar Soap,4.49,Heather
+80061,6749,544,2,Liquid Soap,5.99,Chocolate
+80061,627,544,1,Liquid Soap,5.99,Coconut
+80102,6749,657,1,Liquid Soap,5.99,Chocolate
+80102,2095,657,3,Bar Soap,4.49,Raspberry
+80102,5864,657,2,Razor,8.5,
+80143,6855,3009,2,Liquid Soap,5.99,Caramel
+80143,2572,3009,1,Liquid Soap,5.99,Lavender
+80204,5357,664,3,Razor,8.5,
+80204,8743,664,1,Shower Gel,2.29,Coconut
+80204,6302,664,2,Razor,8.5,
+80415,9696,7999,1,Liquid Soap,5.99,Coconut
+80516,3717,2599,3,Liquid Soap,5.99,Raspberry
+80516,7659,2599,1,Razor,8.5,
+80516,7659,2599,2,Razor,8.5,
+80677,6902,5501,2,Bar Soap,4.49,Mint
+80677,1073,5501,1,Liquid Soap,5.99,Chocolate
+80728,9483,1253,2,Liquid Soap,5.99,Lemon
+80728,8486,1253,3,Liquid Soap,5.99,Coconut
+80728,7265,1253,1,Shower Gel,2.29,Chocolate
+80969,2364,5574,2,Shower Gel,2.29,Lemon
+80969,7555,5574,1,Liquid Soap,5.99,Jasmine
+81031,431,4110,2,Liquid Soap,5.99,Mint
+81031,9112,4110,3,Shower Gel,2.29,Heather
+81031,7659,4110,1,Razor,8.5,
+81362,2364,5329,1,Shower Gel,2.29,Lemon
+81362,2971,5329,2,Bar Soap,4.49,Chocolate
+81362,5952,5329,3,Liquid Soap,5.99,Jasmine
+81563,9483,9440,2,Liquid Soap,5.99,Lemon
+81563,1984,9440,3,Shower Gel,2.29,Chocolate
+81563,2364,9440,1,Shower Gel,2.29,Lemon
+81954,8949,6665,2,Shower Gel,2.29,Caramel
+81954,9637,6665,3,Liquid Soap,5.99,Lemon
+81954,6302,6665,1,Razor,8.5,
+82175,6855,2515,2,Liquid Soap,5.99,Caramel
+82175,7659,2515,1,Razor,8.5,
+82175,6302,2515,3,Razor,8.5,
+82246,5864,8286,1,Razor,8.5,
+82246,4728,8286,2,Shower Gel,2.29,Lemon
+82317,3232,2868,1,Shower Gel,2.29,Raspberry
+82317,4862,2868,3,Bar Soap,4.49,Coconut
+82317,9907,2868,2,Bar Soap,4.49,Jasmine
+82408,1984,9386,1,Shower Gel,2.29,Chocolate
+82408,2971,9386,2,Bar Soap,4.49,Chocolate
+82408,6302,9386,3,Razor,8.5,
+82439,4696,6946,1,Liquid Soap,5.99,Jasmine
+82439,5357,6946,3,Razor,8.5,
+82439,6302,6946,2,Razor,8.5,
+82761,5823,7242,2,Liquid Soap,5.99,Caramel
+82761,2051,7242,1,Liquid Soap,5.99,Lemon
+82761,2051,7242,3,Liquid Soap,5.99,Lemon
+82832,5357,1160,1,Razor,8.5,
+82832,2364,1160,2,Shower Gel,2.29,Lemon
+82893,5347,9658,3,Shower Gel,2.29,Mint
+82893,5864,9658,2,Razor,8.5,
+82893,9696,9658,1,Liquid Soap,5.99,Coconut
+83014,3232,9920,1,Shower Gel,2.29,Raspberry
+83014,3232,9920,2,Shower Gel,2.29,Raspberry
+83014,9637,9920,3,Liquid Soap,5.99,Lemon
+83075,6749,8889,2,Liquid Soap,5.99,Chocolate
+83075,6326,5530,1,Liquid Soap,5.99,Mint
+83075,7659,8889,3,Razor,8.5,
+83075,7659,8889,1,Razor,8.5,
+83116,2095,4945,1,Bar Soap,4.49,Raspberry
+83116,8486,4945,2,Liquid Soap,5.99,Coconut
+83116,7659,4945,3,Razor,8.5,
+83357,5347,5018,2,Shower Gel,2.29,Mint
+83357,1073,5018,1,Liquid Soap,5.99,Chocolate
+83448,5357,9294,2,Razor,8.5,
+83448,8743,9294,1,Shower Gel,2.29,Coconut
+83448,6302,9294,3,Razor,8.5,
+83629,3232,5362,2,Shower Gel,2.29,Raspberry
+83629,7555,5362,3,Liquid Soap,5.99,Jasmine
+83629,5864,5362,1,Razor,8.5,
+83721,2364,7121,1,Shower Gel,2.29,Lemon
+83721,7265,7121,2,Shower Gel,2.29,Chocolate
+84012,5864,8609,3,Razor,8.5,
+84012,9637,8609,1,Liquid Soap,5.99,Lemon
+84012,9637,8609,2,Liquid Soap,5.99,Lemon
+84053,34,7587,1,Bar Soap,4.49,Lavender
+84144,4627,9833,2,Bar Soap,4.49,Chocolate
+84144,431,9833,3,Liquid Soap,5.99,Mint
+84144,6302,9833,1,Razor,8.5,
+84155,4862,1754,2,Bar Soap,4.49,Coconut
+84155,1073,1754,1,Liquid Soap,5.99,Chocolate
+84316,627,7297,1,Liquid Soap,5.99,Coconut
+84316,3232,7297,2,Shower Gel,2.29,Raspberry
+84477,3289,556,2,Shower Gel,2.29,Lavender
+84477,1073,556,3,Liquid Soap,5.99,Chocolate
+84477,6326,556,1,Liquid Soap,5.99,Mint
+84518,2364,5389,3,Shower Gel,2.29,Lemon
+84518,1073,5389,2,Liquid Soap,5.99,Chocolate
+84518,8743,5389,1,Shower Gel,2.29,Coconut
+84539,7766,5276,2,Bar Soap,4.49,Lavender
+84539,5347,5276,3,Shower Gel,2.29,Mint
+84539,6326,5276,1,Liquid Soap,5.99,Mint
+84671,5072,5676,1,Liquid Soap,5.99,Mint
+84671,9696,5676,3,Liquid Soap,5.99,Coconut
+84671,6302,5676,2,Razor,8.5,
+84882,6174,671,1,Liquid Soap,5.99,Lavender
+84882,3850,671,3,Liquid Soap,5.99,Raspberry
+84882,7659,671,2,Razor,8.5,
+84933,3717,866,1,Liquid Soap,5.99,Raspberry
+84933,3127,866,2,Shower Gel,2.29,Raspberry
+85044,8266,7435,3,Bar Soap,4.49,Heather
+85044,6749,7435,1,Liquid Soap,5.99,Chocolate
+85044,5864,7435,2,Razor,8.5,
+85115,2095,8642,1,Bar Soap,4.49,Raspberry
+85115,1073,9988,2,Liquid Soap,5.99,Chocolate
+85115,2051,8642,2,Liquid Soap,5.99,Lemon
+85115,9342,9988,1,Shower Gel,2.29,Lavender
+85115,4378,9988,3,Shower Gel,2.29,Mint
+85115,7659,8642,3,Razor,8.5,
+85226,627,7507,1,Liquid Soap,5.99,Coconut
+85357,1073,1189,1,Liquid Soap,5.99,Chocolate
+85738,2095,5303,1,Bar Soap,4.49,Raspberry
+85869,6749,1931,2,Liquid Soap,5.99,Chocolate
+85869,8437,1931,1,Liquid Soap,5.99,Lavender
+85869,6302,1931,3,Razor,8.5,
+86511,7472,3622,2,Bar Soap,4.49,Lemon
+86511,4808,3622,3,Liquid Soap,5.99,Chocolate
+86511,5952,3622,1,Liquid Soap,5.99,Jasmine
+86572,5357,2863,2,Razor,8.5,
+86572,9342,2863,1,Shower Gel,2.29,Lavender
+86813,8743,8449,1,Shower Gel,2.29,Coconut
+86813,7659,8449,2,Razor,8.5,
+86894,7766,7459,3,Bar Soap,4.49,Lavender
+86894,6902,6635,1,Bar Soap,4.49,Mint
+86894,3232,7459,2,Shower Gel,2.29,Raspberry
+86894,1402,7459,1,Liquid Soap,5.99,Raspberry
+86945,5357,8033,1,Razor,8.5,
+86945,4728,8033,2,Shower Gel,2.29,Lemon
+87106,2051,8946,2,Liquid Soap,5.99,Lemon
+87106,3127,8946,3,Shower Gel,2.29,Raspberry
+87106,6302,8946,1,Razor,8.5,
+87307,2095,6069,2,Bar Soap,4.49,Raspberry
+87307,1278,6069,1,Shower Gel,2.29,Jasmine
+87307,7659,6069,3,Razor,8.5,
+87538,2364,214,1,Shower Gel,2.29,Lemon
+87538,9732,214,2,Bar Soap,4.49,Mint
+87538,4378,214,3,Shower Gel,2.29,Mint
+87749,9732,8217,1,Bar Soap,4.49,Mint
+88071,4627,2204,2,Bar Soap,4.49,Chocolate
+88071,9483,2204,1,Liquid Soap,5.99,Lemon
+88652,9483,156,3,Liquid Soap,5.99,Lemon
+88652,3127,156,1,Shower Gel,2.29,Raspberry
+88652,7659,156,2,Razor,8.5,
+88933,5347,6240,3,Shower Gel,2.29,Mint
+88933,9342,6240,1,Shower Gel,2.29,Lavender
+88933,3850,6240,2,Liquid Soap,5.99,Raspberry
+88954,3232,648,3,Shower Gel,2.29,Raspberry
+88954,5864,648,1,Razor,8.5,
+88954,7659,648,2,Razor,8.5,
+89125,7659,1410,1,Razor,8.5,
+89356,8949,5215,1,Shower Gel,2.29,Caramel
+89397,2364,6447,2,Shower Gel,2.29,Lemon
+89397,2364,6447,3,Shower Gel,2.29,Lemon
+89397,5864,6447,1,Razor,8.5,
+89858,5357,8381,2,Razor,8.5,
+89858,7434,8381,3,Shower Gel,2.29,Heather
+89858,3232,8381,1,Shower Gel,2.29,Raspberry
+90169,431,7368,2,Liquid Soap,5.99,Mint
+90169,1984,7368,1,Shower Gel,2.29,Chocolate
+90169,6302,7368,3,Razor,8.5,
+91211,2095,5444,2,Bar Soap,4.49,Raspberry
+91211,5864,5444,3,Razor,8.5,
+91211,6302,5444,1,Razor,8.5,
+91432,7472,2703,1,Bar Soap,4.49,Lemon
+91432,5864,2703,3,Razor,8.5,
+91432,7659,2703,2,Razor,8.5,
+91453,1325,5422,3,Shower Gel,2.29,Coconut
+91453,1073,5422,1,Liquid Soap,5.99,Chocolate
+91453,4728,5422,2,Shower Gel,2.29,Lemon
+91464,7265,6841,3,Shower Gel,2.29,Chocolate
+91464,9996,6841,2,Liquid Soap,5.99,Caramel
+91464,9637,6841,1,Liquid Soap,5.99,Lemon
+91545,4728,3296,2,Shower Gel,2.29,Lemon
+91545,4378,3296,3,Shower Gel,2.29,Mint
+91545,7659,3296,1,Razor,8.5,
+91826,3232,7295,3,Shower Gel,2.29,Raspberry
+91826,1278,7295,1,Shower Gel,2.29,Jasmine
+91826,3850,7295,2,Liquid Soap,5.99,Raspberry
+91887,3457,5489,3,Bar Soap,4.49,Raspberry
+91887,5347,5489,2,Shower Gel,2.29,Mint
+91887,5864,5489,1,Razor,8.5,
+91928,1402,9595,1,Liquid Soap,5.99,Raspberry
+92069,5864,9296,2,Razor,8.5,
+92069,5952,9296,1,Liquid Soap,5.99,Jasmine
+92351,8437,4021,1,Liquid Soap,5.99,Lavender
+92351,2364,4021,2,Shower Gel,2.29,Lemon
+92351,2971,4021,3,Bar Soap,4.49,Chocolate
+92472,4140,9264,2,Bar Soap,4.49,Lemon
+92472,4862,9264,3,Bar Soap,4.49,Coconut
+92472,4378,9264,1,Shower Gel,2.29,Mint
+92643,4696,5833,2,Liquid Soap,5.99,Jasmine
+92643,1325,5833,1,Shower Gel,2.29,Coconut
+93004,8437,1748,3,Liquid Soap,5.99,Lavender
+93004,5347,1748,1,Shower Gel,2.29,Mint
+93004,1073,1748,2,Liquid Soap,5.99,Chocolate
+93235,2095,6740,2,Bar Soap,4.49,Raspberry
+93235,7865,6740,3,Shower Gel,2.29,Caramel
+93235,8743,6740,1,Shower Gel,2.29,Coconut
+93296,6749,8993,3,Liquid Soap,5.99,Chocolate
+93296,5357,8993,2,Razor,8.5,
+93296,6302,8993,1,Razor,8.5,
+93307,9483,4375,1,Liquid Soap,5.99,Lemon
+93608,1984,9529,1,Shower Gel,2.29,Chocolate
+93608,1073,9529,3,Liquid Soap,5.99,Chocolate
+93608,7659,9529,2,Razor,8.5,
+93889,4627,8400,2,Bar Soap,4.49,Chocolate
+93889,1325,8400,3,Shower Gel,2.29,Coconut
+93889,2051,8400,1,Liquid Soap,5.99,Lemon
+93931,4627,1332,3,Bar Soap,4.49,Chocolate
+93931,627,1332,1,Liquid Soap,5.99,Coconut
+93931,7659,1332,2,Razor,8.5,
+93972,9483,6089,3,Liquid Soap,5.99,Lemon
+93972,431,8581,2,Liquid Soap,5.99,Mint
+93972,3717,8581,1,Liquid Soap,5.99,Raspberry
+93972,5347,6089,1,Shower Gel,2.29,Mint
+93972,9732,6089,2,Bar Soap,4.49,Mint
+93972,1073,8581,3,Liquid Soap,5.99,Chocolate
+94143,8739,3366,2,Shower Gel,2.29,Jasmine
+94143,6302,3366,1,Razor,8.5,
+94214,1325,5161,2,Shower Gel,2.29,Coconut
+94214,8486,5161,1,Liquid Soap,5.99,Coconut
+94465,5357,1421,2,Razor,8.5,
+94465,3850,1421,1,Liquid Soap,5.99,Raspberry
+94806,2572,1758,3,Liquid Soap,5.99,Lavender
+94806,4728,1758,2,Shower Gel,2.29,Lemon
+94806,6326,1758,1,Liquid Soap,5.99,Mint
+94957,5347,1448,2,Shower Gel,2.29,Mint
+94957,9732,1448,3,Bar Soap,4.49,Mint
+94957,7659,1448,1,Razor,8.5,
+95068,3513,3313,1,Bar Soap,4.49,Coconut
+95068,3513,3313,3,Bar Soap,4.49,Coconut
+95068,5864,3313,2,Razor,8.5,
+95479,5347,7596,2,Shower Gel,2.29,Mint
+95479,6302,7596,1,Razor,8.5,
+95521,5864,1145,2,Razor,8.5,
+95521,5864,1145,1,Razor,8.5,
+95692,6749,4728,3,Liquid Soap,5.99,Chocolate
+95692,34,4728,2,Bar Soap,4.49,Lavender
+95692,7659,4728,1,Razor,8.5,
+95773,3457,7324,1,Bar Soap,4.49,Raspberry
+95773,1984,7324,2,Shower Gel,2.29,Chocolate
+95773,4378,7324,3,Shower Gel,2.29,Mint
+95854,4140,2776,1,Bar Soap,4.49,Lemon
+95854,5357,2776,2,Razor,8.5,
+96025,6302,3198,1,Razor,8.5,
+96456,8739,3855,1,Shower Gel,2.29,Jasmine
+96456,5864,3855,3,Razor,8.5,
+96456,7659,3855,2,Razor,8.5,
+96497,1402,6379,3,Liquid Soap,5.99,Raspberry
+96497,5864,6379,1,Razor,8.5,
+96497,7659,6379,2,Razor,8.5,
+96688,7865,3020,2,Shower Gel,2.29,Caramel
+96688,7659,3020,1,Razor,8.5,
+96688,6302,3020,3,Razor,8.5,
+97219,8743,3430,1,Shower Gel,2.29,Coconut
+98131,5357,2501,1,Razor,8.5,
+98131,3850,2501,2,Liquid Soap,5.99,Raspberry
+98131,7659,2501,3,Razor,8.5,
+98362,9483,1496,3,Liquid Soap,5.99,Lemon
+98362,3289,1496,2,Shower Gel,2.29,Lavender
+98362,7659,1496,1,Razor,8.5,
+98863,8437,5382,1,Liquid Soap,5.99,Lavender
+98863,9483,762,3,Liquid Soap,5.99,Lemon
+98863,5357,762,2,Razor,8.5,
+98863,7472,762,1,Bar Soap,4.49,Lemon
+98863,6326,5382,3,Liquid Soap,5.99,Mint
+98863,7659,5382,2,Razor,8.5,
+98944,1073,1397,3,Liquid Soap,5.99,Chocolate
+98944,5952,1397,2,Liquid Soap,5.99,Jasmine
+98944,6302,1397,1,Razor,8.5,
+99065,2095,8668,2,Bar Soap,4.49,Raspberry
+99065,1278,8668,1,Shower Gel,2.29,Jasmine
+99206,3717,3471,3,Liquid Soap,5.99,Raspberry
+99206,4378,3471,1,Shower Gel,2.29,Mint
+99206,7659,3471,2,Razor,8.5,
+99217,7472,2338,1,Bar Soap,4.49,Lemon
+99217,4808,2338,2,Liquid Soap,5.99,Chocolate
+99448,5357,7969,2,Razor,8.5,
+99448,6174,7969,1,Liquid Soap,5.99,Lavender
+99589,5823,5117,3,Liquid Soap,5.99,Caramel
+99589,8743,5117,2,Shower Gel,2.29,Coconut
+99589,6302,5117,1,Razor,8.5,
+99841,3232,738,1,Shower Gel,2.29,Raspberry
+99841,7659,738,2,Razor,8.5,
+99902,9483,1784,1,Liquid Soap,5.99,Lemon
+99902,1173,1784,3,Liquid Soap,5.99,Heather
+99902,7659,1784,2,Razor,8.5,
+99963,9483,594,2,Liquid Soap,5.99,Lemon
+99963,5357,594,1,Razor,8.5,
+99963,7555,594,3,Liquid Soap,5.99,Jasmine

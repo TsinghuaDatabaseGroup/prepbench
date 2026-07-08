@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Costume",
+        "Country",
+        "Currency",
+        "Price",
+        "2019 FY Sales",
+        "2020 FY Sales"
+      ],
+      "columns": {
+        "Costume": "text_exact",
+        "Country": "text_exact",
+        "Currency": "text_exact",
+        "Price": "text_exact",
+        "2019 FY Sales": "number",
+        "2020 FY Sales": "number"
+      }
+    }
+  }
+}
+

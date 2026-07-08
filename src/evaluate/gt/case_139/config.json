@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Animal Type",
+        "Adopted, Returned to Owner or Transferred",
+        "Other"
+      ],
+      "columns": {
+        "Animal Type": "text_exact",
+        "Adopted, Returned to Owner or Transferred": "number",
+        "Other": "number"
+      }
+    }
+  }
+}
+

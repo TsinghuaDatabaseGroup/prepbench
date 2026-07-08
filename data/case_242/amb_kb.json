@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_fewer_than_200_wins_cutoff",
+      "kind": "Operation incomplete",
+      "node_id": "cutoff_agg",
+      "op": "aggregate",
+      "source_text": "compare the first 200 matches that each player won and see losses up to the 200th win",
+      "ref": "wins_only = pm[pm[\"Win/Loss\"] == \"Win\"].copy().head(200)"
+    },
+    {
+      "id": "2_O1_cutoff_inclusive_by_date",
+      "kind": "Operation boundary",
+      "node_id": "filter_by_cutoff",
+      "op": "filter",
+      "source_text": "see losses up to the 200th win. Filter the dataset accordingly",
+      "ref": "pm = pm[pm[\"Date\"] <= cutoff]"
+    },
+    {
+      "id": "3_C1_grand_slam_identification",
+      "kind": "Row-level concept",
+      "node_id": "filter_slam",
+      "op": "filter",
+      "source_text": "Filter to Grand Slam matches only",
+      "ref": "slam_names = {\"Australian Open\", \"French Open\", \"Wimbledon\", \"US Open\"}"
+    },
+    {
+      "id": "4_O2_win_number_blank_for_losses",
+      "kind": "Operation incomplete",
+      "node_id": "join_metrics",
+      "op": "join",
+      "intent": "Leave Win Number blank on loss rows.",
+      "ref": "pm[\"Win Number\"] = pd.NA"
+    },
+    {
+      "id": "5_C1_players_of_interest_names",
+      "kind": "Single-table reference",
+      "node_id": "players",
+      "op": "filter",
+      "source_text": "matches where Murray, Nadal, Federer or Djokovic played so filter to only these matches",
+      "ref": "players = [\"Federer R.\", \"Murray A.\", \"Nadal R.\", \"Djokovic N.\"]"
+    },
+    {
+      "id": "6_O1_win_order_tiebreakers",
+      "kind": "Operation incomplete",
+      "node_id": "sort_wins_for_metrics",
+      "op": "sort",
+      "source_text": "compare the first 200 matches that each player won",
+      "ref": "pm.sort_values([\"Date\", \"Tournament\", \"Round\"])"
+    },
+    {
+      "id": "7_O3_union_without_dedup",
+      "kind": "Row-level concept",
+      "node_id": "union_inputs",
+      "op": "union",
+      "source_text": "Bring all the files together into 1 dataset",
+      "ref": "df_all = pd.concat(dfs, ignore_index=True)"
+    },
+    {
+      "id": "8_O2_duplicate_rows_for_two_players",
+      "kind": "Operation incomplete",
+      "node_id": "union_players",
+      "op": "union",
+      "source_text": "Categorise these matches as Win or Loss for each of our Players of Interest",
+      "ref": "for p in players: pm = df_all[(df_all[\"Winner\"] == p) | (df_all[\"Loser\"] == p)]"
+    }
+  ]
+}

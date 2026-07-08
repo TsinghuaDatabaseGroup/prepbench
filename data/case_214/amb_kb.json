@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_cross_join_all_pairs",
+      "kind": "Multi-table alignment",
+      "node_id": "cross_join",
+      "op": "join",
+      "source_text": "Append the Branch information to the Customer information",
+      "ref": "branches_rad[\"_key\"] = 1\ncustomers_rad[\"_key\"] = 1\ncross = customers_rad.merge(branches_rad, on=\"_key\", how=\"outer\", suffixes=(\"\", \"_b\"))"
+    },
+    {
+      "id": "2_O1_clip_acos_inner_range",
+      "kind": "Operation boundary",
+      "node_id": "distance_calc",
+      "op": "project",
+      "intent": "Constrain the arccos input to [-1, 1] before calculating distance to avoid floating-point invalid values.",
+      "ref": "inner = np.clip(inner, -1.0, 1.0)\ncross[\"DistanceRaw\"] = earth_radius_miles * np.arccos(inner)"
+    },
+    {
+      "id": "3_O3_priority_tie_break_by_customer",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_for_priority",
+      "op": "sort",
+      "source_text": "For each Branch, assign a Customer Priority rating, the closest customer having a rating of 1",
+      "ref": "nearest.sort_values([\"Distance\", \"Customer\"], ascending=[True, True])\n        .groupby(\"Branch\")\n        .cumcount() + 1"
+    },
+    {
+      "id": "new_1_nearest_branch_tie_input_order",
+      "kind": "Operation inconsistent",
+      "node_id": "nearest_branch",
+      "op": "filter",
+      "intent": "If multiple branches tie as closest for a customer, keep the first matching branch row produced by the Customer-Branch combinations.",
+      "ref": "nearest_idx = cross.groupby(\"Customer\", as_index=False)[\"DistanceRaw\"].idxmin()[\"DistanceRaw\"]\nnearest = cross.loc[nearest_idx].copy()"
+    },
+    {
+      "id": "new_2_final_sort_branch_priority",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final rows by Branch Long ascending, then Customer Priority ascending.",
+      "ref": "out = out.sort_values(by=[\"Branch Long\", \"Customer Priority\"], ascending=[True, True]).reset_index(drop=True)"
+    }
+  ]
+}

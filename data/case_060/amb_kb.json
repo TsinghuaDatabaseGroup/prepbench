@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_trait_field_set",
+      "kind": "Single-table reference",
+      "node_id": "n02_clean_cast",
+      "op": "project",
+      "source_text": "Filter out any specimen that doesn't have a measurement for each trait",
+      "ref": "trait_columns = [\n        'Total_body_length',\n        'Prosoma_length',\n        'Prosoma_width',\n        'Prosoma_height',\n        'Tibia_I_length',\n        'Fang_length'\n    ]"
+    },
+    {
+      "id": "2_O2_drop_non_numeric_traits",
+      "kind": "Operation incomplete",
+      "node_id": "n02_clean_cast",
+      "op": "project",
+      "intent": "Exclude any specimen where any trait measurement cannot be converted to a number.",
+      "ref": "df[col] = pd.to_numeric(df[col], errors='coerce')\n\ndf = df.dropna(subset=trait_columns)"
+    },
+    {
+      "id": "3_O2_drop_asterisk_measurements",
+      "kind": "Operation incomplete",
+      "node_id": "n03_nonnull_traits",
+      "op": "filter",
+      "source_text": "those with '*'s against measurements.",
+      "ref": "df = df[~df[col].astype(str).str.contains(r'\\*', na=False)]"
+    },
+    {
+      "id": "4_C2_minmax_on_species_means",
+      "kind": "Group-level concept",
+      "node_id": "n10_norm_by_trait",
+      "op": "project",
+      "source_text": "Min(X) : The smallest overall value for the current trait across all species.",
+      "ref": "df_agg = df.groupby('Species')[trait_columns].agg(agg_dict).reset_index()\n\n        values = df_agg[trait_col].values\n        min_val = values.min()\n        max_val = values.max()"
+    },
+    {
+      "id": "5_O1_normalise_when_max_equals_min",
+      "kind": "Operation boundary",
+      "node_id": "n10_norm_by_trait",
+      "op": "project",
+      "intent": "If Max Value equals Min Value for a trait, set Normalised Value to 0.0.",
+      "ref": "        if max_val == min_val:\n            normalized_values = [0.0] * len(values)"
+    }
+  ]
+}

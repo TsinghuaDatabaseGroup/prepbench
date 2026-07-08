@@ -1,0 +1,49 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "employee_id",
+        "guid",
+        "first_name",
+        "last_name",
+        "date_of_birth",
+        "nationality",
+        "gender",
+        "email",
+        "hire_date",
+        "leave_date"
+      ],
+      "columns": {
+        "employee_id": "text_exact",
+        "guid": "text_exact",
+        "first_name": "text_exact",
+        "last_name": "text_exact",
+        "date_of_birth": "date",
+        "nationality": "text_exact",
+        "gender": "text_exact",
+        "email": "text_exact",
+        "hire_date": "date",
+        "leave_date": "date"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "employee_id",
+        "guid",
+        "dc_nbr",
+        "month_end_date",
+        "hire_date",
+        "leave_date"
+      ],
+      "columns": {
+        "employee_id": "text_exact",
+        "guid": "text_exact",
+        "dc_nbr": "number",
+        "month_end_date": "date",
+        "hire_date": "date",
+        "leave_date": "date"
+      }
+    }
+  }
+}
+

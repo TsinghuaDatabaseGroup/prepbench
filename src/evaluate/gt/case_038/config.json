@@ -1,0 +1,28 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Date of Servce",
+                "VisitID",
+                "PatientID",
+                "Visit Type",
+                "Doctor",
+                "Patient visit number",
+                "First visit date",
+                "Total Patient visits",
+                "New Patient Flag"
+            ],
+            "columns": {
+                "Date of Servce": "date",
+                "VisitID": "number",
+                "PatientID": "number",
+                "Visit Type": "text_exact",
+                "Doctor": "text_exact",
+                "Patient visit number": "number",
+                "First visit date": "date",
+                "Total Patient visits": "number",
+                "New Patient Flag": "text_exact"
+            }
+        }
+    }
+}

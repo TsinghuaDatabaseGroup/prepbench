@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Subject",
+        "Grade",
+        "Class"
+      ],
+      "columns": {
+        "Subject": "text_exact",
+        "Grade": "number",
+        "Class": "text_exact"
+      }
+    }
+  }
+}
+

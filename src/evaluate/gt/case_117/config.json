@@ -1,0 +1,30 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Completed Weekday",
+        "Task",
+        "Scope to Build Time",
+        "Build to Delivery Time",
+        "Days Difference to Schedule",
+        "Project",
+        "Sub-project",
+        "Owner",
+        "Scheduled Date",
+        "Completed Date"
+      ],
+      "columns": {
+        "Completed Weekday": "text_exact",
+        "Task": "text_exact",
+        "Scope to Build Time": "number",
+        "Build to Delivery Time": "number",
+        "Days Difference to Schedule": "number",
+        "Project": "text_exact",
+        "Sub-project": "text_exact",
+        "Owner": "text_exact",
+        "Scheduled Date": "date",
+        "Completed Date": "date"
+      }
+    }
+  }
+}

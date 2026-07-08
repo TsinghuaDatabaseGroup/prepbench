@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Status",
+        "ID",
+        "3rd Party ID",
+        "Scent",
+        "Sales",
+        "3rd Party Sales"
+      ],
+      "columns": {
+        "Status": "text_exact",
+        "ID": "text_exact",
+        "3rd Party ID": "text_exact",
+        "Scent": "text_exact",
+        "Sales": "number",
+        "3rd Party Sales": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_output_date_is_month_number",
+      "kind": "Row-level concept",
+      "node_id": "compute_final",
+      "op": "project",
+      "source_text": "Change the date to a month number",
+      "ref": "merged[\"Date\"] = merged[\"Month\"].astype(int)"
+    },
+    {
+      "id": "2_C2_difference_formula_price_minus_target",
+      "kind": "Row-level concept",
+      "node_id": "compute_final",
+      "op": "project",
+      "source_text": "Calculate the difference between the Sales and Target values per Class and Month",
+      "ref": "merged[\"Difference to Target\"] = merged[\"Price\"] - merged[\"Target\"]"
+    },
+    {
+      "id": "3_D2_join_keys_month_and_class",
+      "kind": "Multi-table alignment",
+      "node_id": "j",
+      "op": "join",
+      "source_text": "Join the Targets data on to the Sales data (note - you should have 48 rows of data after the join)",
+      "ref": "merged = pd.merge(\n        sales_agg,\n        targets_all,\n        how=\"inner\",\n        on=[\"Month\", \"Class\"],\n        validate=\"one_to_one\",\n    )"
+    },
+    {
+      "id": "4_O2_join_type_inner",
+      "kind": "Operation incomplete",
+      "node_id": "j",
+      "op": "join",
+      "source_text": "Join the Targets data on to the Sales data (note - you should have 48 rows of data after the join)",
+      "ref": "merged = pd.merge(\n        sales_agg,\n        targets_all,\n        how=\"inner\",\n        on=[\"Month\", \"Class\"],\n        validate=\"one_to_one\",\n    )"
+    },
+    {
+      "id": "5_O3_join_one_to_one_enforcement",
+      "kind": "Operation inconsistent",
+      "node_id": "j",
+      "op": "join",
+      "intent": "Enforce the Month–Class join to be one-to-one (error if duplicates cause multi-match).",
+      "ref": "merged = pd.merge(\n        sales_agg,\n        targets_all,\n        how=\"inner\",\n        on=[\"Month\", \"Class\"],\n        validate=\"one_to_one\",\n    )"
+    },
+    {
+      "id": "6_O1_apply_class_swap_before_coding",
+      "kind": "Operation boundary",
+      "node_id": "s_prep1",
+      "op": "project",
+      "source_text": "Correct the Classes being incorrect:\n  - Economy to First Class\n  - First Class to Economy",
+      "ref": "def normalize_sales_class_to_code(s: pd.Series) -> pd.Series:\n        # Apply correction only for Economy <-> First Class (as per GT-aligned logic)\n        s = s.replace({\n            \"Economy\": \"First Class\",\n            \"First Class\": \"Economy\",\n        })\n        mapping = {\n            \"First Class\": \"FC\",\n            \"Business Class\": \"BC\",\n            \"Premium Economy\": \"PE\",\n            \"Economy\": \"E\",\n        }\n        return s.map(mapping)"
+    },
+    {
+      "id": "7_C2_class_code_mapping_for_join",
+      "kind": "Row-level concept",
+      "node_id": "s_prep1",
+      "op": "project",
+      "source_text": "Find the First Letter from each word in the Class to help with joining the Targets data to Sales data",
+      "ref": "mapping = {\n            \"First Class\": \"FC\",\n            \"Business Class\": \"BC\",\n            \"Premium Economy\": \"PE\",\n            \"Economy\": \"E\",\n        }\n        return s.map(mapping)"
+    },
+    {
+      "id": "8_C2_sales_month_from_parsed_date",
+      "kind": "Row-level concept",
+      "node_id": "s_prep1",
+      "op": "project",
+      "source_text": "Change the date to a month number",
+      "ref": "dt = pd.to_datetime(df[\"Date\"], format=\"%d/%m/%Y\", errors=\"coerce\")\n        df[\"Month\"] = dt.dt.month"
+    },
+    {
+      "id": "9_C2_cast_sales_price_to_numeric",
+      "kind": "Row-level concept",
+      "node_id": "s_prep1",
+      "op": "project",
+      "intent": "Ensure sales Price is numeric before aggregating sales.",
+      "ref": "df[\"Price\"] = pd.to_numeric(df[\"Price\"], errors=\"coerce\")"
+    }
+  ]
+}

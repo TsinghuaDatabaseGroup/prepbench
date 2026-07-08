@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_non_numeric_row_token",
+      "kind": "Operation incomplete",
+      "node_id": "filter_valid",
+      "op": "filter",
+      "source_text": "There is a column that will contain just numbers (up to 502).",
+      "ref": "        try:\n            idx = int(parts[-1])\n        except Exception:\n            continue"
+    },
+    {
+      "id": "2_D1_datatype_from_json_name_tokens",
+      "kind": "Single-table reference",
+      "node_id": "parse_flags",
+      "op": "project",
+      "source_text": "For the column containing our metrics, if this is blank, take the value from the 'indicators' / 'timestamp' column.",
+      "ref": "        dtype: str | None = None\n        if \"timestamp\" in parts:\n            dtype = \"timestamp\"\n        elif \"indicators\" in parts:\n            ..."
+    },
+    {
+      "id": "3_O1_split_json_name_on_dot",
+      "kind": "Operation boundary",
+      "node_id": "parse_flags",
+      "op": "project",
+      "source_text": "Break up the JSON_Name field",
+      "ref": "        parts = name.split(\".\")"
+    },
+    {
+      "id": "4_O1_exclude_meta_by_token_match",
+      "kind": "Operation incomplete",
+      "node_id": "parse_flags",
+      "op": "project",
+      "source_text": "Exclude 'meta' and '' records in the same column to just leave 'indicators' and 'timestamp'",
+      "ref": "        if \"meta\" in parts:\n            continue"
+    },
+    {
+      "id": "5_D1_row_from_last_token",
+      "kind": "Single-table reference",
+      "node_id": "parse_flags",
+      "op": "project",
+      "source_text": "There is a column that will contain just numbers (up to 502).",
+      "ref": "            idx = int(parts[-1])"
+    },
+    {
+      "id": "6_O3_pivot_duplicates_take_first",
+      "kind": "Operation inconsistent",
+      "node_id": "pivot",
+      "op": "pivot",
+      "intent": "When multiple values exist for the same (Row, Data Type), take the first available value.",
+      "ref": "    wide = tidy.pivot_table(index=\"Row\", columns=\"DataType\", values=\"Value\", aggfunc=\"first\").reset_index()"
+    },
+    {
+      "id": "7_O1_timestamp_unit_seconds",
+      "kind": "Row-level concept",
+      "node_id": "post_compute",
+      "op": "project",
+      "source_text": "Turn Unix Epoch time in to a real date",
+      "ref": "        ts = pd.to_datetime(wide[\"timestamp\"], unit=\"s\")"
+    },
+    {
+      "id": "8_O2_ensure_all_metric_columns_exist",
+      "kind": "Operation incomplete",
+      "node_id": "post_compute",
+      "op": "project",
+      "intent": "Ensure all required metric columns exist even if missing for certain rows (leave as null).",
+      "ref": "    for col in [\"volume\", \"high\", \"low\", \"adjclose\", \"close\", \"open\"]:\n        if col not in wide.columns:\n            wide[col] = pd.NA"
+    }
+  ]
+}

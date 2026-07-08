@@ -1,0 +1,15 @@
+Type,Action,Date,Quantity,Store ID,Crime Ref Number
+Bar,Theft,2019-03-19,10,OX1,S04P1
+Bar,Stock Adjusted,2019-03-25,-10,OX1,S04P1
+Bar,Theft,2019-03-22,5,OX1,S04P2
+Bar,Stock Adjusted,2019-03-25,-4,OX1,S04P2
+Liquid,Theft,2019-03-02,100,WM1,S04P3
+Liquid,Stock Adjusted,2019-03-02,-100,WM1,S04P3
+Bar,Theft,2019-04-03,5,WM2,S04P4
+Liquid,Theft,2019-03-22,14,OX1,S04P5
+Liquid,Theft,2019-02-02,2,WM2,S04P6
+Liquid,Stock Adjusted,2019-04-03,-2,WM2,S04P6
+Soap Bar,Theft,2019-02-28,22,WM1,S04P7
+Soap Bar,Stock Adjusted,2019-03-01,-20,WM1,S04P7
+Liquid,Theft,2019-02-27,105,OX1,S04P8
+Liquid,Stock Adjusted,2019-03-01,-105,OX1,S04P8

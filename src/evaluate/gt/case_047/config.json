@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Item", "Profit"],
+      "columns": {
+        "Item": "text_exact",
+        "Profit": "number"
+      }
+    }
+  }
+}
+
+

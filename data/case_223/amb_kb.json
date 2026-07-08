@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_student_grouping_keys",
+      "kind": "Single-table reference",
+      "node_id": "a_avg",
+      "op": "aggregate",
+      "source_text": "Calculate the average grade for each year for each student",
+      "ref": "id_cols = [\"student_id\", \"first_name\", \"last_name\", \"Gender\", \"D.O.B\"]"
+    },
+    {
+      "id": "2_D2_join_keys_2021_2022_long",
+      "kind": "Multi-table alignment",
+      "node_id": "j_merge",
+      "op": "join",
+      "intent": "Which columns should be used to align 2021-long rows to 2022-long rows.",
+      "ref": "on=id_cols + [\"category\"], how=\"inner\""
+    },
+    {
+      "id": "3_O2_join_unmatched_policy_inner",
+      "kind": "Operation incomplete",
+      "node_id": "j_merge",
+      "op": "join",
+      "intent": "Keep only matched 2021/2022 category rows (inner join).",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "4_C2_difference_direction",
+      "kind": "Row-level concept",
+      "node_id": "p_diff",
+      "op": "project",
+      "source_text": "Calculate the difference between the average grade from 2021 to 2022",
+      "ref": "df_avg[\"Difference\"] = df_avg[\"2022\"] - df_avg[\"2021\"]"
+    },
+    {
+      "id": "5_C2_category_name_derivation",
+      "kind": "Row-level concept",
+      "node_id": "p_fix",
+      "op": "project",
+      "intent": "How to derive the category label from grade column names (remove year prefix).",
+      "ref": "df_long[\"category\"].str.replace(\"2021-\", \"\").str.replace(\"2022-\", \"\")"
+    },
+    {
+      "id": "6_D1_grade_columns_mapping",
+      "kind": "Single-table reference",
+      "node_id": "p_long",
+      "op": "pivot",
+      "source_text": "Each student has 4 categories: attainment, attendance, effort, and behaviour.",
+      "ref": "value_vars=[\"2021-attainment\", \"2021-effort\", \"2021-attendance\", \"2021-behaviour\"]"
+    },
+    {
+      "id": "7_O1_output_sort_order",
+      "kind": "Row-level concept",
+      "node_id": "s_sort",
+      "op": "sort",
+      "intent": "Sort the final output rows by student_id ascending.",
+      "ref": "df_output.sort_values(\"student_id\")"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_partition_by_team_player",
+      "kind": "Group-level concept",
+      "node_id": "compute_exp",
+      "op": "project",
+      "source_text": "To work out the Experience each player has going into the tournament",
+      "ref": "df = df.groupby([\"Team\", \"Player ID\"], group_keys=False).apply(compute_experience)"
+    },
+    {
+      "id": "2_O1_reverse_running_total",
+      "kind": "Group-level concept",
+      "node_id": "compute_exp",
+      "op": "project",
+      "source_text": "how many matches they played after that match and minus this number from the Total Matches",
+      "ref": "running_from_current = group[\"Matches Played in Tournament\"].iloc[::-1].cumsum().iloc[::-1]\ngroup[\"Experience at beginning of Tournament\"] = group[\"Total Matches\"] - running_from_current"
+    },
+    {
+      "id": "4_O1_sort_chronological",
+      "kind": "Operation boundary",
+      "node_id": "sorted",
+      "op": "sort",
+      "intent": "Within each (Team, Player ID) group, order records by Tournament Date ascending (chronological order).",
+      "ref": "group = group.sort_values(\"Tournament Date\", ascending=True)"
+    }
+  ]
+}

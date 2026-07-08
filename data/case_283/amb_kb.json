@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_most_recent_is_max_year",
+      "kind": "Group-level concept",
+      "node_id": "agg_most_recent",
+      "op": "aggregate",
+      "source_text": "For each Champion, calculate the most recent win across tournaments",
+      "ref": "most_recent = long_df.groupby(\"Champion\")[\"Year\"].max()"
+    },
+    {
+      "id": "2_D1_tournament_labels",
+      "kind": "Single-table reference",
+      "node_id": "fin",
+      "op": "project",
+      "source_text": "Make sure it's clear which tournament they were the Champion of",
+      "ref": "\"Men's Singles\", \"Women's Singles\", \"Men's Doubles\", \"Women's Doubles\", \"Mixed Doubles\""
+    },
+    {
+      "id": "3_O2_drop_invalid_year",
+      "kind": "Operation incomplete",
+      "node_id": "flt_rows",
+      "op": "filter",
+      "source_text": "Filter out the years where the championship did not take place",
+      "ref": "year_extracted = df[year_col].str.extract(r\"(\\d{4})\")[0]"
+    },
+    {
+      "id": "4_O2_drop_not_held_text",
+      "kind": "Operation incomplete",
+      "node_id": "flt_rows",
+      "op": "filter",
+      "source_text": "Filter out the years where the championship did not take place",
+      "ref": "notheld_mask = any(\"not held\" in v.lower() for v in r)"
+    },
+    {
+      "id": "5_O2_missing_tournament_counts_are_zero",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fill_missing_cols",
+      "op": "project",
+      "source_text": "Bring the data together so it's clear for each Champion how many of each tournament they've won",
+      "ref": "for col in [\"Women's Singles\", \"Men's Singles\", ...]: if col not in pivot.columns: pivot[col] = 0"
+    },
+    {
+      "id": "6_C1_gender_from_gendered_events_only",
+      "kind": "Row-level concept",
+      "node_id": "proj_gender_code",
+      "op": "project",
+      "source_text": "Create a field to indicate the Gender of each Champion",
+      "ref": "long_df[\"Gender\"] = long_df[\"Champion\"].map(gender_map)"
+    },
+    {
+      "id": "7_O3_rank_is_competition_min_on_total",
+      "kind": "Operation boundary",
+      "node_id": "proj_rank",
+      "op": "project",
+      "source_text": "Rank the Champions in descending order of their Total Championships",
+      "ref": "out[\"Total Championships\"].rank(method='min', ascending=False)"
+    },
+    {
+      "id": "8_C2_total_championships_sum_all_five",
+      "kind": "Group-level concept",
+      "node_id": "proj_total_champs",
+      "op": "project",
+      "source_text": "Create a calculation for the Total Championships each Champion has won",
+      "ref": "pivot[\"Women's Singles\"] + pivot[\"Men's Singles\"] + pivot[\"Women's Doubles\"] + pivot[\"Mixed Doubles\"] + pivot[\"Men's Doubles\"]"
+    },
+    {
+      "id": "9_C2_define_singles_and_doubles_includes_mixed",
+      "kind": "Group-level concept",
+      "node_id": "proj_totals",
+      "op": "project",
+      "source_text": "Filter the data to only include Champions who have won both Singles and Doubles tournaments",
+      "ref": "doubles_total = pivot[\"Women's Doubles\"] + pivot[\"Men's Doubles\"] + pivot[\"Mixed Doubles\"]"
+    },
+    {
+      "id": "10_O1_sort_ties_by_most_recent_win",
+      "kind": "Operation boundary",
+      "node_id": "sort_rank",
+      "op": "sort",
+      "source_text": "Rank the Champions in descending order of their Total Championships",
+      "ref": "out.sort_values([\"Total Championships\", \"Most Recent Win\"], ascending=[False, False])"
+    }
+  ]
+}

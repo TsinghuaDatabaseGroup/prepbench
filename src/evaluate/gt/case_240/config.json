@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Customer",
+        "Book",
+        "Date",
+        "Sequence ID",
+        "Quantity",
+        "Bigger Order?"
+      ],
+      "columns": {
+        "Customer": "text_exact",
+        "Book": "text_exact",
+        "Date": "date",
+        "Sequence ID": "number",
+        "Quantity": "number",
+        "Bigger Order?": "number"
+      }
+    }
+  }
+}
+

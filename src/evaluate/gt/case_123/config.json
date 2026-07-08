@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Date",
+        "Number of people off each day"
+      ],
+      "columns": {
+        "Date": "datetime",
+        "Number of people off each day": "number"
+      }
+    }
+  }
+}

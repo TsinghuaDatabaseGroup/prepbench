@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_abbr_key",
+      "kind": "Single-table reference",
+      "node_id": "prep",
+      "op": "project",
+      "intent": "Derive the name-matching key as the first 3 characters of Name after stripping, lowercasing, and removing spaces.",
+      "ref": "return ''.join(str(s)).strip().lower().replace(\" \", \"\")[:3]"
+    },
+    {
+      "id": "2_O1_roundup_hours_after_sum",
+      "kind": "Operation boundary",
+      "node_id": "build_hours",
+      "op": "project",
+      "source_text": "Santa only does his time planning on whole hours so make sure you round up",
+      "ref": "agg['Total Hours Build Time'] = np.ceil(agg['Elves Build Time (min)'] / 60.0).astype(int)"
+    },
+    {
+      "id": "3_O3_dedup_recipient_by_name",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_name",
+      "op": "dedup",
+      "source_text": "Only return one row per recipient in Santa List (both Naughty and Nice)",
+      "ref": "combined = combined.drop_duplicates(subset=['Name'])"
+    },
+    {
+      "id": "4_O3_priority_nice_over_naughty",
+      "kind": "Operation inconsistent",
+      "node_id": "dedup_name",
+      "op": "dedup",
+      "intent": "If the same recipient matches both lists, keep the Nice List row and drop the Naughty List row.",
+      "ref": "list_priority = pd.Categorical(combined['List'], categories=['Nice List', 'Naughty List'], ordered=True)"
+    },
+    {
+      "id": "5_D2_address_substring_match",
+      "kind": "Multi-table alignment",
+      "node_id": "filter",
+      "op": "filter",
+      "source_text": "Parse the address to match Santa's list to the Naughty/Nice list",
+      "ref": "mask = merged.apply(lambda r: r['__addr_norm'] in r['__full_addr_norm'], axis=1)"
+    },
+    {
+      "id": "6_D2_join_on_abbr",
+      "kind": "Multi-table alignment",
+      "node_id": "join",
+      "op": "join",
+      "intent": "Match Naughty/Nice list rows to Santa's master list by joining on the abbreviation key (__abbr).",
+      "ref": "merged = list_df.merge(s, on='__abbr', suffixes=(\"_list\", \"_base\"))"
+    }
+  ]
+}

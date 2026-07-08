@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_parse_date_field",
+      "kind": "Operation incomplete",
+      "node_id": "dates_input",
+      "op": "input",
+      "intent": "Parse the Date Scaffold 'Date' column as a true date type (not a string).",
+      "ref": "df_dates = pd.read_csv(dates_path, parse_dates=[\"Date\"])"
+    },
+    {
+      "id": "2_C2_weekday_occurrence_in_month",
+      "kind": "Group-level concept",
+      "node_id": "dates_with_n",
+      "op": "project",
+      "source_text": "Create date parts to allow both data sets to be joined on the delivery schedule",
+      "ref": "df_dates[\"n_in_month\"] = df_dates.groupby([\"Year\", \"Month\", \"Weekday\"]).cumcount() + 1"
+    },
+    {
+      "id": "3_O2_quantity_numeric_cast",
+      "kind": "Operation incomplete",
+      "node_id": "finalize",
+      "op": "project",
+      "intent": "Ensure Quantity is numeric (fail if not parseable).",
+      "ref": "df_out[\"Quantity\"] = pd.to_numeric(df_out[\"Quantity\"], errors=\"raise\")"
+    },
+    {
+      "id": "4_D2_join_on_weekday_and_n",
+      "kind": "Multi-table alignment",
+      "node_id": "joined",
+      "op": "join",
+      "source_text": "Create date parts to allow both data sets to be joined on the delivery schedule",
+      "ref": "matched = df_dates[(df_dates[\"Weekday\"] == wk) & (df_dates[\"n_in_month\"] == n)]"
+    },
+    {
+      "id": "5_O2_unmatched_rules_drop",
+      "kind": "Operation incomplete",
+      "node_id": "joined",
+      "op": "join",
+      "intent": "If a delivery rule has no matching dates in the scaffold, output no rows for that rule.",
+      "ref": "if matched.empty: continue"
+    },
+    {
+      "id": "6_O3_multi_rule_matches_expand",
+      "kind": "Operation inconsistent",
+      "node_id": "joined",
+      "op": "join",
+      "intent": "If multiple rules match the same date, output one row per matching rule (no dedup/priority).",
+      "ref": "for _, r in df_rules.iterrows(): ... out_rows.append(matched)"
+    }
+  ]
+}

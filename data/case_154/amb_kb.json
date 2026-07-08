@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_d2_join_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_merge",
+      "op": "join",
+      "source_text": "Join the data sets together to give us the grades per student",
+      "ref": "        left_on='Student ID', \n        right_on='id',"
+    },
+    {
+      "id": "2_o2_join_type_inner",
+      "kind": "Operation incomplete",
+      "node_id": "join_merge",
+      "op": "join",
+      "source_text": "Join the data sets together to give us the grades per student",
+      "ref": "        how='inner'"
+    },
+    {
+      "id": "3_d1_keep_only_gender_and_key",
+      "kind": "Single-table reference",
+      "node_id": "proj_students",
+      "op": "project",
+      "source_text": "Remove the parental data fields, they aren't needed for the challenge this week",
+      "ref": "        students_df[['id', 'gender']], "
+    },
+    {
+      "id": "4_o2_unparseable_scores_as_missing",
+      "kind": "Operation incomplete",
+      "node_id": "project_scores",
+      "op": "project",
+      "intent": "When casting Score to numeric, treat non-numeric/unparseable values as missing for calculations.",
+      "ref": "melted_df['Score'] = pd.to_numeric(melted_df['Score'], errors='coerce')"
+    }
+  ]
+}

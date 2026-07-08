@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_active_employee_boundary",
+      "kind": "Operation boundary",
+      "node_id": "active",
+      "op": "filter",
+      "source_text": "If the employee leaves in that month, remove them from the reporting within the month of leaving.",
+      "ref": "active_employees = merged_df[\n    (merged_df['Join Date'] <= merged_df['MonthEnd']) &\n    (merged_df['Leave Date'] > merged_df['MonthEnd'])\n]"
+    },
+    {
+      "id": "2_O3_employee_list_dedup_policy",
+      "kind": "Operation inconsistent",
+      "node_id": "all_employees",
+      "op": "union",
+      "source_text": "Create a full list of employees",
+      "ref": "all_employees = pd.concat([current_employees, past_employees], ignore_index=True)"
+    },
+    {
+      "id": "3_O1_reporting_month_boundaries",
+      "kind": "Operation boundary",
+      "node_id": "months_prepared",
+      "op": "project",
+      "source_text": "Create a scaffold month that can have the Employee data joined on to it",
+      "ref": "reporting_dates['MonthStart'] = pd.to_datetime(reporting_dates['Month'], format='%b-%Y')\nreporting_dates['MonthEnd'] = reporting_dates['MonthStart'] + pd.offsets.MonthEnd(1)"
+    }
+  ]
+}

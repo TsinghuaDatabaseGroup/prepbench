@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_monthly_capital_payment_formula",
+      "kind": "Row-level concept",
+      "node_id": "compute_pay",
+      "op": "project",
+      "source_text": "Create a data field to show how much capital is paid off each month",
+      "ref": "df['Monthly Capital Payment'] = df['Monthly Payment'] * (df['% of Monthly Repayment going to Capital'] / 100)"
+    },
+    {
+      "id": "2_O1_months_to_payoff_ceiling",
+      "kind": "Operation boundary",
+      "node_id": "compute_pay",
+      "op": "project",
+      "source_text": "how many months are needed to pay off the entire debt (whole months only)",
+      "ref": "df['Months to Payoff'] = df.apply(lambda row: math.ceil(row['Capital Repayment Remaining'] / row['Monthly Capital Payment']), axis=1)"
+    },
+    {
+      "id": "3_O1_schedule_includes_aug_2022",
+      "kind": "Operation boundary",
+      "node_id": "expand_months",
+      "op": "script",
+      "source_text": "Assuming a payment is to be made in August 2022",
+      "ref": "today = datetime(2022, 8, 10)\nfor month_offset in range(max_months):"
+    },
+    {
+      "id": "4_O1_payment_day_is_10th",
+      "kind": "Operation boundary",
+      "node_id": "expand_months",
+      "op": "script",
+      "source_text": "Create a field for today (10th August 2022)",
+      "ref": "date_str = f\"10/{month:02d}/{year}\""
+    },
+    {
+      "id": "5_C2_remaining_capital_after_payment",
+      "kind": "Row-level concept",
+      "node_id": "expand_months",
+      "op": "script",
+      "source_text": "How much is still to be paid off for that mortgage?",
+      "ref": "remaining_capital = data['initial_capital'] - (month_offset + 1) * data['monthly_capital']"
+    },
+    {
+      "id": "6_O2_include_final_month_even_if_nonpositive",
+      "kind": "Operation boundary",
+      "node_id": "expand_months",
+      "op": "script",
+      "intent": "Include the final payment month even if Remaining Capital to Repay is 0 or negative.",
+      "ref": "if month_offset < data['months_to_payoff']"
+    },
+    {
+      "id": "7_O2_total_outstanding_includes_only_scheduled",
+      "kind": "Group-level concept",
+      "node_id": "totals_by_date",
+      "op": "aggregate",
+      "source_text": "How much is still to be paid off for all mortgages?",
+      "ref": "for other_store, other_data in store_data.items():\n    if month_offset < other_data['months_to_payoff']:"
+    },
+    {
+      "id": "8_O2_total_outstanding_includes_nonpositive",
+      "kind": "Operation boundary",
+      "node_id": "totals_by_date",
+      "op": "aggregate",
+      "intent": "Include stores in Capital Outstanding Total even when their Remaining Capital to Repay is zero or negative.",
+      "ref": "other_remaining = other_data['initial_capital'] - (month_offset + 1) * other_data['monthly_capital']\ntotal_capital += other_remaining"
+    }
+  ]
+}

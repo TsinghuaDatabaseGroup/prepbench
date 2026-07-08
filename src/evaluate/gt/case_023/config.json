@@ -1,0 +1,22 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Date",
+                "Name",
+                "Value",
+                "Scent",
+                "Product",
+                "Notes"
+            ],
+            "columns": {
+                "Date": "date",
+                "Name": "text_exact",
+                "Value": "number",
+                "Scent": "text_exact",
+                "Product": "text_exact",
+                "Notes": "text_exact"
+            }
+        }
+    }
+}

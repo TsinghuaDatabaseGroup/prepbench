@@ -1,0 +1,24 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Brand", "Bike Type", "Quantity Sold", "Order Value", "Avg Bike Value per Brand"],
+      "columns": {
+        "Brand": "text_exact",
+        "Bike Type": "text_exact",
+        "Quantity Sold": "number",
+        "Order Value": "number",
+        "Avg Bike Value per Brand": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Brand", "Store", "Total Quantity Sold", "Total Order Value", "Avg Days to Ship"],
+      "columns": {
+        "Brand": "text_exact",
+        "Store": "text_exact",
+        "Total Quantity Sold": "number",
+        "Total Order Value": "number",
+        "Avg Days to Ship": "number"
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_units_aggregation_sum",
+      "kind": "Group-level concept",
+      "node_id": "agg_units_by_cat",
+      "op": "aggregate",
+      "intent": "Aggregate England March units sold to product level by summing Units Sold across all cities per category.",
+      "ref": "        .groupby(\"Category\", as_index=False)[\"Units Sold\"].sum()"
+    },
+    {
+      "id": "2_D1_base_product_column_rename",
+      "kind": "Single-table reference",
+      "node_id": "base_rename",
+      "op": "project",
+      "intent": "Treat the master table's Category column as the output Product field (rename Category to Product).",
+      "ref": "base = df1.rename(columns={\"Category\": \"Product\"})["
+    },
+    {
+      "id": "3_C2_profit_total_formula_units_times_ppu",
+      "kind": "Row-level concept",
+      "node_id": "compute_march",
+      "op": "project",
+      "source_text": "Use the soap pricing details to calculate the profit in each city in England in March.",
+      "ref": "march[\"Units Sold\"] *\n                       march[\"profit_per_unit\"]"
+    },
+    {
+      "id": "4_O1_profit_round_to_int",
+      "kind": "Operation boundary",
+      "node_id": "compute_march",
+      "op": "project",
+      "intent": "Round computed Profit to the nearest whole number and store it as an integer.",
+      "ref": ".round().astype(int)"
+    },
+    {
+      "id": "5_O1_march_month_start_date_representation",
+      "kind": "Operation boundary",
+      "node_id": "compute_march",
+      "op": "project",
+      "source_text": "Note: The C&BS Co monthly sales period starts on the 19th of each month.",
+      "ref": "march[\"Month\"] = \"2019-03-19\""
+    },
+    {
+      "id": "6_D2_join_on_product_key",
+      "kind": "Multi-table alignment",
+      "node_id": "join_march",
+      "op": "join",
+      "intent": "Join aggregated England units to profit-per-unit using Product as the join key.",
+      "ref": "on=\"Product\""
+    },
+    {
+      "id": "7_O2_join_inner_only_matched_products",
+      "kind": "Operation incomplete",
+      "node_id": "join_march",
+      "op": "join",
+      "intent": "Only keep products present in both aggregated sales and profit-per-unit when joining (inner join).",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "8_C2_profit_per_unit_price_minus_cost",
+      "kind": "Row-level concept",
+      "node_id": "ppu_project",
+      "op": "project",
+      "source_text": "The pricing and production costs for each product type are also contained in their own sheet.",
+      "ref": "profit_per_unit=df3[\"Selling Price per Unit\"] - df3[\"Manufacturing Cost per Unit\"],"
+    },
+    {
+      "id": "9_D1_map_soap_type_to_product_names",
+      "kind": "Single-table reference",
+      "node_id": "ppu_project",
+      "op": "project",
+      "intent": "Map pricing table soap types to Company Data product names (Bar→Bar Soap, Liquid→Liquid Soap).",
+      "ref": "type_map = {\"Bar\": \"Bar Soap\", \"Liquid\": \"Liquid Soap\"}"
+    },
+    {
+      "id": "10_O1_sort_computed_rows_bar_then_liquid",
+      "kind": "Row-level concept",
+      "node_id": "sort_march",
+      "op": "sort",
+      "intent": "Order computed England March rows by Product as Bar Soap first, then Liquid Soap.",
+      "ref": "order = {\"Bar Soap\": 0, \"Liquid Soap\": 1}"
+    },
+    {
+      "id": "11_O1_append_march_rows_after_master",
+      "kind": "Row-level concept",
+      "node_id": "union_all",
+      "op": "union",
+      "intent": "Append the computed England March rows to the end of the base Company Data rows (do not interleave or reorder master rows).",
+      "ref": "out_df = pd.concat([base, df_march], ignore_index=True)"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Series",
+        "Week",
+        "Player",
+        "Original Rank",
+        "Rank without double points Friday",
+        "Change in winner with no double points Friday?",
+        "Rank based on Score",
+        "Change in winner based on Score?",
+        "Rank if Double Score Friday",
+        "Change in winner if Double Score Friday?",
+        "Score",
+        "Points",
+        "Score if double Friday",
+        "Points without double points Friday"
+      ],
+      "columns": {
+        "Series": "number",
+        "Week": "number",
+        "Player": "text_exact",
+        "Original Rank": "number",
+        "Rank without double points Friday": "number",
+        "Change in winner with no double points Friday?": "boolean",
+        "Rank based on Score": "number",
+        "Change in winner based on Score?": "boolean",
+        "Rank if Double Score Friday": "number",
+        "Change in winner if Double Score Friday?": "boolean",
+        "Score": "number",
+        "Points": "number",
+        "Score if double Friday": "number",
+        "Points without double points Friday": "number"
+      }
+    }
+  }
+}
+

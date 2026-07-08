@@ -1,0 +1,12 @@
+Tier Grouping,Number of Flights,Tier,Benefits
+5,1-4,Tier 0,
+5,5-9,Tier 1,Early Seat Selection
+5,10-14,Tier 2,Free Seat Selection
+5,15-19,Tier 3,Priority Bag Drop & Boarding
+5,20-24,Tier 4,First Checked Bag Free
+5,25-29,Tier 5,First Class Lounge Access
+5,30+,Tier 6,"First Class Lounge Access for 1 Guest, , £250 off a flight each Year"
+10,1-9,Tier 0,
+10,10-19,Tier 1,"Free Seat Selection, Early Seat Selection"
+10,20-29,Tier 2,"First Checked Bag Free, Priority Bag Drop & Boarding"
+10,30+,Tier 3,"First Class Lounge Access, First Class Lounge Access for 1 Guest, £250 off a flight each Year"

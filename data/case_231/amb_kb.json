@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_c2_moving_avg_window",
+      "kind": "Group-level concept",
+      "node_id": "compute_rolling",
+      "op": "project",
+      "source_text": "Calculate the 3 month Moving Average for the Profit for each Store and Bike Type",
+      "ref": "df_scaffolded['3 Month Moving Average Profit'] = df_scaffolded.groupby(['Store', 'Bike Type'])['Profit'] \\\n        .rolling(window=3, min_periods=3).mean().reset_index(level=[0, 1], drop=True)"
+    },
+    {
+      "id": "2_o2_moving_avg_requires_full_window",
+      "kind": "Operation incomplete",
+      "node_id": "compute_rolling",
+      "op": "project",
+      "source_text": "Calculate the 3 month Moving Average for the Profit for each Store and Bike Type",
+      "ref": "df_scaffolded['3 Month Moving Average Profit'] = df_scaffolded.groupby(['Store', 'Bike Type'])['Profit'] \\\n        .rolling(window=3, min_periods=3).mean().reset_index(level=[0, 1], drop=True)"
+    },
+    {
+      "id": "3_o1_date_cutoff_exclusive",
+      "kind": "Operation boundary",
+      "node_id": "filter_01",
+      "op": "filter",
+      "source_text": "filter values up to June 2023",
+      "ref": "df_filtered = df[df['Date'] < pd.to_datetime('2023-07-01')].copy()"
+    },
+    {
+      "id": "9_o1_scaffold_start_month_is_first_observed",
+      "kind": "Row-level concept",
+      "node_id": "min_month",
+      "op": "aggregate",
+      "source_text": "We need to scaffold the data",
+      "ref": "min_months = monthly_agg.groupby(['Store', 'Bike Type'])[\n        'Month'].min().reset_index()"
+    },
+    {
+      "id": "10_o1_month_bucket_to_month_start",
+      "kind": "Row-level concept",
+      "node_id": "project_01",
+      "op": "project",
+      "source_text": "Aggregated the data to a monthly level for each Store and Bike Type",
+      "ref": "df_filtered['Month'] = df_filtered['Date'].dt.to_period(\n        'M').dt.to_timestamp()"
+    },
+    {
+      "id": "11_o1_scaffold_end_month_june2023_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "scaffold_range",
+      "op": "project",
+      "source_text": "Replace these nulls with the most recent date in the dataset (June 2023)",
+      "ref": "end_date = pd.to_datetime('2023-06-01')\n\nscaffold = pd.concat([\n        pd.DataFrame({\n            'Month': pd.date_range(start=row['min_month'], end=end_date, freq='MS'),"
+    }
+  ]
+}

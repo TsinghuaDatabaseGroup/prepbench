@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": false,
+      "key": ["Sort Order"],
+      "columns": {
+        "Sort Order": "number",
+        "Leader": "text_exact",
+        "Gym Set": "text_exact",
+        "Number": "number",
+        "Card": "text_exact",
+        "Card Type": "text_exact"
+      }
+    }
+  }
+}

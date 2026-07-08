@@ -1,0 +1,34 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Open Play Goals", "Goals with right foot", "Goals with left foot", "Position", "Appearances", "Rank", "Total Goals", "Open Play Goals/Game", "Headed goals", "Name"],
+      "columns": {
+        "Open Play Goals": "number",
+        "Goals with right foot": "number",
+        "Goals with left foot": "number",
+        "Position": "text_exact",
+        "Appearances": "number",
+        "Rank": "number",
+        "Total Goals": "number",
+        "Open Play Goals/Game": "number",
+        "Headed goals": "number",
+        "Name": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Rank by Position", "Open Play Goals", "Goals with right foot", "Goals with left foot", "Position", "Appearances", "Total Goals", "Open Play Goals/Game", "Headed goals", "Name"],
+      "columns": {
+        "Rank by Position": "number",
+        "Open Play Goals": "number",
+        "Goals with right foot": "number",
+        "Goals with left foot": "number",
+        "Position": "text_exact",
+        "Appearances": "number",
+        "Total Goals": "number",
+        "Open Play Goals/Game": "number",
+        "Headed goals": "number",
+        "Name": "text_exact"
+      }
+    }
+  }
+}

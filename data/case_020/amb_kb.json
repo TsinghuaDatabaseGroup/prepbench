@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_scaffold_value_is_dayindex",
+      "kind": "Single-table reference",
+      "node_id": "derive_daily",
+      "op": "project",
+      "source_text": "Use the scaffold provided to build out a complete data set that includes all days one of our customers is in the hospital",
+      "ref": "df_scaffold = df_scaffold.rename(columns={\"Value\": \"DayIndex\"})"
+    },
+    {
+      "id": "2_O1_date_is_first_visit_plus_dayindex_minus_1",
+      "kind": "Row-level concept",
+      "node_id": "derive_daily",
+      "op": "project",
+      "source_text": "Use the various input sheets in the Excel file to build a view of individual cost per day per patient.",
+      "ref": "daily[\"Date\"] = daily[\"First Visit\"] + pd.to_timedelta(daily[\"DayIndex\"] - 1, unit=\"D\")"
+    },
+    {
+      "id": "3_O1_tiered_daily_cost_cutoffs",
+      "kind": "Operation boundary",
+      "node_id": "derive_daily",
+      "op": "project",
+      "source_text": "To determine cost, you pay £100 for each of the first three days, then £80 for the next four days and then £75 for each of the following days.",
+      "ref": "daily[\"Cost per Day\"] = pd.cut(daily[\"DayIndex\"], bins=[0, 3, 7, float(\"inf\")], labels=[100, 80, 75]).astype(int)"
+    },
+    {
+      "id": "4_O1_scaffold_starts_at_1",
+      "kind": "Operation boundary",
+      "node_id": "filter_values_ge1",
+      "op": "filter",
+      "source_text": "Use the scaffold provided to build out a complete data set that includes all days one of our customers is in the hospital",
+      "ref": "df_scaffold = df_scaffold[df_scaffold[\"Value\"] >= 1].copy()"
+    },
+    {
+      "id": "5_D2_expand_by_cross_join_patients_to_scaffold",
+      "kind": "Multi-table alignment",
+      "node_id": "join_expand_days",
+      "op": "join",
+      "source_text": "Use the scaffold provided to build out a complete data set that includes all days one of our customers is in the hospital",
+      "ref": "df_pat[\"_key\"] = 1\ndf_scaffold[\"_key\"] = 1\ndaily = pd.merge(df_pat, df_scaffold, on=\"_key\").drop(columns=\"_key\")"
+    },
+    {
+      "id": "6_O1_keep_dayindex_within_length_of_stay",
+      "kind": "Row-level concept",
+      "node_id": "keep_within_stay",
+      "op": "filter",
+      "source_text": "Use the scaffold provided to build out a complete data set that includes all days one of our customers is in the hospital",
+      "ref": "daily = daily[daily[\"DayIndex\"] <= daily[\"Length of Stay\"]].copy()"
+    }
+  ]
+}

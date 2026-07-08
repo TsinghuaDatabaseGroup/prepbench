@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_strict_after",
+      "kind": "Operation boundary",
+      "node_id": "filter_date_order",
+      "op": "filter",
+      "source_text": "Filter the dataset to only contain rows where the Date Resolved happens after the Date Received",
+      "ref": "mask_after = res_parsed > rec_parsed"
+    },
+    {
+      "id": "2_O2_drop_unparseable_dates",
+      "kind": "Operation incomplete",
+      "node_id": "filter_date_order",
+      "op": "filter",
+      "intent": "Exclude rows from output when either date cannot be parsed (comparison not evaluable).",
+      "ref": "return pd.NaT\nmask_after = res_parsed > rec_parsed\ndf = df[mask_after].copy()"
+    },
+    {
+      "id": "3_C1_category_code_mapping",
+      "kind": "Row-level concept",
+      "node_id": "proj_category",
+      "op": "project",
+      "source_text": "Use this Category Code to join on the Product Category from the lookup table",
+      "ref": "code_to_category = {\n        \"BE\": \"Beauty\",\n        \"CL\": \"Clothes\",\n        \"EL\": \"Electronic\",\n        \"GR\": \"Groceries\",\n        \"HO\": \"Home\",\n    }"
+    },
+    {
+      "id": "4_O2_timely_response_boolean",
+      "kind": "Operation incomplete",
+      "node_id": "proj_dates_pre",
+      "op": "project",
+      "intent": "Ensure the Timely Response field is output as a boolean value.",
+      "ref": "if df[\"Timely Response\"].dtype != bool:\n        df[\"Timely Response\"] = df[\"Timely Response\"].astype(\n            str).str.strip().str.lower().map({\"true\": True, \"false\": False})"
+    },
+    {
+      "id": "5_C1_complaint_description_structure",
+      "kind": "Row-level concept",
+      "node_id": "proj_regex",
+      "op": "project",
+      "source_text": "Split the Complaint Description field into:",
+      "ref": "pat = re.compile(r\"^\\s*([A-Z]{2}\\d{4})\\s*-\\s*([^:]+):\\s*(.*)\\s*$\")"
+    },
+    {
+      "id": "6_O2_complaint_description_mismatch_policy",
+      "kind": "Operation incomplete",
+      "node_id": "proj_regex",
+      "op": "project",
+      "intent": "If Complaint Description does not match the expected split structure, set Product ID and Issue Type to null and keep the original description text.",
+      "ref": "m = pat.match(text)\n        if not m:\n            return None, None, text.strip()"
+    },
+    {
+      "id": "7_O2_date_parse_priority",
+      "kind": "Operation incomplete",
+      "node_id": "script_dates",
+      "op": "script",
+      "intent": "Parse Date Received/Resolved using a defined format priority order before comparing.",
+      "ref": "if \"/\" in s_strip:\n            return pd.to_datetime(s_strip, errors=\"coerce\", dayfirst=False)\n        m = re.match(r\"^(\\d{4})-(\\d{2})-(\\d{2})\", s_strip)\n        if m:\n            y, mm, dd = m.group(1), m.group(2), m.group(3)\n            swapped = f\"{y}-{dd}-{mm}\"  # YYYY-DD-MM\n            ts = pd.to_datetime(swapped, errors=\"coerce\", dayfirst=False)\n            if pd.notna(ts):\n                return ts\n        return pd.to_datetime(s_strip, errors=\"coerce\", dayfirst=False)"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Sales per Person",
+        "Region",
+        "Store Name",
+        "Sales Person",
+        "Percent of Store Sales",
+        "Sale Value"
+      ],
+      "columns": {
+        "Sales per Person": "number",
+        "Region": "text_exact",
+        "Store Name": "text_exact",
+        "Sales Person": "text_exact",
+        "Percent of Store Sales": "number",
+        "Sale Value": "number"
+      }
+    }
+  }
+}
+

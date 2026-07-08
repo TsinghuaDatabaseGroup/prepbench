@@ -1,0 +1,23 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": ["employee_id"],
+            "columns": {
+                "position_id": "text_exact",
+                "employee_id": "text_exact",
+                "title": "text_norm",
+                "department": "text_exact",
+                "supervisor_id": "text_exact",
+                "team_id": "text_exact",
+                "direct_reports": "number",
+                "team_name": "text_exact",
+                "team_hierarchy": "text_exact",
+                "employee_id_hierarchy": "text_exact",
+                "dependent_team_ids": "text_exact",
+                "hierarchy_level": "number",
+                "subdept_team_id": "text_exact",
+                "subdept_name": "text_exact"
+            }
+        }
+    }
+}

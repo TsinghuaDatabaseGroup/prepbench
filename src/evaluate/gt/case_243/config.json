@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Subject",
+        "Drop Outs",
+        "Active",
+        "Total Enrolled",
+        "Drop Out Rate"
+      ],
+      "columns": {
+        "Subject": "text_exact",
+        "Drop Outs": "number",
+        "Active": "number",
+        "Total Enrolled": "number",
+        "Drop Out Rate": "number"
+      }
+    }
+  }
+}
+

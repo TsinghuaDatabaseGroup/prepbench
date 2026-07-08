@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Number",
+        "Numeric Equivalent"
+      ],
+      "columns": {
+        "Number": "text_exact",
+        "Numeric Equivalent": "number"
+      }
+    }
+  }
+}
+

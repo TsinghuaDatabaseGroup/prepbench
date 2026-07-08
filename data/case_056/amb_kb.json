@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_bevens_after_means_plus_one",
+      "kind": "Operation boundary",
+      "node_id": "filter_quads",
+      "op": "filter",
+      "source_text": "Bevens' priority is directly after Dimmadome.",
+      "ref": "if r_b['Priority'] != r_d['Priority'] + 1:\n    continue"
+    },
+    {
+      "id": "2_O1_rose_after_means_plus_one",
+      "kind": "Operation boundary",
+      "node_id": "filter_quads",
+      "op": "filter",
+      "source_text": "The priority of the person who ordered the Rose Bar is directly after the person who ordered the Lemon Gel.",
+      "ref": "if p_rose != p_lemon + 1:\n    continue"
+    },
+    {
+      "id": "3_O3_enforce_unique_attributes",
+      "kind": "Operation inconsistent",
+      "node_id": "filter_quads",
+      "op": "filter",
+      "intent": "Enforce that the final solution has exactly four rows with all titles, products, and priorities appearing exactly once across those four rows.",
+      "ref": "if not (len(titles_set) == len(prods_set) == len(prios_set) == 4):\n    continue"
+    },
+    {
+      "id": "4_O1_highest_priority_is_one",
+      "kind": "Operation boundary",
+      "node_id": "filter_rowwise",
+      "op": "filter",
+      "source_text": "Only the customer with the highest priority has a title and last name that begin with the same letter.",
+      "ref": "df = df[((df['Priority'] == 1) & same_initial) | ((df['Priority'] != 1) & ~same_initial)]"
+    }
+  ]
+}

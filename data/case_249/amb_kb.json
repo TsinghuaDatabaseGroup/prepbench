@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_present_days_denominator",
+      "kind": "Group-level concept",
+      "node_id": "agg_by_student",
+      "op": "aggregate",
+      "source_text": "Rank the students by the percentage of days they were \"very late\" (more than 5 minutes) during the year",
+      "ref": "present_days=(\"ArrivalDT\", \"count\")"
+    },
+    {
+      "id": "2_O1_clip_negative_avg_lateness",
+      "kind": "Operation boundary",
+      "node_id": "project_out1_post",
+      "op": "project",
+      "intent": "For Output 1, replace negative rounded average lateness values with 0.",
+      "ref": "grp[\"LatenessSecondsRounded\"] = grp[\"LatenessSecondsRounded\"].clip(lower=0)"
+    },
+    {
+      "id": "6_C2_datetime_combine",
+      "kind": "Row-level concept",
+      "node_id": "project_times",
+      "op": "project",
+      "source_text": "Turn the Scheduled Start Time and Arrival Time fields into Date Time fields",
+      "ref": "df[\"ScheduledDT\"] = pd.to_datetime(df[\"Date\"] + \" \" + df[\"Scheduled Start Time\"])"
+    },
+    {
+      "id": "7_C2_lateness_in_total_seconds",
+      "kind": "Row-level concept",
+      "node_id": "project_times",
+      "op": "project",
+      "source_text": "Calculate how many minutes late each student is each day",
+      "ref": "df[\"LatenessSeconds\"] = (df[\"ArrivalDT\"] - df[\"ScheduledDT\"]).dt.total_seconds()"
+    },
+    {
+      "id": "8_O3_student_rank_tie_breaker",
+      "kind": "Operation incomplete",
+      "node_id": "sort_out2",
+      "op": "sort",
+      "intent": "When % Days Very Late ties, rank by Student ID ascending.",
+      "ref": "per_student = per_student.sort_values([\"% Days Very Late\", \"Student ID\"], ascending=[False, True])"
+    }
+  ]
+}

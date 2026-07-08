@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Q No",
+        "Question",
+        "Answer",
+        "Name",
+        "Answer Smash"
+      ],
+      "columns": {
+        "Q No": "number",
+        "Question": "text_exact",
+        "Answer": "text_exact",
+        "Name": "text_exact",
+        "Answer Smash": "text_exact"
+      }
+    }
+  }
+}
+

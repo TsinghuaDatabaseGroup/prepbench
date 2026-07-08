@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_sort_by_date_time_nulls_last",
+      "kind": "Operation incomplete",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort output rows by date then time ascending, placing nulls last.",
+      "ref": "output.sort_values(['_sort_date', '_sort_time'], na_position='last')"
+    },
+    {
+      "id": "2_C2_datetime_string_format",
+      "kind": "Row-level concept",
+      "node_id": "transform_time",
+      "op": "project",
+      "intent": "Define how to build the Date Time field.",
+      "ref": "f\"{date} {hour:02d}:{minute:02d}:00\""
+    },
+    {
+      "id": "3_O1_time_hour_zero_padding",
+      "kind": "Operation boundary",
+      "node_id": "transform_time",
+      "op": "project",
+      "source_text": "Make the Time format suitable to fit the 24 hour clock",
+      "ref": "if hour == 0: return f\"{hour}:{minute:02d}\""
+    },
+    {
+      "id": "4_O1_date_2digit_year_rule",
+      "kind": "Operation boundary",
+      "node_id": "transform_time",
+      "op": "project",
+      "intent": "Specify how to interpret 2-digit years.",
+      "ref": "year += 2000 if year < 50 else 1900"
+    },
+    {
+      "id": "5_O2_time_parse_failure_to_null",
+      "kind": "Operation incomplete",
+      "node_id": "transform_time",
+      "op": "project",
+      "intent": "When time cannot be parsed, set it to null.",
+      "ref": "if len(digits) == 0: return None"
+    },
+    {
+      "id": "6_O2_date_parse_failure_fallback",
+      "kind": "Operation incomplete",
+      "node_id": "transform_time",
+      "op": "project",
+      "intent": "When date cannot be parsed, keep the original string.",
+      "ref": "except: pass; return date_str"
+    },
+    {
+      "id": "7_O2_datetime_null_if_missing",
+      "kind": "Operation incomplete",
+      "node_id": "transform_time",
+      "op": "project",
+      "intent": "If either Date or Time is null, set Date Time to null.",
+      "ref": "if pd.isna(date) or pd.isna(time): return None"
+    }
+  ]
+}

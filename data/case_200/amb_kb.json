@@ -1,0 +1,36 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_filename_timestamp_parse_format",
+      "kind": "Row-level concept",
+      "node_id": "n_extract_ts_from_filename",
+      "op": "project",
+      "source_text": "the file timestamp is always the 19 characters before \".csv\"",
+      "ref": "pd.to_datetime(df['file_timestamp'], format='%Y-%m-%d_%H-%M-%S', errors='coerce')"
+    },
+    {
+      "id": "2_O2_drop_unparsable_filename_timestamps",
+      "kind": "Operation incomplete",
+      "node_id": "n_filter_latest_file_rows",
+      "op": "filter",
+      "source_text": "Filter out any records that are not from the most recent file",
+      "ref": "df_latest = df[df['file_timestamp_dt'] == df['max_file_timestamp']]"
+    },
+    {
+      "id": "5_O3_output2_tie_handling_on_max_ts",
+      "kind": "Operation inconsistent",
+      "node_id": "n_out2_filter",
+      "op": "filter",
+      "source_text": "Keep the record that has the max timestamp",
+      "ref": "output_02 = output_02[output_02['ts_dt'] == output_02['max_ts']]"
+    },
+    {
+      "id": "new_1_output_sort_order",
+      "kind": "Operation inconsistent",
+      "node_id": "n_output_sort",
+      "op": "sort",
+      "intent": "Sort output_01 by candidate_id, position_id, ts ascending and output_02 by candidate_id, position_id ascending.",
+      "ref": "output_01 = output_01.sort_values(['candidate_id', 'position_id', 'ts']).reset_index(drop=True)\noutput_02 = output_02.sort_values(['candidate_id', 'position_id']).reset_index(drop=True)"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_tier_index_floor_div_10",
+      "kind": "Row-level concept",
+      "node_id": "cust_tier10",
+      "op": "project",
+      "source_text": "if the parameter selected is 10, the groupings will be 1-9, 10-19 etc",
+      "ref": "cust[\"TierNumCust\"] = (\n            cust[\"Number of Flights\"] // bin_size).astype(int)"
+    },
+    {
+      "id": "2_C2_tier_index_floor_div_5",
+      "kind": "Row-level concept",
+      "node_id": "cust_tier5",
+      "op": "project",
+      "source_text": "e.g. if the parameter selected is 5, the groupings will be 1-4, 5-9 etc",
+      "ref": "cust[\"TierNumCust\"] = (\n            cust[\"Number of Flights\"] // bin_size).astype(int)"
+    },
+    {
+      "id": "3_C2_avg_flights_per_year_yearspan",
+      "kind": "Row-level concept",
+      "node_id": "customers_features",
+      "op": "project",
+      "source_text": "Estimate the average number of flights a customer takes per year",
+      "ref": "years = (customers[\"Last Date Flown\"].dt.year -\n             customers[\"First Flight\"].dt.year).fillna(0).astype(int) + 1\ncustomers[\"AvgFlightsPerYear\"] = customers[\"Number of Flights\"] / \\\n        years.clip(lower=1)"
+    },
+    {
+      "id": "4_O2_unmatched_cost_exclude_10",
+      "kind": "Operation incomplete",
+      "node_id": "ladders10_cost",
+      "op": "join",
+      "source_text": "Join on the Costing dataset",
+      "ref": "ladders = (pairs.merge(ben, on=\"TierNumRule\", how=\"inner\")\n                        .merge(costs, on=\"Benefit\", how=\"inner\"))"
+    },
+    {
+      "id": "5_C2_year_cost_per_flight_vs_yearly_10",
+      "kind": "Row-level concept",
+      "node_id": "ladders10_cost_compute",
+      "op": "project",
+      "source_text": "Calculate the Yearly Cost of each Benefit",
+      "ref": "ladders[\"Year Cost\"] = ladders[\"CostValue\"].where(\n            ladders[\"Frequency\"].eq(\"yearly\"),\n            ladders[\"CostValue\"] * ladders[\"AvgFlightsPerYear\"]\n        )"
+    },
+    {
+      "id": "6_O2_unmatched_cost_exclude_5",
+      "kind": "Operation incomplete",
+      "node_id": "ladders5_cost",
+      "op": "join",
+      "source_text": "Join on the Costing dataset",
+      "ref": "ladders = (pairs.merge(ben, on=\"TierNumRule\", how=\"inner\")\n                        .merge(costs, on=\"Benefit\", how=\"inner\"))"
+    },
+    {
+      "id": "7_C2_year_cost_per_flight_vs_yearly_5",
+      "kind": "Row-level concept",
+      "node_id": "ladders5_cost_compute",
+      "op": "project",
+      "source_text": "Calculate the Yearly Cost of each Benefit",
+      "ref": "ladders[\"Year Cost\"] = ladders[\"CostValue\"].where(\n            ladders[\"Frequency\"].eq(\"yearly\"),\n            ladders[\"CostValue\"] * ladders[\"AvgFlightsPerYear\"]\n        )"
+    },
+    {
+      "id": "10_O3_dedup_rule_benefit_pairs_10",
+      "kind": "Operation inconsistent",
+      "node_id": "tiers_benefit10_distinct",
+      "op": "dedup",
+      "intent": "After splitting benefits, drop duplicate (rule tier level, benefit) pairs.",
+      "ref": "ben = ben[ben[\"Benefit\"].ne(\n            \"\")][[\"TierNumRule\", \"Benefit\"]].drop_duplicates()"
+    },
+    {
+      "id": "11_O3_dedup_rule_benefit_pairs_5",
+      "kind": "Operation inconsistent",
+      "node_id": "tiers_benefit5_distinct",
+      "op": "dedup",
+      "intent": "After splitting benefits, drop duplicate (rule tier level, benefit) pairs.",
+      "ref": "ben = ben[ben[\"Benefit\"].ne(\n            \"\")][[\"TierNumRule\", \"Benefit\"]].drop_duplicates()"
+    },
+    {
+      "id": "12_C2_parse_rule_tier_number_from_label",
+      "kind": "Row-level concept",
+      "node_id": "tiers_clean",
+      "op": "project",
+      "source_text": "Join the Prep Air Loyalty to the Customer dataset in a way that each customer also experiences the benefits of lower Tiers",
+      "ref": "tiers[\"TierNumRule\"] = tiers[\"Tier\"].str.extract(r\"(\\d+)\").astype(int)"
+    },
+    {
+      "id": "13_O2_exclude_empty_benefits",
+      "kind": "Operation incomplete",
+      "node_id": "tiers_non_empty",
+      "op": "filter",
+      "source_text": "Split out the Benefits and make sure that each Benefit has its own row",
+      "ref": "tiers = tiers[tiers[\"Benefits\"].ne(\"\")].copy()  "
+    },
+    {
+      "id": "14_D1_filter_rules_to_bucket_10",
+      "kind": "Single-table reference",
+      "node_id": "tiers_sel10",
+      "op": "filter",
+      "source_text": "Filter the Prep Air Loyalty dataset to the selected parameter value",
+      "ref": "out10 = compute_for_bin(10)\ntsel = tiers[tiers[\"Tier Grouping\"] == bin_size].copy()"
+    },
+    {
+      "id": "15_D1_filter_rules_to_bucket_5",
+      "kind": "Single-table reference",
+      "node_id": "tiers_sel5",
+      "op": "filter",
+      "source_text": "Filter the Prep Air Loyalty dataset to the selected parameter value",
+      "ref": "out5 = compute_for_bin(5)\ntsel = tiers[tiers[\"Tier Grouping\"] == bin_size].copy()"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_cancel_scope",
+      "kind": "Row-level concept",
+      "node_id": "actions_no_cancel",
+      "op": "join",
+      "source_text": "If the customer has cancelled their flight, make sure all rows are filtered out for that flight",
+      "ref": "actions = actions[~cancelled_flag]"
+    },
+    {
+      "id": "2_C2_seat_count_per_row",
+      "kind": "Row-level concept",
+      "node_id": "add_cum",
+      "op": "project",
+      "source_text": "create a field which shows how many seats in total have been booked as of that date",
+      "ref": "actions[\"Total Seats booked over time\"] = actions.groupby([...]).cumsum()"
+    },
+    {
+      "id": "3_C1_latest_action_grouping",
+      "kind": "Group-level concept",
+      "node_id": "agg_latest",
+      "op": "aggregate",
+      "source_text": "For each customer on a flight, filter the dataset to their most recent action",
+      "ref": "actions.groupby([\"Flight Number\", \"Customer ID\"])[\"Date_dt\"].transform(\"max\")"
+    },
+    {
+      "id": "4_O3_latest_action_ties",
+      "kind": "Operation boundary",
+      "node_id": "filter_most",
+      "op": "filter",
+      "source_text": "For each customer on a flight, filter the dataset to their most recent action",
+      "ref": "actions = actions[actions[\"Date_dt\"] == most_recent_date]"
+    },
+    {
+      "id": "5_C2_capacity_pct_formula",
+      "kind": "Row-level concept",
+      "node_id": "fill_defaults",
+      "op": "project",
+      "source_text": "Calculate the Capacity %: of the available seats on the flight for each class, what percentage have been booked so far",
+      "ref": "merged[\"Capacity %\"] = merged[\"Total Seats booked over time\"] / merged[\"Capacity\"]"
+    },
+    {
+      "id": "6_D2_join_details_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_details",
+      "op": "join",
+      "source_text": "Bring in information about the Flight Details",
+      "ref": "on=[\"Flight Number\", \"Class\"]"
+    },
+    {
+      "id": "7_O2_join_details_keep_all",
+      "kind": "Operation incomplete",
+      "node_id": "join_details",
+      "op": "join",
+      "source_text": "Bring in information about the Flight Details",
+      "ref": "how=\"left\""
+    }
+  ]
+}

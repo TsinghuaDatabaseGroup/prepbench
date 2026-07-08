@@ -1,0 +1,27 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Sort",
+        "School Name",
+        "Date",
+        "Total Cost",
+        "Gas Cost",
+        "Electricity Cost",
+        "Water Cost",
+        "Maintenance Cost"
+      ],
+      "columns": {
+        "Sort": "number",
+        "School Name": "text_exact",
+        "Date": "date",
+        "Total Cost": "number",
+        "Gas Cost": "number",
+        "Electricity Cost": "number",
+        "Water Cost": "number",
+        "Maintenance Cost": "number"
+      }
+    }
+  }
+}
+

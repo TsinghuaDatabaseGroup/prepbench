@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "dc_nbr",
+        "ee_count",
+        "xfer_count",
+        "xfer_pct",
+        "avg_tenure_months"
+      ],
+      "columns": {
+        "dc_nbr": "text_exact",
+        "ee_count": "number",
+        "xfer_count": "number",
+        "xfer_pct": "number",
+        "avg_tenure_months": "number"
+      }
+    }
+  }
+}
+

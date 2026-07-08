@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Measure",
+        "2022",
+        "2021"
+      ],
+      "columns": {
+        "Measure": "text_exact",
+        "2022": "text_exact",
+        "2021": "text_exact"
+      }
+    }
+  }
+}

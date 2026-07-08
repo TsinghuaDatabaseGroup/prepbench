@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_unbooked_flight_key",
+      "kind": "Multi-table alignment",
+      "node_id": "anti_unbooked",
+      "op": "join",
+      "source_text": "Create a dataset that allows Prep Air to identify which flights have not yet been booked in 2024",
+      "ref": "f2024.merge(booked_keys, on=[\"Date\", \"Flight Number\"], how=\"left\", indicator=True)"
+    },
+    {
+      "id": "2_D1_bookings_2024_by_booking_date",
+      "kind": "Single-table reference",
+      "node_id": "b_2024",
+      "op": "filter",
+      "source_text": "Create a dataset that gives all the customer details for booked flights in 2024",
+      "ref": "b2024 = bookings[bookings[\"Date\"].dt.year == 2024].copy()"
+    },
+    {
+      "id": "3_O3_dedup_bookings_to_flight_keys",
+      "kind": "Operation inconsistent",
+      "node_id": "booked_keys",
+      "op": "dedup",
+      "intent": "Deduplicate 2024 bookings to unique (Date, Flight Number) keys before comparing to flights.",
+      "ref": "booked_keys = b2024.drop_duplicates([\"Date\", \"Flight Number\"])[[\"Date\", \"Flight Number\"]]"
+    },
+    {
+      "id": "4_C2_days_since_last_flown",
+      "kind": "Row-level concept",
+      "node_id": "cust_enrich",
+      "op": "project",
+      "source_text": "Create a \"Days Since Last Flown\" field (compared to 31/01/2024)",
+      "ref": "not_booked[\"Days Since Last Flown\"] = (TODAY - customers_latest[\"Last Date Flown\"]).dt.days"
+    },
+    {
+      "id": "5_O1_customer_category_thresholds",
+      "kind": "Operation boundary",
+      "node_id": "cust_enrich",
+      "op": "project",
+      "source_text": "Recent fliers - flown within the last 3 months",
+      "ref": "if days > 270: return \"Lapsed\"; if days > 180: return \"Been away\"; ..."
+    },
+    {
+      "id": "6_O2_days_since_missing_to_minus1",
+      "kind": "Operation incomplete",
+      "node_id": "cust_enrich",
+      "op": "project",
+      "intent": "If Last Date Flown is missing/invalid, set Days Since Last Flown to -1.",
+      "ref": "not_booked[\"Days Since Last Flown\"] = not_booked[\"Days Since Last Flown\"].fillna(-1).astype(int)"
+    },
+    {
+      "id": "7_D2_exclude_customers_by_id",
+      "kind": "Multi-table alignment",
+      "node_id": "cust_not_booked",
+      "op": "join",
+      "source_text": "Create a dataset that shows which customers have yet to book a flight with Prep Air in 2024",
+      "ref": "customers_latest[~customers_latest[\"Customer ID\"].isin(b2024[\"Customer ID\"])]"
+    },
+    {
+      "id": "8_D1_flights_2024_by_flight_date",
+      "kind": "Single-table reference",
+      "node_id": "f_2024",
+      "op": "filter",
+      "source_text": "Create a dataset that allows Prep Air to identify which flights have not yet been booked in 2024",
+      "ref": "f2024 = flights[flights[\"Date\"].dt.year == 2024].copy()"
+    },
+    {
+      "id": "9_D2_join_bookings_to_customers",
+      "kind": "Multi-table alignment",
+      "node_id": "join_b_cust",
+      "op": "join",
+      "source_text": "Create a dataset that gives all the customer details for booked flights in 2024",
+      "ref": "b2024.merge(customers, on=\"Customer ID\", how=\"inner\")"
+    },
+    {
+      "id": "10_O2_join_bookings_inner_only",
+      "kind": "Operation incomplete",
+      "node_id": "join_b_cust",
+      "op": "join",
+      "source_text": "Create a dataset that gives all the customer details for booked flights in 2024",
+      "ref": "how=\"inner\""
+    },
+    {
+      "id": "11_D2_join_to_flights",
+      "kind": "Multi-table alignment",
+      "node_id": "join_out1",
+      "op": "join",
+      "source_text": "including flight origin and destination",
+      "ref": ".merge(f2024, on=[\"Date\", \"Flight Number\"], how=\"inner\")"
+    }
+  ]
+}

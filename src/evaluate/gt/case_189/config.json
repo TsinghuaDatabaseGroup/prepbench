@@ -1,0 +1,68 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Opportunity Name",
+        "StageName",
+        "Amount",
+        "Created By Name",
+        "Owner Name",
+        "Account Name",
+        "Account Type",
+        "Account Owner Name",
+        "Account Created By Name",
+        "Opportunity ID",
+        "AccountId",
+        "OwnerId",
+        "CreatedById"
+      ],
+      "columns": {
+        "Opportunity Name": "text_exact",
+        "StageName": "text_exact",
+        "Amount": "number",
+        "Created By Name": "text_exact",
+        "Owner Name": "text_exact",
+        "Account Name": "text_exact",
+        "Account Type": "text_exact",
+        "Account Owner Name": "text_exact",
+        "Account Created By Name": "text_exact",
+        "Opportunity ID": "text_exact",
+        "AccountId": "text_exact",
+        "OwnerId": "text_exact",
+        "CreatedById": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Owner Name",
+        "Amount"
+      ],
+      "columns": {
+        "Owner Name": "text_exact",
+        "Amount": "number"
+      }
+    },
+    "output_03.csv": {
+      "key": [
+        "Account Owner Name",
+        "Amount"
+      ],
+      "columns": {
+        "Account Owner Name": "text_exact",
+        "Amount": "number"
+      }
+    },
+    "output_04.csv": {
+      "key": [
+        "Account Name",
+        "Number of Opportunities",
+        "Amount"
+      ],
+      "columns": {
+        "Account Name": "text_exact",
+        "Number of Opportunities": "number",
+        "Amount": "number"
+      }
+    }
+  }
+}

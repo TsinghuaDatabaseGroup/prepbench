@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_o2_unparseable_dates_to_missing",
+      "kind": "Operation incomplete",
+      "node_id": "cast_couples",
+      "op": "project",
+      "intent": "If a Relationship Start value cannot be parsed as a date, treat it as missing (null).",
+      "ref": "df_couples[\"Relationship Start\"] = pd.to_datetime(df_couples[\"Relationship Start\"], errors=\"coerce\")"
+    },
+    {
+      "id": "2_o2_left_join_unmatched_null",
+      "kind": "Operation incomplete",
+      "node_id": "join_gift",
+      "op": "join",
+      "source_text": "Join the two datasets together",
+      "ref": "df_out = df_couples.merge(df_gifts, on=\"Year\", how=\"left\")"
+    },
+    {
+      "id": "3_c2_ordinal_suffix_rules",
+      "kind": "Row-level concept",
+      "node_id": "proj_couples",
+      "op": "project",
+      "source_text": "Make the Year field match the data type of the Number of Valentine's field to prepare for joining with the Gift ideas dataset",
+      "ref": "def to_ordinal(n: int) -> str:\n    # Handle special cases 11,12,13\n    if 10 <= (n % 100) <= 13:\n        suffix = \"th\"\n    else:\n        last = n % 10\n        if last == 1:\n            suffix = \"st\"\n        elif last == 2:\n            suffix = \"nd\"\n        elif last == 3:\n            suffix = \"rd\"\n        else:\n            suffix = \"th\"\n    return f\"{n}{suffix}\"\n\ndf_couples[\"Year\"] = df_couples[\"Number of Valentine's Days as a Couple\"].apply(to_ordinal)"
+    },
+    {
+      "id": "4_o1_valentines_count_inclusive_through_2024_02_14",
+      "kind": "Row-level concept",
+      "node_id": "proj_couples",
+      "op": "project",
+      "source_text": "To count the number of Valentine's days, use a method other than simple datediff",
+      "ref": "today = pd.Timestamp(2024, 2, 14)\n\nfor year in range(start_year, 2024 + 1):\n    valentines_day = pd.Timestamp(year, 2, 14)\n    if valentines_day >= start:\n        count += 1"
+    },
+    {
+      "id": "5_o1_start_after_today_counts_zero",
+      "kind": "Operation boundary",
+      "node_id": "proj_couples",
+      "op": "project",
+      "intent": "If Relationship Start is after 14/02/2024, the Valentine's Day count is 0.",
+      "ref": "if start > today:\n    return 0"
+    },
+    {
+      "id": "6_o2_missing_start_counts_zero",
+      "kind": "Operation incomplete",
+      "node_id": "proj_couples",
+      "op": "project",
+      "intent": "If Relationship Start is missing, the Valentine's Day count is 0.",
+      "ref": "if pd.isna(start):\n    return 0"
+    },
+    {
+      "id": "7_o1_output_sort_order",
+      "kind": "Row-level concept",
+      "node_id": "sort_out",
+      "op": "sort",
+      "intent": "Sort output ascending by Number of Valentine's Days as a Couple, then by Couple.",
+      "ref": "df_out = df_out.sort_values([\"Number of Valentine's Days as a Couple\", \"Couple\"], ascending=[True, True])"
+    }
+  ]
+}

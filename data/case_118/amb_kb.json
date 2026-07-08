@@ -1,0 +1,116 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_name_lookup_unmatched_null",
+      "kind": "Operation incomplete",
+      "node_id": "j_name",
+      "op": "join",
+      "intent": "If a detected owner abbreviation is not found in the name lookup, output Name as null.",
+      "ref": "name_full = name_map.get(name_abbrev)"
+    },
+    {
+      "id": "2_O2_project_lookup_unmatched_null",
+      "kind": "Operation incomplete",
+      "node_id": "j_proj",
+      "op": "join",
+      "intent": "If a parsed project code is not found in the project lookup, output Project as null.",
+      "ref": "project_full = proj_map.get(proj_code)"
+    },
+    {
+      "id": "3_O2_subproject_lookup_unmatched_null",
+      "kind": "Operation incomplete",
+      "node_id": "j_sub",
+      "op": "join",
+      "intent": "If a parsed sub-project code is not found in the sub-project lookup, output Sub-Project as null.",
+      "ref": "subproject_full = subproj_map.get(sub_code)"
+    },
+    {
+      "id": "4_O2_task_lookup_unmatched_null",
+      "kind": "Operation incomplete",
+      "node_id": "j_task",
+      "op": "join",
+      "intent": "If a parsed task code is not found in the task lookup, output Task as null.",
+      "ref": "task_full = task_map.get(task_code)"
+    },
+    {
+      "id": "5_C1_header_project_code_before_slash",
+      "kind": "Row-level concept",
+      "node_id": "parse_enrich",
+      "op": "project",
+      "intent": "Derive the project code from the header as the portion before the first '/'.",
+      "ref": "left, right = header.split(\"/\", 1)\n                proj_code = left.strip().upper()"
+    },
+    {
+      "id": "6_C1_header_subproject_task_split_first_dash",
+      "kind": "Row-level concept",
+      "node_id": "parse_enrich",
+      "op": "project",
+      "intent": "Interpret the header portion after '/' as subproject_code-task_code, split on the first '-'.",
+      "ref": "sub_code, task_code = right.split(\"-\", 1)"
+    },
+    {
+      "id": "7_C1_name_abbrev_token_dot_and_whitelist",
+      "kind": "Row-level concept",
+      "node_id": "parse_enrich",
+      "op": "project",
+      "intent": "Detect owner abbreviations only as standalone tokens ending with a period, restricted to tom/jen/jon/car.",
+      "ref": "author_pattern = re.compile(r\"\\b(tom|jen|jon|car)\\.\", re.IGNORECASE)"
+    },
+    {
+      "id": "8_O1_days_noted_integer_followed_by_day_keyword",
+      "kind": "Row-level concept",
+      "node_id": "parse_enrich",
+      "op": "project",
+      "source_text": "'Days Noted' some fields have comments that say how many days tasks might take.",
+      "ref": "days_pattern = re.compile(r\"(\\d+)\\s*day\", re.IGNORECASE)"
+    },
+    {
+      "id": "9_O2_task_code_missing_null",
+      "kind": "Operation incomplete",
+      "node_id": "parse_enrich",
+      "op": "project",
+      "intent": "If the header right-part has no task code after splitting, treat task code as null.",
+      "ref": "elif len(parts) == 1:\n                        sub_code, task_code = parts[0], None"
+    },
+    {
+      "id": "10_O3_name_abbrev_multiple_use_last",
+      "kind": "Operation boundary",
+      "node_id": "parse_enrich",
+      "op": "project",
+      "intent": "If multiple valid owner abbreviations appear in Detail, use the last occurrence.",
+      "ref": "last_match = None\n            for am in author_pattern.finditer(detail):\n                last_match = am\n            if last_match is not None:\n                name_abbrev = last_match.group(1).lower()"
+    },
+    {
+      "id": "11_O3_days_noted_multiple_use_first",
+      "kind": "Operation boundary",
+      "node_id": "parse_enrich",
+      "op": "project",
+      "source_text": "This field should note the number of days mentioned if said in the comment otherwise leave as a null.",
+      "ref": "dm = days_pattern.search(detail)"
+    },
+    {
+      "id": "12_C1_segment_delimitation_bracket_header_then_text",
+      "kind": "Row-level concept",
+      "node_id": "parse_segments",
+      "op": "script",
+      "intent": "Parse commentary into segments as a bracketed [header] followed by detail text until the next '[' or end of text.",
+      "ref": "seg_pattern = re.compile(r\"\\[(?P<header>[^\\]]+)\\]\\s*(?P<detail>.*?)(?=(\\s*\\[|$))\")"
+    },
+    {
+      "id": "13_C1_output_grain_one_row_per_segment",
+      "kind": "Row-level concept",
+      "node_id": "parse_segments",
+      "op": "script",
+      "intent": "Produce one output row per parsed commentary segment (a single Commentary cell may yield multiple rows).",
+      "ref": "for m in seg_pattern.finditer(commentary):"
+    },
+    {
+      "id": "14_O2_skip_segments_without_slash_in_header",
+      "kind": "Operation incomplete",
+      "node_id": "parse_segments",
+      "op": "script",
+      "intent": "Do not output a row for a parsed segment if its header does not contain a '/'.",
+      "ref": "if \"/\" in header:\n    left, right = header.split(\"/\", 1)\n    proj_code = left.strip().upper()\n    if \"-\" in right:\n        sub_code, task_code = right.split(\"-\", 1)\n    else:\n        parts = right.split(\"-\")\n        if len(parts) >= 2:\n            sub_code, task_code = parts[0], parts[1]\n        elif len(parts) == 1:\n            sub_code, task_code = parts[0], None\n    sub_code = (sub_code or \"\").strip().lower()\n    task_code = (task_code or \"\").strip().lower()\nelse:\n    continue"
+    }
+  ]
+}

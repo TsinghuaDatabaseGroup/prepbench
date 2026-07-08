@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Year"],
+      "columns": {
+        "Year": "number",
+        "Sales": "number",
+        "Profits": "number"
+      }
+    }
+  }
+}
+

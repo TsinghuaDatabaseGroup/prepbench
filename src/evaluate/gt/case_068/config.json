@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Company",
+        "Soap Scent",
+        "Month",
+        "Sales"
+      ],
+      "columns": {
+        "Company": "text_exact",
+        "Soap Scent": "text_exact",
+        "Month": "text_exact",
+        "Sales": "number"
+      }
+    }
+  }
+}
+

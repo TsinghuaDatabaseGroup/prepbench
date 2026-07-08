@@ -1,0 +1,443 @@
+Sales Date,Product,Price,Quantity Sold
+2024-01-08,Blossom Breeze Bath Fizzies,7.0,25
+2024-01-08,Bunny Trail Botanical Soap,5.0,24
+2024-01-08,Chocolate Bunny Bliss Bath Bombs,15.0,5
+2024-01-08,Chocolate Truffle Bunny Scrub Bar,6.0,24
+2024-01-08,Easter Basket Bliss Bubble Bar,8.0,11
+2024-01-08,Hot Cross Bun Soap Bar,5.0,7
+2024-01-08,Spring Garden Petal Soap,3.5,12
+2024-01-08,Spring Raindrop Handcrafted Soap,3.0,5
+2024-01-09,Blossom Breeze Bath Fizzies,7.0,31
+2024-01-09,Bunny Trail Botanical Soap,5.0,3
+2024-01-09,Chocolate Bunny Bliss Bath Bombs,15.0,18
+2024-01-09,Chocolate Truffle Bunny Scrub Bar,6.0,31
+2024-01-09,Easter Basket Bliss Bubble Bar,8.0,29
+2024-01-09,Easter Eggstravaganza Cocoa Soap,4.5,23
+2024-01-09,Easter Lily Goat Milk Soap,4.0,9
+2024-01-09,Honey Bunny Oaty Soap,3.0,22
+2024-01-09,Hot Cross Bun Soap Bar,5.0,36
+2024-01-09,Lavender Fields Bunny Soap,2.5,34
+2024-01-09,Spring Garden Petal Soap,3.5,15
+2024-01-10,Blossom Breeze Bath Fizzies,7.0,38
+2024-01-10,Bunny Hop Bubble Bar,4.0,17
+2024-01-10,Bunny Trail Botanical Soap,5.0,19
+2024-01-10,Chocolate Truffle Bunny Scrub Bar,6.0,23
+2024-01-10,Easter Egg Delight Shea Butter Soap,3.0,5
+2024-01-10,Easter Eggstravaganza Cocoa Soap,4.5,27
+2024-01-10,Honey Bunny Oaty Soap,3.0,9
+2024-01-10,Lavender Fields Bunny Soap,2.5,29
+2024-01-10,Spring Garden Petal Soap,3.5,11
+2024-01-10,Spring Raindrop Handcrafted Soap,3.0,32
+2024-01-11,Bunny Trail Botanical Soap,5.0,14
+2024-01-11,Chocolate Truffle Bunny Scrub Bar,6.0,21
+2024-01-11,Easter Eggstravaganza Cocoa Soap,4.5,7
+2024-01-11,Easter Lily Goat Milk Soap,4.0,23
+2024-01-11,Honey Bunny Oaty Soap,3.0,28
+2024-01-11,Spring Garden Petal Soap,3.5,16
+2024-01-12,Blossom Breeze Bath Fizzies,7.0,38
+2024-01-12,Bunny Trail Botanical Soap,5.0,24
+2024-01-12,Chocolate Bunny Bliss Bath Bombs,15.0,16
+2024-01-12,Chocolate Truffle Bunny Scrub Bar,6.0,21
+2024-01-12,Easter Egg Delight Shea Butter Soap,3.0,19
+2024-01-12,Easter Lily Goat Milk Soap,4.0,6
+2024-01-12,Honey Bunny Oaty Soap,3.0,19
+2024-01-12,Hot Cross Bun Soap Bar,5.0,11
+2024-01-12,Lavender Fields Bunny Soap,2.5,37
+2024-01-12,Spring Garden Petal Soap,3.5,9
+2024-01-13,Blossom Breeze Bath Fizzies,7.0,18
+2024-01-13,Bunny Hop Bubble Bar,4.0,29
+2024-01-13,Bunny Trail Botanical Soap,5.0,36
+2024-01-13,Chocolate Bunny Bliss Bath Bombs,15.0,11
+2024-01-13,Hot Cross Bun Soap Bar,5.0,14
+2024-01-13,Spring Garden Petal Soap,3.5,30
+2024-01-13,Spring Raindrop Handcrafted Soap,3.0,7
+2024-01-14,Bunny Hop Bubble Bar,4.0,18
+2024-01-14,Bunny Trail Botanical Soap,5.0,29
+2024-01-14,Chocolate Bunny Bliss Bath Bombs,15.0,17
+2024-01-14,Easter Eggstravaganza Cocoa Soap,4.5,37
+2024-01-14,Easter Lily Goat Milk Soap,4.0,32
+2024-01-14,Honey Bunny Oaty Soap,3.0,17
+2024-01-14,Hot Cross Bun Soap Bar,5.0,36
+2024-01-14,Lavender Fields Bunny Soap,2.5,33
+2024-01-14,Spring Garden Petal Soap,3.5,5
+2024-01-14,Spring Raindrop Handcrafted Soap,3.0,10
+2024-01-15,Blossom Breeze Bath Fizzies,7.0,9
+2024-01-15,Chocolate Bunny Bliss Bath Bombs,15.0,17
+2024-01-15,Chocolate Truffle Bunny Scrub Bar,6.0,12
+2024-01-15,Easter Egg Delight Shea Butter Soap,3.0,34
+2024-01-15,Hot Cross Bun Soap Bar,5.0,25
+2024-01-15,Lavender Fields Bunny Soap,2.5,24
+2024-01-15,Spring Raindrop Handcrafted Soap,3.0,29
+2024-01-16,Blossom Breeze Bath Fizzies,7.0,23
+2024-01-16,Bunny Trail Botanical Soap,5.0,36
+2024-01-16,Chocolate Bunny Bliss Bath Bombs,15.0,10
+2024-01-16,Chocolate Truffle Bunny Scrub Bar,6.0,20
+2024-01-16,Easter Eggstravaganza Cocoa Soap,4.5,11
+2024-01-16,Honey Bunny Oaty Soap,3.0,10
+2024-01-16,Hot Cross Bun Soap Bar,5.0,22
+2024-01-16,Lavender Fields Bunny Soap,2.5,29
+2024-01-16,Spring Raindrop Handcrafted Soap,3.0,37
+2024-01-17,Blossom Breeze Bath Fizzies,7.0,16
+2024-01-17,Bunny Trail Botanical Soap,5.0,22
+2024-01-17,Chocolate Bunny Bliss Bath Bombs,15.0,8
+2024-01-17,Chocolate Truffle Bunny Scrub Bar,6.0,21
+2024-01-17,Easter Eggstravaganza Cocoa Soap,4.5,37
+2024-01-17,Easter Lily Goat Milk Soap,4.0,19
+2024-01-17,Honey Bunny Oaty Soap,3.0,21
+2024-01-17,Hot Cross Bun Soap Bar,5.0,10
+2024-01-17,Lavender Fields Bunny Soap,2.5,10
+2024-01-17,Spring Garden Petal Soap,3.5,11
+2024-01-17,Spring Raindrop Handcrafted Soap,3.0,35
+2024-01-18,Bunny Hop Bubble Bar,4.0,13
+2024-01-18,Chocolate Bunny Bliss Bath Bombs,15.0,7
+2024-01-18,Chocolate Truffle Bunny Scrub Bar,6.0,32
+2024-01-18,Easter Egg Delight Shea Butter Soap,3.0,10
+2024-01-18,Easter Lily Goat Milk Soap,4.0,11
+2024-01-18,Honey Bunny Oaty Soap,3.0,29
+2024-01-18,Hot Cross Bun Soap Bar,5.0,22
+2024-01-18,Spring Garden Petal Soap,3.5,30
+2024-01-19,Bunny Hop Bubble Bar,4.0,5
+2024-01-19,Chocolate Truffle Bunny Scrub Bar,6.0,3
+2024-01-19,Easter Eggstravaganza Cocoa Soap,4.5,24
+2024-01-20,Bunny Trail Botanical Soap,5.0,23
+2024-01-20,Easter Lily Goat Milk Soap,4.0,24
+2024-01-20,Honey Bunny Oaty Soap,3.0,30
+2024-01-20,Spring Garden Petal Soap,3.5,4
+2024-01-20,Spring Raindrop Handcrafted Soap,3.0,3
+2024-01-21,Blossom Breeze Bath Fizzies,7.0,16
+2024-01-21,Bunny Hop Bubble Bar,4.0,21
+2024-01-21,Chocolate Bunny Bliss Bath Bombs,15.0,36
+2024-01-21,Easter Egg Delight Shea Butter Soap,3.0,33
+2024-01-21,Easter Lily Goat Milk Soap,4.0,15
+2024-01-21,Hot Cross Bun Soap Bar,5.0,38
+2024-01-21,Lavender Fields Bunny Soap,2.5,18
+2024-01-21,Spring Garden Petal Soap,3.5,32
+2024-01-22,Bunny Trail Botanical Soap,5.0,17
+2024-01-22,Chocolate Bunny Bliss Bath Bombs,15.0,26
+2024-01-22,Chocolate Truffle Bunny Scrub Bar,6.0,19
+2024-01-22,Easter Egg Delight Shea Butter Soap,3.0,5
+2024-01-22,Easter Eggstravaganza Cocoa Soap,4.5,24
+2024-01-22,Easter Lily Goat Milk Soap,4.0,34
+2024-01-22,Honey Bunny Oaty Soap,3.0,33
+2024-01-22,Hot Cross Bun Soap Bar,5.0,15
+2024-01-22,Lavender Fields Bunny Soap,2.5,3
+2024-01-22,Spring Raindrop Handcrafted Soap,3.0,34
+2024-01-23,Blossom Breeze Bath Fizzies,7.0,7
+2024-01-23,Bunny Hop Bubble Bar,4.0,27
+2024-01-23,Chocolate Bunny Bliss Bath Bombs,15.0,8
+2024-01-23,Chocolate Truffle Bunny Scrub Bar,6.0,13
+2024-01-23,Easter Lily Goat Milk Soap,4.0,22
+2024-01-23,Lavender Fields Bunny Soap,2.5,23
+2024-01-23,Spring Garden Petal Soap,3.5,3
+2024-01-24,Blossom Breeze Bath Fizzies,7.0,13
+2024-01-24,Bunny Hop Bubble Bar,4.0,31
+2024-01-24,Chocolate Bunny Bliss Bath Bombs,15.0,8
+2024-01-24,Chocolate Truffle Bunny Scrub Bar,6.0,25
+2024-01-24,Easter Egg Delight Shea Butter Soap,3.0,21
+2024-01-24,Easter Lily Goat Milk Soap,4.0,24
+2024-01-24,Honey Bunny Oaty Soap,3.0,13
+2024-01-24,Hot Cross Bun Soap Bar,5.0,31
+2024-01-24,Lavender Fields Bunny Soap,2.5,23
+2024-01-24,Spring Garden Petal Soap,3.5,4
+2024-01-24,Spring Raindrop Handcrafted Soap,3.0,32
+2024-01-25,Chocolate Bunny Bliss Bath Bombs,15.0,32
+2024-01-25,Easter Egg Delight Shea Butter Soap,3.0,20
+2024-01-25,Lavender Fields Bunny Soap,2.5,33
+2024-01-25,Spring Garden Petal Soap,3.5,30
+2024-01-26,Bunny Hop Bubble Bar,4.0,37
+2024-01-26,Easter Egg Delight Shea Butter Soap,3.0,19
+2024-01-26,Honey Bunny Oaty Soap,3.0,32
+2024-01-26,Hot Cross Bun Soap Bar,5.0,9
+2024-01-26,Lavender Fields Bunny Soap,2.5,6
+2024-01-26,Spring Garden Petal Soap,3.5,22
+2024-01-26,Spring Raindrop Handcrafted Soap,3.0,21
+2024-01-27,Blossom Breeze Bath Fizzies,7.0,17
+2024-01-27,Chocolate Bunny Bliss Bath Bombs,15.0,8
+2024-01-27,Chocolate Truffle Bunny Scrub Bar,6.0,20
+2024-01-27,Easter Egg Delight Shea Butter Soap,3.0,8
+2024-01-27,Honey Bunny Oaty Soap,3.0,25
+2024-01-27,Spring Garden Petal Soap,3.5,9
+2024-01-27,Spring Raindrop Handcrafted Soap,3.0,22
+2024-01-28,Blossom Breeze Bath Fizzies,7.0,25
+2024-01-28,Easter Egg Delight Shea Butter Soap,3.0,31
+2024-01-28,Honey Bunny Oaty Soap,3.0,6
+2024-01-28,Hot Cross Bun Soap Bar,5.0,22
+2024-01-28,Lavender Fields Bunny Soap,2.5,23
+2024-01-28,Spring Garden Petal Soap,3.5,25
+2024-01-28,Spring Raindrop Handcrafted Soap,3.0,25
+2024-01-29,Blossom Breeze Bath Fizzies,7.0,11
+2024-01-29,Bunny Hop Bubble Bar,4.0,14
+2024-01-29,Chocolate Bunny Bliss Bath Bombs,15.0,14
+2024-01-29,Easter Egg Delight Shea Butter Soap,3.0,4
+2024-01-29,Honey Bunny Oaty Soap,3.0,32
+2024-01-29,Lavender Fields Bunny Soap,2.5,37
+2024-01-29,Spring Garden Petal Soap,3.5,24
+2024-01-29,Spring Raindrop Handcrafted Soap,3.0,31
+2024-01-30,Blossom Breeze Bath Fizzies,7.0,20
+2024-01-30,Easter Egg Delight Shea Butter Soap,3.0,30
+2024-01-30,Honey Bunny Oaty Soap,3.0,4
+2024-01-30,Hot Cross Bun Soap Bar,5.0,29
+2024-01-31,Blossom Breeze Bath Fizzies,7.0,38
+2024-01-31,Bunny Hop Bubble Bar,4.0,30
+2024-01-31,Chocolate Bunny Bliss Bath Bombs,15.0,6
+2024-01-31,Honey Bunny Oaty Soap,3.0,11
+2024-01-31,Hot Cross Bun Soap Bar,5.0,32
+2024-01-31,Lavender Fields Bunny Soap,2.5,9
+2024-01-31,Spring Garden Petal Soap,3.5,13
+2024-01-31,Spring Raindrop Handcrafted Soap,3.0,27
+2024-02-01,Blossom Breeze Bath Fizzies,7.0,19
+2024-02-01,Bunny Hop Bubble Bar,4.0,29
+2024-02-01,Chocolate Bunny Bliss Bath Bombs,15.0,36
+2024-02-01,Hot Cross Bun Soap Bar,5.0,32
+2024-02-01,Lavender Fields Bunny Soap,2.5,34
+2024-02-01,Spring Raindrop Handcrafted Soap,3.0,19
+2024-02-02,Bunny Hop Bubble Bar,4.0,26
+2024-02-02,Chocolate Bunny Bliss Bath Bombs,15.0,4
+2024-02-02,Easter Egg Delight Shea Butter Soap,3.0,8
+2024-02-02,Honey Bunny Oaty Soap,3.0,29
+2024-02-02,Hot Cross Bun Soap Bar,5.0,5
+2024-02-02,Lavender Fields Bunny Soap,2.5,8
+2024-02-02,Spring Garden Petal Soap,3.5,14
+2024-02-02,Spring Raindrop Handcrafted Soap,3.0,14
+2024-02-03,Blossom Breeze Bath Fizzies,7.0,30
+2024-02-03,Bunny Hop Bubble Bar,4.0,35
+2024-02-03,Chocolate Bunny Bliss Bath Bombs,15.0,38
+2024-02-03,Lavender Fields Bunny Soap,2.5,6
+2024-02-03,Spring Raindrop Handcrafted Soap,3.0,8
+2024-02-04,Blossom Breeze Bath Fizzies,7.0,11
+2024-02-04,Lavender Fields Bunny Soap,2.5,10
+2024-02-04,Spring Raindrop Handcrafted Soap,3.0,8
+2024-02-05,Bunny Hop Bubble Bar,4.0,17
+2024-02-05,Chocolate Bunny Bliss Bath Bombs,15.0,21
+2024-02-05,Easter Egg Delight Shea Butter Soap,3.0,8
+2024-02-05,Honey Bunny Oaty Soap,3.0,5
+2024-02-05,Hot Cross Bun Soap Bar,5.0,19
+2024-02-05,Lavender Fields Bunny Soap,2.5,34
+2024-02-05,Spring Garden Petal Soap,3.5,29
+2024-02-06,Blossom Breeze Bath Fizzies,7.0,31
+2024-02-06,Bunny Hop Bubble Bar,4.0,16
+2024-02-06,Chocolate Bunny Bliss Bath Bombs,15.0,37
+2024-02-06,Easter Egg Delight Shea Butter Soap,3.0,33
+2024-02-06,Lavender Fields Bunny Soap,2.5,16
+2024-02-06,Spring Raindrop Handcrafted Soap,3.0,35
+2024-02-07,Chocolate Bunny Bliss Bath Bombs,15.0,20
+2024-02-07,Easter Egg Delight Shea Butter Soap,3.0,12
+2024-02-07,Hot Cross Bun Soap Bar,5.0,26
+2024-02-07,Spring Garden Petal Soap,3.5,13
+2024-02-08,Blossom Breeze Bath Fizzies,7.0,9
+2024-02-08,Bunny Hop Bubble Bar,4.0,25
+2024-02-08,Chocolate Bunny Bliss Bath Bombs,15.0,13
+2024-02-08,Easter Egg Delight Shea Butter Soap,3.0,38
+2024-02-08,Honey Bunny Oaty Soap,3.0,27
+2024-02-08,Hot Cross Bun Soap Bar,5.0,10
+2024-02-08,Lavender Fields Bunny Soap,2.5,21
+2024-02-08,Spring Garden Petal Soap,3.5,29
+2024-02-08,Spring Raindrop Handcrafted Soap,3.0,28
+2024-02-09,Blossom Breeze Bath Fizzies,7.0,37
+2024-02-09,Chocolate Bunny Bliss Bath Bombs,15.0,32
+2024-02-09,Honey Bunny Oaty Soap,3.0,35
+2024-02-09,Hot Cross Bun Soap Bar,5.0,22
+2024-02-10,Blossom Breeze Bath Fizzies,7.0,9
+2024-02-10,Bunny Hop Bubble Bar,4.0,28
+2024-02-10,Honey Bunny Oaty Soap,3.0,28
+2024-02-10,Spring Garden Petal Soap,3.5,25
+2024-02-10,Spring Raindrop Handcrafted Soap,3.0,20
+2024-02-11,Bunny Hop Bubble Bar,4.0,3
+2024-02-11,Chocolate Bunny Bliss Bath Bombs,15.0,33
+2024-02-11,Easter Egg Delight Shea Butter Soap,3.0,33
+2024-02-11,Honey Bunny Oaty Soap,3.0,18
+2024-02-11,Hot Cross Bun Soap Bar,5.0,27
+2024-02-11,Lavender Fields Bunny Soap,2.5,9
+2024-02-11,Spring Raindrop Handcrafted Soap,3.0,17
+2024-02-12,Blossom Breeze Bath Fizzies,7.0,19
+2024-02-12,Bunny Hop Bubble Bar,4.0,14
+2024-02-12,Chocolate Bunny Bliss Bath Bombs,15.0,35
+2024-02-12,Easter Egg Delight Shea Butter Soap,3.0,28
+2024-02-12,Honey Bunny Oaty Soap,3.0,35
+2024-02-12,Hot Cross Bun Soap Bar,5.0,38
+2024-02-12,Lavender Fields Bunny Soap,2.5,36
+2024-02-12,Spring Garden Petal Soap,3.5,14
+2024-02-12,Spring Raindrop Handcrafted Soap,3.0,9
+2024-02-13,Blossom Breeze Bath Fizzies,7.0,23
+2024-02-13,Bunny Hop Bubble Bar,4.0,21
+2024-02-13,Easter Egg Delight Shea Butter Soap,3.0,9
+2024-02-13,Honey Bunny Oaty Soap,3.0,9
+2024-02-13,Hot Cross Bun Soap Bar,5.0,35
+2024-02-13,Spring Garden Petal Soap,3.5,4
+2024-02-14,Bunny Hop Bubble Bar,4.0,8
+2024-02-14,Chocolate Bunny Bliss Bath Bombs,15.0,34
+2024-02-14,Easter Egg Delight Shea Butter Soap,3.0,27
+2024-02-14,Honey Bunny Oaty Soap,3.0,28
+2024-02-14,Lavender Fields Bunny Soap,2.5,10
+2024-02-14,Spring Garden Petal Soap,3.5,32
+2024-02-14,Spring Raindrop Handcrafted Soap,3.0,22
+2024-02-15,Bunny Hop Bubble Bar,4.0,32
+2024-02-15,Easter Egg Delight Shea Butter Soap,3.0,34
+2024-02-15,Honey Bunny Oaty Soap,3.0,7
+2024-02-15,Hot Cross Bun Soap Bar,5.0,20
+2024-02-15,Lavender Fields Bunny Soap,2.5,37
+2024-02-15,Spring Garden Petal Soap,3.5,31
+2024-02-15,Spring Raindrop Handcrafted Soap,3.0,21
+2024-02-16,Bunny Hop Bubble Bar,4.0,14
+2024-02-16,Easter Egg Delight Shea Butter Soap,3.0,8
+2024-02-16,Spring Garden Petal Soap,3.5,12
+2024-02-16,Spring Raindrop Handcrafted Soap,3.0,15
+2024-02-17,Blossom Breeze Bath Fizzies,7.0,19
+2024-02-17,Bunny Hop Bubble Bar,4.0,7
+2024-02-17,Chocolate Bunny Bliss Bath Bombs,15.0,38
+2024-02-18,Bunny Hop Bubble Bar,4.0,30
+2024-02-18,Honey Bunny Oaty Soap,3.0,37
+2024-02-18,Lavender Fields Bunny Soap,2.5,16
+2024-02-18,Spring Garden Petal Soap,3.5,20
+2024-02-19,Bunny Hop Bubble Bar,4.0,26
+2024-02-19,Chocolate Bunny Bliss Bath Bombs,15.0,17
+2024-02-19,Lavender Fields Bunny Soap,2.5,25
+2024-02-19,Spring Raindrop Handcrafted Soap,3.0,21
+2024-02-20,Blossom Breeze Bath Fizzies,7.0,27
+2024-02-20,Easter Egg Delight Shea Butter Soap,3.0,11
+2024-02-20,Lavender Fields Bunny Soap,2.5,13
+2024-02-21,Blossom Breeze Bath Fizzies,7.0,10
+2024-02-21,Bunny Hop Bubble Bar,4.0,26
+2024-02-21,Chocolate Bunny Bliss Bath Bombs,15.0,21
+2024-02-21,Easter Egg Delight Shea Butter Soap,3.0,36
+2024-02-21,Honey Bunny Oaty Soap,3.0,28
+2024-02-21,Hot Cross Bun Soap Bar,5.0,10
+2024-02-21,Lavender Fields Bunny Soap,2.5,14
+2024-02-21,Spring Raindrop Handcrafted Soap,3.0,21
+2024-02-22,Chocolate Bunny Bliss Bath Bombs,15.0,9
+2024-02-22,Easter Egg Delight Shea Butter Soap,3.0,24
+2024-02-22,Spring Raindrop Handcrafted Soap,3.0,14
+2024-02-23,Blossom Breeze Bath Fizzies,7.0,7
+2024-02-23,Bunny Hop Bubble Bar,4.0,16
+2024-02-23,Chocolate Bunny Bliss Bath Bombs,15.0,14
+2024-02-23,Easter Egg Delight Shea Butter Soap,3.0,33
+2024-02-23,Honey Bunny Oaty Soap,3.0,16
+2024-02-23,Lavender Fields Bunny Soap,2.5,11
+2024-02-24,Blossom Breeze Bath Fizzies,7.0,30
+2024-02-24,Chocolate Bunny Bliss Bath Bombs,15.0,33
+2024-02-24,Easter Egg Delight Shea Butter Soap,3.0,29
+2024-02-24,Lavender Fields Bunny Soap,2.5,10
+2024-02-24,Spring Raindrop Handcrafted Soap,3.0,18
+2024-02-25,Blossom Breeze Bath Fizzies,7.0,10
+2024-02-25,Bunny Hop Bubble Bar,4.0,29
+2024-02-25,Chocolate Bunny Bliss Bath Bombs,15.0,12
+2024-02-25,Honey Bunny Oaty Soap,3.0,24
+2024-02-25,Lavender Fields Bunny Soap,2.5,31
+2024-02-25,Spring Raindrop Handcrafted Soap,3.0,19
+2024-02-26,Blossom Breeze Bath Fizzies,7.0,22
+2024-02-26,Bunny Hop Bubble Bar,4.0,12
+2024-02-26,Easter Egg Delight Shea Butter Soap,3.0,10
+2024-02-26,Honey Bunny Oaty Soap,3.0,10
+2024-02-27,Blossom Breeze Bath Fizzies,7.0,38
+2024-02-27,Bunny Hop Bubble Bar,4.0,22
+2024-02-27,Chocolate Bunny Bliss Bath Bombs,15.0,30
+2024-02-27,Easter Egg Delight Shea Butter Soap,3.0,10
+2024-02-27,Honey Bunny Oaty Soap,3.0,9
+2024-02-27,Spring Raindrop Handcrafted Soap,3.0,12
+2024-02-28,Chocolate Bunny Bliss Bath Bombs,15.0,16
+2024-02-28,Easter Egg Delight Shea Butter Soap,3.0,20
+2024-02-28,Lavender Fields Bunny Soap,2.5,7
+2024-02-28,Spring Raindrop Handcrafted Soap,3.0,25
+2024-02-29,Blossom Breeze Bath Fizzies,7.0,26
+2024-02-29,Easter Egg Delight Shea Butter Soap,3.0,6
+2024-03-01,Blossom Breeze Bath Fizzies,7.0,21
+2024-03-01,Bunny Hop Bubble Bar,4.0,17
+2024-03-01,Spring Raindrop Handcrafted Soap,3.0,6
+2024-03-02,Blossom Breeze Bath Fizzies,7.0,28
+2024-03-02,Bunny Hop Bubble Bar,4.0,24
+2024-03-02,Easter Egg Delight Shea Butter Soap,3.0,33
+2024-03-02,Lavender Fields Bunny Soap,2.5,25
+2024-03-02,Spring Raindrop Handcrafted Soap,3.0,5
+2024-03-03,Blossom Breeze Bath Fizzies,7.0,10
+2024-03-03,Chocolate Bunny Bliss Bath Bombs,15.0,36
+2024-03-03,Easter Egg Delight Shea Butter Soap,3.0,23
+2024-03-03,Lavender Fields Bunny Soap,2.5,33
+2024-03-03,Spring Raindrop Handcrafted Soap,3.0,31
+2024-03-04,Blossom Breeze Bath Fizzies,7.0,4
+2024-03-04,Easter Egg Delight Shea Butter Soap,3.0,35
+2024-03-04,Honey Bunny Oaty Soap,3.0,16
+2024-03-05,Chocolate Bunny Bliss Bath Bombs,15.0,18
+2024-03-05,Honey Bunny Oaty Soap,3.0,37
+2024-03-05,Spring Raindrop Handcrafted Soap,3.0,20
+2024-03-06,Chocolate Bunny Bliss Bath Bombs,15.0,19
+2024-03-06,Easter Egg Delight Shea Butter Soap,3.0,25
+2024-03-06,Lavender Fields Bunny Soap,2.5,8
+2024-03-06,Spring Raindrop Handcrafted Soap,3.0,15
+2024-03-07,Blossom Breeze Bath Fizzies,7.0,29
+2024-03-07,Bunny Hop Bubble Bar,4.0,12
+2024-03-07,Easter Egg Delight Shea Butter Soap,3.0,14
+2024-03-07,Lavender Fields Bunny Soap,2.5,33
+2024-03-08,Blossom Breeze Bath Fizzies,7.0,30
+2024-03-08,Chocolate Bunny Bliss Bath Bombs,15.0,31
+2024-03-08,Easter Egg Delight Shea Butter Soap,3.0,4
+2024-03-08,Honey Bunny Oaty Soap,3.0,17
+2024-03-08,Lavender Fields Bunny Soap,2.5,30
+2024-03-08,Spring Raindrop Handcrafted Soap,3.0,32
+2024-03-09,Bunny Hop Bubble Bar,4.0,35
+2024-03-09,Chocolate Bunny Bliss Bath Bombs,15.0,29
+2024-03-09,Spring Raindrop Handcrafted Soap,3.0,18
+2024-03-10,Blossom Breeze Bath Fizzies,7.0,20
+2024-03-10,Bunny Hop Bubble Bar,4.0,11
+2024-03-10,Chocolate Bunny Bliss Bath Bombs,15.0,18
+2024-03-10,Easter Egg Delight Shea Butter Soap,3.0,21
+2024-03-10,Lavender Fields Bunny Soap,2.5,12
+2024-03-10,Spring Raindrop Handcrafted Soap,3.0,9
+2024-03-11,Bunny Hop Bubble Bar,4.0,26
+2024-03-11,Spring Raindrop Handcrafted Soap,3.0,8
+2024-03-12,Chocolate Bunny Bliss Bath Bombs,15.0,36
+2024-03-12,Easter Egg Delight Shea Butter Soap,3.0,8
+2024-03-12,Spring Raindrop Handcrafted Soap,3.0,23
+2024-03-13,Blossom Breeze Bath Fizzies,7.0,22
+2024-03-13,Bunny Hop Bubble Bar,4.0,34
+2024-03-13,Chocolate Bunny Bliss Bath Bombs,15.0,32
+2024-03-13,Spring Raindrop Handcrafted Soap,3.0,17
+2024-03-14,Bunny Hop Bubble Bar,4.0,5
+2024-03-14,Chocolate Bunny Bliss Bath Bombs,15.0,9
+2024-03-14,Lavender Fields Bunny Soap,2.5,20
+2024-03-15,Bunny Hop Bubble Bar,4.0,4
+2024-03-15,Chocolate Bunny Bliss Bath Bombs,15.0,26
+2024-03-15,Lavender Fields Bunny Soap,2.5,16
+2024-03-15,Spring Raindrop Handcrafted Soap,3.0,29
+2024-03-16,Chocolate Bunny Bliss Bath Bombs,15.0,4
+2024-03-17,Bunny Hop Bubble Bar,4.0,38
+2024-03-17,Chocolate Bunny Bliss Bath Bombs,15.0,24
+2024-03-17,Lavender Fields Bunny Soap,2.5,35
+2024-03-18,Bunny Hop Bubble Bar,4.0,19
+2024-03-18,Chocolate Bunny Bliss Bath Bombs,15.0,31
+2024-03-18,Lavender Fields Bunny Soap,2.5,34
+2024-03-18,Spring Raindrop Handcrafted Soap,3.0,31
+2024-03-19,Bunny Hop Bubble Bar,4.0,30
+2024-03-19,Chocolate Bunny Bliss Bath Bombs,15.0,25
+2024-03-20,Bunny Hop Bubble Bar,4.0,33
+2024-03-20,Chocolate Bunny Bliss Bath Bombs,15.0,31
+2024-03-21,Bunny Hop Bubble Bar,4.0,25
+2024-03-21,Spring Raindrop Handcrafted Soap,3.0,11
+2024-03-22,Chocolate Bunny Bliss Bath Bombs,15.0,31
+2024-03-22,Spring Raindrop Handcrafted Soap,3.0,9
+2024-03-23,Chocolate Bunny Bliss Bath Bombs,15.0,22
+2024-03-24,Blossom Breeze Bath Fizzies,7.0,3
+2024-03-24,Bunny Hop Bubble Bar,4.0,34
+2024-03-24,Bunny Trail Botanical Soap,5.0,10
+2024-03-24,Chocolate Bunny Bliss Bath Bombs,15.0,7
+2024-03-24,Chocolate Truffle Bunny Scrub Bar,6.0,32
+2024-03-24,Easter Egg Delight Shea Butter Soap,3.0,33
+2024-03-24,Easter Eggstravaganza Cocoa Soap,4.5,17
+2024-03-24,Easter Lily Goat Milk Soap,4.0,28
+2024-03-24,Honey Bunny Oaty Soap,3.0,7
+2024-03-24,Hot Cross Bun Soap Bar,5.0,25
+2024-03-24,Lavender Fields Bunny Soap,2.5,33
+2024-03-24,Spring Garden Petal Soap,3.5,7
+2024-03-24,Spring Raindrop Handcrafted Soap,3.0,3
+2024-03-25,Blossom Breeze Bath Fizzies,7.0,3
+2024-03-25,Bunny Hop Bubble Bar,4.0,28
+2024-03-25,Bunny Trail Botanical Soap,5.0,22
+2024-03-25,Chocolate Bunny Bliss Bath Bombs,15.0,27
+2024-03-25,Chocolate Truffle Bunny Scrub Bar,6.0,29
+2024-03-25,Easter Egg Delight Shea Butter Soap,3.0,30
+2024-03-25,Easter Eggstravaganza Cocoa Soap,4.5,10
+2024-03-25,Easter Lily Goat Milk Soap,4.0,38
+2024-03-25,Honey Bunny Oaty Soap,3.0,6
+2024-03-25,Hot Cross Bun Soap Bar,5.0,17
+2024-03-25,Lavender Fields Bunny Soap,2.5,8
+2024-03-25,Spring Garden Petal Soap,3.5,22
+2024-03-25,Spring Raindrop Handcrafted Soap,3.0,18

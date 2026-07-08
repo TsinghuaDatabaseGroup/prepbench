@@ -1,0 +1,28 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Transaction Date",
+                "Transanction Number",
+                "Quantity",
+                "Sales Before Discount"
+            ],
+            "columns": {
+                "Transaction Date": "text_exact",
+                "Transanction Number": "text_exact",
+                "Product Type": "text_norm",
+                "Product Scent": "text_norm",
+                "Product Size": "text_norm",
+                "Cash or Card": "text_exact",
+                "Loyalty Number": "text_exact",
+                "Customer Name": "text_norm",
+                "Loyalty Tier": "text_exact",
+                "Loyalty Discount": "number",
+                "Quantity": "text_exact",
+                "Sales Before Discount": "text_exact",
+                "Sales After Discount": "number",
+                "Profit": "number"
+            }
+        }
+    }
+}

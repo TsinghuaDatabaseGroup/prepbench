@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_drop_missing_policy_number",
+      "kind": "Operation incomplete",
+      "node_id": "flt_has_policy",
+      "op": "filter",
+      "source_text": "Remove contacts that don't have a Policy Number",
+      "ref": "if policy is None: continue"
+    },
+    {
+      "id": "2_C1_input_file_to_base_date_mapping",
+      "kind": "Row-level concept",
+      "node_id": "proj_dates",
+      "op": "project",
+      "intent": "Map input files to base Monday dates: input_01→2019-06-17, input_02→2019-06-24.",
+      "ref": "base_weeks = {'input_01.csv': datetime(2019, 6, 17), 'input_02.csv': datetime(2019, 6, 24)}"
+    },
+    {
+      "id": "3_C1_category_flags_keywords",
+      "kind": "Row-level concept",
+      "node_id": "proj_enrich",
+      "op": "project",
+      "source_text": "Identify whether the contact was about a balance check, getting a statement or raising a complaint",
+      "ref": "flag_balance: 'balance' in text\nflag_statement: 'statement' in text\nflag_complaint: 'complain' in text"
+    },
+    {
+      "id": "4_O3_indicators_not_mutually_exclusive",
+      "kind": "Operation inconsistent",
+      "node_id": "proj_enrich",
+      "op": "project",
+      "source_text": "Identify whether the contact was about a balance check, getting a statement or raising a complaint",
+      "ref": "records.append({'Statement?': ..., 'Balance?': ..., 'Complaint?': ...})"
+    },
+    {
+      "id": "5_C1_policy_number_pattern",
+      "kind": "Row-level concept",
+      "node_id": "proj_map",
+      "op": "project",
+      "source_text": "Create a separate column for the Policy Number",
+      "ref": "def extract_policy(text): m = re.search(r\"#(\\d+)\", str(text))"
+    },
+    {
+      "id": "6_C1_weekday_name_to_offset",
+      "kind": "Row-level concept",
+      "node_id": "proj_map",
+      "op": "project",
+      "source_text": "Create a date per day",
+      "ref": "weekday_to_offset = {'monday': 0, 'tuesday': 1, ...}"
+    }
+  ]
+}

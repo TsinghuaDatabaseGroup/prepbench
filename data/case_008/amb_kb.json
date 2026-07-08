@@ -1,0 +1,124 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_adjqty_sum",
+      "kind": "Group-level concept",
+      "node_id": "agg_adj",
+      "op": "aggregate",
+      "intent": "Compute total adjusted quantity per Crime Ref Number as the sum of adjustment Quantities.",
+      "ref": "adj_grp = (\n        adj.groupby(\"Crime Ref Number\").agg(\n            {\n                \"Quantity\": \"sum\","
+    },
+    {
+      "id": "2_C2_stock_adjusted_min_date",
+      "kind": "Group-level concept",
+      "node_id": "agg_adj",
+      "op": "aggregate",
+      "intent": "Set Stock Adjusted date per Crime Ref Number to the earliest (minimum) adjustment Date.",
+      "ref": "adj_grp = (\n        adj.groupby(\"Crime Ref Number\").agg(\n            {\n                \"Date\": \"min\",\n            }\n        )\n        .rename(columns={\"Quantity\": \"AdjQty\", \"Date\": \"Stock Adjusted\"})"
+    },
+    {
+      "id": "3_C2_stolen_volume_sum",
+      "kind": "Group-level concept",
+      "node_id": "agg_theft",
+      "op": "aggregate",
+      "intent": "Compute Stolen volume per Crime Ref Number as the sum of theft Quantities.",
+      "ref": "theft_grp = (\n        theft.groupby(\"Crime Ref Number\").agg(\n            {\n                \"Quantity\": \"sum\",\n            }\n        )\n        .rename(columns={\"Quantity\": \"Stolen volume\", \"Date\": \"Theft\"})"
+    },
+    {
+      "id": "4_C2_theft_min_date",
+      "kind": "Group-level concept",
+      "node_id": "agg_theft",
+      "op": "aggregate",
+      "intent": "Set Theft date per Crime Ref Number to the earliest (minimum) theft Date.",
+      "ref": "theft_grp = (\n        theft.groupby(\"Crime Ref Number\").agg(\n            {\n                \"Date\": \"min\",\n            }\n        )\n        .rename(columns={\"Quantity\": \"Stolen volume\", \"Date\": \"Theft\"})"
+    },
+    {
+      "id": "5_O3_type_branch_first_value",
+      "kind": "Operation inconsistent",
+      "node_id": "agg_theft",
+      "op": "aggregate",
+      "intent": "When multiple theft records exist for one Crime Ref Number, carry through Type and Branch Name using the first available theft-side values.",
+      "ref": "theft_grp = (\n        theft.groupby(\"Crime Ref Number\").agg(\n            {\n                \"Type\": \"first\",\n                \"Branch Name\": \"first\",\n            }\n        )"
+    },
+    {
+      "id": "6_C2_number_of_records_count",
+      "kind": "Group-level concept",
+      "node_id": "agg_theft_count",
+      "op": "aggregate",
+      "intent": "Compute Number of Records per Crime Ref Number as the count of theft records.",
+      "ref": "num_records = theft.groupby(\"Crime Ref Number\").size().rename(\n        \"Number of Records\").to_frame()"
+    },
+    {
+      "id": "7_D2_join_adjustments_on_crime_ref",
+      "kind": "Multi-table alignment",
+      "node_id": "join_adj",
+      "op": "join",
+      "intent": "Join adjustment-side metrics onto theft-side incidents using Crime Ref Number as the alignment key.",
+      "ref": "theft.groupby(\"Crime Ref Number\")\nadj.groupby(\"Crime Ref Number\")\nout = theft_grp.join(adj_grp[[\"AdjQty\", \"Stock Adjusted\"]], how=\"left\")"
+    },
+    {
+      "id": "8_O2_keep_thefts_without_adjustment",
+      "kind": "Operation incomplete",
+      "node_id": "join_adj",
+      "op": "join",
+      "intent": "Keep theft incidents even when there is no matching adjustment record (left join behavior).",
+      "ref": "out = theft_grp.join(adj_grp[[\"AdjQty\", \"Stock Adjusted\"]], how=\"left\")"
+    },
+    {
+      "id": "9_D2_map_branch_name_on_store_id",
+      "kind": "Multi-table alignment",
+      "node_id": "join_branch",
+      "op": "join",
+      "source_text": "Update Store IDs to use the Store Names",
+      "ref": "df[\"Branch Name\"] = df[\"Store ID\"].map(mapping)"
+    },
+    {
+      "id": "10_O2_allow_missing_branch_name",
+      "kind": "Operation incomplete",
+      "node_id": "join_branch",
+      "op": "join",
+      "intent": "Retain transactional/theft records even when the store name mapping is missing (Branch Name left as null).",
+      "ref": "df[\"Branch Name\"] = df[\"Store ID\"].map(mapping)"
+    },
+    {
+      "id": "11_C1_type_bar_else_liquid_by_containment",
+      "kind": "Row-level concept",
+      "node_id": "proj_clean",
+      "op": "project",
+      "source_text": "Clean up the Product Type to just return two products types: Bar and Liquid",
+      "ref": "return \"Bar\" if \"bar\" in x.lower() else \"Liquid\""
+    },
+    {
+      "id": "13_C2_stock_variance_stolen_minus_abs_adj_fill0",
+      "kind": "Row-level concept",
+      "node_id": "proj_metrics",
+      "op": "project",
+      "source_text": "Measure the variance in stolen stock and inventory adjustment",
+      "ref": "out[\"Stock Variance\"] = out[\"Stolen volume\"] - \\\n        out[\"AdjQty\"].abs().fillna(0)"
+    },
+    {
+      "id": "14_C2_days_diff_whole_days",
+      "kind": "Row-level concept",
+      "node_id": "proj_metrics",
+      "op": "project",
+      "source_text": "Measure the difference in days between when the theft occurred and when the stock was updated",
+      "ref": "out[\"Days to complete adjustment\"] = (\n        out[\"Stock Adjusted\"] - out[\"Theft\"]).dt.days"
+    },
+    {
+      "id": "15_O2_days_null_when_no_adjustment_date",
+      "kind": "Operation incomplete",
+      "node_id": "proj_metrics",
+      "op": "project",
+      "intent": "If an incident has no stock adjustment date, Days to complete adjustment should be missing/null.",
+      "ref": "out[\"Days to complete adjustment\"] = (\n        out[\"Stock Adjusted\"] - out[\"Theft\"]).dt.days"
+    },
+    {
+      "id": "16_O1_sort_by_adjusted_then_theft_then_crime",
+      "kind": "Operation boundary",
+      "node_id": "sort_out",
+      "op": "sort",
+      "intent": "Sort output by Stock Adjusted ascending with missing first, then Theft ascending, then Crime Ref Number ascending.",
+      "ref": "out = out.sort_values(\n        by=[\"Stock Adjusted\", \"Theft\", \"Crime Ref Number\"], na_position=\"first\")"
+    }
+  ]
+}

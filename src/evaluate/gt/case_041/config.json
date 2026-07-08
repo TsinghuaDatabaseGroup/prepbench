@@ -1,0 +1,24 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Type of Refund"
+            ],
+            "columns": {
+                "Type of Refund": "text_exact",
+                "Money Lost": "number"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Product",
+                "Scent"
+            ],
+            "columns": {
+                "Product": "text_exact",
+                "Scent": "text_exact",
+                "Stock Remaining": "number"
+            }
+        }
+    }
+}

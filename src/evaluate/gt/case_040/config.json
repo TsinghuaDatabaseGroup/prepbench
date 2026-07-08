@@ -1,0 +1,40 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "NPS Score",
+                "Total Respondents",
+                "Promoter",
+                "Detractor"
+            ],
+            "columns": {
+                "NPS Score": "number",
+                "Total Respondents": "number",
+                "Promoter": "number",
+                "Detractor": "number"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Which three words would you use describe to Sudzilla? (separate with a comma) Split",
+                "Keynote Rating Score",
+                "Food Rating Score",
+                "Timestamp",
+                "On a scale of 0-10, how would you rate Sudzilla?",
+                "___why?",
+                "What was your favourite giveaway at Sudzilla?",
+                "What was your favourite 'Soap Box' (breakout / customer speaker) session?"
+            ],
+            "columns": {
+                "Which three words would you use describe to Sudzilla? (separate with a comma) Split": "text_exact",
+                "Keynote Rating Score": "number",
+                "Food Rating Score": "number",
+                "Timestamp": "datetime",
+                "On a scale of 0-10, how would you rate Sudzilla?": "number",
+                "___why?": "text_exact",
+                "What was your favourite giveaway at Sudzilla?": "text_exact",
+                "What was your favourite 'Soap Box' (breakout / customer speaker) session?": "text_exact"
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "City",
+                "Country",
+                "Zip Code",
+                "Store Cost",
+                "Store Potential Sales",
+                "Currency",
+                "Value in USD"
+            ],
+            "columns": {
+                "City": "text_exact",
+                "Country": "text_exact",
+                "Zip Code": "text_exact",
+                "Store Cost": "number",
+                "Store Potential Sales": "number",
+                "Currency": "text_exact",
+                "Value in USD": "number"
+            }
+        }
+    }
+}

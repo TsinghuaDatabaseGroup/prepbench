@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_group_counts_by_month_and_weekday",
+      "kind": "Group-level concept",
+      "node_id": "agg_counts",
+      "op": "aggregate",
+      "source_text": "Count how many birthdays there are on each weekday in each month",
+      "ref": "count_df = df.groupby([\"Month\", \"Cake Needed On\"]).size().reset_index(name=\"BDs per Weekday and Month\")"
+    },
+    {
+      "id": "2_O2_left_join_to_keep_all_pupils",
+      "kind": "Operation incomplete",
+      "node_id": "join_counts",
+      "op": "join",
+      "intent": "Keep every pupil row when attaching the grouped counts (use a left join).",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "3_D2_join_on_month_and_cake_needed_on",
+      "kind": "Multi-table alignment",
+      "node_id": "join_counts",
+      "op": "join",
+      "intent": "Attach grouped counts back to pupils by matching on Month and Cake Needed On.",
+      "ref": "on=[\"Month\", \"Cake Needed On\"]"
+    },
+    {
+      "id": "4_D1_pupil_name_fields_selection",
+      "kind": "Single-table reference",
+      "node_id": "project_compute",
+      "op": "project",
+      "source_text": "Format the pupil's name in First Name Last Name format",
+      "ref": "df[\"Pupil Name\"] = df[\"pupil first name\"] + \" \" + df[\"pupil last name\"]"
+    },
+    {
+      "id": "5_O1_weekend_shift_to_friday",
+      "kind": "Operation boundary",
+      "node_id": "project_compute",
+      "op": "project",
+      "source_text": "if the birthday falls on a Saturday or Sunday, we need to change the weekday to Friday",
+      "ref": "if weekday_num == 5:  # Saturday\n    days_back = 1\nelse:  # Sunday\n    days_back = 2\nreturn row[\"This Year's Birthday\"] - pd.Timedelta(days=days_back)"
+    },
+    {
+      "id": "6_O1_weekday_name_from_cake_date",
+      "kind": "Row-level concept",
+      "node_id": "project_compute",
+      "op": "project",
+      "source_text": "Work out what day of the week the pupil's birthday falls on",
+      "ref": "df[\"Cake Needed On\"] = df[\"Cake Date\"].dt.day_name()"
+    },
+    {
+      "id": "7_O1_month_from_cake_date",
+      "kind": "Row-level concept",
+      "node_id": "project_compute",
+      "op": "project",
+      "source_text": "Work out what month the pupil's birthday falls within",
+      "ref": "df[\"Month\"] = df[\"Cake Date\"].dt.month.map(month_names)"
+    }
+  ]
+}

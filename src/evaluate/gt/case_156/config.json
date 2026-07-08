@@ -1,0 +1,19 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Student ID",
+                "Subject"
+            ],
+            "columns": {
+                "Avg student total points per grade": "number",
+                "Total Points per Student": "number",
+                "Grade": "text_exact",
+                "Points": "number",
+                "Subject": "text_exact",
+                "Score": "number",
+                "Student ID": "number"
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_pupil_id_fields",
+      "kind": "Single-table reference",
+      "node_id": "agg_year",
+      "op": "aggregate",
+      "intent": "Which fields uniquely identify a pupil for yearly aggregation.",
+      "ref": "all_terms.groupby([\"First Name\", \"Last Name\"], as_index=False)"
+    },
+    {
+      "id": "2_O3_keep_all_max_ties",
+      "kind": "Operation incomplete",
+      "node_id": "best_filter",
+      "op": "filter",
+      "source_text": "Find the student(s) with the overall highest attendance rate and output this as a CSV",
+      "ref": "max_rate = agg[\"Year Attendance Rate\"].max()\nbest = agg[agg[\"Year Attendance Rate\"] == max_rate].copy()"
+    },
+    {
+      "id": "3_D2_join_on_first_last",
+      "kind": "Multi-table alignment",
+      "node_id": "join_yg",
+      "op": "join",
+      "source_text": "Join on the Year Group Data",
+      "ref": "on=[\"First Name\", \"Last Name\"],"
+    },
+    {
+      "id": "4_O2_left_join_retain_year_group",
+      "kind": "Row-level concept",
+      "node_id": "join_yg",
+      "op": "join",
+      "source_text": "Join on the Year Group Data",
+      "ref": "how=\"left\","
+    },
+    {
+      "id": "5_C2_rank_constant_one",
+      "kind": "Row-level concept",
+      "node_id": "pr_best_rank",
+      "op": "project",
+      "source_text": "Rank",
+      "ref": "best[\"Rank\"] = 1"
+    },
+    {
+      "id": "7_C2_top5_percentile_threshold",
+      "kind": "Group-level concept",
+      "node_id": "script_top5",
+      "op": "script",
+      "source_text": "Find the top 5% of students with the highest attendance rates for each year group and output this as a CSV",
+      "ref": "        thr = g[\"Year Attendance Rate\"].quantile(0.95, interpolation=\"linear\")\n        sel = g[g[\"Year Attendance Rate\"] >= thr]"
+    },
+    {
+      "id": "8_O1_threshold_inclusive_ge",
+      "kind": "Operation boundary",
+      "node_id": "script_top5",
+      "op": "script",
+      "source_text": "Find the top 5% of students with the highest attendance rates for each year group and output this as a CSV",
+      "ref": "sel = g[g[\"Year Attendance Rate\"] >= thr]"
+    },
+    {
+      "id": "9_O2_fallback_select_one_if_none",
+      "kind": "Operation incomplete",
+      "node_id": "script_top5",
+      "op": "script",
+      "source_text": "Find the top 5% of students with the highest attendance rates for each year group and output this as a CSV",
+      "ref": "if sel.empty:\n            sel = g.head(1)"
+    }
+  ]
+}

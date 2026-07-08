@@ -1,0 +1,38 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Position",
+        "Team",
+        "Total Games Played",
+        "Total Points",
+        "Goal Difference"
+      ],
+      "columns": {
+        "Position": "number",
+        "Team": "text_exact",
+        "Total Games Played": "number",
+        "Total Points": "number",
+        "Goal Difference": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Position Change",
+        "Position",
+        "Team",
+        "Total Games Played",
+        "Total Points",
+        "Goal Difference"
+      ],
+      "columns": {
+        "Position Change": "number",
+        "Position": "number",
+        "Team": "text_exact",
+        "Total Games Played": "number",
+        "Total Points": "number",
+        "Goal Difference": "number"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Instances",
+        "Question or Answer",
+        "Location"
+      ],
+      "columns": {
+        "Instances": "number",
+        "Question or Answer": "text_exact",
+        "Location": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Date (GMT)",
+        "Location",
+        "City",
+        "First Time Indicator",
+        "Country",
+        "Who"
+      ],
+      "columns": {
+        "Date (GMT)": "datetime",
+        "Location": "text_exact",
+        "City": "text_exact",
+        "First Time Indicator": "boolean",
+        "Country": "text_exact",
+        "Who": "text_exact"
+      }
+    }
+  }
+}
+

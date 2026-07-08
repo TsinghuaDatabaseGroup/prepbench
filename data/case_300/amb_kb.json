@@ -1,0 +1,108 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_order_received_based_on_prior_week",
+      "kind": "Row-level concept",
+      "node_id": "inv_calc",
+      "op": "project",
+      "source_text": "Calculate how much Stock was ordered in these weeks",
+      "ref": "orders[i] = (30 - prev_qty) if prev_qty <= 10 else 0"
+    },
+    {
+      "id": "2_C2_order_trigger_for_frequency_current_week_qty",
+      "kind": "Row-level concept",
+      "node_id": "inv_calc",
+      "op": "project",
+      "source_text": "Identify weeks where orders were placed for new stock: This occurs whenever the Quantity Available is 10 or less",
+      "ref": "qa_flags = inv_calc.assign(order_trigger=(inv_calc[\"Quantity Available\"] <= 10))\norders_per_group = qa_flags.groupby([\"Store\", \"Product ID\"], as_index=False)[\"order_trigger\"].sum()"
+    },
+    {
+      "id": "3_C2_sold_prev_plus_order_minus_current",
+      "kind": "Row-level concept",
+      "node_id": "inv_calc",
+      "op": "project",
+      "source_text": "Calculate the Quantity Sold each week, taking into consideration the new stock that has been ordered",
+      "ref": "sales_i = prev_qty + orders[i] - qty[i]"
+    },
+    {
+      "id": "4_O1_sold_floor_at_zero",
+      "kind": "Operation boundary",
+      "node_id": "inv_calc",
+      "op": "project",
+      "intent": "Whether weekly Sold can be negative or must be floored at zero.",
+      "ref": "sold[i] = max(0, int(sales_i))"
+    },
+    {
+      "id": "5_O2_first_week_ordered_zero",
+      "kind": "Operation incomplete",
+      "node_id": "inv_calc",
+      "op": "project",
+      "intent": "How to set Ordered for the first observed week in each Store + Product ID series.",
+      "ref": "if i == 0:\n                orders[i] = 0"
+    },
+    {
+      "id": "6_O2_first_week_sold_zero",
+      "kind": "Operation boundary",
+      "node_id": "inv_calc",
+      "op": "project",
+      "intent": "How to compute Sold for the first observed week in each Store + Product ID series.",
+      "ref": "prev_qty = qty[0]  # use first observed as previous ending for week 1 computation; week 0 has no prior order\nif i == 0:\n                orders[i] = 0\nsales_i = prev_qty + orders[i] - qty[i]"
+    },
+    {
+      "id": "7_O2_parse_inventory_date_as_date",
+      "kind": "Operation boundary",
+      "node_id": "inv_input",
+      "op": "input",
+      "intent": "Whether to parse Inventory Date as a date when reading input_01.csv.",
+      "ref": "inv = pd.read_csv(inputs_dir / \"input_01.csv\", parse_dates=[\"Inventory Date\"])"
+    },
+    {
+      "id": "8_O1_chronological_processing_by_store_product",
+      "kind": "Row-level concept",
+      "node_id": "inv_sort",
+      "op": "sort",
+      "intent": "Whether to process inventory snapshots in chronological order within each Store + Product ID series.",
+      "ref": "inv = inv.sort_values([\"Store\", \"Product ID\", \"Inventory Date\"]).reset_index(drop=True)"
+    },
+    {
+      "id": "9_D2_join_on_product_id",
+      "kind": "Multi-table alignment",
+      "node_id": "join_final",
+      "op": "join",
+      "source_text": "Join the tables together and remove unnecessary fields",
+      "ref": "out = summary.merge(products, on=\"Product ID\", how=\"left\")"
+    },
+    {
+      "id": "10_O2_left_join_keep_all_inventory_pairs",
+      "kind": "Operation incomplete",
+      "node_id": "join_final",
+      "op": "join",
+      "intent": "Whether to keep all Store + Product ID combinations from inventory even if product metadata is missing.",
+      "ref": "out = summary.merge(products, on=\"Product ID\", how=\"left\")"
+    },
+    {
+      "id": "11_C2_avg_order_frequency_weeks_div_orders",
+      "kind": "Group-level concept",
+      "node_id": "post_summary",
+      "op": "project",
+      "source_text": "Avg Order Frequency (i.e., if the Order Frequency is 2 then this would mean the Store is ordering once every 2 weeks on average)",
+      "ref": "return w / o"
+    },
+    {
+      "id": "12_O1_round_only_avg_columns_not_total",
+      "kind": "Operation boundary",
+      "node_id": "post_summary",
+      "op": "project",
+      "source_text": "Round these values to 1 decimal place",
+      "ref": "summary[\"Avg Quantity Sold per Week\"] = summary[\"Avg Quantity Sold per Week\"].round(1)\nsummary[\"Avg Order Frequency\"] = summary[\"Avg Order Frequency\"].round(1)"
+    },
+    {
+      "id": "13_O2_avg_order_frequency_zero_orders_to_zero",
+      "kind": "Operation incomplete",
+      "node_id": "post_summary",
+      "op": "project",
+      "intent": "What Avg Order Frequency should be when there are zero order-trigger weeks.",
+      "ref": "if o <= 0:\n            return 0.0"
+    }
+  ]
+}

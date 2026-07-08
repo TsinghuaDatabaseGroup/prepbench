@@ -1,0 +1,22 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Country", "Store", "Name", "Completion Date (Date Time stamp)", "Result (First / Latest)", "Would you recommend C&BS Co to your friends and family?", "Promoter", "Passive", "Detractor", "Age of Customer", "If you would, why?", "If you wouldn't, why?"],
+      "columns": {
+        "Country": "text_exact",
+        "Store": "text_exact",
+        "Name": "text_exact",
+        "Completion Date (Date Time stamp)": "datetime",
+        "Result (First / Latest)": "text_exact",
+        "Would you recommend C&BS Co to your friends and family?": "number",
+        "Promoter": "number",
+        "Passive": "number",
+        "Detractor": "number",
+        "Age of Customer": "number",
+        "If you would, why?": "text_exact",
+        "If you wouldn't, why?": "text_exact"
+      }
+    }
+  }
+}
+

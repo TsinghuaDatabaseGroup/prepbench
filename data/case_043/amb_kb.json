@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_non_store_sales_filter",
+      "kind": "Row-level concept",
+      "node_id": "filter_sales_exclude_total",
+      "op": "filter",
+      "source_text": "Remove any non-store sales data",
+      "ref": "sales = sales[sales['Store'] != 'Total']"
+    },
+    {
+      "id": "2_D2_join_keys_store_quarter",
+      "kind": "Multi-table alignment",
+      "node_id": "joined",
+      "op": "join",
+      "source_text": "Join on Store Quarterly Targets",
+      "ref": "df = pd.merge(quarterly_sales, targets_long, on=['Store', 'Quarter'])"
+    },
+    {
+      "id": "3_C2_quarterly_sales_aggregation",
+      "kind": "Group-level concept",
+      "node_id": "quarterly_sales",
+      "op": "aggregate",
+      "source_text": "Determine Store Quarterly Sales",
+      "ref": "quarterly_sales = sales_long.groupby(['Store', 'Quarter'])['Sales'].sum().reset_index()"
+    },
+    {
+      "id": "4_O2_month_parse_from_string",
+      "kind": "Operation boundary",
+      "node_id": "sales_with_qtr",
+      "op": "project",
+      "source_text": "Form a date to help with your quarterly calculations",
+      "ref": "sales_long['Month'] = sales_long['Month_Year'].str.extract(r'Month (\\d+)').astype(int)"
+    },
+    {
+      "id": "5_D1_targets_store_column_mapping",
+      "kind": "Single-table reference",
+      "node_id": "targets_ready",
+      "op": "project",
+      "source_text": "Join on Store Quarterly Targets",
+      "ref": "targets_long.rename(columns={'Location': 'Store'}, inplace=True)"
+    },
+    {
+      "id": "6_O2_targets_quarter_parse",
+      "kind": "Operation boundary",
+      "node_id": "targets_ready",
+      "op": "project",
+      "source_text": "Join on Store Quarterly Targets",
+      "ref": "targets_long['Quarter'] = targets_long['Quarter'].str.replace('Q', '').astype(int)"
+    },
+    {
+      "id": "7_C2_variance_to_target_sign",
+      "kind": "Group-level concept",
+      "node_id": "with_variances",
+      "op": "project",
+      "source_text": "Determine Store variance to Target - actual",
+      "ref": "df['Variance to Target'] = df['Sales'] - df['Target Value']"
+    },
+    {
+      "id": "8_C2_variance_percent_definition",
+      "kind": "Group-level concept",
+      "node_id": "with_variances",
+      "op": "project",
+      "source_text": "Determine Store variance to Target - actual as well as percentage difference",
+      "ref": "df['Variance to Target %'] = ((df['Sales'] / df['Target Value']) * 100).astype(int)"
+    },
+    {
+      "id": "9_O1_variance_percent_truncation",
+      "kind": "Operation boundary",
+      "node_id": "with_variances",
+      "op": "project",
+      "intent": "Use integer truncation (floor towards zero) for percentage rather than rounding.",
+      "ref": "df['Variance to Target %'] = ((df['Sales'] / df['Target Value']) * 100).astype(int)"
+    },
+    {
+      "id": "10_C1_action_threshold_rules",
+      "kind": "Row-level concept",
+      "node_id": "with_variances",
+      "op": "project",
+      "source_text": "Match Action Description to Variance %",
+      "ref": "def assign_action(var_pct):\n    if var_pct > 150:\n        return 'Smashing it...', 'Above'\n    elif var_pct > 125:\n        return 'Brilliant work...', 'Above'\n    elif var_pct > 100:\n        return 'Doing well...', 'Above'\n    elif var_pct == 100:\n        return 'Nice work...', 'Meets'\n    elif var_pct >= 75:\n        return 'Close but not quite...', 'Below'\n    elif var_pct >= 50:\n        return 'This might have been poor targetting...', 'Below'\n    else:\n        return 'What went wrong?...', 'Below'"
+    }
+  ]
+}

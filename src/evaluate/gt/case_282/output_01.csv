@@ -1,0 +1,295 @@
+Stage Won?,Stage Number,Origin - Destination,Time Trial?,General Classification Finishing Position,Points Finishing Position,Year,KM,Stage Type
+,0,London - London,,DNF,,2007,7.9,Flat
+,1,London - Canterbury,,DNF,,2007,203.0,Flat
+,2,Dunkerque - Gent,,DNF,,2007,168.5,Flat
+,3,Waregem - Compiegne,,DNF,,2007,236.5,Flat
+,4,Villers-Cotterets - Joigny,,DNF,,2007,193.0,Flat
+,5,Chablis - Autun,,DNF,,2007,182.5,"Hills, flat finish"
+,6,Semur-en-Auxois - Bourg-en-Bresse,,DNF,,2007,199.5,Flat
+,7,Bourg-en-Bresse - Le Grand Bornand,,DNF,,2007,197.5,"Mountains, flat finish"
+,8,Le Grand Bornand - Tignes,,DNF,,2007,165.0,"Mountains, uphill finish"
+,9,Val-d’Isère - Briançon,,DNF,,2007,159.5,"Mountains, flat finish"
+,10,Tallard - Marseille,,DNF,,2007,229.5,"Hills, flat finish"
+,11,Marseille - Montpellier,,DNF,,2007,182.5,Flat
+,12,Montpellier - Castres,,DNF,,2007,178.5,"Mountains, flat finish"
+,13,Albi - Albi,Individual,DNF,,2007,54.0,"Hills, flat finish"
+,14,Mazamet - Plateau-de-Beille,,DNF,,2007,197.0,"Mountains, flat finish"
+,15,Foix - Loudenvielle-Le-Louron,,DNF,,2007,196.0,"Mountains, uphill finish"
+,16,Orthez - Gourette - Col d'Aubisque,,DNF,,2007,218.5,"Mountains, uphill finish"
+,17,Pau - Castelsarrasin,,DNF,,2007,188.5,"Hills, flat finish"
+,18,Cahors - Angoulême,,DNF,,2007,211.0,"Hills, flat finish"
+,19,Cognac - Angoulême,Individual,DNF,,2007,55.5,Flat
+,20,Marcoussis - Paris,,DNF,,2007,146.0,Flat
+,1,Brest - Plumelec,,DNF,,2008,197.5,"Hills, uphill finish"
+,2,Auray - Saint-Brieuc,,DNF,,2008,164.5,"Hills, uphill finish"
+,3,Saint Malo - Nantes,,DNF,,2008,208.0,Flat
+,4,Cholet - Cholet,Individual,DNF,,2008,29.5,Flat
+Yes,5,Cholet - Châteauroux,,DNF,,2008,232.0,Flat
+,6,Aigurande - Super Besse,,DNF,,2008,195.5,"Mountains, uphill finish"
+,7,Brioude - Aurillac,,DNF,,2008,159.0,"Mountains, flat finish"
+Yes,8,Figeac - Toulouse,,DNF,,2008,172.5,"Hills, flat finish"
+,9,Toulouse - Bagnères de Bigorre,,DNF,,2008,224.0,"Mountains, flat finish"
+,10,Pau - Hautacam,,DNF,,2008,156.0,"Mountains, uphill finish"
+,11,Lannemezan - Foix,,DNF,,2008,167.5,"Mountains, flat finish"
+Yes,12,Lavelanet - Narbonne,,DNF,,2008,168.5,Flat
+Yes,13,Narbonne - Nîmes,,DNF,,2008,182.0,Flat
+,14,Nîmes - Digne-les-Bains,,DNF,,2008,194.5,"Hills, flat finish"
+,15,Embrun - Prato Nevoso,,DNF,,2008,183.0,"Mountains, uphill finish"
+,16,Cuneo - Jausiers,,DNF,,2008,157.0,"Mountains, flat finish"
+,17,Embrun - l'Alpe d'Huez,,DNF,,2008,210.5,"Mountains, uphill finish"
+,18,Bourg d'Oisans - Saint-Etienne,,DNF,,2008,196.5,"Mountains, flat finish"
+,19,Roanne - Montluçon,,DNF,,2008,165.5,Flat
+,20,Cérilly - Saint-Amand-Montrond,Individual,DNF,,2008,53.0,Flat
+,21,Étampes - Paris,,DNF,,2008,143.0,Flat
+,1,Monaco - Monaco,Individual,127,2.0,2009,15.5,Flat
+Yes,2,Monaco - Brignoles,,127,2.0,2009,187.0,"Hills, flat finish"
+Yes,3,Marseille - La Grande-Motte,,127,2.0,2009,196.5,Flat
+,4,Montpellier - Montpellier,Team,127,2.0,2009,39.0,Flat
+,5,Cap d’Agde - Perpignan,,127,2.0,2009,196.5,Flat
+,6,Girona - Barcelona,,127,2.0,2009,181.5,"Hills, uphill finish"
+,7,Barcelona - Andorra Arcalis,,127,2.0,2009,224.0,"Mountains, uphill finish"
+,8,Andorra-la-Vella - Saint-Girons,,127,2.0,2009,176.5,"Mountains, flat finish"
+,9,Saint-Gaudens - Tarbes,,127,2.0,2009,160.5,"Mountains, flat finish"
+Yes,10,Limoges - Issoudun,,127,2.0,2009,194.5,"Hills, flat finish"
+Yes,11,Vatan - Saint-Fargeau,,127,2.0,2009,192.0,Flat
+,12,Tonnerre - Vittel,,127,2.0,2009,211.5,"Hills, flat finish"
+,13,Vittel - Colmar,,127,2.0,2009,200.0,"Mountains, flat finish"
+,14,Colmar - Besançon,,127,2.0,2009,199.0,"Hills, flat finish"
+,15,Pontarlier - Verbier,,127,2.0,2009,207.5,"Mountains, uphill finish"
+,16,Martigny - Bourg-Saint-Maurice,,127,2.0,2009,159.0,"Mountains, flat finish"
+,17,Bourg-Saint-Maurice - Le Grand Bornand,,127,2.0,2009,169.5,"Mountains, flat finish"
+,18,Annecy - Annecy,Individual,127,2.0,2009,40.5,"Hills, flat finish"
+Yes,19,Bourgoin-Jallieu - Aubenas,,127,2.0,2009,178.0,"Mountains, flat finish"
+,20,Montélimar - Mont Ventoux,,127,2.0,2009,167.0,"Mountains, uphill finish"
+Yes,21,Montereau - Paris,,127,2.0,2009,164.0,Flat
+,0,Rotterdam - Rotterdam,,151,2.0,2010,8.9,Flat
+,1,Rotterdam - Brussel,,151,2.0,2010,223.5,Flat
+,2,Brussel - Spa,,151,2.0,2010,201.0,"Hills, flat finish"
+,3,Wanze - Arenberg Porte du Hainaut,,151,2.0,2010,213.0,Flat
+,4,Cambrai - Reims,,151,2.0,2010,153.5,Flat
+Yes,5,Épernay - Montargis,,151,2.0,2010,187.5,Flat
+Yes,6,Montargis - Gueugnon,,151,2.0,2010,227.5,Flat
+,7,Tournus - Station des Rousses,,151,2.0,2010,165.5,"Mountains, uphill finish"
+,8,Station des Rousses - Morzine-Avoriaz,,151,2.0,2010,189.0,"Mountains, uphill finish"
+,9,Morzine-Avoriaz - Saint-Jean-de-Maurienne,,151,2.0,2010,204.5,"Mountains, flat finish"
+,10,Chambéry - Gap,,151,2.0,2010,179.0,"Hills, flat finish"
+Yes,11,Sisteron - Bourg-lès-Valence,,151,2.0,2010,184.5,"Hills, flat finish"
+,12,Bourg-de-Péage - Mende,,151,2.0,2010,210.5,"Hills, uphill finish"
+,13,Rodez - Revel,,151,2.0,2010,196.0,"Hills, flat finish"
+,14,Revel - Ax-3 Domaines,,151,2.0,2010,184.5,"Mountains, uphill finish"
+,15,Pamiers - Bagnères-de-Luchon,,151,2.0,2010,187.5,"Mountains, flat finish"
+,16,Bagnères-de-Luchon - Pau,,151,2.0,2010,199.5,"Mountains, flat finish"
+,17,Pau - Col du Tourmalet,,151,2.0,2010,174.0,"Mountains, uphill finish"
+Yes,18,Salies-de-Béarn - Bordeaux,,151,2.0,2010,198.0,Flat
+,19,Bordeaux - Pauillac,Individual,151,2.0,2010,52.0,Flat
+Yes,20,Longjumeau - Paris,,151,2.0,2010,102.5,Flat
+,1,Passage Du Gois La Barre-de-monts - Mont Des Alouettes Les Herbiers,,130,1.0,2011,191.5,"Hills, uphill finish"
+,2,Les Essarts - Les Essarts,Team,130,1.0,2011,23.0,Flat
+,3,Olonne-sur-mer - Redon,,130,1.0,2011,198.0,Flat
+,4,Lorient - Mûr-de-Bretagne,,130,1.0,2011,172.5,"Hills, uphill finish"
+Yes,5,Carhaix - Cap Fréhel,,130,1.0,2011,164.5,Flat
+,6,Dinan - Lisieux,,130,1.0,2011,226.5,"Hills, uphill finish"
+Yes,7,Le Mans - Châteauroux,,130,1.0,2011,215.0,Flat
+,8,Aigurande - SuperBesse,,130,1.0,2011,190.0,"Mountains, uphill finish"
+,9,Issoire - Saint-Flour,,130,1.0,2011,208.0,"Hills, flat finish"
+,10,Aurillac - Carmaux,,130,1.0,2011,161.0,"Hills, flat finish"
+Yes,11,Blaye-les-mines - Lavaur,,130,1.0,2011,168.5,"Hills, flat finish"
+,12,Cugnaux - Luz Ardiden,,130,1.0,2011,211.0,"Mountains, uphill finish"
+,13,Pau - Lourdes,,130,1.0,2011,152.5,"Mountains, flat finish"
+,14,Saint-Gaudens - Plateau De Beille,,130,1.0,2011,168.5,"Mountains, uphill finish"
+Yes,15,Limoux - Montpellier,,130,1.0,2011,192.5,Flat
+,16,Saint-Paul-Trois-Châteaux - Gap,,130,1.0,2011,162.5,"Mountains, flat finish"
+,17,Gap - Pinerolo,,130,1.0,2011,179.0,"Mountains, flat finish"
+,18,Pinerolo - Galibier Serre-Chevalier,,130,1.0,2011,189.0,"Mountains, uphill finish"
+,19,Modane - Alpe d’huez,,130,1.0,2011,109.5,"Mountains, uphill finish"
+,20,Grenoble - Grenoble,Individual,130,1.0,2011,42.5,"Hills, flat finish"
+Yes,21,Créteil - Paris,,130,1.0,2011,95.0,Flat
+,0,Liège - Liège,,142,4.0,2012,6.4,Flat
+,1,Liege - Seraing,,142,4.0,2012,198.0,"Hills, uphill finish"
+Yes,2,Vise - Tournai,,142,4.0,2012,207.5,Flat
+,3,Orchies - Boulogne-sur-mer,,142,4.0,2012,197.0,"Hills, uphill finish"
+,4,Abbeville - Rouen,,142,4.0,2012,214.5,Flat
+,5,Rouen - Saint-quentin,,142,4.0,2012,196.5,Flat
+,6,Epernay - Metz,,142,4.0,2012,205.0,Flat
+,7,Tomblaine - La Planche Des Belles Filles,,142,4.0,2012,199.0,"Mountains, uphill finish"
+,8,Belfort - Porrentruy,,142,4.0,2012,157.5,"Mountains, flat finish"
+,9,Arc-et-senans - Besancon,Individual,142,4.0,2012,41.5,Flat
+,10,Macon - Bellegarde-sur-valserine,,142,4.0,2012,194.5,"Mountains, flat finish"
+,11,Albertville - La Toussuire - Les Sybelles,,142,4.0,2012,148.0,"Mountains, uphill finish"
+,12,Saint-Jean-de-Maurienne - Annonay Davézieux,,142,4.0,2012,226.0,"Mountains, flat finish"
+,13,Saint-Paul-Trois-Châteaux - Cap d'Agde,,142,4.0,2012,217.0,Flat
+,14,Limoux - Foix,,142,4.0,2012,191.0,"Mountains, flat finish"
+,15,Samatan - Pau,,142,4.0,2012,158.5,Flat
+,16,Pau - Bagnères-de-Luchon,,142,4.0,2012,197.0,"Mountains, flat finish"
+,17,Bagnères-de-Luchon - Peyragudes,,142,4.0,2012,143.5,"Mountains, uphill finish"
+Yes,18,Blagnac - Brive-la-Gaillarde,,142,4.0,2012,222.5,Flat
+,19,Bonneval - Chartres,Individual,142,4.0,2012,53.5,Flat
+Yes,20,Rambouillet - Paris,,142,4.0,2012,120.0,Flat
+,1,Porto-Vecchio - Bastia,,148,2.0,2013,213.0,Flat
+,2,Bastia - Ajaccio,,148,2.0,2013,156.0,"Mountains, flat finish"
+,3,Ajaccio - Calvi,,148,2.0,2013,145.5,"Hills, flat finish"
+,4,Nice - Nice,Team,148,2.0,2013,25.0,Flat
+Yes,5,Cagnes-sur-Mer - Marseille,,148,2.0,2013,228.5,"Hills, flat finish"
+,6,Aix-en-Provence - Montpellier,,148,2.0,2013,176.5,Flat
+,7,Montpellier - Albi,,148,2.0,2013,205.5,"Hills, flat finish"
+,8,Castres - Ax-3 Domaines,,148,2.0,2013,195.0,"Mountains, uphill finish"
+,9,Saint Girons - Bagnéres de Bigorre,,148,2.0,2013,168.5,"Mountains, flat finish"
+,10,Saint-Gildas-des-Bois - Saint-Malo,,148,2.0,2013,197.0,Flat
+,11,Avranches - Mont-Saint-Michel,Individual,148,2.0,2013,33.0,Flat
+,12,Fougères - Tours,,148,2.0,2013,218.0,Flat
+Yes,13,Tours - Saint-Amand-Montrond,,148,2.0,2013,173.0,Flat
+,14,Saint-Pourçain-sur-Sioule - Lyon,,148,2.0,2013,191.0,"Hills, flat finish"
+,15,Givors - Mont Ventoux,,148,2.0,2013,242.5,"Mountains, uphill finish"
+,16,Vaison-la-Romaine - Gap,,148,2.0,2013,168.0,"Mountains, flat finish"
+,17,Embrun - Chorges,Individual,148,2.0,2013,32.0,"Hills, flat finish"
+,18,Gap - Alpe d'Huez,,148,2.0,2013,172.5,"Mountains, uphill finish"
+,19,Le Bourg d'Oisans - Le Grand Bornand,,148,2.0,2013,204.5,"Mountains, flat finish"
+,20,Annecy - Le Semnoz,,148,2.0,2013,125.0,"Mountains, uphill finish"
+,21,Château de Versailles - Paris,,148,2.0,2013,118.0,Flat
+,1,Leeds - Harrogate,,DNF,,2014,190.5,"Hills, flat finish"
+,2,York - Sheffield,,DNF,,2014,201.0,"Hills, flat finish"
+,3,Cambridge - London,,DNF,,2014,155.0,Flat
+,4,Le Touquet Paris-Plage - Lille,,DNF,,2014,163.5,Flat
+,5,Ypres - Arenberg Porte du Hainaut,,DNF,,2014,155.5,Flat
+,6,Arras - Reims,,DNF,,2014,194.0,Flat
+,7,Epernay - Nancy,,DNF,,2014,234.5,"Hills, flat finish"
+,8,Tomblaine - Gerardmer,,DNF,,2014,161.0,"Mountains, uphill finish"
+,9,Gerardmer - Mulhouse,,DNF,,2014,170.0,"Mountains, flat finish"
+,10,Mulhouse - La Planche des Belles Filles,,DNF,,2014,161.5,"Mountains, uphill finish"
+,11,Besançon - Oyonnax,,DNF,,2014,187.5,"Hills, flat finish"
+,12,Bourg-en-Bresse - Saint-Etienne,,DNF,,2014,185.5,"Hills, flat finish"
+,13,Saint-Etienne - Chamrousse,,DNF,,2014,197.5,"Mountains, uphill finish"
+,14,Grenoble - Risoul,,DNF,,2014,177.0,"Mountains, uphill finish"
+,15,Tallard - Nîmes,,DNF,,2014,222.0,Flat
+,16,Carcassonne - Bagneres-de-Luchon,,DNF,,2014,237.5,"Mountains, flat finish"
+,17,Saint-Gaudens - Saint-Lary-Soulan (Pla d'Adet),,DNF,,2014,124.5,"Mountains, uphill finish"
+,18,Pau - Hautacam,,DNF,,2014,145.5,"Mountains, uphill finish"
+,19,Maubourguet val d'Adour - Bergerac,,DNF,,2014,208.5,Flat
+,20,Bergerac - Perigueux,Individual,DNF,,2014,54.0,"Hills, uphill finish"
+,21,Evry - Paris,,DNF,,2014,137.5,Flat
+,1,Utrecht - Utrecht,Individual,142,4.0,2015,13.8,Flat
+,2,Utrecht - Neeltje Jans,,142,4.0,2015,166.0,Flat
+,3,Antwerpen - Huy,,142,4.0,2015,159.5,"Hills, uphill finish"
+,4,Seraing - Cambrai,,142,4.0,2015,223.5,Flat
+,5,Arras - Amiens,,142,4.0,2015,189.5,Flat
+,6,Abbeville - Le Havre,,142,4.0,2015,191.5,"Hills, uphill finish"
+Yes,7,Livarot - Fougères,,142,4.0,2015,190.5,Flat
+,8,Rennes - Mûr-de-bretagne,,142,4.0,2015,181.5,"Hills, uphill finish"
+,9,Vannes - Plumelec,Team,142,4.0,2015,28.0,"Hills, uphill finish"
+,10,Tarbes - La Pierre-Saint-Martin,,142,4.0,2015,167.0,"Mountains, uphill finish"
+,11,Pau - Cauterets,,142,4.0,2015,188.0,"Mountains, uphill finish"
+,12,Lannemezan - Plateau de Beille,,142,4.0,2015,195.0,"Mountains, uphill finish"
+,13,Muret - Rodez,,142,4.0,2015,198.5,"Hills, flat finish"
+,14,Rodez - Mende,,142,4.0,2015,178.5,"Mountains, uphill finish"
+,15,Mende - Valence,,142,4.0,2015,183.0,"Hills, flat finish"
+,16,Bourg-de-Péage - Gap,,142,4.0,2015,201.0,"Mountains, flat finish"
+,17,Digne-Les-Bains - Pra-Loup,,142,4.0,2015,161.0,"Mountains, uphill finish"
+,18,Gap - Saint-Jean-de-Maurienne,,142,4.0,2015,186.5,"Mountains, flat finish"
+,19,Saint-Jean-de-Maurienne - La Toussuire - Les Sybelles,,142,4.0,2015,138.0,"Mountains, uphill finish"
+,20,Modane - l'Alpe d'Huez,,142,4.0,2015,110.5,"Mountains, uphill finish"
+,21,Sèvres - Paris,,142,4.0,2015,109.5,Flat
+Yes,1,Mont-Saint-Michel - Utah Beach Sainte-Marie-du-Mont,,DNF,,2016,188.0,"Hills, flat finish"
+,2,Saint-Lô - Cherbourg,,DNF,,2016,183.0,"Hills, uphill finish"
+Yes,3,Granville - Angers,,DNF,,2016,223.5,"Hills, flat finish"
+,4,Saumur - Limoges,,DNF,,2016,237.5,"Hills, flat finish"
+,5,Limoges - Le Lioran,,DNF,,2016,216.0,"Mountains, flat finish"
+Yes,6,Arpajon-sur-Cère - Montauban,,DNF,,2016,190.5,"Hills, flat finish"
+,7,l'Isle-Jourdain - Lac de Payolle,,DNF,,2016,162.5,"Mountains, flat finish"
+,8,Pau - Bagnères-de-Luchon,,DNF,,2016,184.0,"Mountains, flat finish"
+,9,Vielha val d'Aran - Andorra Arcalis,,DNF,,2016,184.0,"Mountains, uphill finish"
+,10,Escaldes-Engordany - Revel,,DNF,,2016,197.0,"Mountains, flat finish"
+,11,Carcassonne - Montpellier,,DNF,,2016,162.5,"Hills, flat finish"
+,12,Montpellier - Chalet-Reynard (Mont Ventoux),,DNF,,2016,178.0,"Mountains, uphill finish"
+,13,Bourg-Saint-Andeol - Le Caverne de Pont d'Arc,Individual,DNF,,2016,37.5,"Hills, uphill finish"
+Yes,14,Montélimar - Villars-les-Dombes Parc des Oiseaux,,DNF,,2016,208.5,"Hills, flat finish"
+,15,Bourg-en-Bresse - Culoz,,DNF,,2016,159.0,"Mountains, flat finish"
+,16,Moirans-en-Montagne - Berne,,DNF,,2016,209.0,"Hills, flat finish"
+,17,Berne - Finhaut-Emosson,,DNF,,2016,184.5,"Mountains, uphill finish"
+,18,Sallanches - Megève,Individual,DNF,,2016,17.0,"Mountains, uphill finish"
+,19,Albertville - Saint-Gervais Mont Blanc,,DNF,,2016,146.0,"Mountains, uphill finish"
+,20,Megève - Morzine,,DNF,,2016,146.5,"Mountains, flat finish"
+,21,Chantilly - Paris,,DNF,,2016,113.0,Flat
+,1,Düsseldorf - Düsseldorf,Individual,DNF,,2017,14.0,Flat
+,2,Düsseldorf - Liège,,DNF,,2017,203.5,Flat
+,3,Verviers - Longwy,,DNF,,2017,212.5,Flat
+,4,Mondorf-les-Bains - Vittel,,DNF,,2017,207.5,Flat
+,5,Vittel - La Planche des Belles Filles,,DNF,,2017,160.5,"Mountains, uphill finish"
+,6,Vesoul - Troyes,,DNF,,2017,216.0,Flat
+,7,Troyes - Nuits-Saint-Georges,,DNF,,2017,213.5,Flat
+,8,Dole - Station des Rousses,,DNF,,2017,187.5,"Mountains, flat finish"
+,9,Nantua - Chambéry,,DNF,,2017,181.5,"Mountains, flat finish"
+,10,Périgueux - Bergerac,,DNF,,2017,178.0,Flat
+,11,Eymet - Pau,,DNF,,2017,203.5,Flat
+,12,Pau - Peyragudes,,DNF,,2017,214.5,"Mountains, uphill finish"
+,13,Saint-Girons - Foix,,DNF,,2017,101.0,"Mountains, flat finish"
+,14,Blagnac - Rodez,,DNF,,2017,181.5,Flat
+,15,Laissac-Sévérac l'Église - Le Puy-en-Velay,,DNF,,2017,189.5,"Hills, flat finish"
+,16,Le Puy-en-Velay - Romans-sur-Isère,,DNF,,2017,165.0,Flat
+,17,La Mure - Serre-Chevalier,,DNF,,2017,183.0,"Mountains, flat finish"
+,18,Briancon - Izoard,,DNF,,2017,179.5,"Mountains, uphill finish"
+,19,Embrun - Salon-de-Provence,,DNF,,2017,222.5,Flat
+,20,Marseille - Marseille,Individual,DNF,,2017,22.5,Flat
+,21,Montgeron - Paris,,DNF,,2017,105.0,Flat
+,1,Noirmoutier-en-l'Île - Fontenay-le-Comte,,DNF,,2018,201.0,Flat
+,2,Mouilleron-Saint-Germain - La Roche-sur-Yon,,DNF,,2018,182.5,Flat
+,3,Cholet - Cholet,Team,DNF,,2018,35.5,Flat
+,4,La Baule - Sarzeau,,DNF,,2018,195.0,Flat
+,5,Lorient - Quimper,,DNF,,2018,204.5,"Hills, uphill finish"
+,6,Brest - Mûr de Bretagne,,DNF,,2018,181.0,"Hills, uphill finish"
+,7,Fougères - Chartres,,DNF,,2018,231.0,Flat
+,8,Dreux - Amiens Métropole,,DNF,,2018,181.0,Flat
+,9,Arras Citadelle - Roubaix,,DNF,,2018,156.5,Flat
+,10,Annecy - Le Grand-Bornand,,DNF,,2018,158.5,"Mountains, flat finish"
+,11,Albertville - La Rosière Espace San Bernardo,,DNF,,2018,108.5,"Mountains, uphill finish"
+,12,Bourg-Saint-Maurice Les Arcs - Alpe d'Huez,,DNF,,2018,175.5,"Mountains, uphill finish"
+,13,Bourg d'Oisans - Valence,,DNF,,2018,169.5,Flat
+,14,Saint-Paul-Trois-Châteaux - Mende,,DNF,,2018,188.0,"Hills, flat finish"
+,15,Millau - Carcassonne,,DNF,,2018,181.0,"Mountains, flat finish"
+,16,Carcassonne - Bagnères-de-Luchon,,DNF,,2018,218.0,"Mountains, flat finish"
+,17,Bagnères-de-Luchon - Col Du Portet,,DNF,,2018,65.0,"Mountains, uphill finish"
+,18,Trie-sur-Baïse - Pau,,DNF,,2018,171.0,Flat
+,19,Lourdes - Laruns,,DNF,,2018,200.5,"Mountains, flat finish"
+,20,Saint-Pée-sur-Nivelle - Espelette,Individual,DNF,,2018,31.0,"Hills, uphill finish"
+,21,Houilles - Paris,,DNF,,2018,116.0,Flat
+,1,Brest - Landerneau,,139,1.0,2021,197.8,"Hills, uphill finish"
+,2,Perros-Guirec - Mûr-de-Bretagne Guerlédan,,139,1.0,2021,183.5,"Hills, uphill finish"
+,3,Lorient - Pontivy,,139,1.0,2021,182.9,"Hills, flat finish"
+Yes,4,Redon - Fougères,,139,1.0,2021,150.4,Flat
+,5,Changé - Laval Espace Mayenne,Individual,139,1.0,2021,27.2,Flat
+Yes,6,Tours - Châteauroux,,139,1.0,2021,160.4,Flat
+,7,Vierzon - Le Creusot,,139,1.0,2021,249.1,"Hills, flat finish"
+,8,Oyonnax - Le Grand-Bornand,,139,1.0,2021,150.8,"Mountains, flat finish"
+,9,Cluses - Tignes,,139,1.0,2021,144.9,"Mountains, uphill finish"
+Yes,10,Albertville - Valence,,139,1.0,2021,190.7,"Hills, flat finish"
+,11,Sorgues - Malaucène,,139,1.0,2021,198.9,"Mountains, flat finish"
+,12,Saint-Paul-Trois-Châteaux - Nîmes,,139,1.0,2021,159.4,"Hills, flat finish"
+Yes,13,Nîmes - Carcassonne,,139,1.0,2021,219.9,"Hills, flat finish"
+,14,Carcassonne - Quillan,,139,1.0,2021,183.7,"Mountains, flat finish"
+,15,Céret - Andorra la Vella,,139,1.0,2021,191.3,"Mountains, flat finish"
+,16,El Pas de la Casa - Saint-Gaudens,,139,1.0,2021,169.0,"Mountains, flat finish"
+,17,Muret - Saint-Lary-Soulan (Col du Portet),,139,1.0,2021,178.4,"Mountains, uphill finish"
+,18,Pau - Luz Ardiden,,139,1.0,2021,129.7,"Mountains, uphill finish"
+,19,Mourenx - Libourne,,139,1.0,2021,207.0,"Hills, flat finish"
+,20,Libourne - Saint-Émilion,Individual,139,1.0,2021,30.8,Flat
+,21,Chatou - Paris Champs-Élysées,,139,1.0,2021,108.4,Flat
+,1,Bilbao - Bilbao,,DNF,,2023,182.0,"Hills, uphill finish"
+,2,Vitoria-Gasteiz - San Sébastián,,DNF,,2023,208.9,"Hills, flat finish"
+,3,Amorebieta-Etxano - Bayonne,,DNF,,2023,193.5,"Hills, flat finish"
+,4,Dax - Nogaro,,DNF,,2023,181.8,Flat
+,5,Pau - Laruns,,DNF,,2023,162.7,"Mountains, flat finish"
+,6,Tarbes - Cauterets-Cambasque,,DNF,,2023,144.9,"Mountains, uphill finish"
+,7,Mont-de-Marsan - Bordeaux,,DNF,,2023,169.9,Flat
+,8,Libourne - Limoges,,DNF,,2023,200.7,"Hills, flat finish"
+,9,Saint-Léonard-de-Noblat - Puy de Dôme,,DNF,,2023,182.4,"Mountains, uphill finish"
+,10,Vulcania - Issoire,,DNF,,2023,167.2,"Hills, flat finish"
+,11,Clermont-Ferrand - Moulins,,DNF,,2023,179.3,"Hills, flat finish"
+,12,Roanne - Belleville-en-Beaujolais,,DNF,,2023,168.8,"Hills, flat finish"
+,13,Châtillon-Sur-Chalaronne - Grand Colombier,,DNF,,2023,137.8,"Mountains, uphill finish"
+,14,Annemasse - Morzine les Portes du Soleil,,DNF,,2023,151.8,"Mountains, flat finish"
+,15,Les Gets les Portes du Soleil - Saint-Gervais Mont-Blanc,,DNF,,2023,179.0,"Mountains, uphill finish"
+,16,Passy - Combloux,Individual,DNF,,2023,22.4,"Mountains, uphill finish"
+,17,Saint-Gervais Mont-Blanc - Courchevel,,DNF,,2023,165.7,"Mountains, flat finish"
+,18,Moûtiers - Bourg-en-Bresse,,DNF,,2023,184.9,Flat
+,19,Moirans-en-Montagne - Poligny,,DNF,,2023,172.8,"Hills, flat finish"
+,20,Belfort - Le Markstein,,DNF,,2023,133.5,"Mountains, flat finish"
+,21,Saint-Quentin-en-Yvelines - Paris,,DNF,,2023,115.1,Flat

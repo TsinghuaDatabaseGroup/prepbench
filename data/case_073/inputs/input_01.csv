@@ -1,0 +1,20 @@
+******,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7
+Surf Site,Swell Direction,Reliability,Wind Direction,Type,Boards,Skill Level,Rating
+Bigbury Bay,SW,Fairly Consistent,NE,Beach,"Shortboard, Longboard","Intermediate, Pro, World Class",4.5
+Beer Point,SW,Very Consistent,W-NW,Beach,Shortboard,"Intermediate, Pro",4
+Thurlestone Reef,SW,Fairly Inconsistent,N-NE,Reef,"Shortboard, Longboard","Beginner, Intermediate, Pro",4.5
+Bolt Head,SW,Inconsistent,NW,Point,Paddleboard,Intermediate,4
+Bovisand Bay,SW,Rarely Breaks,NE,Reef,Longboard,Beginner,4
+Challaborough ,SW,Inconsistent,NE,Beach & Point,Shortboard,"Intermediate, Pro",3.5
+Bantham,"SW, W",Fairly Consistent,NE,Rivermouth,"Shortboard, Longboard","Beginner, Intermediate, Pro",4
+Hope Cove,SW,Inconsistent,E-SE,Beach,Shortboard,"Pro, World Class",4.4
+Mothecombe,SW,Inconsistent,NE,Beach,"Shortboard, Longboard","Beginner, Intermediate, Pro, World Class",3.5
+Paignton,E,Inconsistent,W,Beach,"Shortboard, Longboard","Beginner, Intermediate, Pro, World Class",3
+Wembury,SW,Inconsistent,N,Point,"Shortboard, Longboard","Intermediate, Pro",4
+Salcombe,S,Fairly Consistent,NW,Beach,"Shortboard, Longboard, Paddleboard","Beginner, Intermediate, Pro, World Class",3.5
+Sidmouth,S-SW,Inconsistent,N,Beach,Paddleboard,World Class,3
+Dawlish Warren,S-SW,Inconsistent,N-NW,Beach,"Shortboard, Longboard","Beginner, Intermediate, Pro, World Class",3.5
+Preston Beach,E,Inconsistent,W-NW,Beach,"Shortboard, Longboard","Intermediate, Pro",3.5
+Teignmouth,S-SW,Inconsistent,NW,Beach,"Shortboard, Longboard","Beginner, Intermediate, Pro",2.5
+********,,,,,,,
+Data from https://www.surf-forecast.com/,,,,,,,

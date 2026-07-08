@@ -1,0 +1,48 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Height (m)",
+        "Weight (KGs)",
+        "Jersey Number",
+        "NAME",
+        "POS",
+        "AGE",
+        "COLLEGE",
+        "SALARY"
+      ],
+      "columns": {
+        "Height (m)": "number",
+        "Weight (KGs)": "number",
+        "Jersey Number": "text_exact",
+        "NAME": "text_exact",
+        "POS": "text_exact",
+        "AGE": "number",
+        "COLLEGE": "text_exact",
+        "SALARY": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Height (m)",
+        "Weight (KGs)",
+        "Jersey Number",
+        "NAME",
+        "POS",
+        "AGE",
+        "COLLEGE",
+        "SALARY"
+      ],
+      "columns": {
+        "Height (m)": "number",
+        "Weight (KGs)": "number",
+        "Jersey Number": "text_exact",
+        "NAME": "text_exact",
+        "POS": "text_exact",
+        "AGE": "number",
+        "COLLEGE": "text_exact",
+        "SALARY": "text_exact"
+      }
+    }
+  }
+}

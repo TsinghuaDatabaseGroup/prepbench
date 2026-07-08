@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O3_dedup_all_output_fields",
+      "kind": "Operation boundary",
+      "node_id": "dedup_all",
+      "op": "dedup",
+      "source_text": "Remove obvious duplicate records",
+      "ref": "base_output = enriched[output_cols].drop_duplicates(subset=output_cols, keep=\"first\")"
+    },
+    {
+      "id": "2_O3_coords_duplicate_keep_first",
+      "kind": "Operation boundary",
+      "node_id": "dedup_longlats",
+      "op": "dedup",
+      "intent": "If multiple coordinate rows exist for the same Location, keep only the first occurrence.",
+      "ref": ".drop_duplicates(subset=[\"Location\"], keep=\"first\")"
+    },
+    {
+      "id": "3_O2_unparseable_concert_date_blank",
+      "kind": "Operation incomplete",
+      "node_id": "format_dates_and_fill",
+      "op": "project",
+      "intent": "If Concert Date cannot be parsed as a date, output it as a blank string.",
+      "ref": "concert_dates = pd.to_datetime(enriched[\"Concert Date\"], errors=\"coerce\")\nenriched[\"Concert Date\"] = concert_dates.dt.strftime(\"%d/%m/%Y\").fillna(\"\")"
+    },
+    {
+      "id": "4_O2_join_homes_inner",
+      "kind": "Multi-table alignment",
+      "node_id": "join_homes",
+      "op": "join",
+      "source_text": "Add in the Home locations for each of our featured artists",
+      "ref": "enriched = gigs_with_coords.merge(homes, on=\"Artist\", how=\"inner\")"
+    },
+    {
+      "id": "5_O2_fellow_artists_blank_row",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fellows_list",
+      "op": "project",
+      "intent": "When Concert contains '/' and all split segments are non-blank, add one extra output row with Fellow Artists blank.",
+      "ref": "need_blank = has_slash & ~parts.eq(\"\").any(axis=1)"
+    },
+    {
+      "id": "6_O1_fellow_artists_remove_self",
+      "kind": "Row-level concept",
+      "node_id": "proj_fellows_list",
+      "op": "project",
+      "source_text": "Remove the Artist name from the Fellow Artist field",
+      "ref": "stacked = stacked.mask(stacked.to_numpy() == artist_index.to_numpy(), \"\")"
+    },
+    {
+      "id": "7_D1_longlats_field_name",
+      "kind": "Single-table reference",
+      "node_id": "proj_longlats",
+      "op": "project",
+      "source_text": "Split LongLat field to form Longitude and Latitude",
+      "ref": "coords = longlats[\"LongLats\"].str.split(\",\", n=1, expand=True)"
+    },
+    {
+      "id": "8_O1_longlats_split_order",
+      "kind": "Operation boundary",
+      "node_id": "proj_longlats",
+      "op": "project",
+      "source_text": "Split LongLat field to form Longitude and Latitude",
+      "ref": "Latitude=coords[0], Longitude=coords[1]"
+    },
+    {
+      "id": "9_O1_concert_case_insensitive",
+      "kind": "Operation boundary",
+      "node_id": "proj_norm_pref",
+      "op": "project",
+      "source_text": "Remove obvious duplicate records",
+      "ref": "lowered = group[\"Concert\"].str.lower()"
+    },
+    {
+      "id": "10_O3_concert_label_preference",
+      "kind": "Operation inconsistent",
+      "node_id": "proj_norm_pref",
+      "op": "project",
+      "intent": "When duplicate rows differ only by Concert label (case-insensitively), use a fixed deterministic preference order.",
+      "ref": "preference_map = {\"red tour\": [\"RED Tour\", \"Red Tour\"], ...}"
+    }
+  ]
+}

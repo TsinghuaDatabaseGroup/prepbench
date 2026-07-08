@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_ytd_total_month_rule",
+      "kind": "Group-level concept",
+      "node_id": "add_ytd_total",
+      "op": "project",
+      "source_text": "Bring out the YTD information from the October tracker and use it to create YTD totals for November too",
+      "ref": "long_df['YTD Total'] = long_df['Initial YTD']\nlong_df.loc[long_df['Month'] == 11, 'YTD Total'] = long_df.loc[long_df['Month'] == 11, 'Initial YTD'] + long_df.loc[long_df['Month'] == 11, 'NovSum']"
+    },
+    {
+      "id": "2_O2_missing_initial_ytd_default_zero",
+      "kind": "Operation incomplete",
+      "node_id": "add_ytd_total",
+      "op": "project",
+      "intent": "If a salesperson has no matched Initial YTD, default it to 0.",
+      "ref": "long_df['Initial YTD'] = pd.to_numeric(long_df['Initial YTD'], errors='coerce').fillna(0)"
+    },
+    {
+      "id": "3_C2_novsum_aggregation_scope",
+      "kind": "Group-level concept",
+      "node_id": "agg_novsum",
+      "op": "aggregate",
+      "source_text": "Create YTD totals for November",
+      "ref": "sales_nov_sum = long_df.loc[long_df['Month'] == 11].groupby('Salesperson')['Sales'].sum()"
+    },
+    {
+      "id": "4_C1_footer_row_definition",
+      "kind": "Single-table reference",
+      "node_id": "process",
+      "op": "filter",
+      "source_text": "Fill in the Salesperson names for each row (the name appears at the bottom)",
+      "ref": "mask_footer = df['Date'].isna() & df['Salesperson'].notna()"
+    },
+    {
+      "id": "5_D2_join_initial_ytd_on_salesperson",
+      "kind": "Multi-table alignment",
+      "node_id": "join_ytd",
+      "op": "join",
+      "source_text": "Bring out the YTD information from the October tracker",
+      "ref": "long_df = long_df.merge(oct_ytd_df, on='Salesperson', how='left')"
+    },
+    {
+      "id": "6_C1_salesperson_fill_direction_upward",
+      "kind": "Operation boundary",
+      "node_id": "process",
+      "op": "project",
+      "source_text": "Fill in the Salesperson names for each row",
+      "ref": "df['Salesperson'] = fill_col.bfill()"
+    },
+    {
+      "id": "7_O1_date_parse_format_dmy",
+      "kind": "Operation boundary",
+      "node_id": "process",
+      "op": "project",
+      "intent": "Parse Date using day/month/year (%d/%m/%Y).",
+      "ref": "pd.to_datetime(df['Date'], format='%d/%m/%Y', errors='coerce')"
+    },
+    {
+      "id": "8_O2_drop_footer_rows",
+      "kind": "Operation incomplete",
+      "node_id": "process_filter",
+      "op": "filter",
+      "intent": "Exclude footer rows from transaction output after using for assignment.",
+      "ref": "df = df[~is_footer].copy()"
+    },
+    {
+      "id": "9_C1_initial_ytd_extraction_from_non_key_columns",
+      "kind": "Single-table reference",
+      "node_id": "oct_ytd",
+      "op": "project",
+      "source_text": "Bring out the YTD information from the October tracker",
+      "ref": "for col in row.index: if col in ['RowID', 'Date', 'Salesperson']: continue"
+    },
+    {
+      "id": "10_D1_bike_type_columns_scope_three_types",
+      "kind": "Single-table reference",
+      "node_id": "to_long",
+      "op": "pivot",
+      "source_text": "Reshape the data so all the bike types are in a single column",
+      "ref": "value_vars=['Road', 'Gravel', 'Mountain']"
+    },
+    {
+      "id": "11_O2_combine_october_and_november_rows",
+      "kind": "Multi-table alignment",
+      "node_id": "union_all",
+      "op": "union",
+      "intent": "Combine October and November transaction rows into a single dataset.",
+      "ref": "pd.concat([oct_clean, nov_clean], ignore_index=True)"
+    }
+  ]
+}

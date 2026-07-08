@@ -1,0 +1,3 @@
+Correct Salary for Role?,Assumed Position based on Salary Range,Pay Status,End Date,Salary Range Minimum,Salary Range Maximum,Bonus amount,Range,% above target for bonus,Role,Start Date,Salary,Store,Name
+False,Area Manager,Assumed Correct Pay,01/10/2019,40000,70000,5000,"£40,000-£70,000",25,Manager,01/01/2017,45000,Leeds Store,Charlie
+False,Team Member,Incorrect Pay,01/10/2019,,,,,,Area Manager,01/11/2016,76000,Leeds Store,Bubbles

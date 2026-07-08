@@ -1,0 +1,36 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "month_end_date",
+        "guid"
+      ],
+      "columns": {
+        "dc_nbr": "text_exact",
+        "month_end_date": "text_exact",
+        "employee_id": "text_exact",
+        "guid": "text_exact",
+        "hire_date": "date",
+        "leave_date": "date",
+        "tenure_months": "number",
+        "tenure_years": "number",
+        "age_range": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "dc_nbr",
+        "month_end_date",
+        "demographic_type",
+        "demographic_detail"
+      ],
+      "columns": {
+        "dc_nbr": "text_exact",
+        "month_end_date": "text_exact",
+        "demographic_type": "text_exact",
+        "demographic_detail": "text_exact",
+        "ee_count": "number"
+      }
+    }
+  }
+}

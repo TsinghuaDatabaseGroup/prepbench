@@ -1,0 +1,20 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Flag",
+        "Player",
+        "Session",
+        "Score",
+        "Session Date"
+      ],
+      "columns": {
+        "Flag": "text_exact",
+        "Player": "text_exact",
+        "Session": "text_exact",
+        "Score": "number",
+        "Session Date": "date"
+      }
+    }
+  }
+}

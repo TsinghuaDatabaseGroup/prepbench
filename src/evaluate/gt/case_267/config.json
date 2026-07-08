@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Total Borrowed"],
+      "columns": {
+        "Monthly Repayment": "number",
+        "Total Borrowed": "number",
+        "Total Borrowed + Interest": "number",
+        "Interest to be added next month": "number"
+      }
+    }
+  }
+}
+

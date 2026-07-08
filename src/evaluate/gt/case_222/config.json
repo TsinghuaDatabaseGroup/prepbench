@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Type", "Average Price", "Percent of Total"],
+      "columns": {
+        "Type": "text_exact",
+        "Average Price": "number",
+        "Percent of Total": "number"
+      }
+    }
+  }
+}
+

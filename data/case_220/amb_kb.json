@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D1_pivot_keys",
+      "kind": "Single-table reference",
+      "node_id": "n3_pivot",
+      "op": "pivot",
+      "source_text": "Reshape so that we have a field for each measure",
+      "ref": "index=['Location', 'Nut Type'], columns='Category', values='Value'"
+    },
+    {
+      "id": "2_O3_pivot_duplicates_first",
+      "kind": "Operation inconsistent",
+      "node_id": "n3_pivot",
+      "op": "pivot",
+      "intent": "When multiple records exist for the same (Location, Nut Type, Category), which value should be kept.",
+      "ref": "aggfunc='first'"
+    },
+    {
+      "id": "3_D1_revenue_operands_fields",
+      "kind": "Single-table reference",
+      "node_id": "n4_compute_revenue",
+      "op": "project",
+      "source_text": "Calculate the Revenue - Price * Quantity",
+      "ref": "df_pivot['Revenue'] = df_pivot['Price (£) per pack'] * df_pivot['Quant per Q']"
+    },
+    {
+      "id": "4_C2_avg_price_aggregation",
+      "kind": "Group-level concept",
+      "node_id": "n5_aggregate",
+      "op": "aggregate",
+      "source_text": "We want to see the Avg. Price per pack",
+      "ref": "'Price (£) per pack': 'mean'"
+    },
+    {
+      "id": "new_1_final_sort_location",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_final",
+      "op": "sort",
+      "intent": "Sort final rows by Location ascending.",
+      "ref": "output = output.sort_values('Location')"
+    }
+  ]
+}

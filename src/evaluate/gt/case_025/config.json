@@ -1,0 +1,32 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Longitude",
+        "Latitude",
+        "Fellow Artists",
+        "Artist",
+        "Concert Date",
+        "Concert",
+        "Venue",
+        "Location",
+        "Hometown",
+        "Home Longitude",
+        "Home Latitude"
+      ],
+      "columns": {
+        "Longitude": "number",
+        "Latitude": "number",
+        "Fellow Artists": "text_exact",
+        "Artist": "text_exact",
+        "Concert Date": "date",
+        "Concert": "text_exact",
+        "Venue": "text_exact",
+        "Location": "text_exact",
+        "Hometown": "text_exact",
+        "Home Longitude": "number",
+        "Home Latitude": "number"
+      }
+    }
+  }
+}

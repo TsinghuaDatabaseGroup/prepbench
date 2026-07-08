@@ -1,0 +1,100 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_strictly_greater_above_flag",
+      "kind": "Operation boundary",
+      "node_id": "above_compute",
+      "op": "project",
+      "source_text": "when a country’s life expectancy was higher than its continent’s average",
+      "ref": "df[\"Above Continent Avg?\"] = (df[\"Country: Life expectancy at birth\"]\n                                  > df[\"Continent: Life expectancy at birth\"]).astype(int)"
+    },
+    {
+      "id": "2_D2_align_on_continent_and_year",
+      "kind": "Multi-table alignment",
+      "node_id": "attach_cont",
+      "op": "join",
+      "intent": "Align each country-year row to the continent life expectancy for the same Continent and Year.",
+      "ref": "df = country_life.merge(\n        cont_life[[\"Continent\", \"Year\", \"Continent: Life expectancy at birth\"]],\n        on=[\"Continent\", \"Year\"], how=\"left\"\n    )"
+    },
+    {
+      "id": "3_O2_keep_country_years_without_continent_match",
+      "kind": "Row-level concept",
+      "node_id": "attach_cont",
+      "op": "join",
+      "intent": "When no matching continent-year exists, keep the country-year row with missing continent life expectancy (left join).",
+      "ref": "df = country_life.merge(\n        cont_life[[\"Continent\", \"Year\", \"Continent: Life expectancy at birth\"]],\n        on=[\"Continent\", \"Year\"], how=\"left\"\n    )"
+    },
+    {
+      "id": "4_C2_continent_value_from_continent_entity_not_avg",
+      "kind": "Group-level concept",
+      "node_id": "cont_semi",
+      "op": "join",
+      "source_text": "a Continent Avg Life Expectancy field for each Year",
+      "ref": "continents = sorted(df_map[\"Continent\"].dropna().unique().tolist())\ncont_life = life_df[life_df[\"Entity\"].isin(continents)].copy()\ncont_life = cont_life.rename(\n        columns={\"Entity\": \"Continent\", \"LE\": \"Continent: Life expectancy at birth\"})"
+    },
+    {
+      "id": "5_D2_country_mapping_join_key_country_equals_entity",
+      "kind": "Multi-table alignment",
+      "node_id": "country_join",
+      "op": "join",
+      "intent": "Attach continents by matching mapping.Country to life expectancy Entity.",
+      "ref": "country_life = df_map.merge(\n        life_df, left_on=\"Country\", right_on=\"Entity\", how=\"inner\")"
+    },
+    {
+      "id": "6_O2_drop_unmapped_or_missing_country_life_rows",
+      "kind": "Row-level concept",
+      "node_id": "country_join",
+      "op": "join",
+      "intent": "Keep only rows where a country exists in both the mapping table and life expectancy table (inner join).",
+      "ref": "country_life = df_map.merge(\n        life_df, left_on=\"Country\", right_on=\"Entity\", how=\"inner\")"
+    },
+    {
+      "id": "7_O2_require_both_1950_and_2020_for_pct_change",
+      "kind": "Operation incomplete",
+      "node_id": "growth_join",
+      "op": "join",
+      "intent": "Compute % change only for countries with both a 1950 and a 2020 life expectancy value.",
+      "ref": "growth = pivot_1950.merge(\n        pivot_2020, on=[\"Continent\", \"Country\"], how=\"inner\")"
+    },
+    {
+      "id": "8_C2_pct_change_relative_formula",
+      "kind": "Group-level concept",
+      "node_id": "growth_pct",
+      "op": "project",
+      "source_text": "Compute the percentage change in life expectancy for each country between 1950 and 2020",
+      "ref": "growth[\"% Change\"] = ((growth[\"LE_2020\"] - growth[\"LE_1950\"])\n                          * 100.0 / growth[\"LE_1950\"]).round(1)"
+    },
+    {
+      "id": "9_D1_select_life_expectancy_at_birth_measure",
+      "kind": "Single-table reference",
+      "node_id": "life_rename",
+      "op": "project",
+      "intent": "Use the provided “life expectancy at birth” measure as the LE field.",
+      "ref": "if \"period life expectancy at birth - sex: all - age: 0\" in life_cols:\n        life_col = df_life_raw.columns[life_cols.index(\n            \"period life expectancy at birth - sex: all - age: 0\")]"
+    },
+    {
+      "id": "10_O3_tie_break_country_name_when_pct_change_equal",
+      "kind": "Operation boundary",
+      "node_id": "sorted",
+      "op": "sort",
+      "intent": "Break ties in % Change within a continent by sorting Country ascending.",
+      "ref": "result = result.sort_values(\n        [\"Continent\", \"% Change\", \"Country\"], ascending=[True, False, True])"
+    },
+    {
+      "id": "11_C2_years_above_denominator_is_available_rows",
+      "kind": "Group-level concept",
+      "node_id": "years_pct",
+      "op": "project",
+      "source_text": "Determine the percentage of years (between 1950 and 2020)",
+      "ref": "years_stats = (\n        df.groupby([\"Continent\", \"Country\"], as_index=False)\n        .agg(**{\n            \"Number of Years Above Avg\": (\"Above Continent Avg?\", \"sum\"),\n            \"Number of Rows (Aggregated)\": (\"Year\", \"count\"),\n        })\n    )\nyears_stats = years_stats.rename(\n        columns={\"Number of Rows (Aggregated)\": \"Number of Years\"})\nyears_stats[\"% Years Above Continent Avg\"] = (\n        100.0 * years_stats[\"Number of Years Above Avg\"] / years_stats[\"Number of Years\"]).round(1)"
+    },
+    {
+      "id": "12_O1_year_filter_inclusive_endpoints",
+      "kind": "Operation boundary",
+      "node_id": "yr_filter",
+      "op": "filter",
+      "source_text": "Filter the data to include only years from 1950 to 2020",
+      "ref": "df = df[(df[\"Year\"] >= 1950) & (df[\"Year\"] <= 2020)].copy()"
+    }
+  ]
+}

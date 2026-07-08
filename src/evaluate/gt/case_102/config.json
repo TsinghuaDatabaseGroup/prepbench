@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Product", "Quarter", "Products Sold"],
+      "columns": {
+        "Product": "text_exact",
+        "Quarter": "number",
+        "Products Sold": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Store", "Customer Types", "Product", "Products Sold"],
+      "columns": {
+        "Store": "text_exact",
+        "Customer Types": "text_exact",
+        "Product": "text_exact",
+        "Products Sold": "number"
+      }
+    }
+  }
+}

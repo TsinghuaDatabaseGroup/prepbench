@@ -1,0 +1,33 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Company",
+        "Growth",
+        "April Market Share",
+        "Bps Change"
+      ],
+      "columns": {
+        "Company": "text_exact",
+        "Growth": "number",
+        "April Market Share": "number",
+        "Bps Change": "number"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Soap Scent",
+        "CBBS Co Contribution to Growth",
+        "Rest of Market Contribution to Growth",
+        "Outperformance"
+      ],
+      "columns": {
+        "Soap Scent": "text_exact",
+        "CBBS Co Contribution to Growth": "number",
+        "Rest of Market Contribution to Growth": "number",
+        "Outperformance": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_email_domain_from_preferred_employer_plus_com",
+      "kind": "Row-level concept",
+      "node_id": "project_main",
+      "op": "project",
+      "source_text": "We also have the employer for the parental contact so we can form an email address to contact them.",
+      "ref": "        df[\"Preferred Contact Employer\"] + \".com\""
+    },
+    {
+      "id": "2_C2_email_parent_last_name_from_pupil_last_name",
+      "kind": "Single-table reference",
+      "node_id": "project_main",
+      "op": "project",
+      "source_text": "Create the email address to contact the parent using the format Parent First Name.Parent Last Name@Employer.com",
+      "ref": "    df[\"Parental Contact Email Address\"] = (\n        df[\"Parent First Name\"] + \".\" + \n        df[\"pupil last name\"] + \"@\" + \n        df[\"Preferred Contact Employer\"] + \".com\"\n    )"
+    },
+    {
+      "id": "3_D1_pupil_name_source_columns",
+      "kind": "Single-table reference",
+      "node_id": "project_main",
+      "op": "project",
+      "source_text": "Form the pupil's name correctly for the records in the format Last Name, First Name",
+      "ref": "df[\"Pupil's Name\"] = df[\"pupil last name\"] + \", \" + df[\"pupil first name\"]"
+    },
+    {
+      "id": "4_O1_academic_year_sep1_inclusive_cutoff",
+      "kind": "Operation boundary",
+      "node_id": "project_main",
+      "op": "project",
+      "source_text": "Year 1 is anyone born after 1st Sept 2014",
+      "ref": "        if birth_month > 9 or (birth_month == 9 and birth_day >= 1):"
+    },
+    {
+      "id": "5_O2_dob_parse_mdy_format",
+      "kind": "Row-level concept",
+      "node_id": "project_main",
+      "op": "project",
+      "intent": "Parse Date of Birth using month/day/four-digit-year format (M/D/YYYY).",
+      "ref": "        birth_date = datetime.strptime(date_str, \"%m/%d/%Y\")"
+    },
+    {
+      "id": "6_O2_parental_contact_default_to_name2_when_not_1",
+      "kind": "Operation incomplete",
+      "node_id": "project_main",
+      "op": "project",
+      "source_text": "Use parental contact column to select which parent first name to use along with the pupil's last name",
+      "ref": "df[\"Parent First Name\"] = df.apply(\n        lambda row: row[\"Parental Contact Name_1\"] if row[\"Parental Contact\"] == 1 \n        else row[\"Parental Contact Name_2\"], axis=1\n    )"
+    }
+  ]
+}

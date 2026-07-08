@@ -1,0 +1,18 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Price", "Weekday"],
+      "columns": {
+        "Price": "number",
+        "Weekday": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Count Items", "Customer Name"],
+      "columns": {
+        "Count Items": "number",
+        "Customer Name": "text_exact"
+      }
+    }
+  }
+}

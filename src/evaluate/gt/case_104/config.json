@@ -1,0 +1,16 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Training", "Contact Email"],
+      "columns": {
+        "Training": "text_exact",
+        "Contact Email": "text_exact",
+        "Contact Name": "text_exact",
+        "Client": "text_exact",
+        "Client ID": "text_exact",
+        "Account Manager": "text_exact",
+        "From Date": "text_exact"
+      }
+    }
+  }
+}

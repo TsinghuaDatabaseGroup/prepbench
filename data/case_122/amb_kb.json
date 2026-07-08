@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_nps_rounding_order",
+      "kind": "Operation boundary",
+      "node_id": "compute_nps_z",
+      "op": "project",
+      "source_text": "Note: I rounded the %s down to the nearest whole number",
+      "ref": "nps_scores = np.floor(percent_promoters) - np.floor(percent_detractors)"
+    },
+    {
+      "id": "2_C2_std_dev_sample_ddof1",
+      "kind": "Group-level concept",
+      "node_id": "compute_nps_z",
+      "op": "project",
+      "source_text": "Calculate the average and standard deviation of the dataset",
+      "ref": "std_dev_nps = nps_df['NPS'].std(ddof=1)"
+    },
+    {
+      "id": "3_O1_filter_prep_exact_match",
+      "kind": "Single-table reference",
+      "node_id": "filter_prep",
+      "op": "filter",
+      "source_text": "Filter to just show Prep Air's NPS along with their Z-Score",
+      "ref": "prep_air_output = nps_df[nps_df['Airline'] == 'Prep Air'].copy()"
+    },
+    {
+      "id": "4_C2_exclusion_count_response_rows",
+      "kind": "Group-level concept",
+      "node_id": "resp_counts",
+      "op": "aggregate",
+      "source_text": "Exclude any airlines who have had less than 50 customers respond",
+      "ref": "response_counts = all_airlines_df['Airline'].value_counts()\nairlines_to_keep = response_counts[response_counts >= 50].index"
+    },
+    {
+      "id": "5_D2_combine_union_append",
+      "kind": "Multi-table alignment",
+      "node_id": "union_all",
+      "op": "union",
+      "source_text": "Combine Prep Air dataset with other airlines",
+      "ref": "all_airlines_df = pd.concat(\n        [prep_air_df, other_airlines_df], ignore_index=True)"
+    }
+  ]
+}

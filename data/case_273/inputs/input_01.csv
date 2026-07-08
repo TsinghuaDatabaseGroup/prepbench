@@ -1,0 +1,228 @@
+Animal,Status,Class,Family,Genus,Order,Species
+African Penguin,Endangered,Aves (Birds),Spheniscidae,Spheniscus,Sphenisciformes,demersus
+African Pygmy Falcon,Stable,Aves (Birds),Falconidae,Polihierax,Falconiformes,semitorquatus
+African Pygmy Goose,Stable,Aves (Birds),Anatidae,Nettapus,Anseriformes,auritus
+African Spurred Tortoise,Threatened,Reptilla (Reptiles),Testudinidae,Geochelone,Testudines,sulcata
+Agouti,Some Endangered,Mammalia (Mammals),Dasyprocidae,Dasyprocta,Rodentia,11
+American Kestrel,Stable,Aves (Birds),Falconidae,Falco,Falconiformes,sparverius
+Anaconda,Some Threatened,Reptilla (Reptiles),Boidae,Eunectes,Squamata,murinus (green); notaeus (yellow or Paraguayan); deschauenseei (dark-spotted); beniensis (Beni or Bolivian)
+Andean (Spectacled) Bear,Threatened,Mammalia (Mammals),Ursidae,Tremarctos,Carnivora,ornatus
+Andean Condor,Some Threatened,Aves (Birds),Cathartidae,Vultur,Falconiformes,gryphus
+Ant,Stable,Insecta (Insects),Formicidae,283,Hymenoptera,"about 14,000"
+Antelope,Some Endangered,Mammalia (Mammals),Bovidae,,Artiodactyla,
+Armadillo,Some Threatened,Mammalia (Mammals),Dasypodidae,8,Cingulata,20
+Australian Brush-turkey,Stable,Aves (Birds),Megapodiidae,Alectura,Galliformes,lathami
+Axolotl,Endangered,Amphibia (Amphibians),Ambystomatidae,Ambystoma,Urodela,mexicanum
+Babirusa,Threatened,Mammalia (Mammals),Suidae,Babyrousa,Artiodactyla,celebensis
+Bald Eagle,Threatened,Aves (Birds),Accipitridae,Haliaeetus,Falconiformes,leuccocephalus
+Bali Myna,Endangered,Aves (Birds),Sturnidae,Leucopsar,Passeriformes,rothschildi
+Banded Archer Fish,Stable,Actinopterygii (Ray-finned fishes),Toxotidae,Toxotes,Perciformes,jaculatrix
+Bat,Some Endangered,Mammalia (Mammals),19,187,Chiroptera,951
+Bat-eared Fox,Stable,Mammalia (Mammals),Canidae,Otocyon,Carnivora,megalotis
+Beautiful Sunbird,Stable,Aves (Birds),Nectariniidae,Cinnyris,Passeriformes,pulchellus
+Bee,Some Endangered,Insecta (Insects),,Over 400 genera,Hymenoptera,"About 25,000 have been identified, but there may be up to 40,000 bee species"
+Bee-eater,Stable,Aves (Birds),Meropidae,Merops,Coraciiformes,bullockoides (white-fronted); albicollis (white-throated)
+Beetle,Some Threatened,Insecta (Insects),Over 230,,Coleoptera,"Over 350,000 known species"
+Binturong,Some Endangered,Mammalia (Mammals),Viverridae,Arctictis,Carnivora,binturong
+Bird of Paradise (Bird),Some Threatened,Aves (Birds),Paradisaeidae,16,Passeriformes,42
+Boa,Some Endangered,Reptilla (Reptiles),Boidae,11,Squamata,41
+Bonobo,Endangered,Mammalia (Mammals),Hominidae,Pan,Primates,paniscus
+Bontebok,Some Threatened,Mammalia (Mammals),Bovidae,Damaliscus,Cetartiodactyla,pygargus
+Bowerbird,Some Threatened,Aves (Birds),Ptilonorhynchidae,8,Passeriformes,20
+Brown Bear,Stable,Mammalia (Mammals),Ursidae,Ursus,Carnivora,arctos
+Burrowing Owl,Some Endangered,Aves (Birds),Strigidea,Athene,Strigifromes,cunicularia
+"Butterfly, Moth, and Skipper",Some Endangered,Insecta (Insects),124 divided into 2 main groups: Homonuera and Heteroneura,,Lepidoptera,"About 165,000 known species"
+Caecilian,Some Endangered,Amphibia (Amphibians),5,26 known,Gymnophiona,124 known
+California Condor,Endangered,Aves (Birds),Cathartidae,Gymnogyps,Falconiformes,californianus
+Camel,Some Endangered,Mammalia (Mammals),Camelidae,Camelus,Cetartiodactyla,"bactrianus (Bactrian camel),dromedarius (dromedary camel)"
+Capybara,Some Threatened,Mammalia (Mammals),Hydrochaeridae,Hydrochoeris,Rodentia,"hydrochaeris (capybara),isthmius (lesser capybara)"
+Caracal,Some Threatened,Mammalia (Mammals),Felidae,Caracal,Carnivora,caracal
+Cassowary,Stable,Aves (Birds),Casuaridae,Casuarius,Struthioniformes,"casuarius (southern or double-wattled cassowary), unappendiculatus (northern or single-wattled cassowary), bennetti (dwarf cassowary)"
+Chameleon,Some Endangered,Reptilla (Reptiles),Chamaeleonidae,6,Squamata,158
+Cheetah,Threatened,Mammalia (Mammals),Felidae,Acinonyx,Carnivora,jubatus
+Chimpanzee,Endangered,Mammalia (Mammals),Hominidae,Pan,Primates,troglodytes
+Chinchilla,Endangered,Mammalia (Mammals),Chinchillidae,Chinchilla,Rodentia,"langera (long-tailed), chinchilla (short-tailed)"
+Chinese Giant Salamander,Endangered,Amphibia (Amphibians),Cryptobranchidae,Andrias,Urodela,davidianus
+Cichlid,Some Endangered,Actinopterygii (Ray-finned fishes),Cichlidae,"Well over 1,000",Perciformes,
+Clouded Leopard,Threatened,Mammalia (Mammals),Felidae,Neofelis,Carnivora,"nebulosa (clouded leopard),diardi (Sunda clouded leopard)"
+Coati,Some Threatened,Mammalia (Mammals),Procyonidae,Nasua; Nasuella,Carnivora,"(Nasua) narica, nasua; (Nasuella) olivacea, meridensis"
+Cobra,Some Threatened,Reptilla (Reptiles),Elapidae,"Ophiophagus (king cobra), Naja, Paranaja, Pseudohaje",Squamata,More than 20
+Cock-of-the-rock,Stable,Aves (Birds),Cotingidae,Rupicola,Passeriformes,rupicola and peruvianus
+Cockatoo,Some Endangered,Aves (Birds),Cacatuidae,5,Psittaciformes,20
+Coquerel's Sifaka,Endangered,Mammalia (Mammals),Indriidaae,Propithecus,Primates,coquereli
+Crane,Some Endangered,Aves (Birds),Gruidae,"Balearica, Anthropoides, Bugeranus, Grus",Gruiformes,15
+Crocodilian,Some Endangered,Reptilla (Reptiles),"Alligatoridae, Crocodylidae, Gavialidae",8,Crocodylia,23
+Crowned Eagle,Some Threatened,Aves (Birds),Accipitridae,Stephanoaetus,Falconiformes,coronatus
+Desert Tortoise,Threatened,Reptilla (Reptiles),Testudinae,Gopherus,Testudines,agassizii
+Dhole,Endangered,Mammalia (Mammals),Canidae,Cuon,Carnivora,alpinus
+Dragonfly and Damselfly,Stable,Insecta (Insects),30,About 600,Odonata,5500
+Dung Beetle,Stable,Insecta (Insects),Scarabaeidae,,Coleoptera,"About 8,000"
+Dwarf Mongoose,Stable,Mammalia (Mammals),Herpestidae,Helogale,Carnivora,parvula
+Echidna,Endangered,Mammalia (Mammals),Tachyglossidae,Tachyglossus and Zaglossus,Monotremata (Monotreme),"T. aculeatus, Z. bruijnii, Z. attenboroughi, Z. bartoni"
+Elephant,Endangered,Mammalia (Mammals),Elephantidae,Loxodonta (African) and Elephas (Asian),Proboscidea,"africana, cyclotis, and maximus"
+Emu,Stable,Aves (Birds),Dromaiidae,Dromaius,Struthioniformes,novaehollandiae
+Fennec Fox,Stable,Mammalia (Mammals),Canidae,Vulpes,Carnivora,zerda
+Fischer's Lovebird,Some Threatened,Aves (Birds),Psittacidae,Agapornis,Psittaciformes,fischeri
+Fishing Cat,Threatened,Mammalia (Mammals),Felidae,Prionailurus,Carnivora,viverrinus
+Flamingo,Some Threatened,Aves (Birds),Phoenicopteridae,"Phoenicopterus roseus (greater flamingo), Phoenicopterus chilensis (Chilean flamingo), Phoeniconaias minor (lesser flamingo), Phoenicoparrus andinus (Andean flamingo), Phoenicoparrus jamesi (puna or James’s flamingo), Phoenicopterus ruber (American or C...",Phoenicopteriformes,
+Fossa,Threatened,Mammalia (Mammals),Eupleridae,Cryptoprocta,Carnivora,ferox
+Frog and Toad,Some Endangered,Amphibia (Amphibians),27,At least 303 known,Anura,"About 4,000 known"
+Galápagos Tortoise,Endangered,Reptilla (Reptiles),Testudinidae,Chelonoidis,Testudines,nigra
+Gelada,Some Threatened,Mammalia (Mammals),Cercopithecidae,Theropithicus,Primates,gelada
+Giant African Millipede,Stable,Diplopoda (Millipedes),Spirostreptidae,Archispirostreptus,Spirostreptida,gigas
+Giant Anteater,Threatened,Mammalia (Mammals),Myrmecophagidae,Myrmecophaga,Edentata,tridactyla
+Giant Panda,Threatened,Mammalia (Mammals),Ursidae,Ailuropoda,Carnivora,melanoleuca
+Gila Monster,Threatened,Reptilla (Reptiles),Helodermatidae,Heloderma,Squamata,suspectum
+Giraffe,Some Endangered,Mammalia (Mammals),Giraffidae,Giraffa,Artiodactyla,camelopardalis
+Goat and Sheep,Some Endangered,Mammalia (Mammals),Bovidae,14,Artiodactyla,61
+Golden Eagle,Stable,Aves (Birds),Accipitridae,Aquila,Falconiformes,chrysaetos
+Goliath Frog,Endangered,Amphibia (Amphibians),Ranidae,Conraua,Anura,goliath
+Gorilla,Endangered,Mammalia (Mammals),Hominidae,Gorilla,Primates,"gorilla (western gorilla), beringei (eastern gorilla)"
+Gouldian Finch,Threatened,Aves (Birds),Estrididae,Erythrura,Passeriformes,gouldiae
+Guam Rail,Endangered,Aves (Birds),Rallidae,Gallirallus,Gruiformes,owstoni
+Guanaco,Stable,Mammalia (Mammals),Camelidae,Lama,Artiodactyla,guanicoe
+Guenon,Some Endangered,Mammalia (Mammals),Cercopithecidae,6,Primates,36
+Guinea Pig,Stable,,,,,
+Gundi,Some Threatened,Mammalia (Mammals),Ctenodactylidae,"Ctenodactylus, Felovia, Massautiera, Pectinator",Rodentia,"C. gundi, C. vali, F. vae, M. mzabi, P. spekei"
+Hamadryas Baboon,Stable,Mammalia (Mammals),Cercopithecidae,Papio,Primates,hamadryas
+Harpy Eagle,Threatened,Aves (Birds),Accipitridae,Harpia,Falconiformes,harpyja
+Hedgehog,,Mammalia (Mammals),Erinaceidae,5,Erinaceomorpha,16
+Hippo,Threatened,Mammalia (Mammals),Hippopotamidae,Hippopotamus,Artiodactyla,amphibious
+Honey Badger (Ratel),Stable,Mammalia (Mammals),Mustelidae,Mellivora,Carnivora,capensis
+Hornbill,Some Endangered,Aves (Birds),"Bucerotidae (hornbills), Bucorvidae (ground hornbills)",16,Coraciiformes,59
+Hummingbird,Some Endangered,Aves (Birds),Trochilidae,102,Apodiformes,328 known
+Ibis,Some Endangered,Aves (Birds),Threskiomithidae,12,Ciconiiformes,26
+Iguana,Some Endangered,Reptilla (Reptiles),Iguanidae,8,Squamata,35 currently recognized
+Jacana,Some Threatened,Aves (Birds),Jacanidae,6,Charadriformes,8
+Jaguar,Threatened,Mammalia (Mammals),Felidae,Panthera,Carnivora,onca
+Kagu,Endangered,Aves (Birds),Rhynochetidae,Rhynochetos,Gruiformes,jubatus
+Kangaroo and Wallaby,Some Endangered,Mammalia (Mammals),Macropodidae,11,Diprotodontia,54
+Kingfisher,Some Endangered,Aves (Birds),Alcedinidae,17,Coraciiformes,92
+Kingsnake,Some Endangered,Reptilla (Reptiles),Colubridae,Lampropeltis,Squamata,10
+Kinkajou,Stable,Mammalia (Mammals),Procyonidae,Potos,Carnivora,flavus
+Kiwi,Some Endangered,Aves (Birds),Apterygidae,Apteryx,Apterygiforme,"haasti (great spotted kiwi or roroa), mantelli (brown kiwi), rowi (row), australis (tokoeka)"
+Klipspringer,Stable,Mammalia (Mammals),Bovidae,Oreotragus,Artiodactyla,oreotragus
+Koala,Threatened,Mammalia (Mammals),Phascolarctidae,Phascolarctos,Diprotodontia,cinereus
+Koi,Stable,Actinopterygii (Ray-finned fishes),Cyprinidae,Cyprinus,Cypriniformes,carpio
+Komodo Dragon,Endangered,Reptilla (Reptiles),Varanidae,Varanus,Squamata,komodoensis
+Ladybug,Stable,Insecta (Insects),Coccinellidae,360,Coleoptera,"About 5,000 (about 175 in California)"
+Laughing Kookaburra,Stable,Aves (Birds),Alcendinidae,Dacelo,Coraciiformes,novaeguineae
+Lemur,Some Endangered,Mammalia (Mammals),"Cheirogaleidae (dwarf and mouse lemurs), Daubentonidae (aye-aye), Indridae (indri and sifakas); Lemuridae (lemurs and bamboo lemurs), Lepilemuridae (sportive lemurs)",15,Primates,About 105
+Leopard,Some Endangered,Mammalia (Mammals),Felidae,Panthera,Carnivora,pardus
+Leopard Gecko,Stable,Reptilla (Reptiles),Eublepharidae,Eublepharis,Squamata,macularius
+Leopard Shark,Stable,Chondrichthyes,Triakidae,Triakis,Carcharhiniformes,semifasciata
+Lion,Threatened,Mammalia (Mammals),Felidae,Panthera,Carnivora,leo
+Lizard,Some Endangered,Reptilla (Reptiles),16,More than 380,Squamata,"More than 4,675"
+Lord Howe Island Stick Insect,Endangered,Insecta (Insects),Phasmatidae,Dryococelus,Phasmatodea,australis
+Lory and Lorikeet,Some Endangered,Aves (Birds),Psittacidae,12,Psittaciformes,53
+Lynx and Bobcat,Some Endangered,Mammalia (Mammals),Felidae,Lynx,Carnivora,"lynx (Eurasian lynx), pardinus (Spanish lynx), canadensis (Canadian lynx), rufus (bobcat)"
+Macaw,Some Endangered,Aves (Birds),Psittacidae,6,Psittaciformes,17
+Magpie Goose,Stable,Aves (Birds),Anseranatidae,Anseranas,Anseriformes,semipalmata
+Manatee,Some Endangered,Mammalia (Mammals),Trichechidae,Trichechus,Sirenia,inunguis (Amazon); manatus (West Indian or American); senegaliensis (West African)
+Mandrill,Threatened,Mammalia (Mammals),Cercophithecidae,Mandrillus,Primates,sphinx
+Mangabey,Some Endangered,Mammalia (Mammals),Cercophithecidae,Cercocebus; Lophocebus,Primates,13
+Mantella,Some Endangered,Amphibia (Amphibians),Mantellidae,Mantella,Anura,17
+Marsupial,Some Endangered,Mammalia (Mammals),19,83,,295
+Matschie's Tree Kangaroo,Endangered,Mammalia (Mammals),Macropodidae,Dendrolagus,Diprotodontia,matschiei
+Meerkat,Stable,Mammalia (Mammals),Herpestidae,Suricata,Carnivora,suricatta
+Metallic Starling,Stable,Aves (Birds),Sturnidae,Aplonis,Passeriformes,metallica
+Monarch Butterfly,Some Endangered,Insecta (Insects),Nymphalidae,Danaus,Lepidoptera,plexippus
+Monkey,Some Endangered,Mammalia (Mammals),Callitrichidae (marmosets and tamarins); Cebidae (New World monkeys); Aotidae (night monkeys); Pitheciidae (titi and saki monkeys); Atelidae (howler and spider monkeys); Cercopithecidae (Old World monkeys),43,Primates,315
+"Mountain Lion (Puma, Cougar)",Some Endangered,Mammalia (Mammals),Felidae,Puma,Carnivora,concolor
+Naked Mole-rat,Stable,Mammalia (Mammals),Bathyergidae,Heterocephalus,Rodentia,glaber
+Nile Lechwe,Endangered,Mammalia (Mammals),Bovidae,Kobus,Artiodactyla,megaceros
+Nubian Ibex,Threatened,Mammalia (Mammals),Bovidae,Capra,Cetartiodactyla,nubiana
+Ocelot,Some Endangered,Mammalia (Mammals),Felidae,Leopardus,Carnivora,pardalis
+Okapi,Endangered,Mammalia (Mammals),Giraffidae,Okapia,Artiodactyla,johnstoni
+Opossum,Stable,Mammalia (Mammals),Didelphidae,Didelphis,Didelphimorphia,virginiana
+Orangutan,Endangered,Mammalia (Mammals),Pongidae,Pongo,Primates,abelli (Sumatran orangutan); pygmaeus (Bornean orangutan); tapanuliensis (Tapanuli orangutan)
+Oryx,Some Endangered,Mammalia (Mammals),Bovidae,Oryx,Artiodactyla,six
+Ostrich,Some Threatened,Aves (Birds),Struthiondae,Struthio,Struthioniformes,camelus
+Otter,Some Endangered,Mammalia (Mammals),Mustelidae,6,Carnivora,13
+Owl,Some Endangered,Aves (Birds),Strigidae (typical owls) and Tytonidae (barn owls),Typical owls 25; barn owls 2,Strigiformes,Typical owls 189; barn owls 16
+Painted Dog (African Hunting Dog),Endangered,Mammalia (Mammals),Canidae,Lycaon,Carnivora,pictus
+Panamanian Golden Frog,Endangered,Amphibia (Amphibians),Bufonidae,Atelopus,Anura,zeteki
+Pancake Tortoise,Endangered,Reptilla (Reptiles),Testudinidae,Malacochersus,Testudines,tomieri
+Parrot,Some Endangered,Aves (Birds),Psittacidae,66,Psittaciformes,279
+Peafowl,Some Endangered,Aves (Birds),Phasianidae,Pavo,Galliformes,crisatus (Indian or blue peafowl); muticus (green peafowl)
+Peccary,Some Endangered,Mammalia (Mammals),Tayassuidae,three,Artiodactyla,three
+Pelican,Some Threatened,Aves (Birds),Pelecanidae,Pelecanus,Pelecaniformes,7
+Platypus,Some Threatened,Mammalia (Mammals),Ornithorhynchidae,Ornithorhynchus,Monotremata,anatinus
+Poison Frog,Some Endangered,Amphibia (Amphibians),Dendrobatidae,11,Anura,220
+Polar Bear,Threatened,Mammalia (Mammals),Ursidae,Ursus,Carnivora,maritimus
+Porcupine,Threatened,Mammalia (Mammals),"Hystricidae (Old World porcupines), Erethizontidae (New World porcupines)",7,Rodentia,23
+Prairie Dog,Some Endangered,Mammalia (Mammals),Sciuridae,Cynomys,Rodentia,"leucurus (white-tailed prairie dog), mexicanus (Mexican prairie dog), gunnisoni (Gunnison's prairie dog), parvidens (Utah prairie dog)"
+Pronghorn,Some Endangered,Mammalia (Mammals),Antilocapridae,Antilocapra,Artiodactyla,americana
+Przewalski's Horse,Endangered,Mammalia (Mammals),Equidae,Equus,Perissodactyla,ferus
+Pumpkinseed Sunfish,Stable,Actinopterygii (Ray-finned fishes),Centrarchidae,Lepomis,Perciformes,gibbosus
+Pygmy Hippopotamus,Endangered,Mammalia (Mammals),Hippopotamidae,Choeropsis,Artiodactyla,liberiensis
+Pygmy Marmoset,Stable,Mammalia (Mammals),Cebidae,Callithrix,Primate,pygmaea
+Pygmy Slow Loris,Some Endangered,Mammalia (Mammals),Lorisidae,Nycticebus,Primates,pygmaeus
+Python,Some Endangered,Reptilla (Reptiles),Boidae,8,Squamata,33
+Quokka,Some Endangered,Mammalia (Mammals),Macropodidae,Setonix,Diprotodontia,brachyurus
+Raccoon,Stable,Mammalia (Mammals),Procyonidae,Procyon,Carnivora,lotor
+Radjah Shelduck,Stable,Aves (Birds),Anatidae,Radjah,Anseriformes,radjah
+Rattlesnake,Some Endangered,Reptilla (Reptiles),Viperidae,Crotalus and Sistrurus,Squamata,About 30
+Red Panda,Endangered,Mammalia (Mammals),Ailuridae,Ailurus,Carnivora,fulgens
+Red-tailed Hawk,Stable,Aves (Birds),Accipitridae,Buteo,Falconiformes,jamaicensis
+Reindeer (Caribou),Stable,Mammalia (Mammals),Cervidae,Rangifer,Artiodactyla,tarandus
+Rhinoceros,Some Endangered,Mammalia (Mammals),Rhinocerotidae,"Diceros bicornis (black rhino), Ceratotherium simum (white rhino), Dicerorhinus sumatrensis (Sumatran rhino), Rhinoceros unicornis (greater one-horned rhino), Rhinoceros sondaicus (Javan rhino)",Perissodactyla,
+Ringtail,Some Threatened,Mammalia (Mammals),Procyonidae,Bassariscus,Carnivora,astutus
+Ringtail Possum,Stable,Mammalia (Mammals),Pseudocheiridae,Pseudocheirus,Diprotodontia,peregrinus
+Rock Hyrax,Stable,Mammalia (Mammals),Procavidae,Procavia,Hyracoidea,capensis
+Rodrigues Flying Fox,Endangered,Mammalia (Mammals),Pteropodidae,Pteropus,Chiroptera,rodricensis
+Saiga,Endangered,Mammalia (Mammals),Bovidae,Saiga,Artiodactyla,tatarica
+Salamander and Newt,Some Endangered,Amphibia (Amphibians),9,60,Caudata,About 600
+Scorpion,Some Endangered,Arachnida (Arachnids),13 to 20,170,Scorpiones,"1,500 have been classified, but there may be as many as 2,000 worldwide; over 40 can be found in the United States"
+Sea Lion,Some Endangered,Mammalia (Mammals),Otaridae,"Eumetopias jubatus (Steller’s or northern sea lion), Zalophus californianus (California sea lion), Zalophus wollebaeki (Galápagos sea lion), Otaria byrona (southern or South American sea lion), Neophoca cinerea (Australian sea lion), Phocarctos hookeri ...",Pinnipedia,
+Secretary Bird,Stable,Aves (Birds),Sagittariidae,Sagittarius,Falconiformes,serpentarius
+Serval,Some Endangered,Mammalia (Mammals),Felidae,Leptailurus,Carnivora,serval
+Shoebill,Threatened,Aves (Birds),Balaenicipitidae,Balaeniceps,Pelecaniiformes,rex
+Siamang,Endangered,Mammalia (Mammals),Hylobatidae,Symphalangus,Primates,syndactylus
+Singing Dog,Threatened,Mammalia (Mammals),Canidae,Canis,Carnivora,hallstromi
+Slender-snouted Crocodile,Endangered,Reptilla (Reptiles),Crocodylyidae,Mecistops,Crocodylia,cataphractus
+Sloth Bear,Threatened,Mammalia (Mammals),Ursidae,Melursus,Carnivora,ursinus
+Small Cat,Some Endangered,Mammalia (Mammals),Felidae,13,Carnivora,29 to 32
+Snake,Some Endangered,Reptilla (Reptiles),17,About 420,Squamata,"2,978 known"
+Snow Leopard,Threatened,Mammalia (Mammals),Felidae,Panthera,Carnivora,uncia
+Sociable Weaver,Stable,Aves (Birds),Ploceidae,Philetarius,Passeriformes,socius
+Somali Wild Ass,Endangered,Mammalia (Mammals),Equidae,Equus,Perissodactyla,asinus
+Southern Cassowary,Some Threatened,Aves (Birds),Casuariidae (cassorwaries and emus),Casuarius,Struthionifores,Casuarius
+Spider,Some Endangered,Arachnida (Arachnids),111 worldwide (with 50 of those found in San Diego County),"3,642 worldwide (178 in San Diego County)",Araneae,"About 39,500 have been identified (428 in San Diego County)"
+Spiral-horned Antelope,Some Threatened,Mammalia (Mammals),Bovidae,"Ammelaphus, Strepsiceros, and Taurotragus",Artiodactyla,8
+Spotted Hyena,Stable,Mammalia (Mammals),Hyaenidae,Crocuta,Carnivora,crocuta
+Steller's Sea-eagle,Threatened,Aves (Birds),Accipitridae,Haliaeetus,Falconiformes,pelagicus
+Stick Insect,Some Endangered,Insecta (Insects),Highly variable; entomologists are still working on grouping these insects,,Phasmida,"Around 3,000"
+Stork,Some Endangered,Aves (Birds),"Ciconildae, Scopidae, and Balanicipitidae",8,Cicconilformes,20
+Striped Hyena,Some Endangered,Mammalia (Mammals),Hyaenidae,Hyaena,Carnivora,hyaena
+Striped Skunk,Stable,Mammalia (Mammals),Mephitidae,Mephitis,Carnivora,mephitis
+Sugar Glider,Threatened,Mammalia (Mammals),Petauridae,Petaurus,Diprotodontia,breviceps
+Sun Bear,Threatened,Mammalia (Mammals),Ursidae,Helarctos,Carnivora,malayanus
+Surinam Toad,Stable,Amphibia (Amphibians),Pipadae,Pipa,Anura,pipa
+Takin,Threatened,Mammalia (Mammals),Bovidae,Budorcas,Artiodactyla,taxicolor
+Tamandua or Lesser Anteater,Stable,Mammalia (Mammals),Myremecophagidae,Tamandua,Pilosa,tetradactyla (southern tamandua) and mexicana (northern tamandua)
+Tapir,Some Endangered,Mammalia (Mammals),Tapiridae,Tapirus,Perissodactyla,4
+Tarantula,Some Endangered,Arachnida (Arachnids),Theraphosidae,At least 123 described,Araneae,About 900
+Tasmanian Devil,Endangered,Mammalia (Mammals),Dasyuridae,Sarcophilus,Dasyuromorphia,harrisii
+Tawny Frogmouth,Stable,Aves (Birds),Podargidae,Podargus,Caprimylgiformes,strigoides
+Tenrec,Stable,Mammalia (Mammals),Tenrecidae,Echinops,Afrosoricida,telfairi
+Thick-billed Parrot,Endangered,Aves (Birds),Psittacidae,Rhynchopsitta,Psittaciformes,pachyrhyncha
+Tiger,Endangered,Mammalia (Mammals),Felidae,Panthera,Carnivora,tigris
+Toucan,Some Endangered,Aves (Birds),Ramphastidae,6,Piciformes,34
+Tree Pangolin,Threatened,Mammalia (Mammals),Manidae,Manis,Pholidota,tricuspis
+Tuatara,Some Threatened,Reptilla (Reptiles),Sphenodontidae,Sphenodon,Sphenodontia,punctalus
+Turtle and Tortoise,Some Endangered,Reptilla (Reptiles),"13, including Cheloniidae (sea turtles), Emydidae (pond and river turtles), and Testudinidae (tortoises)",75,Chelonia,328 recognized modern species
+Two-toed Sloth,Stable,Mammalia (Mammals),Megalonychidae,Choloepus,Pilosa,hoffmanni (Hoffmann's two-toed sloth) and didactylus (Linnaeus's two-toed sloth)
+Vervet Monkey,Stable,Mammalia (Mammals),Cercopithecidae,Chlorocebus,Primates,aethiops
+Vulture,Some Endangered,Aves (Birds),Cathartidae (New World) and Accipitridae (Old World),14,Falconiformes,23
+Warthog,Stable,Mammalia (Mammals),Suidae,Phacochoerus,Artiodactyla,"africanus (southern warthog), aethiopicus (desert warthog)"
+Waxbill,Stable,Aves (Birds),Estrildidae,Estrilda,Passeriformes,"E. melpoda (orange-cheeked), E. astrild (St. Helena), E. caerulescens (lavender), Granatina granatina (violet-eared)"
+West African Lungfish,Stable,Sarcopterygii,Protopteridae,Protopterus,Lepidosirenifomes,P. annectens; P. aethiopicus; P. amphibius; P. dolly
+White Rhinoceros,Endangered,Mammalia (Mammals),Rhinocerotidae,Ceratotherium,Perissodactyla,simum
+Wild Cattle,Some Endangered,Mammalia (Mammals),Bovidae,"Bubalus, Syncerus",Artiodactyla,13
+Wild Swine (Pig and Hog),Some Endangered,Mammalia (Mammals),Suidae,6,Artiodactyla,18
+Wolf,Some Endangered,Mammalia (Mammals),Canidae,Canis,Carnivora,"lupus, rufus, simensis"
+Woma Python,Stable,Reptilla (Reptiles),Pythonidae,Aspidites,Squamata,ramsayi
+Wombat,Some Endangered,Mammalia (Mammals),Vombatidae,"Vombatus, Lasiorhinus",Diprotodontia,"Vombatus ursinus, Lasiorhinus krefftii, Lasiorhinus latifrons"
+Zebra,Some Endangered,Mammalia (Mammals),Equidae,Equus,Perissodactyla,"zebra (mountain zebra), quagga (plains zebra), grevyi (Grevy’s zebra)"
+‘Alalā (Hawaiian crow),Endangered,Aves (Birds),Corvidae,Corvus,Passeriformes,hawaiiensis

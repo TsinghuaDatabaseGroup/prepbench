@@ -1,0 +1,60 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_stint_key_hire_month",
+      "kind": "Row-level concept",
+      "node_id": "collapse_key",
+      "op": "project",
+      "source_text": "Be careful of employees who may have left in the past and returned with a new hire_date",
+      "ref": "df[\"hire_month_start\"] = df[\"hire_date\"].dt.to_period(\n        \"M\").dt.to_timestamp()"
+    },
+    {
+      "id": "2_O2_fill_missing_dc_months_with_zeros",
+      "kind": "Operation incomplete",
+      "node_id": "full_stats_filled",
+      "op": "project",
+      "intent": "For DC-months with no observed records, set ee_count and ee_leaving to 0 instead of leaving them null/missing.",
+      "ref": "full_stats[[\"ee_count\", \"ee_leaving\"]] = (\n        full_stats[[\"ee_count\", \"ee_leaving\"]].fillna(0).astype(int)\n    )"
+    },
+    {
+      "id": "3_O1_month_identifier_is_month_end",
+      "kind": "Operation boundary",
+      "node_id": "monthly_enriched",
+      "op": "project",
+      "source_text": "For each DC and month, calculate",
+      "ref": "periods = pd.period_range(start=start, end=end, freq=\"M\")\n    return periods.to_timestamp(how=\"end\").normalize().to_list()"
+    },
+    {
+      "id": "4_O2_date_parse_dayfirst",
+      "kind": "Operation incomplete",
+      "node_id": "parse_dates",
+      "op": "project",
+      "intent": "Parse hire_date and leave_date using day-first date interpretation.",
+      "ref": "df = pd.read_csv(\n        inputs_dir / \"input_01.csv\",\n        parse_dates=[\"hire_date\", \"leave_date\"],\n        dayfirst=True,\n    )"
+    },
+    {
+      "id": "5_O1_month_range_includes_end_month",
+      "kind": "Operation boundary",
+      "node_id": "stint_months",
+      "op": "project",
+      "source_text": "For each employee and DC, create one row for each month between their hire_date and their leave_date.",
+      "ref": "df[\"range_end\"] = df[\"leave_date\"].fillna(PLACEHOLDER_LEAVE_DATE)"
+    },
+    {
+      "id": "6_O2_ee_leaving_p12_requires_full_history",
+      "kind": "Operation incomplete",
+      "node_id": "with_lags_and_avg",
+      "op": "project",
+      "source_text": "The sum of ee_leaving for the past 12 months, ee_leaving_p12",
+      "ref": "full_stats[\"ee_leaving_p12\"] = full_stats.groupby(\"dc_nbr\")[\"ee_leaving\"].transform(\n        lambda s: s.rolling(window=12, min_periods=12).sum()\n    )"
+    },
+    {
+      "id": "7_O2_turnover_null_when_denominator_missing_or_zero",
+      "kind": "Operation incomplete",
+      "node_id": "with_lags_and_avg",
+      "op": "project",
+      "intent": "Set turnover metrics to null when the corresponding average employee denominator is null/zero.",
+      "ref": "full_stats.loc[\n        full_stats[\"avg_ee_month\"].isna() | (full_stats[\"avg_ee_month\"] == 0),\n        \"turnover_month\",\n    ] = np.nan"
+    }
+  ]
+}

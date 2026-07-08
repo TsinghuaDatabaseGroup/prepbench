@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Product", "Description"],
+      "columns": {
+        "Product": "text_exact",
+        "Description": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": ["Product", "Description", "Contains"],
+      "columns": {
+        "Product": "text_exact",
+        "Description": "text_exact",
+        "Contains": "text_exact"
+      }
+    }
+  }
+}

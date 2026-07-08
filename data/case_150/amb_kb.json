@@ -1,0 +1,100 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_returned_exact_match",
+      "kind": "Row-level concept",
+      "node_id": "n_compute_core",
+      "op": "project",
+      "source_text": "Turn the Return State field into a binary Returned field",
+      "ref": "df[\"Returned\"] = (df[\"Return State\"].fillna(\"\").str.strip() == \"Return Processed\").astype(int)"
+    },
+    {
+      "id": "2_C2_sales_unitprice_times_quantity",
+      "kind": "Row-level concept",
+      "node_id": "n_compute_core",
+      "op": "project",
+      "source_text": "Create a Sales field",
+      "ref": "df[\"Sales\"] = (df[\"Unit Price_num\"] * df[\"Quantity_num\"]).round(2)"
+    },
+    {
+      "id": "3_O1_orderid_split_strategy",
+      "kind": "Operation boundary",
+      "node_id": "n_compute_core",
+      "op": "project",
+      "source_text": "Split out the store name from the OrderID",
+      "ref": "order_split = df[\"OrderID\"].str.split(\"-\", n=1, expand=True)\ndf[\"Store\"] = order_split[0]"
+    },
+    {
+      "id": "4_C2_number_of_orders_distinct",
+      "kind": "Group-level concept",
+      "node_id": "n_cust_agg",
+      "op": "aggregate",
+      "source_text": "include additional fields detailing their total number of orders",
+      "ref": "df.assign(Order_group=df[\"Store\"].astype(str) + \"-\" + df[\"OrderID_num\"].astype(str))\nNumber_of_Orders=(\"Order_group\", lambda s: s.nunique()),"
+    },
+    {
+      "id": "5_C2_return_pct_numer_denom_line_items",
+      "kind": "Group-level concept",
+      "node_id": "n_cust_agg",
+      "op": "aggregate",
+      "source_text": "the % of products they have returned",
+      "ref": "Returned_cnt=(\"Returned\", \"sum\"),\nTotal_lines=(\"Returned\", \"count\"),"
+    },
+    {
+      "id": "6_O2_return_pct_zero_denominator_to_zero",
+      "kind": "Operation incomplete",
+      "node_id": "n_cust_enrich",
+      "op": "project",
+      "source_text": "the % of products they have returned",
+      "ref": "if den == 0:\n            return 0.0"
+    },
+    {
+      "id": "7_O3_customerid_tiebreaker_case_insensitive",
+      "kind": "Operation boundary",
+      "node_id": "n_cust_sort",
+      "op": "sort",
+      "source_text": "When assigning IDs, these should be created using the dimension and minimum order date fields",
+      "ref": "cust_dim = cust_dim.sort_values([\"First Order_dt\", \"Customer\"], key=lambda x: x.str.lower() if x.name == 'Customer' else x)"
+    },
+    {
+      "id": "8_D2_join_customer_on_customer_name",
+      "kind": "Multi-table alignment",
+      "node_id": "n_join_customer",
+      "op": "join",
+      "source_text": "Replace the dimensions with their IDs in the original dataset to create the fact table",
+      "ref": "fact[\"CustomerID\"] = fact[\"Customer\"].map(cust_dim.set_index(\"Customer\")[\"CustomerID\"])"
+    },
+    {
+      "id": "9_D2_join_product_on_composite_key",
+      "kind": "Multi-table alignment",
+      "node_id": "n_join_product",
+      "op": "join",
+      "source_text": "Replace the dimensions with their IDs in the original dataset to create the fact table",
+      "ref": "fact = fact.merge(\n    prod_dim[[\"ProductID\", \"Category\", \"Sub-Category\", \"Product Name\", \"Unit Price\"]],\n    left_on=[\"Category\", \"Sub-Category\", \"Product Name\", \"Unit Price_num\"],\n    right_on=[\"Category\", \"Sub-Category\", \"Product Name\", \"Unit Price\"],\n    how=\"left\",\n)"
+    },
+    {
+      "id": "10_C1_product_uniqueness_by_composite",
+      "kind": "Single-table reference",
+      "node_id": "n_prod_agg",
+      "op": "aggregate",
+      "source_text": "Create 3 dimension tables for Store, Customer and Product",
+      "ref": "df.groupby([\"Category\", \"Sub-Category\", \"Product Name\", \"Unit Price_num\"], as_index=False)[\"Order Date_dt\"]"
+    },
+    {
+      "id": "11_O3_productid_tiebreaker_case_insensitive",
+      "kind": "Operation boundary",
+      "node_id": "n_prod_sort",
+      "op": "sort",
+      "source_text": "When assigning IDs, these should be created using the dimension and minimum order date fields",
+      "ref": "prod_dim = prod_dim.sort_values([\"First Sold_dt\", \"Product Name\"], key=lambda col: col.str.lower() if col.name == \"Product Name\" else col)"
+    },
+    {
+      "id": "12_O3_storeid_tiebreaker",
+      "kind": "Operation boundary",
+      "node_id": "n_store_sort",
+      "op": "sort",
+      "source_text": "When assigning IDs, these should be created using the dimension and minimum order date fields",
+      "ref": "store_dim = store_dim.sort_values([\"First Order_dt\", \"Store\"]).reset_index(drop=True)"
+    }
+  ]
+}

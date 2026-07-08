@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Report",
+        "EmployerName",
+        "EmployerId",
+        "EmployerSize"
+      ],
+      "columns": {
+        "Year": "text_exact",
+        "Report": "text_exact",
+        "EmployerName": "text_exact",
+        "EmployerId": "text_exact",
+        "EmployerSize": "text_exact",
+        "DiffMedianHourlyPercent": "number",
+        "Pay Gap": "text_exact"
+      }
+    }
+  }
+}

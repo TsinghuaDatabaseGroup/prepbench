@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_o1_game_timestamp_from_date_and_start",
+      "kind": "Row-level concept",
+      "node_id": "compute_datetime",
+      "op": "project",
+      "intent": "Order games using a timestamp made by combining the calendar date with the listed start time.",
+      "ref": "            time_obj = dt.strptime(start_formatted, \"%I:%M%p\").time()\n            combined = dt.combine(date_ts.date(), time_obj)\n            return pd.Timestamp(combined)"
+    },
+    {
+      "id": "2_o2_fallback_to_midnight_on_time_parse_fail",
+      "kind": "Operation incomplete",
+      "node_id": "compute_datetime",
+      "op": "project",
+      "intent": "If the listed start time cannot be interpreted, fall back to using the calendar date at midnight for ordering.",
+      "ref": "    # Fallback to midnight on the game date if time parsing fails\n    return pd.Timestamp(date_ts.date())"
+    },
+    {
+      "id": "3_o2_drop_games_with_missing_team_or_points",
+      "kind": "Operation incomplete",
+      "node_id": "filter_non_null",
+      "op": "filter",
+      "intent": "Exclude any game records where either team name or either final points value is missing.",
+      "ref": "        df = df.dropna(subset=[\"Visitor/Neutral\", \"Home/Neutral\", \"PTS\", \"PTS.1\"], how=\"any\")"
+    },
+    {
+      "id": "4_o2_drop_games_with_non_numeric_points",
+      "kind": "Operation incomplete",
+      "node_id": "filter_numeric",
+      "op": "filter",
+      "intent": "Exclude any game records where either final points value is non-numeric (cannot be converted to a number).",
+      "ref": "    games[\"Visitor Points\"] = pd.to_numeric(games[\"Visitor Points\"], errors=\"coerce\")\n    games[\"Home Points\"] = pd.to_numeric(games[\"Home Points\"], errors=\"coerce\")\n    games = games.dropna(subset=[\"Visitor Points\", \"Home Points\"])"
+    },
+    {
+      "id": "5_o1_points_tie_home_not_winner",
+      "kind": "Row-level concept",
+      "node_id": "home_rows",
+      "op": "project",
+      "source_text": "Determine who won each game",
+      "ref": "        if visitor_pts == home_pts:\n            winner = visitor\n                \"Is Win\": 1 if winner == home else 0,"
+    },
+    {
+      "id": "6_o3_same_timestamp_tiebreak_by_opponent",
+      "kind": "Operation boundary",
+      "node_id": "sort_initial",
+      "op": "sort",
+      "source_text": "Work out the order of each team's games",
+      "ref": "    team_games = team_games.sort_values([\"Team\", \"Game DateTime\", \"Opponent\"]).reset_index(drop=True)"
+    },
+    {
+      "id": "7_d1_read_all_input_glob",
+      "kind": "Single-table reference",
+      "node_id": "union_all",
+      "op": "union",
+      "source_text": "Input the data",
+      "ref": "    for input_path in sorted(inputs_dir.glob(\"input_*.csv\")):\n        df = pd.read_csv(input_path)\n        df = df.dropna(subset=[\"Visitor/Neutral\", \"Home/Neutral\", \"PTS\", \"PTS.1\"], how=\"any\")\n        monthly_frames.append(df)\n\n    games = pd.concat(monthly_frames, ignore_index=True)"
+    },
+    {
+      "id": "8_o1_points_tie_visitor_wins",
+      "kind": "Row-level concept",
+      "node_id": "visitor_rows",
+      "op": "project",
+      "source_text": "Determine who won each game",
+      "ref": "        if visitor_pts == home_pts:\n            winner = visitor\n                \"Is Win\": 1 if winner == visitor else 0,"
+    }
+  ]
+}

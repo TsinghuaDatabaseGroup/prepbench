@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_count_rows_long",
+      "kind": "Group-level concept",
+      "node_id": "agg_counts",
+      "op": "aggregate",
+      "source_text": "Reshape the data so we can see how many challenges each Technique appears in, broken down by Level (as per the output)",
+      "ref": "Count rows after exploding to long format"
+    },
+    {
+      "id": "2_C1_normalization_pass1_mapping_table",
+      "kind": "Row-level concept",
+      "node_id": "clean_map1",
+      "op": "project",
+      "source_text": "Group the themes together to account for inaccuracies",
+      "ref": "Theme standardization map (e.g., 'Pivot Cols' -> 'Pivot Cols to Rows')"
+    },
+    {
+      "id": "3_O2_unmapped_themes_unchanged",
+      "kind": "Operation incomplete",
+      "node_id": "clean_map1",
+      "op": "project",
+      "intent": "Themes not in the mapping table remain unchanged.",
+      "ref": ".get(theme, theme)"
+    },
+    {
+      "id": "4_C2_total_sum_missing_as_zero",
+      "kind": "Group-level concept",
+      "node_id": "compute_total",
+      "op": "project",
+      "source_text": "Create a Total field across the levels for each Technique",
+      "ref": "Sum across levels, treating missing as 0"
+    },
+    {
+      "id": "5_C2_priority_dense_rank_ascending",
+      "kind": "Group-level concept",
+      "node_id": "compute_total_priority",
+      "op": "project",
+      "source_text": "Rank the challenges based on the Total field",
+      "ref": "Priority = dense_rank(Total, ascending=True)"
+    },
+    {
+      "id": "6_O2_exclude_missing_or_empty_themes",
+      "kind": "Operation incomplete",
+      "node_id": "filter_themes",
+      "op": "filter",
+      "intent": "Exclude rows where theme is missing or empty after splitting.",
+      "ref": "df = df[df['Theme'].notna() & (df['Theme'] != '')]"
+    },
+    {
+      "id": "7_O2_pivot_missing_levels_as_null",
+      "kind": "Operation incomplete",
+      "node_id": "pivot_levels",
+      "op": "pivot",
+      "intent": "When a theme has no occurrences for a level, output null/blank.",
+      "ref": "fillna('')"
+    },
+    {
+      "id": "8_O1_split_on_commas",
+      "kind": "Operation boundary",
+      "node_id": "split_themes",
+      "op": "project",
+      "source_text": "Split the themes, so each theme/technique has its own field",
+      "ref": "str.split(',')"
+    }
+  ]
+}

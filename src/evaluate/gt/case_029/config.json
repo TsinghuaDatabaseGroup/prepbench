@@ -1,0 +1,26 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Subscription Cost (Per Annum)",
+                "Name"
+            ],
+            "columns": {
+                "Subscription Cost (Per Annum)": "number",
+                "Name": "text_exact"
+            }
+        },
+        "output_02.csv": {
+            "key": [
+                "Subscription Package",
+                "Product",
+                "Price"
+            ],
+            "columns": {
+                "Subscription Package": "number",
+                "Product": "text_exact",
+                "Price": "number"
+            }
+        }
+    }
+}

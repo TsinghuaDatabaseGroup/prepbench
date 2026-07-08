@@ -1,0 +1,26 @@
+This is a Title. ,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6
+Jules' title won't help your analysis so you will want to get rid of it but don't forget the budget tables,,,,,,
+,,Week ,Type,Profit Min Sales Volume,Profit Min Sales Value,
+,,2020_1,Bar,2000,7500,
+,,2020_2,Bar,3000,10000,
+,,2020_3,Bar,3000,10000,
+,,2020_4,Bar,3000,10000,
+,,2020_5,Bar,3000,10000,
+,,2020_6,Bar,3000,10000,
+,,2020_7,Bar,3000,10000,
+,,2020_8,Bar,3000,10000,
+,,2020_1,Liquid,3000,8000,
+,,2020_2,Liquid,3500,11000,
+,,2020_3,Liquid,3500,11000,
+,,2020_4,Liquid,3500,11000,
+,,2020_5,Liquid,3500,11000,
+,,2020_6,Liquid,3500,11000,
+,,2020_7,Liquid,3500,11000,
+,,2020_8,Liquid,3500,11000,
+,,,,,,
+,,,,,,
+,,Type,Measure,2020-02-01 00:00:00,2020-05-03 00:00:00,2020-08-06 00:00:00
+,,Bar_01893,Budget Volume,1875,2225,3050
+,,Bar_01893,Budget Value,5500,8075,11150
+,,91374__Liquid,Budget Volume,2225,2750,3550
+,,91374__Liquid,Budget Value,6050,9050,11250

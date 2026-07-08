@@ -1,0 +1,27 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Branch",
+        "Branch Long",
+        "Branch Lat",
+        "Distance",
+        "Customer Priority",
+        "Customer",
+        "Address Long",
+        "Address Lat"
+      ],
+      "columns": {
+        "Branch": "text_exact",
+        "Branch Long": "number",
+        "Branch Lat": "number",
+        "Distance": "number",
+        "Customer Priority": "number",
+        "Customer": "number",
+        "Address Long": "number",
+        "Address Lat": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Full name",
+        "Flag",
+        "Class",
+        "English",
+        "Economics",
+        "Psychology"
+      ],
+      "columns": {
+        "Full name": "text_exact",
+        "Flag": "boolean",
+        "Class": "text_exact",
+        "English": "text_exact",
+        "Economics": "text_exact",
+        "Psychology": "text_exact"
+      }
+    }
+  }
+}
+

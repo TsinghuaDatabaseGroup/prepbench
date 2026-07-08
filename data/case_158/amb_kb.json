@@ -1,0 +1,220 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_filter_dates_to_2021",
+      "kind": "Operation boundary",
+      "node_id": "filter_dates_2021",
+      "op": "filter",
+      "source_text": "Limit the dates to just 2021 and join those to the People, Location, Leader step",
+      "ref": "dates_2021 = dates[dates[\"Month Start Date\"].dt.year == 2021].copy()"
+    },
+    {
+      "id": "2_D2_join_people_metrics_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "join the data with the people - remember we need to show every agent for every month",
+      "ref": "result = people_dates.merge(\n        monthly_data,\n        on=[\"id\", \"Month Start Date\"],\n        how=\"left\"\n    )"
+    },
+    {
+      "id": "3_O2_join_people_metrics_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_all",
+      "op": "join",
+      "source_text": "join the data with the people - remember we need to show every agent for every month",
+      "ref": "result = people_dates.merge(\n        monthly_data,\n        on=[\"id\", \"Month Start Date\"],\n        how=\"left\"\n    )"
+    },
+    {
+      "id": "4_D2_cross_join_people_dates",
+      "kind": "Multi-table alignment",
+      "node_id": "join_people_dates",
+      "op": "join",
+      "source_text": "Limit the dates to just 2021 and join those to the People, Location, Leader step",
+      "ref": "people_dates = people_final.assign(key=1).merge(\n        dates_2021.assign(key=1), on=\"key\"\n    ).drop(\"key\", axis=1)"
+    },
+    {
+      "id": "5_D2_join_people_location_key",
+      "kind": "Multi-table alignment",
+      "node_id": "join_people_loc",
+      "op": "join",
+      "source_text": "Join the People, Location, and Leader data sets together",
+      "ref": "people_joined = people.merge(\n        locations, on=\"Location ID\", how=\"left\"\n    ).merge("
+    },
+    {
+      "id": "6_O2_join_people_location_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_people_loc",
+      "op": "join",
+      "source_text": "Join the People, Location, and Leader data sets together",
+      "ref": "people_joined = people.merge(\n        locations, on=\"Location ID\", how=\"left\"\n    ).merge("
+    },
+    {
+      "id": "7_D2_join_people_leader_keys",
+      "kind": "Multi-table alignment",
+      "node_id": "join_people_loc_leader",
+      "op": "join",
+      "source_text": "Join the People, Location, and Leader data sets together",
+      "ref": "    ).merge(\n        leaders, left_on=\"Leader 1\", right_on=\"id\", how=\"left\", suffixes=(\"\", \"_leader\")\n    )"
+    },
+    {
+      "id": "8_O2_join_people_leader_left_join",
+      "kind": "Operation incomplete",
+      "node_id": "join_people_loc_leader",
+      "op": "join",
+      "source_text": "Join the People, Location, and Leader data sets together",
+      "ref": "    ).merge(\n        leaders, left_on=\"Leader 1\", right_on=\"id\", how=\"left\", suffixes=(\"\", \"_leader\")\n    )"
+    },
+    {
+      "id": "9_O3_union_keep_duplicates",
+      "kind": "Operation inconsistent",
+      "node_id": "monthly_union",
+      "op": "union",
+      "source_text": "union the worksheets in the input step",
+      "ref": "monthly_data = pd.concat(monthly_data_list, ignore_index=True)"
+    },
+    {
+      "id": "11_C1_goal_threshold_not_answered_5",
+      "kind": "Row-level concept",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "clean the goal data to have the goal name & numeric value",
+      "ref": "result[\"Not Answered Percent < 5\"] = 5"
+    },
+    {
+      "id": "12_C1_goal_threshold_sentiment_0",
+      "kind": "Row-level concept",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "clean the goal data to have the goal name & numeric value",
+      "ref": "result[\"Sentiment Score >= 0\"] = 0"
+    },
+    {
+      "id": "13_O2_define_no_metrics_row",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "intent": "Define when an agent-month row should be treated as having no metrics at all (and thus left blank).",
+      "ref": "all_metrics_na = result[metric_cols].isna().all(axis=1)"
+    },
+    {
+      "id": "14_O2_fill_missing_metrics_with_zero_when_partial",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "intent": "When an agent-month has some metrics present, choose whether to fill missing core metric values with 0.",
+      "ref": "result.loc[~all_metrics_na, col] = result.loc[~all_metrics_na, col].fillna(0)"
+    },
+    {
+      "id": "15_O2_keep_transfers_blank_when_missing",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "intent": "Decide whether Transfers should remain blank when it is not provided for a month.",
+      "ref": "result.loc[all_metrics_na, \"Transfers\"] = pd.NA"
+    },
+    {
+      "id": "16_C2_not_answered_rate_formula",
+      "kind": "Row-level concept",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation for the percent of offered that weren't answered",
+      "ref": "result[\"Not Answered Rate\"] = (\n        result[\"Calls Not Answered\"] / result[\"Calls Offered\"]\n    ).apply(round_to_3_decimals)"
+    },
+    {
+      "id": "17_O1_not_answered_rate_round_half_up_3dp",
+      "kind": "Operation boundary",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation for the percent of offered that weren't answered",
+      "ref": "return float(Decimal(str(val)).quantize(Decimal('0.001'), rounding=ROUND_HALF_UP))"
+    },
+    {
+      "id": "18_O2_not_answered_rate_blank_when_missing_inputs",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation for the percent of offered that weren't answered",
+      "ref": "if pd.isna(val):\n            return pd.NA"
+    },
+    {
+      "id": "19_C2_agent_avg_duration_formula",
+      "kind": "Row-level concept",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation for the average duration by agent (for each agent, each month)",
+      "ref": "result.loc[mask, \"Agent Avg Duration\"] = (\n            result.loc[mask, \"Total Duration\"] / result.loc[mask, \"Calls Answered\"]\n        ).apply(round_to_int).astype(\"Int64\")"
+    },
+    {
+      "id": "20_O2_agent_avg_duration_blank_when_calls_answered_missing",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation for the average duration by agent (for each agent, each month)",
+      "ref": "result[\"Agent Avg Duration\"] = pd.NA\nmask = result[\"Calls Answered\"].notna() & (result[\"Calls Answered\"] > 0)"
+    },
+    {
+      "id": "21_O1_agent_avg_duration_zero_when_calls_answered_zero",
+      "kind": "Operation boundary",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation for the average duration by agent (for each agent, each month)",
+      "ref": "result.loc[mask_zero, \"Agent Avg Duration\"] = 0"
+    },
+    {
+      "id": "22_O1_agent_avg_duration_round_half_up_int",
+      "kind": "Operation boundary",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation for the average duration by agent (for each agent, each month)",
+      "ref": "return int(Decimal(str(val)).quantize(Decimal('1'), rounding=ROUND_HALF_UP))"
+    },
+    {
+      "id": "23_C2_met_sentiment_goal_comparator",
+      "kind": "Row-level concept",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation that determines if the sentiment score met the goal",
+      "ref": "result.loc[mask, \"Met Sentiment Goal\"] = result.loc[mask, \"Sentiment\"] >= 0"
+    },
+    {
+      "id": "24_O2_met_sentiment_goal_blank_when_sentiment_blank",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation that determines if the sentiment score met the goal",
+      "ref": "result[\"Met Sentiment Goal\"] = pd.NA\nmask = result[\"Sentiment\"].notna()"
+    },
+    {
+      "id": "25_C2_met_not_answered_rate_comparator",
+      "kind": "Row-level concept",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation that determines if the not answered percent met the goal",
+      "ref": "result.loc[mask, \"Met Not Answered Rate\"] = result.loc[mask, \"Not Answered Rate\"] < (5 / 100)"
+    },
+    {
+      "id": "26_O2_met_not_answered_rate_blank_when_rate_blank",
+      "kind": "Operation incomplete",
+      "node_id": "proj_fill_and_metrics",
+      "op": "project",
+      "source_text": "create a calculation that determines if the not answered percent met the goal",
+      "ref": "result[\"Met Not Answered Rate\"] = pd.NA\nmask = result[\"Not Answered Rate\"].notna()"
+    },
+    {
+      "id": "27_D1_agent_name_format",
+      "kind": "Single-table reference",
+      "node_id": "proj_people_derive",
+      "op": "project",
+      "source_text": "Create last name, first name fields for the agent and the leader",
+      "ref": "people_joined[\"Agent Name\"] = (\n        people_joined[\"last_name\"] + \", \" + people_joined[\"first_name\"]\n    )"
+    },
+    {
+      "id": "28_D1_leader_name_format",
+      "kind": "Single-table reference",
+      "node_id": "proj_people_derive",
+      "op": "project",
+      "source_text": "Create last name, first name fields for the agent and the leader",
+      "ref": "people_joined[\"Leader Name\"] = (\n        people_joined[\"last_name_leader\"] + \", \" + people_joined[\"first_name_leader\"]\n    )"
+    }
+  ]
+}

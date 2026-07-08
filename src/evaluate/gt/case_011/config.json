@@ -1,0 +1,21 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Date",
+                "volume",
+                "Row"
+            ],
+            "columns": {
+                "Date": "datetime",
+                "volume": "number",
+                "high": "number",
+                "low": "number",
+                "adjclose": "number",
+                "close": "number",
+                "open": "number",
+                "Row": "number"
+            }
+        }
+    }
+}

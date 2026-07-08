@@ -1,0 +1,23 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Gate",
+        "Stand",
+        "Date",
+        "Flight",
+        "Requires Bus?",
+        "Time to Reach Stand"
+      ],
+      "columns": {
+        "Gate": "number",
+        "Stand": "number",
+        "Date": "datetime",
+        "Flight": "text_exact",
+        "Requires Bus?": "boolean",
+        "Time to Reach Stand": "number"
+      }
+    }
+  }
+}
+

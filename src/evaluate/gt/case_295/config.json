@@ -1,0 +1,14 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Dealership ID"],
+      "columns": {
+        "Dealership ID": "text_exact",
+        "Dealership Avg Days to Sell": "number"
+      }
+    }
+  }
+}
+
+

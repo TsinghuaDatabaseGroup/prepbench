@@ -1,0 +1,76 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_o3_battle_title_priority",
+      "kind": "Operation inconsistent",
+      "node_id": "compute_finalize",
+      "op": "project",
+      "source_text": "Clean battle names. Ensure each row has a unique battle name.",
+      "ref": "# Battle：粗体优先，否则首个包含 \"Battle\" 的纯文本\nbattle_from_html = None\nfor p in parts:\n    if 'font-weight:bold' in p:\n        mm = re.search(r'>([^<]+)<', p)\n        if mm:\n            battle_from_html = mm.group(1).strip()\n            break\nif not battle_from_html:\n    for plain in parts_plain:\n        if plain and 'Battle' in plain:\n            battle_from_html = plain\n            break\nif battle_from_html:\n    battle = battle_from_html"
+    },
+    {
+      "id": "2_o3_victors_priority",
+      "kind": "Operation inconsistent",
+      "node_id": "compute_finalize",
+      "op": "project",
+      "source_text": "Find a natural way to split the data into different fields.",
+      "ref": "# Victors：优先找带 'Victors:' 的段；若没有，则取 war 之后的第一个非空段\nvictors_str = None\nvictors_pos = None\nfor i, p in enumerate(parts):\n    if 'Victors:' in p:\n        mm = re.search(r'Victors:\\s*([^<]+)', p)\n        if mm:\n            victors_str = mm.group(1).strip()\n        else:\n            plain = re.sub(r'<[^>]+>', '', p)\n            idx = plain.find('Victors:')\n            if idx != -1:\n                victors_str = plain[idx+8:].strip()\n        victors_pos = i\n        break\nif victors_str is None and war_str:\n    try:\n        war_idx = parts_plain.index(war_str)\n        for j in range(war_idx+1, len(parts_plain)):\n            q = parts_plain[j]\n            if q:\n                victors_str = q\n                victors_pos = j\n                break\n    except ValueError:\n        pass"
+    },
+    {
+      "id": "3_d1_date_segment_rule",
+      "kind": "Single-table reference",
+      "node_id": "extract_fields",
+      "op": "project",
+      "source_text": "Clean the dates.",
+      "ref": "# Date：标题之后的第一个非空、且不含 Victors 的纯文本\ndate_str = None\nseen_title = False\nfor p, plain in zip(parts, parts_plain):\n    if not seen_title and (('font-weight:bold' in p) or (battle and battle in plain)):\n        seen_title = True\n        continue\n    if seen_title and plain and ('Victors' not in plain):\n        date_str = plain\n        break"
+    },
+    {
+      "id": "4_d1_war_segment_rule",
+      "kind": "Single-table reference",
+      "node_id": "extract_fields",
+      "op": "project",
+      "source_text": "Find a natural way to split the data into different fields.",
+      "ref": "# War：在 date 之后直到 Victors 之前的第一段纯文本\nwar_str = None\nafter_date = False\nfor plain in parts_plain:\n    if date_str and plain == date_str:\n        after_date = True\n        continue\n    if after_date:\n        if 'Victors' in plain:\n            break\n        if plain:\n            war_str = plain\n            break"
+    },
+    {
+      "id": "5_o2_drop_unparsable_date",
+      "kind": "Operation incomplete",
+      "node_id": "filter_valid",
+      "op": "filter",
+      "source_text": "Remove rows which are incomplete.",
+      "ref": "df['Date'] = df['Date'].apply(norm_date)\ndf = df[df['Date'].notna()].copy()"
+    },
+    {
+      "id": "6_o2_skip_first_line",
+      "kind": "Operation incomplete",
+      "node_id": "input_lines",
+      "op": "input",
+      "intent": "Skip the first input line because it is not a battle record.",
+      "ref": "# 跳过第一行\nlines = lines[1:]"
+    },
+    {
+      "id": "7_o2_year_only_ad_dates",
+      "kind": "Operation boundary",
+      "node_id": "parse_date",
+      "op": "project",
+      "source_text": "Clean the dates.",
+      "ref": "# 纯年份\nif re.fullmatch(r'\\d{4}', s):\n    return f\"01/01/{int(s):04d}\"\n# 带 AD 的年份\nif s.endswith('AD'):\n    try:\n        y = int(s.replace('AD', '').strip())\n        return f\"01/01/{y:04d}\"\n    except Exception:\n        pass"
+    },
+    {
+      "id": "8_o1_date_format_priority",
+      "kind": "Operation inconsistent",
+      "node_id": "parse_date",
+      "op": "project",
+      "source_text": "The dateparse function may be useful here.",
+      "ref": "for fmt in ('%d %B, %Y', '%B %d, %Y', '%d %B %Y', '%B %d %Y'):\n    try:\n        dt = datetime.strptime(s, fmt)\n        return dt.strftime('%d/%m/%Y')\n    except Exception:\n        continue"
+    },
+    {
+      "id": "9_d1_split_raw_line",
+      "kind": "Single-table reference",
+      "node_id": "parse_line",
+      "op": "project",
+      "source_text": "Find a natural way to split the data into different fields.",
+      "ref": "# 两种分隔模式\npat1 = re.compile(r'^\"(?P<battle>.*?)\"\",\\'(?P<html>.*)$')\npat2 = re.compile(r'^\"(?P<battle>.*?)\"\\s*,\\'(?P<html>.*)$')\n\nrecords = []\nfor raw in lines:\n    m = pat1.match(raw) or pat2.match(raw)\n    if not m:\n        continue"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Date",
+        "Battle",
+        "War",
+        "Victors",
+        "Description"
+      ],
+      "columns": {
+        "Date": "date",
+        "Battle": "text_exact",
+        "War": "text_exact",
+        "Victors": "text_exact",
+        "Description": "text_exact"
+      }
+    }
+  }
+}
+

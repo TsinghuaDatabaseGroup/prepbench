@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_agg_grain_includes_location",
+      "kind": "Group-level concept",
+      "node_id": "agg_sessions",
+      "op": "aggregate",
+      "source_text": "Aggregate the data to find the total duration of each streaming session (as identified by the timestamp)",
+      "ref": "aggregated = sessions_df.groupby(['userID', 'timestamp_str', 'location'], as_index=False).agg({"
+    },
+    {
+      "id": "2_O3_content_type_first_within_group",
+      "kind": "Operation inconsistent",
+      "node_id": "agg_sessions",
+      "op": "aggregate",
+      "intent": "When multiple content_type values exist within a (userID, timestamp, location) group, choose the first encountered.",
+      "ref": "        'content_type': 'first'"
+    },
+    {
+      "id": "3_O1_min_month_uses_updated_content_type",
+      "kind": "Operation boundary",
+      "node_id": "filter_primary",
+      "op": "filter",
+      "intent": "Compute the minimum-month logic using the updated content_type values (post-reclassification).",
+      "ref": "aggregated['content_type'] = aggregated.apply(update_content_type, axis=1)"
+    },
+    {
+      "id": "4_D2_join_pricing_on_month_and_content_type_left",
+      "kind": "Multi-table alignment",
+      "node_id": "join_price",
+      "op": "join",
+      "source_text": "We're now ready to join to the Avg Pricing Table",
+      "ref": "result = result.merge(\n        pricing_df[['Month', 'Avg_Price', 'Content_Type']],\n        left_on=['min_month', 'content_type'],\n        right_on=['Month', 'Content_Type'],\n        how='left'\n    )"
+    },
+    {
+      "id": "5_O2_blank_content_type_to_secondary",
+      "kind": "Operation incomplete",
+      "node_id": "project_after_agg",
+      "op": "project",
+      "source_text": "For other locations, maintain the \"Preserved\" content_type and update all others to have a \"Secondary\" content_type",
+      "ref": "            if pd.isna(original_content_type) or original_content_type == '':\n                return 'Secondary'"
+    },
+    {
+      "id": "6_O1_preserved_avg_price_override_after_join",
+      "kind": "Operation boundary",
+      "node_id": "project_final",
+      "op": "project",
+      "source_text": "For \"Preserved\" content, we manually input the Avg Price as £14.98",
+      "ref": "result.loc[result['content_type'] == 'Preserved', 'Avg_Price'] = 14.98"
+    },
+    {
+      "id": "7_O1_month_granularity_and_format_mm_yyyy",
+      "kind": "Row-level concept",
+      "node_id": "project_pick_min",
+      "op": "project",
+      "source_text": "For \"Primary\" content, we take the overall minimum streaming month, ignoring location",
+      "ref": "aggregated['month_datetime'] = aggregated['timestamp'].dt.to_period('M').dt.to_timestamp()\nmin_months_datetime['min_month'] = min_months_datetime['month_datetime'].dt.strftime('%m %Y')"
+    },
+    {
+      "id": "9_D1_sessions_datetime_field_t_iso8601",
+      "kind": "Single-table reference",
+      "node_id": "sessions_fix_and_ts",
+      "op": "project",
+      "intent": "Use sessions field t as the datetime source and parse it as ISO 8601.",
+      "ref": "sessions_df['t'] = pd.to_datetime(sessions_df['t'], format='ISO8601')"
+    }
+  ]
+}

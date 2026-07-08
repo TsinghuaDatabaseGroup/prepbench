@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_avg_price_mean",
+      "kind": "Group-level concept",
+      "node_id": "a_type",
+      "op": "aggregate",
+      "source_text": "Aggregate the data by meal type and average their price",
+      "ref": "\"Average Price\": (\"Price\", \"mean\"),"
+    },
+    {
+      "id": "2_C2_percent_numerator_count",
+      "kind": "Group-level concept",
+      "node_id": "a_type",
+      "op": "aggregate",
+      "source_text": "Calculate the percentage of total for each meal type",
+      "ref": "\"Count\": (\"Meal Option\", \"count\"),"
+    },
+    {
+      "id": "3_D2_join_on_meal_option",
+      "kind": "Multi-table alignment",
+      "node_id": "j_price",
+      "op": "join",
+      "source_text": "Join the data sets together so you have the meal type and price for each meal",
+      "ref": "df = df_type.merge(df_price, on=\"Meal Option\", how=\"inner\")"
+    },
+    {
+      "id": "4_O2_inner_join_matched_only",
+      "kind": "Operation incomplete",
+      "node_id": "j_price",
+      "op": "join",
+      "source_text": "Join the data sets together so you have the meal type and price for each meal",
+      "ref": "df = df_type.merge(df_price, on=\"Meal Option\", how=\"inner\")"
+    },
+    {
+      "id": "5_C1_map_meat_based_variants",
+      "kind": "Row-level concept",
+      "node_id": "p_norm_type",
+      "op": "project",
+      "source_text": "vegan, vegetarian, or meat-based",
+      "ref": "if x_norm.lower().replace(\"-\", \" \").replace(\"  \", \" \") in {\"meat based\", \"meatbased\"}:\n            return \"Meat-based\""
+    },
+    {
+      "id": "6_C1_map_veggie_to_vegetarian_label",
+      "kind": "Row-level concept",
+      "node_id": "p_norm_type",
+      "op": "project",
+      "source_text": "Hint - veggie and vegetarian are the same type",
+      "ref": "if x_norm.lower() in {\"veggie\", \"vegetarian\"}:\n            return \"Vegetarian\""
+    },
+    {
+      "id": "7_O2_unmapped_type_keep_original",
+      "kind": "Operation incomplete",
+      "node_id": "p_norm_type",
+      "op": "project",
+      "intent": "For Type values not covered by the standardisation rules, keep the original value unchanged.",
+      "ref": "return x"
+    },
+    {
+      "id": "8_C2_percent_denominator_total_joined_count",
+      "kind": "Group-level concept",
+      "node_id": "p_post",
+      "op": "project",
+      "source_text": "Calculate the percentage of total for each meal type",
+      "ref": "total_count = float(len(df))\nagg[\"Percent of Total\"] = (agg[\"Count\"] / total_count * 100).round(0).astype(int)"
+    },
+    {
+      "id": "9_O1_percent_round_to_int",
+      "kind": "Operation boundary",
+      "node_id": "p_post",
+      "op": "project",
+      "source_text": "Calculate the percentage of total for each meal type",
+      "ref": "agg[\"Percent of Total\"] = (agg[\"Count\"] / total_count * 100).round(0).astype(int)"
+    },
+    {
+      "id": "new_1_type_output_order",
+      "kind": "Operation inconsistent",
+      "node_id": "sort_output",
+      "op": "sort",
+      "intent": "Order output rows as Meat-based, Vegan, Vegetarian, with unmapped types after those.",
+      "ref": "type_order = {\"Meat-based\": 0, \"Vegan\": 1, \"Vegetarian\": 2}\nout[\"_order\"] = out[\"Type\"].map(type_order)\nout = out.sort_values(\"_order\").drop(columns=[\"_order\"]).reset_index(drop=True)"
+    }
+  ]
+}

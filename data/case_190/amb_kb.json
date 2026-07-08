@@ -1,0 +1,12 @@
+{
+  "ambiguities": [
+    {
+      "id": "new_1_record_id_sort_for_input_order",
+      "kind": "Operation boundary",
+      "node_id": "sort_output",
+      "op": "sort",
+      "source_text": "Reorder the data so that it is output in the same order as it comes in",
+      "ref": "df = df.sort_values('Record ID').reset_index(drop=True)"
+    }
+  ]
+}

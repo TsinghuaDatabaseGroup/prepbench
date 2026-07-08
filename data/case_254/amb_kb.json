@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C1_drop_list_marker_rows",
+      "kind": "Row-level concept",
+      "node_id": "filter_non_marker",
+      "op": "filter",
+      "intent": "Exclude list section header/marker rows from the toy-level production dataset.",
+      "ref": "data = raw.loc[~marker_mask].copy()"
+    },
+    {
+      "id": "2_D2_assign_toys_to_latest_marker",
+      "kind": "Single-table reference",
+      "node_id": "proj_ffill",
+      "op": "project",
+      "intent": "Assign each toy row to the most recent list marker above it (forward-fill list and number of children).",
+      "ref": "raw[\"List\"] = raw[\"List\"].ffill()\nraw[\"Number of Children\"] = raw[\"Number of Children\"].ffill()"
+    },
+    {
+      "id": "3_C1_identify_marker_rows_by_prefix",
+      "kind": "Row-level concept",
+      "node_id": "proj_is_marker",
+      "op": "project",
+      "intent": "Define which rows are list section markers based on the Toy text prefix.",
+      "ref": "marker_mask = raw[\"Toy\"].astype(str).str.startswith(\"Number of Children on the \")"
+    },
+    {
+      "id": "4_C1_extract_list_name_from_marker_text",
+      "kind": "Row-level concept",
+      "node_id": "proj_list_and_num",
+      "op": "project",
+      "intent": "Extract the output List name from marker-row Toy text by removing the fixed prefix and trailing \" List\".",
+      "ref": "prefix = \"Number of Children on the \"\nif text.startswith(prefix):\n    list_name = text[len(prefix):]\n    # Remove trailing word \" List\" if present\n    if list_name.endswith(\" List\"):\n        list_name = list_name[:-5]\n    return list_name"
+    },
+    {
+      "id": "10_O1_over_under_strict_greater",
+      "kind": "Operation boundary",
+      "node_id": "script_running",
+      "op": "script",
+      "source_text": "a field highlighting whether a toy is Over or Under Quota",
+      "ref": "long_df[\"Over or Under Quota?\"] = (long_df[\"Running Sum of Toys Produced\"] > long_df[\"Quota\"]).map({True: \"Over\", False: \"Under\"})"
+    },
+    {
+      "id": "11_O1_surplus_only_if_total_gt_children",
+      "kind": "Operation boundary",
+      "node_id": "script_spares",
+      "op": "script",
+      "source_text": "the Toys with the most overproduction for each list should be the ones translated into spares",
+      "ref": "if total_produced > num_children:"
+    },
+    {
+      "id": "12_O3_allocate_all_surplus_to_max_overproduction",
+      "kind": "Operation inconsistent",
+      "node_id": "script_spares",
+      "op": "script",
+      "source_text": "the Toys with the most overproduction for each list should be the ones translated into spares",
+      "ref": "surplus = total_produced - num_children\nidx = over.idxmax()\ngroup.loc[idx, \"Spare Toys\"] = surplus\ngroup.loc[idx, \"Toys Ready to be Gifts\"] = group.loc[idx, \"Toys Produced\"] - surplus"
+    },
+    {
+      "id": "13_O3_tiebreak_first_among_max_overproduction",
+      "kind": "Operation inconsistent",
+      "node_id": "script_spares",
+      "op": "script",
+      "source_text": "the Toys with the most overproduction for each list should be the ones translated into spares",
+      "ref": "# Choose toy with maximum overproduction (Produced - Quota); if tie, choose the first by sort order\nidx = over.idxmax()"
+    }
+  ]
+}

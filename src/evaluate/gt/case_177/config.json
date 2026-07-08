@@ -1,0 +1,31 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Overall Rank",
+        "Artist Name",
+        "2015",
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022"
+      ],
+      "columns": {
+        "Overall Rank": "number",
+        "Artist Name": "text_exact",
+        "2015": "number",
+        "2016": "number",
+        "2017": "number",
+        "2018": "number",
+        "2019": "number",
+        "2020": "number",
+        "2021": "number",
+        "2022": "number"
+      }
+    }
+  }
+}
+

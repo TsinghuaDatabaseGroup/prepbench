@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_o1_density_round_12dp",
+      "kind": "Operation boundary",
+      "node_id": "dens",
+      "op": "project",
+      "source_text": "Calculate the population density",
+      "ref": "        density = density.quantize(Decimal('0.000000000001'), rounding=ROUND_HALF_UP)"
+    },
+    {
+      "id": "4_c2_pct_change_formula",
+      "kind": "Row-level concept",
+      "node_id": "pct_change",
+      "op": "project",
+      "source_text": "Calculate the % change in population density between the two years",
+      "ref": "        pct_change = 100 * (dens_2021_dec - dens_2000_dec) / dens_2000_dec"
+    },
+    {
+      "id": "5_o3_rank_ties_competition",
+      "kind": "Operation inconsistent",
+      "node_id": "pct_change",
+      "op": "project",
+      "source_text": "Create a rank for % change in population density so that the country with the greatest change ranks 1",
+      "ref": "    pivot_df[\"Rank % Change\"] = pivot_df[\"% Change in Population Density\"].rank(\n        method=\"min\", ascending=False\n    ).astype(int)\n    output1[\"Rank Population Density 2021\"] = output1[\"Population Density 2021\"].rank(\n        method=\"min\", ascending=False\n    ).astype(int)"
+    },
+    {
+      "id": "6_d2_pop_country_remap",
+      "kind": "Multi-table alignment",
+      "node_id": "pop_cast",
+      "op": "project",
+      "source_text": "Use the Country/Region data role to tidy up country names",
+      "ref": "        if name in [\"Virgin Islands (U.S.)\"]:\n            return \"Virgin Islands\"\n        if name in [\"São Tomé and Príncipe\"]:\n            return \"Sao Tome and Principe\"\n        if name in [\"Curacao\"]:\n            return \"Curaçao\""
+    },
+    {
+      "id": "7_o3_land_area_sum_duplicates",
+      "kind": "Operation inconsistent",
+      "node_id": "size_agg",
+      "op": "aggregate",
+      "intent": "When multiple land-area rows map to the same country after standardisation, combine them by summing land area (km²).",
+      "ref": "    size_agg = size_df.groupby(\"Country / Dependency\", as_index=False)[\"Land in km2\"].sum()"
+    },
+    {
+      "id": "8_d2_size_country_remap",
+      "kind": "Multi-table alignment",
+      "node_id": "size_clean",
+      "op": "project",
+      "source_text": "Use the Country/Region data role to tidy up country names",
+      "ref": "        if name in [\"Virgin Islands\", \"U.S. Virgin Islands\"]:\n            return \"Virgin Islands\"\n        if name in [\"Jan Mayen\", \"Svalbard\"]:\n            return \"Svalbard\"\n        if name in [\"São Tomé and Príncipe\"]:\n            return \"Sao Tome and Principe\""
+    }
+  ]
+}

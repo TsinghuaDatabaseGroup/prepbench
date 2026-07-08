@@ -1,0 +1,27 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "ProductName",
+        "Metric",
+        "Time Period",
+        "This Year",
+        "Last Year",
+        "Target",
+        "% Difference to Last Year",
+        "% Difference to Target"
+      ],
+      "columns": {
+        "ProductName": "text_exact",
+        "Metric": "text_exact",
+        "Time Period": "text_exact",
+        "This Year": "number",
+        "Last Year": "number",
+        "Target": "number",
+        "% Difference to Last Year": "number",
+        "% Difference to Target": "number"
+      }
+    }
+  }
+}
+

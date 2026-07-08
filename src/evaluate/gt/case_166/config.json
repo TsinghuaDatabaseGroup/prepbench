@@ -1,0 +1,36 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "ID",
+        "Month Divider"
+      ],
+      "columns": {
+        "Cumulative Monthly Cost": "text_exact",
+        "ID": "text_exact",
+        "Country": "text_exact",
+        "City": "text_exact",
+        "Address": "text_exact",
+        "Company": "text_exact",
+        "Office Size": "text_exact",
+        "Contract Start": "text_exact",
+        "Contract End": "text_exact",
+        "Contract Length": "text_exact",
+        "Months Until Expiry": "text_exact",
+        "People": "text_exact",
+        "Per Person": "text_exact",
+        "Rent per Month": "text_exact",
+        "Month Divider": "text_exact"
+      }
+    },
+    "output_02.csv": {
+      "key": [
+        "Year"
+      ],
+      "columns": {
+        "Year": "text_exact",
+        "EoY and Current": "text_exact"
+      }
+    }
+  }
+}

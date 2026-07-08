@@ -1,0 +1,21 @@
+Store,Quarter,Sales,% Difference Q on Q,Store Evaluation
+York,1,561464,,"Some good growth, but concerns in Q3"
+York,2,675254,20.3,"Some good growth, but concerns in Q3"
+York,3,641792,-5,"Some good growth, but concerns in Q3"
+York,4,800036,24.7,"Some good growth, but concerns in Q3"
+Birmingham,1,817566,,Going from bad to worse
+Birmingham,2,789741,-3.4,Going from bad to worse
+Birmingham,3,772146,-2.2,Going from bad to worse
+Birmingham,4,691905,-10.4,Going from bad to worse
+London,1,735165,,Good growth in last half
+London,2,656078,-10.8,Good growth in last half
+London,3,752235,14.7,Good growth in last half
+London,4,764934,1.7,Good growth in last half
+Manchester,1,695042,,Concerning performance in last half
+Manchester,2,733195,5.5,Concerning performance in last half
+Manchester,3,667428,-9,Concerning performance in last half
+Manchester,4,651432,-2.4,Concerning performance in last half
+Leeds,1,747018,,Concerning performance in last half
+Leeds,2,812230,8.7,Concerning performance in last half
+Leeds,3,714956,-12,Concerning performance in last half
+Leeds,4,631632,-11.7,Concerning performance in last half

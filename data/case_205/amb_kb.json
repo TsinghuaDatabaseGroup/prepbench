@@ -1,0 +1,28 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_key_bank",
+      "kind": "Multi-table alignment",
+      "node_id": "j",
+      "op": "join",
+      "source_text": "Use the SWIFT Bank Code lookup table to bring in additional information",
+      "ref": "on=\"Bank\""
+    },
+    {
+      "id": "2_O2_left_join_retain_transactions",
+      "kind": "Operation incomplete",
+      "node_id": "j",
+      "op": "join",
+      "intent": "Use a left join so all transactions are retained even if no lookup match exists.",
+      "ref": "how=\"left\""
+    },
+    {
+      "id": "3_O3_many_to_one_lookup_validation",
+      "kind": "Operation inconsistent",
+      "node_id": "j",
+      "op": "join",
+      "intent": "Enforce that each Bank in the lookup matches at most one row (error on multiple matches).",
+      "ref": "validate=\"many_to_one\""
+    }
+  ]
+}

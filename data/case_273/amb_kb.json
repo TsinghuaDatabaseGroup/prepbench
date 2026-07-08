@@ -1,0 +1,116 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_wild_minmax_across_habitats",
+      "kind": "Group-level concept",
+      "node_id": "agg_by_name",
+      "op": "aggregate",
+      "source_text": "Reduce the dataset down to a single row per Wildlife Species, with the minimum and maximum temperatures they live in in the wild",
+      "ref": "agg = (\n            s2.groupby([\"Wildlife\", \"Name\"], as_index=False)\n            .agg({\n                \"MinF\": \"min\",\n                \"MaxF\": \"max\","
+    },
+    {
+      "id": "2_C2_sd_low_high_definition",
+      "kind": "Group-level concept",
+      "node_id": "agg_climate",
+      "op": "aggregate",
+      "source_text": "Reduce the San Diego Climate Table to a single row which describes the temperature range in San Diego",
+      "ref": "sd_low = climate[\"Low °F\"].min()\n        sd_high = climate[\"High °F\"].max()"
+    },
+    {
+      "id": "3_D1_use_fahrenheit_columns",
+      "kind": "Single-table reference",
+      "node_id": "agg_climate",
+      "op": "aggregate",
+      "source_text": "you may choose to work in either Fahrenheit or Celsius",
+      "ref": "sd_low = climate[\"Low °F\"].min()\n        sd_high = climate[\"High °F\"].max()"
+    },
+    {
+      "id": "4_C2_degrees_outside_ideal_signed",
+      "kind": "Group-level concept",
+      "node_id": "compute_notes",
+      "op": "project",
+      "source_text": "Degrees outside Ideal - if the wildlife is not in their ideal temperature range, the number of degrees San Diego can be above or below the ideal temperature range",
+      "ref": "if sd_high > maxf:\n                return \"Above\", float(sd_high - maxf)\n            if sd_low < minf:\n                return \"Below\", float(sd_low - minf)"
+    },
+    {
+      "id": "5_O1_ideal_inclusive_bounds",
+      "kind": "Operation boundary",
+      "node_id": "compute_notes",
+      "op": "project",
+      "source_text": "Habitat Notes - classifies whether the animal is within its natural temperature range or not",
+      "ref": "if sd_low >= minf and sd_high <= maxf:\n                return \"Ideal\", 0.0"
+    },
+    {
+      "id": "6_O3_above_vs_below_precedence",
+      "kind": "Operation inconsistent",
+      "node_id": "compute_notes",
+      "op": "project",
+      "source_text": "Habitat Notes - classifies whether the animal is within its natural temperature range or not",
+      "ref": "if sd_high > maxf:\n                return \"Above\", float(sd_high - maxf)\n            if sd_low < minf:\n                return \"Below\", float(sd_low - minf)"
+    },
+    {
+      "id": "7_D2_priority_lookup_left_join",
+      "kind": "Multi-table alignment",
+      "node_id": "join_priority",
+      "op": "join",
+      "source_text": "Bring in the Care Priority lookup table (be careful not to lose any wildlife;",
+      "ref": "agg = agg.merge(pr, on=\"Status\", how=\"left\")"
+    },
+    {
+      "id": "8_D2_habitat_ranges_left_join",
+      "kind": "Multi-table alignment",
+      "node_id": "join_s2_hab",
+      "op": "join",
+      "intent": "When bringing habitat temperature ranges onto wildlife-by-habitat rows, keep wildlife rows even if the habitat has no match.",
+      "ref": "s2 = s2.merge(habitat_range, on=\"Habitat\", how=\"left\")"
+    },
+    {
+      "id": "9_D2_stage1_join_keys_and_inner",
+      "kind": "Multi-table alignment",
+      "node_id": "join_stage_one",
+      "op": "join",
+      "source_text": "Combine this data with the Wildlife Table",
+      "ref": "stage_one = pd.merge(\n            wildlife_map[[\"Wildlife\", \"Name\", \"Region\", \"Habitat\"]],\n            details[[\"Wildlife\", \"Name\", \"Status\", \"Class\"]],\n            on=[\"Wildlife\", \"Name\"],\n            how=\"inner\","
+    },
+    {
+      "id": "10_O3_stage1_enforce_one_to_one",
+      "kind": "Operation inconsistent",
+      "node_id": "join_stage_one",
+      "op": "join",
+      "intent": "If multiple rows match between details and wildlife tables for the same (Wildlife, Name), enforce a one-to-one relationship rather than allowing duplicates.",
+      "ref": "validate=\"one_to_one\","
+    },
+    {
+      "id": "11_C2_priority_status_order_by_priority_number",
+      "kind": "Group-level concept",
+      "node_id": "priority_order",
+      "op": "script",
+      "source_text": "Create the ranking as described above, called Priority Order",
+      "ref": "status_priority = (\n            agg.drop_duplicates(subset=[\"Status\"]).sort_values([\"Priority Number\"])\n        )\n        ordered_statuses = [s for s in status_priority[\"Status\"].tolist() if pd.notna(s)]"
+    },
+    {
+      "id": "12_C2_priority_within_status_abs_degrees_desc",
+      "kind": "Group-level concept",
+      "node_id": "priority_order",
+      "op": "script",
+      "source_text": "Create the ranking as described above, called Priority Order",
+      "ref": "unique_abs = (\n                agg.loc[mask, \"abs_degrees\"].dropna().sort_values(ascending=False).unique().tolist()\n            )"
+    },
+    {
+      "id": "13_C2_priority_offset_continues_across_statuses",
+      "kind": "Group-level concept",
+      "node_id": "priority_order",
+      "op": "script",
+      "source_text": "Create the ranking as described above, called Priority Order",
+      "ref": "offset = 0\n        for status in ordered_statuses:\n            mask = agg[\"Status\"] == status\n            unique_abs = (\n                agg.loc[mask, \"abs_degrees\"].dropna().sort_values(ascending=False).unique().tolist()\n            )\n            bucket_map = {v: (i + 1 + offset) for i, v in enumerate(unique_abs)}\n            agg.loc[mask, \"Priority Order\"] = agg.loc[mask, \"abs_degrees\"].map(bucket_map)\n            offset += len(unique_abs)"
+    },
+    {
+      "id": "14_O3_priority_ties_share_same_order",
+      "kind": "Operation inconsistent",
+      "node_id": "priority_order",
+      "op": "script",
+      "source_text": "Create the ranking as described above, called Priority Order",
+      "ref": "bucket_map = {v: (i + 1 + offset) for i, v in enumerate(unique_abs)}\n            agg.loc[mask, \"Priority Order\"] = agg.loc[mask, \"abs_degrees\"].map(bucket_map)"
+    }
+  ]
+}

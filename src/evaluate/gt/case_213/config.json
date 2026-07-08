@@ -1,0 +1,14 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Account Number"
+            ],
+            "columns": {
+                "Account Number": "text_exact",
+                "Transaction Value": "number",
+                "Balance": "number"
+            }
+        }
+    }
+}

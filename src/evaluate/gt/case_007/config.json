@@ -1,0 +1,26 @@
+{
+    "files": {
+        "output_01.csv": {
+            "key": [
+                "Ship ID",
+                "Departure Date",
+                "Max Weight",
+                "Max Volume",
+                "Weight Allocated",
+                "Volume Allocated",
+                "Max Weight Exceeded?",
+                "Max Volume Exceeded?"
+            ],
+            "columns": {
+                "Ship ID": "text_exact",
+                "Departure Date": "date",
+                "Max Weight": "number",
+                "Max Volume": "number",
+                "Weight Allocated": "number",
+                "Volume Allocated": "number",
+                "Max Weight Exceeded?": "boolean",
+                "Max Volume Exceeded?": "boolean"
+            }
+        }
+    }
+}

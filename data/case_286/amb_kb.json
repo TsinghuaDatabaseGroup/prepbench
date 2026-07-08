@@ -1,0 +1,84 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_sort_sequence",
+      "kind": "Operation boundary",
+      "node_id": "add_sort",
+      "op": "project",
+      "intent": "Define Sort as a 1-based sequential row number after final sorting.",
+      "ref": "out.insert(0, \"Sort\", range(1, len(out) + 1))"
+    },
+    {
+      "id": "2_O2_numeric_cast_non_numeric_to_null",
+      "kind": "Operation incomplete",
+      "node_id": "cast_types",
+      "op": "project",
+      "intent": "When casting Position, Event No., and Event Points to numeric, set non-numeric values to null.",
+      "ref": "df[\"Event Points\"] = pd.to_numeric(df[\"Event Points\"], errors=\"coerce\")"
+    },
+    {
+      "id": "3_D2_lookup_join_key_event",
+      "kind": "Multi-table alignment",
+      "node_id": "join_lookup",
+      "op": "join",
+      "source_text": "Join with the Event Lookup Table",
+      "ref": "df = df.merge(events, on=\"Event\", how=\"left\")"
+    },
+    {
+      "id": "4_O2_lookup_join_keep_all_left_rows",
+      "kind": "Operation incomplete",
+      "node_id": "join_lookup",
+      "op": "join",
+      "source_text": "Join with the Event Lookup Table",
+      "ref": "df = df.merge(events, on=\"Event\", how=\"left\")"
+    },
+    {
+      "id": "5_D2_breakdown_join_keys_position_athlete_nat_points_event",
+      "kind": "Multi-table alignment",
+      "node_id": "join_sp",
+      "op": "join",
+      "source_text": "Reshape the data to include fields: Event Score, Event Time/Distance, Rolling Total",
+      "ref": "df = score.merge(perf, on=[\"Position\", \"Athlete\", \"Nationality\", \"Total Points\", \"Event\"], how=\"inner\")"
+    },
+    {
+      "id": "6_O2_breakdown_inner_join_require_both_parts",
+      "kind": "Operation incomplete",
+      "node_id": "join_sp",
+      "op": "join",
+      "source_text": "Reshape the data to include fields: Event Score, Event Time/Distance, Rolling Total",
+      "ref": "df = score.merge(perf, on=[\"Position\", \"Athlete\", \"Nationality\", \"Total Points\", \"Event\"], how=\"inner\")"
+    },
+    {
+      "id": "7_D2_rolling_join_keys_position_athlete_nat_points_event",
+      "kind": "Multi-table alignment",
+      "node_id": "join_spr",
+      "op": "join",
+      "source_text": "Reshape the data to include fields: Event Score, Event Time/Distance, Rolling Total",
+      "ref": "df = df.merge(rolling, on=[\"Position\", \"Athlete\", \"Nationality\", \"Total Points\", \"Event\"], how=\"inner\")"
+    },
+    {
+      "id": "8_O2_rolling_inner_join_require_all_three_parts",
+      "kind": "Operation incomplete",
+      "node_id": "join_spr",
+      "op": "join",
+      "source_text": "Reshape the data to include fields: Event Score, Event Time/Distance, Rolling Total",
+      "ref": "df = df.merge(rolling, on=[\"Position\", \"Athlete\", \"Nationality\", \"Total Points\", \"Event\"], how=\"inner\")"
+    },
+    {
+      "id": "9_D1_choose_standard_800_column_drop_suffixed_duplicates",
+      "kind": "Single-table reference",
+      "node_id": "melt_long",
+      "op": "pivot",
+      "source_text": "Remove the duplicate field for the 800m Run event",
+      "ref": "if \"800.1\" in raw.columns:\n        raw = raw.drop(columns=[\"800.1\"])"
+    },
+    {
+      "id": "10_O1_stable_sorting_for_tie_order",
+      "kind": "Operation boundary",
+      "node_id": "sort_rows",
+      "op": "sort",
+      "source_text": "Sort rows by Position and Event No. order",
+      "ref": "out = out.sort_values(by=[\"Position\", \"Event No.\"], kind=\"mergesort\").reset_index(drop=True)"
+    }
+  ]
+}

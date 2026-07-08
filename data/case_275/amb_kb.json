@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_D2_join_keys_first_last",
+      "kind": "Multi-table alignment",
+      "node_id": "join_txn_names",
+      "op": "join",
+      "source_text": "Join sheets then remove names and maintain privacy",
+      "ref": "Join on First Name + Last Name"
+    },
+    {
+      "id": "2_O2_join_left_keep_all_txns",
+      "kind": "Operation incomplete",
+      "node_id": "join_txn_names",
+      "op": "join",
+      "source_text": "Join sheets then remove names and maintain privacy",
+      "ref": "how='left'"
+    },
+    {
+      "id": "3_C1_channel_online_yes_else_in_person",
+      "kind": "Row-level concept",
+      "node_id": "project_compute",
+      "op": "project",
+      "source_text": "Group Online and In Person into one field",
+      "ref": "Online='Yes' -> 'Online', else 'In-Person'"
+    },
+    {
+      "id": "4_O3_rank_competition_min_ties",
+      "kind": "Operation inconsistent",
+      "node_id": "project_rank",
+      "op": "project",
+      "source_text": "Rank sales for each weekday",
+      "ref": "Use competition ranking (method='min')"
+    },
+    {
+      "id": "5_O3_sort_sales_desc_receipt_asc",
+      "kind": "Operation inconsistent",
+      "node_id": "project_rank",
+      "op": "project",
+      "source_text": "Rank sales for each weekday",
+      "ref": "Sort by Sales desc, then Receipt ID asc for tie-breaking"
+    }
+  ]
+}

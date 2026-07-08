@@ -1,0 +1,19 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Academic Year",
+        "Pupil's Name",
+        "Parental Contact Full Name",
+        "Parental Contact Email Address"
+      ],
+      "columns": {
+        "Academic Year": "number",
+        "Pupil's Name": "text_exact",
+        "Parental Contact Full Name": "text_exact",
+        "Parental Contact Email Address": "text_exact"
+      }
+    }
+  }
+}
+

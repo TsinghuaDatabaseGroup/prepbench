@@ -1,0 +1,41 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": [
+        "Rank",
+        "From",
+        "To",
+        "Route",
+        "Airline",
+        "Flight number",
+        "Distance - mi",
+        "Distance - km",
+        "Scheduled duration",
+        "Aircraft",
+        "First flight",
+        "From Lat",
+        "From Lng",
+        "To Lat",
+        "To Lng"
+      ],
+      "columns": {
+        "Rank": "number",
+        "From": "text_exact",
+        "To": "text_exact",
+        "Route": "text_exact",
+        "Airline": "text_exact",
+        "Flight number": "text_exact",
+        "Distance - mi": "number",
+        "Distance - km": "number",
+        "Scheduled duration": "text_exact",
+        "Aircraft": "text_exact",
+        "First flight": "date",
+        "From Lat": "number",
+        "From Lng": "number",
+        "To Lat": "number",
+        "To Lng": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,52 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_contract_length_inclusive",
+      "kind": "Operation boundary",
+      "node_id": "filter_len",
+      "op": "filter",
+      "source_text": "Create a Row for each month a person will hold the contract",
+      "ref": "df_expanded = df_expanded[df_expanded[\"Length\"] <= df_expanded[\"Contract Length\"]]"
+    },
+    {
+      "id": "2_O2_start_date_parse_strict",
+      "kind": "Operation incomplete",
+      "node_id": "project_contracts",
+      "op": "project",
+      "intent": "Parse Start Date using YYYY-MM-DD and raise errors on invalid formats.",
+      "ref": "pd.to_datetime(df_contracts[\"Start Date\"], format=\"%Y-%m-%d\", errors=\"raise\")"
+    },
+    {
+      "id": "3_C2_cumulative_monthly_cost",
+      "kind": "Group-level concept",
+      "node_id": "project_cumsum",
+      "op": "project",
+      "source_text": "Calculate the monthly cumulative cost of each person's contract",
+      "ref": "df_expanded[\"Cumulative Monthly Cost\"] = df_expanded.groupby(\"Name\")[\"Monthly Cost\"].cumsum()"
+    },
+    {
+      "id": "4_O1_payment_date_offset",
+      "kind": "Row-level concept",
+      "node_id": "script_payment_date",
+      "op": "script",
+      "source_text": "from their start date until 'x' months in the future when the contract runs out",
+      "ref": "r[\"Start Date\"] + pd.DateOffset(months=int(r[\"Length\"]) - 1)"
+    },
+    {
+      "id": "5_O1_cumsum_sort",
+      "kind": "Operation incomplete",
+      "node_id": "sort_rows",
+      "op": "sort",
+      "intent": "Sort rows by Name and Payment Date ascending before computing the running total.",
+      "ref": "df_expanded.sort_values([\"Name\", \"Payment Date\"])"
+    },
+    {
+      "id": "6_O1_output_ordering",
+      "kind": "Operation incomplete",
+      "node_id": "sort_rows",
+      "op": "sort",
+      "intent": "Order people by Contract Length asc, Start Date desc, Name asc; within person by Payment Date.",
+      "ref": ".sort_values([\"Contract Length\", \"Start Date\", \"Name\"], ascending=[True, False, True])"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Calendar Date", "Reporting Year", "Reporting Month", "Reporting Week", "Reporting Day"],
+      "columns": {
+        "Calendar Date": "date",
+        "Reporting Year": "number",
+        "Reporting Month": "number",
+        "Reporting Week": "number",
+        "Reporting Day": "number"
+      }
+    }
+  }
+}
+

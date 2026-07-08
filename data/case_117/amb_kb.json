@@ -1,0 +1,68 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O1_completed_weekday_name",
+      "kind": "Row-level concept",
+      "node_id": "n10a_finalize_compute",
+      "op": "project",
+      "source_text": "Calculate which weekday each task got completed on",
+      "ref": "df[\"Completed Weekday\"] = df[\"Completed Date\"].dt.day_name()"
+    },
+    {
+      "id": "3_O1_scheduled_date_parse_format",
+      "kind": "Row-level concept",
+      "node_id": "n2_prep",
+      "op": "project",
+      "intent": "Parse Scheduled Date using the YYYY-MM-DD date format.",
+      "ref": "format=\"%Y-%m-%d\""
+    },
+    {
+      "id": "4_O2_scheduled_date_parse_fail_policy",
+      "kind": "Operation incomplete",
+      "node_id": "n2_prep",
+      "op": "project",
+      "intent": "Fail the workflow if Scheduled Date cannot be parsed as a date.",
+      "ref": "errors=\"raise\""
+    },
+    {
+      "id": "5_O3_pivot_duplicate_task_pick_first",
+      "kind": "Operation inconsistent",
+      "node_id": "n3_pivot",
+      "op": "pivot",
+      "source_text": "Pivot Task to become column headers with the Completed Date as the values in the column",
+      "ref": "aggfunc=\"first\""
+    },
+    {
+      "id": "6_O1_duration_units_whole_days",
+      "kind": "Row-level concept",
+      "node_id": "n4_durations",
+      "op": "project",
+      "source_text": "Calculate the difference between Scope to Build time",
+      "ref": "pivot[\"Scope to Build Time\"] = (pivot[\"Build\"] - pivot[\"Scope\"]).dt.days\npivot[\"Build to Delivery Time\"] = (\n        pivot[\"Deliver\"] - pivot[\"Build\"]).dt.days"
+    },
+    {
+      "id": "7_O2_duration_null_if_missing_tasks",
+      "kind": "Operation incomplete",
+      "node_id": "n4_durations",
+      "op": "project",
+      "intent": "If Scope, Build, or Deliver is missing for a group, set the corresponding duration(s) to null.",
+      "ref": "for task in [\"Scope\", \"Build\", \"Deliver\"]:\n        if task not in pivot.columns:\n            pivot[task] = pd.NaT"
+    },
+    {
+      "id": "8_D2_join_on_project_subproject_owner",
+      "kind": "Multi-table alignment",
+      "node_id": "n5_join_durations",
+      "op": "join",
+      "source_text": "Join Branch 1 and Branch 2 back together",
+      "ref": "grp_cols = [\"Project\", \"Sub-project\", \"Owner\"]\non=grp_cols,"
+    },
+    {
+      "id": "9_O2_join_left_keep_all_task_rows",
+      "kind": "Operation incomplete",
+      "node_id": "n5_join_durations",
+      "op": "join",
+      "source_text": "Join Branch 1 and Branch 2 back together",
+      "ref": "how=\"left\","
+    }
+  ]
+}

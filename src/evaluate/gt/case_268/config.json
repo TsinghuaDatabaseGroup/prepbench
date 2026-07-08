@@ -1,0 +1,20 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Sales Date", "Product"],
+      "columns": {
+        "Year": "number",
+        "Sales Date": "date",
+        "Easter Week Number": "number",
+        "Weekday": "text_exact",
+        "Weekday Order": "number",
+        "Product": "text_exact",
+        "Price": "number",
+        "Quantity Sold": "number",
+        "Sales": "number"
+      }
+    }
+  }
+}
+

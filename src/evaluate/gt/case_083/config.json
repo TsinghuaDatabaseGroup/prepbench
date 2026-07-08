@@ -1,0 +1,13 @@
+{
+  "files": {
+    "output_01.csv": {
+      "key": ["Start Date", "Today", "Working Days"],
+      "columns": {
+        "Start Date": "date",
+        "Today": "date",
+        "Working Days": "number"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,44 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_C2_cast_sales_profit_int",
+      "kind": "Row-level concept",
+      "node_id": "cast_types",
+      "op": "project",
+      "intent": "Cast Sales and Profit outputs to numeric integers.",
+      "ref": "output_df['Sales'] = pd.to_numeric(output_df['Sales']).astype(int)"
+    },
+    {
+      "id": "2_C2_date_from_month_year",
+      "kind": "Row-level concept",
+      "node_id": "compute_date",
+      "op": "project",
+      "source_text": "Create a Date field using the Month and Year fields",
+      "ref": "date_str = f\"01/{month_num}/{year}\""
+    },
+    {
+      "id": "3_D1_extract_month_headers_row",
+      "kind": "Single-table reference",
+      "node_id": "extract_months_before_pivot",
+      "op": "script",
+      "source_text": "Months going along the top of the table",
+      "ref": "month_row = pd.read_csv(input_file, skiprows=2, nrows=1, header=None)"
+    },
+    {
+      "id": "4_C2_extract_year_by_4digit",
+      "kind": "Single-table reference",
+      "node_id": "extract_year",
+      "op": "script",
+      "source_text": "Split off the Year from the first row of data",
+      "ref": "year_match = re.search(r'(\\d{4})', first_line)"
+    },
+    {
+      "id": "5_D1_sales_profit_pair_order",
+      "kind": "Single-table reference",
+      "node_id": "pivot_longer",
+      "op": "pivot",
+      "source_text": "Reshape the data so the values fall under either Sales or Profit",
+      "ref": "sales_col = 1 + month_idx * 2; profit_col = 2 + month_idx * 2"
+    }
+  ]
+}

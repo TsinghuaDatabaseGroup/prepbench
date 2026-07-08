@@ -1,0 +1,92 @@
+{
+  "ambiguities": [
+    {
+      "id": "1_O2_memberid_null_to_zero",
+      "kind": "Operation incomplete",
+      "node_id": "n_cast",
+      "op": "project",
+      "source_text": "Null MemberIDs should be 0",
+      "ref": "df['MemberID'] = df['MemberID'].fillna(0).astype(int)"
+    },
+    {
+      "id": "2_C1_meal_deal_qualifying_types",
+      "kind": "Row-level concept",
+      "node_id": "n_compute_basic",
+      "op": "project",
+      "source_text": "Not every product goes in to the Meal Deal",
+      "ref": "df_pivot['Number of Meal Deals'] = df_pivot[['Drink_Count', 'Main_Count', 'Snack_Count']].min(axis=1)"
+    },
+    {
+      "id": "3_C2_meal_deals_count_formula",
+      "kind": "Row-level concept",
+      "node_id": "n_compute_basic",
+      "op": "project",
+      "intent": "Compute the number of Meal Deals per ticket as the minimum of Drink/Main/Snack counts.",
+      "ref": "df_pivot['Number of Meal Deals'] = df_pivot[['Drink_Count', 'Main_Count', 'Snack_Count']].min(axis=1)"
+    },
+    {
+      "id": "4_C2_total_ticket_price_formula",
+      "kind": "Row-level concept",
+      "node_id": "n_compute_basic",
+      "op": "project",
+      "source_text": "Total Ticket Price",
+      "ref": "df_pivot['Total Ticket Price'] = df_pivot['Drink_Sum'] + df_pivot['Main_Sum'] + df_pivot['Snack_Sum']"
+    },
+    {
+      "id": "5_C2_total_meal_deal_earnings_formula",
+      "kind": "Row-level concept",
+      "node_id": "n_compute_metrics",
+      "op": "project",
+      "source_text": "The Meal Deal is set at £5 each",
+      "ref": "df_filtered['Total Meal Deal Earnings'] = df_filtered['Number of Meal Deals'] * 5"
+    },
+    {
+      "id": "6_C2_excess_value_formula",
+      "kind": "Row-level concept",
+      "node_id": "n_compute_metrics",
+      "op": "project",
+      "source_text": "Use the average cost per type of product within that ticket to work this out.",
+      "ref": "excess_drink_value = (df_filtered['Drink_Count'] - df_filtered['Number of Meal Deals']) * df_filtered['Avg_Drink_Price']"
+    },
+    {
+      "id": "7_C2_variance_formula",
+      "kind": "Row-level concept",
+      "node_id": "n_compute_metrics",
+      "op": "project",
+      "source_text": "Overall goal is to determine the difference between our original income and the income using the new pricing model",
+      "ref": "df_filtered['Ticket Price Variance to Meal Deal Earnings'] = df_filtered['Total Ticket Price'] - (df_filtered['Total Meal Deal Earnings'] + df_filtered['Total Excess'])"
+    },
+    {
+      "id": "8_O1_total_excess_rounding_2dp",
+      "kind": "Operation boundary",
+      "node_id": "n_compute_metrics",
+      "op": "project",
+      "source_text": "Total Excess",
+      "ref": "df_filtered['Total Excess'] = (excess_drink_value + excess_main_value + excess_snack_value).round(2)"
+    },
+    {
+      "id": "9_O2_avg_unit_price_when_zero",
+      "kind": "Operation incomplete",
+      "node_id": "n_compute_metrics",
+      "op": "project",
+      "source_text": "Use the average cost per type of product within that ticket to work this out.",
+      "ref": "df_filtered['Avg_Drink_Price'] = (df_filtered['Drink_Sum'] / df_filtered['Drink_Count']).fillna(0)"
+    },
+    {
+      "id": "10_C1_affected_tickets_filter",
+      "kind": "Row-level concept",
+      "node_id": "n_filter_has_meal",
+      "op": "filter",
+      "source_text": "We only want to analyse tickets that would be affected by the Meal Deal",
+      "ref": "df_filtered = df_pivot[df_pivot['Number of Meal Deals'] > 0].copy()"
+    },
+    {
+      "id": "11_C2_ticket_level_grain",
+      "kind": "Group-level concept",
+      "node_id": "n_pivot_count",
+      "op": "pivot",
+      "intent": "Aggregate to one row per unique (TicketID, MemberID).",
+      "ref": "df_pivot = df.pivot_table(index=['TicketID', 'MemberID'], columns='Type', values='Price', aggfunc=['count', 'sum'])"
+    }
+  ]
+}

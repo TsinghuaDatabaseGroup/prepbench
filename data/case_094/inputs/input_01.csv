@@ -1,0 +1,13 @@
+Stand,Accessed by Gates,Requires Bus?
+S1,G1,N
+S2,"G1,G2",N
+S3,"G2,G3",N
+S4,"G3,G4",N
+S5,"G3,G4,G5",N
+S6,"G4,G5",N
+S7,"G5,G6",N
+S8,"G6,G7",N
+S9,G7,N
+S10,"G1,G2,G3,G4,G5,G6,G7",Y
+S11,"G1,G2,G3,G4,G5,G6,G7",Y
+S12,"G1,G2,G3,G4,G5,G6,G7",Y

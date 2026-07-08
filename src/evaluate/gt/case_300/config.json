@@ -1,0 +1,17 @@
+{
+  "files": {
+    "output_01.csv": {
+      "ignore_order": true,
+      "key": ["Store", "Category", "Product"],
+      "columns": {
+        "Store": "text_exact",
+        "Category": "text_norm",
+        "Product": "text_exact",
+        "Total Quantity Sold": "number",
+        "Avg Quantity Sold per Week": "number",
+        "Avg Order Frequency": "number"
+      }
+    }
+  }
+}
+
