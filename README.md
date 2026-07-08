@@ -140,6 +140,10 @@ Results land in `evaluation/summary.json` and `evaluation/summary.csv` under the
 run root. See [docs/EVALUATION.md](docs/EVALUATION.md) for the scoring rules,
 summary fields, and full-run behavior.
 
+For quick smoke tests before a full run, use `case_001`, `case_002`, and
+`case_003`. They are small enough to debug quickly and work across all three
+public modes.
+
 ## Run the Full Benchmark
 
 Prepare every GT case with `--all`, then evaluate the run root without `--case`:
