@@ -100,12 +100,10 @@ def solve(inputs_dir: Path) -> Dict[str, pd.DataFrame]:
     finals = df_scored.loc[df_scored["is_final"]].copy()
     grp = finals.groupby(group_keys, as_index=False)
     final_scores = grp.agg({
-        "Total_Score": "sum",
-        "Num_Judges": "sum",
+        "Avg_Judge_Score": "mean",
         "Finalist Positions": lambda s: s.dropna().iloc[0] if s.dropna().size > 0 else None,
     })
-    final_scores["Final_Avg"] = final_scores["Total_Score"] / final_scores["Num_Judges"]
-    final_scores = final_scores.drop(columns=["Total_Score", "Num_Judges"]) 
+    final_scores = final_scores.rename(columns={"Avg_Judge_Score": "Final_Avg"})
     final_scores = final_scores.loc[final_scores["Finalist Positions"].notna()].copy()
 
     merged = final_scores.merge(first_scores, on=group_keys, how="left")
@@ -134,5 +132,4 @@ if __name__ == "__main__":
     for filename, df in outputs.items():
         (cand_dir / filename).parent.mkdir(parents=True, exist_ok=True)
         df.to_csv(cand_dir / filename, index=False, encoding="utf-8")
-
 

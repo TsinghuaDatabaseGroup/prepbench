@@ -1,16 +1,19 @@
 ## Requirements
 
 - Input the data
-- Remove repeated table headers from the dataset (due to imperfect webscraping)
-- Ensure the Week field is numeric
-- Process the Score field (composed of Total Score and individual judges scores):
+- The webscraping isn't quite perfect and the table headers are repeated throughout the dataset, make sure these are removed
+- Make sure that the Week field is numeric
+- The Score field is made up of the Total Score and individual judges scores
   - Create a field for the total score
-  - Count the number of judges
-  - Create an Avg Judge's Score field (Total Score divided by Number of Judges)
-- Retain only rows for each couple's first dance (may not be Week 1) and their dances in the final (only include couples who made it to the final)
-- For couples who danced multiple times in the final, calculate the average of their Avg Judge's Score
-- Find the Percentage difference between their Avg Judge's Score for the first dance and the average Avg Judge's Score in the final
-- The final output should have one row per couple, including: Percentage difference, Avg Judge's Score in the final, and Result (win, runner-up, third place)
+  - Count how many judges there were
+  - Create an Avg Judge's Score field
+    - i.e. Total Score/Number of Judges
+- Since we're interested in couple's improvement from the start of the series and the end of the series, we only need to retain rows relating to the couple's first dance (which may not have been in week 1) and their dances in the final
+  - This means we're only interested in couples who made it to the final
+- Couples dance multiple times in the final. Take the average of their Avg Judge's Score
+- Find the Percentage difference between their Avg Judge's Score for their first dance and the average for their dances in the final
+- The final output should contain a row for each couple, with their Percentage difference and only the Avg Judge's Score in the final, along with the Result
+  - i.e. whether they won, were a runner-up or came third
 - Output the data
 
 ## Output

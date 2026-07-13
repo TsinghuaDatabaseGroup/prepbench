@@ -31,8 +31,7 @@ You are given a web-scraped dataset of *Strictly Come Dancing* performances and 
 
 - Derive each couple’s final score within a series (finalists only):
   - Consider only scored rows identified as final-week rows.
-  - For each `Series` + `Couple`, compute the couple’s final average judge score across all their final dances using a judge-count-weighted approach:
-    - Final Avg Judge’s Score = (sum of `Total Score` across the couple’s final dances) ÷ (sum of `Number of Judges` across the couple’s final dances).
+  - For each `Series` + `Couple`, compute the couple’s final average judge score as the arithmetic mean of the dance-level `Avg Judge's Score` values across all their final dances.
   - Determine the couple’s finalist placing from `Result` (based on whether it indicates winner, runner-up, or third place), and keep only couples with a determined finalist placing. This implicitly restricts the output to couples who made it to the final.
 
 - Combine first-dance and final metrics:
