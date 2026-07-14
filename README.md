@@ -9,6 +9,7 @@
 </p>
 
 <p align="center">
+  <a href="https://www.vldb.org/2026/"><img height="20" alt="VLDB 2026" src="https://img.shields.io/badge/VLDB-2026-003B5C.svg"></a>
   <a href="https://arxiv.org/abs/2605.08687"><img height="20" alt="arXiv" src="https://img.shields.io/badge/arXiv-2605.08687-b31b1b.svg"></a>
   <a href="https://www.alphaxiv.org/abs/2605.08687"><img height="20" alt="alphaXiv" src="https://img.shields.io/badge/alphaXiv-view-b31b1b.svg"></a>
   <a href="https://github.com/TsinghuaDatabaseGroup/prepbench/actions/workflows/ci.yml"><img height="20" alt="CI" src="https://github.com/TsinghuaDatabaseGroup/prepbench/actions/workflows/ci.yml/badge.svg"></a>
@@ -25,15 +26,17 @@
   <a href="CITATION.cff">Citation</a>
 </p>
 
-PrepBench evaluates whether an agent can prepare correct output tables from a
-natural-language request and CSV inputs. The benchmark gives each case as a
-workspace. Your agent runs in that workspace and writes
-`result/output_*.csv`; PrepBench evaluates those files.
+PrepBench is the benchmark and open-source implementation accompanying our
+[VLDB 2026](https://www.vldb.org/2026/) paper. It evaluates whether an agent can
+prepare correct output tables from a natural-language request and CSV inputs.
+The benchmark gives each case as a workspace. Your agent runs in that workspace
+and writes `result/output_*.csv`; PrepBench evaluates those files.
 
 ## At a Glance
 
 | Item | Value |
 | --- | --- |
+| Paper | VLDB 2026 (PVLDB Volume 19) |
 | Release version | v0.1.0 |
 | Cases | 306 |
 | Input tables | 829 |
